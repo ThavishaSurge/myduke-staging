@@ -1,0 +1,41 @@
+<div class="content-tabs__content" id="{{ block.id }}" data-tab-content {{ block.shopify_attributes }}>
+  {% if block.settings.tab_title != blank %}
+    <button
+      class="content-tabs__tab body-extra-large"
+      data-tab-button
+      data-target="{{ block.id }}"
+    >
+      <span class="button__content">
+        <span class="button__icons-container">
+          {% render 'icon-arrow-tertiary-button' %}
+        </span>
+        <span class="button__label">{{ block.settings.tab_title }}</span>
+      </span>
+    </button>
+  {% endif %}
+  <div class="content-tabs__tabs">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.content-tabs.blocks.content_tab.name",
+  "tag": "div",
+  "class": "content-tabs-blocks",
+  "blocks": [{ "type": "_contact-form" }, { "type": "_richtext-content" }, { "type": "_collapsible-content" }],
+  "settings": [
+    {
+      "type": "text",
+      "id": "tab_title",
+      "label": "t:sections.content-tabs.blocks.content_tab.settings.title.label",
+      "default": "t:sections.content-tabs.blocks.content_tab.settings.title.default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.content-tabs.blocks.content_tab.name"
+    }
+  ]
+}
+{% endschema %}

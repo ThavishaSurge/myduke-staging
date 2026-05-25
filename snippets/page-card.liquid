@@ -1,0 +1,17 @@
+<a href="{{ url }}" class="card-page-wrapper">
+  <div class="card-page">
+    <div class="card-page__content">
+      <h3 class="card-page__title title body-normal">
+        {{ title | truncate: 75 | escape }}
+      </h3>
+    </div>
+    <button type="submit" class="button button--tertiary  focus-inset">
+      <div class="button__content">
+        <span class="button__icons-container">
+          {% render 'icon-arrow-tertiary-button' %}
+          {% render 'icon-arrow-tertiary-button' %}
+        </span>
+      </div>
+    </button>
+  </div>
+</a>

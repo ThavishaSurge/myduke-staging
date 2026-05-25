@@ -1,0 +1,216 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content_tabs": {
+      "type": "content-tabs",
+      "blocks": {
+        "content_tab_fxLTih": {
+          "type": "_content-tab",
+          "name": "t:sections.content-tabs.blocks.content_tab.name",
+          "settings": {
+            "tab_title": "Contact"
+          },
+          "blocks": {
+            "richtext_content_ptJh9e": {
+              "type": "_richtext-content",
+              "name": "t:sections.content-tabs.blocks.richtext_content.name",
+              "settings": {
+                "text": "<h6>Get in Touch Anytime</h6><p>Please fill out the form below with your questions or comments. We value your feedback and aim to respond within 24 hours. Your satisfaction is our priority.</p><p><strong>We’d Love to Hear From You</strong></p><p>Have a question, comment, or just want to say hello? Fill out the form and we’ll get back to you as soon as possible.</p><p><strong>We’re Here to Help</strong></p><p>Whether you have an inquiry, a suggestion, or just want to chat, fill out the form and we’ll respond promptly.</p><p><strong>Drop Us a Line</strong></p><p>Have something on your mind? Let us know! Just fill out the form, and we’ll be in touch shortly.</p>"
+              },
+              "blocks": {}
+            },
+            "contact_form_fJKLkd": {
+              "type": "_contact-form",
+              "name": "t:sections.content-tabs.blocks.contact_form.name",
+              "settings": {
+                "additional_text": "By clicking on the “Contact” button, I confirm my agreement with the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["richtext_content_ptJh9e", "contact_form_fJKLkd"]
+        },
+        "content_tab_DHCqVR": {
+          "type": "_content-tab",
+          "name": "t:sections.content-tabs.blocks.content_tab.name",
+          "settings": {
+            "tab_title": "FAQ"
+          },
+          "blocks": {
+            "collapsible_content_DTHDgX": {
+              "type": "_collapsible-content",
+              "name": "t:sections.content-tabs.blocks.collapsible_content.name",
+              "settings": {
+                "title": "Product"
+              },
+              "blocks": {
+                "collapsible_row_LpEFAa": {
+                  "type": "_collapsible-row",
+                  "name": "t:sections.content-tabs.blocks.collapsible_content.block.collapsible_row.name",
+                  "settings": {
+                    "question": "What materials are your products made from?",
+                    "content_heading_tag": "h3",
+                    "answer": "<p>All our products are crafted using high-quality, durable materials selected to ensure longevity, functionality, and style. Specific materials vary by product type and are detailed on each product page.</p>"
+                  },
+                  "blocks": {}
+                },
+                "collapsible_row_WceQUH": {
+                  "type": "_collapsible-row",
+                  "name": "t:sections.content-tabs.blocks.collapsible_content.block.collapsible_row.name",
+                  "settings": {
+                    "question": "How do I care for or maintain this product?",
+                    "content_heading_tag": "h3",
+                    "answer": "<p>Care instructions depend on the product category, but generally, we recommend following the guidance included with your item, keeping it clean, and storing it properly when not in use to maintain its quality and performance.</p>"
+                  },
+                  "blocks": {}
+                },
+                "collapsible_row_VRceYz": {
+                  "type": "_collapsible-row",
+                  "name": "t:sections.content-tabs.blocks.collapsible_content.block.collapsible_row.name",
+                  "settings": {
+                    "question": "Do you offer warranties or guarantees?",
+                    "content_heading_tag": "h3",
+                    "answer": "<p>Yes. Most of our products come with a warranty or satisfaction guarantee. Please refer to the product page or contact our support team for detailed terms.</p>"
+                  },
+                  "blocks": {}
+                },
+                "collapsible_row_zq7N3p": {
+                  "type": "_collapsible-row",
+                  "name": "t:sections.content-tabs.blocks.collapsible_content.block.collapsible_row.name",
+                  "settings": {
+                    "question": "Can I return or exchange a product?",
+                    "content_heading_tag": "h3",
+                    "answer": "<p>Absolutely. We offer a flexible return and exchange policy. Items must be returned in original condition within the timeframe stated on our returns page.</p>"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "collapsible_row_LpEFAa",
+                "collapsible_row_WceQUH",
+                "collapsible_row_VRceYz",
+                "collapsible_row_zq7N3p"
+              ]
+            },
+            "collapsible_content_UP6NgC": {
+              "type": "_collapsible-content",
+              "name": "t:sections.content-tabs.blocks.collapsible_content.name",
+              "settings": {
+                "title": "Shipping"
+              },
+              "blocks": {
+                "collapsible_row_hCVrYt": {
+                  "type": "_collapsible-row",
+                  "name": "t:sections.content-tabs.blocks.collapsible_content.block.collapsible_row.name",
+                  "settings": {
+                    "question": "How long does shipping take?",
+                    "content_heading_tag": "h3",
+                    "answer": "<p>Shipping times vary depending on your location and the product type. Estimated delivery times are provided at checkout, and you will receive tracking information once your order ships.</p>"
+                  },
+                  "blocks": {}
+                },
+                "collapsible_row_cTEBj8": {
+                  "type": "_collapsible-row",
+                  "name": "t:sections.content-tabs.blocks.collapsible_content.block.collapsible_row.name",
+                  "settings": {
+                    "question": "Can I track my order?",
+                    "content_heading_tag": "h3",
+                    "answer": "<p>Yes. Once your order is shipped, you’ll receive a confirmation email with a tracking number so you can monitor your delivery.</p>"
+                  },
+                  "blocks": {}
+                },
+                "collapsible_row_NiTqCP": {
+                  "type": "_collapsible-row",
+                  "name": "t:sections.content-tabs.blocks.collapsible_content.block.collapsible_row.name",
+                  "settings": {
+                    "question": "Are your products eco-friendly or sustainable?",
+                    "content_heading_tag": "h3",
+                    "answer": "<p>We strive to use sustainable practices and responsibly sourced materials wherever possible. Specific information is available on each product page for items that highlight eco-friendly features.</p>"
+                  },
+                  "blocks": {}
+                },
+                "collapsible_row_JHhtrG": {
+                  "type": "_collapsible-row",
+                  "name": "t:sections.content-tabs.blocks.collapsible_content.block.collapsible_row.name",
+                  "settings": {
+                    "question": "Can I contact support if I have more questions?",
+                    "content_heading_tag": "h3",
+                    "answer": "<p>Of course. Our support team is available to answer any questions about products, orders, or shipping. You can reach us via email, chat, or phone.</p>"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "collapsible_row_hCVrYt",
+                "collapsible_row_cTEBj8",
+                "collapsible_row_NiTqCP",
+                "collapsible_row_JHhtrG"
+              ]
+            }
+          },
+          "block_order": [
+            "collapsible_content_DTHDgX",
+            "collapsible_content_UP6NgC"
+          ]
+        },
+        "content_tab_NpaEhf": {
+          "type": "_content-tab",
+          "name": "t:sections.content-tabs.blocks.content_tab.name",
+          "settings": {
+            "tab_title": "Privacy Policy"
+          },
+          "blocks": {
+            "richtext_content_pXEg76": {
+              "type": "_richtext-content",
+              "name": "t:sections.content-tabs.blocks.richtext_content.name",
+              "settings": {
+                "text": "<h6>Privacy policy</h6><p>Last updated: August 31, 2024<br/><br/>This Privacy Policy describes how the Site (\"we\", \"us\", or \"our\") collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from our website (the \"Site\") or otherwise communicate with us regarding the Site (collectively, the \"Services\"). For purposes of this Privacy Policy, \"you\" and \"your\" means you as the user of the Services, whether you are a customer, website visitor, or another individual whose information we have collected pursuant to this Privacy Policy.<br/><br/>Please read this Privacy Policy carefully.</p>"
+              },
+              "blocks": {}
+            },
+            "richtext_content_pXEg77": {
+              "type": "_richtext-content",
+              "name": "t:sections.content-tabs.blocks.richtext_content.name",
+              "settings": {
+                "text": "<h6>Changes to This Privacy Policy</h6><p>We may update this Privacy Policy from time to time, including to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will post the revised Privacy Policy on the Site, update the \"Last updated\" date, and take any other steps required by applicable law.</p>"
+              },
+              "blocks": {}
+            },
+            "richtext_content_pXEg78": {
+              "type": "_richtext-content",
+              "name": "t:sections.content-tabs.blocks.richtext_content.name",
+              "settings": {
+                "text": "<h6>How We Collect and Use Your Personal Information</h6><p>To provide the Services, we collect and have collected over the past 12 months personal information about you from a variety of sources, as set out below. The information that we collect and use varies depending on how you interact with us.<br/><br/>In addition to the specific uses set out below, we may use information we collect about you to communicate with you, provide or improve the Services, comply with any applicable legal obligations, enforce any applicable terms of service, and to protect or defend the Services, our rights, and the rights of our users or others.</p>"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "richtext_content_pXEg76",
+            "richtext_content_pXEg77",
+            "richtext_content_pXEg78"
+          ]
+        }
+      },
+      "block_order": [
+        "content_tab_fxLTih",
+        "content_tab_DHCqVR",
+        "content_tab_NpaEhf"
+      ],
+      "name": "t:sections.content-tabs.presets.name",
+      "settings": {
+        "margin_top": "s",
+        "margin_bottom": "xl"
+      }
+    }
+  },
+  "order": ["content_tabs"]
+}

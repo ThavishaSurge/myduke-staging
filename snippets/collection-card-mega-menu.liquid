@@ -1,0 +1,89 @@
+{% doc %}
+  Renders a collection card.
+
+  @param {object} card_collection - Collection Liquid object @param {string} [image_ratio] - landscape / portrait / square. Default: 'square'
+  @param {number} [columns] - The number of columns to display. Default: 1
+
+  @example
+  {% render 'collection-card-mega-menu', card_collection: collection %}
+{% enddoc %}
+
+{% if card_collection != blank %}
+  {% liquid
+    assign columns = columns | default: 1
+
+    assign card_image_fit = 'cover'
+
+    assign collection_product_image = card_collection.featured_image
+
+    # 313 : 208
+    assign settings_aspect_ratio = 2.09
+    assign padding_bottom = '66.5%'
+  %}
+
+  <div class="collection-card-mega-menu">
+    <div
+      class="collection-card-mega-menu__image-wrapper"
+      style="--padding-bottom-collection: {{ padding_bottom }};"
+    >
+      {%- if collection_product_image != blank -%}
+        {% liquid
+          assign calc_ratio = 1
+          if card_image_fit == 'cover' and collection_product_image.aspect_ratio > settings_aspect_ratio
+            assign calc_ratio = collection_product_image.aspect_ratio | divided_by: settings_aspect_ratio | round: 2
+          endif
+        %}
+
+        {%- capture sizes -%}
+          (min-width: 1200px) calc({{ calc_ratio }} * (100vw / {{ columns }})),
+          {%- if columns >= 3 -%}
+            (min-width: 990px) calc({{ calc_ratio }} * (100vw / 3)),
+          {%- endif -%}
+          {%- if columns >= 2 -%}
+            (min-width: 576px) calc({{ calc_ratio }} * (100vw / 2)),
+          {%- endif -%}
+            calc({{ calc_ratio }} * 100vw)
+        {%- endcapture -%}
+
+        {%- capture style -%}
+          object-fit: {{ card_image_fit }};
+        {%- endcapture -%}
+        {{
+          collection_product_image
+          | image_url: width: collection_product_image.width
+          | image_tag:
+            loading: 'lazy',
+            sizes: sizes,
+            widths: '360, 535, 720, 940, 1066, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3600, 3800',
+            style: style,
+            class: 'collection-card-mega-menu-image'
+        }}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg collection-card-image' }}
+      {% endif %}
+
+      <div class="collection-card-mega-menu__button-wrapper">
+        {% assign shop_all_label = 'sections.header.shop_all' | t %}
+        {% render 'button', btn_label: shop_all_label, btn_link: card_collection.url, btn_style: 'primary', class: 'collection-card-mega-menu__button' %}
+      </div>
+    </div>
+
+    <a
+      class="collection-card-mega-menu__title body-normal focus-inset"
+      href="{{ card_collection.url | default: '#' }}"
+      aria-label="{{ card_collection.title }}"
+    >
+      <span>{{- card_collection.title -}}</span>
+    </a>
+
+    <span class="collection-card-mega-menu-animate-line"></span>
+
+    <a
+      href="{{ card_collection.url | default: '#' }}"
+      class="collection-card-mega-menu__link-overlay focus-inset"
+      aria-label="{{ card_collection.title }}"
+    >
+      <span class="visibility-hidden">{{- card_collection.title -}}</span>
+    </a>
+  </div>
+{% endif %}

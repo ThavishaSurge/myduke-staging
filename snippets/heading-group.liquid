@@ -1,0 +1,133 @@
+{% doc %}
+  Renders section text.
+
+  @param {string} [heading] - heading to render, will override settings.heading
+  @param {string} [subheading] - subheading to render, will override settings.subheading
+  @param {string} [heading_size] - heading size class, will override settings.heading_size
+  @param {string} [heading_tag] - heading tag to render, will override settings.heading_tag
+  @param {string} [heading_font] - heading font to render, will override settings.heading_font
+  @param {boolean} [button_show] - will override settings.heading_group_button_show
+  @param {string} [button_label] - will override settings.heading_group_button_label
+  @param {string} [button_link] - will override settings.heading_group_button_link
+  @param {string} [button_style] - will override settings.heading_group_button_style
+  @param {boolean} [enable_border_bottom] - will override settings.heading_group_enable_border_bottom
+  @param {boolean} [has_slider_controls] - render slider arrows
+  @param {string} [class] - custom CSS class
+  @param {object} [settings] - The block or section settings object
+
+  @example
+  {% render 'heading-group', settings: section.settings %}
+{% enddoc %}
+
+{% liquid
+  assign subheading = subheading | default: settings.subheading
+  assign heading = heading | default: settings.heading
+  assign heading_size = heading_size | default: settings.heading_size
+  assign heading_tag = heading_tag | default: settings.heading_tag
+  assign heading_font = heading_font | default: settings.heading_font
+  assign button_show = button_show | default: settings.heading_group_button_show
+  assign button_label = button_label | default: settings.heading_group_button_label
+  assign button_link = button_link | default: settings.heading_group_button_link
+  assign button_style = button_style | default: settings.heading_group_button_style | default: 'tertiary'
+  assign enable_border_bottom = enable_border_bottom | default: settings.heading_group_enable_border_bottom
+  assign heading_length = heading.size
+  assign subheading_length = subheading.size
+
+  assign has_only_one = false
+  if heading != blank and subheading == blank
+    assign has_only_one = true
+    if heading_font == 'heading' and heading_size != 'h6' and heading_length > 35
+      assign has_only_one = false
+    elsif heading_font == 'body' or heading_size == 'h6'
+      if heading_length > 80
+        assign has_only_one = false
+      endif
+    endif
+  elsif heading == blank and subheading != blank
+    assign has_only_one = true
+    if subheading_length > 80
+      assign has_only_one = false
+    endif
+  endif
+
+  assign has_button = false
+  if button_show and button_label != blank
+    assign has_button = true
+  endif
+
+  assign wrap_on_mobile = false
+  if heading != blank
+    if heading_font == 'heading' and heading_size != 'h6' and heading_length > 20 and has_button
+      assign wrap_on_mobile = true
+    endif
+
+    if heading_font == 'body' or heading_size == 'h6'
+      if heading_length > 55 and has_button
+        assign wrap_on_mobile = true
+      endif
+    endif
+  endif
+  if subheading != blank
+    if subheading_length > 55 and has_button
+      assign wrap_on_mobile = true
+    endif
+  endif
+  if has_button
+    assign button_length = button_label.size
+
+    if button_length > 20
+      assign wrap_on_mobile = true
+    endif
+  endif
+%}
+
+{%- if heading != blank or subheading != blank or has_button or has_slider_controls -%}
+  <div class="container heading-group{% if class %} {{ class }}{% endif %}{% if has_only_one %} heading-group-center{% endif %}{% if wrap_on_mobile %} heading-group--wrap-on-mobile{% endif %}{% if enable_border_bottom %} heading-group--border-bottom{% endif %}">
+    {%- if heading != blank or subheading != blank -%}
+      <div class="heading-group__left">
+        {% if subheading != blank %}
+          <div class="heading-group__subheading body-normal">
+            {{ subheading }}
+          </div>
+        {% endif %}
+        {%- if heading != blank -%}
+          <{{ heading_tag | default: "h2" }}
+            class="title {% if heading_font == 'heading'%}{{ heading_size }} size--{{ heading_size }}{% else %}font--body{% endif %}{% if class %} {{ class }}__title{% endif %} richtext-link-inside"
+          >
+            {{- heading -}}
+          </{{ heading_tag | default: "h2" }}>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if has_button or has_slider_controls -%}
+      <div class="heading-group__actions{% if has_button == false %} heading-group__actions--end-on-mobile{% endif %}">
+        {%- if has_slider_controls -%}
+          <div class="heading-group__navigation no-js-hidden">
+            <button class="heading-group__navigation-button heading-group__navigation-button-prev swiper-button-prev focus-inset">
+              {% render 'icon-arrow-left-slider' %}
+            </button>
+            <button class="heading-group__navigation-button heading-group__navigation-button-next swiper-button-next focus-inset">
+              {% render 'icon-arrow-right-slider' %}
+            </button>
+          </div>
+        {%- endif -%}
+
+        {%- if has_button -%}
+          {% liquid
+            assign btn_class = 'heading-group__btn'
+            if class != blank
+              assign btn_class = btn_class | append: ' ' | append: class | append: '__button'
+            endif
+          %}
+          {% render 'button',
+            btn_label: button_label,
+            btn_link: button_link,
+            btn_style: button_style,
+            class: btn_class
+          %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+{% endif %}

@@ -1,0 +1,150 @@
+<div class="content-tabs__tab-contact-form" {{ block.shopify_attributes }}>
+  <div class="content-tabs__tab-contact-form__wrapper">
+    {%- assign unique_id = 'ContactFormTab-' | append: block.id -%}
+
+    {%- form 'contact', id: unique_id, class: 'contact-form__form' -%}
+      {%- if form.posted_successfully? -%}
+        <div class="form-status form-status-list form__message form__message--success body-small">
+          {% render 'icon-success' %}
+          {{- 'templates.contact.form.post_success' | t -}}
+        </div>
+      {%- elsif form.errors -%}
+      {%- endif -%}
+
+      <div class="field field__name">
+        <input
+          class="field__input focus-inset"
+          autocomplete="name"
+          type="text"
+          id="{{ unique_id }}-name"
+          dir="ltr"
+          name="contact[{{ 'templates.contact.form.name' | t }}]"
+          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+          placeholder="{{- 'templates.contact.form.name' | t -}}"
+        >
+        <label
+          class="field__label body-small"
+          for="{{ unique_id }}-name"
+        >
+          {{- 'templates.contact.form.name' | t -}}
+        </label>
+      </div>
+
+      <div class="field">
+        <input
+          autocomplete="email"
+          type="email"
+          id="{{ unique_id }}-email"
+          dir="ltr"
+          class="field__input focus-inset"
+          name="contact[email]"
+          spellcheck="false"
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+          autocapitalize="off"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          aria-required="true"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="{{ unique_id }}-email-error"
+          {% endif %}
+          placeholder="{{- 'templates.contact.form.email' | t -}}"
+          required
+        >
+        <label
+          class="field__label body-small"
+          for="{{ unique_id }}-email"
+        >
+          {{- 'templates.contact.form.email' | t -}}
+        </label>
+
+        {%- if form.errors contains 'email' -%}
+          <small class="contact-form__field-error" id="{{ unique_id }}-email-error">
+            <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+            <span class="form__message form__message--error">
+              {{- form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email -}}
+            </span>
+          </small>
+        {%- endif -%}
+      </div>
+
+      <div class="field">
+        <input
+          type="tel"
+          id="{{ unique_id }}-phone"
+          dir="ltr"
+          class="field__input"
+          autocomplete="tel"
+          name="contact[{{ 'templates.contact.form.phone' | t }}]"
+          pattern="[0-9\-]*"
+          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          placeholder="{{- 'templates.contact.form.phone' | t -}}"
+        >
+        <label
+          class="field__label body-small"
+          for="{{ unique_id }}-phone"
+        >
+          {{- 'templates.contact.form.phone' | t -}}
+        </label>
+      </div>
+
+      <div class="field">
+        <textarea
+          id="{{ unique_id }}-body"
+          dir="ltr"
+          class="text-area field__input"
+          name="contact[{{ 'templates.contact.form.comment' | t }}]"
+          placeholder="{{- 'templates.contact.form.comment' | t -}}"
+          aria-required="true"
+          required
+        >{{- form.body -}}</textarea>
+        <label
+          class="field__label body-small"
+          for="{{ unique_id }}-body"
+        >
+          {{- 'templates.contact.form.comment' | t -}}
+        </label>
+      </div>
+
+      <div class="contact-form__bottom">
+        <button
+          type="submit"
+          class="button button--primary focus-inset"
+        >
+          <div class="button__content">
+            <span class="button__label">
+              {{- 'templates.contact.form.contact' | t -}}
+            </span>
+          </div>
+        </button>
+
+        {%- if block.settings.additional_text != blank -%}
+          <div class="contact-form__add-text body-small richtext-link-inside">
+            {{- block.settings.additional_text -}}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endform -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.content-tabs.blocks.contact_form.name",
+  "tag": "div",
+  "class": "tab-contact-form-block",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "additional_text",
+      "label": "t:sections.content-tabs.blocks.contact_form.settings.additional_text.label",
+      "default": "t:sections.content-tabs.blocks.contact_form.settings.additional_text.default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.content-tabs.blocks.contact_form.name"
+    }
+  ]
+}
+{% endschema %}

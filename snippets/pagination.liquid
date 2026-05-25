@@ -1,0 +1,76 @@
+{% comment %}
+  Renders a set of links for paginated results. Must be used within paginate tags.
+
+  Usage:
+  {% paginate results by 2 %}
+    {% render 'pagination', paginate: paginate, anchor: '#yourID' %}
+  {% endpaginate %}
+
+  Accepts:
+  - paginate: {Object}
+  - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
+  - class: {String} (optional) Appended to container element's class attribute
+{% endcomment %}
+
+{{ 'component-pagination.css' | asset_url | stylesheet_tag }}
+
+{%- if paginate.parts.size > 0 -%}
+  <div class="{{ class | default: 'pagination-wrapper' }} no-js-block">
+    <nav class="pagination container" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+      <ul class="pagination__list list-unstyled" role="list">
+
+          <li class="{% if paginate.previous %} paginate_none{% endif %}">
+            <a
+              href="{{ paginate.previous.url }}"
+              class="pagination__item-toggler pagination__item-toggler--prev button "
+              aria-label="{{ 'general.pagination.previous' | t }}"
+            >
+              {% comment %}<span>{{ 'general.pagination.previous' | t | strip_newlines }}</span>{% endcomment %}
+            {% render 'icon-arrow-left-slider' %}
+
+            </a>
+          </li>
+       
+
+        {%- for part in paginate.parts -%}
+          <li>
+            {%- if part.is_link -%}
+              <a
+                href="{{ part.url }}{{ anchor }}"
+                class="pagination__item"
+                aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+              >
+                <span class="body-normal" title="{{ part.title }}"> {{ part.title }}</span>
+              </a>
+            {%- else -%}
+              {%- if part.title == paginate.current_page -%}
+                <span
+                  class="pagination__item pagination__item--current body-normal"
+                  aria-current="page"
+                  aria-label="{{ 'general.pagination.page' | t: number: part.title }}"
+                >
+                  {{- part.title -}}
+                </span>
+              {%- else -%}
+                <span class="pagination__item body-normal">{{ part.title }}</span>
+              {%- endif -%}
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+
+      
+          <li class="{% if paginate.next %} paginate_none{% endif %}">
+            <a
+              href="{{ paginate.next.url }}"
+              class="pagination__item-toggler pagination__item-toggler--next button"
+              aria-label="{{ 'general.pagination.next' | t }}"
+            >
+              {% comment %}<span>{{ 'general.pagination.next' | t | strip_newlines }}</span>{% endcomment %}
+							 {% render 'icon-arrow-right-slider' %}
+            </a>
+          </li>
+      
+      </ul>
+    </nav>
+  </div>
+{%- endif -%}

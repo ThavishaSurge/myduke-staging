@@ -1,0 +1,130 @@
+.product-recommendations {
+  overflow: hidden;
+  --gap: 12px;
+}
+@media (min-width: 576px) {
+  .product-recommendations {
+    --gap: 24px;
+  }
+}
+.product-recommendations:empty {
+  display: none;
+}
+.product-recommendations__layout.swiper {
+  overflow: visible;
+}
+.product-recommendations__layout .swiper-wrapper {
+  box-sizing: border-box;
+}
+.product-recommendations__layout.swiper-initialized .product-recommendations__item {
+  user-select: none;
+}
+.product-recommendations__layout .product-recommendations__item {
+  border-radius: var(--border-radius-block);
+}
+.product-recommendations__layout.js-recommendation-slider:not(.swiper-initialized) .product-recommendations__list {
+  gap: var(--gap);
+}
+.product-recommendations__list {
+  width: 100%;
+  display: flex;
+}
+.product-recommendations__list--1 .product-recommendations__item {
+  width: 100%;
+}
+.product-recommendations__list--2 .product-recommendations__item {
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .product-recommendations__list--2 .product-recommendations__item {
+    width: calc((100% - var(--gap)) / 2);
+  }
+}
+.product-recommendations__list--3 .product-recommendations__item {
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .product-recommendations__list--3 .product-recommendations__item {
+    width: calc((100% - var(--gap)) / 2);
+  }
+}
+@media (min-width: 990px) {
+  .product-recommendations__list--3 .product-recommendations__item {
+    width: calc((100% - var(--gap) * 2) / 3);
+  }
+}
+.product-recommendations__list--4 .product-recommendations__item, .product-recommendations__list--5 .product-recommendations__item, .product-recommendations__list--6 .product-recommendations__item {
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .product-recommendations__list--4 .product-recommendations__item, .product-recommendations__list--5 .product-recommendations__item, .product-recommendations__list--6 .product-recommendations__item {
+    width: calc((100% - var(--gap)) / 2);
+  }
+}
+@media (min-width: 990px) {
+  .product-recommendations__list--4 .product-recommendations__item, .product-recommendations__list--5 .product-recommendations__item, .product-recommendations__list--6 .product-recommendations__item {
+    width: calc((100% - var(--gap) * 2) / 3);
+  }
+}
+@media (min-width: 1200px) {
+  .product-recommendations__list--4 .product-recommendations__item, .product-recommendations__list--5 .product-recommendations__item, .product-recommendations__list--6 .product-recommendations__item {
+    width: calc((100% - var(--gap) * 3) / 4);
+  }
+}
+@media (min-width: 1360px) {
+  .product-recommendations__list--5 .product-recommendations__item {
+    width: calc((100% - var(--gap) * 4) / 5);
+  }
+}
+@media (min-width: 1360px) {
+  .product-recommendations__list--6 .product-recommendations__item {
+    width: calc((100% - var(--gap) * 5) / 6);
+  }
+}
+.product-recommendations__list--4.product-recommendations__list--grid .product-recommendations__item {
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .product-recommendations__list--4.product-recommendations__list--grid .product-recommendations__item {
+    width: calc((100% - var(--gap)) / 2);
+  }
+}
+@media (min-width: 990px) {
+  .product-recommendations__list--4.product-recommendations__list--grid .product-recommendations__item {
+    width: calc((100% - var(--gap) * 3) / 4);
+  }
+}
+.product-recommendations__list--grid {
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+@media (max-width: 575.99px) {
+  .product-recommendations__list--mobile-2 .product-recommendations__item {
+    width: calc((100% - var(--gap)) / 2) !important;
+  }
+}
+.product-recommendations__item .product-card {
+  min-height: 100%;
+}
+.product-recommendations__item.swiper-slide {
+  height: auto;
+}
+.product-recommendations__loading {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-height: 2rem;
+  padding-block: 4rem;
+}
+.product-recommendations__loading svg {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
+  color: rgb(var(--color-foreground));
+}
+.product-recommendations__loading.loading {
+  display: flex;
+}

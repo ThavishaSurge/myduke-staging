@@ -1,0 +1,13 @@
+{%- if section_obj.settings.enable_dark_mode_toggle -%}
+  <div class="header__scheme no-js-hidden header__scheme--icon">
+    <button
+      class="button button--simple header__toggle-scheme js-toggle-scheme-button header__button header__button--icon header-overlay-transition focus-inset"
+      aria-label="{{ 'sections.header.dark_mode_label' | t }}"
+    >
+      <div class="header__toggle-scheme-item">
+        {% render 'icon-light-mode' %}
+        {% render 'icon-dark-mode' %}
+      </div>
+    </button>
+  </div>
+{%- endif -%}

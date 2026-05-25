@@ -1,0 +1,98 @@
+{%- if section.settings.main_text != blank -%}
+  {% liquid
+    if cart.attributes['theme-hidden-ann-bar'] != null and cart.attributes['theme-hidden-ann-bar'] != blank
+      assign is_hidden = cart.attributes['theme-hidden-ann-bar']
+    else
+      assign is_hidden = 'false'
+    endif
+  %}
+  <script src="{{ 'announcement-bar.js' | asset_url }}" defer></script>
+
+  <style>
+    :root {
+      --announcement-height: {{ section.settings.height }}px;
+    }
+
+    .announcement-bar--hidden {
+      display: none !important;
+    }
+
+    .announcement-bar--animated {
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .announcement-bar--visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+  <div
+    id="announcement-bar"
+    class="announcement-bar color-{{ section.settings.color_scheme }} background announcement-bar--animated {% if is_hidden == 'true' %}announcement-bar--hidden{% else %}announcement-bar--visible{% endif %}"
+    role="region"
+    aria-label="{{ 'sections.header.announcement' | t }}"
+  >
+    <div
+      class="announcement-bar__message container"
+    >
+      <div class="announcement-bar__text body-small richtext-link-inside">
+        {{- section.settings.main_text -}}
+      </div>
+    </div>
+    {% render 'icon-close' %}
+    {%- if section.settings.link != blank -%}
+      <a
+        href="{{ section.settings.link }}"
+        aria-label="{{ 'accessibility.link' | t }}"
+        class="announcement-bar__link"
+        {% if settings.links_blank and section.settings.link.type == 'external_link' %}
+          rel="nofollow"
+          target="_blank"
+        {% endif %}
+      ></a>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "class": "section-announcement",
+  "tag": "section",
+  "limit": 1,
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "background-4",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "default": 30,
+      "label": "t:sections.announcement-bar.settings.height.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "main_text",
+      "label": "t:sections.announcement-bar.settings.main_text.label",
+      "default": "t:sections.announcement-bar.settings.main_text.default",
+      "info": "t:sections.announcement-bar.settings.main_text.info"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.announcement-bar.settings.link.label",
+      "info": "t:sections.announcement-bar.settings.link.info"
+    }
+  ]
+}
+{% endschema %}

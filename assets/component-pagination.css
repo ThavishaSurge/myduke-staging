@@ -1,0 +1,93 @@
+.pagination-wrapper {
+  padding-block: 3.2rem;
+}
+@media screen and (min-width: 750px) {
+  .pagination-wrapper {
+    padding: 6.5rem 0 4.8rem;
+  }
+}
+.pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.pagination__list > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination__list > li svg {
+  color: rgba(var(--color-border));
+}
+.pagination__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-foreground));
+  background-color: rgb(var(--color-background));
+  border: 0.1rem solid rgb(var(--color-border));
+  padding-inline: 0.4rem;
+  padding-block: 0.7rem;
+  transition: color var(--duration-default) ease-in-out, border-color var(--duration-default) ease-in-out, background-color var(--duration-default) ease-in-out;
+  width: 4rem;
+  min-height: 4rem;
+}
+@media screen and (pointer: fine) {
+  .pagination__item:not(.pagination__item--current):hover {
+    background-color: rgb(var(--color-border));
+    color: rgb(var(--color-foreground-secondary));
+  }
+}
+.pagination__item--current {
+  color: rgb(var(--color-button-text));
+  background-color: rgb(var(--color-button));
+}
+.pagination .paginate_none svg {
+  color: rgba(var(--color-foreground));
+}
+.pagination .paginate_none .pagination__item-toggler {
+  pointer-events: all;
+  cursor: pointer;
+}
+.pagination__item-toggler {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: fit-content;
+  cursor: inherit;
+  pointer-events: none;
+}
+.pagination__item-toggler--prev {
+  margin-right: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+}
+@media (min-width: 576px) {
+  .pagination__item-toggler--prev {
+    margin-right: 2rem;
+  }
+}
+[dir=rtl] .pagination__item-toggler--prev {
+  transform: rotate(180deg);
+}
+.pagination__item-toggler--next {
+  margin-left: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+}
+@media (min-width: 576px) {
+  .pagination__item-toggler--next {
+    margin-left: 2rem;
+  }
+}
+[dir=rtl] .pagination__item-toggler--next {
+  transform: rotate(180deg);
+}
+@media screen and (hover: hover) and (pointer: fine) {
+  .pagination__item-toggler:hover .pagination__item-toggler__circle-fill {
+    stroke-dashoffset: 0;
+  }
+}

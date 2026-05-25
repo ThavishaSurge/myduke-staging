@@ -1,0 +1,45 @@
+<div class="contact__account contact-modal" id="contact-modal">
+  <div class="contact__content header-modal_content {% if section.settings.products.count == 1 %} contact__content_product {% endif %}">
+    <div class="contact-form__block ">
+      <div class="contact-form__header">
+        <button
+          type="submit"
+          class="button button--tertiary close_modal_element"
+        >
+          <span class="button__content">
+            <span class="button__icons-container">
+              {% render 'icon-arrow-tertiary-button' %}
+              {% render 'icon-arrow-tertiary-button' %}
+            </span>
+
+            <span class="button__label body-small">
+              {{- 'products.facets.back' | t -}}
+            </span>
+          </span>
+        </button>
+        {%- if section.settings.heading_modal != blank -%}
+          <h3 class="contact-modal__title body-extra-large">
+            {{ section.settings.heading_modal }}
+          </h3>
+        {%- endif -%}
+        <div class="showcase_products_wraper showcase_products__list--mobile-{{products_per_row_mobile}}">
+          {%- for product in section.settings.products -%}
+            <div class="showcase-products__item">
+              {% render 'product-card-featured',
+                product_card_product: product,
+                section_id: section.id,
+                columns: section.settings.products_per_row,
+                columns_mobile: section.settings.products_per_row_mobile,
+                color_scheme: section.settings.color_scheme
+              %}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    id="contactModal-Overlay"
+    class="showcase_modal__overlay "
+  ></div>
+</div>

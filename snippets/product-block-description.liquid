@@ -1,0 +1,86 @@
+{% doc %}
+  Renders product description block.
+
+  @param {object} product - Product Liquid object
+  @param {object} block_obj - Block Liquid object
+  @param {object} [placeholder_text] - Text for placeholder Featured product section
+  @param {string} [description_image_fit] - Image fit
+
+  @example
+  {% render 'product-block-description', product: product, block_obj: block %}
+{% enddoc %}
+
+{%- if product.description != blank or block_obj.settings.overwrite_text != blank or placeholder_text != blank -%}
+  {% liquid
+    assign description_source = block_obj.settings.overwrite_text
+    if description_source == blank
+      assign description_source = product.description
+    endif
+    if description_source == blank
+      assign description_source = placeholder_text
+    endif
+
+		assign description_image_fit = block_obj.settings.description_image_fit
+  %}
+
+  {%- if block_obj.settings.show_more_button and description_source.size > 220 -%}
+    {% liquid
+      assign plain_text = description_source | strip_html | strip
+      assign limit_chars = 220
+      assign has_more = false
+      assign text_size = plain_text | size
+      if text_size > limit_chars
+        assign has_more = true
+      endif
+    %}
+    <div
+      class="product__description"
+      data-has-more="{{ has_more }}"
+      data-limit-chars="{{ limit_chars }}"
+      {{ block_obj.shopify_attributes }}
+      style="--rte-object-fit: {{ description_image_fit }}"
+    >
+      <div class="product__description__content">
+        <div
+          class="product__description__preview rte rte--product product__description__content-inner body-small"
+          {% if has_more %}
+          {% else %}
+            hidden
+          {% endif %}
+        >
+          {{- description_source | strip_html | truncate: limit_chars, '…' -}}
+        </div>
+        <div
+          class="product__description__full rte rte--product product__description__content-inner body-small"
+          {% if has_more %}
+            hidden
+          {% endif %}
+        >
+          {{- description_source | strip_html -}}
+        </div>
+        <button
+          type="button"
+          class="product__description__toggle button button--tertiary"
+          aria-expanded="false"
+          {% if has_more %}
+          {% else %}
+            hidden
+          {% endif %}
+          data-show-label="{{ 'products.product.show_more' | t }}"
+          data-hide-label="{{ 'products.product.show_less' | t }}"
+        >
+          <span class="product__description__toggle-icon"></span>
+          <span class="product__description__toggle-label body-small">{{ 'products.product.show_more' | t }}</span>
+        </button>
+      </div>
+    </div>
+  {%- else -%}
+    <div
+      class="product__description rte rte--product body-small"
+      {{ block_obj.shopify_attributes }}
+      style="--rte-object-fit: {{ description_image_fit }}"
+    >
+      {{- description_source -}}
+    </div>
+  {%- endif -%}
+{%- endif -%}

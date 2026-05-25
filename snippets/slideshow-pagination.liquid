@@ -1,0 +1,15 @@
+{%- if section.blocks.size > 1 and section.settings.enable_pagination -%}
+  <div class="no-js-hidden slideshow__controls slideshow__controls--content-hor-{{ section.settings.horizontal_alignment }} container">
+    <div class="slideshow__pagination swiper-pagination color-{{ init_color_scheme }}"></div>
+    {%- if section.settings.enable_autoplay -%}
+      <button
+        class="slideshow-autoplay__button color-{{ init_color_scheme }}"
+        aria-label="Pause slideshow"
+        aria-pressed="true"
+      >
+        <span class="icon-play hidden">{% render 'icon-play' %}</span>
+        <span class="icon-pause ">{% render 'icon-pause' %}</span>
+      </button>
+    {%- endif -%}
+  </div>
+{%- endif -%}

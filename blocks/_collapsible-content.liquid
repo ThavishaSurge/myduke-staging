@@ -1,0 +1,30 @@
+<div class="content-tabs__tab-collapsible-content" {{ block.shopify_attributes }}>
+  {% if block.settings.title != blank %}
+    <div class="content-tabs__tab-collapsible-content-title body-extra-large">
+      {{ block.settings.title }}
+    </div>
+  {% endif %}
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.content-tabs.blocks.collapsible_content.name",
+  "tag": "div",
+  "class": "tab-collapsible-content-block",
+  "blocks": [{ "type": "_collapsible-row" }],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.content-tabs.blocks.collapsible_content.settings.title.label",
+      "default": "t:sections.content-tabs.blocks.collapsible_content.settings.title.default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.content-tabs.blocks.collapsible_content.name"
+    }
+  ]
+}
+{% endschema %}

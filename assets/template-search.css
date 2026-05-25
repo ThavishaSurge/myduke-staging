@@ -1,0 +1,177 @@
+.search-results__top {
+  padding-bottom: 2rem;
+  color: rgba(var(--color-foreground-secondary));
+}
+.search-results__top .facets__product-count-text {
+  color: rgba(var(--color-foreground-secondary));
+}
+
+.template-search .pagination-wrapper {
+  padding: 0;
+}
+.template-search .page-header {
+  padding-block: 2.4rem 2rem;
+}
+.template-search .page-header__inner-text {
+  color: rgb(var(--color-foreground-secondary));
+  margin-top: 1rem;
+}
+@media (min-width: 990px) {
+  .template-search .page-header {
+    padding-bottom: 4rem;
+  }
+}
+.template-search [dir=rtl] .pagination__item-toggler {
+  transform: rotate(0);
+}
+.template-search .template-search__search .predictive-search--search-template {
+  margin-top: 1.6rem;
+  background-color: rgb(var(--color-background));
+}
+.no-js .template-search .template-search__search .predictive-search--search-template {
+  display: none;
+}
+.template-search .template-search__search .predictive-search__result-group {
+  margin-top: 0;
+}
+.template-search .template-search__search .predictive-search__result-tabs {
+  justify-content: flex-start;
+  gap: 0.6rem;
+}
+.template-search .template-search__search .predictive-search__results-list {
+  flex-wrap: wrap;
+  column-gap: 1.6rem;
+  row-gap: 0.6rem;
+}
+.template-search .template-search__search .header__search-popular-link-wrapper {
+  text-align: left;
+}
+.template-search .template-search__search .predictive-search__empty {
+  justify-content: flex-start;
+  text-align: left;
+}
+.template-search--empty .template-search__header {
+  padding-bottom: 0;
+}
+.template-search:has(predictive-search[open], predictive-search[loading]) .trending-search {
+  display: none;
+}
+
+.search-container {
+  margin-bottom: 5rem;
+  margin-top: 2.4rem;
+}
+.search-container--performed {
+  margin-inline: 1.2rem;
+  text-align: left;
+  margin-inline-end: auto;
+  padding-bottom: 4rem;
+}
+.search-container--performed .page-header {
+  padding-block: 2.8rem 2rem;
+}
+.search-container--empty {
+  padding-inline: 1.2rem;
+  padding-bottom: 4.8rem;
+}
+@media (min-width: 576px) {
+  .search-container--empty {
+    padding-bottom: 6.4rem;
+  }
+}
+@media (min-width: 990px) {
+  .search-container--empty {
+    padding-bottom: 16rem;
+  }
+}
+
+.trending-search {
+  display: block;
+  margin-top: 1.6rem;
+  text-align: left;
+}
+.trending-search-title {
+  text-transform: uppercase !important;
+  font-weight: 500;
+  text-align: left;
+}
+.trending-search .predictive-search__results-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.6rem;
+  row-gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.template-search__search {
+  margin: 0 auto;
+  max-width: 100%;
+}
+.template-search__search .search__form-inner {
+  background: rgb(var(--color-background-secondary));
+  padding: 0 2.4rem;
+}
+.template-search__search .search__form-inner .custom-field.field .search__input {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+@media screen and (min-width: 1160px) {
+  .template-search__search .search__form-inner .custom-field.field .search__input {
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+  }
+}
+@media screen and (min-width: 1160px) {
+  .template-search__search .search__form-inner .custom-field.field .search__input::placeholder {
+    font-size: calc(var(--font-body-scale) * 1.8rem);
+  }
+}
+
+.template-search__results .collection-product-list {
+  border-bottom: none;
+}
+
+.template-search__results ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+.margin_article--cards {
+  margin-bottom: 7.2rem;
+}
+
+.search__description {
+  color: rgba(var(--color-foreground-secondary));
+}
+
+.margin_product-cards {
+  margin-bottom: 5.6rem;
+}
+
+.template-search__item .article-card {
+  padding: 0;
+}
+
+.collection-results {
+  display: grid;
+  gap: 2.4rem;
+}
+.collection-results--pages {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media screen and (min-width: 576px) {
+  .collection-results--pages {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 990px) {
+  .collection-results--pages {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .collection-results--pages {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

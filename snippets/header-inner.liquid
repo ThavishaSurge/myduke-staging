@@ -1,0 +1,77 @@
+<div class="header__left">
+  {% render 'header-drawer', section: section %}
+
+  {% render 'header-desktop-burger', section: section %}
+
+  {% if section.settings.logo_position == 'left-logo' %}
+    {% render 'header-logo',
+      position: 'left',
+      is_h1_logo: section.settings.h1_logo,
+      show_logo: section.settings.show_logo
+    %}
+  {% endif %}
+
+  {% if section.settings.menu != blank %}
+    {% unless section.settings.logo_position == 'left-logo' and section.settings.menu_position == 'center-menu' %}
+      {% render 'header-inline-menu', section: section %}
+    {% endunless %}
+  {% endif %}
+</div>
+{% if section.settings.menu != blank %}
+  {% if section.settings.logo_position == 'left-logo' and section.settings.menu_position == 'center-menu' %}
+    {% render 'header-inline-menu', section: section %}
+  {% endif %}
+{% endif %}
+
+{% if section.settings.logo_position == 'center-logo' %}
+  {% render 'header-logo',
+    position: 'center',
+    is_h1_logo: section.settings.h1_logo,
+    show_logo: section.settings.show_logo
+  %}
+{% endif %}
+
+<div class="header__column">
+  <div class="header__buttons">
+    {%- liquid
+      assign elements_count = 0
+      if section.settings.enable_additional_button and section.settings.additional_button_label != blank
+        assign elements_count = elements_count | plus: 1
+      endif
+      if section.settings.enable_dark_mode_toggle
+        assign elements_count = elements_count | plus: 1
+      endif
+      if section.settings.enable_country_selector and localization.available_countries.size > 1
+        assign elements_count = elements_count | plus: 1
+      endif
+      if section.settings.enable_language_selector and localization.available_languages.size > 1
+        assign elements_count = elements_count | plus: 1
+      endif
+      if section.settings.enable_search
+        assign elements_count = elements_count | plus: 1
+      endif
+      assign account_edge_right = false
+      if elements_count < 3
+        assign account_edge_right = true
+      endif
+    -%}
+    {% render 'header-account', button_type: section.settings.account_button_type, edge_right: account_edge_right %}
+
+    {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
+      {% render 'button',
+        btn_label: section.settings.additional_button_label,
+        btn_style: 'secondary',
+        btn_link: section.settings.additional_button_link,
+        class: 'header__additional-btn header-overlay-transition'
+      %}
+    {%- endif -%}
+
+    {% render 'header-color-scheme', section_obj: section %}
+
+    {% render 'modal-region-selector', section_obj: section, class: 'header__region', modal_location: 'header' %}
+
+    {% render 'header-search', section: section %}
+
+    {% render 'header-cart', section: section %}
+  </div>
+</div>

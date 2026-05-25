@@ -1,0 +1,209 @@
+{% doc %}
+  Renders a popups group block on the product page.
+
+  @param {object} block_obj - Block object
+{% enddoc %}
+
+<div class="product-popups-group no-js-hidden">
+  {%- for i in (1..5) -%}
+    {%- assign button_label = 'button_label_' | append: i -%}
+    {%- if block_obj.settings[button_label] != blank -%}
+      <div class="product-popup">
+        <modal-opener data-modal="#ProductPopupsModal-{{ block_obj.id }}">
+          <button
+            id="ProductPopupsOpener-{{ block_obj.id }}-{{ i }}"
+            class="product-popups-group__button button button--tertiary focus-inset"
+            type="button"
+            aria-haspopup="dialog"
+            data-popup-trigger="{{ i }}"
+          >
+            <span class="button__content">
+              <span class="button__icons-container">
+                {% render 'icon-arrow-tertiary-button' %}
+                {% render 'icon-arrow-tertiary-button' %}
+              </span>
+              <span class="button__label body-small">
+                {{ block_obj.settings[button_label] }}
+              </span>
+            </span>
+          </button>
+        </modal-opener>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+
+  <modal-dialog
+    id="ProductPopupsModal-{{ block_obj.id }}"
+    class="product-popups-modal modal"
+  >
+    <div id="ModalCloseOverlay-{{ block_obj.id }}" class="product-popups-modal__overlay modal__overlay"></div>
+
+    <div
+      role="dialog"
+      aria-label="Product Information"
+      aria-modal="true"
+      class="product-popups-modal__content modal__content"
+      tabindex="-1"
+    >
+      {% comment %}<div class="product-popups-modal__heading modal__heading">{% endcomment %}
+      {%- assign modal_close_btn_id = 'ModalCloseBtn-' | append: block_obj.id -%}
+      {% render 'modal-close-button', id: modal_close_btn_id, only_icon: true %}
+      {% comment %}</div>{% endcomment %}
+
+      <div class="product-popups-modal__content-wrapper">
+        <div class="product-popups-modal__content-inner">
+          <div class="popups__group">
+            <div class="popups__group-navigation">
+              {%- for i in (1..5) -%}
+                {%- assign button_label = 'button_label_' | append: i -%}
+                {%- if block_obj.settings[button_label] != blank -%}
+                  <button
+                    class="popups__nav-item button button--tertiary focus-inset {% if forloop.first %}popups__nav-item--active{% endif %}"
+                    data-popup-target="page-{{ i }}"
+                    type="button"
+                  >
+                    <span class="button__content">
+                      <span
+                        class="button__icons-container popups__nav-icon"
+                        style="{% unless forloop.first %}width: 0;{% endunless %}"
+                      >
+                        {% render 'icon-arrow-tertiary-button' %}
+                      </span>
+                      <span class="popups__nav-label button__label body-small">
+                        {{ block_obj.settings[button_label] }}
+                      </span>
+                    </span>
+                  </button>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            <div class="popups__group-content">
+              {%- for i in (1..5) -%}
+                {%- assign button_label = 'button_label_' | append: i -%}
+                {%- assign page_content = 'page_' | append: i -%}
+                {%- if block_obj.settings[button_label] != blank -%}
+                  <div
+                    class="popups__content-item {% if forloop.first %}popups__content-item--active{% endif %}"
+                    data-popup-content="page-{{ i }}"
+                  >
+                    <div class="popups__item">
+                      {%- if block_obj.settings[page_content] != blank -%}
+                        <div class="popups__item-page-content rte rte--product">
+                          {{ block_obj.settings[page_content].content }}
+                        </div>
+                      {%- else -%}
+                        <div class="popups__item-content body richtext-link-inside">
+                          No content available for {{ block_obj.settings[button_label] }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </modal-dialog>
+</div>
+
+<script>
+  (function () {
+    const updateNavigationHeight = (modal) => {
+      const content = modal.querySelector('.product-popups-modal__content');
+      const navigation = modal.querySelector('.popups__group-navigation');
+      if (content && navigation) {
+        const height = navigation.offsetHeight;
+        content.style.setProperty('--popups-group-navigation-height', `${height}px`);
+      }
+    };
+
+    const initProductPopups = (section) => {
+      if (!section) return;
+
+      const modal = section.querySelector('[id^="ProductPopupsModal-"]');
+      if (!modal) return;
+
+      const navItems = modal.querySelectorAll('.popups__nav-item');
+      const contentItems = modal.querySelectorAll('.popups__content-item');
+
+      updateNavigationHeight(modal);
+
+      const resizeObserver = new ResizeObserver(() => {
+        updateNavigationHeight(modal);
+      });
+      const navigation = modal.querySelector('.popups__group-navigation');
+      if (navigation) {
+        resizeObserver.observe(navigation);
+      }
+
+      navItems.forEach((navItem) => {
+        navItem.addEventListener('click', function () {
+          const targetId = this.getAttribute('data-popup-target');
+
+          // Remove active from all nav
+          navItems.forEach((item) => {
+            item.classList.remove('popups__nav-item--active');
+            const icon = item.querySelector('.popups__nav-icon');
+            if (icon) icon.style.width = '0';
+          });
+
+          // Activate clicked nav
+          this.classList.add('popups__nav-item--active');
+          const activeIcon = this.querySelector('.popups__nav-icon');
+          if (activeIcon) activeIcon.style.width = '18px';
+
+          // Hide all content
+          contentItems.forEach((item) => {
+            item.classList.remove('popups__content-item--active');
+          });
+
+          // Show target content
+          const targetContent = modal.querySelector(`[data-popup-content="${targetId}"]`);
+          if (targetContent) {
+            targetContent.classList.add('popups__content-item--active');
+          }
+        });
+      });
+
+      // Opening modal with specific tab
+      const openers = document.querySelectorAll('[data-popup-trigger]');
+      openers.forEach((opener) => {
+        opener.addEventListener('click', function () {
+          const triggerTab = this.getAttribute('data-popup-trigger');
+
+          setTimeout(() => {
+            const targetNav = modal.querySelector(`[data-popup-target="page-${triggerTab}"]`);
+            if (targetNav) targetNav.click();
+            updateNavigationHeight(modal);
+          }, 100);
+        });
+      });
+
+      const modalDialog = section.querySelector('modal-dialog');
+      if (modalDialog) {
+        const observer = new MutationObserver(() => {
+          if (modalDialog.hasAttribute('open')) {
+            setTimeout(() => updateNavigationHeight(modal), 100);
+          }
+        });
+        observer.observe(modalDialog, { attributes: true, attributeFilter: ['open'] });
+        
+        window.addEventListener('resize', () => {
+          if (modalDialog.hasAttribute('open')) {
+            updateNavigationHeight(modal);
+          }
+        });
+      }
+    };
+
+    // Init for theme editor and on page load
+    initProductPopups(document.currentScript.parentElement);
+
+    document.addEventListener('shopify:section:load', (event) => {
+      initProductPopups(event.target);
+    });
+  })();
+</script>

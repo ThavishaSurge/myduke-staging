@@ -1,0 +1,88 @@
+<div class="slideshow__content ">
+  <div
+    class="slideshow__content-wrapper slideshow__content-wrapper--ver-{{ section.settings.vertical_alignment }} slideshow__content-wrapper--hor-{{ section.settings.horizontal_alignment }}"
+    {% if section.settings.enable_parallax and section.settings.animation_type == 'slide' -%}
+      data-swiper-parallax="700"
+    {%- endif %}
+  >
+    <div class="slideshow__content-group container">
+      {%- liquid
+        assign stack_text = false
+        if section.settings.animation_type == 'vertical_stack'
+          assign stack_text = true
+        endif
+      -%}
+
+      {%- if block.settings.subheading != blank -%}
+        {%- if stack_text -%}
+          <div class="slideshow__content-reveal">
+            <div class="slideshow__content-reveal-inner">
+        {%- endif -%}
+              <div class="slideshow__content-subheading subtitle">
+                {{- block.settings.subheading -}}
+              </div>
+        {%- if stack_text -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if block.settings.heading != blank -%}
+        {%- if stack_text -%}
+          <div class="slideshow__content-reveal">
+            <div class="slideshow__content-reveal-inner">
+        {%- endif -%}
+              <{{ block.settings.heading_tag | default: "h2" }}
+                class="slideshow__content-title {{ block.settings.heading_size }} richtext-link-inside slideshow__content-width-{{ block.settings.heading_max_width }}"
+              >
+                {{- block.settings.heading -}}
+              </{{ block.settings.heading_tag | default: "h2" }}>
+        {%- if stack_text -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if block.settings.description != blank -%}
+        {%- if stack_text -%}
+          <div class="slideshow__content-reveal">
+            <div class="slideshow__content-reveal-inner">
+        {%- endif -%}
+              <div class="slideshow__content-description body-large richtext-link-inside">
+                {{- block.settings.description -}}
+              </div>
+        {%- if stack_text -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if block.settings.show_button and block.settings.button_label != blank -%}
+        {%- if stack_text -%}
+          <div class="slideshow__content-reveal">
+            <div class="slideshow__content-reveal-inner">
+        {%- endif -%}
+        {% render 'button',
+          btn_label: block.settings.button_label,
+          btn_style: block.settings.button_style,
+          btn_link: block.settings.button_link,
+          class: 'slideshow__content-button'
+        %}
+        {%- if stack_text -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+      {%- if block.settings.card_overlay_link != blank -%}
+        <a
+          href="{{ block.settings.card_overlay_link }}"
+          class="slideshow-cards__link-overlay focus-inset"
+
+          {% if settings.links_blank and block.settings.card_overlay_link.type == 'external_link' %}
+            target="_blank"
+          {% endif %}
+        ></a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

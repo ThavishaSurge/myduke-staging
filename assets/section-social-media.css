@@ -1,0 +1,154 @@
+.social-media-content--border {
+  order: -1;
+  border-bottom: 0.1rem solid rgb(var(--color-border));
+}
+@media (min-width: 990px) {
+  .social-media-content--border {
+    border-bottom: none;
+    border-right: 0.1rem solid rgb(var(--color-border));
+  }
+}
+.social-media-content .social-media-wrapper {
+  display: grid;
+  gap: 2.4rem;
+  row-gap: 2.4rem;
+  grid-template-columns: 1fr;
+  flex: 1 1 auto;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+@media screen and (min-width: 576px) {
+  .social-media-content .social-media-wrapper {
+    grid-template-columns: repeat(clamp(1, var(--per-row), 2), 1fr);
+  }
+}
+@media screen and (min-width: 990px) {
+  .social-media-content .social-media-wrapper {
+    grid-template-columns: repeat(clamp(1, var(--per-row), 2), 1fr);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .social-media-content .social-media-wrapper {
+    grid-template-columns: repeat(var(--per-row), 1fr);
+  }
+}
+.social-media-content__main-text {
+  display: inline-block;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 0 -1rem 0;
+  padding-bottom: 1rem;
+}
+.social-media-content__main-text--font-body {
+  font-family: var(--font-body-family);
+  font-weight: var(--font-body-weight);
+  letter-spacing: var(--font-body-letter-spacing);
+  font-style: var(--font-body-style);
+  text-transform: none;
+}
+.social-media-content__main-text--font-body.h2 {
+  line-height: 1.2;
+}
+.social-media-content__main-text--font-body.h3 {
+  line-height: 1.2;
+}
+.social-media-content__main-text--font-body.h4 {
+  line-height: 1.3;
+}
+.social-media-content__main-text--with-link-arrow a .social-media-content__main-text-arrows {
+  display: block;
+}
+.social-media-content__main-text.h2 .social-media-content__main-text-arrows {
+  margin-left: 8px;
+}
+.social-media-content__main-text.h3 .social-media-content__main-text-arrows {
+  margin-left: 6px;
+}
+@media only screen and (min-width: 750px) {
+  .social-media-content__main-text.h3 .social-media-content__main-text-arrows {
+    margin-left: 8px;
+  }
+}
+.social-media-content__main-text.h4 .social-media-content__main-text-arrows {
+  margin-left: 6px;
+}
+@media screen and (min-width: 750px) {
+  .social-media-content__main-text {
+    max-width: none;
+  }
+}
+.social-media-content__main-text a {
+  display: inline-flex;
+  align-items: center;
+  color: rgb(var(--color-background));
+  transition: opacity 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+@media screen and (pointer: fine) {
+  .social-media-content__main-text a:hover .social-media-content__main-text-arrows-wrapper {
+    transform: translate3d(100%, -100%, 0px);
+  }
+  .social-media-content__main-text a:hover::before, .social-media-content__main-text a:hover::after {
+    transform: translate3d(0px, -100%, 0px);
+  }
+}
+.social-media-content__main-text a::before {
+  inset: 0% auto auto 0%;
+}
+.social-media-content__main-text a::after {
+  inset: 100% auto auto 0%;
+}
+.social-media-content__main-text a::before, .social-media-content__main-text a::after {
+  color: rgba(var(--color-foreground-secondary));
+  content: attr(data-label);
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.social-media-wrapper-box .button {
+  margin-top: 2rem;
+}
+.social-media-wrapper-box .button svg {
+  width: 3.8rem;
+  height: 3.8rem;
+}
+.social-media-wrapper-box .social-media-content__button {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  transition-delay: 1s;
+}
+.social-media-wrapper-box .social-media-content__button.animate-in {
+  opacity: 1;
+}
+
+.social-media-slider {
+  position: relative;
+  gap: 1rem;
+  align-items: flex-start;
+  width: 100%;
+  display: flex;
+}
+.social-media-slider .social-media-content__info {
+  flex: 0 0 auto;
+  width: max-content;
+}
+
+.social-media-slide--square {
+  aspect-ratio: 1/1;
+}
+.social-media-slide--portrait {
+  aspect-ratio: 91/123;
+}
+.social-media-slide--landscape {
+  aspect-ratio: 4/3;
+}
+.social-media-slide img,
+.social-media-slide .placeholder-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}

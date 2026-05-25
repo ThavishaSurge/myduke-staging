@@ -1,0 +1,10 @@
+<div class="header__cart header__cart--icon header__cart--icon-mobile">
+  <a
+    href="{{ routes.cart_url }}"
+    class="header__button header-overlay-transition focus-inset"
+    id="cart-icon-bubble"
+    aria-label="{{- 'general.cart.view' | t -}}"
+  >
+    {% render 'header-cart-button' %}
+  </a>
+</div>

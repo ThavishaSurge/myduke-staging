@@ -1,0 +1,64 @@
+{% doc %}
+  Renders product collapsible info (accordion) block.
+
+  @param {object} block_obj - Block Liquid object
+
+  @example
+  {% render 'product-block-collapsible-info', block_obj: block %}
+{% enddoc %}
+
+{%- liquid
+  assign has_toggle_content = false
+  if block_obj.settings.heading != blank
+    assign has_toggle_content = true
+  endif
+
+  assign has_button = false
+  if block_obj.settings.show_button and block_obj.settings.button_label
+    assign has_button = true
+  endif
+
+  assign has_content = false
+  if block_obj.settings.description != blank or has_button
+    assign has_content = true
+  endif
+-%}
+{%- if has_toggle_content and has_content -%}
+  <div class="product-accordion" {{ block_obj.shopify_attributes }}>
+    <button
+      class="product-accordion__toggle{% if block_obj.settings.default_open %} active{% endif %} focus-inset"
+      aria-label="{{ block_obj.settings.heading | escape }}"
+    >
+      <div class="product-accordion__toggle-heading">
+        <span class="hover-underlined-link" data-label="{{- block_obj.settings.heading | escape -}}">
+          {{- block_obj.settings.heading | escape -}}
+        </span>
+      </div>
+      {%- if has_content -%}
+        <div class="product-accordion__icon">
+          {% render 'icon-plus-dropdown' %}
+          {% render 'icon-minus-dropdown' %}
+        </div>
+      {%- endif -%}
+    </button>
+
+    {%- if has_content -%}
+      <div class="product-accordion__content{% if block_obj.settings.default_open %} active{% endif %}">
+        {%- if block_obj.settings.description != blank -%}
+          <div class="rte rte--product">
+            {{- block_obj.settings.description -}}
+          </div>
+        {%- endif -%}
+
+        {%- if has_button -%}
+          {% render 'button',
+            btn_label: block_obj.settings.button_label,
+            btn_link: block_obj.settings.button_link,
+            btn_style: 'tertiary',
+            class: 'product-accordion__button'
+          %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

@@ -1,0 +1,578 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "featured_products_FnXqhP": {
+      "type": "featured-products",
+      "name": "t:sections.featured-products.presets.name",
+      "settings": {
+        "color_scheme": "background-4",
+        "heading": "Sketch, Plan, Create",
+        "heading_font": "heading",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "heading_group_button_show": true,
+        "heading_group_button_label": "Shop collection",
+        "color_scheme_product": "",
+        "list_heading": "",
+        "list_heading_size": "h4",
+        "list_heading_tag": "h3",
+        "animated_badge": true,
+        "main_image_ratio": "square",
+        "main_image_fit": "cover",
+        "padding_top": "no-indent",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "popular-products": {
+      "type": "popular-products",
+      "settings": {
+        "color_scheme": "",
+        "layout": "slider",
+        "products_per_row": 4,
+        "products_per_row_mobile": "2",
+        "subheading": "Products",
+        "heading": "Shop bestsellers",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "enable_slider_controls": true,
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Shop All",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": true,
+        "show_quick_view": true,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "showcase": {
+      "type": "showcase",
+      "settings": {
+        "color_scheme_main": "background-5",
+        "subheading": "Who we are",
+        "content_heading": "The truth is that creativity has no boundaries, and we turn it into products you love.",
+        "content_heading_size": "h3",
+        "content_heading_tag": "h3",
+        "content_description": "Ideas come in unexpected ways, often when you least expect them. While we don’t know what form they’ll take or where they’ll lead, we make sure you have the tools, resources, and support to turn every spark of inspiration into something tangible and meaningful.",
+        "animated_badge": true,
+        "list_button_show": true,
+        "list_button_label": "View products",
+        "list_button_style": "primary",
+        "heading_modal": "Shop the look",
+        "products": [],
+        "products_per_row_mobile": "1",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "collections_list": {
+      "type": "collections-list",
+      "blocks": {
+        "collection_item_1": {
+          "type": "collection_item",
+          "settings": {
+            "title": "",
+            "overwrite_link": ""
+          }
+        },
+        "collection_item_2": {
+          "type": "collection_item",
+          "settings": {
+            "title": "",
+            "overwrite_link": ""
+          }
+        },
+        "collection_item_3": {
+          "type": "collection_item",
+          "settings": {
+            "title": "",
+            "overwrite_link": ""
+          }
+        },
+        "collection_item_4": {
+          "type": "collection_item",
+          "settings": {
+            "title": "",
+            "overwrite_link": ""
+          }
+        },
+        "collection_item_5": {
+          "type": "collection_item",
+          "settings": {
+            "title": "",
+            "overwrite_link": ""
+          }
+        },
+        "collection_item_6NfQ7q": {
+          "type": "collection_item",
+          "settings": {
+            "title": "All"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_1",
+        "collection_item_2",
+        "collection_item_3",
+        "collection_item_4",
+        "collection_item_5",
+        "collection_item_6NfQ7q"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "subheading": "Categories",
+        "heading": "",
+        "heading_font": "body",
+        "heading_size": "h6",
+        "heading_tag": "h2",
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Shop Now",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": false,
+        "collection_heading_size": "h1",
+        "collection_heading_tag": "h3",
+        "aspect_ratio": "portrait",
+        "object_fit": "cover",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "featured_product_VR7LTU": {
+      "type": "featured-product",
+      "blocks": {
+        "badges_dxhHTy": {
+          "type": "badges",
+          "settings": {
+            "show_sale_badge": true,
+            "sale_badge_type": "percentage",
+            "show_soldout_badge": false,
+            "show_custom_badges": true,
+            "show_new_badge": true,
+            "new_badge_days": 30,
+            "show_product_tags": false
+          }
+        },
+        "tags_VQtEwT": {
+          "type": "tags",
+          "disabled": true,
+          "settings": {}
+        },
+        "title_xUyak4": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h5"
+          }
+        },
+        "price_67HLKi": {
+          "type": "price",
+          "settings": {
+            "price_font": "body",
+            "price_font_size": "h4",
+            "show_tax_info": false,
+            "show_installments": false
+          }
+        },
+        "inventory_MTkTE3": {
+          "type": "inventory",
+          "settings": {
+            "inventory_threshold": 10,
+            "show_inventory_quantity": false
+          }
+        },
+        "buy_buttons_BEQPNy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_quantity_selector": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "icon_with_text_Kez84C": {
+          "type": "icon_with_text",
+          "settings": {
+            "enable_icon": true,
+            "custom_icon_fit": "cover",
+            "text": "Buy now and receive it in approximately <strong>3 - 5 days</strong>"
+          }
+        },
+        "divider_ATMN8d": {
+          "type": "divider",
+          "settings": {
+            "enable_border": true,
+            "margin_top": "40px",
+            "margin_bottom": "0"
+          }
+        },
+        "description_xKDqxj": {
+          "type": "description",
+          "settings": {
+            "overwrite_text": "<p>A reliable, everyday-use product designed to support planning, note-taking, and creative work. It features a clean layout and sturdy build, making it suitable for personal, academic, or professional tasks.</p>",
+            "description_image_fit": "cover"
+          }
+        },
+        "divider_tqMgJG": {
+          "type": "divider",
+          "settings": {
+            "enable_border": true,
+            "margin_top": "16px",
+            "margin_bottom": "0"
+          }
+        }
+      },
+      "block_order": [
+        "badges_dxhHTy",
+        "tags_VQtEwT",
+        "title_xUyak4",
+        "price_67HLKi",
+        "inventory_MTkTE3",
+        "buy_buttons_BEQPNy",
+        "icon_with_text_Kez84C",
+        "divider_ATMN8d",
+        "description_xKDqxj",
+        "divider_tqMgJG"
+      ],
+      "name": "t:sections.featured-product.name",
+      "settings": {
+        "only_two_images": true,
+        "color_scheme": "",
+        "show_full_details": false,
+        "subheading": "Limited edition",
+        "heading": "A note for every one of 365 days",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Shop All",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": true,
+        "desktop_gallery_order": "before",
+        "mobile_gallery_order": "before",
+        "desktop_media_ratio": "portrait",
+        "mobile_media_ratio": "portrait",
+        "image_fit": "cover",
+        "show_no_media_placeholder": true,
+        "enable_video_looping": true,
+        "enable_video_autoplay": false,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "image_with_text_KEn8az": {
+      "type": "image-with-text",
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme_main": "",
+        "mobile_container": true,
+        "enable_image": true,
+        "image_ratio_desktop": "full_height",
+        "image_ratio_mobile": "full_height",
+        "overlay_opacity": 10,
+        "enable_parallax": true,
+        "color_scheme": "",
+        "subheading": "",
+        "content_heading": "Every idea deserves a space to grow. Our sketchbooks, planners, calendars, pads, and accessories are designed to inspire creativity and keep your life organized.",
+        "content_heading_size": "h5",
+        "content_heading_tag": "h3",
+        "content_description": "",
+        "list_button_show": true,
+        "list_button_label": "About us",
+        "list_button_style": "tertiary",
+        "animated_badge": true,
+        "vertical_alignment": "center",
+        "text_alignment": "center",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "content_cards_gKNrrL": {
+      "type": "content-cards",
+      "blocks": {
+        "content_cards_qVtQaF": {
+          "type": "content-cards",
+          "settings": {
+            "overlay_opacity": 0,
+            "card_heading": "Bright and smooth",
+            "card_heading_font": "body",
+            "card_heading_size": "h6",
+            "card_heading_tag": "h3",
+            "card_description": "Experience paper that’s crisp, clean, and a joy to write on, making every note and sketch stand out."
+          }
+        },
+        "content_cards_afDUJD": {
+          "type": "content-cards",
+          "settings": {
+            "overlay_opacity": 0,
+            "card_heading": "Tear-resistant",
+            "card_heading_font": "body",
+            "card_heading_size": "h6",
+            "card_heading_tag": "h3",
+            "card_description": "Durable and strong, our pages withstand everyday use without ripping or tearing."
+          }
+        },
+        "content_cards_PVHVkw": {
+          "type": "content-cards",
+          "settings": {
+            "overlay_opacity": 0,
+            "card_heading": "Friction-free writing",
+            "card_heading_font": "body",
+            "card_heading_size": "h6",
+            "card_heading_tag": "h3",
+            "card_description": "Glide effortlessly across the page with smooth surfaces designed for seamless writing and drawing."
+          }
+        },
+        "content_cards_nn7zqq": {
+          "type": "content-cards",
+          "settings": {
+            "overlay_opacity": 0,
+            "card_heading": "No bleaches or acids",
+            "card_heading_font": "body",
+            "card_heading_size": "h6",
+            "card_heading_tag": "h3",
+            "card_description": "Made with safe, eco-friendly materials, our paper protects both your creations and the environment."
+          }
+        }
+      },
+      "block_order": [
+        "content_cards_qVtQaF",
+        "content_cards_afDUJD",
+        "content_cards_PVHVkw",
+        "content_cards_nn7zqq"
+      ],
+      "name": "t:sections.content-cards.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "Our benefits",
+        "heading": "Our promise to you",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Shop Now",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": true,
+        "items_per_row": 4,
+        "aspect_ratio": "portrait",
+        "object_fit": "cover",
+        "enable_card_numbering": true,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "testimonials_iJmMhk": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonials_slide_7BXWVh": {
+          "type": "testimonials_slide",
+          "settings": {
+            "slide_text": "“I love how smooth and bright the paper is! Writing in my planner has never felt so satisfying. These products make staying organized enjoyable.”",
+            "slide_heading_size": "h5",
+            "slide_heading_tag": "h3",
+            "slide_author": "Daniel Kim",
+            "position_name": "Graphic Designer",
+            "enable_rating": true,
+            "rating": 5,
+            "enable_product": true,
+            "main_color_scheme": "background-4"
+          }
+        },
+        "testimonials_slide_xnqywh": {
+          "type": "testimonials_slide",
+          "settings": {
+            "slide_text": "\"The quality is outstanding. My sketchbook has held up beautifully, and I can write and draw without worrying about tearing the pages. Highly recommend!\"",
+            "slide_heading_size": "h5",
+            "slide_heading_tag": "h3",
+            "slide_author": "Daniel Kim",
+            "position_name": "Graphic Designer",
+            "enable_rating": true,
+            "rating": 4,
+            "enable_product": true,
+            "main_color_scheme": "background-4"
+          }
+        },
+        "testimonials_slide_YzLjR4": {
+          "type": "testimonials_slide",
+          "settings": {
+            "slide_text": "\"From planners to accessories, everything feels thoughtfully designed. I’ve never had such a seamless experience keeping my ideas and projects in order.\"",
+            "slide_heading_size": "h5",
+            "slide_heading_tag": "h3",
+            "slide_author": "Daniel Kim",
+            "position_name": "Graphic Designer",
+            "enable_rating": true,
+            "rating": 4,
+            "enable_product": true,
+            "main_color_scheme": "background-4"
+          }
+        }
+      },
+      "block_order": [
+        "testimonials_slide_7BXWVh",
+        "testimonials_slide_xnqywh",
+        "testimonials_slide_YzLjR4"
+      ],
+      "name": "t:sections.testimonials.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "enable_autoplay": true,
+        "stop_autoplay": true,
+        "slide_duration": 5,
+        "enable_text_animation": true,
+        "subheading": "Reviews",
+        "heading": "Our customers say it best",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h3",
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Learn More",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": true,
+        "color_scheme_media": "background-1",
+        "aspect_ratio": "square",
+        "enable_image": true,
+        "object_fit": "cover",
+        "overlay_opacity": 0,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "trust_zwDxUA": {
+      "type": "Trust",
+      "blocks": {
+        "column_nmnHFX": {
+          "type": "column",
+          "settings": {
+            "heading": "Natural materials",
+            "text": "",
+            "enable_icon": true,
+            "icon": "custom",
+            "custom_icon_fit": "cover",
+            "show_button": false,
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "tertiary"
+          }
+        },
+        "column_K89tMF": {
+          "type": "column",
+          "settings": {
+            "heading": "30-Days Free Returns",
+            "text": "",
+            "enable_icon": true,
+            "icon": "custom",
+            "custom_icon_fit": "cover",
+            "show_button": false,
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "tertiary"
+          }
+        },
+        "column_LDDy4Y": {
+          "type": "column",
+          "settings": {
+            "heading": "Secure Payment",
+            "text": "",
+            "enable_icon": true,
+            "icon": "custom",
+            "custom_icon_fit": "cover",
+            "show_button": false,
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "tertiary"
+          }
+        }
+      },
+      "block_order": [
+        "column_nmnHFX",
+        "column_K89tMF",
+        "column_LDDy4Y"
+      ],
+      "name": "t:sections.trust.name",
+      "settings": {
+        "color_scheme": "",
+        "text_alignment": "center",
+        "heading": "",
+        "heading_font": "body",
+        "heading_size": "h6",
+        "heading_tag": "h2",
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Learn More",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "column_heading_font": "body",
+        "column_heading_size": "body-large",
+        "column_heading_tag": "h3",
+        "padding_top": "xs",
+        "padding_bottom": "xs",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "",
+        "posts_per_row": 3,
+        "posts_count": 3,
+        "heading_group_enable_border_bottom": true,
+        "subheading": "Journal",
+        "heading": "Keep up with our latest stories",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "heading_group_button_show": true,
+        "heading_group_button_label": "Read All",
+        "heading_group_button_style": "tertiary",
+        "show_image": true,
+        "aspect_ratio": "landscape",
+        "object_fit": "cover",
+        "show_date": true,
+        "show_tags": true,
+        "show_author": true,
+        "show_comments_count": false,
+        "show_excerpt": false,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    }
+  },
+  "order": [
+    "featured_products_FnXqhP",
+    "popular-products",
+    "showcase",
+    "collections_list",
+    "featured_product_VR7LTU",
+    "image_with_text_KEn8az",
+    "content_cards_gKNrrL",
+    "testimonials_iJmMhk",
+    "trust_zwDxUA",
+    "blog-posts"
+  ]
+}

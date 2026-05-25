@@ -1,0 +1,61 @@
+<nav class="header__inline-menu">
+  {%- if section.settings.menu != blank -%}
+    <ul class="list-menu list-menu--inline" role="list">
+      {%- for link in section.settings.menu.links -%}
+        {% liquid
+          assign mega_menu = false
+          assign mega_submenu = false
+        %}
+
+        {% for block in section.blocks %}
+          {% liquid
+            assign mega_menu_trigger = block.settings.mega_menu_trigger | handle | strip
+            if link.handle == mega_menu_trigger and block.type == 'mega_menu'
+              if block.settings.mega_menu_submenu != blank or block.settings.mega_menu_collections != blank
+                assign mega_menu = true
+              endif
+            endif
+
+            assign mega_submenu_trigger = block.settings.mega_submenu_trigger | handle | strip
+            if link.handle == mega_submenu_trigger and block.type == 'mega_submenu' and link.links != blank
+              assign mega_submenu = true
+            endif
+          %}
+        {% endfor %}
+        <li
+          class="list-menu-item{% if mega_menu %} list-menu--megamenu{% elsif mega_submenu %} list-menu--megasubmenu{% elsif link.links != blank %} list-menu--submenu{% endif %}"
+          {% if mega_menu %}
+            {{ block.shopify_attributes }}
+          {% endif %}
+        >
+          <a
+            href="{{ link.url }}"
+            {% if settings.links_blank and link.type == 'http_link' %}
+              target="_blank"
+            {% endif %}
+            class="list-menu-item-animate header__menu-item header-overlay-transition focus-inset"
+            {% if link.current and link.url != '/' %}
+              aria-current="page"
+            {% endif %}
+            aria-label="{{ link.title | escape }}"
+          >
+            <span class="header-label" title="{{ link.title | escape }}">
+              {{- link.title | escape -}}
+            </span>
+          </a>
+          {% if mega_menu %}
+            {% render 'header-mega-menu', link: link, section: section %}
+          {% elsif mega_submenu %}
+            {% render 'header-mega-submenu',
+              link: link,
+              section: section,
+              menu_position: section.settings.menu_position
+            %}
+          {% elsif link.links != blank %}
+            {% render 'header-submenu', link: link %}
+          {% endif %}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</nav>

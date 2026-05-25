@@ -1,0 +1,131 @@
+{%- if shop.customer_accounts_enabled -%}
+  {%- if section.settings.enable_account_modal -%}
+    {%- if section.settings.account_modal_type == 'shopify_based' -%}
+      {% comment %} ----- SHOPIFY BASED ACCOUNT MODAL ----- {% endcomment %}
+
+      <div class="header__account list-menu--inline{% if button_type == 'icon' %} header__account--icon{% endif %}">
+        <shopify-account
+          menu="{{ section.settings.customer_account_menu | default: "customer-account-main-menu" }}"
+          style="display: flex; align-items: center;"
+        >
+          <div slot="signed-out-avatar">
+            <div
+              class="header__button header__button--{{ button_type }} header-overlay-transition focus-inset header__menu-item"
+            >
+              {% if button_type == 'icon' %}
+                {% render 'icon-account' %}
+              {%- else -%}
+                <span class="header-label" data-label="{{- 'sections.header.account_label' | t -}}">
+                  {{- 'sections.header.account_label' | t -}}
+                </span>
+              {%- endif -%}
+            </div>
+          </div>
+        </shopify-account>
+      </div>
+    {%- else -%}
+      {% comment %} ----- THEME BASED ACCOUNT MODAL ----- {% endcomment %}
+      <div class="header__account list-menu--inline{% if button_type == 'icon' %} header__account--icon{% endif %}{% if edge_right %} header__account--edge-right{% endif %}">
+        {% liquid
+          if customer
+            assign btn_link = routes.account_profile_url
+            assign btn_aria = 'customer.account_fallback' | t
+          else
+            assign btn_link = routes.account_login_url
+            assign btn_aria = 'customer.sign_in' | t
+          endif
+        %}
+        <details class="header__account-details" id="Details-HeaderAccount">
+          <summary
+            class="header__button header__button--{{ button_type }} header-overlay-transition focus-inset header__menu-item"
+            aria-label="{{- btn_aria -}}"
+            aria-expanded="false"
+            {% if customer and customer.name != blank %}
+              title="{{- 'sections.header.account_hover_text' | t: name: customer.name -}}"
+            {% endif %}
+          >
+            {% if button_type == 'icon' %}
+              {% render 'icon-account' %}
+            {%- else -%}
+              <span class="header-label" data-label="{{- 'sections.header.account_label' | t -}}">
+                {{- 'sections.header.account_label' | t -}}
+              </span>
+            {%- endif -%}
+          </summary>
+          <div class="header__account-dropdown motion-reduce color-background-2">
+            {%- if customer -%}
+              <div class="header__account-dropdown-content header__account-dropdown-content--account">
+                <div class="header__account-account">
+                  <div class="header__account-name-wrapper">
+                    <div class="header__account-name-icon">
+                      {% render 'icon-user' %}
+                    </div>
+                    <div class="header__account-name">
+                      {{ 'sections.header.account_hover_text' | t: name: customer.first_name }}
+                    </div>
+                  </div>
+                  <ul class="header__account-body">
+                    <li class="header__account-link">
+                      <a href="{{ routes.account_profile_url }}" class="list-menu-item-hover focus-inset body-normal">
+                        {{ 'customer.account_fallback' | t }}
+                      </a>
+                    </li>
+                    {% comment %}<li class="header__account-address">
+                      <a href="{{ routes.account_addresses_url }}" class="list-menu-item-hover focus-inset body-normal">
+                        {{- 'customer.addresses.book' | t -}}
+                      </a>
+                    </li>{% endcomment %}
+                    <li class="header__account-logout">
+                      <a
+                        href="{{ routes.account_logout_url }}"
+                        class="list-menu-item-hover focus-inset body-normal header__account-logout-link"
+                      >
+                        <span class="header__account-logout-icon">
+                          {% render 'icon-logout' %}
+                        </span>
+                        {{ 'customer.log_out' | t }}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            {%- else -%}
+              <div class="header__account-dropdown-content header__account-dropdown-content--login">
+                <a
+                  href="{{ btn_link }}"
+                  class="button button--primary header__account-login focus-inset"
+                  aria-label="{{- btn_aria -}}"
+                >
+                  {%- liquid
+                    if customer
+                      echo 'customer.account_fallback' | t
+                    else
+                      echo 'customer.sign_in' | t
+                    endif
+                  -%}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
+        </details>
+      </div>
+    {%- endif -%}
+  {%- else -%}
+    {% comment %} ----- ACCOUNT BUTTON ----- {% endcomment %}
+
+    <div class="header__account">
+      <a
+        href="{% if customer %} {{ routes.account_profile_url }} {% else %} {{ routes.account_login_url }} {% endif %}"
+        class="header__button header__button--{{ button_type }} header-overlay-transition focus-inset header__menu-item"
+      >
+        {% if button_type == 'icon' %}
+          {% render 'icon-account' %}
+        {%- else -%}
+          <span class="header-label" data-label="{{- 'sections.header.account_label' | t -}}">
+            {{- 'sections.header.account_label' | t -}}
+          </span>
+        {%- endif -%}
+      </a>
+    </div>
+  {%- endif -%}
+{%- endif -%}

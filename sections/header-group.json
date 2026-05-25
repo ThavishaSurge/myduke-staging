@@ -1,0 +1,85 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header.settings.header-group.label",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "color_scheme": "background-3",
+        "height": 30,
+        "main_text": "Automatic site-wide discounts at checkout.",
+        "link": ""
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "search_modal": {
+          "type": "search_modal",
+          "settings": {
+            "search_modal_color_scheme": "background-1",
+            "enable_predictive_search": true
+          }
+        },
+        "mega_menu": {
+          "type": "mega_menu",
+          "settings": {
+            "mega_menu_trigger": "Home",
+            "mega_menu_color_scheme": "background-2",
+            "mega_menu_submenu": "",
+            "enable_shop_all_button": true,
+            "enable_clickable_top_level": true,
+            "mega_menu_collections": []
+          }
+        },
+        "mega_submenu_QFtDC7": {
+          "type": "mega_submenu",
+          "settings": {
+            "mega_submenu_trigger": "",
+            "mega_submenu_color_scheme": "background-2",
+            "enable_clickable_top_level": false
+          }
+        }
+      },
+      "block_order": ["search_modal", "mega_menu", "mega_submenu_QFtDC7"],
+      "settings": {
+        "menu": "main-menu",
+        "sticky_header_type": "on-scroll-up",
+        "overlay_mode": true,
+        "color_scheme_overlay_mode": "background-4",
+        "enable_border": true,
+        "show_logo": true,
+        "show_dm_logo_in_overlay_mode": true,
+        "logo_position": "left-logo",
+        "menu_position": "left-menu",
+        "logo_width": 100,
+        "h1_logo": true,
+        "enable_search": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "region_color_scheme": "background-1",
+        "enable_dark_mode_toggle": true,
+        "enable_account_modal": true,
+        "account_button_type": "text",
+        "account_modal_type": "theme_based",
+        "customer_account_menu": "customer-account-main-menu",
+        "enable_additional_button": true,
+        "additional_button_label": "Contact",
+        "mobile_menu_color_scheme": "background-2",
+        "show_dm_logo_in_mobile_menu": false,
+        "enable_right_mobile_menu_border": true,
+        "enable_social_on_mobile": true
+      }
+    }
+  },
+  "order": ["announcement-bar", "header"]
+}

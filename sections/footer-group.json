@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer.settings.footer-group.label",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "block_1": {
+          "type": "link_list",
+          "settings": {}
+        },
+        "block_2": {
+          "type": "link_list",
+          "settings": {}
+        },
+        "block_3": {
+          "type": "link_list",
+          "settings": {}
+        },
+        "logo_list_dTGYRU": {
+          "type": "logo_list",
+          "settings": {
+            "contact_heading": "Follow us",
+            "show_socials": true
+          }
+        }
+      },
+      "block_order": ["block_1", "block_2", "block_3", "logo_list_dTGYRU"],
+      "settings": {
+        "main_color_scheme": "background-2",
+        "enable_border_top": true,
+        "show_contact": true,
+        "show_logo": true,
+        "logo_width": 550,
+        "show_contact_text": true,
+        "enable_image": true,
+        "show_newsletter": true,
+        "newsletter_heading": "Join our Newsletter",
+        "show_newsletter_text": true,
+        "newsletter_text": "By clicking on the “Subscribe” button, I confirm my agreement with the<a href=\"/policies/privacy-policy\" title=\"Privacy Policy\"> Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>",
+        "privacy_policy_consent": false,
+        "bottom_color_scheme": "background-2",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "region_color_scheme": "",
+        "payment_enable": true,
+        "enable_copyright": true,
+        "enable_copyright_date": true,
+        "show_policy": false
+      }
+    }
+  },
+  "order": ["footer"]
+}

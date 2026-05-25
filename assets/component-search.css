@@ -1,0 +1,80 @@
+.search__form {
+  width: 100%;
+}
+.search__form-text {
+  margin-top: 2rem;
+}
+.search .field {
+  position: relative;
+}
+.search__input {
+  padding-inline-start: 3.4rem !important;
+  padding-inline-end: 7rem !important;
+}
+.search__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-foreground));
+  transition: opacity var(--duration-default);
+}
+.search__button .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.search__button .icon.icon-close {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.search__button--submit, .search__button--reset {
+  right: 0;
+}
+@media screen and (hover: hover) and (pointer: fine) {
+  .search__button:hover {
+    opacity: var(--hover-opacity);
+  }
+}
+
+.card-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+  min-height: 11.5rem;
+  height: auto;
+  padding: 1.6rem;
+  border-radius: var(--border-radius-block);
+  justify-content: space-between;
+  transition: border-color var(--duration-default);
+  overflow: hidden;
+  color: rgb(var(--color-foreground));
+  transition: background-color var(--duration-default);
+  background: rgb(var(--color-background-secondary));
+}
+@media screen and (hover: hover) and (pointer: fine) {
+  .card-page:hover .card-page__title {
+    opacity: var(--hover-opacity);
+  }
+}
+.card-page__title {
+  color: rgb(var(--color-foreground));
+  transition: color var(--duration-default);
+  font-weight: normal;
+}
+.card-page-wrapper {
+  position: relative;
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  background-color: transparent;
+}
+.card-page__content {
+  text-align: left;
+}

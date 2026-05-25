@@ -1,0 +1,24 @@
+<div class="content-tabs__tab-richtext-content rte" {{ block.shopify_attributes }}>
+  {{ block.settings.text }}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.content-tabs.blocks.richtext_content.name",
+  "tag": "div",
+  "class": "tab-richtext-content-block",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.content-tabs.blocks.richtext_content.settings.text.label",
+      "default": "t:sections.content-tabs.blocks.richtext_content.settings.text.default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.content-tabs.blocks.richtext_content.name"
+    }
+  ]
+}
+{% endschema %}

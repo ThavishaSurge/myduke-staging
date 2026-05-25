@@ -1,0 +1,232 @@
+{%- for block in section.blocks -%}
+  {%- if block.type == 'desktop_burger' -%}
+    <burger-menu
+      class="no-js-hidden"
+      {{ block.shopify_attributes }}
+    >
+      <button
+        class="burger-menu__toggle burger-menu__toggle--open-btn button--unstyled focus-inset header-overlay-transition"
+        aria-label="{{ 'sections.header.burger_menu_open' | t }}"
+      >
+        {% render 'icon-hamburger' %}
+      </button>
+
+      <div class="burger-menu modal">
+        <div class="modal__overlay"></div>
+        <div
+          class="modal__content color-{{ block.settings.burger_color_scheme }}"
+          role="dialog"
+          aria-modal="true"
+          aria-label="{{ 'sections.header.burger_menu' | t }}"
+          tabindex="-1"
+        >
+          <div class="modal__heading">
+            {% render 'modal-close-button', only_icon: true, big_icon: true %}
+            {%- if block.settings.show_logo -%}
+              {% render 'header-logo',
+                position: 'left',
+                is_h1_logo: false,
+                show_logo: block.settings.show_logo,
+                class: 'burger-menu__logo'
+              %}
+            {%- endif -%}
+          </div>
+
+          <div class="burger-menu__content">
+            {%- if block.settings.burger_main_menu != blank or block.settings.burger_secondary_menu != blank -%}
+              <div class="burger-menu__content-main">
+                {% if block.settings.subheading != blank %}
+                  <span class="burger-menu__subheading body-normal">{{ block.settings.subheading }}</span>
+                {% endif %}
+                <ul class="burger-menu__list list-menu">
+                  {%- for link in block.settings.burger_main_menu.links -%}
+                    <li>
+                      {%- if link.links != blank -%}
+                        <menu-drawer>
+                          <details id="Details-DesktopBurger-Link-{{ forloop.index }}">
+                            <summary
+                              {% if block.settings.enable_clickable_top_level -%}
+                                class="burger-menu__summary"
+                              {%- endif %}
+                            >
+                              {%- if block.settings.enable_clickable_top_level -%}
+                                <div class="burger-menu__link-wrapper">
+                                  <a
+                                    href="{{ link.url }}"
+                                    class="burger-menu__link body-large{% if link.title == block.settings.highlighted_trigger %} burger-menu__link--highlighted{% endif %}"
+                                    {% if link.current %}
+                                      aria-current="page"
+                                    {% endif %}
+                                    aria-label="{{ link.title | escape }}"
+                                  >
+                                    {{ link.title | escape }}
+                                  </a>
+
+                                  {% render 'icon-arrow-burger' %}
+                                </div>
+                              {%- else -%}
+                                <div class="burger-menu__link-wrapper">
+                                  <span class="burger-menu__link body-large{% if link.title == block.settings.highlighted_trigger %} burger-menu__link--highlighted{% endif %}">{{- link.title | escape -}}</span>
+                                  {% render 'icon-arrow-burger' %}
+                                </div>
+                              {%- endif -%}
+                            </summary>
+                            <div class="burger-menu__submenu">
+                              <div class="burger-menu__submenu-header">
+                                <button
+                                  type="button"
+                                  class="burger-menu__submenu-back button--unstyled focus-inset"
+                                  aria-expanded="true"
+                                >
+                                  {% render 'icon-burger-menu-back' %}
+                                </button>
+                                {% render 'modal-close-button', only_icon: true %}
+                              </div>
+
+                              <ul class="burger-menu__list list-menu">
+                                {%- for childlink in link.links -%}
+                                  <li>
+                                    {%- if childlink.links == blank -%}
+                                      <a
+                                        href="{{ childlink.url }}"
+                                        class="burger-menu__link body-normal"
+                                        {% if childlink.current %}
+                                          aria-current="page"
+                                        {% endif %}
+                                        aria-label="{{ childlink.title | escape }}"
+                                      >
+                                        {{- childlink.title | escape -}}
+                                      </a>
+                                    {%- else -%}
+                                      <details open>
+                                        <summary>
+                                          {%- if block.settings.enable_clickable_top_level -%}
+                                            <a
+                                              href="{{ childlink.url }}"
+                                              class="burger-menu__link h5"
+                                              {% if childlink.current %}
+                                                aria-current="page"
+                                              {% endif %}
+                                              aria-label="{{ childlink.title | escape }}"
+                                            >
+                                              {{ childlink.title | escape }}
+                                            </a>
+                                          {%- else -%}
+                                            <span class="burger-menu__link h5">
+                                              {{- childlink.title | escape -}}
+                                            </span>
+                                          {%- endif -%}
+                                        </summary>
+                                        <div class="burger-menu__submenu">
+                                          <ul class="burger-menu__list list-menu">
+                                            {%- for grandchildlink in childlink.links -%}
+                                              <li>
+                                                <a
+                                                  href="{{ grandchildlink.url }}"
+                                                  class="burger-menu__link body-normal"
+                                                  {% if grandchildlink.current %}
+                                                    aria-current="page"
+                                                  {% endif %}
+                                                  aria-label="{{ grandchildlink.title | escape }}"
+                                                >
+                                                  {{- grandchildlink.title | escape -}}
+                                                </a>
+                                              </li>
+                                            {%- endfor -%}
+                                            {% if block.settings.enable_shop_all_button %}
+                                              {% liquid
+                                                assign shop_all_label = 'sections.header.shop_all' | t
+                                              %}
+                                              {% render 'button',
+                                                btn_link: routes.all_products_collection_url,
+                                                btn_label: shop_all_label,
+                                                btn_style: 'tertiary',
+                                                class: 'burger-menu__submenu-shop-all-button'
+                                              %}
+                                            {% endif %}
+                                          </ul>
+                                        </div>
+                                      </details>
+                                    {%- endif -%}
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+
+                              {%- if block.settings.enable_dark_mode_toggle
+                                or block.settings.enable_country_selector
+                                or block.settings.enable_language_selector
+                              -%}
+                                <div class="burger-menu__bottom">
+                                  {% render 'header-color-scheme', section_obj: block %}
+                                  {% render 'modal-region-selector',
+                                    section_obj: block,
+                                    class: 'burger-menu__region',
+                                    modal_location: 'header_mobile',
+                                    in_header_drawer: true
+                                  %}
+                                </div>
+                              {%- endif -%}
+                            </div>
+                          </details>
+                        </menu-drawer>
+                      {%- else -%}
+                        <a
+                          href="{{ link.url }}"
+                          {% if settings.links_blank and link.type == 'http_link' %}
+                            target="_blank"
+                          {% endif %}
+                          class="burger-menu__link body-large{% if link.title == block.settings.highlighted_trigger %} burger-menu__link--highlighted{% endif %}"
+                          aria-label="{{ link.title }}"
+                        >
+                          <span>{{- link.title -}}</span>
+                        </a>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                  {%- if block.settings.burger_secondary_menu != blank -%}
+                    {%- for link in block.settings.burger_secondary_menu.links -%}
+                      <li
+                        {% if forloop.first %}
+                          class="burger-menu__secondary-first"
+                        {% endif %}
+                      >
+                        <a
+                          href="{{ link.url }}"
+                          {% if settings.links_blank and link.type == 'http_link' %}
+                            target="_blank"
+                          {% endif %}
+                          class="burger-menu__link body-normal"
+                          {% if link.current %}
+                            aria-current="page"
+                          {% endif %}
+                          aria-label="{{ link.title | escape }}"
+                        >
+                          {{- link.title | escape -}}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  {%- endif -%}
+                </ul>
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.enable_dark_mode_toggle
+              or block.settings.enable_country_selector
+              or block.settings.enable_language_selector
+            -%}
+              <div class="burger-menu__bottom">
+                {% render 'header-color-scheme', section_obj: block %}
+                {% render 'modal-region-selector',
+                  section_obj: block,
+                  class: 'burger-menu__region',
+                  modal_location: 'header_mobile',
+                  in_header_drawer: true
+                %}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </burger-menu>
+  {%- endif -%}
+{%- endfor -%}
