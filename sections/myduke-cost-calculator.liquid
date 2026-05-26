@@ -111,13 +111,13 @@
     padding: 0;
   }
 
-  /* Track — webkit: filled left portion via CSS variable set by JS */
-  .myduke-calc__slider::-webkit-slider-runnable-track {
+  /* Track — webkit: --calc-fill is set on .myduke-calc wrapper by JS so it cascades here */
+  .myduke-calc .myduke-calc__slider::-webkit-slider-runnable-track {
     height: 1rem;
     border-radius: 9.9rem;
     background: linear-gradient(
       to right,
-      #218380 var(--calc-fill, 0%),
+      {{ section.settings.slider_fill_color }} var(--calc-fill, 0%),
       #edf3f0 var(--calc-fill, 0%)
     );
   }
@@ -133,10 +133,10 @@
   .myduke-calc__slider::-moz-range-progress {
     height: 1rem;
     border-radius: 9.9rem 0 0 9.9rem;
-    background: #218380;
+    background: {{ section.settings.slider_fill_color }};
   }
 
-  /* Thumb — custom dot-grid handle */
+  /* Thumb — custom dot-grid handle (Figma: 42×32, radius 8px, border #E6E3DB, bg white) */
   .myduke-calc__slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -148,10 +148,9 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 8px 13px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 0.8rem;
+    border: 1px solid #E6E3DB;
+    border-radius: 8px;
     cursor: grab;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 
   .myduke-calc__slider::-moz-range-thumb {
@@ -162,10 +161,9 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 8px 13px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 0.8rem;
+    border: 1px solid #E6E3DB;
+    border-radius: 8px;
     cursor: grab;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 
   .myduke-calc__slider:active::-webkit-slider-thumb { cursor: grabbing; }
@@ -498,11 +496,13 @@
     return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
+  var sectionEl = slider.closest('.myduke-calc') || slider.parentElement;
+
   function updateFill() {
     var min = parseFloat(slider.min) || 1;
     var max = parseFloat(slider.max) || 60;
     var pct = ((parseFloat(slider.value) - min) / (max - min)) * 100;
-    slider.style.setProperty('--calc-fill', pct.toFixed(2) + '%');
+    sectionEl.style.setProperty('--calc-fill', pct.toFixed(2) + '%');
   }
 
   function calc() {
@@ -610,6 +610,13 @@
       "default": 30,
       "label": "Default value",
       "info": "Initial slider position. Must be between minimum and maximum."
+    },
+    {
+      "type": "color",
+      "id": "slider_fill_color",
+      "label": "Track fill colour",
+      "default": "#218380",
+      "info": "Colour of the completed (left) portion of the slider track."
     },
     {
       "type": "header",
