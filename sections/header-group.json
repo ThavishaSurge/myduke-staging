@@ -22,45 +22,12 @@
     },
     "header": {
       "type": "header",
-      "blocks": {
-        "search_modal": {
-          "type": "search_modal",
-          "settings": {
-            "search_modal_color_scheme": "background-1",
-            "enable_predictive_search": true
-          }
-        },
-        "mega_menu": {
-          "type": "mega_menu",
-          "settings": {
-            "mega_menu_trigger": "Home",
-            "mega_menu_color_scheme": "background-2",
-            "mega_menu_submenu": "",
-            "enable_shop_all_button": true,
-            "enable_clickable_top_level": true,
-            "mega_menu_collections": []
-          }
-        },
-        "mega_submenu_QFtDC7": {
-          "type": "mega_submenu",
-          "settings": {
-            "mega_submenu_trigger": "",
-            "mega_submenu_color_scheme": "background-2",
-            "enable_clickable_top_level": false
-          }
-        }
-      },
-      "block_order": [
-        "search_modal",
-        "mega_menu",
-        "mega_submenu_QFtDC7"
-      ],
       "settings": {
         "menu": "main-menu",
         "sticky_header_type": "on-scroll-up",
         "transparent_sticky_adaptive": false,
         "overlay_mode": true,
-        "color_scheme_overlay_mode": "background-4",
+        "color_scheme_overlay_mode": "background-2",
         "enable_border": true,
         "show_logo": true,
         "logo": "shopify://shop_images/Logo_TM_black.png",
