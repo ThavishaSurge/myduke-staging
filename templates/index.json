@@ -632,7 +632,7 @@
         "content_cards_8dxqPP": {
           "type": "content-cards",
           "settings": {
-            "card_image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.png",
+            "card_image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.webp",
             "overlay_opacity": 0,
             "card_overlay_link": "",
             "card_time_badge": "2 minutes",
@@ -649,7 +649,7 @@
         "content_cards_bkidFR": {
           "type": "content-cards",
           "settings": {
-            "card_image": "shopify://shop_images/Doctor_Review-cover.png",
+            "card_image": "shopify://shop_images/Doctor_Review-cover.webp",
             "overlay_opacity": 0,
             "card_overlay_link": "",
             "card_time_badge": "< 24 hrs",
@@ -665,7 +665,7 @@
         "content_cards_cULjNp": {
           "type": "content-cards",
           "settings": {
-            "card_image": "shopify://shop_images/Shop_Treatment_-_cover.png",
+            "card_image": "shopify://shop_images/Shop_Treatment_-_cover.webp",
             "overlay_opacity": 0,
             "card_overlay_link": "",
             "card_time_badge": "1-2 Days",
@@ -681,7 +681,7 @@
         "content_cards_txX9PY": {
           "type": "content-cards",
           "settings": {
-            "card_image": "shopify://shop_images/Ongoing_Support_-_cover.png",
+            "card_image": "shopify://shop_images/Ongoing_Support_-_cover.webp",
             "overlay_opacity": 0,
             "card_overlay_link": "",
             "card_time_badge": "Ongoing",
