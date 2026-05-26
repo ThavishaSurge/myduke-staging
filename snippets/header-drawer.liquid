@@ -215,14 +215,24 @@
             </div>
           {%- endif -%}
 
-          {%- if section.settings.enable_additional_button -%}
+          {%- if section.settings.enable_additional_button or section.settings.enable_additional_button_2 -%}
             <div class="menu-drawer__additional">
-              {% render 'button',
-                btn_label: section.settings.additional_button_label,
-                btn_style: 'secondary',
-                btn_link: section.settings.additional_button_link,
-                class: 'menu-drawer__additional-btn'
-              %}
+              {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
+                {% render 'button',
+                  btn_label: section.settings.additional_button_label,
+                  btn_style: section.settings.additional_button_style,
+                  btn_link: section.settings.additional_button_link,
+                  class: 'menu-drawer__additional-btn'
+                %}
+              {%- endif -%}
+              {%- if section.settings.enable_additional_button_2 and section.settings.additional_button_2_label != blank -%}
+                {% render 'button',
+                  btn_label: section.settings.additional_button_2_label,
+                  btn_style: section.settings.additional_button_2_style,
+                  btn_link: section.settings.additional_button_2_link,
+                  class: 'menu-drawer__additional-btn'
+                %}
+              {%- endif -%}
             </div>
           {%- endif -%}
 

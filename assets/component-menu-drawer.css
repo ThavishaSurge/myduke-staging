@@ -317,6 +317,9 @@
 }
 .menu-drawer__additional {
   padding-block: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 .menu-drawer .mobile-submenu-drawer > details > .mobile-submenu {
   position: fixed;

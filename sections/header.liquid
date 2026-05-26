@@ -393,6 +393,17 @@
     },
     {
       "type": "header",
+      "content": "Cart"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart_icon",
+      "default": true,
+      "label": "Show cart icon",
+      "info": "Toggle visibility of the shopping cart icon in the header."
+    },
+    {
+      "type": "header",
       "content": "t:sections.header.settings.header__search.content"
     },
     {
@@ -512,7 +523,7 @@
     {
       "type": "text",
       "id": "additional_button_label",
-      "label": "t:sections.header.settings.additional_button_link.label",
+      "label": "t:sections.header.settings.additional_button_label.label",
       "default": "t:sections.all.button.button_label.default_contact",
       "visible_if": "{{ section.settings.enable_additional_button == true }}"
     },
@@ -521,6 +532,84 @@
       "id": "additional_button_link",
       "label": "t:sections.header.settings.additional_button_link.label",
       "visible_if": "{{ section.settings.enable_additional_button == true }}"
+    },
+    {
+      "type": "select",
+      "id": "additional_button_style",
+      "label": "t:sections.all.button.button_style.label",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.button.button_style.options__1.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.button.button_style.options__2.label"
+        },
+        {
+          "value": "tertiary",
+          "label": "t:sections.all.button.button_style.options__3.label"
+        },
+        {
+          "value": "secondary2",
+          "label": "t:sections.all.button.button_style.options__4.label"
+        },
+        {
+          "value": "accent",
+          "label": "t:sections.all.button.button_style.options__5.label"
+        }
+      ],
+      "default": "secondary",
+      "visible_if": "{{ section.settings.enable_additional_button == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_additional_button_2",
+      "default": false,
+      "label": "t:sections.header.settings.enable_additional_button_2.label",
+      "info": "t:sections.header.settings.enable_additional_button_2.info"
+    },
+    {
+      "type": "text",
+      "id": "additional_button_2_label",
+      "label": "t:sections.header.settings.additional_button_2_label.label",
+      "default": "t:sections.all.button.button_label.default_contact",
+      "visible_if": "{{ section.settings.enable_additional_button_2 == true }}"
+    },
+    {
+      "type": "url",
+      "id": "additional_button_2_link",
+      "label": "t:sections.header.settings.additional_button_2_link.label",
+      "visible_if": "{{ section.settings.enable_additional_button_2 == true }}"
+    },
+    {
+      "type": "select",
+      "id": "additional_button_2_style",
+      "label": "t:sections.all.button.button_style.label",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.button.button_style.options__1.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.button.button_style.options__2.label"
+        },
+        {
+          "value": "tertiary",
+          "label": "t:sections.all.button.button_style.options__3.label"
+        },
+        {
+          "value": "secondary2",
+          "label": "t:sections.all.button.button_style.options__4.label"
+        },
+        {
+          "value": "accent",
+          "label": "t:sections.all.button.button_style.options__5.label"
+        }
+      ],
+      "default": "primary",
+      "visible_if": "{{ section.settings.enable_additional_button_2 == true }}"
     },
     {
       "type": "header",

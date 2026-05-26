@@ -2001,6 +2001,16 @@
         "additional_button_link": {
           "label": "Additional button link"
         },
+        "enable_additional_button_2": {
+          "label": "Show additional button 2",
+          "info": "On mobile devices, it will appear inside the drawer menu."
+        },
+        "additional_button_2_label": {
+          "label": "Additional button 2 label"
+        },
+        "additional_button_2_link": {
+          "label": "Additional button 2 link"
+        },
         "enable_dark_mode_toggle": {
           "label": "Enable dark/light mode toggle",
           "info": "On mobile devices, it will appear inside the drawer menu."
