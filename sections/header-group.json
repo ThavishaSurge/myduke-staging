@@ -22,6 +22,9 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        ".header__cart{display: none;}"
+      ],
       "settings": {
         "menu": "main-menu",
         "sticky_header_type": "none",
