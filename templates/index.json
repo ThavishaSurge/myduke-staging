@@ -632,33 +632,58 @@
         "content_cards_8dxqPP": {
           "type": "content-cards",
           "settings": {
+            "overlay_opacity": 0,
+            "card_overlay_link": "",
             "card_time_badge": "2 minutes",
             "card_heading": "Clinical Assessment",
-            "card_check_text": "Tell us about you"
+            "card_heading_font": "body",
+            "card_heading_size": "h6",
+            "card_heading_tag": "h3",
+            "card_check_text": "Tell us about you",
+            "card_check_icon": "shopify://shop_images/pale-green-tick.svg",
+            "card_description": "Here can be a short description explaining the content of this card."
           }
         },
         "content_cards_bkidFR": {
           "type": "content-cards",
           "settings": {
+            "overlay_opacity": 0,
+            "card_overlay_link": "",
             "card_time_badge": "< 24 hrs",
             "card_heading": "Doctor Review",
-            "card_check_text": "Doctor-approved pathway"
+            "card_heading_font": "body",
+            "card_heading_size": "h6",
+            "card_heading_tag": "h3",
+            "card_check_text": "Doctor-approved pathway",
+            "card_description": "Here can be a short description explaining the content of this card."
           }
         },
         "content_cards_cULjNp": {
           "type": "content-cards",
           "settings": {
+            "overlay_opacity": 0,
+            "card_overlay_link": "",
             "card_time_badge": "1-2 Days",
             "card_heading": "Shop Treatment",
-            "card_check_text": "Pharmacy-dispensed products"
+            "card_heading_font": "body",
+            "card_heading_size": "h6",
+            "card_heading_tag": "h3",
+            "card_check_text": "Pharmacy-dispensed products",
+            "card_description": "Here can be a short description explaining the content of this card."
           }
         },
         "content_cards_txX9PY": {
           "type": "content-cards",
           "settings": {
+            "overlay_opacity": 0,
+            "card_overlay_link": "",
             "card_time_badge": "Ongoing",
             "card_heading": "Ongoing Support",
-            "card_check_text": "We're with you all the way"
+            "card_heading_font": "body",
+            "card_heading_size": "h6",
+            "card_heading_tag": "h3",
+            "card_check_text": "We're with you all the way",
+            "card_description": "Here can be a short description explaining the content of this card."
           }
         }
       },
@@ -676,8 +701,18 @@
         "heading_font": "heading",
         "heading_size": "h2",
         "heading_tag": "h2",
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Shop Now",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": true,
         "cta_button_label": "Get Started",
         "cta_button_url": "",
+        "items_per_row": 4,
+        "aspect_ratio": "square",
+        "object_fit": "cover",
+        "enable_card_numbering": true,
+        "enable_image_animation": true,
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
