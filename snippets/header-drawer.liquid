@@ -19,11 +19,27 @@
           <div class="modal__heading-left">
             {% render 'modal-close-button', id: 'mobile-menu-close-btn', only_icon: true %}
             
-            {% assign logo_class = 'logo-in-drawer'
-              | append: ' logo-in-drawer-dark--'
-              | append: section.settings.show_dm_logo_in_mobile_menu
-            %}
-            {% render 'header-logo', class: logo_class, show_logo: section.settings.show_logo %}
+            {%- if section.settings.drawer_logo != blank -%}
+              <a href="{{ routes.root_url }}" class="header__heading-link logo-in-drawer focus-inset">
+                {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+                {%- assign image_size_2x = section.settings.logo_width | times: 2 | at_most: 5760 -%}
+                <img
+                  srcset="{{ section.settings.drawer_logo | image_url: width: image_size }} 1x, {{ section.settings.drawer_logo | image_url: width: image_size_2x }} 2x"
+                  src="{{ section.settings.drawer_logo | image_url: width: image_size }}"
+                  class="header__heading-logo"
+                  width="{{ section.settings.logo_width }}"
+                  height="auto"
+                  alt="{{ section.settings.drawer_logo.alt | default: shop.name | escape }}"
+                  loading="lazy"
+                >
+              </a>
+            {%- else -%}
+              {% assign logo_class = 'logo-in-drawer'
+                | append: ' logo-in-drawer-dark--'
+                | append: section.settings.show_dm_logo_in_mobile_menu
+              %}
+              {% render 'header-logo', class: logo_class, show_logo: section.settings.show_logo %}
+            {%- endif -%}
           </div>
           
           <div class="modal__heading-right">

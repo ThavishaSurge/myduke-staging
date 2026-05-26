@@ -677,10 +677,16 @@
     {
       "type": "checkbox",
       "id": "show_dm_logo_in_mobile_menu",
-      "default": false,
+      "default": true,
       "label": "t:sections.header.settings.show_dm_logo_in_mobile_menu.label",
       "info": "t:sections.header.settings.show_dm_logo_in_mobile_menu.info",
       "visible_if": "{{ section.settings.show_logo == true and section.settings.logo_2 != blank }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "drawer_logo",
+      "label": "Mobile drawer logo",
+      "info": "Upload a specific logo for the mobile menu drawer."
     },
     {
       "type": "checkbox",

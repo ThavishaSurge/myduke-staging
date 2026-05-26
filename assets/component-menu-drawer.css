@@ -202,7 +202,7 @@
   padding-bottom: 0;
   margin-bottom: 0;
   min-height: 5.9rem;
-  border-bottom: 1px solid rgba(var(--color-border), 0.2);
+  border-bottom: 1px solid #F9F4E633;
   padding-inline: 0;
 }
 
