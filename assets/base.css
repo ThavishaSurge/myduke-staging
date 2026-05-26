@@ -2420,6 +2420,16 @@ input:-internal-autofill-selected {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.menu-drawer__header-btn {
+  display: inline-flex;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.3rem;
+  min-height: 3.2rem;
+}
+
+.modal__heading {
   gap: 1.6rem;
 }
 
