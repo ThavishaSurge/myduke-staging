@@ -1,0 +1,1000 @@
+{{ 'section-content-cards.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  {% render 'section-padding' %}
+  {% render 'section-margin' %}
+
+  /* ── MyDuke content-cards section ── */
+
+  .myduke-cc {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-top: 9.6rem;
+    padding-bottom: 9.6rem;
+  }
+
+  /* ── Header ── */
+  .myduke-cc__header {
+    border-bottom: 0.1rem solid #e0dacf;
+    padding-bottom: 2.1rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .myduke-cc__eyebrow {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 1.4rem); /* 14px */
+    line-height: var(--font-body-line-height);
+    letter-spacing: var(--font-body-letter-spacing);
+    color: #2b2b2e;
+    margin: 0;
+  }
+
+  .myduke-cc__heading {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: 4.8rem; /* 48px — matches Figma heading */
+    line-height: var(--font-heading-line-height); /* 1.1 */
+    letter-spacing: var(--font-heading-letter-spacing); /* -0.03em */
+    text-transform: var(--font-heading-text-transform);
+    color: #264653;
+    margin: 0;
+  }
+
+  /* ── Cards grid ── */
+  .myduke-cc__grid {
+    display: flex;
+    gap: 3.6rem;
+    align-items: stretch;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+
+  /* ── Single card ── */
+  .myduke-cc__card {
+    flex: 1 0 0;
+    min-width: 0;
+    background: #edf3f0;
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    align-items: flex-start;
+    min-height: 50.2rem;
+    padding: 2rem 2rem 4rem 2rem;
+  }
+
+  /* Step number — rotated -90deg on left edge */
+  .myduke-cc__number {
+    flex-shrink: 0;
+    width: 1.7rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0.4rem;
+  }
+
+  .myduke-cc__number span {
+    display: inline-block;
+    font-family: var(--font-body-family);
+    font-size: 2.1rem;
+    font-weight: 500; /* Manrope Medium */
+    line-height: 0.8;
+    color: #2b2b2e;
+    white-space: nowrap;
+    transform: rotate(-90deg);
+    transform-origin: center center;
+  }
+
+  /* Card inner: image + info stacked */
+  .myduke-cc__card-inner {
+    flex: 1 0 0;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    align-items: flex-start;
+  }
+
+  /* Image area */
+  .myduke-cc__image-wrap {
+    flex: 1 0 0;
+    min-height: 18rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .myduke-cc__image-wrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .myduke-cc__image-wrap .placeholder-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Info area */
+  .myduke-cc__info {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  /* Time badge pill */
+  .myduke-cc__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #f7f8f8;
+    padding: 0.4rem 0.6rem;
+    border-radius: 3.7rem;
+  }
+
+  .myduke-cc__badge-icon {
+    flex-shrink: 0;
+    display: block;
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .myduke-cc__badge-text {
+    font-family: var(--font-body-family);
+    font-size: 1.2rem;
+    font-weight: 600; /* Manrope SemiBold */
+    color: #2b2b2e;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  /* Card title */
+  .myduke-cc__card-title {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: 3.3rem; /* 33px — Figma spec */
+    line-height: 1.1;
+    letter-spacing: var(--font-heading-letter-spacing);
+    color: #2b2b2e;
+    margin: 0;
+  }
+
+  /* Check bullet row */
+  .myduke-cc__check {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  .myduke-cc__check-icon {
+    flex-shrink: 0;
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .myduke-cc__check-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .myduke-cc__check-text {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    font-size: calc(var(--font-body-scale) * 1.4rem); /* 14px */
+    line-height: var(--font-body-line-height);
+    color: #2b2b2e;
+  }
+
+  /* ── Footer / CTA button ── */
+  .myduke-cc__footer {
+    padding-bottom: 2rem;
+    padding-left: 4.5rem;
+    padding-right: 2.4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .myduke-cc__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #218380;
+    color: #ffffff;
+    font-family: var(--font-button-family);
+    font-style: var(--font-button-style);
+    font-weight: 500;
+    font-size: calc(var(--font-button-scale) * 1rem); /* 14px */
+    letter-spacing: var(--font-button-letter-spacing);
+    text-transform: capitalize;
+    padding: 0.95rem 3.6rem;
+    min-height: 4rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 200ms ease;
+  }
+
+  .myduke-cc__btn:hover {
+    background: #264653;
+    color: #ffffff;
+  }
+
+  /* ── Responsive ── */
+  @media screen and (max-width: 989px) {
+    .myduke-cc__grid {
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .myduke-cc__card {
+      flex: 1 1 calc(50% - 1rem);
+      min-width: 0;
+    }
+    .myduke-cc__heading {
+      font-size: 3.6rem;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    .myduke-cc {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    .myduke-cc__grid {
+      flex-direction: column;
+      gap: 1.6rem;
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+    .myduke-cc__card {
+      flex: 1 1 100%;
+      min-height: 38rem;
+    }
+    .myduke-cc__heading {
+      font-size: 2.8rem;
+    }
+    .myduke-cc__header {
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+    .myduke-cc__footer {
+      padding-left: 1.6rem;
+    }
+  }
+{% endstyle %}
+
+<div class="myduke-cc color-{{ section.settings.color_scheme }} section-{{ section.id }}-margin">
+
+  {%- comment -%} ── Header ── {%- endcomment -%}
+  {%- if section.settings.subheading != blank or section.settings.heading != blank -%}
+    <div class="myduke-cc__header">
+      {%- if section.settings.subheading != blank -%}
+        <p class="myduke-cc__eyebrow">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <{{ section.settings.heading_tag }} class="myduke-cc__heading">
+          {{ section.settings.heading }}
+        </{{ section.settings.heading_tag }}>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} ── Cards grid ── {%- endcomment -%}
+  {%- if section.blocks.size > 0 -%}
+    <div class="myduke-cc__grid">
+      {%- for block in section.blocks -%}
+
+        {%- comment -%} Cycle check-icon colour per card (matches Figma palette) {%- endcomment -%}
+        {%- liquid
+          case forloop.index
+            when 1
+              assign icon_color = '#218380'
+            when 2
+              assign icon_color = '#e67e22'
+            when 3
+              assign icon_color = '#e07a5f'
+            else
+              assign icon_color = '#264653'
+          endcase
+        -%}
+
+        <div class="myduke-cc__card" {{ block.shopify_attributes }}>
+
+          {%- comment -%} Step number {%- endcomment -%}
+          <div class="myduke-cc__number" aria-hidden="true">
+            <span>{% if forloop.index <= 9 %}0{% endif %}{{ forloop.index }}</span>
+          </div>
+
+          {%- comment -%} Card inner content {%- endcomment -%}
+          <div class="myduke-cc__card-inner">
+
+            {%- comment -%} Image {%- endcomment -%}
+            <div class="myduke-cc__image-wrap">
+              {%- if block.settings.card_image != blank -%}
+                {%- liquid
+                  assign image_loading = 'lazy'
+                  if section.index == 1 and forloop.index == 1
+                    assign image_loading = 'eager'
+                  endif
+                -%}
+                {{
+                  block.settings.card_image
+                  | image_url: width: block.settings.card_image.width
+                  | image_tag:
+                    loading: image_loading,
+                    widths: '400, 600, 800, 1000',
+                    sizes: '(min-width: 990px) 25vw, (min-width: 576px) 50vw, 100vw',
+                    style: 'object-fit:cover'
+                }}
+              {%- else -%}
+                {%- assign placeholder_index = forloop.index | modulo: 3 | plus: 1 -%}
+                {{ 'hero-apparel-' | append: placeholder_index | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+
+            {%- comment -%} Info: badge + title + check ── {%- endcomment -%}
+            <div class="myduke-cc__info">
+
+              {%- if block.settings.card_time_badge != blank -%}
+                <div class="myduke-cc__badge">
+                  {%- comment -%} Clock icon — Streamline Ultimate style {%- endcomment -%}
+                  <svg class="myduke-cc__badge-icon" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <circle cx="6.5" cy="6.5" r="5.75" stroke="#2b2b2e" stroke-width="1"/>
+                    <path d="M6.5 3.25V6.5L8.75 8.25" stroke="#2b2b2e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="myduke-cc__badge-text">{{ block.settings.card_time_badge }}</span>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.card_heading != blank -%}
+                <h3 class="myduke-cc__card-title">{{ block.settings.card_heading }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.card_check_text != blank -%}
+                <div class="myduke-cc__check">
+                  {%- if block.settings.card_check_icon_svg != blank -%}
+                    <span class="myduke-cc__check-icon" aria-hidden="true">{{ block.settings.card_check_icon_svg }}</span>
+                  {%- elsif block.settings.card_check_icon != blank -%}
+                    {{
+                      block.settings.card_check_icon
+                      | image_url: width: 32
+                      | image_tag:
+                        class: 'myduke-cc__check-icon',
+                        width: 16,
+                        height: 16,
+                        loading: 'lazy'
+                    }}
+                  {%- else -%}
+                    <svg class="myduke-cc__check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                      <circle cx="8" cy="8" r="7.25" stroke="{{ icon_color }}" stroke-width="1"/>
+                      <path d="M5 8L7 10.5L11 5.5" stroke="{{ icon_color }}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {%- endif -%}
+                  <span class="myduke-cc__check-text">{{ block.settings.card_check_text }}</span>
+                </div>
+              {%- endif -%}
+
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} ── CTA button ── {%- endcomment -%}
+  {%- if section.settings.cta_button_label != blank -%}
+    <div class="myduke-cc__footer">
+      <a
+        href="{{ section.settings.cta_button_url | default: '#' }}"
+        class="myduke-cc__btn"
+        {% if settings.links_blank and section.settings.cta_button_url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+      >
+        {{- section.settings.cta_button_label -}}
+      </a>
+    </div>
+  {%- endif -%}
+
+</div>
+
+{% schema %}
+{
+  "name": "Content Cards (MyDuke)",
+  "class": "content-cards-section",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "background-1",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_heading_group.header.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:sections.all.subheading.label",
+      "default": "Our benefits"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.all.heading.label",
+      "default": "How myduke® Works"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "options": [
+        {
+          "value": "heading",
+          "label": "t:sections.all.heading_font.options__1.label"
+        },
+        {
+          "value": "body",
+          "label": "t:sections.all.heading_font.options__2.label"
+        }
+      ],
+      "default": "heading",
+      "label": "t:sections.all.heading_font.label",
+      "visible_if": "{{ section.settings.heading != blank }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h6",
+          "label": "t:sections.all.heading_size.options__6.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_size.options__5.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__1.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label",
+      "visible_if": "{{ section.settings.heading != blank and section.settings.heading_font == 'heading' }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_tag.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_tag.options__2.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_tag.options__3.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_tag.options__4.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_tag.options__5.label"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.all.heading_tag.options__6.label"
+        },
+        {
+          "value": "div",
+          "label": "t:sections.all.heading_tag.options__7.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_tag.label",
+      "info": "t:sections.all.heading_tag.info",
+      "visible_if": "{{ section.settings.heading != blank }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_group_button_show",
+      "label": "t:sections.all.button.button_show.label",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "heading_group_button_label",
+      "label": "t:sections.all.button.button_label.label",
+      "default": "t:sections.all.button.button_label.default_shop_now",
+      "visible_if": "{{ section.settings.heading_group_button_show }}"
+    },
+    {
+      "type": "url",
+      "id": "heading_group_button_link",
+      "label": "t:sections.all.button.button_link.label",
+      "visible_if": "{{ section.settings.heading_group_button_show }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_group_button_style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.button.button_style.options__1.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.button.button_style.options__2.label"
+        },
+        {
+          "value": "tertiary",
+          "label": "t:sections.all.button.button_style.options__3.label"
+        },
+        {
+          "value": "secondary2",
+          "label": "t:sections.all.button.button_style.options__4.label"
+        },
+        {
+          "value": "accent",
+          "label": "t:sections.all.button.button_style.options__5.label"
+        }
+      ],
+      "default": "tertiary",
+      "label": "t:sections.all.button.button_style.label",
+      "visible_if": "{{ section.settings.heading_group_button_show }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_group_enable_border_bottom",
+      "default": true,
+      "label": "t:sections.all.borders.enable_border_bottom.label",
+      "visible_if": "{{ section.settings.heading != blank or section.settings.subheading != blank or section.settings.heading_group_button_show }}"
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_label",
+      "label": "Button label",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.lookbook.settings.header__cards.content"
+    },
+    {
+      "type": "range",
+      "id": "items_per_row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.lookbook.settings.items_per_row.label"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "options": [
+        {
+          "value": "landscape",
+          "label": "t:sections.all.card.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.all.card.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.all.card.image_ratio.options__3.label"
+        }
+      ],
+      "default": "portrait",
+      "label": "t:sections.all.card.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "object_fit",
+      "options": [
+        {
+          "value": "contain",
+          "label": "t:sections.all.card.image_fit.options__1.label"
+        },
+        {
+          "value": "cover",
+          "label": "t:sections.all.card.image_fit.options__2.label"
+        }
+      ],
+      "default": "cover",
+      "label": "t:sections.all.card.image_fit.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_card_numbering",
+      "default": true,
+      "label": "t:sections.content-cards.settings.enable_card_numbering.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_animation",
+      "label": "t:sections.all.image_enable_animation.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-padding.header.content"
+    },
+    {
+      "type": "select",
+      "id": "padding_top",
+      "options": [
+        {
+          "value": "no-indent",
+          "label": "t:sections.all.section-padding.options__1.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.section-padding.options__2.label"
+        },
+        {
+          "value": "s",
+          "label": "t:sections.all.section-padding.options__3.label"
+        },
+        {
+          "value": "m",
+          "label": "t:sections.all.section-padding.options__4.label"
+        },
+        {
+          "value": "l",
+          "label": "t:sections.all.section-padding.options__5.label"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.all.section-padding.options__6.label"
+        }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-padding.padding_top.label"
+    },
+    {
+      "type": "select",
+      "id": "padding_bottom",
+      "options": [
+        {
+          "value": "no-indent",
+          "label": "t:sections.all.section-padding.options__1.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.section-padding.options__2.label"
+        },
+        {
+          "value": "s",
+          "label": "t:sections.all.section-padding.options__3.label"
+        },
+        {
+          "value": "m",
+          "label": "t:sections.all.section-padding.options__4.label"
+        },
+        {
+          "value": "l",
+          "label": "t:sections.all.section-padding.options__5.label"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.all.section-padding.options__6.label"
+        }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-padding.padding_bottom.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-margin.header.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_top",
+      "options": [
+        {
+          "value": "no-indent",
+          "label": "t:sections.all.section-margin.options__1.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.section-margin.options__2.label"
+        },
+        {
+          "value": "s",
+          "label": "t:sections.all.section-margin.options__3.label"
+        },
+        {
+          "value": "m",
+          "label": "t:sections.all.section-margin.options__4.label"
+        },
+        {
+          "value": "l",
+          "label": "t:sections.all.section-margin.options__5.label"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.all.section-margin.options__6.label"
+        }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-margin.margin_top.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "options": [
+        {
+          "value": "no-indent",
+          "label": "t:sections.all.section-margin.options__1.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.section-margin.options__2.label"
+        },
+        {
+          "value": "s",
+          "label": "t:sections.all.section-margin.options__3.label"
+        },
+        {
+          "value": "m",
+          "label": "t:sections.all.section-margin.options__4.label"
+        },
+        {
+          "value": "l",
+          "label": "t:sections.all.section-margin.options__5.label"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.all.section-margin.options__6.label"
+        }
+      ],
+      "default": "l",
+      "label": "t:sections.all.section-margin.margin_bottom.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content-cards",
+      "name": "t:sections.content-cards.blocks.content-cards.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "t:sections.all.image.label"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0,
+          "unit": "%",
+          "label": "t:sections.all.overlay_opacity.label"
+        },
+        {
+          "type": "url",
+          "id": "card_overlay_link",
+          "label": "t:sections.lookbook.blocks.lookbook_item.settings.card_overlay_link.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.lookbook.blocks.lookbook_item.settings.header__content.content"
+        },
+        {
+          "type": "text",
+          "id": "card_time_badge",
+          "label": "Time badge",
+          "info": "e.g. \"2 minutes\", \"< 24 hrs\""
+        },
+        {
+          "type": "text",
+          "id": "card_heading",
+          "label": "t:sections.all.heading.label",
+          "default": "t:sections.content-cards.blocks.content-cards.settings.card_heading.default"
+        },
+        {
+          "type": "select",
+          "id": "card_heading_font",
+          "options": [
+            {
+              "value": "heading",
+              "label": "t:sections.all.heading_font.options__1.label"
+            },
+            {
+              "value": "body",
+              "label": "t:sections.all.heading_font.options__2.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.all.heading_font.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.all.heading_font.label",
+          "visible_if": "{{ block.settings.card_heading != blank }}"
+        },
+        {
+          "type": "select",
+          "id": "card_heading_size",
+          "options": [
+            {
+              "value": "h6",
+              "label": "t:sections.all.heading_size.options__6.label"
+            },
+            {
+              "value": "h5",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "h4",
+              "label": "t:sections.all.heading_size.options__2.label"
+            }
+          ],
+          "default": "h6",
+          "label": "t:sections.all.heading_size.label",
+          "visible_if": "{{ block.settings.card_heading != blank and block.settings.card_heading_font == 'heading' }}"
+        },
+        {
+          "type": "select",
+          "id": "card_heading_tag",
+          "options": [
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_tag.options__1.label"
+            },
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_tag.options__2.label"
+            },
+            {
+              "value": "h3",
+              "label": "t:sections.all.heading_tag.options__3.label"
+            },
+            {
+              "value": "h4",
+              "label": "t:sections.all.heading_tag.options__4.label"
+            },
+            {
+              "value": "h5",
+              "label": "t:sections.all.heading_tag.options__5.label"
+            },
+            {
+              "value": "h6",
+              "label": "t:sections.all.heading_tag.options__6.label"
+            },
+            {
+              "value": "div",
+              "label": "t:sections.all.heading_tag.options__7.label"
+            }
+          ],
+          "default": "h3",
+          "label": "t:sections.all.heading_tag.label",
+          "info": "t:sections.all.heading_tag.info",
+          "visible_if": "{{ block.settings.card_heading != blank }}"
+        },
+        {
+          "type": "text",
+          "id": "card_check_text",
+          "label": "Bullet point text"
+        },
+        {
+          "type": "textarea",
+          "id": "card_check_icon_svg",
+          "label": "Bullet point icon — SVG code",
+          "info": "Paste raw <svg>…</svg> markup. Takes priority over the image picker below."
+        },
+        {
+          "type": "image_picker",
+          "id": "card_check_icon",
+          "label": "Bullet point icon — image",
+          "info": "Used when no SVG code is set above. Recommended: 32×32px PNG or SVG."
+        },
+        {
+          "type": "text",
+          "id": "card_description",
+          "label": "t:sections.all.text.label",
+          "default": "t:sections.content-cards.blocks.content-cards.settings.card_description.default"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content Cards (MyDuke)",
+      "category": "t:sections.categories.storytelling",
+      "settings": {
+        "subheading": "Our benefits",
+        "heading": "How myduke® Works",
+        "cta_button_label": "Get Started"
+      },
+      "blocks": [
+        {
+          "type": "content-cards",
+          "settings": {
+            "card_time_badge": "2 minutes",
+            "card_heading": "Clinical Assessment",
+            "card_check_text": "Tell us about you"
+          }
+        },
+        {
+          "type": "content-cards",
+          "settings": {
+            "card_time_badge": "< 24 hrs",
+            "card_heading": "Doctor Review",
+            "card_check_text": "Doctor-approved pathway"
+          }
+        },
+        {
+          "type": "content-cards",
+          "settings": {
+            "card_time_badge": "1-2 Days",
+            "card_heading": "Shop Treatment",
+            "card_check_text": "Pharmacy-dispensed products"
+          }
+        },
+        {
+          "type": "content-cards",
+          "settings": {
+            "card_time_badge": "Ongoing",
+            "card_heading": "Ongoing Support",
+            "card_check_text": "We're with you all the way"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
