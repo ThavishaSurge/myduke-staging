@@ -55,6 +55,7 @@
         "mega_menu",
         "mega_submenu_QFtDC7"
       ],
+      "disabled": true,
       "custom_css": [
         ".header__cart {display: none;}"
       ],
@@ -97,10 +98,27 @@
         "enable_right_mobile_menu_border": true,
         "enable_social_on_mobile": true
       }
+    },
+    "myduke_header_MNedWi": {
+      "type": "myduke-header",
+      "name": "MyDuke Header",
+      "settings": {
+        "logo": "shopify://shop_images/Logo_TM_black.png",
+        "logo_width": 100,
+        "menu": "main-menu",
+        "button_1_text": "Shop",
+        "button_1_link": "",
+        "button_1_style": "primary",
+        "button_2_text": "Get started",
+        "button_2_link": "",
+        "button_2_style": "primary",
+        "mobile_menu_bg_color": "#cbe0d7"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "myduke_header_MNedWi"
   ]
 }
