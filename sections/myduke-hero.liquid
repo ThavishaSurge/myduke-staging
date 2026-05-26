@@ -1,6 +1,6 @@
 {{ 'section-myduke-hero.css' | asset_url | stylesheet_tag }}
 
-<div class="myduke-hero" style="{% if section.settings.background_image != blank %}background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');{% endif %}">
+<div class="myduke-hero" style="{% if section.settings.background_image != blank %}background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');{% endif %} --overlay-color: {{ section.settings.overlay_color }}; --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};">
   <div class="page-width">
     <div class="myduke-hero__content">
       {%- if section.settings.heading != blank -%}
@@ -38,6 +38,22 @@
       "type": "image_picker",
       "id": "background_image",
       "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Image Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Overlay Opacity",
+      "default": 30
     },
     {
       "type": "textarea",

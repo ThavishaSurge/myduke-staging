@@ -13,7 +13,7 @@
   /* Fallback color */
 }
 
-/* Subtle gradient overlay to ensure text readability against the background image */
+/* Custom overlay based on theme settings */
 .myduke-hero::before {
   content: '';
   position: absolute;
@@ -21,7 +21,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%);
+  background-color: var(--overlay-color);
+  opacity: var(--overlay-opacity);
   pointer-events: none;
 }
 
