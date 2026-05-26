@@ -50,30 +50,37 @@
           }
         }
       },
-      "block_order": ["search_modal", "mega_menu", "mega_submenu_QFtDC7"],
+      "block_order": [
+        "search_modal",
+        "mega_menu",
+        "mega_submenu_QFtDC7"
+      ],
       "settings": {
         "menu": "main-menu",
         "sticky_header_type": "on-scroll-up",
+        "transparent_sticky_adaptive": false,
         "overlay_mode": true,
         "color_scheme_overlay_mode": "background-4",
-        "enable_border": true,
+        "enable_border": false,
         "show_logo": true,
+        "logo": "shopify://shop_images/Logo_TM_black.png",
         "show_dm_logo_in_overlay_mode": true,
         "logo_position": "left-logo",
         "menu_position": "left-menu",
         "logo_width": 100,
         "h1_logo": true,
-        "enable_search": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
+        "enable_search": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
         "region_color_scheme": "background-1",
-        "enable_dark_mode_toggle": true,
-        "enable_account_modal": true,
+        "enable_dark_mode_toggle": false,
+        "enable_account_modal": false,
         "account_button_type": "text",
         "account_modal_type": "theme_based",
         "customer_account_menu": "customer-account-main-menu",
         "enable_additional_button": true,
-        "additional_button_label": "Contact",
+        "additional_button_label": "Shop",
+        "additional_button_link": "",
         "mobile_menu_color_scheme": "background-2",
         "show_dm_logo_in_mobile_menu": false,
         "enable_right_mobile_menu_border": true,
@@ -81,5 +88,8 @@
       }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }
