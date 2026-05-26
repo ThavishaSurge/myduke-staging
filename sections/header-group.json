@@ -93,33 +93,15 @@
         "additional_button_2_label": "Get Started",
         "additional_button_2_link": "",
         "additional_button_2_style": "secondary",
-        "mobile_menu_color_scheme": "background-2",
+        "mobile_menu_color_scheme": "background-5",
         "show_dm_logo_in_mobile_menu": false,
-        "enable_right_mobile_menu_border": true,
-        "enable_social_on_mobile": true
-      }
-    },
-    "myduke_header_MNedWi": {
-      "type": "myduke-header",
-      "disabled": true,
-      "name": "MyDuke Header",
-      "settings": {
-        "logo": "shopify://shop_images/Logo_TM_black.png",
-        "logo_width": 100,
-        "menu": "main-menu",
-        "button_1_text": "Shop",
-        "button_1_link": "",
-        "button_1_style": "primary",
-        "button_2_text": "Get started",
-        "button_2_link": "",
-        "button_2_style": "primary",
-        "mobile_menu_bg_color": "#cbe0d7"
+        "enable_right_mobile_menu_border": false,
+        "enable_social_on_mobile": false
       }
     }
   },
   "order": [
     "announcement-bar",
-    "header",
-    "myduke_header_MNedWi"
+    "header"
   ]
 }
