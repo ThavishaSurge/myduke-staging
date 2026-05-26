@@ -56,7 +56,6 @@
         "mega_menu",
         "mega_submenu_QFtDC7"
       ],
-      "disabled": true,
       "custom_css": [
         ".header__cart {display: none;}"
       ],
