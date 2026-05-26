@@ -190,14 +190,31 @@
   .myduke-calc__list-row--facts {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0;
+    padding: 0;
+    border-bottom: 1px solid #efece6;
+  }
+
+  /* Collapsible toggle button */
+  .myduke-calc__facts-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 1.2rem 0;
+    cursor: pointer;
+    text-align: left;
     gap: 1.2rem;
   }
 
   .myduke-calc__facts-header {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
-    width: 100%;
+    gap: 0.7rem;
+    flex: 1 0 0;
+    min-width: 0;
   }
 
   .myduke-calc__facts-icon {
@@ -217,14 +234,32 @@
     margin: 0;
   }
 
+  .myduke-calc__toggle-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  /* Minus state — hide vertical rect when expanded */
+  .myduke-calc__facts-toggle[aria-expanded="true"] .myduke-calc__toggle-vert {
+    display: none;
+  }
+
   .myduke-calc__facts-list {
     list-style: none;
-    padding: 0;
+    padding: 0 0 1.2rem 0;
     margin: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
+  }
+
+  .myduke-calc__facts-list[hidden] {
+    display: none;
   }
 
   .myduke-calc__facts-list li {
@@ -338,34 +373,44 @@
 
   @media screen and (max-width: 575px) {
     .myduke-calc {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-      padding-left: 1.2rem;
-      padding-right: 1.2rem;
+      padding-top: 6.4rem;
+      padding-bottom: 6.4rem;
+      padding-left: 2.4rem;
+      padding-right: 2.4rem;
     }
     .myduke-calc__card {
       padding: 2.4rem;
       gap: 2.4rem;
     }
     .myduke-calc__heading {
-      font-size: 2.2rem;
+      font-size: 2.6rem;
+    }
+    .myduke-calc__queries {
+      gap: 1.4rem;
     }
     .myduke-calc__count-display {
-      font-size: 3.6rem;
+      font-size: 2rem;
     }
     .myduke-calc__savings {
       flex-direction: column;
+      gap: 1.2rem;
     }
     .myduke-calc__tile {
-      gap: 2.4rem;
+      padding: 2.4rem;
+      gap: 1.2rem;
+    }
+    .myduke-calc__tile-value {
+      font-size: 2.6rem;
     }
     .myduke-calc__cta {
       flex-direction: column;
       align-items: flex-start;
+      gap: 1.6rem;
     }
     .myduke-calc__btn {
       width: 100%;
       text-align: center;
+      justify-content: center;
     }
   }
 {% endstyle %}
@@ -430,15 +475,30 @@
 
         {%- if section.blocks.size > 0 -%}
           <div class="myduke-calc__list-row myduke-calc__list-row--facts">
-            <div class="myduke-calc__facts-header">
-              <svg class="myduke-calc__facts-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                <circle cx="9" cy="9" r="8" stroke="#264653" stroke-width="1.2"/>
-                <path d="M9 8v4.5" stroke="#264653" stroke-width="1.2" stroke-linecap="round"/>
-                <circle cx="9" cy="5.5" r="0.8" fill="#264653"/>
-              </svg>
-              <p class="myduke-calc__facts-title">{{ section.settings.facts_label }}</p>
-            </div>
-            <ul class="myduke-calc__facts-list">
+            <button
+              class="myduke-calc__facts-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="myduke-calc-facts-{{ section.id }}"
+            >
+              <div class="myduke-calc__facts-header">
+                <svg class="myduke-calc__facts-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <path d="M9.00003 1.035C4.26003 1.035 0.405029 4.2075 0.405029 8.115C0.419559 9.05253 0.639271 9.97549 1.04872 10.819C1.45817 11.6625 2.04741 12.4061 2.77503 12.9975L1.06503 16.425C1.02977 16.4938 1.01661 16.5717 1.02735 16.6483C1.03809 16.7248 1.0722 16.7961 1.12503 16.8525C1.18054 16.9064 1.25055 16.9428 1.32648 16.9575C1.40241 16.9721 1.48097 16.9643 1.55253 16.935L6.15003 14.7975C7.07674 15.0627 8.03611 15.1965 9.00003 15.195C13.74 15.195 17.595 12.015 17.595 8.115C17.595 4.215 13.74 1.035 9.00003 1.035ZM10.875 12.0975H7.87503C7.72584 12.0975 7.58277 12.0382 7.47728 11.9328C7.37179 11.8273 7.31253 11.6842 7.31253 11.535C7.31253 11.3858 7.37179 11.2427 7.47728 11.1373C7.58277 11.0318 7.72584 10.9725 7.87503 10.9725H8.81253V7.035C8.81253 6.98528 8.79278 6.93758 8.75761 6.90242C8.72245 6.86726 8.67476 6.8475 8.62503 6.8475H7.87503C7.72584 6.8475 7.58277 6.78824 7.47728 6.68275C7.37179 6.57726 7.31253 6.43419 7.31253 6.285C7.31253 6.13582 7.37179 5.99275 7.47728 5.88726C7.58277 5.78177 7.72584 5.7225 7.87503 5.7225H8.62503C8.97313 5.7225 9.30697 5.86078 9.55311 6.10693C9.79925 6.35307 9.93753 6.68691 9.93753 7.035V10.9725H10.875C11.0242 10.9725 11.1673 11.0318 11.2728 11.1373C11.3783 11.2427 11.4375 11.3858 11.4375 11.535C11.4375 11.6842 11.3783 11.8273 11.2728 11.9328C11.1673 12.0382 11.0242 12.0975 10.875 12.0975ZM9.09003 3.285C9.28894 3.285 9.47971 3.36402 9.62036 3.50467C9.76101 3.64533 9.84003 3.83609 9.84003 4.035C9.84003 4.23392 9.76101 4.42468 9.62036 4.56533C9.47971 4.70599 9.28894 4.785 9.09003 4.785C8.89112 4.785 8.70035 4.70599 8.5597 4.56533C8.41905 4.42468 8.34003 4.23392 8.34003 4.035C8.34003 3.83609 8.41905 3.64533 8.5597 3.50467C8.70035 3.36402 8.89112 3.285 9.09003 3.285Z" fill="#34414A"/>
+                </svg>
+                <span class="myduke-calc__facts-title">{{ section.settings.facts_label }}</span>
+              </div>
+              <span class="myduke-calc__toggle-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
+                  <rect class="myduke-calc__toggle-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
+                </svg>
+              </span>
+            </button>
+            <ul
+              class="myduke-calc__facts-list"
+              id="myduke-calc-facts-{{ section.id }}"
+              hidden
+            >
               {%- for block in section.blocks -%}
                 {%- if block.settings.fact_text != blank -%}
                   <li {{ block.shopify_attributes }}>{{ block.settings.fact_text }}</li>
@@ -515,6 +575,21 @@
 
   slider.addEventListener('input', calc);
   calc();
+
+  // Quick Facts collapsible toggle
+  var factsToggle = document.querySelector('[aria-controls="myduke-calc-facts-{{ section.id }}"]');
+  var factsList = document.getElementById('myduke-calc-facts-{{ section.id }}');
+  if (factsToggle && factsList) {
+    factsToggle.addEventListener('click', function () {
+      var isOpen = factsToggle.getAttribute('aria-expanded') === 'true';
+      factsToggle.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) {
+        factsList.setAttribute('hidden', '');
+      } else {
+        factsList.removeAttribute('hidden');
+      }
+    });
+  }
 })();
 </script>
 
