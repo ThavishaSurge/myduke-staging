@@ -13,6 +13,7 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
+      "disabled": true,
       "settings": {
         "color_scheme": "background-3",
         "height": 30,
@@ -101,6 +102,7 @@
     },
     "myduke_header_MNedWi": {
       "type": "myduke-header",
+      "disabled": true,
       "name": "MyDuke Header",
       "settings": {
         "logo": "shopify://shop_images/Logo_TM_black.png",
