@@ -1,0 +1,234 @@
+{{ 'section-myduke-header.css' | asset_url | stylesheet_tag }}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.myduke-header');
+    const toggleBtn = header.querySelector('.myduke-header__mobile-toggle');
+    const closeBtn = header.querySelector('.myduke-header__drawer-close');
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        header.classList.add('is-drawer-open');
+        document.body.classList.add('myduke-drawer-open');
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        header.classList.remove('is-drawer-open');
+        document.body.classList.remove('myduke-drawer-open');
+      });
+    }
+  });
+</script>
+
+<div class="myduke-header" style="--mobile-bg: {{ section.settings.mobile_menu_bg_color }};">
+  <div class="myduke-header__container">
+    
+    <!-- Mobile Toggle -->
+    <button type="button" class="myduke-header__mobile-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="myduke-header__logo" style="width: {{ section.settings.logo_width }}px;">
+      {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url: width: section.settings.logo_width }}" 
+             alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+             width="{{ section.settings.logo_width }}"
+             loading="eager">
+      {%- else -%}
+        <span class="myduke-header__logo-text">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="myduke-header__nav">
+      {%- if section.settings.menu != blank -%}
+        <ul class="myduke-header__nav-list">
+          {%- for link in section.settings.menu.links -%}
+            <li>
+              <a href="{{ link.url }}" class="myduke-header__nav-link"{% if link.current %} aria-current="page"{% endif %}>
+                {{ link.title | escape }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </nav>
+
+    <!-- Desktop Actions -->
+    <div class="myduke-header__actions">
+      {%- if section.settings.button_1_text != blank -%}
+        <a href="{{ section.settings.button_1_link | default: '#' }}" class="myduke-header__btn myduke-header__btn--{{ section.settings.button_1_style }}">
+          {{ section.settings.button_1_text }}
+        </a>
+      {%- endif -%}
+      
+      {%- if section.settings.button_2_text != blank -%}
+        <a href="{{ section.settings.button_2_link | default: '#' }}" class="myduke-header__btn myduke-header__btn--{{ section.settings.button_2_style }}">
+          {{ section.settings.button_2_text }}
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="myduke-header__drawer" style="background-color: {{ section.settings.mobile_menu_bg_color }};">
+    <div class="myduke-header__drawer-header">
+      <button type="button" class="myduke-header__drawer-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <a href="{{ routes.root_url }}" class="myduke-header__drawer-logo myduke-header__logo" style="width: {{ section.settings.logo_width }}px;">
+        {%- if section.settings.logo != blank -%}
+          <img src="{{ section.settings.logo | image_url: width: section.settings.logo_width }}" 
+               alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+               width="{{ section.settings.logo_width }}"
+               loading="eager">
+        {%- else -%}
+          <span class="myduke-header__logo-text">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+
+      {%- if section.settings.button_2_text != blank -%}
+        <a href="{{ section.settings.button_2_link | default: '#' }}" class="myduke-header__drawer-btn">
+          {{ section.settings.button_2_text }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="myduke-header__drawer-nav">
+      {%- if section.settings.menu != blank -%}
+        <ul class="myduke-header__drawer-nav-list">
+          {%- for link in section.settings.menu.links -%}
+            <li>
+              <a href="{{ link.url }}" class="myduke-header__drawer-nav-link"{% if link.current %} aria-current="page"{% endif %}>
+                {{ link.title | escape }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MyDuke Header",
+  "tag": "section",
+  "class": "section-myduke-header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 100,
+      "unit": "px",
+      "label": "Logo Width"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Shop",
+      "info": "Visible on desktop only"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "select",
+      "id": "button_1_style",
+      "label": "Button 1 Style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary (Outline)"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Get started"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "select",
+      "id": "button_2_style",
+      "label": "Button 2 Style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary (Outline)"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Drawer Settings"
+    },
+    {
+      "type": "color",
+      "id": "mobile_menu_bg_color",
+      "label": "Drawer Background Color",
+      "default": "#cbe0d7"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MyDuke Header",
+      "category": "Header"
+    }
+  ]
+}
+{% endschema %}
