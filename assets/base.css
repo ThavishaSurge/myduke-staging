@@ -2884,6 +2884,7 @@ modal-localization-form .disclosure {
   width: auto;
   min-height: 100%;
   flex: 1;
+  gap: 20px;
 }
 
 .header__left>header-drawer {
