@@ -625,6 +625,64 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "content_cards_myduke_Ct4eM8": {
+      "type": "content-cards-myduke",
+      "blocks": {
+        "content_cards_8dxqPP": {
+          "type": "content-cards",
+          "settings": {
+            "card_time_badge": "2 minutes",
+            "card_heading": "Clinical Assessment",
+            "card_check_text": "Tell us about you"
+          }
+        },
+        "content_cards_bkidFR": {
+          "type": "content-cards",
+          "settings": {
+            "card_time_badge": "< 24 hrs",
+            "card_heading": "Doctor Review",
+            "card_check_text": "Doctor-approved pathway"
+          }
+        },
+        "content_cards_cULjNp": {
+          "type": "content-cards",
+          "settings": {
+            "card_time_badge": "1-2 Days",
+            "card_heading": "Shop Treatment",
+            "card_check_text": "Pharmacy-dispensed products"
+          }
+        },
+        "content_cards_txX9PY": {
+          "type": "content-cards",
+          "settings": {
+            "card_time_badge": "Ongoing",
+            "card_heading": "Ongoing Support",
+            "card_check_text": "We're with you all the way"
+          }
+        }
+      },
+      "block_order": [
+        "content_cards_8dxqPP",
+        "content_cards_bkidFR",
+        "content_cards_cULjNp",
+        "content_cards_txX9PY"
+      ],
+      "name": "Content Cards (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "Our benefits",
+        "heading": "How myduke® Works",
+        "heading_font": "heading",
+        "heading_size": "h2",
+        "heading_tag": "h2",
+        "cta_button_label": "Get Started",
+        "cta_button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
@@ -638,6 +696,7 @@
     "testimonials_iJmMhk",
     "trust_zwDxUA",
     "hero_AJ9tLQ",
-    "blog-posts"
+    "blog-posts",
+    "content_cards_myduke_Ct4eM8"
   ]
 }
