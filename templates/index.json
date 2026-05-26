@@ -20,11 +20,14 @@
         "heading_tag": "h2",
         "heading_group_button_show": true,
         "heading_group_button_label": "Shop collection",
+        "heading_group_button_link": "",
         "color_scheme_product": "",
+        "product_list": [],
         "list_heading": "",
         "list_heading_size": "h4",
         "list_heading_tag": "h3",
         "animated_badge": true,
+        "enable_image_animation": true,
         "main_image_ratio": "square",
         "main_image_fit": "cover",
         "padding_top": "no-indent",
@@ -38,6 +41,7 @@
       "settings": {
         "color_scheme": "",
         "layout": "slider",
+        "product_list": [],
         "products_per_row": 4,
         "products_per_row_mobile": "2",
         "subheading": "Products",
@@ -62,6 +66,7 @@
       "type": "showcase",
       "settings": {
         "color_scheme_main": "background-5",
+        "enable_image_animation": true,
         "subheading": "Who we are",
         "content_heading": "The truth is that creativity has no boundaries, and we turn it into products you love.",
         "content_heading_size": "h3",
@@ -86,6 +91,7 @@
         "collection_item_1": {
           "type": "collection_item",
           "settings": {
+            "collection": "",
             "title": "",
             "overwrite_link": ""
           }
@@ -93,6 +99,7 @@
         "collection_item_2": {
           "type": "collection_item",
           "settings": {
+            "collection": "",
             "title": "",
             "overwrite_link": ""
           }
@@ -100,6 +107,7 @@
         "collection_item_3": {
           "type": "collection_item",
           "settings": {
+            "collection": "",
             "title": "",
             "overwrite_link": ""
           }
@@ -107,6 +115,7 @@
         "collection_item_4": {
           "type": "collection_item",
           "settings": {
+            "collection": "",
             "title": "",
             "overwrite_link": ""
           }
@@ -114,6 +123,7 @@
         "collection_item_5": {
           "type": "collection_item",
           "settings": {
+            "collection": "",
             "title": "",
             "overwrite_link": ""
           }
@@ -121,7 +131,9 @@
         "collection_item_6NfQ7q": {
           "type": "collection_item",
           "settings": {
-            "title": "All"
+            "collection": "",
+            "title": "All",
+            "overwrite_link": ""
           }
         }
       },
@@ -251,6 +263,7 @@
       ],
       "name": "t:sections.featured-product.name",
       "settings": {
+        "product_item": "",
         "only_two_images": true,
         "color_scheme": "",
         "show_full_details": false,
@@ -297,7 +310,9 @@
         "content_description": "",
         "list_button_show": true,
         "list_button_label": "About us",
+        "list_button_link": "",
         "list_button_style": "tertiary",
+        "enable_image_animation": true,
         "animated_badge": true,
         "vertical_alignment": "center",
         "text_alignment": "center",
@@ -312,6 +327,7 @@
           "type": "content-cards",
           "settings": {
             "overlay_opacity": 0,
+            "card_overlay_link": "",
             "card_heading": "Bright and smooth",
             "card_heading_font": "body",
             "card_heading_size": "h6",
@@ -323,6 +339,7 @@
           "type": "content-cards",
           "settings": {
             "overlay_opacity": 0,
+            "card_overlay_link": "",
             "card_heading": "Tear-resistant",
             "card_heading_font": "body",
             "card_heading_size": "h6",
@@ -334,6 +351,7 @@
           "type": "content-cards",
           "settings": {
             "overlay_opacity": 0,
+            "card_overlay_link": "",
             "card_heading": "Friction-free writing",
             "card_heading_font": "body",
             "card_heading_size": "h6",
@@ -345,6 +363,7 @@
           "type": "content-cards",
           "settings": {
             "overlay_opacity": 0,
+            "card_overlay_link": "",
             "card_heading": "No bleaches or acids",
             "card_heading_font": "body",
             "card_heading_size": "h6",
@@ -376,6 +395,7 @@
         "aspect_ratio": "portrait",
         "object_fit": "cover",
         "enable_card_numbering": true,
+        "enable_image_animation": true,
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
@@ -396,7 +416,8 @@
             "enable_rating": true,
             "rating": 5,
             "enable_product": true,
-            "main_color_scheme": "background-4"
+            "main_color_scheme": "background-4",
+            "product": ""
           }
         },
         "testimonials_slide_xnqywh": {
@@ -410,7 +431,8 @@
             "enable_rating": true,
             "rating": 4,
             "enable_product": true,
-            "main_color_scheme": "background-4"
+            "main_color_scheme": "background-4",
+            "product": ""
           }
         },
         "testimonials_slide_YzLjR4": {
@@ -424,7 +446,8 @@
             "enable_rating": true,
             "rating": 4,
             "enable_product": true,
-            "main_color_scheme": "background-4"
+            "main_color_scheme": "background-4",
+            "product": ""
           }
         }
       },
@@ -453,6 +476,7 @@
         "color_scheme_media": "background-1",
         "aspect_ratio": "square",
         "enable_image": true,
+        "enable_image_animation": true,
         "object_fit": "cover",
         "overlay_opacity": 0,
         "padding_top": "no-indent",
@@ -464,6 +488,20 @@
     "trust_zwDxUA": {
       "type": "Trust",
       "blocks": {
+        "column_KTUBVW": {
+          "type": "column",
+          "settings": {
+            "heading": "Feature Title Here",
+            "text": "",
+            "enable_icon": true,
+            "icon": "none",
+            "custom_icon_fit": "cover",
+            "show_button": false,
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "tertiary"
+          }
+        },
         "column_nmnHFX": {
           "type": "column",
           "settings": {
@@ -508,6 +546,7 @@
         }
       },
       "block_order": [
+        "column_KTUBVW",
         "column_nmnHFX",
         "column_K89tMF",
         "column_LDDy4Y"
@@ -533,6 +572,30 @@
         "margin_bottom": "l"
       }
     },
+    "hero_AJ9tLQ": {
+      "type": "hero",
+      "name": "t:sections.hero-section.name",
+      "settings": {
+        "heading_big": "Our Story",
+        "subheading": "",
+        "heading": "This section should introduce the topic in a compelling way that captures attention and motivates to keep reading.",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "description": "Use this space to give more details about what’s being shown in the image—this could be product specifications, an event highlight, or an introduction to a collection.",
+        "vertical_alignment": "top",
+        "list_button_show": true,
+        "list_button_label": "About us",
+        "list_button_link": "",
+        "list_button_style": "primary",
+        "enable_animation": true,
+        "aspect_ratio_primary": "portrait",
+        "enable_parallax": true,
+        "animated_badge": true,
+        "aspect_ratio_secondary": "portrait",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
     "blog-posts": {
       "type": "blog-posts",
       "settings": {
@@ -547,6 +610,7 @@
         "heading_tag": "h2",
         "heading_group_button_show": true,
         "heading_group_button_label": "Read All",
+        "heading_group_button_link": "",
         "heading_group_button_style": "tertiary",
         "show_image": true,
         "aspect_ratio": "landscape",
@@ -573,6 +637,7 @@
     "content_cards_gKNrrL",
     "testimonials_iJmMhk",
     "trust_zwDxUA",
+    "hero_AJ9tLQ",
     "blog-posts"
   ]
 }
