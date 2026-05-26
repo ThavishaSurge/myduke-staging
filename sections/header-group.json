@@ -62,7 +62,7 @@
         "menu": "main-menu",
         "sticky_header_type": "on-scroll-up",
         "transparent_sticky_adaptive": false,
-        "overlay_mode": false,
+        "overlay_mode": true,
         "color_scheme_overlay_mode": "background-4",
         "enable_border": false,
         "show_logo": true,
