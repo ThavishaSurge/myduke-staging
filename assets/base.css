@@ -2771,6 +2771,21 @@ modal-localization-form .disclosure {
   transform: translate(-50%, -50%);
 }
 
+@media screen and (max-width: 750px) {
+  .header {
+    border-bottom: 1px solid #F9F4E633;
+  }
+
+  .menu-drawer-icon {
+    border-right: 1px solid #F9F4E633;
+  }
+
+  .menu-drawer-icon .icon {
+    color: white !important;
+  }
+
+}
+
 @media screen and (max-width: 500px) {
   .header__heading-logo {
     max-width: 20rem;
