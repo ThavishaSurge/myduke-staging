@@ -205,9 +205,9 @@
       },
       "background-5": {
         "settings": {
-          "colors_text": "#2b2b2e",
+          "colors_text": "#264653",
           "colors_secondary_text": "#757575",
-          "colors_background_1": "#eff3ff",
+          "colors_background_1": "#bfdbcf",
           "colors_background_2": "#f8f5f2",
           "background_gradient": "",
           "colors_solid_button_labels": "#ffffff",

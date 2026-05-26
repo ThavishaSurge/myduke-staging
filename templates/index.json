@@ -9,6 +9,21 @@
  */
 {
   "sections": {
+    "myduke_hero_b7miwf": {
+      "type": "myduke-hero",
+      "name": "MyDuke Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_1.png",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "heading": "Clinical Support For\nNicotine Dependance",
+        "description": "myduke offers safe and clinically appropriate pathways for smoking cessation, supported by healthcare professionals every step of the way.",
+        "button_1_text": "Apply For A Prescription",
+        "button_1_link": "",
+        "button_2_text": "How It Works",
+        "button_2_link": ""
+      }
+    },
     "featured_products_FnXqhP": {
       "type": "featured-products",
       "name": "t:sections.featured-products.presets.name",
@@ -725,6 +740,7 @@
     }
   },
   "order": [
+    "myduke_hero_b7miwf",
     "featured_products_FnXqhP",
     "popular-products",
     "showcase",
