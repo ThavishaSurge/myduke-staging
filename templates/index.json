@@ -764,6 +764,7 @@
       "name": "Cost Calculator (MyDuke)",
       "settings": {
         "color_scheme": "",
+        "bg_image": "shopify://shop_images/potential-earnings-bg.webp",
         "heading": "See What You Could Save",
         "heading_tag": "h2",
         "slider_label": "Cigarettes per day",
@@ -771,6 +772,7 @@
         "slider_min": 1,
         "slider_max": 60,
         "slider_default": 30,
+        "slider_fill_color": "#edf3f0",
         "cost_per_cigarette": "2.00",
         "cost_label": "Cost per cigarette",
         "show_gst_label": true,
