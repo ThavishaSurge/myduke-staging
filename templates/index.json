@@ -24,6 +24,50 @@
         "button_2_link": ""
       }
     },
+    "info_banner_T4Ytcx": {
+      "type": "info-banner",
+      "blocks": {
+        "info_item_8DmTej": {
+          "type": "info_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"34\" height=\"34\" viewbox=\"0 0 34 34\" fill=\"none\">\n  <path d=\"M23.556 11.241C26.1005 11.241 28.1631 9.17835 28.1631 6.63393C28.1631 4.08952 26.1005 2.02686 23.556 2.02686C21.0116 2.02686 18.949 4.08952 18.949 6.63393C18.949 9.17835 21.0116 11.241 23.556 11.241Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M22.7832 31.9728H27.0117L28.1635 22.7587H31.6188V19.3033C31.6188 17.1651 30.7693 15.1144 29.2573 13.6024C27.7453 12.0904 25.6946 11.241 23.5563 11.241C21.4181 11.241 19.3674 12.0904 17.8554 13.6024C17.4324 14.0253 17.0613 14.4905 16.7461 14.9878\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M13.4017 20.6567C13.6071 20.2249 13.7221 19.7418 13.7221 19.2319C13.7221 17.3981 12.2355 15.9116 10.4017 15.9116C8.56797 15.9116 7.08142 17.3981 7.08142 19.2319C7.08142 19.7418 7.19638 20.2249 7.40179 20.6567\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M4.68995 20.6262H16.1129C17.387 20.6262 18.4191 21.6605 18.4164 22.9346L18.4024 29.6742C18.3997 30.9445 17.3691 31.9729 16.0988 31.9729H4.70403C3.43371 31.9729 2.40316 30.9445 2.4005 29.6742L2.38642 22.9346C2.38375 21.6605 3.41586 20.6262 4.68995 20.6262Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M10.4023 23.9846V28.615\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M12.7171 26.2993H8.08673\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "AHPRA-Registered Doctors"
+          }
+        },
+        "info_item_QziCJE": {
+          "type": "info_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 26 26\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_689)\">\n    <path d=\"M23.0473 9.13566V2.95272C23.0473 2.54276 22.8844 2.1496 22.5946 1.85972C22.3047 1.56984 21.9115 1.40698 21.5016 1.40698H2.95272C2.54276 1.40698 2.1496 1.56984 1.85972 1.85972C1.56984 2.1496 1.40698 2.54276 1.40698 2.95272V19.9558C1.40698 20.3658 1.56984 20.7589 1.85972 21.0488C2.1496 21.3387 2.54276 21.5016 2.95272 21.5016H10.6814\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M1.40698 6.04419H23.0473\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 10.6814H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 13.7729H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 16.8643H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 10.6814H14.5457\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 13.7729H11.7119\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 16.8643H10.939\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1501 23.8922L19.6096 24.593L18.07 23.8922C17.0684 23.4693 16.2105 22.7658 15.5996 21.8664C14.9888 20.967 14.651 19.9102 14.6271 18.8232V14.9579L19.6096 13.2576L24.593 14.9579V18.8232C24.5689 19.9101 24.231 20.9669 23.6202 21.8662C23.0094 22.7655 22.1516 23.4691 21.1501 23.8922Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M17.5414 18.884L19.0366 20.3803L22.0292 16.6406\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_689\">\n      <rect width=\"26\" height=\"26\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "text": "TGA-Compliant Framework"
+          }
+        },
+        "info_item_G9Rjdn": {
+          "type": "info_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 26 26\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_702)\">\n    <path d=\"M5.41147 1.40689C4.98318 1.38928 4.56536 1.54202 4.24941 1.8317C3.93346 2.12139 3.74512 2.52442 3.72559 2.95262V23.0472C3.74512 23.4754 3.93346 23.8784 4.24941 24.1681C4.56536 24.4578 4.98318 24.6105 5.41147 24.5929H20.5885C21.0168 24.6105 21.4346 24.4578 21.7506 24.1681C22.0665 23.8784 22.2549 23.4754 22.2744 23.0472V6.68403C22.2728 6.47762 22.228 6.27384 22.143 6.08573C22.058 5.89763 21.9346 5.72936 21.7808 5.59171L17.7093 1.85927C17.382 1.56544 16.9569 1.40415 16.5171 1.40689H5.41147Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M17.6372 14.5457C17.6372 14.3408 17.5558 14.1442 17.4108 13.9992C17.2659 13.8543 17.0693 13.7729 16.8643 13.7729H14.5457V11.4543C14.5457 11.2493 14.4643 11.0527 14.3194 10.9078C14.1744 10.7628 13.9778 10.6814 13.7729 10.6814H12.2271C12.0222 10.6814 11.8256 10.7628 11.6806 10.9078C11.5357 11.0527 11.4543 11.2493 11.4543 11.4543V13.7729H9.13566C8.93068 13.7729 8.7341 13.8543 8.58916 13.9992C8.44422 14.1442 8.36279 14.3408 8.36279 14.5457V16.0915C8.36279 16.2964 8.44422 16.493 8.58916 16.638C8.7341 16.7829 8.93068 16.8643 9.13566 16.8643H11.4543V19.1829C11.4543 19.3879 11.5357 19.5845 11.6806 19.7294C11.8256 19.8744 12.0222 19.9558 12.2271 19.9558H13.7729C13.9778 19.9558 14.1744 19.8744 14.3194 19.7294C14.4643 19.5845 14.5457 19.3879 14.5457 19.1829V16.8643H16.8643C17.0693 16.8643 17.2659 16.7829 17.4108 16.638C17.5558 16.493 17.6372 16.2964 17.6372 16.0915V14.5457Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M16.0915 1.40698V5.82367C16.0918 6.29202 16.2779 6.74112 16.6091 7.0723C16.9403 7.40348 17.3894 7.58965 17.8578 7.58993H22.2744\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_702\">\n      <rect width=\"26\" height=\"26\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "text": "Secure Medical Data"
+          }
+        },
+        "info_item_9UCr9r": {
+          "type": "info_item",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n  <path d=\"M5.38439 21.0733C4.58536 19.564 6.20878 18.5367 6.72878 18.0928C8.3522 16.5581 9.3922 15.3406 7.99708 12.4489C7.47707 13.7172 5.8917 16.1269 4.07804 16.7484C1.83316 17.522 0.983397 14.8586 2.49267 13.2352C3.53568 12.1505 4.69224 11.181 5.94244 10.3435C4.58276 9.35964 3.42456 8.12394 2.53072 6.70348C2.27339 6.37925 2.15076 5.96841 2.18827 5.55618C2.22577 5.14396 2.42054 4.76199 2.73215 4.48954C3.04376 4.21708 3.44831 4.07504 3.86185 4.09289C4.27539 4.11075 4.66619 4.28712 4.95317 4.58542C6.72878 5.85372 6.99512 6.74152 6.60195 6.91909C5.65073 7.35031 5.67609 2.32785 7.99708 2.70834C9.13854 2.89859 10.4576 3.97664 9.5444 9.51909C9.5444 9.51909 19.2849 10.5464 19.1708 19.9445C19.1708 21.644 16.5708 22.7982 16.1015 22.7982C16.4083 23.1792 16.6217 23.6268 16.7244 24.1051C16.8272 24.5834 16.8165 25.0791 16.6932 25.5525C16.5699 26.0259 16.3375 26.4639 16.0145 26.8313C15.6915 27.1988 15.2869 27.4855 14.8332 27.6684C11.7005 29.2918 7.46439 30.205 6.83024 28.1884C6.1961 26.1718 10.3561 23.9143 12.7786 24.5484C12.0611 23.6655 11.6899 22.5515 11.7342 21.4147C11.7786 20.2779 12.2355 19.1962 13.0195 18.3718C15.3151 16.1142 19.602 19.323 21.4537 20.5152C23.3054 21.7074 23.4322 21.8596 25.4996 21.0733C27.5669 20.2869 28.0362 20.1981 28.9493 19.8811C29.8625 19.564 31.0928 20.0333 29.3425 21.7074C27.5923 23.3816 23.3181 26.3748 14.9981 26.8821C11.3581 26.9962 8.4283 24.0411 8.18732 21.8977C8.13701 21.4768 8.1116 21.0533 8.11122 20.6294\" fill=\"none\" stroke=\"white\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "Australian Owned & Operated"
+          }
+        }
+      },
+      "block_order": [
+        "info_item_8DmTej",
+        "info_item_QziCJE",
+        "info_item_G9Rjdn",
+        "info_item_9UCr9r"
+      ],
+      "name": "Info Banner",
+      "settings": {
+        "bg_color": "#264653",
+        "text_color": "#ffffff"
+      }
+    },
     "content_cards_myduke_Ct4eM8": {
       "type": "content-cards-myduke",
       "blocks": {
@@ -189,6 +233,7 @@
   },
   "order": [
     "myduke_hero_b7miwf",
+    "info_banner_T4Ytcx",
     "content_cards_myduke_Ct4eM8",
     "myduke_cost_calculator_gNtdKb"
   ]
