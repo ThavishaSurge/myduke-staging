@@ -95,6 +95,7 @@
         "additional_button_2_style": "secondary",
         "mobile_menu_color_scheme": "background-5",
         "show_dm_logo_in_mobile_menu": false,
+        "drawer_logo": "shopify://shop_images/Logo_TM_black_1.png",
         "enable_right_mobile_menu_border": false,
         "enable_social_on_mobile": false
       }
