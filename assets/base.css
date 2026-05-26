@@ -1303,7 +1303,8 @@ details>* {
 }
 
 .button--secondary::before {
-  background-color: rgb(var(--color-button-secondary-hover));
+  /* background-color: rgb(var(--color-button-secondary-hover)); */
+  background-color: transparent;
 }
 
 .button--secondary .button__label {
