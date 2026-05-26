@@ -7,8 +7,9 @@
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
-  padding: 8rem auto;
+  padding: 50px !important;
   background-color: #558c82;
+  margin-top: -70px;
   /* Fallback color */
 }
 

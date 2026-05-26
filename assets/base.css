@@ -3543,7 +3543,7 @@ menu-drawer+.header__search {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: rgb(var(--color-foreground));
+  color: white;
   overflow: hidden;
 }
 
