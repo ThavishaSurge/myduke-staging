@@ -58,6 +58,39 @@
       font-size: calc(var(--font-header-menu-text-scale) * 0.9rem);
     }
   }
+
+  {% if section.settings.overlay_bg_color != blank %}
+    body:has(main > .featured-products-section:first-child:not(.not-margin)) .shopify-section-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
+    body:has(main > .media-banner-section:first-child:not(.not-margin)) .shopify-section-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
+    body:has(main > .slideshow-section:first-child:not(.not-margin) > .slideshow--overlay) .shopify-section-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
+    body:has(main > .collection-grid-section:first-child:not(.not-margin) .collection-hero__wrapper--with-image) .shopify-section-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper {
+      background: {{ section.settings.overlay_bg_color }} !important;
+    }
+  {% endif %}
+  {% if section.settings.header_bg_color != blank %}
+    .shopify-section-header .header-wrapper {
+      background: {{ section.settings.header_bg_color }} !important;
+    }
+  {% endif %}
+  .header__heading-logo--scrolled {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transition: opacity 0.4s, visibility 0.4s;
+  }
+  .header__heading-logo:not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay) {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s, visibility 0.4s;
+  }
+  .header-wrapper--tsk-solid .header__heading-logo--scrolled {
+    opacity: 1;
+    visibility: visible;
+  }
+  .header-wrapper--tsk-solid .header__heading-logo:not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay) {
+    opacity: 0;
+    visibility: hidden;
+  }
 </style>
 {%- if section.settings.overlay_mode -%}
   {% render 'header-overlay-mode-styles' %}
@@ -304,10 +337,23 @@
       "visible_if": "{{ section.settings.overlay_mode }}"
     },
     {
+      "type": "color",
+      "id": "overlay_bg_color",
+      "label": "Overlay header background color",
+      "info": "Background color of the header when overlay mode is active (transparent state). Leave blank for transparent.",
+      "visible_if": "{{ section.settings.overlay_mode }}"
+    },
+    {
       "type": "checkbox",
       "id": "enable_border",
       "default": true,
       "label": "t:sections.header.settings.enable_border.label"
+    },
+    {
+      "type": "color",
+      "id": "header_bg_color",
+      "label": "Header background color",
+      "info": "Custom background color for the solid header. Overrides the theme's default background."
     },
     {
       "type": "header",
@@ -331,6 +377,13 @@
       "label": "t:sections.header.settings.logo_2.label",
       "info": "t:sections.header.settings.logo_2.info",
       "visible_if": "{{ section.settings.show_logo == true and section.settings.logo != blank }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_scrolled",
+      "label": "Logo when scrolled (overlay mode)",
+      "info": "This logo is shown when the header becomes solid after scrolling in overlay mode.",
+      "visible_if": "{{ section.settings.show_logo == true and section.settings.overlay_mode }}"
     },
     {
       "type": "checkbox",

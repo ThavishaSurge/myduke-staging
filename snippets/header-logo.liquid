@@ -52,6 +52,17 @@
             loading="lazy"
           >
         {%- endif -%}
+        {%- if section.settings.logo_scrolled != blank -%}
+          <img
+            srcset="{{ section.settings.logo_scrolled | image_url: width: image_size }} 1x, {{ section.settings.logo_scrolled | image_url: width: image_size_2x }} 2x"
+            src="{{ section.settings.logo_scrolled | image_url: width: image_size }}"
+            class="header__heading-logo header__heading-logo--scrolled"
+            width="{{ section.settings.logo_width }}"
+            height="auto"
+            alt="{{ section.settings.logo_scrolled.alt | default: shop.name | escape }}"
+            loading="lazy"
+          >
+        {%- endif -%}
       {%- elsif section.settings.logo_2 != blank -%}
         {%- assign image_size = section.settings.logo_width | append: 'x' -%}
         {%- assign image_size_2x = section.settings.logo_width | times: 2 | at_most: 5760 -%}
@@ -64,6 +75,17 @@
           alt="{{ section.settings.logo_2.alt | default: shop.name | escape }}"
           loading="lazy"
         >
+        {%- if section.settings.logo_scrolled != blank -%}
+          <img
+            srcset="{{ section.settings.logo_scrolled | image_url: width: image_size }} 1x, {{ section.settings.logo_scrolled | image_url: width: image_size_2x }} 2x"
+            src="{{ section.settings.logo_scrolled | image_url: width: image_size }}"
+            class="header__heading-logo header__heading-logo--scrolled"
+            width="{{ section.settings.logo_width }}"
+            height="auto"
+            alt="{{ section.settings.logo_scrolled.alt | default: shop.name | escape }}"
+            loading="lazy"
+          >
+        {%- endif -%}
       {%- else -%}
         <span class="header-label" style="max-width: {{ section.settings.logo_width }}px;">
           {{- shop.name -}}
