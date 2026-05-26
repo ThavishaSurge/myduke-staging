@@ -2991,6 +2991,16 @@ modal-localization-form .disclosure {
   display: none;
 }
 
+@media screen and (max-width: 989px) {
+  .header__additional-btn.header__additional-btn--2 {
+    display: inline-flex;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.3rem;
+    min-height: 3.6rem;
+    min-width: auto;
+  }
+}
+
 @media screen and (min-width: 990px) {
   .header__additional-btn {
     display: inline-flex;
