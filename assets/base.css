@@ -2436,7 +2436,7 @@ input:-internal-autofill-selected {
   justify-content: center;
   width: 5.9rem;
   height: 100%;
-  border-right: 0.1rem solid rgba(var(--color-border), 0.2);
+  border-right: 1px solid #F9F4E633;
   flex-shrink: 0;
 }
 
