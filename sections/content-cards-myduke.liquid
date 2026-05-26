@@ -192,6 +192,12 @@
     height: 1.6rem;
   }
 
+  .myduke-cc__check-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .myduke-cc__check-text {
     font-family: var(--font-body-family);
     font-style: var(--font-body-style);
@@ -367,7 +373,9 @@
 
               {%- if block.settings.card_check_text != blank -%}
                 <div class="myduke-cc__check">
-                  {%- if block.settings.card_check_icon != blank -%}
+                  {%- if block.settings.card_check_icon_svg != blank -%}
+                    <span class="myduke-cc__check-icon" aria-hidden="true">{{ block.settings.card_check_icon_svg }}</span>
+                  {%- elsif block.settings.card_check_icon != blank -%}
                     {{
                       block.settings.card_check_icon
                       | image_url: width: 32
@@ -923,10 +931,16 @@
           "label": "Bullet point text"
         },
         {
+          "type": "textarea",
+          "id": "card_check_icon_svg",
+          "label": "Bullet point icon — SVG code",
+          "info": "Paste raw <svg>…</svg> markup. Takes priority over the image picker below."
+        },
+        {
           "type": "image_picker",
           "id": "card_check_icon",
-          "label": "Bullet point icon",
-          "info": "Replaces the default check-circle SVG. Recommended: 32×32px PNG or SVG."
+          "label": "Bullet point icon — image",
+          "info": "Used when no SVG code is set above. Recommended: 32×32px PNG or SVG."
         },
         {
           "type": "text",
