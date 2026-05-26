@@ -16,24 +16,26 @@
     >
       <div class="menu-drawer__inner-container">
         <div class="modal__heading container no-js-hidden">
-          {% render 'modal-close-button', id: 'mobile-menu-close-btn', only_icon: true %}
-          
-          {% assign logo_class = 'logo-in-drawer'
-            | append: ' logo-in-drawer-dark--'
-            | append: section.settings.show_dm_logo_in_mobile_menu
-          %}
-          {% render 'header-logo', class: logo_class, show_logo: section.settings.show_logo %}
-          
-          {%- if section.settings.enable_additional_button_2 == true and section.settings.additional_button_2_label != blank -%}
-            {% render 'button',
-              btn_label: section.settings.additional_button_2_label,
-              btn_style: section.settings.additional_button_2_style,
-              btn_link: section.settings.additional_button_2_link,
-              class: 'menu-drawer__header-btn'
+          <div class="modal__heading-left">
+            {% render 'modal-close-button', id: 'mobile-menu-close-btn', only_icon: true %}
+            
+            {% assign logo_class = 'logo-in-drawer'
+              | append: ' logo-in-drawer-dark--'
+              | append: section.settings.show_dm_logo_in_mobile_menu
             %}
-          {%- else -%}
-            <div style="width: 24px;"></div> <!-- Placeholder to keep logo centered if no button -->
-          {%- endif -%}
+            {% render 'header-logo', class: logo_class, show_logo: section.settings.show_logo %}
+          </div>
+          
+          <div class="modal__heading-right">
+            {%- if section.settings.enable_additional_button_2 == true and section.settings.additional_button_2_label != blank -%}
+              {% render 'button',
+                btn_label: section.settings.additional_button_2_label,
+                btn_style: section.settings.additional_button_2_style,
+                btn_link: section.settings.additional_button_2_link,
+                class: 'menu-drawer__header-btn'
+              %}
+            {%- endif -%}
+          </div>
         </div>
         <div class="menu-drawer__main">
           {%- if section.settings.menu != blank -%}

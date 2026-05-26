@@ -202,7 +202,9 @@
 }
 
 .menu-drawer__menu>li {
-  border-top: 0.1rem solid rgb(var(--color-border));
+  /* border-top: 0.1rem solid rgb(var(--color-border)); */
+  border-top: none;
+
 }
 
 .menu-drawer__menu>li:last-child {

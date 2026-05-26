@@ -2422,6 +2422,17 @@ input:-internal-autofill-selected {
   justify-content: space-between;
 }
 
+.modal__heading-left {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.modal__heading-right {
+  display: flex;
+  align-items: center;
+}
+
 .menu-drawer__header-btn {
   display: inline-flex;
   padding: 0.6rem 1.2rem;
