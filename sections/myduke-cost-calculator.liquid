@@ -357,6 +357,21 @@
     color: #ffffff;
   }
 
+  /* ── Desktop: facts always open, toggle hidden ── */
+  @media screen and (min-width: 576px) {
+    .myduke-calc__facts-list,
+    .myduke-calc__facts-list[hidden] {
+      display: flex;
+    }
+    .myduke-calc__toggle-icon {
+      display: none;
+    }
+    .myduke-calc__facts-toggle {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
   /* ── Responsive ── */
   @media screen and (max-width: 989px) {
     .myduke-calc__card {
@@ -576,11 +591,13 @@
   slider.addEventListener('input', calc);
   calc();
 
-  // Quick Facts collapsible toggle
+  // Quick Facts collapsible toggle — mobile only
   var factsToggle = document.querySelector('[aria-controls="myduke-calc-facts-{{ section.id }}"]');
   var factsList = document.getElementById('myduke-calc-facts-{{ section.id }}');
+  var mobileQuery = window.matchMedia('(max-width: 575px)');
   if (factsToggle && factsList) {
     factsToggle.addEventListener('click', function () {
+      if (!mobileQuery.matches) return;
       var isOpen = factsToggle.getAttribute('aria-expanded') === 'true';
       factsToggle.setAttribute('aria-expanded', String(!isOpen));
       if (isOpen) {
