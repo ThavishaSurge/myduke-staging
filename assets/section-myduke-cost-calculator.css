@@ -10,6 +10,14 @@
   padding-bottom: 8rem!important;
 }
 
+/* ── Desktop: 24 px side margin so the section sits inset from the viewport ── */
+@media screen and (min-width: 576px) {
+  .myduke-calc {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+}
+
 /* ── Card ── */
 .myduke-calc__card {
   position: relative;
@@ -372,8 +380,6 @@
   .myduke-calc {
     padding-top: 6.4rem!important;
     padding-bottom: 6.4rem!important;
-    padding-left: 0!important;
-    padding-right: 0!important;
   }
   .myduke-calc__card {
     padding: 2.4rem;
