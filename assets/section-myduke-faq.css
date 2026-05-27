@@ -1,0 +1,247 @@
+/* ── MyDuke FAQ section ── */
+
+.myduke-faq {
+  background: #ffffff;
+  padding-top: 9.6rem;
+  padding-bottom: 9.6rem;
+}
+
+/*
+  Desktop grid — three named areas:
+  | heading  | accordion |
+  | cta      | accordion |
+  The accordion spans both rows on the right.
+  The button (cta) sits below the heading on the left, pinned to the bottom.
+*/
+.myduke-faq__inner {
+  max-width: 192rem;
+  margin: 0 auto;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "heading accordion"
+    "cta     accordion";
+  column-gap: 6.4rem;
+}
+
+/* ── Left — heading group (grid-area: heading) ── */
+.myduke-faq__left {
+  grid-area: heading;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-self: start;
+}
+
+.myduke-faq__eyebrow {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2b2b2e;
+  margin: 0;
+}
+
+.myduke-faq__heading {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #264653;
+  margin: 0;
+}
+
+/* ── CTA button (grid-area: cta, pinned to bottom of left col) ── */
+.myduke-faq__cta {
+  grid-area: cta;
+  align-self: end;
+}
+
+.myduke-faq__header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #218380;
+  color: #ffffff;
+  font-family: var(--font-button-family);
+  font-style: var(--font-button-style);
+  font-weight: 500;
+  font-size: calc(var(--font-button-scale) * 1rem);
+  letter-spacing: var(--font-button-letter-spacing);
+  text-transform: capitalize;
+  padding: 0.95rem 3.6rem;
+  min-height: 4rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 200ms ease;
+  white-space: nowrap;
+}
+
+.myduke-faq__header-btn:hover {
+  background: #264653;
+  color: #ffffff;
+}
+
+/* ── Right — accordion (grid-area: accordion, spans both rows) ── */
+.myduke-faq__right {
+  grid-area: accordion;
+}
+
+/* ── FAQ list ── */
+.myduke-faq__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e0dacf;
+  border-bottom: 1px solid #e0dacf;
+}
+
+/* ── Individual item ── */
+.myduke-faq__item {
+  border-bottom: 1px solid #e0dacf;
+  padding: 0rem 2.4rem;
+}
+
+.myduke-faq__item:last-child {
+  border-bottom: none;
+}
+
+/* Open item */
+.myduke-faq__item.is-open {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Trigger (question row) ── */
+.myduke-faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 2.4rem 0;
+  cursor: pointer;
+  text-align: left;
+  gap: 2.4rem;
+}
+
+.myduke-faq__question {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #264653;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* +/- toggle icon */
+.myduke-faq__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* Hide the vertical bar (plus → minus) when open */
+.myduke-faq__trigger[aria-expanded="true"] .myduke-faq__icon-vert {
+  display: none;
+}
+
+/* ── Answer panel ── */
+.myduke-faq__panel {
+  padding-bottom: 2.4rem;
+}
+
+.myduke-faq__panel[hidden] {
+  display: none;
+}
+
+.myduke-faq__answer {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.6rem);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: #264653;
+}
+
+.myduke-faq__answer p {
+  margin: 0;
+}
+
+.myduke-faq__answer p + p {
+  margin-top: 1.2rem;
+}
+
+/* ── Responsive: tablet ── */
+@media screen and (max-width: 989px) {
+  .myduke-faq__inner {
+    column-gap: 4rem;
+  }
+  .myduke-faq__heading {
+    font-size: 3.6rem;
+  }
+}
+
+/*
+  Mobile — single-column, order matches Figma mobile node tree:
+  1. heading (Frame 427320827)
+  2. accordion (Section)
+  3. cta button (Frame 427320837)
+*/
+@media screen and (max-width: 575px) {
+  .myduke-faq__inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "heading"
+      "accordion"
+      "cta";
+    row-gap: 2.4rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+    padding-top: 6.4rem!important;
+    padding-bottom: 6.4rem!important;
+  }
+  .myduke-faq__heading {
+    font-size: 2.6rem;
+  }
+  .myduke-faq__cta {
+    align-self: stretch;
+  }
+  .myduke-faq__header-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .myduke-faq__item {
+    padding: 0rem 0rem;
+  }
+  .myduke-faq__trigger {
+    padding: 1.8rem 0;
+    gap: 1.6rem;
+  }
+  .myduke-faq__question {
+    font-size: 1.6rem;
+  }
+  .myduke-faq__panel {
+    padding-bottom: 1.6rem;
+  }
+  .myduke-faq__answer {
+    font-size: calc(var(--font-body-scale) * 1.4rem);
+  }
+}

@@ -229,12 +229,89 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_faq_eiGzkw": {
+      "type": "myduke-faq",
+      "blocks": {
+        "faq_item_aVytjt": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is MyDuke legal in Australia?",
+            "answer": "<p>Yes. All products facilitated through MyDuke are prescribed by AHPRA-registered doctors and dispensed by licensed Australian pharmacies in full compliance with TGA regulations.</p>"
+          }
+        },
+        "faq_item_yrBBnq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does it take to get a prescription after assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_RwiJkB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": ""
+          }
+        },
+        "faq_item_MBJVEk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I access myduke® support if I live in a remote area?",
+            "answer": ""
+          }
+        },
+        "faq_item_FCMYwD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What treatment options are available in Australia to help quit smoking?",
+            "answer": ""
+          }
+        },
+        "faq_item_WMFkpn": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why can't I see the medication and price before completing the assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_X8DPNT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return my order if I have changed my mind?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_aVytjt",
+        "faq_item_yrBBnq",
+        "faq_item_RwiJkB",
+        "faq_item_MBJVEk",
+        "faq_item_FCMYwD",
+        "faq_item_WMFkpn",
+        "faq_item_X8DPNT"
+      ],
+      "name": "FAQ (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "FAQs",
+        "heading": "Your Questions Answered",
+        "heading_tag": "h2",
+        "cta_button_label": "Apply for a Prescription",
+        "cta_button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "myduke_hero_b7miwf",
     "info_banner_T4Ytcx",
     "content_cards_myduke_Ct4eM8",
-    "myduke_cost_calculator_gNtdKb"
+    "myduke_cost_calculator_gNtdKb",
+    "myduke_faq_eiGzkw"
   ]
 }
