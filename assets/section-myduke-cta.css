@@ -5,10 +5,10 @@
   padding-bottom: 8rem!important;
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1919px) {
   .myduke-cta {
     margin-left: auto;
-    margin-right: 2.4rem;
+    margin-right: auto;
   }
 }
 
