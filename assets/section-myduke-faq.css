@@ -194,12 +194,6 @@
   }
 }
 
-/*
-  Mobile — single-column, order matches Figma mobile node tree:
-  1. heading (Frame 427320827)
-  2. accordion (Section)
-  3. cta button (Frame 427320837)
-*/
 @media screen and (max-width: 575px) {
   .myduke-faq {
     background: #ffffff;
