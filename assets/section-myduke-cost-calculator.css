@@ -10,7 +10,6 @@
   padding-bottom: 8rem!important;
 }
 
-/* ── Desktop: 24 px side margin so the section sits inset from the viewport ── */
 @media screen and (min-width: 576px) {
   .myduke-calc {
     margin-left: 2.4rem;
@@ -102,7 +101,6 @@
   padding: 0;
 }
 
-/* Track — webkit: --calc-fill-color and --calc-fill are set on .myduke-calc by Liquid/JS */
 .myduke-calc .myduke-calc__slider::-webkit-slider-runnable-track {
   height: 1rem;
   border-radius: 9.9rem;
