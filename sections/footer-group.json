@@ -16,15 +16,27 @@
       "blocks": {
         "block_1": {
           "type": "link_list",
-          "settings": {}
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer",
+            "default_open": false
+          }
         },
         "block_2": {
           "type": "link_list",
-          "settings": {}
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer",
+            "default_open": false
+          }
         },
         "block_3": {
           "type": "link_list",
-          "settings": {}
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer",
+            "default_open": false
+          }
         },
         "logo_list_dTGYRU": {
           "type": "logo_list",
@@ -34,7 +46,13 @@
           }
         }
       },
-      "block_order": ["block_1", "block_2", "block_3", "logo_list_dTGYRU"],
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "logo_list_dTGYRU"
+      ],
+      "disabled": true,
       "settings": {
         "main_color_scheme": "background-2",
         "enable_border_top": true,
@@ -42,11 +60,13 @@
         "show_logo": true,
         "logo_width": 550,
         "show_contact_text": true,
+        "contact_text": "Use this space to introduce your brand or showcase current offers. Add a message that informs, welcomes, or inspires your visitors.",
         "enable_image": true,
+        "enable_image_animation": true,
         "show_newsletter": true,
         "newsletter_heading": "Join our Newsletter",
         "show_newsletter_text": true,
-        "newsletter_text": "By clicking on the \u201cSubscribe\u201d button, I confirm my agreement with the<a href=\"/policies/privacy-policy\" title=\"Privacy Policy\"> Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>",
+        "newsletter_text": "By clicking on the “Subscribe” button, I confirm my agreement with the<a href=\"/policies/privacy-policy\" title=\"Privacy Policy\"> Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>",
         "privacy_policy_consent": false,
         "bottom_color_scheme": "background-2",
         "enable_country_selector": false,
@@ -55,7 +75,8 @@
         "payment_enable": true,
         "enable_copyright": true,
         "enable_copyright_date": true,
-        "show_policy": false
+        "show_policy": false,
+        "enable_follow_on_shop": true
       }
     },
     "myduke-footer": {
@@ -64,35 +85,56 @@
         "col_shop": {
           "type": "menu_column",
           "settings": {
-            "heading": "Shop"
+            "heading": "Shop",
+            "menu": "footer"
           }
         },
         "col_explore": {
           "type": "menu_column",
           "settings": {
-            "heading": "Explore"
+            "heading": "Explore",
+            "menu": "footer-menu-1-copy"
           }
         },
         "col_legal": {
           "type": "menu_column",
           "settings": {
-            "heading": "Legal"
+            "heading": "Legal",
+            "menu": "footer-menu-2-copy"
           }
         },
         "col_contact": {
           "type": "menu_column",
           "settings": {
-            "heading": "Contact"
+            "heading": "Contact",
+            "menu": "footer-menu-4"
           }
         }
       },
-      "block_order": ["col_shop", "col_explore", "col_legal", "col_contact"],
+      "block_order": [
+        "col_shop",
+        "col_explore",
+        "col_legal",
+        "col_contact"
+      ],
       "settings": {
+        "logo": "shopify://shop_images/Logo_TM_black_1.png",
+        "logo_width": 400,
+        "description": "Myduke® works alongside our Australian dispensing partners to help Australians access quality smoking cessation treatments, overseeing the entire process from treatment through to delivery and ongoing support.",
         "show_social_icons": true,
-        "payment_enable": true,
-        "copyright_text": "\u00a9 2026 Myduke. All rights reserved. Australian Owned & Operated."
+        "social_instagram": "",
+        "social_facebook": "",
+        "social_twitter": "",
+        "social_pinterest": "",
+        "social_tiktok": "",
+        "social_youtube": "",
+        "copyright_text": "© 2026 Myduke. All rights reserved. Australian Owned & Operated.",
+        "payment_enable": true
       }
     }
   },
-  "order": ["footer", "myduke-footer"]
+  "order": [
+    "footer",
+    "myduke-footer"
+  ]
 }
