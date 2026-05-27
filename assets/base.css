@@ -6821,3 +6821,13 @@ deferred-media {
   opacity: 0;
   transition: opacity 0s linear;
 }
+
+
+:root {
+  --page-width: 1920px;
+}
+
+.container,
+.container-fluid {
+  max-width: var(--page-width);
+}
