@@ -398,23 +398,32 @@
     or section.settings.show_policy
     or has_follow_on_shop
   -%}
-    <div class="footer-bottom container color-{{ section.settings.bottom_color_scheme }} background">
+    <div
+      class="footer-bottom container color-{{ section.settings.bottom_color_scheme }} background"
+      style="{% if section.settings.bottom_border_enable %}border-top: {{ section.settings.bottom_border_width }}px solid {{ section.settings.bottom_border_color }};{% endif %}"
+    >
       <div class="footer-bottom-wrapper">
         {%- if section.settings.enable_copyright or section.settings.show_policy -%}
           <div class="footer-bottom-wrapper__main">
             {% comment %} ----- COPYRIGHT ----- {% endcomment %}
             {%- if section.settings.enable_copyright -%}
               <div class="footer-copyright">
-                <span class="footer-copyright__content body-small richtext-link-inside">
-                  &copy;
-                  {% if section.settings.enable_copyright_date %}
-                    {{ 'now' | date: '%Y' }}
-                  {% endif %}
-                  {{ shop.name | link_to: routes.root_url }}.
-                </span>
-                <span class="footer-copyright__content body-small richtext-link-inside">
-                  {{- powered_by_link -}}
-                </span>
+                {%- if section.settings.copyright_text != blank -%}
+                  <span class="footer-copyright__content body-small richtext-link-inside">
+                    {{- section.settings.copyright_text -}}
+                  </span>
+                {%- else -%}
+                  <span class="footer-copyright__content body-small richtext-link-inside">
+                    &copy;
+                    {% if section.settings.enable_copyright_date %}
+                      {{ 'now' | date: '%Y' }}
+                    {% endif %}
+                    {{ shop.name | link_to: routes.root_url }}.
+                  </span>
+                  <span class="footer-copyright__content body-small richtext-link-inside">
+                    {{- powered_by_link -}}
+                  </span>
+                {%- endif -%}
               </div>
             {%- endif -%}
 
@@ -450,13 +459,42 @@
 
             {% comment %} ----- PAYMENT METHODS ----- {% endcomment %}
             {%- if section.settings.payment_enable -%}
-              <ul class="list-payment list-unstyled" role="list">
-                {%- for type in shop.enabled_payment_types -%}
-                  <li class="list-payment__item">
-                    {{ type | payment_type_svg_tag: class: 'icon' }}
-                  </li>
-                {%- endfor -%}
-              </ul>
+              {%- if section.settings.payment_image_1 != blank
+                or section.settings.payment_image_2 != blank
+                or section.settings.payment_image_3 != blank
+                or section.settings.payment_image_4 != blank
+                or section.settings.payment_image_5 != blank
+              -%}
+                {%- comment -%} Render uploaded payment images {%- endcomment -%}
+                <ul class="list-payment list-payment--images list-unstyled" role="list">
+                  {%- for i in (1..5) -%}
+                    {%- assign img_key = 'payment_image_' | append: i -%}
+                    {%- assign img_alt_key = 'payment_image_' | append: i | append: '_alt' -%}
+                    {%- assign payment_img = section.settings[img_key] -%}
+                    {%- if payment_img != blank -%}
+                      <li class="list-payment__item">
+                        {{
+                          payment_img
+                          | image_url: width: 80
+                          | image_tag:
+                            loading: 'lazy',
+                            class: 'list-payment__img',
+                            alt: section.settings[img_alt_key] | default: ''
+                        }}
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              {%- else -%}
+                {%- comment -%} Fallback to Shopify's built-in payment type SVGs {%- endcomment -%}
+                <ul class="list-payment list-unstyled" role="list">
+                  {%- for type in shop.enabled_payment_types -%}
+                    <li class="list-payment__item">
+                      {{ type | payment_type_svg_tag: class: 'icon' }}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
             {%- endif -%}
 
             {% comment %} ----- FOLLOW ON SHOP ----- {% endcomment %}
@@ -644,16 +682,90 @@
       "info": "t:sections.footer.settings.payment_enable.info"
     },
     {
+      "type": "header",
+      "content": "Payment Images",
+      "info": "Upload custom payment method images. If none are uploaded, Shopify's built-in payment icons will be used.",
+      "visible_if": "{{ section.settings.payment_enable }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image_1",
+      "label": "Payment Image 1",
+      "visible_if": "{{ section.settings.payment_enable }}"
+    },
+    {
+      "type": "text",
+      "id": "payment_image_1_alt",
+      "label": "Image 1 Alt Text",
+      "visible_if": "{{ section.settings.payment_enable and section.settings.payment_image_1 != blank }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image_2",
+      "label": "Payment Image 2",
+      "visible_if": "{{ section.settings.payment_enable }}"
+    },
+    {
+      "type": "text",
+      "id": "payment_image_2_alt",
+      "label": "Image 2 Alt Text",
+      "visible_if": "{{ section.settings.payment_enable and section.settings.payment_image_2 != blank }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image_3",
+      "label": "Payment Image 3",
+      "visible_if": "{{ section.settings.payment_enable }}"
+    },
+    {
+      "type": "text",
+      "id": "payment_image_3_alt",
+      "label": "Image 3 Alt Text",
+      "visible_if": "{{ section.settings.payment_enable and section.settings.payment_image_3 != blank }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image_4",
+      "label": "Payment Image 4",
+      "visible_if": "{{ section.settings.payment_enable }}"
+    },
+    {
+      "type": "text",
+      "id": "payment_image_4_alt",
+      "label": "Image 4 Alt Text",
+      "visible_if": "{{ section.settings.payment_enable and section.settings.payment_image_4 != blank }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "payment_image_5",
+      "label": "Payment Image 5",
+      "visible_if": "{{ section.settings.payment_enable }}"
+    },
+    {
+      "type": "text",
+      "id": "payment_image_5_alt",
+      "label": "Image 5 Alt Text",
+      "visible_if": "{{ section.settings.payment_enable and section.settings.payment_image_5 != blank }}"
+    },
+    {
       "type": "checkbox",
       "id": "enable_copyright",
       "default": true,
       "label": "t:sections.footer.settings.enable_copyright.label"
     },
     {
+      "type": "inline_richtext",
+      "id": "copyright_text",
+      "label": "Custom Copyright Text",
+      "info": "Overrides the auto-generated copyright. Leave blank to use the default shop name + year format.",
+      "visible_if": "{{ section.settings.enable_copyright }}"
+    },
+    {
       "type": "checkbox",
       "id": "enable_copyright_date",
       "default": false,
-      "label": "t:sections.footer.settings.enable_copyright_date.label"
+      "label": "t:sections.footer.settings.enable_copyright_date.label",
+      "visible_if": "{{ section.settings.enable_copyright and section.settings.copyright_text == blank }}"
     },
     {
       "type": "checkbox",
@@ -666,6 +778,34 @@
       "id": "enable_follow_on_shop",
       "default": true,
       "label": "t:sections.footer.settings.enable_follow_on_shop.label"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar Border"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_border_enable",
+      "default": true,
+      "label": "Show Top Border"
+    },
+    {
+      "type": "range",
+      "id": "bottom_border_width",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 1,
+      "label": "Border Width",
+      "visible_if": "{{ section.settings.bottom_border_enable }}"
+    },
+    {
+      "type": "color",
+      "id": "bottom_border_color",
+      "default": "#e0e0e0",
+      "label": "Border Color",
+      "visible_if": "{{ section.settings.bottom_border_enable }}"
     }
   ],
   "blocks": [
