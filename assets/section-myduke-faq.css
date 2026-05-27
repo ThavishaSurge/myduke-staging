@@ -6,13 +6,6 @@
   padding-bottom: 8rem;
 }
 
-/*
-  Desktop grid — three named areas:
-  | heading  | accordion |
-  | cta      | accordion |
-  The accordion spans both rows on the right.
-  The button (cta) sits below the heading on the left, pinned to the bottom.
-*/
 .myduke-faq__inner {
   max-width: 100%;
   margin: 0 auto;
