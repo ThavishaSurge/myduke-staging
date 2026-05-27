@@ -1,0 +1,225 @@
+/* ── MyDuke FAQ section ── */
+
+.myduke-faq {
+  background: #ffffff;
+  padding-top: 9.6rem;
+  padding-bottom: 9.6rem;
+}
+
+.myduke-faq__inner {
+  max-width: 128rem;
+  margin: 0 auto;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* ── Header row ── */
+.myduke-faq__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4.8rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid #e0dacf;
+}
+
+.myduke-faq__header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.myduke-faq__eyebrow {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2b2b2e;
+  margin: 0;
+}
+
+.myduke-faq__heading {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #264653;
+  margin: 0;
+}
+
+.myduke-faq__header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #218380;
+  color: #ffffff;
+  font-family: var(--font-button-family);
+  font-style: var(--font-button-style);
+  font-weight: 500;
+  font-size: calc(var(--font-button-scale) * 1rem);
+  letter-spacing: var(--font-button-letter-spacing);
+  text-transform: capitalize;
+  padding: 0.95rem 3.6rem;
+  min-height: 4rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 200ms ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.myduke-faq__header-btn:hover {
+  background: #264653;
+  color: #ffffff;
+}
+
+/* ── FAQ list ── */
+.myduke-faq__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e0dacf;
+  border-bottom: 1px solid #e0dacf;
+}
+
+/* ── Individual item ── */
+.myduke-faq__item {
+  border-bottom: 1px solid #e0dacf;
+}
+
+.myduke-faq__item:last-child {
+  border-bottom: none;
+}
+
+/* Open item: Background+Border style from Figma */
+.myduke-faq__item.is-open {
+  background: #edf3f0;
+  box-shadow: -1px 0 0 #e0dacf, 1px 0 0 #e0dacf;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Trigger (question row) ── */
+.myduke-faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 2.4rem 0;
+  cursor: pointer;
+  text-align: left;
+  gap: 2.4rem;
+}
+
+.myduke-faq__question {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #264653;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* +/- toggle icon */
+.myduke-faq__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* Hide the vertical bar (plus → minus) when open */
+.myduke-faq__trigger[aria-expanded="true"] .myduke-faq__icon-vert {
+  display: none;
+}
+
+/* ── Answer panel ── */
+.myduke-faq__panel {
+  padding-bottom: 2.4rem;
+}
+
+.myduke-faq__panel[hidden] {
+  display: none;
+}
+
+.myduke-faq__answer {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.6rem);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: #264653;
+}
+
+.myduke-faq__answer p {
+  margin: 0;
+}
+
+.myduke-faq__answer p + p {
+  margin-top: 1.2rem;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 989px) {
+  .myduke-faq__heading {
+    font-size: 3.6rem;
+  }
+  .myduke-faq__header {
+    gap: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .myduke-faq {
+    padding-top: 6.4rem;
+    padding-bottom: 6.4rem;
+  }
+  .myduke-faq__inner {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    gap: 2.4rem;
+  }
+  .myduke-faq__heading {
+    font-size: 2.6rem;
+  }
+  .myduke-faq__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+  }
+  .myduke-faq__header-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .myduke-faq__trigger {
+    padding: 1.8rem 0;
+    gap: 1.6rem;
+  }
+  .myduke-faq__question {
+    font-size: 1.6rem;
+  }
+  .myduke-faq__panel {
+    padding-bottom: 1.6rem;
+  }
+  .myduke-faq__answer {
+    font-size: calc(var(--font-body-scale) * 1.4rem);
+  }
+}
