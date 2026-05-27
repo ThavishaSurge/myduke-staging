@@ -259,12 +259,45 @@
         </div>
       {%- endif -%}
 
-      {%- comment -%} RIGHT COLUMN: Newsletter (space reserved for later) {%- endcomment -%}
+      {%- comment -%} RIGHT COLUMN: Newsletter image + form stub {%- endcomment -%}
       <div class="myduke-footer__newsletter-col">
-        {%- comment -%} Signup form placeholder — to be implemented later {%- endcomment -%}
-        <div class="myduke-footer__newsletter-placeholder">
-          {%- comment -%} Newsletter form will be added here {%- endcomment -%}
+
+        {%- comment -%} Illustration / image area {%- endcomment -%}
+        <div class="myduke-footer__newsletter-image">
+          {%- if section.settings.newsletter_image != blank -%}
+            {{
+              section.settings.newsletter_image
+              | image_url: width: 640
+              | image_tag:
+                loading: 'lazy',
+                alt: section.settings.newsletter_image.alt | default: 'Newsletter'
+            }}
+          {%- else -%}
+            <div class="myduke-footer__newsletter-image-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </div>
+          {%- endif -%}
         </div>
+
+        {%- comment -%} Newsletter form stub — functionality to be added later {%- endcomment -%}
+        <div class="myduke-footer__newsletter-stub">
+          <h3 class="myduke-footer__newsletter-heading">Join our Newsletter</h3>
+
+          {%- comment -%} Email field placeholder {%- endcomment -%}
+          <div class="myduke-footer__newsletter-field">
+            <span class="myduke-footer__newsletter-field-label">Email address</span>
+            <svg class="myduke-footer__newsletter-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </div>
+
+          {%- comment -%} Submit button placeholder {%- endcomment -%}
+          <div class="myduke-footer__newsletter-btn-stub" aria-hidden="true">Submit</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -384,6 +417,16 @@
       "id": "payment_enable",
       "label": "Show Payment Icons",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Newsletter Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "newsletter_image",
+      "label": "Newsletter Illustration Image",
+      "info": "Upload the decorative image shown above the newsletter form (e.g. the envelope illustration)."
     }
   ],
   "blocks": [

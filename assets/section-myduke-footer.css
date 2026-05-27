@@ -5,58 +5,41 @@
 
 /* ------ FOOTER ROOT ------ */
 .myduke-footer {
-  background-color: #b8d4cc; /* Muted sage green matching screenshot */
+  background-color: #b8d4cc;
   color: #1a3530;
-  font-family: var(--font-body-family, 'Inter', sans-serif);
+  font-family: var(--font-body-family, sans-serif);
   width: 100%;
 }
 
 /* ------ MAIN BODY ------ */
 .myduke-footer__main {
   width: 100%;
-  padding: 6rem 0 4rem;
+  padding: 5.5rem 0 4rem;
 }
 
+/* 3-column outer grid:
+   [brand] [nav columns] [newsletter]
+   On mobile: single column stack */
 .myduke-footer__main-inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 4rem 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1000px) {
   .myduke-footer__main-inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem 3rem;
-    align-items: start;
-  }
-}
-
-@media screen and (min-width: 1100px) {
-  .myduke-footer__main-inner {
-    /* brand | nav columns | newsletter */
-    grid-template-columns: minmax(200px, 280px) 1fr minmax(280px, 360px);
+    grid-template-columns: 240px 1fr 320px;
     gap: 0 4rem;
     align-items: start;
   }
 }
 
-/* ------ BRAND COLUMN ------ */
+/* ------ BRAND COLUMN (left) ------ */
 .myduke-footer__brand {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-}
-
-@media screen and (min-width: 750px) {
-  .myduke-footer__brand {
-    grid-column: 1 / -1;
-  }
-}
-
-@media screen and (min-width: 1100px) {
-  .myduke-footer__brand {
-    grid-column: auto;
-  }
+  min-width: 0;
 }
 
 /* Logo */
@@ -68,7 +51,7 @@
 }
 
 .myduke-footer__logo-link:hover {
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 .myduke-footer__logo-img {
@@ -78,28 +61,31 @@
   width: auto;
 }
 
-.myduke-footer__logo-link--text .myduke-footer__logo-text {
-  font-size: 3.2rem;
+/* Fallback text logo */
+.myduke-footer__logo-text {
+  font-size: 3rem;
   font-weight: 700;
   color: #1a3530;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
+  line-height: 1;
 }
 
 /* Description */
 .myduke-footer__description {
   font-size: 1.3rem;
   line-height: 1.65;
-  color: #2a4a44;
-  max-width: 28rem;
+  color: #2d4e48;
+  max-width: 24rem;
   margin: 0;
 }
 
-/* Social icons */
+/* Social icons row */
 .myduke-footer__socials {
   display: flex;
   align-items: center;
   gap: 1.4rem;
   flex-wrap: wrap;
+  margin-top: 0.4rem;
 }
 
 .myduke-footer__social-link {
@@ -109,56 +95,57 @@
   color: #1a3530;
   text-decoration: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
 }
 
 .myduke-footer__social-link:hover {
-  opacity: 0.65;
+  opacity: 0.6;
   transform: translateY(-2px);
 }
 
 .myduke-footer__social-link svg {
   display: block;
-  flex-shrink: 0;
 }
 
-/* ------ NAV COLUMNS ------ */
+/* ------ NAV COLUMNS (centre) ------ */
 .myduke-footer__nav {
   display: grid;
+  /* Mobile: 2 columns */
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem 2rem;
+  min-width: 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 600px) {
   .myduke-footer__nav {
-    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-    gap: 3rem 3rem;
+    /* Tablet: up to 4 columns */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 2.4rem;
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1000px) {
   .myduke-footer__nav {
-    gap: 0 4rem;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    /* Desktop: always exactly 4 columns, no wrapping */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 2.4rem;
   }
 }
 
 .myduke-footer__nav-col {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 /* Mobile collapsible */
-.myduke-footer__nav-details {
-  width: 100%;
-}
-
 .myduke-footer__nav-details--mobile {
   display: block;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 600px) {
   .myduke-footer__nav-details--mobile {
     display: none;
   }
@@ -170,7 +157,7 @@
   justify-content: space-between;
   cursor: pointer;
   list-style: none;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
   user-select: none;
 }
 
@@ -188,47 +175,52 @@
   transform: rotate(-180deg);
 }
 
-/* Desktop block */
+/* Desktop nav block */
 .myduke-footer__nav-desktop {
   display: none;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 600px) {
   .myduke-footer__nav-desktop {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
   }
 }
 
 /* Column heading */
-.myduke-footer__nav-heading,
-.myduke-footer__nav-summary > span {
-  font-size: 1.15rem;
+.myduke-footer__nav-heading {
+  font-size: 1.1rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #1a3530;
-  margin: 0 0 0.8rem;
+  margin: 0 0 1.4rem;
+  line-height: 1.2;
 }
 
 .myduke-footer__nav-summary > span {
-  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a3530;
+  line-height: 1.2;
 }
 
-/* Nav list */
+/* Nav links */
 .myduke-footer__nav-list {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.7rem;
   list-style: none;
   margin: 0;
-  padding: 0.6rem 0 0;
+  padding: 0.8rem 0 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 600px) {
   .myduke-footer__nav-list {
     padding: 0;
+    gap: 0.8rem;
   }
 }
 
@@ -240,44 +232,105 @@
 .myduke-footer__nav-link {
   display: inline-block;
   font-size: 1.35rem;
-  color: #2a4a44;
+  color: #2d4e48;
   text-decoration: none;
   line-height: 1.5;
-  transition: color 0.2s ease;
-  padding: 0.15rem 0;
+  transition: color 0.18s ease;
+  padding: 0.1rem 0;
 }
 
 .myduke-footer__nav-link:hover {
   color: #1a3530;
 }
 
-/* ------ NEWSLETTER COLUMN (placeholder) ------ */
+/* ------ NEWSLETTER COLUMN (right, placeholder) ------ */
 .myduke-footer__newsletter-col {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
+  gap: 2.4rem;
+  min-width: 0;
 }
 
-@media screen and (min-width: 750px) {
-  .myduke-footer__newsletter-col {
-    grid-column: span 2;
-  }
-}
-
-@media screen and (min-width: 1100px) {
-  .myduke-footer__newsletter-col {
-    grid-column: auto;
-  }
-}
-
-/* Newsletter placeholder — reserves space for the image + form */
-.myduke-footer__newsletter-placeholder {
+/* The illustration image area */
+.myduke-footer__newsletter-image {
   width: 100%;
-  min-height: 24rem;
-  border-radius: 4px;
-  /* Visually subtle so the empty space doesn't look broken */
-  background-color: transparent;
+  max-width: 32rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: rgba(26, 53, 48, 0.08);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myduke-footer__newsletter-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder icon shown when no image is set */
+.myduke-footer__newsletter-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: rgba(26, 53, 48, 0.3);
+}
+
+/* Form stub */
+.myduke-footer__newsletter-stub {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.myduke-footer__newsletter-heading {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #1a3530;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Email input placeholder row */
+.myduke-footer__newsletter-field {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(26, 53, 48, 0.5);
+  padding-bottom: 0.8rem;
+  gap: 1rem;
+}
+
+.myduke-footer__newsletter-field-label {
+  flex: 1;
+  font-size: 1.3rem;
+  color: rgba(26, 53, 48, 0.55);
+}
+
+.myduke-footer__newsletter-arrow {
+  flex-shrink: 0;
+  color: #1a3530;
+  opacity: 0.6;
+}
+
+/* Submit button placeholder */
+.myduke-footer__newsletter-btn-stub {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d5c54;
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 500;
+  padding: 1.1rem 2.4rem;
+  border: none;
+  cursor: default;
+  letter-spacing: 0.01em;
+  width: fit-content;
 }
 
 /* ------ BOTTOM BAR ------ */
@@ -304,7 +357,7 @@
 
 .myduke-footer__copyright {
   font-size: 1.2rem;
-  color: #2a4a44;
+  color: #2d4e48;
   line-height: 1.5;
 }
 
@@ -313,7 +366,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -331,28 +384,17 @@
 }
 
 /* ------ MOBILE TWEAKS ------ */
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 599px) {
   .myduke-footer__main {
     padding: 4rem 0 3rem;
   }
 
-  .myduke-footer__nav {
-    grid-column: 1 / -1;
-  }
-
-  /* Mobile nav items animate in on <details> open */
   @keyframes mdfNavFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .myduke-footer__nav-details[open] .myduke-footer__nav-list {
-    animation: mdfNavFadeIn 0.25s ease forwards;
+    animation: mdfNavFadeIn 0.22s ease forwards;
   }
 }
