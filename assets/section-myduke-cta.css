@@ -1,0 +1,143 @@
+/* ── MyDuke CTA section ── */
+
+.myduke-cta {
+  padding-top: 8rem!important;
+  padding-bottom: 8rem!important;
+}
+
+/* ── Desktop: 24px side margin — section sits inset from the viewport ── */
+@media screen and (min-width: 576px) {
+  .myduke-cta {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+}
+
+/* ── Inner two-column layout ── */
+.myduke-cta__inner {
+  width: 100%;
+  padding: 0 4.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6.4rem;
+}
+
+/* ── Left — eyebrow + heading ── */
+.myduke-cta__left {
+  flex: 2 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.myduke-cta__eyebrow {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.myduke-cta__heading {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ── Right — body + button ── */
+.myduke-cta__right {
+  flex: 3 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.2rem;
+}
+
+.myduke-cta__body {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.6rem);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.myduke-cta__body p {
+  margin: 0;
+}
+
+.myduke-cta__body p + p {
+  margin-top: 1.2rem;
+}
+
+/* ── Button — outline/ghost style for use over background images ── */
+.myduke-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+  font-family: var(--font-button-family);
+  font-style: var(--font-button-style);
+  font-weight: 500;
+  font-size: calc(var(--font-button-scale) * 1rem);
+  letter-spacing: var(--font-button-letter-spacing);
+  text-transform: capitalize;
+  padding: 0.95rem 3.6rem;
+  min-height: 4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.myduke-cta__btn:hover {
+  background: #ffffff;
+  color: #264653;
+}
+
+/* ── Responsive: tablet ── */
+@media screen and (max-width: 989px) {
+  .myduke-cta__inner {
+    padding: 0 3.2rem;
+    gap: 4rem;
+  }
+  .myduke-cta__heading {
+    font-size: 3.6rem;
+  }
+}
+
+/* ── Responsive: mobile ── */
+@media screen and (max-width: 575px) {
+  .myduke-cta {
+    padding-top: 6.4rem!important;
+    padding-bottom: 6.4rem!important;
+  }
+  .myduke-cta__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 2.4rem;
+    gap: 2.4rem;
+  }
+  .myduke-cta__heading {
+    font-size: 2.6rem;
+  }
+  .myduke-cta__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
