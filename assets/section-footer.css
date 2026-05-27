@@ -482,6 +482,19 @@
   width: auto;
 }
 
+/* Uploaded payment images */
+.footer .list-payment--images {
+  gap: 0.8rem;
+}
+
+.footer .list-payment__img {
+  height: 2rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+
 .footer .field--newsletter-wrapper svg {
   color: rgba(var(--color-button-tertiary-text));
 }
