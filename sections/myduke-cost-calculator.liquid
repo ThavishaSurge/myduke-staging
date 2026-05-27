@@ -9,6 +9,7 @@
     background-image: url('{{ section.settings.bg_image | image_url: width: 1920 }}');
     background-size: cover;
     background-position: center;
+    background-attachment: scroll;
     {%- else -%}
     background: #f0a11f;
     {%- endif -%}
