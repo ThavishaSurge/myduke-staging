@@ -17,7 +17,7 @@
         "block_1": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "Shop",
             "menu": "footer",
             "default_open": false
           }
@@ -25,16 +25,24 @@
         "block_2": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer",
+            "heading": "Explore",
+            "menu": "footer-menu-1-copy",
             "default_open": false
           }
         },
         "block_3": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer",
+            "heading": "Legal",
+            "menu": "footer-menu-2-copy",
+            "default_open": false
+          }
+        },
+        "link_list_ww6kYn": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Contact",
+            "menu": "footer-menu-4",
             "default_open": false
           }
         },
@@ -50,25 +58,26 @@
         "block_1",
         "block_2",
         "block_3",
+        "link_list_ww6kYn",
         "logo_list_dTGYRU"
       ],
-      "disabled": true,
       "settings": {
-        "main_color_scheme": "background-2",
+        "main_color_scheme": "background-1",
         "enable_border_top": true,
         "show_contact": true,
         "show_logo": true,
-        "logo_width": 550,
+        "logo": "shopify://shop_images/Logo_TM_black_1.png",
+        "logo_width": 190,
         "show_contact_text": true,
-        "contact_text": "Use this space to introduce your brand or showcase current offers. Add a message that informs, welcomes, or inspires your visitors.",
-        "enable_image": true,
+        "contact_text": "Create a seperate liquid and css files and create the footer. \nScheme should have the logo upload, description, add social links, and menu selection for each column. Signup form can be added later, just keep the space.",
+        "enable_image": false,
         "enable_image_animation": true,
         "show_newsletter": true,
         "newsletter_heading": "Join our Newsletter",
-        "show_newsletter_text": true,
+        "show_newsletter_text": false,
         "newsletter_text": "By clicking on the “Subscribe” button, I confirm my agreement with the<a href=\"/policies/privacy-policy\" title=\"Privacy Policy\"> Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>",
         "privacy_policy_consent": false,
-        "bottom_color_scheme": "background-2",
+        "bottom_color_scheme": "background-1",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "region_color_scheme": "",
@@ -117,6 +126,7 @@
         "col_legal",
         "col_contact"
       ],
+      "disabled": true,
       "settings": {
         "logo": "shopify://shop_images/Logo_TM_black_1.png",
         "logo_width": 400,
