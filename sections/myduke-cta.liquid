@@ -14,6 +14,15 @@
     background: {{ section.settings.fallback_color }};
     {%- endif -%}
   }
+
+  @media screen and (max-width: 575px) {
+    .myduke-cta[data-section-id="{{ section.id }}"] {
+      {%- if section.settings.bg_image_mobile != blank -%}
+      background-image: url('{{ section.settings.bg_image_mobile | image_url: width: 768 }}');
+      {%- endif -%}
+      background-position: top center;
+    }
+  }
 {% endstyle %}
 
 <div
@@ -75,8 +84,14 @@
     {
       "type": "image_picker",
       "id": "bg_image",
-      "label": "Background image",
+      "label": "Background image (desktop)",
       "info": "Full-bleed image behind the content. Falls back to the colour below if unset."
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Background image (mobile)",
+      "info": "Optional separate image for mobile (≤575px). Falls back to the desktop image if unset."
     },
     {
       "type": "color",
