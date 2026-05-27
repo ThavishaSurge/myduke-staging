@@ -507,3 +507,86 @@
 [data-scheme=dark] .list-social__link:hover {
   color: rgba(var(--color-accent), 0.6);
 }
+
+/* =============================================================
+   MOBILE FOOTER REDESIGN  (max-width: 749px)
+   Layout order matches design:
+   1. Newsletter image (top)
+   2. Newsletter form ("Join our Newsletter" + email)
+   3. Logo + description
+   4. Nav columns — 2-column grid, no accordion
+   5. Social icons — full-width row at bottom
+   ============================================================= */
+@media screen and (max-width: 749px) {
+
+  /* ---- Outer wrapper: column flex so we can reorder ---- */
+  .footer .footer-main-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 0 0 2.4rem;
+  }
+
+  /* ---- 1. Newsletter image block pulled to the very top ---- */
+  .footer .footer-contact-block__image {
+    order: -2;
+    flex-direction: column;
+    gap: 2.4rem;
+    width: 100%;
+    padding: 0 0 2.4rem;
+  }
+
+  /* ---- 2. Inner wrapper (logo + nav) follows newsletter ---- */
+  .footer .footer-main-wrapper_inner {
+    order: -1;
+    gap: 2.4rem;
+    padding: 0;
+  }
+
+  /* ---- 3. Contact block (logo + desc) ---- */
+  .footer .footer-contact-block {
+    gap: 1.6rem;
+  }
+
+  /* ---- 4. Hide accordion, show expanded desktop-style lists ---- */
+
+  /* Override the <style> tag in the liquid */
+  .footer-menu-block-mobile-element {
+    display: none !important;
+  }
+
+  .footer-menu-block-desktop-element {
+    display: block !important;
+  }
+
+  /* ---- 4a. 2-column grid for nav menu blocks ---- */
+  .footer .footer-menu-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.8rem 2rem;
+    width: 100%;
+    align-items: start;
+  }
+
+  /* Remove mobile border between blocks */
+  .footer .footer-menu-block {
+    border-bottom: none;
+    max-width: none;
+    width: 100%;
+    row-gap: 0.8rem;
+  }
+
+  .footer .footer-menu-block-list {
+    padding: 0;
+    gap: 0.6rem;
+  }
+
+  /* ---- 5. Social / logo_list block — full-width row at bottom ---- */
+  .footer .footer-menu-blocks_media {
+    grid-column: 1 / -1;
+    padding-top: 0.8rem;
+    border-top: 0.05rem solid rgb(var(--color-border));
+    max-width: none;
+  }
+}
