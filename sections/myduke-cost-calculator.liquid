@@ -5,7 +5,11 @@
   {% render 'section-margin' %}
 
   .myduke-calc[data-section-id="{{ section.id }}"] {
-    {%- if section.settings.bg_image == blank -%}
+    {%- if section.settings.bg_image != blank -%}
+    background-image: url('{{ section.settings.bg_image | image_url: width: 1920 }}');
+    background-size: cover;
+    background-position: center;
+    {%- else -%}
     background: #f0a11f;
     {%- endif -%}
     --calc-fill-color: {{ section.settings.slider_fill_color }};
@@ -25,19 +29,6 @@
   data-section-id="{{ section.id }}"
   data-cost="{{ cost_raw | escape }}"
 >
-
-  {%- if section.settings.bg_image != blank -%}
-    {{
-      section.settings.bg_image
-      | image_url: width: 1920
-      | image_tag:
-        class: 'myduke-calc__bg',
-        loading: 'lazy',
-        widths: '768, 1024, 1440, 1920',
-        sizes: '100vw',
-        alt: ''
-    }}
-  {%- endif -%}
 
   <div class="myduke-calc__card">
 
