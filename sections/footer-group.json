@@ -27,7 +27,7 @@
           "settings": {
             "heading": "Explore",
             "menu": "footer-menu-1-copy",
-            "default_open": false
+            "default_open": true
           }
         },
         "block_3": {
@@ -35,7 +35,7 @@
           "settings": {
             "heading": "Legal",
             "menu": "footer-menu-2-copy",
-            "default_open": false
+            "default_open": true
           }
         },
         "link_list_ww6kYn": {
@@ -43,7 +43,7 @@
           "settings": {
             "heading": "Contact",
             "menu": "footer-menu-4",
-            "default_open": false
+            "default_open": true
           }
         },
         "logo_list_dTGYRU": {
