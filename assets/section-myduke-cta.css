@@ -69,6 +69,7 @@
 
 .myduke-cta__body p {
   margin: 0;
+  max-width: 59rem;
 }
 
 .myduke-cta__body p + p {
