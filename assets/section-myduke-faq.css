@@ -96,13 +96,13 @@
 .myduke-faq__list {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #e0dacf;
-  border-bottom: 1px solid #e0dacf;
+  border-top: 1px solid #bfdbcf;
+  border-bottom: 1px solid #bfdbcf;
 }
 
 /* ── Individual item ── */
 .myduke-faq__item {
-  border-bottom: 1px solid #e0dacf;
+  border-bottom: 1px solid #bfdbcf;
   padding: 0rem 2.4rem;
 }
 
@@ -124,7 +124,7 @@
   width: 100%;
   background: transparent;
   border: none;
-  padding: 2.4rem 0;
+  padding: 1.9rem 0;
   cursor: pointer;
   text-align: left;
   gap: 2.4rem;
