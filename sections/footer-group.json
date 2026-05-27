@@ -75,7 +75,7 @@
         "enable_image_animation": true,
         "show_newsletter": true,
         "newsletter_heading": "Join our Newsletter",
-        "show_newsletter_text": false,
+        "show_newsletter_text": true,
         "newsletter_text": "By clicking on the “Subscribe” button, I confirm my agreement with the<a href=\"/policies/privacy-policy\" title=\"Privacy Policy\"> Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>",
         "privacy_policy_consent": false,
         "bottom_color_scheme": "background-1",
@@ -127,7 +127,6 @@
         "col_legal",
         "col_contact"
       ],
-      "disabled": true,
       "settings": {
         "logo": "shopify://shop_images/Logo_TM_black_1.png",
         "logo_width": 400,
@@ -145,7 +144,6 @@
     }
   },
   "order": [
-    "footer",
-    "myduke-footer"
+    "footer"
   ]
 }
