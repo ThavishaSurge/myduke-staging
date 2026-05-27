@@ -6,33 +6,34 @@
   padding-bottom: 9.6rem;
 }
 
-/* ── Two-column inner: left (heading + btn) | right (accordion) ── */
+/*
+  Desktop grid — three named areas:
+  | heading  | accordion |
+  | cta      | accordion |
+  The accordion spans both rows on the right.
+  The button (cta) sits below the heading on the left, pinned to the bottom.
+*/
 .myduke-faq__inner {
   max-width: 128rem;
   margin: 0 auto;
   padding-left: 2.4rem;
   padding-right: 2.4rem;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 6.4rem;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "heading accordion"
+    "cta     accordion";
+  column-gap: 6.4rem;
 }
 
-/* ── Left column — heading group stacked, button pinned to bottom ── */
+/* ── Left — heading group (grid-area: heading) ── */
 .myduke-faq__left {
-  flex: 2 0 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-self: stretch;
-  gap: 4.8rem;
-}
-
-.myduke-faq__header-text {
+  grid-area: heading;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  align-self: start;
 }
 
 .myduke-faq__eyebrow {
@@ -58,11 +59,16 @@
   margin: 0;
 }
 
+/* ── CTA button (grid-area: cta, pinned to bottom of left col) ── */
+.myduke-faq__cta {
+  grid-area: cta;
+  align-self: end;
+}
+
 .myduke-faq__header-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  align-self: flex-start;
   background: #218380;
   color: #ffffff;
   font-family: var(--font-button-family);
@@ -85,10 +91,9 @@
   color: #ffffff;
 }
 
-/* ── Right column — accordion ── */
+/* ── Right — accordion (grid-area: accordion, spans both rows) ── */
 .myduke-faq__right {
-  flex: 3 0 0;
-  min-width: 0;
+  grid-area: accordion;
 }
 
 /* ── FAQ list ── */
@@ -102,16 +107,15 @@
 /* ── Individual item ── */
 .myduke-faq__item {
   border-bottom: 1px solid #e0dacf;
+  padding: 0rem 2.4rem;
 }
 
 .myduke-faq__item:last-child {
   border-bottom: none;
 }
 
-/* Open item: Background+Border style from Figma */
+/* Open item */
 .myduke-faq__item.is-open {
-  background: #edf3f0;
-  box-shadow: -1px 0 0 #e0dacf, 1px 0 0 #e0dacf;
   position: relative;
   z-index: 1;
 }
@@ -187,43 +191,47 @@
 /* ── Responsive: tablet ── */
 @media screen and (max-width: 989px) {
   .myduke-faq__inner {
-    gap: 4rem;
+    column-gap: 4rem;
   }
   .myduke-faq__heading {
     font-size: 3.6rem;
   }
 }
 
-/* ── Responsive: mobile — stack to single column ── */
+/*
+  Mobile — single-column, order matches Figma mobile node tree:
+  1. heading (Frame 427320827)
+  2. accordion (Section)
+  3. cta button (Frame 427320837)
+*/
 @media screen and (max-width: 575px) {
   .myduke-faq {
     padding-top: 6.4rem;
     padding-bottom: 6.4rem;
   }
   .myduke-faq__inner {
-    flex-direction: column;
-    gap: 2.4rem;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-  }
-  .myduke-faq__left {
-    flex: none;
-    width: 100%;
-    gap: 2.4rem;
-    justify-content: flex-start;
-    align-self: auto;
-  }
-  .myduke-faq__right {
-    flex: none;
-    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "heading"
+      "accordion"
+      "cta";
+    row-gap: 2.4rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
   }
   .myduke-faq__heading {
     font-size: 2.6rem;
   }
+  .myduke-faq__cta {
+    align-self: stretch;
+  }
   .myduke-faq__header-btn {
     width: 100%;
-    align-self: stretch;
     justify-content: center;
+  }
+  .myduke-faq__item {
+    padding: 0rem 0rem;
   }
   .myduke-faq__trigger {
     padding: 1.8rem 0;

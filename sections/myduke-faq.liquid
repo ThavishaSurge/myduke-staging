@@ -11,33 +11,19 @@
 >
   <div class="myduke-faq__inner">
 
-    {%- comment -%} ── Left column: heading group + CTA button at bottom ── {%- endcomment -%}
+    {%- comment -%} ── Grid area: heading (top-left on desktop, top on mobile) ── {%- endcomment -%}
     <div class="myduke-faq__left">
-
-      <div class="myduke-faq__header-text">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="myduke-faq__eyebrow">{{ section.settings.eyebrow }}</p>
-        {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <{{ section.settings.heading_tag }} class="myduke-faq__heading">
-            {{ section.settings.heading }}
-          </{{ section.settings.heading_tag }}>
-        {%- endif -%}
-      </div>
-
-      {%- if section.settings.cta_button_label != blank -%}
-        <a
-          href="{{ section.settings.cta_button_url | default: '#' }}"
-          class="myduke-faq__header-btn"
-          {% if settings.links_blank and section.settings.cta_button_url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
-        >
-          {{- section.settings.cta_button_label -}}
-        </a>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="myduke-faq__eyebrow">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
-
+      {%- if section.settings.heading != blank -%}
+        <{{ section.settings.heading_tag }} class="myduke-faq__heading">
+          {{ section.settings.heading }}
+        </{{ section.settings.heading_tag }}>
+      {%- endif -%}
     </div>
 
-    {%- comment -%} ── Right column: FAQ accordion ── {%- endcomment -%}
+    {%- comment -%} ── Grid area: accordion (right on desktop, middle on mobile) ── {%- endcomment -%}
     {%- if section.blocks.size > 0 -%}
       <div class="myduke-faq__right">
         <div class="myduke-faq__list">
@@ -74,6 +60,19 @@
             {%- endif -%}
           {%- endfor -%}
         </div>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Grid area: cta (bottom-left on desktop, last on mobile) ── {%- endcomment -%}
+    {%- if section.settings.cta_button_label != blank -%}
+      <div class="myduke-faq__cta">
+        <a
+          href="{{ section.settings.cta_button_url | default: '#' }}"
+          class="myduke-faq__header-btn"
+          {% if settings.links_blank and section.settings.cta_button_url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+        >
+          {{- section.settings.cta_button_label -}}
+        </a>
       </div>
     {%- endif -%}
 
