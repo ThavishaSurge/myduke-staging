@@ -305,6 +305,25 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_cta_E6WbRb": {
+      "type": "myduke-cta",
+      "name": "CTA (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/cta-bg.webp",
+        "fallback_color": "#264653",
+        "eyebrow": "You're not alone",
+        "heading": "myduke® is for quitters",
+        "heading_tag": "h2",
+        "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
+        "button_label": "How it works",
+        "button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
@@ -312,6 +331,7 @@
     "info_banner_T4Ytcx",
     "content_cards_myduke_Ct4eM8",
     "myduke_cost_calculator_gNtdKb",
-    "myduke_faq_eiGzkw"
+    "myduke_faq_eiGzkw",
+    "myduke_cta_E6WbRb"
   ]
 }
