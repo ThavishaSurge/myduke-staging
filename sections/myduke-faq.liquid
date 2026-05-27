@@ -11,67 +11,69 @@
 >
   <div class="myduke-faq__inner">
 
-    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.cta_button_label != blank -%}
-      <div class="myduke-faq__header">
+    {%- comment -%} ── Left column: heading group + CTA button at bottom ── {%- endcomment -%}
+    <div class="myduke-faq__left">
 
-        <div class="myduke-faq__header-text">
-          {%- if section.settings.eyebrow != blank -%}
-            <p class="myduke-faq__eyebrow">{{ section.settings.eyebrow }}</p>
-          {%- endif -%}
-          {%- if section.settings.heading != blank -%}
-            <{{ section.settings.heading_tag }} class="myduke-faq__heading">
-              {{ section.settings.heading }}
-            </{{ section.settings.heading_tag }}>
-          {%- endif -%}
-        </div>
-
-        {%- if section.settings.cta_button_label != blank -%}
-          <a
-            href="{{ section.settings.cta_button_url | default: '#' }}"
-            class="myduke-faq__header-btn"
-            {% if settings.links_blank and section.settings.cta_button_url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
-          >
-            {{- section.settings.cta_button_label -}}
-          </a>
+      <div class="myduke-faq__header-text">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="myduke-faq__eyebrow">{{ section.settings.eyebrow }}</p>
         {%- endif -%}
-
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="myduke-faq__heading">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
       </div>
-    {%- endif -%}
 
+      {%- if section.settings.cta_button_label != blank -%}
+        <a
+          href="{{ section.settings.cta_button_url | default: '#' }}"
+          class="myduke-faq__header-btn"
+          {% if settings.links_blank and section.settings.cta_button_url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+        >
+          {{- section.settings.cta_button_label -}}
+        </a>
+      {%- endif -%}
+
+    </div>
+
+    {%- comment -%} ── Right column: FAQ accordion ── {%- endcomment -%}
     {%- if section.blocks.size > 0 -%}
-      <div class="myduke-faq__list">
-        {%- for block in section.blocks -%}
-          {%- if block.settings.question != blank -%}
-            <div class="myduke-faq__item" {{ block.shopify_attributes }}>
+      <div class="myduke-faq__right">
+        <div class="myduke-faq__list">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.question != blank -%}
+              <div class="myduke-faq__item" {{ block.shopify_attributes }}>
 
-              <button
-                class="myduke-faq__trigger"
-                type="button"
-                aria-expanded="false"
-                aria-controls="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
-              >
-                <span class="myduke-faq__question">{{ block.settings.question }}</span>
-                <span class="myduke-faq__icon" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
-                    <rect class="myduke-faq__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
-                  </svg>
-                </span>
-              </button>
-
-              {%- if block.settings.answer != blank -%}
-                <div
-                  class="myduke-faq__panel"
-                  id="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
-                  hidden
+                <button
+                  class="myduke-faq__trigger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
                 >
-                  <div class="myduke-faq__answer">{{ block.settings.answer }}</div>
-                </div>
-              {%- endif -%}
+                  <span class="myduke-faq__question">{{ block.settings.question }}</span>
+                  <span class="myduke-faq__icon" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
+                      <rect class="myduke-faq__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
+                    </svg>
+                  </span>
+                </button>
 
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
+                {%- if block.settings.answer != blank -%}
+                  <div
+                    class="myduke-faq__panel"
+                    id="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
+                    hidden
+                  >
+                    <div class="myduke-faq__answer">{{ block.settings.answer }}</div>
+                  </div>
+                {%- endif -%}
+
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
       </div>
     {%- endif -%}
 
