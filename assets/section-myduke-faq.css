@@ -201,6 +201,11 @@
   3. cta button (Frame 427320837)
 */
 @media screen and (max-width: 575px) {
+  .myduke-faq {
+    background: #ffffff;
+    padding-top: 6.4rem;
+    padding-bottom: 8rem;
+  }
   .myduke-faq__inner {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -211,8 +216,6 @@
     row-gap: 2.4rem;
     padding-left: 2.4rem;
     padding-right: 2.4rem;
-    padding-top: 6.4rem!important;
-    padding-bottom: 6.4rem!important;
   }
   .myduke-faq__heading {
     font-size: 2.6rem;
