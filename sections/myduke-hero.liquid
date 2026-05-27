@@ -1,25 +1,34 @@
 {{ 'section-myduke-hero.css' | asset_url | stylesheet_tag }}
 
-<div class="myduke-hero" style="{% if section.settings.background_image != blank %}background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');{% endif %} --overlay-color: {{ section.settings.overlay_color }}; --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};">
-  <div class="page-width">
+<div
+  class="myduke-hero"
+  style="{% if section.settings.background_image != blank %}background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');{% endif %} --overlay-color: {{ section.settings.overlay_color }}; --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"
+>
+  <div class="page-width container">
     <div class="myduke-hero__content">
       {%- if section.settings.heading != blank -%}
         <h1 class="myduke-hero__heading">{{ section.settings.heading | newline_to_br }}</h1>
       {%- endif -%}
-      
+
       {%- if section.settings.description != blank -%}
         <div class="myduke-hero__description">{{ section.settings.description | newline_to_br }}</div>
       {%- endif -%}
-      
+
       <div class="myduke-hero__buttons">
         {%- if section.settings.button_1_text != blank -%}
-          <a href="{{ section.settings.button_1_link | default: '#' }}" class="myduke-hero__btn myduke-hero__btn--primary">
+          <a
+            href="{{ section.settings.button_1_link | default: '#' }}"
+            class="myduke-hero__btn myduke-hero__btn--primary"
+          >
             {{ section.settings.button_1_text }}
           </a>
         {%- endif -%}
-        
+
         {%- if section.settings.button_2_text != blank -%}
-          <a href="{{ section.settings.button_2_link | default: '#' }}" class="myduke-hero__btn myduke-hero__btn--secondary">
+          <a
+            href="{{ section.settings.button_2_link | default: '#' }}"
+            class="myduke-hero__btn myduke-hero__btn--secondary"
+          >
             {{ section.settings.button_2_text }}
           </a>
         {%- endif -%}
