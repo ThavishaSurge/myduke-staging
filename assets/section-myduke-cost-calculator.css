@@ -8,17 +8,13 @@
   justify-content: center;
   padding-top: 8rem!important;
   padding-bottom: 8rem!important;
-  padding-left: 1rem!important;
-  padding-right: 1rem!important;
 }
 
-.myduke-calc__bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+@media screen and (min-width: 576px) {
+  .myduke-calc {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
 }
 
 /* ── Card ── */
@@ -105,7 +101,6 @@
   padding: 0;
 }
 
-/* Track — webkit: --calc-fill-color and --calc-fill are set on .myduke-calc by Liquid/JS */
 .myduke-calc .myduke-calc__slider::-webkit-slider-runnable-track {
   height: 1rem;
   border-radius: 9.9rem;
@@ -130,7 +125,6 @@
   background: var(--calc-fill-color, #218380);
 }
 
-/* Thumb — custom dot-grid handle (Figma: 42×32, radius 8px, border #E6E3DB, bg white) */
 .myduke-calc__slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -383,12 +377,11 @@
   .myduke-calc {
     padding-top: 6.4rem!important;
     padding-bottom: 6.4rem!important;
-    padding-left: 2.4rem!important;
-    padding-right: 2.4rem!important;
   }
   .myduke-calc__card {
     padding: 2.4rem;
     gap: 2.4rem;
+    margin: 0 0.8rem;
   }
   .myduke-calc__heading {
     font-size: 2.6rem;

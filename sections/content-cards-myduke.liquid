@@ -2,11 +2,11 @@
 {{ 'section-myduke-content-cards.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-  {% render 'section-padding' %}
-  {% render 'section-margin' %}
+  /* {% render 'section-padding' %}
+  {% render 'section-margin' %} */
 {% endstyle %}
 
-<div class="myduke-cc color-{{ section.settings.color_scheme }} section-{{ section.id }}-margin">
+<div class="myduke-cc color-{{ section.settings.color_scheme }} section-{{ section.id }}-margin container">
 
   {%- comment -%} ── Header ── {%- endcomment -%}
   {%- if section.settings.subheading != blank or section.settings.heading != blank -%}
@@ -22,7 +22,7 @@
     </div>
   {%- endif -%}
 
-  {%- comment -%} ── Cards grid ── {%- endcomment -%}
+  
   {%- if section.blocks.size > 0 -%}
     <div class="myduke-cc__grid">
       {%- for block in section.blocks -%}
@@ -41,7 +41,6 @@
 
         <div class="myduke-cc__card" {{ block.shopify_attributes }}>
 
-          {%- comment -%} Step number {%- endcomment -%}
           <div class="myduke-cc__number" aria-hidden="true">
             <span>{% if forloop.index <= 9 %}0{% endif %}{{ forloop.index }}</span>
           </div>

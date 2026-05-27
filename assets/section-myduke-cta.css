@@ -1,0 +1,139 @@
+/* ── MyDuke CTA section ── */
+
+.myduke-cta {
+  padding-top: 8rem!important;
+  padding-bottom: 8rem!important;
+  max-width: 1920px!important;
+}
+
+@media screen and (min-width: 1920px) {
+  .myduke-cta {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1919px) {
+  .myduke-cta {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+  }
+}
+
+.myduke-cta__inner {
+  width: 100%;
+  padding: 7rem 4.8rem 7rem 19.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+/* ── Heading group ── */
+.myduke-cta__left {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.myduke-cta__eyebrow {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  line-height: 1.4;
+  color: #bfdbcf;
+  margin: 0;
+}
+
+.myduke-cta__heading {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.038em;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ── Body + button ── */
+.myduke-cta__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.4rem;
+}
+
+.myduke-cta__body p{
+  color: #bfdbcf!important;
+}
+
+.myduke-cta__body {
+  color: #bfdbcf!important;
+}
+
+.myduke-cta__body p {
+  margin: 0;
+  max-width: 59rem;
+}
+
+.myduke-cta__body p + p {
+  margin-top: 1.2rem;
+}
+
+/* ── Button — filled sage/mint ── */
+.myduke-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #bfdbcf;
+  color: #218380;
+  border: none;
+  font-family: var(--font-button-family);
+  font-style: var(--font-button-style);
+  font-weight: 600;
+  font-size: calc(var(--font-button-scale) * 1rem);
+  letter-spacing: var(--font-button-letter-spacing);
+  text-transform: capitalize;
+  padding: 0.95rem 3.6rem;
+  min-height: 4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 200ms ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.myduke-cta__btn:hover {
+  background: #ffffff;
+  color: #218380;
+}
+
+/* ── Responsive: tablet ── */
+@media screen and (max-width: 989px) {
+  .myduke-cta__inner {
+    padding: 6rem 3.2rem 6rem 9.6rem;
+  }
+  .myduke-cta__heading {
+    font-size: 3.6rem;
+  }
+}
+
+/* ── Responsive: mobile ── */
+@media screen and (max-width: 575px) {
+  .myduke-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 55rem;
+    padding-top: 8rem!important;
+    padding-bottom: 2.4rem!important;
+  }
+  .myduke-cta__inner {
+    padding: 0 2.4rem;
+  }
+  .myduke-cta__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
