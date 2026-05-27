@@ -127,6 +127,7 @@
         "col_legal",
         "col_contact"
       ],
+      "disabled": true,
       "settings": {
         "logo": "shopify://shop_images/Logo_TM_black_1.png",
         "logo_width": 400,
