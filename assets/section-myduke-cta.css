@@ -120,7 +120,6 @@
 
 /* ── Responsive: mobile ── */
 @media screen and (max-width: 575px) {
-  /* Portrait section — bg image fills the top, content sits at the bottom */
   .myduke-cta {
     display: flex;
     flex-direction: column;
@@ -130,7 +129,6 @@
     padding-bottom: 2.4rem!important;
   }
   .myduke-cta__inner {
-    /* No left offset — full-width content with standard side padding */
     padding: 0 2.4rem;
   }
   .myduke-cta__btn {
