@@ -58,12 +58,7 @@
   gap: 2.4rem;
 }
 
-.myduke-cta__body {
-  font-family: var(--font-body-family)!important;
-  font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight);
-  font-size: calc(var(--font-body-scale) * 1.4rem);
-  line-height: 1.4;
+.myduke-cta__body p{
   color: #bfdbcf!important;
 }
 
