@@ -203,8 +203,8 @@
 @media screen and (max-width: 575px) {
   .myduke-faq {
     background: #ffffff;
-    padding-top: 6.4rem;
-    padding-bottom: 8rem;
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
   }
   .myduke-faq__inner {
     grid-template-columns: 1fr;
