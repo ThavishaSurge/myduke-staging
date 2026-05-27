@@ -67,7 +67,7 @@
         "show_contact": true,
         "show_logo": true,
         "logo": "shopify://shop_images/Logo_TM_black_1.png",
-        "logo_width": 190,
+        "logo_width": 560,
         "show_contact_text": true,
         "contact_text": "Create a seperate liquid and css files and create the footer. \nScheme should have the logo upload, description, add social links, and menu selection for each column. Signup form can be added later, just keep the space.",
         "enable_image": true,
