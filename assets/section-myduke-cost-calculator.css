@@ -125,7 +125,6 @@
   background: var(--calc-fill-color, #218380);
 }
 
-/* Thumb — custom dot-grid handle (Figma: 42×32, radius 8px, border #E6E3DB, bg white) */
 .myduke-calc__slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
