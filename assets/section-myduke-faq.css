@@ -16,8 +16,6 @@
 .myduke-faq__inner {
   max-width: 100%;
   margin: 0 auto;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-template-rows: auto 1fr;
