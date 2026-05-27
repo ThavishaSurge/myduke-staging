@@ -384,6 +384,7 @@
   .myduke-calc__card {
     padding: 2.4rem;
     gap: 2.4rem;
+    margin: 0 0.8rem;
   }
   .myduke-calc__heading {
     font-size: 2.6rem;
