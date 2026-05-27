@@ -5,7 +5,13 @@
   padding-bottom: 8rem!important;
 }
 
-/* ── Desktop: 24px side margin — section sits inset from the viewport ── */
+@media screen and (min-width: 1920px) {
+  .myduke-cta {
+    margin-left: auto;
+    margin-right: 2.4rem;
+  }
+}
+
 @media screen and (min-width: 576px) {
   .myduke-cta {
     margin-left: 2.4rem;
