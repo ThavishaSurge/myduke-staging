@@ -46,7 +46,7 @@
         "show_newsletter": true,
         "newsletter_heading": "Join our Newsletter",
         "show_newsletter_text": true,
-        "newsletter_text": "By clicking on the “Subscribe” button, I confirm my agreement with the<a href=\"/policies/privacy-policy\" title=\"Privacy Policy\"> Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>",
+        "newsletter_text": "By clicking on the \u201cSubscribe\u201d button, I confirm my agreement with the<a href=\"/policies/privacy-policy\" title=\"Privacy Policy\"> Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>",
         "privacy_policy_consent": false,
         "bottom_color_scheme": "background-2",
         "enable_country_selector": false,
@@ -57,7 +57,42 @@
         "enable_copyright_date": true,
         "show_policy": false
       }
+    },
+    "myduke-footer": {
+      "type": "myduke-footer",
+      "blocks": {
+        "col_shop": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Shop"
+          }
+        },
+        "col_explore": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Explore"
+          }
+        },
+        "col_legal": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Legal"
+          }
+        },
+        "col_contact": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Contact"
+          }
+        }
+      },
+      "block_order": ["col_shop", "col_explore", "col_legal", "col_contact"],
+      "settings": {
+        "show_social_icons": true,
+        "payment_enable": true,
+        "copyright_text": "\u00a9 2026 Myduke. All rights reserved. Australian Owned & Operated."
+      }
     }
   },
-  "order": ["footer"]
+  "order": ["footer", "myduke-footer"]
 }
