@@ -1,0 +1,247 @@
+ .myduke-guided-support {
+    background: #ffffff;
+    padding: 2.4rem;
+  }
+
+  .myduke-guided-support__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap:36px;
+    background: #f7f8f8;
+    overflow: hidden;
+  }
+
+  .myduke-guided-support__inner.reverse .myduke-guided-support__image {
+    order: 2;
+  }
+
+  .myduke-guided-support__inner.reverse .myduke-guided-support__content {
+    order: 1;
+  }
+
+  .myduke-guided-support__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 100%;
+  }
+
+  .myduke-guided-support__content {
+    padding: 13rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .myduke-guided-support__eyebrow {
+    font-family: var(--font-body-family);
+    color: #000000;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  .myduke-guided-support__heading {
+    font-family: var(--font-heading-family);
+    font-size: 4.8rem;
+    line-height: 1.1;
+    color: #264653;
+    font-weight: var(--font-heading-weight);
+    margin: 0 0 4.8rem;
+    max-width:440px;
+  }
+
+  .myduke-guided-support__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.6rem 3.6rem;
+    margin-bottom: 4.8rem;
+  }
+
+  .myduke-guided-support__card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .myduke-guided-support__card-icon-wrapper {
+    width: 3.2rem;
+    height: 3.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 2.4rem;
+  }
+
+  .myduke-guided-support__card-icon-wrapper svg,
+  .myduke-guided-support__card-icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .myduke-guided-support__card h3 {
+    font-family: var(--font-heading-family);
+    font-size: 2.2rem;
+    color: #2b2b2e;
+    margin: 0 0 1.2rem;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  .myduke-guided-support__card ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .myduke-guided-support__row {
+    display: flex;
+    align-items: start;
+    gap: 0.6rem;
+  }
+
+  .myduke-list__icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+    margin-top:2px;
+  }
+
+  .myduke-list__icon-wrapper svg,
+  .myduke-list__icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .myduke-list__text {
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    color: #2b2b2e;
+  }
+
+  .myduke-guided-support__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0.95rem 3.6rem;
+    min-height: 4rem;
+    background: #218380;
+    color: #ffffff;
+    font-family: var(--font-button-family);
+    font-weight: 500;
+    font-size: calc(var(--font-button-scale) * 1rem);
+    line-height: 2.1rem;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .myduke-guided-support__button:hover {
+    background: #143847;
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+
+    .myduke-guided-support__card_icon_mobile {
+        display:none;
+    }
+
+
+  @media screen and (max-width: 992px) {
+    .myduke-guided-support {
+      
+    }
+
+    .myduke-guided-support__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .myduke-guided-support__inner.reverse .myduke-guided-support__image {
+      order: 0;
+    }
+
+    .myduke-guided-support__inner.reverse .myduke-guided-support__content {
+      order: 0;
+    }
+
+    .myduke-guided-support__image {
+      
+    }
+
+    .myduke-guided-support__content {
+      padding: 6rem 3.2rem;
+    }
+
+    .myduke-guided-support__heading {
+      font-size: 3.6rem;
+      margin-bottom: 3.6rem;
+    }
+
+    .myduke-guided-support__cards {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
+      margin-bottom: 3.6rem;
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    .myduke-guided-support__content {
+      padding: 3.2rem 1.2rem 0 1.2rem;
+    }
+    
+    .myduke-guided-support__button {
+      width: 100%;
+      text-align: center;
+    }
+    .myduke-guided-support {
+      padding: 1.2rem 1.2rem 0 1.2rem;
+      background-color: #F7F8F8;
+    }
+    .myduke-guided-support__image img {
+        aspect-ratio: 1;
+    }
+    .myduke-guided-support__inner {
+        row-gap: 22px;
+    }
+    .myduke-guided-support__heading {
+      margin-bottom: 2.4rem;
+    }
+    .myduke-guided-support__cards {
+      gap: 0rem;
+      margin-bottom: 2.4rem;
+    }
+    .myduke-guided-support__card-top {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom:20px;
+    }
+    .myduke-guided-support__card-icon-wrapper, .myduke-guided-support__card h3{
+        margin-bottom:0rem;
+    }
+    .myduke-guided-support__card_icon_mobile {
+        display:block;
+        margin-left: auto;
+    }
+    .myduke-guided-support__card {
+      border-top: 1px solid #BFDBCF;
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+
+    .myduke-guided-support__card ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+  }
