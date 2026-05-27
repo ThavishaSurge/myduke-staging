@@ -192,6 +192,8 @@
     background: #ffffff;
     padding-top: 3.2rem;
     padding-bottom: 3.2rem;
+    padding-left: 0!important;
+    padding-right: 0!important;
   }
   .myduke-faq__inner {
     grid-template-columns: 1fr;
