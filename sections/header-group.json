@@ -69,7 +69,8 @@
     "white-header": {
       "type": "white-header",
       "custom_css": [
-        ".header__cart {display: none;}"
+        ".header__cart {display: none;}",
+        ".button--secondary .button__label{color:black}"
       ],
       "settings": {
         "menu": "main-menu",
