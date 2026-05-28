@@ -105,7 +105,7 @@
         "additional_button_2_label": "Get Started",
         "additional_button_2_link": "",
         "additional_button_2_style": "secondary",
-        "mobile_menu_color_scheme": "",
+        "mobile_menu_color_scheme": "background-5",
         "show_dm_logo_in_mobile_menu": true,
         "drawer_logo": "shopify://shop_images/MYDUKE-Logos_MYDUKE-R-Black_1.png",
         "enable_right_mobile_menu_border": true,
