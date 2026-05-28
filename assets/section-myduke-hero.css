@@ -92,7 +92,7 @@
 
 @media screen and (max-width: 749px) {
   .myduke-hero {
-    min-height: 600px;
+    /* min-height: 600px; */
     /* padding-bottom: 4rem; */
     padding: 12px !important;
   }

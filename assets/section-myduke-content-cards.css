@@ -1,5 +1,9 @@
 /* ── MyDuke content-cards section ── */
 
+.shopify-section.content-cards-section {
+  padding-bottom: 0px!important;
+}
+
 .myduke-cc {
   background: #ffffff;
   display: flex;
