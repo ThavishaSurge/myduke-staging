@@ -70,7 +70,8 @@
       "type": "white-header",
       "custom_css": [
         ".header__cart {display: none;}",
-        ".button--secondary .button__label{color:black}"
+        ".button--secondary .button__label {color: black;}",
+        "@media(max-width:750px){.menu-drawer-icon .icon{color: rgba(38, 70, 83);}}"
       ],
       "settings": {
         "menu": "main-menu",
