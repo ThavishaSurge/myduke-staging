@@ -18,9 +18,6 @@
       if (panel)   panel.classList.remove('is-open');
     }
 
-    // Open first item by default (matches Figma open state)
-    if (items.length > 0) openItem(items[0]);
-
     items.forEach(function (item) {
       var trigger = item.querySelector('.myduke-faq__trigger');
       if (!trigger) return;

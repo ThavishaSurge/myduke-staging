@@ -31,7 +31,7 @@
                 <button
                   class="myduke-faq__trigger"
                   type="button"
-                  aria-expanded="false"
+                  aria-expanded="{{ forloop.first | default: false }}"
                   aria-controls="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
                 >
                   <span class="myduke-faq__question">{{ block.settings.question }}</span>
@@ -45,7 +45,7 @@
 
                 {%- if block.settings.answer != blank -%}
                   <div
-                    class="myduke-faq__panel"
+                    class="myduke-faq__panel{% if forloop.first %} is-open{% endif %}"
                     id="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
                     role="region"
                   >
