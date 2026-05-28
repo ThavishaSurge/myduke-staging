@@ -69,9 +69,15 @@
   height: 1.4rem;
 }
 
-/* Hide the vertical bar (plus → minus) when open */
+/* Rotate vertical bar 90° to form a minus when open */
+.myduke-faq-page__icon-vert {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 280ms ease;
+}
+
 .myduke-faq-page__trigger[aria-expanded="true"] .myduke-faq-page__icon-vert {
-  display: none;
+  transform: rotate(90deg);
 }
 
 /* ── Animated answer panel ── */

@@ -7,7 +7,7 @@
       var panel   = item.querySelector('.myduke-faq__panel');
       item.classList.add('is-open');
       if (trigger) trigger.setAttribute('aria-expanded', 'true');
-      if (panel)   panel.removeAttribute('hidden');
+      if (panel)   panel.classList.add('is-open');
     }
 
     function closeItem(item) {
@@ -15,7 +15,7 @@
       var panel   = item.querySelector('.myduke-faq__panel');
       item.classList.remove('is-open');
       if (trigger) trigger.setAttribute('aria-expanded', 'false');
-      if (panel)   panel.setAttribute('hidden', '');
+      if (panel)   panel.classList.remove('is-open');
     }
 
     // Open first item by default (matches Figma open state)
@@ -27,8 +27,6 @@
 
       trigger.addEventListener('click', function () {
         var isOpen = trigger.getAttribute('aria-expanded') === 'true';
-
-        // Accordion: close all, then open the clicked one (unless it was already open)
         items.forEach(closeItem);
         if (!isOpen) openItem(item);
       });

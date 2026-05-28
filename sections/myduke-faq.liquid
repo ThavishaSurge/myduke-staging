@@ -47,9 +47,11 @@
                   <div
                     class="myduke-faq__panel"
                     id="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
-                    hidden
+                    role="region"
                   >
-                    <div class="myduke-faq__answer">{{ block.settings.answer }}</div>
+                    <div class="myduke-faq__panel-inner">
+                      <div class="myduke-faq__answer">{{ block.settings.answer }}</div>
+                    </div>
                   </div>
                 {%- endif -%}
 
