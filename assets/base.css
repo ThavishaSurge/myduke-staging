@@ -2928,7 +2928,7 @@ modal-localization-form .disclosure {
 
 @media screen and (max-width: 1160px) {
   .header__left>header-drawer.header-drawer--border~.header__heading {
-    margin-inline-start: 1.2rem;
+    margin-inline-start: 0;
   }
 }
 
