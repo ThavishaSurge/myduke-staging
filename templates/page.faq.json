@@ -11,14 +11,66 @@
   "sections": {
     "page_info": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
         "content_align": "left"
       }
+    },
+    "myduke_faq_page_EhTGJx": {
+      "type": "myduke-faq-page",
+      "blocks": {
+        "faq_item_PW9YtL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What materials are your products made from?",
+            "answer": "<p>All our products are crafted using high-quality, durable materials selected to ensure longevity, functionality, and style. Specific materials vary by product type and are detailed on each product page.</p>"
+          }
+        },
+        "faq_item_qfG3Pf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I care for or maintain this product?",
+            "answer": ""
+          }
+        },
+        "faq_item_NM9K74": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer warranties or guarantees?",
+            "answer": ""
+          }
+        },
+        "faq_item_PL9RAV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return or exchange a product?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_PW9YtL",
+        "faq_item_qfG3Pf",
+        "faq_item_NM9K74",
+        "faq_item_PL9RAV"
+      ],
+      "name": "FAQ Page (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "show_heading": true,
+        "heading": "Product",
+        "heading_tag": "h2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
-    "page_info"
+    "page_info",
+    "myduke_faq_page_EhTGJx"
   ]
 }
