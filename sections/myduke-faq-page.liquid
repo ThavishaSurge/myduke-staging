@@ -1,89 +1,68 @@
-{{ 'section-myduke-faq.css' | asset_url | stylesheet_tag }}
+{{ 'section-myduke-faq-page.css' | asset_url | stylesheet_tag }}
 
-
+{% style %}
+  {% render 'section-padding' %}
+  {% render 'section-margin' %}
+{% endstyle %}
 
 <div
-  class="myduke-faq color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin container"
+  class="myduke-faq-page color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
   data-section-id="{{ section.id }}"
 >
-  <div class="myduke-faq__inner">
 
-    {%- comment -%} ── Grid area: heading (top-left on desktop, top on mobile) ── {%- endcomment -%}
-    <div class="myduke-faq__left">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="myduke-faq__eyebrow">{{ section.settings.eyebrow }}</p>
-      {%- endif -%}
-      {%- if section.settings.heading != blank -%}
-        <{{ section.settings.heading_tag }} class="myduke-faq__heading">
-          {{ section.settings.heading }}
-        </{{ section.settings.heading_tag }}>
-      {%- endif -%}
-    </div>
+  {%- if section.settings.show_heading and section.settings.heading != blank -%}
+    <{{ section.settings.heading_tag }} class="myduke-faq-page__heading">
+      {{ section.settings.heading }}
+    </{{ section.settings.heading_tag }}>
+  {%- endif -%}
 
-    {%- comment -%} ── Grid area: accordion (right on desktop, middle on mobile) ── {%- endcomment -%}
-    {%- if section.blocks.size > 0 -%}
-      <div class="myduke-faq__right">
-        <div class="myduke-faq__list">
-          {%- for block in section.blocks -%}
-            {%- if block.settings.question != blank -%}
-              <div class="myduke-faq__item" {{ block.shopify_attributes }}>
+  {%- if section.blocks.size > 0 -%}
+    <div class="myduke-faq-page__list">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.question != blank -%}
+          <div class="myduke-faq-page__item" {{ block.shopify_attributes }}>
 
-                <button
-                  class="myduke-faq__trigger"
-                  type="button"
-                  aria-expanded="{{ forloop.first | default: false }}"
-                  aria-controls="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
-                >
-                  <span class="myduke-faq__question">{{ block.settings.question }}</span>
-                  <span class="myduke-faq__icon" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
-                      <rect class="myduke-faq__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
-                    </svg>
-                  </span>
-                </button>
+            <button
+              class="myduke-faq-page__trigger"
+              type="button"
+              aria-expanded="{{ forloop.first | default: false }}"
+              aria-controls="myduke-faq-page-panel-{{ section.id }}-{{ forloop.index }}"
+            >
+              <span class="myduke-faq-page__question">{{ block.settings.question }}</span>
+              <span class="myduke-faq-page__icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
+                  <rect class="myduke-faq-page__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
+                </svg>
+              </span>
+            </button>
 
-                {%- if block.settings.answer != blank -%}
-                  <div
-                    class="myduke-faq__panel{% if forloop.first %} is-open{% endif %}"
-                    id="myduke-faq-panel-{{ section.id }}-{{ forloop.index }}"
-                    role="region"
-                  >
-                    <div class="myduke-faq__panel-inner">
-                      <div class="myduke-faq__answer">{{ block.settings.answer }}</div>
-                    </div>
-                  </div>
-                {%- endif -%}
-
+            {%- if block.settings.answer != blank -%}
+              <div
+                class="myduke-faq-page__panel{% if forloop.first %} is-open{% endif %}"
+                id="myduke-faq-page-panel-{{ section.id }}-{{ forloop.index }}"
+                role="region"
+              >
+                <div class="myduke-faq-page__panel-inner">
+                  <div class="myduke-faq-page__answer">{{ block.settings.answer }}</div>
+                </div>
               </div>
             {%- endif -%}
-          {%- endfor -%}
-        </div>
-      </div>
-    {%- endif -%}
 
-    {%- comment -%} ── Grid area: cta (bottom-left on desktop, last on mobile) ── {%- endcomment -%}
-    {%- if section.settings.cta_button_label != blank -%}
-      <div class="myduke-faq__cta">
-        <a
-          href="{{ section.settings.cta_button_url | default: '#' }}"
-          class="myduke-faq__header-btn"
-          {% if settings.links_blank and section.settings.cta_button_url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
-        >
-          {{- section.settings.cta_button_label -}}
-        </a>
-      </div>
-    {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
 
-  </div>
 </div>
 
-<script src="{{ 'myduke-faq.js' | asset_url }}" defer></script>
+<script src="{{ 'myduke-faq-page.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
-  "name": "FAQ (MyDuke)",
-  "class": "myduke-faq-section",
+  "name": "FAQ Page (MyDuke)",
+  "class": "myduke-faq-page-section",
   "tag": "section",
   "enabled_on": {
     "templates": ["*"]
@@ -97,19 +76,20 @@
     },
     {
       "type": "header",
-      "content": "Header"
+      "content": "Heading"
     },
     {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow label",
-      "default": "FAQs"
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show heading",
+      "default": true
     },
     {
       "type": "inline_richtext",
       "id": "heading",
       "label": "t:sections.all.heading.label",
-      "default": "Your Questions Answered"
+      "default": "Product",
+      "visible_if": "{{ section.settings.show_heading }}"
     },
     {
       "type": "select",
@@ -125,22 +105,8 @@
       ],
       "default": "h2",
       "label": "t:sections.all.heading_tag.label",
-      "info": "t:sections.all.heading_tag.info"
-    },
-    {
-      "type": "header",
-      "content": "CTA Button"
-    },
-    {
-      "type": "text",
-      "id": "cta_button_label",
-      "label": "Button label",
-      "default": "More FAQs"
-    },
-    {
-      "type": "url",
-      "id": "cta_button_url",
-      "label": "Button link"
+      "info": "t:sections.all.heading_tag.info",
+      "visible_if": "{{ section.settings.show_heading }}"
     },
     {
       "type": "header",
@@ -227,55 +193,36 @@
   ],
   "presets": [
     {
-      "name": "FAQ (MyDuke)",
+      "name": "FAQ Page (MyDuke)",
       "category": "t:sections.categories.storytelling",
       "settings": {
-        "eyebrow": "FAQs",
-        "heading": "Your Questions Answered",
-        "cta_button_label": "More FAQs"
+        "show_heading": true,
+        "heading": "Product"
       },
       "blocks": [
         {
           "type": "faq_item",
           "settings": {
-            "question": "Is MyDuke legal in Australia?",
-            "answer": "<p>Yes. All products facilitated through MyDuke are prescribed by AHPRA-registered doctors and dispensed by licensed Australian pharmacies in full compliance with TGA regulations.</p>"
+            "question": "What materials are your products made from?",
+            "answer": "<p>All our products are crafted using high-quality, durable materials selected to ensure longevity, functionality, and style. Specific materials vary by product type and are detailed on each product page.</p>"
           }
         },
         {
           "type": "faq_item",
           "settings": {
-            "question": "How long does it take to get a prescription after assessment?"
+            "question": "How do I care for or maintain this product?"
           }
         },
         {
           "type": "faq_item",
           "settings": {
-            "question": "How long does delivery take?"
+            "question": "Do you offer warranties or guarantees?"
           }
         },
         {
           "type": "faq_item",
           "settings": {
-            "question": "Can I access myduke® support if I live in a remote area?"
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "What treatment options are available in Australia to help quit smoking?"
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "Why can't I see the medication and price before completing the assessment?"
-          }
-        },
-        {
-          "type": "faq_item",
-          "settings": {
-            "question": "Can I return my order if I have changed my mind?"
+            "question": "Can I return or exchange a product?"
           }
         }
       ]

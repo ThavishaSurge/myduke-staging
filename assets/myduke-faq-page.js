@@ -1,25 +1,23 @@
 (function () {
-  function initFaq(sectionEl) {
-    var items = Array.prototype.slice.call(sectionEl.querySelectorAll('.myduke-faq__item'));
+  function initFaqPage(sectionEl) {
+    var items = Array.prototype.slice.call(sectionEl.querySelectorAll('.myduke-faq-page__item'));
 
     function openItem(item) {
-      var trigger = item.querySelector('.myduke-faq__trigger');
-      var panel   = item.querySelector('.myduke-faq__panel');
-      item.classList.add('is-open');
+      var trigger = item.querySelector('.myduke-faq-page__trigger');
+      var panel   = item.querySelector('.myduke-faq-page__panel');
       if (trigger) trigger.setAttribute('aria-expanded', 'true');
       if (panel)   panel.classList.add('is-open');
     }
 
     function closeItem(item) {
-      var trigger = item.querySelector('.myduke-faq__trigger');
-      var panel   = item.querySelector('.myduke-faq__panel');
-      item.classList.remove('is-open');
+      var trigger = item.querySelector('.myduke-faq-page__trigger');
+      var panel   = item.querySelector('.myduke-faq-page__panel');
       if (trigger) trigger.setAttribute('aria-expanded', 'false');
       if (panel)   panel.classList.remove('is-open');
     }
 
     items.forEach(function (item) {
-      var trigger = item.querySelector('.myduke-faq__trigger');
+      var trigger = item.querySelector('.myduke-faq-page__trigger');
       if (!trigger) return;
 
       trigger.addEventListener('click', function () {
@@ -31,7 +29,7 @@
   }
 
   function initAll() {
-    document.querySelectorAll('.myduke-faq[data-section-id]').forEach(initFaq);
+    document.querySelectorAll('.myduke-faq-page[data-section-id]').forEach(initFaqPage);
   }
 
   if (document.readyState === 'loading') {

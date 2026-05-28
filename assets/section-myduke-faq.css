@@ -145,18 +145,36 @@
   height: 1.4rem;
 }
 
-/* Hide the vertical bar (plus → minus) when open */
+/* Rotate vertical bar 90° to form a minus when open */
+.myduke-faq__icon-vert {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 280ms ease;
+}
+
 .myduke-faq__trigger[aria-expanded="true"] .myduke-faq__icon-vert {
-  display: none;
+  transform: rotate(90deg);
 }
 
-/* ── Answer panel ── */
+/* ── Animated answer panel ── */
 .myduke-faq__panel {
-  padding-bottom: 5.7rem;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms ease;
 }
 
-.myduke-faq__panel[hidden] {
-  display: none;
+.myduke-faq__panel.is-open {
+  grid-template-rows: 1fr;
+}
+
+.myduke-faq__panel-inner {
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: padding-bottom 280ms ease;
+}
+
+.myduke-faq__panel.is-open .myduke-faq__panel-inner {
+  padding-bottom: 5.7rem;
 }
 
 .myduke-faq__answer {
@@ -226,7 +244,7 @@
   .myduke-faq__question {
     font-size: 1.6rem;
   }
-  .myduke-faq__panel {
+  .myduke-faq__panel.is-open .myduke-faq__panel-inner {
     padding-bottom: 2.4rem;
   }
   .myduke-faq__answer {

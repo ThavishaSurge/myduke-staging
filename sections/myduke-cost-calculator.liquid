@@ -21,8 +21,14 @@
 {%- liquid
   assign slider_min     = section.settings.slider_min
   assign slider_max     = section.settings.slider_max
-  assign slider_default = section.settings.slider_default
-  assign cost_raw       = section.settings.cost_per_cigarette | default: '2.00'
+  assign slider_default = section.settings.slider_default | plus: 0
+  if slider_default < slider_min
+    assign slider_default = slider_min
+  endif
+  if slider_default > slider_max
+    assign slider_default = slider_max
+  endif
+  assign cost_raw = section.settings.cost_per_cigarette | default: 2.00 | plus: 0 | round: 2
 -%}
 
 <div
@@ -243,11 +249,11 @@
       "content": "Cost"
     },
     {
-      "type": "text",
+      "type": "number",
       "id": "cost_per_cigarette",
       "label": "Cost per cigarette ($)",
-      "default": "2.00",
-      "info": "Numeric value only, e.g. \"2.00\". Drives the weekly and yearly savings calculation."
+      "default": 2,
+      "info": "Cost in dollars, e.g. 2. Drives the weekly and yearly savings calculation."
     },
     {
       "type": "text",
@@ -392,7 +398,7 @@
       "category": "t:sections.categories.storytelling",
       "settings": {
         "heading": "See What You Could Save",
-        "cost_per_cigarette": "2.00",
+        "cost_per_cigarette": 2,
         "slider_default": 30,
         "cta_text": "Ready to start saving",
         "cta_button_label": "Start your assessment"
