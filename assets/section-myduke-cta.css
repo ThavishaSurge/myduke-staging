@@ -1,5 +1,9 @@
 /* ── MyDuke CTA section ── */
 
+.shopify-section.myduke-cta-section {
+  padding-bottom: 2.4rem!important;
+}
+
 .myduke-cta {
   padding-top: 8rem!important;
   padding-bottom: 8rem!important;
@@ -117,6 +121,11 @@
   .myduke-cta__heading {
     font-size: 3.6rem;
   }
+
+  .shopify-section.myduke-cta-section {
+    padding-bottom: 1.2rem!important;
+  }
+
 }
 
 /* ── Responsive: mobile ── */
