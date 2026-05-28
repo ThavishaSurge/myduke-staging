@@ -134,6 +134,8 @@
   .myduke-faq-page {
     padding-top: 6.4rem;
     padding-bottom: 6.4rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
     gap: 2.4rem;
   }
   .myduke-faq-page__heading {
