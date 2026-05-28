@@ -36,12 +36,66 @@
     margin: 0;
   }
   {% if section.settings.sticky_header_type == "always" -%}
-    .shopify-section-header {
+    .shopify-section-white-header {
       position: sticky;
       top: 0;
       {% comment %}background: rgb(var(--color-background));{% endcomment %}
     }
   {%- endif %}
+
+  /* =============================================
+     White Header — page visibility
+     Hidden everywhere by default; shown only on
+     pages where <body> has .white-header-page
+     ============================================= */
+  .shopify-section-white-header {
+    display: none !important;
+  }
+  .white-header-page .shopify-section-white-header {
+    display: block !important;
+  }
+
+  /* =============================================
+     White Header — forced white bg + black text
+     ============================================= */
+  .shopify-section-white-header .header-wrapper {
+    background: #ffffff !important;
+  }
+  .shopify-section-white-header .header__heading-link,
+  .shopify-section-white-header .header__menu-item,
+  .shopify-section-white-header .header-label,
+  .shopify-section-white-header .header__active-menu-item,
+  .shopify-section-white-header .header__icon,
+  .shopify-section-white-header .header__icon svg,
+  .shopify-section-white-header .header__icon path,
+  .shopify-section-white-header nav a,
+  .shopify-section-white-header .list-menu__item {
+    color: #000000 !important;
+    fill: #000000 !important;
+  }
+  .shopify-section-white-header .header__icon svg {
+    color: #000000 !important;
+    stroke: #000000 !important;
+  }
+  /* Buttons inside the white header */
+  .shopify-section-white-header .button,
+  .shopify-section-white-header .btn,
+  .shopify-section-white-header [class*="button--"],
+  .shopify-section-white-header .header__additional-button {
+    color: #000000 !important;
+    border-color: #000000 !important;
+    background: transparent !important;
+  }
+  .shopify-section-white-header .button--primary,
+  .shopify-section-white-header .header__additional-button--primary {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+  /* Burger / hamburger icon strokes */
+  .shopify-section-white-header header-drawer .header__icon svg line,
+  .shopify-section-white-header header-drawer .header__icon svg rect {
+    stroke: #000000 !important;
+  }
   .header-label {
     font-family: var(--font-header-menu-family);
     font-style: var(--font-header-menu-style);
@@ -60,15 +114,15 @@
   }
 
   {% if section.settings.overlay_bg_color != blank %}
-    body:has(main > .featured-products-section:first-child:not(.not-margin)) .shopify-section-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
-    body:has(main > .media-banner-section:first-child:not(.not-margin)) .shopify-section-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
-    body:has(main > .slideshow-section:first-child:not(.not-margin) > .slideshow--overlay) .shopify-section-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
-    body:has(main > .collection-grid-section:first-child:not(.not-margin) .collection-hero__wrapper--with-image) .shopify-section-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper {
+    body:has(main > .featured-products-section:first-child:not(.not-margin)) .shopify-section-white-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
+    body:has(main > .media-banner-section:first-child:not(.not-margin)) .shopify-section-white-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
+    body:has(main > .slideshow-section:first-child:not(.not-margin) > .slideshow--overlay) .shopify-section-white-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper,
+    body:has(main > .collection-grid-section:first-child:not(.not-margin) .collection-hero__wrapper--with-image) .shopify-section-white-header:not(.shopify-section-header-sticky):not(.not-mode) .header-wrapper {
       background: {{ section.settings.overlay_bg_color }} !important;
     }
   {% endif %}
   {% if section.settings.header_bg_color != blank %}
-    .shopify-section-header .header-wrapper {
+    .shopify-section-white-header .header-wrapper {
       background: {{ section.settings.header_bg_color }} !important;
     }
   {% endif %}
@@ -79,26 +133,21 @@
       position: absolute;
       transition: opacity 0.4s, visibility 0.4s;
     }
-    .shopify-section-header-sticky .header__heading-logo--scrolled,
-    .shopify-section-header-sticky .header-wrapper:hover .header__heading-logo--scrolled,
-    .header-wrapper--tsk-solid .header__heading-logo--scrolled {
+    .shopify-section-white-header.shopify-section-header-sticky .header__heading-logo--scrolled,
+    .shopify-section-white-header.shopify-section-header-sticky .header-wrapper:hover .header__heading-logo--scrolled,
+    .shopify-section-white-header .header-wrapper--tsk-solid .header__heading-logo--scrolled {
       opacity: 1;
       visibility: visible;
       position: static;
     }
-    .shopify-section-header-sticky .header__heading-logo:not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay),
-    .shopify-section-header-sticky .header-wrapper:hover .header__heading-logo:not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay),
-    .header-wrapper--tsk-solid .header__heading-logo:not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay) {
+    .shopify-section-white-header.shopify-section-header-sticky .header__heading-logo:not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay),
+    .shopify-section-white-header.shopify-section-header-sticky .header-wrapper:hover .header__heading-logo:not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay),
+    .shopify-section-white-header .header-wrapper--tsk-solid .header__heading-logo:not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay) {
       opacity: 0;
       visibility: hidden;
       position: absolute;
     }
   {% endif %}
-
-  /* Hide standard header on pages that use the white header */
-  .white-header-page .shopify-section-header {
-    display: none !important;
-  }
 </style>
 {%- if section.settings.overlay_mode -%}
   {% render 'header-overlay-mode-styles' %}
@@ -138,7 +187,7 @@
     }
 
     connectedCallback() {
-      this.header = document.querySelector('.shopify-section-header');
+      this.header = document.querySelector('.shopify-section-white-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always';
       this.mobileMenu = this.querySelector('header-drawer');
       this.currentScrollTop = 0;
@@ -220,7 +269,7 @@
 <script>
   (function () {
     const initHeaderHeight = () => {
-      const header = document.querySelector('.shopify-section-header');
+      const header = document.querySelector('.shopify-section-white-header');
       if (!header) return;
 
       let headerObserver;
@@ -287,8 +336,8 @@
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
-  "class": "shopify-section-header",
+  "name": "White Header",
+  "class": "shopify-section-white-header",
   "tag": "header",
   "settings": [
     {
@@ -905,6 +954,10 @@
       ]
     }
   ],
-  "default": {}
+  "presets": [
+    {
+      "name": "White Header"
+    }
+  ]
 }
 {% endschema %}
