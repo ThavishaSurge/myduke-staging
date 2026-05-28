@@ -68,7 +68,6 @@
     },
     "white-header": {
       "type": "white-header",
-      "disabled": true,
       "custom_css": [
         ".header__cart {display: none;}"
       ],
