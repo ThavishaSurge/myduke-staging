@@ -8,6 +8,8 @@
   flex-direction: column;
   gap: 3.2rem;
   max-width: 97.2rem!important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ── Heading ── */
