@@ -65,10 +65,15 @@
         "enable_right_mobile_menu_border": false,
         "enable_social_on_mobile": false
       }
+    },
+    "white-header": {
+      "type": "white-header",
+      "settings": {}
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "white-header"
   ]
 }
