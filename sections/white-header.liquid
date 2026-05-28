@@ -44,6 +44,18 @@
   {%- endif %}
 
   /* =============================================
+     White Header — page visibility
+     Hidden everywhere by default; shown only on
+     pages where <body> has .white-header-page
+     ============================================= */
+  .shopify-section-white-header {
+    display: none !important;
+  }
+  .white-header-page .shopify-section-white-header {
+    display: block !important;
+  }
+
+  /* =============================================
      White Header — forced white bg + black text
      ============================================= */
   .shopify-section-white-header .header-wrapper {
