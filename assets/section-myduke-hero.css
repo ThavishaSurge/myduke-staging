@@ -22,8 +22,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--overlay-color);
-  opacity: var(--overlay-opacity);
+  background-color: var(--overlay-color-desktop);
+  opacity: var(--overlay-opacity-desktop);
   pointer-events: none;
 }
 
@@ -93,6 +93,11 @@
 }
 
 @media screen and (max-width: 749px) {
+  .myduke-hero::before {
+    background-color: var(--overlay-color-mobile);
+    opacity: var(--overlay-opacity-mobile);
+  }
+
   .myduke-hero {
     /* min-height: 600px; */
     /* padding-bottom: 4rem; */
