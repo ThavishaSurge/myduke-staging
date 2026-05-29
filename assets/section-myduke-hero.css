@@ -135,7 +135,6 @@
 }
 
 .myduke-hero__form-col {
-  flex: 0 0 auto;
   max-width: 720px;
   width: 100%;
   min-width: 0;
@@ -154,5 +153,15 @@
 
   .myduke-hero__form-col {
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1159px) {
+  .myduke-hero__form-col {
+    max-width: 100%;
+    margin: auto;
+  }
+  .myduke-hero {
+    padding: 150px 50px 50px 50px !important;
   }
 }
