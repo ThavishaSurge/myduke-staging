@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   min-height: 90vh;
+  background-image: var(--bg-desktop);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -95,6 +96,7 @@
     /* min-height: 600px; */
     /* padding-bottom: 4rem; */
     padding: 12px !important;
+    background-image: var(--bg-mobile);
   }
 
   .myduke-hero__heading {
