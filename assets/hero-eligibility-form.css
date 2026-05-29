@@ -179,16 +179,16 @@
 }
 
 .eligibility-progress__track {
-  height: 4px;
+  height: 7px;
   background: #EDF3F04D;
-  border-radius: 99px;
+  border-radius: 0;
   overflow: hidden;
 }
 
 .eligibility-progress__bar {
   height: 100%;
   background: #EDF3F0;
-  border-radius: 99px;
+  border-radius: 0;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   width: 0%;
 }
