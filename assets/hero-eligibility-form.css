@@ -14,7 +14,7 @@
   pointer-events: all;
   width: 100%;
   max-width: unset;
-  border-radius: 4px;
+  border-radius: 0px;
   overflow: hidden;
   font-family: var(--font-body-family, sans-serif);
   color: #ffffff;
