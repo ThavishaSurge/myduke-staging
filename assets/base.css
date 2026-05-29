@@ -3560,7 +3560,7 @@ menu-drawer+.header__search {
   text-decoration: none;
   background: no-repeat 0.4rem 0;
   background-size: 0% 0.3rem;
-  background-image: linear-gradient(rgb(var(--color-accent)), rgb(var(--color-accent)));
+  background-image: linear-gradient(#264653, #264653);
   transition: background-size var(--duration-default) ease-in-out;
 }
 
@@ -3568,7 +3568,7 @@ menu-drawer+.header__search {
   .list-menu--inline .list-menu-item-animate {
     background: no-repeat 1rem 0;
     background-size: 0% 0.3rem;
-    background-image: linear-gradient(rgb(var(--color-accent)), rgb(var(--color-accent)));
+    background-image: linear-gradient(#264653, #264653);
   }
 }
 
