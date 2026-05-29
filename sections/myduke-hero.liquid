@@ -5,34 +5,43 @@
   style="{% if section.settings.background_image != blank %}background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');{% endif %} --overlay-color: {{ section.settings.overlay_color }}; --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"
 >
   <div class="page-width container">
-    <div class="myduke-hero__content">
-      {%- if section.settings.heading != blank -%}
-        <h1 class="myduke-hero__heading">{{ section.settings.heading | newline_to_br }}</h1>
-      {%- endif -%}
-
-      {%- if section.settings.description != blank -%}
-        <div class="myduke-hero__description">{{ section.settings.description | newline_to_br }}</div>
-      {%- endif -%}
-
-      <div class="myduke-hero__buttons">
-        {%- if section.settings.button_1_text != blank -%}
-          <a
-            href="{{ section.settings.button_1_link | default: '#' }}"
-            class="myduke-hero__btn myduke-hero__btn--primary"
-          >
-            {{ section.settings.button_1_text }}
-          </a>
+    <div class="myduke-hero__inner{% if section.settings.enable_eligibility_form %} myduke-hero__inner--with-form{% endif %}">
+      <div class="myduke-hero__content">
+        {%- if section.settings.heading != blank -%}
+          <h1 class="myduke-hero__heading">{{ section.settings.heading | newline_to_br }}</h1>
         {%- endif -%}
 
-        {%- if section.settings.button_2_text != blank -%}
-          <a
-            href="{{ section.settings.button_2_link | default: '#' }}"
-            class="myduke-hero__btn myduke-hero__btn--secondary"
-          >
-            {{ section.settings.button_2_text }}
-          </a>
+        {%- if section.settings.description != blank -%}
+          <div class="myduke-hero__description">{{ section.settings.description | newline_to_br }}</div>
         {%- endif -%}
+
+        <div class="myduke-hero__buttons">
+          {%- if section.settings.button_1_text != blank -%}
+            <a
+              href="{{ section.settings.button_1_link | default: '#' }}"
+              class="myduke-hero__btn myduke-hero__btn--primary"
+            >
+              {{ section.settings.button_1_text }}
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.button_2_text != blank -%}
+            <a
+              href="{{ section.settings.button_2_link | default: '#' }}"
+              class="myduke-hero__btn myduke-hero__btn--secondary"
+            >
+              {{ section.settings.button_2_text }}
+            </a>
+          {%- endif -%}
+        </div>
       </div>
+
+      {%- if section.settings.enable_eligibility_form -%}
+        <div class="myduke-hero__form-col">
+          {% render 'hero-eligibility-form', section: section %}
+        </div>
+      {%- endif -%}
+
     </div>
   </div>
 </div>
@@ -97,6 +106,38 @@
       "type": "url",
       "id": "button_2_link",
       "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Eligibility Form"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_eligibility_form",
+      "label": "Show eligibility form",
+      "default": false,
+      "info": "Displays the step-by-step eligibility quiz card on the right side of the hero."
+    },
+    {
+      "type": "text",
+      "id": "elig_heading",
+      "label": "Form heading",
+      "default": "Am I Eligible?",
+      "visible_if": "{{ section.settings.enable_eligibility_form }}"
+    },
+    {
+      "type": "textarea",
+      "id": "elig_description",
+      "label": "Form description",
+      "default": "Take our 30-second quiz to find out if you\u2019re a candidate for pharmacy-grade cessation treatment.",
+      "visible_if": "{{ section.settings.enable_eligibility_form }}"
+    },
+    {
+      "type": "url",
+      "id": "elig_assessment_link",
+      "label": "Start Assessment link",
+      "info": "URL for the 'Start Full Assessment' button shown after eligibility is confirmed.",
+      "visible_if": "{{ section.settings.enable_eligibility_form }}"
     }
   ],
   "presets": [

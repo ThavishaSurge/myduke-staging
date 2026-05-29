@@ -109,3 +109,46 @@
     width: 100%;
   }
 }
+
+/* =============================================
+   Hero — two-column layout when form is active
+   ============================================= */
+.myduke-hero__inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.myduke-hero__inner--with-form {
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.myduke-hero__inner--with-form .myduke-hero__content {
+  flex: 0 0 auto;
+  max-width: 520px;
+}
+
+.myduke-hero__form-col {
+  flex: 0 0 auto;
+  width: 460px;
+  min-width: 0;
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 1159px) {
+  .myduke-hero__inner--with-form {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .myduke-hero__inner--with-form .myduke-hero__content {
+    max-width: 100%;
+  }
+
+  .myduke-hero__form-col {
+    width: 100%;
+  }
+}
