@@ -183,7 +183,7 @@
         "slider_unit": "Cigarettes",
         "slider_min": 1,
         "slider_max": 100,
-        "slider_default": 50,
+        "slider_default": 25,
         "slider_fill_color": "#edf3f0",
         "cost_per_cigarette": 2,
         "cost_label": "Cost per cigarette",
