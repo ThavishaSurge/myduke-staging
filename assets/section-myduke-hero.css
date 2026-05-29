@@ -22,8 +22,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--overlay-color-desktop);
-  opacity: var(--overlay-opacity-desktop);
+  background-color: var(--overlay-color);
+  opacity: var(--overlay-opacity);
   pointer-events: none;
 }
 
@@ -70,7 +70,6 @@
   border-radius: 2px;
   transition: opacity 0.3s ease, transform 0.2s ease;
   min-width: 160px;
-  border-radius: 0px;
 }
 
 .myduke-hero__btn:hover {
@@ -79,10 +78,10 @@
 }
 
 .myduke-hero__btn--primary {
-  background-color: #FEE0A6;
+  background-color: #fdbb20;
   /* Yellow */
   color: #000000;
-  border: 1px solid #FEE0A6;
+  border: 1px solid #fdbb20;
 }
 
 .myduke-hero__btn--secondary {
@@ -93,11 +92,6 @@
 }
 
 @media screen and (max-width: 749px) {
-  .myduke-hero::before {
-    background-color: var(--overlay-color-mobile);
-    opacity: var(--overlay-opacity-mobile);
-  }
-
   .myduke-hero {
     /* min-height: 600px; */
     /* padding-bottom: 4rem; */
@@ -159,16 +153,5 @@
 
   .myduke-hero__form-col {
     width: 100%;
-  }
-}
-
-@media screen and (min-width: 750px) and (max-width: 1159px) {
-  .myduke-hero__form-col {
-    max-width: 100%;
-    margin: auto;
-  }
-
-  .myduke-hero {
-    padding: 150px 50px 50px 50px !important;
   }
 }
