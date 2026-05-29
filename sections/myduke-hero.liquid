@@ -51,7 +51,7 @@
 
             <div class="eligibility-card__tabs" role="tablist">
               <button class="eligibility-card__tab is-active" id="elig-tab-eligibility-{{ section.id }}" role="tab" aria-selected="true" aria-controls="elig-panel-eligibility-{{ section.id }}" data-elig-tab="eligibility">Eligibility</button>
-              <button class="eligibility-card__tab" id="elig-tab-signin-{{ section.id }}" role="tab" aria-selected="false" aria-controls="elig-panel-signin-{{ section.id }}" data-elig-tab="signin" style="display: none;">Sign in</button>
+              <a href="{{ section.settings.sign_in_link | default: '#' }}" class="eligibility-card__tab" id="elig-tab-signin-{{ section.id }}">Sign in</a>
             </div>
 
             <div class="eligibility-card__body">
@@ -130,8 +130,6 @@
 
               </div>
 
-              <div class="eligibility-tab-panel" id="elig-panel-signin-{{ section.id }}" role="tabpanel" aria-labelledby="elig-tab-signin-{{ section.id }}" data-elig-panel="signin">
-                <p class="eligibility-signin__msg">Sign in functionality coming soon.</p>
               </div>
 
             </div>
@@ -353,6 +351,13 @@
       "id": "elig_assessment_link",
       "label": "Start Assessment link",
       "info": "URL for the 'Start Full Assessment' button shown after eligibility is confirmed.",
+      "visible_if": "{{ section.settings.enable_eligibility_form }}"
+    },
+    {
+      "type": "url",
+      "id": "sign_in_link",
+      "label": "Sign In link",
+      "info": "URL that the 'Sign in' tab directs to.",
       "visible_if": "{{ section.settings.enable_eligibility_form }}"
     }
   ],
