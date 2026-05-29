@@ -1,0 +1,338 @@
+/* =============================================
+   Hero Eligibility Form
+   ============================================= */
+
+.hero__eligibility-form-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  pointer-events: none;
+}
+
+.eligibility-card {
+  pointer-events: all;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: var(--font-body-family, sans-serif);
+  color: #ffffff;
+  position: relative;
+}
+
+/* ---- Tab Bar ---- */
+.eligibility-card__tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.eligibility-card__tab {
+  padding: 14px 24px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  letter-spacing: 0.01em;
+  transition: color 0.2s, background 0.2s;
+  outline: none;
+  position: relative;
+  top: 1px;
+}
+
+.eligibility-card__tab.is-active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.eligibility-card__tab:hover:not(.is-active) {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---- Card Body ---- */
+.eligibility-card__body {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0 4px 4px 4px;
+  padding: 36px 36px 32px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Intro header (always visible) ---- */
+.eligibility-card__intro-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.eligibility-card__intro-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+/* ---- Step panels ---- */
+.eligibility-step {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  animation: eligFadeIn 0.25s ease;
+}
+
+.eligibility-step.is-active {
+  display: flex;
+}
+
+@keyframes eligFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Question text */
+.eligibility-step__question {
+  font-size: 0.98rem;
+  color: #ffffff;
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+
+/* ---- Option buttons ---- */
+.eligibility-step__options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.eligibility-step__options--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.eligibility-option {
+  padding: 13px 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+  line-height: 1.35;
+}
+
+.eligibility-option:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.eligibility-option.is-selected {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #1a5c52;
+  font-weight: 700;
+}
+
+/* ---- Progress bar ---- */
+.eligibility-progress {
+  margin-bottom: 16px;
+}
+
+.eligibility-progress__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+}
+
+.eligibility-progress__track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.eligibility-progress__bar {
+  height: 100%;
+  background: linear-gradient(90deg, #a8d5b0 0%, #f5d97a 100%);
+  border-radius: 99px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+}
+
+/* ---- Next / CTA button ---- */
+.eligibility-card__btn {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(168, 213, 176, 0.45);
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  text-align: center;
+  margin-top: auto;
+}
+
+.eligibility-card__btn:hover {
+  background: rgba(168, 213, 176, 0.6);
+}
+
+.eligibility-card__btn:active {
+  transform: scale(0.99);
+}
+
+.eligibility-card__btn--outline {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+
+.eligibility-card__btn--outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ---- Processing panel ---- */
+.eligibility-processing {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-end;
+  animation: eligFadeIn 0.25s ease;
+}
+
+.eligibility-processing.is-active {
+  display: flex;
+}
+
+.eligibility-processing__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.eligibility-processing__status {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 10px;
+}
+
+/* Animated processing bar */
+.eligibility-processing__track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.eligibility-processing__fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #a8d5b0 0%, #f5d97a 60%);
+  width: 0%;
+  transition: width 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Result panel ---- */
+.eligibility-result {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  animation: eligFadeIn 0.25s ease;
+}
+
+.eligibility-result.is-active {
+  display: flex;
+}
+
+.eligibility-result__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.eligibility-result__text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0 0 24px;
+  flex: 1;
+}
+
+.eligibility-result__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ---- Sign in tab panel ---- */
+.eligibility-tab-panel {
+  display: none;
+}
+
+.eligibility-tab-panel.is-active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 16px;
+}
+
+.eligibility-signin__msg {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 40px 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 1159px) {
+  .hero__eligibility-form-wrap {
+    justify-content: center;
+    margin-top: 32px;
+  }
+
+  .eligibility-card {
+    max-width: 100%;
+  }
+
+  .eligibility-step__options--4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .eligibility-card__body {
+    padding: 24px 20px 22px;
+  }
+
+  .eligibility-step__options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
