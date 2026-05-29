@@ -92,10 +92,6 @@
 }
 
 @media screen and (max-width: 749px) {
-  .myduke-hero::before {
-    display: none;
-  }
-
   .myduke-hero {
     /* min-height: 600px; */
     /* padding-bottom: 4rem; */
