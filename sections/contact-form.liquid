@@ -5,9 +5,9 @@
 {%- endstyle -%}
 
 <div class="contact-form">
-  <div class="contact-form__container container">
+  <div class="contact-form__container">
     <div class="contact-form__inner">
-      <div class="contact-form__wrapper">
+      <div class="contact-form__wrapper container">
         {%- if section.settings.heading_form != blank -%}
           <{{ section.settings.heading_form_tag | default: 'h3' }} class="contact-form__title-form {{ section.settings.heading_form_size }} richtext-link-inside">
             {{- section.settings.heading_form -}}
