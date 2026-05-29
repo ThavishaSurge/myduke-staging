@@ -12,7 +12,7 @@
     "form": {
       "type": "contact-form",
       "custom_css": [
-        ".contact-section {padding-top: 0px;}"
+        ".contact-section {padding-top: 0px; padding-bottom: 5rem;}"
       ],
       "settings": {
         "heading_form": "Contact Us",
