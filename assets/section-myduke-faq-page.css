@@ -152,6 +152,6 @@
     padding-bottom: 1.6rem;
   }
   .myduke-faq-page__answer {
-    font-size: calc(var(--font-body-scale) * 1.2rem);
+    font-size: 1.4rem;
   }
 }
