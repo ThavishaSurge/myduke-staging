@@ -29,7 +29,7 @@
         {% for block in section.blocks %}
           <div class="myduke-guided-support__card" {{ block.shopify_attributes }}>
             
-            <div class="myduke-guided-support__card-top">
+            <div class="myduke-guided-support__card-top" role="button" tabindex="0" aria-expanded="false">
                 <div class="myduke-guided-support__card-icon-wrapper">
                 {% if block.settings.icon_svg != blank %}
                     {{ block.settings.icon_svg }}

@@ -20,72 +20,83 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeCard(card) {
     const ul = card.querySelector("ul");
     const icon = card.querySelector(".myduke-guided-support__card_icon_mobile");
+    const top = card.querySelector(".myduke-guided-support__card-top");
 
-    ul.style.maxHeight = "0px";
+    if (ul) ul.style.maxHeight = "0px";
     card.classList.remove("active");
     icon.innerHTML = plusIcon;
+    top.setAttribute("aria-expanded", "false");
   }
 
   function openCard(card) {
     const ul = card.querySelector("ul");
     const icon = card.querySelector(".myduke-guided-support__card_icon_mobile");
+    const top = card.querySelector(".myduke-guided-support__card-top");
 
-    ul.style.maxHeight = ul.scrollHeight + "px";
+    if (ul) ul.style.maxHeight = ul.scrollHeight + "px";
     card.classList.add("active");
     icon.innerHTML = minusIcon;
+    top.setAttribute("aria-expanded", "true");
   }
 
   function resetDesktop() {
     cards.forEach(card => {
       const ul = card.querySelector("ul");
       const icon = card.querySelector(".myduke-guided-support__card_icon_mobile");
+      const top = card.querySelector(".myduke-guided-support__card-top");
 
-      ul.style.maxHeight = "";
+      if (ul) ul.style.maxHeight = "";
       card.classList.remove("active");
       icon.innerHTML = plusIcon;
+      top.setAttribute("aria-expanded", "false");
     });
   }
 
   function initMobileAccordion() {
-
     cards.forEach((card, index) => {
       const ul = card.querySelector("ul");
       const icon = card.querySelector(".myduke-guided-support__card_icon_mobile");
+      const top = card.querySelector(".myduke-guided-support__card-top");
 
       if (index === 0) {
-        ul.style.maxHeight = ul.scrollHeight + "px";
+        if (ul) ul.style.maxHeight = ul.scrollHeight + "px";
         card.classList.add("active");
         icon.innerHTML = minusIcon;
+        top.setAttribute("aria-expanded", "true");
       } else {
-        ul.style.maxHeight = "0px";
+        if (ul) ul.style.maxHeight = "0px";
         card.classList.remove("active");
         icon.innerHTML = plusIcon;
+        top.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  // Bind interaction handlers once — not inside handleMode/initMobileAccordion
+  // to prevent listeners stacking up on every resize or breakpoint re-entry.
+  document.querySelectorAll(".myduke-guided-support__card-top").forEach(top => {
+    top.addEventListener("click", function () {
+      if (!mobileQuery.matches) return;
+      const card = this.closest(".myduke-guided-support__card");
+
+      cards.forEach(c => {
+        if (c !== card) closeCard(c);
+      });
+
+      if (card.classList.contains("active")) {
+        closeCard(card);
+      } else {
+        openCard(card);
       }
     });
 
-    document.querySelectorAll(".myduke-guided-support__card-top").forEach(top => {
-
-      top.addEventListener("click", function () {
-
-        const card = this.closest(".myduke-guided-support__card");
-
-        cards.forEach(c => {
-          if (c !== card) closeCard(c);
-        });
-
-        const ul = card.querySelector("ul");
-
-        if (card.classList.contains("active")) {
-          closeCard(card);
-        } else {
-          openCard(card);
-        }
-
-      });
-
+    top.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        this.click();
+      }
     });
-
-  }
+  });
 
   function handleMode() {
     if (mobileQuery.matches) {
@@ -95,10 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // initial run
   handleMode();
 
-  // on resize / orientation change
-  window.addEventListener("resize", handleMode);
+  // Change event fires only on breakpoint crossings, not on every resize tick.
+  mobileQuery.addEventListener("change", handleMode);
 
 });
