@@ -21,7 +21,11 @@
         "button_1_text": "Apply For A Prescription",
         "button_1_link": "",
         "button_2_text": "How It Works",
-        "button_2_link": ""
+        "button_2_link": "",
+        "enable_eligibility_form": true,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": ""
       }
     },
     "info_banner_T4Ytcx": {
@@ -180,6 +184,7 @@
         "slider_max": 100,
         "slider_default": 50,
         "slider_fill_color": "#edf3f0",
+        "cost_per_cigarette": 2,
         "cost_label": "Cost per cigarette",
         "show_gst_label": true,
         "facts_label": "Quick Facts",
