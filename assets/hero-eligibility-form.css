@@ -13,7 +13,7 @@
 .eligibility-card {
   pointer-events: all;
   width: 100%;
-  max-width: 480px;
+  max-width: unset;
   border-radius: 4px;
   overflow: hidden;
   font-family: var(--font-body-family, sans-serif);
@@ -31,27 +31,30 @@
 }
 
 .eligibility-card__tab {
-  padding: 14px 24px;
-  font-size: 1.05rem;
-  font-weight: 600;
+  padding: 12px 32px;
+  font-size: 24px;
+  font-weight: 400;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.08);
+  background: none;
   border: none;
   border-bottom: none;
   border-radius: 4px 4px 0 0;
   letter-spacing: 0.01em;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s;
   outline: none;
   position: relative;
   top: 1px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .eligibility-card__tab.is-active {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
 }
 
 .eligibility-card__tab:hover:not(.is-active) {
@@ -60,12 +63,12 @@
 
 /* ---- Card Body ---- */
 .eligibility-card__body {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: #FFFFFF1A;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
   border-radius: 0 4px 4px 4px;
-  padding: 36px 36px 32px;
+  padding: 32px;
   min-height: 340px;
   display: flex;
   flex-direction: column;
@@ -73,17 +76,18 @@
 
 /* ---- Intro header (always visible) ---- */
 .eligibility-card__intro-heading {
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 400;
   margin: 0 0 10px;
   line-height: 1.2;
   color: #ffffff;
 }
 
 .eligibility-card__intro-text {
-  font-size: 0.95rem;
+  font-size: 18px;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.82);
-  margin: 0 0 24px;
+  margin: 0;
   line-height: 1.6;
 }
 
@@ -106,10 +110,10 @@
 
 /* Question text */
 .eligibility-step__question {
-  font-size: 0.98rem;
+  font-size: 18px;
   color: #ffffff;
   margin: 0 0 16px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* ---- Option buttons ---- */
@@ -130,8 +134,8 @@
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.88rem;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   text-align: center;
   cursor: pointer;
   transition: background 0.18s, border-color 0.18s, color 0.18s;
@@ -153,15 +157,18 @@
 /* ---- Progress bar ---- */
 .eligibility-progress {
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 5px;
 }
 
 .eligibility-progress__label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .eligibility-progress__track {
@@ -185,9 +192,9 @@
   padding: 15px 20px;
   border: none;
   border-radius: 4px;
-  background: rgba(168, 213, 176, 0.45);
-  color: #ffffff;
-  font-size: 0.98rem;
+  background-color: #BFDBCF;
+  color: #218380;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
@@ -205,12 +212,13 @@
 }
 
 .eligibility-card__btn--outline {
-  background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: transparent !important;
+  border: 1px solid #F7F8F8 !important;
+  color: #F7F8F8 !important;
 }
 
 .eligibility-card__btn--outline:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* ---- Processing panel ---- */
@@ -268,14 +276,15 @@
 }
 
 .eligibility-result__title {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 400;
   color: #ffffff;
   margin: 0 0 10px;
 }
 
 .eligibility-result__text {
-  font-size: 0.9rem;
+  font-size: 16px;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin: 0 0 24px;

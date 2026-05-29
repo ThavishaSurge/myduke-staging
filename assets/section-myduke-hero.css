@@ -133,7 +133,8 @@
 
 .myduke-hero__form-col {
   flex: 0 0 auto;
-  width: 460px;
+  max-width: 720px;
+  width: 100%;
   min-width: 0;
   align-self: flex-end;
 }
