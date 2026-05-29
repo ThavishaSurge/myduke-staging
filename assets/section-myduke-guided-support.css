@@ -183,7 +183,7 @@
     }
 
     .myduke-guided-support__heading {
-      font-size: 3.6rem;
+      font-size: 3.4rem;
       margin-bottom: 3.6rem;
     }
 
@@ -195,6 +195,11 @@
   }
 
   @media screen and (max-width: 575px) {
+
+    .myduke-guided-support__card h3 { 
+      font-size: 2.0rem;
+    }
+
     .myduke-guided-support__content {
       padding: 3.2rem 1.2rem 0 1.2rem;
     }
