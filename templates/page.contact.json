@@ -11,7 +11,15 @@
   "sections": {
     "form": {
       "type": "contact-form",
+      "custom_css": [
+        ".contact-section {padding-top: 0px;}"
+      ],
       "settings": {
+        "heading_form": "Contact Us",
+        "heading_form_size": "h5",
+        "heading_form_tag": "h3",
+        "text_form": "If you have any questions feel free to contact us, we promise to get back to you as quickly as we can.",
+        "additional_text": "",
         "button_style": "primary",
         "margin_top": "m",
         "margin_bottom": "xl"
