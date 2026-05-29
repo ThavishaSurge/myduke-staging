@@ -72,6 +72,11 @@
       background: {{ section.settings.header_bg_color }} !important;
     }
   {% endif %}
+  {% if section.settings.scrolled_bg_color != blank %}
+    .shopify-section-header.shopify-section-header-sticky .header-wrapper {
+      background: {{ section.settings.scrolled_bg_color }} !important;
+    }
+  {% endif %}
   {% if section.settings.logo_scrolled != blank %}
     .header__heading-logo--scrolled {
       opacity: 0;
@@ -362,6 +367,12 @@
       "id": "header_bg_color",
       "label": "Header background color",
       "info": "Custom background color for the solid header. Overrides the theme's default background."
+    },
+    {
+      "type": "color",
+      "id": "scrolled_bg_color",
+      "label": "Scrolled header background color",
+      "info": "Background color applied to the header when it slides back into view after scrolling up. Leave blank to use the default header background."
     },
     {
       "type": "header",
