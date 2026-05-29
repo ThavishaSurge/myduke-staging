@@ -70,6 +70,7 @@
   border-radius: 2px;
   transition: opacity 0.3s ease, transform 0.2s ease;
   min-width: 160px;
+  border-radius: 0px;
 }
 
 .myduke-hero__btn:hover {
@@ -161,6 +162,7 @@
     max-width: 100%;
     margin: auto;
   }
+
   .myduke-hero {
     padding: 150px 50px 50px 50px !important;
   }

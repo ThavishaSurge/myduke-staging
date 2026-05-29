@@ -78,7 +78,7 @@
 .eligibility-card__intro-heading {
   font-size: 24px;
   font-weight: 400;
-  margin: 0 0 10px;
+  margin: 0px;
   line-height: 1.2;
   color: #ffffff;
 }
@@ -119,7 +119,7 @@
 .eligibility-step__question {
   font-size: 18px;
   color: #ffffff;
-  margin: 0 0 16px;
+  margin: 0 0 24px;
   font-weight: 400;
 }
 
@@ -127,8 +127,8 @@
 .eligibility-step__options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 8px;
+  margin-bottom: 40px;
 }
 
 .eligibility-step__options--4col {
@@ -139,7 +139,7 @@
   padding: 13px 10px;
   border: 1.5px solid rgba(255, 255, 255, 0.35);
   border-radius: 0px;
-  background: rgba(255, 255, 255, 0.08);
+  /* background: rgba(255, 255, 255, 0.08); */
   color: rgba(255, 255, 255, 0.9);
   font-size: 16px;
   font-weight: 400;
@@ -163,7 +163,7 @@
 
 /* ---- Progress bar ---- */
 .eligibility-progress {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: column-reverse;
   gap: 5px;
@@ -196,7 +196,7 @@
 /* ---- Next / CTA button ---- */
 .eligibility-card__btn {
   width: 100%;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border: none;
   border-radius: 0px;
   background-color: #BFDBCF;
@@ -313,7 +313,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 16px;
+  gap: 10px;
 }
 
 .eligibility-signin__msg {
