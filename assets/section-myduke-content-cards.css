@@ -48,7 +48,7 @@
 /* ── Cards grid ── */
 .myduke-cc__grid {
   display: flex;
-  gap: 3.6rem;
+  gap: 2.0rem;
   align-items: stretch;
 }
 
