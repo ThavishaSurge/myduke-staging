@@ -2,7 +2,12 @@
 
 <div
   class="myduke-hero"
-  style="{% if section.settings.background_image != blank %}background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');{% endif %} --overlay-color: {{ section.settings.overlay_color }}; --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"
+  style="
+    --bg-desktop: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 2000 }}'){% else %}none{% endif %};
+    --bg-mobile: {% if section.settings.background_image_mobile != blank %}url('{{ section.settings.background_image_mobile | image_url: width: 1000 }}'){% elsif section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1000 }}'){% else %}none{% endif %};
+    --overlay-color: {{ section.settings.overlay_color }};
+    --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  "
 >
   <div class="page-width container">
     <div class="myduke-hero__inner{% if section.settings.enable_eligibility_form %} myduke-hero__inner--with-form{% endif %}">
@@ -243,7 +248,12 @@
     {
       "type": "image_picker",
       "id": "background_image",
-      "label": "Background Image"
+      "label": "Background Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background Image (Mobile)"
     },
     {
       "type": "color",

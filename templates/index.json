@@ -14,6 +14,7 @@
       "name": "MyDuke Hero",
       "settings": {
         "background_image": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_1.png",
+        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.webp",
         "overlay_color": "#000000",
         "overlay_opacity": 20,
         "heading": "Clinical Support For\nNicotine Dependance",
