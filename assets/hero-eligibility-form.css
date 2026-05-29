@@ -368,9 +368,14 @@
   }
 
   .eligibility-step__options {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-bottom: 20px;
+  }
+
+  [data-elig-step="2"] .eligibility-step__options,
+  [data-elig-step="3"] .eligibility-step__options {
+    grid-template-columns: 1fr 1fr;
   }
 
   .eligibility-option {
