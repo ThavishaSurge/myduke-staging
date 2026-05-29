@@ -45,8 +45,8 @@
   outline: none;
   position: relative;
   top: 1px;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .eligibility-card__tab.is-active {
@@ -64,14 +64,14 @@
 /* ---- Card Body ---- */
 .eligibility-card__body {
   background-color: #FFFFFF1A;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   border: none;
   border-radius: 0 4px 4px 4px;
   padding: 32px;
   min-height: 340px;
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 /* ---- Intro header (always visible) ---- */
