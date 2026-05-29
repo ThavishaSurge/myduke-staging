@@ -1,5 +1,14 @@
 /* ── Cost Calculator section ── */
 
+@media screen and (min-width: 576px) {
+  .myduke-calc {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+    margin-top: 2.4rem;
+    margin-bottom:2.4rem;
+  }
+}
+
 .myduke-calc {
   position: relative;
   overflow: hidden;
@@ -8,13 +17,6 @@
   justify-content: center;
   padding-top: 8rem!important;
   padding-bottom: 8rem!important;
-}
-
-@media screen and (min-width: 576px) {
-  .myduke-calc {
-    margin-left: 2.4rem;
-    margin-right: 2.4rem;
-  }
 }
 
 /* ── Card ── */
