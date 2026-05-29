@@ -46,19 +46,43 @@
       {%- if section.settings.enable_eligibility_form -%}
         {{ 'hero-eligibility-form.css' | asset_url | stylesheet_tag }}
         <div class="myduke-hero__form-col">
-
           <div class="eligibility-card" id="eligibility-card-{{ section.id }}">
-
             <div class="eligibility-card__tabs" role="tablist">
-              <button class="eligibility-card__tab is-active" id="elig-tab-eligibility-{{ section.id }}" role="tab" aria-selected="true" aria-controls="elig-panel-eligibility-{{ section.id }}" data-elig-tab="eligibility">Eligibility</button>
-              <a href="{{ section.settings.sign_in_link | default: '#' }}" class="eligibility-card__tab" id="elig-tab-signin-{{ section.id }}">Sign in</a>
+              <button
+                class="eligibility-card__tab is-active"
+                id="elig-tab-eligibility-{{ section.id }}"
+                role="tab"
+                aria-selected="true"
+                aria-controls="elig-panel-eligibility-{{ section.id }}"
+                data-elig-tab="eligibility"
+              >
+                Eligibility
+              </button>
+              <a
+                href="{{ section.settings.sign_in_link | default: 'https://portal.myduke.com.au/login' }}"
+                class="eligibility-card__tab"
+                id="elig-tab-signin-{{ section.id }}"
+                >Sign in</a
+              >
             </div>
 
             <div class="eligibility-card__body">
-
-              <div class="eligibility-tab-panel is-active" id="elig-panel-eligibility-{{ section.id }}" role="tabpanel" aria-labelledby="elig-tab-eligibility-{{ section.id }}" data-elig-panel="eligibility">
-                <h2 class="eligibility-card__intro-heading">{{ section.settings.elig_heading | default: 'Am I Eligible?' }}</h2>
-                <p class="eligibility-card__intro-text">{{ section.settings.elig_description | default: "Take our 30-second quiz to find out if you're a candidate for pharmacy-grade cessation treatment." }}</p>
+              <div
+                class="eligibility-tab-panel is-active"
+                id="elig-panel-eligibility-{{ section.id }}"
+                role="tabpanel"
+                aria-labelledby="elig-tab-eligibility-{{ section.id }}"
+                data-elig-panel="eligibility"
+              >
+                <h2 class="eligibility-card__intro-heading">
+                  {{ section.settings.elig_heading | default: 'Am I Eligible?' }}
+                </h2>
+                <p class="eligibility-card__intro-text">
+                  {{
+                    section.settings.elig_description
+                    | default: "Take our 30-second quiz to find out if you're a candidate for pharmacy-grade cessation treatment."
+                  }}
+                </p>
 
                 <div class="eligibility-step is-active" data-elig-step="1">
                   <p class="eligibility-step__question">What is your age range</p>
@@ -70,7 +94,9 @@
                   </div>
                   <div class="eligibility-progress">
                     <div class="eligibility-progress__label">Question 1 / 3</div>
-                    <div class="eligibility-progress__track"><div class="eligibility-progress__bar" style="width:33%;"></div></div>
+                    <div class="eligibility-progress__track">
+                      <div class="eligibility-progress__bar" style="width:33%;"></div>
+                    </div>
                   </div>
                   <button class="eligibility-card__btn" data-elig-next>Next</button>
                 </div>
@@ -78,14 +104,18 @@
                 <div class="eligibility-step" data-elig-step="2">
                   <p class="eligibility-step__question">How long have you been smoking</p>
                   <div class="eligibility-step__options eligibility-step__options--4col" role="group">
-                    <button class="eligibility-option" data-elig-option data-value="less-than-1yr">Less than 1 year</button>
+                    <button class="eligibility-option" data-elig-option data-value="less-than-1yr">
+                      Less than 1 year
+                    </button>
                     <button class="eligibility-option" data-elig-option data-value="1-5yr">1–5 years</button>
                     <button class="eligibility-option" data-elig-option data-value="5-15yr">5–15 years</button>
                     <button class="eligibility-option" data-elig-option data-value="15yr+">15+ years</button>
                   </div>
                   <div class="eligibility-progress">
                     <div class="eligibility-progress__label">Question 2 / 3</div>
-                    <div class="eligibility-progress__track"><div class="eligibility-progress__bar" style="width:66%;"></div></div>
+                    <div class="eligibility-progress__track">
+                      <div class="eligibility-progress__bar" style="width:66%;"></div>
+                    </div>
                   </div>
                   <button class="eligibility-card__btn" data-elig-next>Next</button>
                 </div>
@@ -93,49 +123,70 @@
                 <div class="eligibility-step" data-elig-step="3">
                   <p class="eligibility-step__question">What is your primary goal</p>
                   <div class="eligibility-step__options" role="group">
-                    <button class="eligibility-option" data-elig-option data-value="quit-completely">Quit completely</button>
-                    <button class="eligibility-option" data-elig-option data-value="reduce-intake">Reduce intake</button>
-                    <button class="eligibility-option" data-elig-option data-value="switch-safer">Switch to a safer alternative</button>
+                    <button class="eligibility-option" data-elig-option data-value="quit-completely">
+                      Quit completely
+                    </button>
+                    <button class="eligibility-option" data-elig-option data-value="reduce-intake">
+                      Reduce intake
+                    </button>
+                    <button class="eligibility-option" data-elig-option data-value="switch-safer">
+                      Switch to a safer alternative
+                    </button>
                     <button class="eligibility-option" data-elig-option data-value="explore">Explore options</button>
                   </div>
                   <div class="eligibility-progress">
                     <div class="eligibility-progress__label">Question 3 / 3</div>
-                    <div class="eligibility-progress__track"><div class="eligibility-progress__bar" style="width:100%;"></div></div>
+                    <div class="eligibility-progress__track">
+                      <div class="eligibility-progress__bar" style="width:100%;"></div>
+                    </div>
                   </div>
                   <button class="eligibility-card__btn" data-elig-submit>Next</button>
                 </div>
 
                 <div class="eligibility-processing" data-elig-processing>
                   <p class="eligibility-processing__label">Verifying medical data</p>
-                  <div class="eligibility-processing__track"><div class="eligibility-processing__fill" data-elig-processing-bar></div></div>
+                  <div class="eligibility-processing__track">
+                    <div class="eligibility-processing__fill" data-elig-processing-bar></div>
+                  </div>
                   <p class="eligibility-processing__status">Cross-referencing with clinical eligibility criteria</p>
                 </div>
 
                 <div class="eligibility-result" data-elig-result="eligible">
                   <p class="eligibility-result__title">You may be eligible</p>
-                  <p class="eligibility-result__text">Based on your responses, you're a potential candidate. Complete the full medical assessment to proceed.</p>
+                  <p class="eligibility-result__text">
+                    Based on your responses, you're a potential candidate. Complete the full medical assessment to
+                    proceed.
+                  </p>
                   <div class="eligibility-result__actions">
-                    <a href="{{ section.settings.elig_assessment_link | default: '#' }}" class="eligibility-card__btn">Start Full Assessment</a>
-                    <button class="eligibility-card__btn eligibility-card__btn--outline" data-elig-retake>Retake Quiz</button>
+                    <a
+                      href="{{ section.settings.elig_assessment_link | default: 'https://portal.myduke.com.au/login' }}"
+                      class="eligibility-card__btn"
+                      >Start Full Assessment</a
+                    >
+                    <button class="eligibility-card__btn eligibility-card__btn--outline" data-elig-retake>
+                      Retake Quiz
+                    </button>
                   </div>
                 </div>
 
                 <div class="eligibility-result" data-elig-result="not-eligible">
                   <p class="eligibility-result__title">Not eligible at this time</p>
-                  <p class="eligibility-result__text">Based on your responses, you may not qualify for this program right now. Please consult a healthcare professional.</p>
+                  <p class="eligibility-result__text">
+                    Based on your responses, you may not qualify for this program right now. Please consult a healthcare
+                    professional.
+                  </p>
                   <div class="eligibility-result__actions">
-                    <button class="eligibility-card__btn eligibility-card__btn--outline" data-elig-retake>Retake Quiz</button>
+                    <button class="eligibility-card__btn eligibility-card__btn--outline" data-elig-retake>
+                      Retake Quiz
+                    </button>
                   </div>
                 </div>
-
               </div>
-
-              </div>
-
             </div>
           </div>
+        </div>
 
-          <script>
+        <script>
           (function () {
             var card = document.getElementById('eligibility-card-{{ section.id }}');
             if (!card) return;
@@ -148,69 +199,83 @@
             var panels = card.querySelectorAll('[data-elig-panel]');
             var tabs = card.querySelectorAll('[data-elig-tab]');
 
-            tabs.forEach(function(tab) {
-              tab.addEventListener('click', function() {
+            tabs.forEach(function (tab) {
+              tab.addEventListener('click', function () {
                 var target = tab.dataset.eligTab;
-                tabs.forEach(function(t) {
+                tabs.forEach(function (t) {
                   t.classList.toggle('is-active', t.dataset.eligTab === target);
                   t.setAttribute('aria-selected', t.dataset.eligTab === target ? 'true' : 'false');
                 });
-                panels.forEach(function(p) {
+                panels.forEach(function (p) {
                   p.classList.toggle('is-active', p.dataset.eligPanel === target);
                 });
               });
             });
 
-            card.addEventListener('click', function(e) {
+            card.addEventListener('click', function (e) {
               var option = e.target.closest('[data-elig-option]');
               if (!option) return;
               var group = option.closest('.eligibility-step__options');
-              group.querySelectorAll('[data-elig-option]').forEach(function(o) { o.classList.remove('is-selected'); });
+              group.querySelectorAll('[data-elig-option]').forEach(function (o) {
+                o.classList.remove('is-selected');
+              });
               option.classList.add('is-selected');
               answers['step' + currentStep] = option.dataset.value;
             });
 
-            card.addEventListener('click', function(e) {
+            card.addEventListener('click', function (e) {
               if (!e.target.closest('[data-elig-next]')) return;
               if (!answers['step' + currentStep]) {
                 var group = steps[currentStep - 1].querySelector('.eligibility-step__options');
                 group.style.outline = '2px solid rgba(255,255,255,0.5)';
-                setTimeout(function() { group.style.outline = ''; }, 700);
+                setTimeout(function () {
+                  group.style.outline = '';
+                }, 700);
                 return;
               }
               showStep(currentStep + 1);
             });
 
-            card.addEventListener('click', function(e) {
+            card.addEventListener('click', function (e) {
               if (!e.target.closest('[data-elig-submit]')) return;
               if (!answers['step' + currentStep]) {
                 var group = steps[currentStep - 1].querySelector('.eligibility-step__options');
                 group.style.outline = '2px solid rgba(255,255,255,0.5)';
-                setTimeout(function() { group.style.outline = ''; }, 700);
+                setTimeout(function () {
+                  group.style.outline = '';
+                }, 700);
                 return;
               }
               runProcessing();
             });
 
-            card.addEventListener('click', function(e) {
+            card.addEventListener('click', function (e) {
               if (!e.target.closest('[data-elig-retake]')) return;
               resetQuiz();
             });
 
             function showStep(n) {
               currentStep = n;
-              steps.forEach(function(s) { s.classList.remove('is-active'); });
+              steps.forEach(function (s) {
+                s.classList.remove('is-active');
+              });
               var target = card.querySelector('[data-elig-step="' + n + '"]');
               if (target) target.classList.add('is-active');
             }
 
             function runProcessing() {
-              steps.forEach(function(s) { s.classList.remove('is-active'); });
-              results.forEach(function(r) { r.classList.remove('is-active'); });
+              steps.forEach(function (s) {
+                s.classList.remove('is-active');
+              });
+              results.forEach(function (r) {
+                r.classList.remove('is-active');
+              });
               processing.classList.add('is-active');
-              requestAnimationFrame(function() {
+              requestAnimationFrame(function () {
                 processingBar.style.width = '0%';
-                requestAnimationFrame(function() { processingBar.style.width = '100%'; });
+                requestAnimationFrame(function () {
+                  processingBar.style.width = '100%';
+                });
               });
               setTimeout(showResult, 2700);
             }
@@ -222,19 +287,24 @@
             }
 
             function resetQuiz() {
-              Object.keys(answers).forEach(function(k) { delete answers[k]; });
-              card.querySelectorAll('[data-elig-option]').forEach(function(o) { o.classList.remove('is-selected'); });
-              results.forEach(function(r) { r.classList.remove('is-active'); });
+              Object.keys(answers).forEach(function (k) {
+                delete answers[k];
+              });
+              card.querySelectorAll('[data-elig-option]').forEach(function (o) {
+                o.classList.remove('is-selected');
+              });
+              results.forEach(function (r) {
+                r.classList.remove('is-active');
+              });
               processing.classList.remove('is-active');
               processingBar.style.width = '0%';
               showStep(1);
             }
           })();
-          </script>
+        </script>
 
         </div>
       {%- endif -%}
-
     </div>
   </div>
 </div>
