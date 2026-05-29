@@ -135,7 +135,6 @@
 }
 
 .myduke-hero__form-col {
-  flex: 0 0 auto;
   max-width: 720px;
   width: 100%;
   min-width: 0;
