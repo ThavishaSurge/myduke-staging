@@ -155,3 +155,13 @@
     width: 100%;
   }
 }
+
+@media screen and (min-width: 750px) and (max-width: 1159px) {
+  .myduke-hero__form-col {
+    max-width: 100%;
+    margin: auto;
+  }
+  .myduke-hero {
+    padding: 150px 50px 50px 50px !important;
+  }
+}
