@@ -338,11 +338,50 @@
 
 @media screen and (max-width: 749px) {
   .eligibility-card__body {
-    padding: 24px 20px 22px;
+    padding: 24px 20px;
+  }
+
+  .eligibility-card__tab {
+    padding: 12px 20px;
+    font-size: 20px;
+  }
+
+  .eligibility-card__intro-heading {
+    font-size: 22px;
+  }
+
+  .eligibility-card__intro-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .eligibility-step__question {
+    font-size: 16px;
+    margin-bottom: 12px;
   }
 
   .eligibility-step__options {
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .eligibility-option {
+    font-size: 15px;
+    padding: 12px 10px;
+  }
+
+  .eligibility-progress {
+    margin-bottom: 20px;
+  }
+
+  .eligibility-progress__label {
+    font-size: 14px;
+  }
+
+  .eligibility-card__btn {
+    padding: 14px 20px;
+    font-size: 15px;
   }
 }
 
