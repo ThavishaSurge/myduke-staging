@@ -51,7 +51,7 @@
 
 .eligibility-card__tab.is-active {
   color: #ffffff;
-  background: none;
+  background: #ffffff1a;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-bottom: none;
@@ -104,8 +104,15 @@
 }
 
 @keyframes eligFadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Question text */
@@ -173,14 +180,14 @@
 
 .eligibility-progress__track {
   height: 4px;
-  background: rgba(255, 255, 255, 0.2);
+  background: #EDF3F04D;
   border-radius: 99px;
   overflow: hidden;
 }
 
 .eligibility-progress__bar {
   height: 100%;
-  background: linear-gradient(90deg, #a8d5b0 0%, #f5d97a 100%);
+  background: #EDF3F0;
   border-radius: 99px;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   width: 0%;
@@ -361,7 +368,7 @@
   }
 
   .eligibility-step__options {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
     margin-bottom: 20px;
   }
@@ -383,5 +390,8 @@
     padding: 14px 20px;
     font-size: 15px;
   }
-}
 
+  .eligibility-result__actions {
+    grid-template-columns: 1fr;
+  }
+}
