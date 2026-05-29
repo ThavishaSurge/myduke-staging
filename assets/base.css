@@ -86,6 +86,7 @@
   padding-left: 1.2rem;
   margin-right: auto;
   margin-left: auto;
+  z-index: 0;
 }
 
 @media screen and (min-width: 1160px) {
@@ -6834,7 +6835,6 @@ deferred-media {
 
 @media (max-width:1440px) {
   .template-page .container.base-breadcrumbs {
-    max-width: min(92.4rem, 100%)!important;
+    max-width: min(92.4rem, 100%) !important;
   }
 }
-
