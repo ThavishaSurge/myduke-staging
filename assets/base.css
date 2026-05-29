@@ -6833,7 +6833,7 @@ deferred-media {
 }
 
 @media (max-width:1440px) {
-  .template-page .container {
+  .template-page .container.base-breadcrumbs {
     max-width: min(92.4rem, 100%)!important;
   }
 }
