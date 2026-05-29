@@ -6831,3 +6831,10 @@ deferred-media {
 .container-fluid {
   max-width: var(--page-width);
 }
+
+@media (max-width:1440px) {
+  .template-page .container {
+    max-width: min(92.4rem, 100%)!important;
+  }
+}
+
