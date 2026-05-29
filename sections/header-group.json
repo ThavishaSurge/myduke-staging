@@ -102,7 +102,7 @@
         "account_modal_type": "shopify_based",
         "customer_account_menu": "customer-account-main-menu",
         "enable_additional_button": true,
-        "additional_button_label": "Contact",
+        "additional_button_label": "Shop",
         "additional_button_link": "",
         "additional_button_style": "secondary",
         "enable_additional_button_2": true,
