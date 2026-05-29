@@ -5,8 +5,10 @@
   style="
     --bg-desktop: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 2000 }}'){% else %}none{% endif %};
     --bg-mobile: {% if section.settings.background_image_mobile != blank %}url('{{ section.settings.background_image_mobile | image_url: width: 1000 }}'){% elsif section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1000 }}'){% else %}none{% endif %};
-    --overlay-color: {{ section.settings.overlay_color }};
-    --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --overlay-color-desktop: {{ section.settings.overlay_color }};
+    --overlay-opacity-desktop: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --overlay-color-mobile: {{ section.settings.overlay_color_mobile }};
+    --overlay-opacity-mobile: {{ section.settings.overlay_opacity_mobile | divided_by: 100.0 }};
   "
 >
   <div class="page-width container">
@@ -49,7 +51,7 @@
 
             <div class="eligibility-card__tabs" role="tablist">
               <button class="eligibility-card__tab is-active" id="elig-tab-eligibility-{{ section.id }}" role="tab" aria-selected="true" aria-controls="elig-panel-eligibility-{{ section.id }}" data-elig-tab="eligibility">Eligibility</button>
-              <a href="{{ section.settings.sign_in_link | default: '#' }}" class="eligibility-card__tab" id="elig-tab-signin-{{ section.id }}">Sign in</a>
+              <button class="eligibility-card__tab" id="elig-tab-signin-{{ section.id }}" role="tab" aria-selected="false" aria-controls="elig-panel-signin-{{ section.id }}" data-elig-tab="signin" style="display: none;">Sign in</button>
             </div>
 
             <div class="eligibility-card__body">
@@ -128,6 +130,8 @@
 
               </div>
 
+              <div class="eligibility-tab-panel" id="elig-panel-signin-{{ section.id }}" role="tabpanel" aria-labelledby="elig-tab-signin-{{ section.id }}" data-elig-panel="signin">
+                <p class="eligibility-signin__msg">Sign in functionality coming soon.</p>
               </div>
 
             </div>
@@ -256,7 +260,7 @@
     {
       "type": "color",
       "id": "overlay_color",
-      "label": "Image Overlay Color",
+      "label": "Image Overlay Color (Desktop)",
       "default": "#000000"
     },
     {
@@ -266,8 +270,24 @@
       "max": 100,
       "step": 5,
       "unit": "%",
-      "label": "Image Overlay Opacity",
+      "label": "Image Overlay Opacity (Desktop)",
       "default": 30
+    },
+    {
+      "type": "color",
+      "id": "overlay_color_mobile",
+      "label": "Image Overlay Color (Mobile)",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Image Overlay Opacity (Mobile)",
+      "default": 0
     },
     {
       "type": "textarea",
@@ -333,13 +353,6 @@
       "id": "elig_assessment_link",
       "label": "Start Assessment link",
       "info": "URL for the 'Start Full Assessment' button shown after eligibility is confirmed.",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "url",
-      "id": "sign_in_link",
-      "label": "Sign In link",
-      "info": "URL that the 'Sign in' tab directs to.",
       "visible_if": "{{ section.settings.enable_eligibility_form }}"
     }
   ],
