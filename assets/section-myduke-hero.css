@@ -95,7 +95,7 @@
   .myduke-hero {
     /* min-height: 600px; */
     /* padding-bottom: 4rem; */
-    padding: 12px !important;
+    padding: 180px 12px 12px 12px !important;
     background-image: var(--bg-mobile);
   }
 
