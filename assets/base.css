@@ -6824,7 +6824,7 @@ deferred-media {
 
 
 :root {
-  --page-width: 1920px;
+  --page-width: 100%;
 }
 
 .container,
