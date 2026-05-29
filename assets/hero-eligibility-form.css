@@ -355,11 +355,11 @@
 
   .eligibility-card__intro-heading {
     font-size: 22px;
+    margin-bottom: 0;
   }
 
   .eligibility-card__intro-text {
     font-size: 16px;
-    margin-bottom: 20px;
   }
 
   .eligibility-step__question {
