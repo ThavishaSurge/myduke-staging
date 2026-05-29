@@ -26,7 +26,8 @@
         "enable_eligibility_form": true,
         "elig_heading": "Am I Eligible?",
         "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
-        "elig_assessment_link": ""
+        "elig_assessment_link": "https://portal.myduke.com.au/login",
+        "sign_in_link": "https://portal.myduke.com.au/login"
       }
     },
     "info_banner_T4Ytcx": {
