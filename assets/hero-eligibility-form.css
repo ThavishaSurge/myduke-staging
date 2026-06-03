@@ -317,7 +317,10 @@
   gap: 10px;
 }
 
-
+.eligibility-option[data-value="switch-safer"] {
+  text-align: left;
+  padding: 12px;
+}
 
 .eligibility-signin__msg {
   font-size: 0.95rem;
@@ -344,6 +347,10 @@
   .eligibility-step__options--4col {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .eligibility-option[data-value="switch-safer"] {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -354,11 +361,6 @@
   .eligibility-card__body {
     padding: 24px 20px;
 
-  }
-
-  .eligibility-option[data-value="switch-safer"] {
-    text-align: left;
-    padding: 12px;
   }
 
   .eligibility-card__tab {
