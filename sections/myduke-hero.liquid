@@ -15,7 +15,7 @@
     <div class="myduke-hero__inner{% if section.settings.enable_eligibility_form %} myduke-hero__inner--with-form{% endif %}">
       <div class="myduke-hero__content">
         {%- if section.settings.heading != blank -%}
-          <h1 class="myduke-hero__heading">{{ section.settings.heading | newline_to_br }}</h1>
+          <h1 class="myduke-hero__heading">{{ section.settings.heading }}</h1>
         {%- endif -%}
 
         {%- if section.settings.description != blank -%}
