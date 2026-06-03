@@ -127,7 +127,7 @@
 /* ---- Option buttons ---- */
 .eligibility-step__options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   margin-bottom: 40px;
 }
@@ -137,7 +137,7 @@
 }
 
 .eligibility-option {
-  padding: 13px 10px;
+  padding: 12px;
   border: 1.5px solid rgba(255, 255, 255, 0.35);
   border-radius: 0px;
   /* background: rgba(255, 255, 255, 0.08); */
@@ -317,6 +317,11 @@
   gap: 10px;
 }
 
+.eligibility-option[data-value="switch-safer"] {
+  text-align: left;
+  padding: 12px;
+}
+
 .eligibility-signin__msg {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.8);
@@ -385,7 +390,7 @@
 
   .eligibility-option {
     font-size: 15px;
-    padding: 12px 10px;
+    padding: 12px;
   }
 
   .eligibility-progress {
