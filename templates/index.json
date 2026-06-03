@@ -103,7 +103,7 @@
         "content_cards_cULjNp": {
           "type": "content-cards",
           "settings": {
-            "card_image": "shopify://shop_images/Shop_Treatment_-_cover.webp",
+            "card_image": "shopify://shop_images/Shop_Treatment.webp",
             "card_time_badge": "1-2 Days",
             "card_heading": "Shop Treatment",
             "card_check_text": "Pharmacy-dispensed products",
@@ -113,7 +113,7 @@
         "content_cards_txX9PY": {
           "type": "content-cards",
           "settings": {
-            "card_image": "shopify://shop_images/Ongoing_Support_-_cover.webp",
+            "card_image": "shopify://shop_images/Ongoing_Support.webp",
             "card_time_badge": "Ongoing",
             "card_heading": "Ongoing Support",
             "card_check_text": "We're with you all the way",
