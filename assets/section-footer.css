@@ -195,7 +195,7 @@
 
 @media screen and (min-width: 750px) {
   .footer .footer-menu-block {
-    max-width: 20rem;
+    max-width: 224px;
     padding: 0;
     border: none;
   }
@@ -203,7 +203,7 @@
 
 @media screen and (min-width: 1200px) {
   .footer .footer-menu-block {
-    max-width: 30.4rem;
+    max-width: 224px;
   }
 }
 
