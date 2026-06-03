@@ -92,6 +92,20 @@
   font-weight: 600;
 }
 
+@media (min-width: 750px) and (max-width: 1480px) {
+  .myduke-hero .myduke-hero__inner .myduke-hero__content {
+    max-width: 600px !important;
+  }
+
+  .myduke-hero .myduke-hero__heading {
+    font-size: 6.2rem !important;
+  }
+
+  .eligibility-step__options {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 @media screen and (max-width: 749px) {
   .myduke-hero::before {
     background-color: var(--overlay-color-mobile);
