@@ -107,11 +107,16 @@
   }
 
   .myduke-hero__heading {
-    font-size: 3.6rem;
+    font-size: 46px;
   }
 
   .myduke-hero__description {
     font-size: 1.6rem;
+    margin-bottom: 32px;
+  }
+
+  .myduke-hero__buttons {
+    gap: 8px;
   }
 
   .myduke-hero__btn {

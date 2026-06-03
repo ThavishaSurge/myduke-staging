@@ -345,6 +345,10 @@
 }
 
 @media screen and (max-width: 749px) {
+  .eligibility-tab-panel.is-active {
+    gap: 16px;
+  }
+
   .eligibility-card__body {
     padding: 24px 20px;
   }
@@ -355,23 +359,23 @@
   }
 
   .eligibility-card__intro-heading {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 0;
   }
 
   .eligibility-card__intro-text {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .eligibility-step__question {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 12px;
   }
 
   .eligibility-step__options {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 40px;
   }
 
   [data-elig-step="2"] .eligibility-step__options,
@@ -385,7 +389,7 @@
   }
 
   .eligibility-progress {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .eligibility-progress__label {
