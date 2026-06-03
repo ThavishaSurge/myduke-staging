@@ -9,372 +9,132 @@
  */
 {
   "sections": {
-    "featured_products_FnXqhP": {
-      "type": "featured-products",
-      "name": "t:sections.featured-products.presets.name",
+    "myduke_hero_b7miwf": {
+      "type": "myduke-hero",
+      "name": "MyDuke Hero",
       "settings": {
-        "color_scheme": "background-4",
-        "heading": "Sketch, Plan, Create",
-        "heading_font": "heading",
-        "heading_size": "h1",
-        "heading_tag": "h2",
-        "heading_group_button_show": true,
-        "heading_group_button_label": "Shop collection",
-        "color_scheme_product": "",
-        "list_heading": "",
-        "list_heading_size": "h4",
-        "list_heading_tag": "h3",
-        "animated_badge": true,
-        "main_image_ratio": "square",
-        "main_image_fit": "cover",
-        "padding_top": "no-indent",
-        "padding_bottom": "m",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
+        "background_image": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_1.png",
+        "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "heading": "Clinical Support For\nNicotine Dependance",
+        "description": "myduke offers safe and clinically appropriate pathways for smoking cessation, supported by healthcare professionals every step of the way.",
+        "button_1_text": "Apply For A Prescription",
+        "button_1_link": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/",
+        "button_2_text": "How It Works",
+        "button_2_link": "",
+        "enable_eligibility_form": true,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
       }
     },
-    "popular-products": {
-      "type": "popular-products",
-      "settings": {
-        "color_scheme": "",
-        "layout": "slider",
-        "products_per_row": 4,
-        "products_per_row_mobile": "2",
-        "subheading": "Products",
-        "heading": "Shop bestsellers",
-        "heading_font": "heading",
-        "heading_size": "h5",
-        "heading_tag": "h2",
-        "enable_slider_controls": true,
-        "heading_group_button_show": false,
-        "heading_group_button_label": "Shop All",
-        "heading_group_button_link": "",
-        "heading_group_button_style": "tertiary",
-        "heading_group_enable_border_bottom": true,
-        "show_quick_view": true,
-        "padding_top": "no-indent",
-        "padding_bottom": "no-indent",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "showcase": {
-      "type": "showcase",
-      "settings": {
-        "color_scheme_main": "background-5",
-        "subheading": "Who we are",
-        "content_heading": "The truth is that creativity has no boundaries, and we turn it into products you love.",
-        "content_heading_size": "h3",
-        "content_heading_tag": "h3",
-        "content_description": "Ideas come in unexpected ways, often when you least expect them. While we don’t know what form they’ll take or where they’ll lead, we make sure you have the tools, resources, and support to turn every spark of inspiration into something tangible and meaningful.",
-        "animated_badge": true,
-        "list_button_show": true,
-        "list_button_label": "View products",
-        "list_button_style": "primary",
-        "heading_modal": "Shop the look",
-        "products": [],
-        "products_per_row_mobile": "1",
-        "padding_top": "m",
-        "padding_bottom": "m",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "collections_list": {
-      "type": "collections-list",
+    "info_banner_T4Ytcx": {
+      "type": "info-banner",
       "blocks": {
-        "collection_item_1": {
-          "type": "collection_item",
+        "info_item_8DmTej": {
+          "type": "info_item",
           "settings": {
-            "title": "",
-            "overwrite_link": ""
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"34\" height=\"34\" viewbox=\"0 0 34 34\" fill=\"none\">\n  <path d=\"M23.556 11.241C26.1005 11.241 28.1631 9.17835 28.1631 6.63393C28.1631 4.08952 26.1005 2.02686 23.556 2.02686C21.0116 2.02686 18.949 4.08952 18.949 6.63393C18.949 9.17835 21.0116 11.241 23.556 11.241Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M22.7832 31.9728H27.0117L28.1635 22.7587H31.6188V19.3033C31.6188 17.1651 30.7693 15.1144 29.2573 13.6024C27.7453 12.0904 25.6946 11.241 23.5563 11.241C21.4181 11.241 19.3674 12.0904 17.8554 13.6024C17.4324 14.0253 17.0613 14.4905 16.7461 14.9878\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M13.4017 20.6567C13.6071 20.2249 13.7221 19.7418 13.7221 19.2319C13.7221 17.3981 12.2355 15.9116 10.4017 15.9116C8.56797 15.9116 7.08142 17.3981 7.08142 19.2319C7.08142 19.7418 7.19638 20.2249 7.40179 20.6567\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M4.68995 20.6262H16.1129C17.387 20.6262 18.4191 21.6605 18.4164 22.9346L18.4024 29.6742C18.3997 30.9445 17.3691 31.9729 16.0988 31.9729H4.70403C3.43371 31.9729 2.40316 30.9445 2.4005 29.6742L2.38642 22.9346C2.38375 21.6605 3.41586 20.6262 4.68995 20.6262Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M10.4023 23.9846V28.615\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M12.7171 26.2993H8.08673\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "AHPRA-Registered Doctors"
           }
         },
-        "collection_item_2": {
-          "type": "collection_item",
+        "info_item_QziCJE": {
+          "type": "info_item",
           "settings": {
-            "title": "",
-            "overwrite_link": ""
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 26 26\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_689)\">\n    <path d=\"M23.0473 9.13566V2.95272C23.0473 2.54276 22.8844 2.1496 22.5946 1.85972C22.3047 1.56984 21.9115 1.40698 21.5016 1.40698H2.95272C2.54276 1.40698 2.1496 1.56984 1.85972 1.85972C1.56984 2.1496 1.40698 2.54276 1.40698 2.95272V19.9558C1.40698 20.3658 1.56984 20.7589 1.85972 21.0488C2.1496 21.3387 2.54276 21.5016 2.95272 21.5016H10.6814\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M1.40698 6.04419H23.0473\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 10.6814H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 13.7729H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 16.8643H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 10.6814H14.5457\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 13.7729H11.7119\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 16.8643H10.939\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1501 23.8922L19.6096 24.593L18.07 23.8922C17.0684 23.4693 16.2105 22.7658 15.5996 21.8664C14.9888 20.967 14.651 19.9102 14.6271 18.8232V14.9579L19.6096 13.2576L24.593 14.9579V18.8232C24.5689 19.9101 24.231 20.9669 23.6202 21.8662C23.0094 22.7655 22.1516 23.4691 21.1501 23.8922Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M17.5414 18.884L19.0366 20.3803L22.0292 16.6406\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_689\">\n      <rect width=\"26\" height=\"26\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "text": "TGA-Compliant Framework"
           }
         },
-        "collection_item_3": {
-          "type": "collection_item",
+        "info_item_G9Rjdn": {
+          "type": "info_item",
           "settings": {
-            "title": "",
-            "overwrite_link": ""
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 26 26\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_702)\">\n    <path d=\"M5.41147 1.40689C4.98318 1.38928 4.56536 1.54202 4.24941 1.8317C3.93346 2.12139 3.74512 2.52442 3.72559 2.95262V23.0472C3.74512 23.4754 3.93346 23.8784 4.24941 24.1681C4.56536 24.4578 4.98318 24.6105 5.41147 24.5929H20.5885C21.0168 24.6105 21.4346 24.4578 21.7506 24.1681C22.0665 23.8784 22.2549 23.4754 22.2744 23.0472V6.68403C22.2728 6.47762 22.228 6.27384 22.143 6.08573C22.058 5.89763 21.9346 5.72936 21.7808 5.59171L17.7093 1.85927C17.382 1.56544 16.9569 1.40415 16.5171 1.40689H5.41147Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M17.6372 14.5457C17.6372 14.3408 17.5558 14.1442 17.4108 13.9992C17.2659 13.8543 17.0693 13.7729 16.8643 13.7729H14.5457V11.4543C14.5457 11.2493 14.4643 11.0527 14.3194 10.9078C14.1744 10.7628 13.9778 10.6814 13.7729 10.6814H12.2271C12.0222 10.6814 11.8256 10.7628 11.6806 10.9078C11.5357 11.0527 11.4543 11.2493 11.4543 11.4543V13.7729H9.13566C8.93068 13.7729 8.7341 13.8543 8.58916 13.9992C8.44422 14.1442 8.36279 14.3408 8.36279 14.5457V16.0915C8.36279 16.2964 8.44422 16.493 8.58916 16.638C8.7341 16.7829 8.93068 16.8643 9.13566 16.8643H11.4543V19.1829C11.4543 19.3879 11.5357 19.5845 11.6806 19.7294C11.8256 19.8744 12.0222 19.9558 12.2271 19.9558H13.7729C13.9778 19.9558 14.1744 19.8744 14.3194 19.7294C14.4643 19.5845 14.5457 19.3879 14.5457 19.1829V16.8643H16.8643C17.0693 16.8643 17.2659 16.7829 17.4108 16.638C17.5558 16.493 17.6372 16.2964 17.6372 16.0915V14.5457Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M16.0915 1.40698V5.82367C16.0918 6.29202 16.2779 6.74112 16.6091 7.0723C16.9403 7.40348 17.3894 7.58965 17.8578 7.58993H22.2744\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_702\">\n      <rect width=\"26\" height=\"26\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "text": "Secure Medical Data"
           }
         },
-        "collection_item_4": {
-          "type": "collection_item",
+        "info_item_9UCr9r": {
+          "type": "info_item",
           "settings": {
-            "title": "",
-            "overwrite_link": ""
-          }
-        },
-        "collection_item_5": {
-          "type": "collection_item",
-          "settings": {
-            "title": "",
-            "overwrite_link": ""
-          }
-        },
-        "collection_item_6NfQ7q": {
-          "type": "collection_item",
-          "settings": {
-            "title": "All"
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n  <path d=\"M5.38439 21.0733C4.58536 19.564 6.20878 18.5367 6.72878 18.0928C8.3522 16.5581 9.3922 15.3406 7.99708 12.4489C7.47707 13.7172 5.8917 16.1269 4.07804 16.7484C1.83316 17.522 0.983397 14.8586 2.49267 13.2352C3.53568 12.1505 4.69224 11.181 5.94244 10.3435C4.58276 9.35964 3.42456 8.12394 2.53072 6.70348C2.27339 6.37925 2.15076 5.96841 2.18827 5.55618C2.22577 5.14396 2.42054 4.76199 2.73215 4.48954C3.04376 4.21708 3.44831 4.07504 3.86185 4.09289C4.27539 4.11075 4.66619 4.28712 4.95317 4.58542C6.72878 5.85372 6.99512 6.74152 6.60195 6.91909C5.65073 7.35031 5.67609 2.32785 7.99708 2.70834C9.13854 2.89859 10.4576 3.97664 9.5444 9.51909C9.5444 9.51909 19.2849 10.5464 19.1708 19.9445C19.1708 21.644 16.5708 22.7982 16.1015 22.7982C16.4083 23.1792 16.6217 23.6268 16.7244 24.1051C16.8272 24.5834 16.8165 25.0791 16.6932 25.5525C16.5699 26.0259 16.3375 26.4639 16.0145 26.8313C15.6915 27.1988 15.2869 27.4855 14.8332 27.6684C11.7005 29.2918 7.46439 30.205 6.83024 28.1884C6.1961 26.1718 10.3561 23.9143 12.7786 24.5484C12.0611 23.6655 11.6899 22.5515 11.7342 21.4147C11.7786 20.2779 12.2355 19.1962 13.0195 18.3718C15.3151 16.1142 19.602 19.323 21.4537 20.5152C23.3054 21.7074 23.4322 21.8596 25.4996 21.0733C27.5669 20.2869 28.0362 20.1981 28.9493 19.8811C29.8625 19.564 31.0928 20.0333 29.3425 21.7074C27.5923 23.3816 23.3181 26.3748 14.9981 26.8821C11.3581 26.9962 8.4283 24.0411 8.18732 21.8977C8.13701 21.4768 8.1116 21.0533 8.11122 20.6294\" fill=\"none\" stroke=\"white\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "Australian Owned & Operated"
           }
         }
       },
       "block_order": [
-        "collection_item_1",
-        "collection_item_2",
-        "collection_item_3",
-        "collection_item_4",
-        "collection_item_5",
-        "collection_item_6NfQ7q"
+        "info_item_8DmTej",
+        "info_item_QziCJE",
+        "info_item_G9Rjdn",
+        "info_item_9UCr9r"
       ],
+      "name": "Info Banner",
       "settings": {
-        "color_scheme": "",
-        "subheading": "Categories",
-        "heading": "",
-        "heading_font": "body",
-        "heading_size": "h6",
-        "heading_tag": "h2",
-        "heading_group_button_show": false,
-        "heading_group_button_label": "Shop Now",
-        "heading_group_button_link": "",
-        "heading_group_button_style": "tertiary",
-        "heading_group_enable_border_bottom": false,
-        "collection_heading_size": "h1",
-        "collection_heading_tag": "h3",
-        "aspect_ratio": "portrait",
-        "object_fit": "cover",
-        "padding_top": "no-indent",
-        "padding_bottom": "no-indent",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
+        "bg_color": "#264653",
+        "text_color": "#ffffff"
       }
     },
-    "featured_product_VR7LTU": {
-      "type": "featured-product",
+    "content_cards_myduke_Ct4eM8": {
+      "type": "content-cards-myduke",
       "blocks": {
-        "badges_dxhHTy": {
-          "type": "badges",
+        "content_cards_8dxqPP": {
+          "type": "content-cards",
           "settings": {
-            "show_sale_badge": true,
-            "sale_badge_type": "percentage",
-            "show_soldout_badge": false,
-            "show_custom_badges": true,
-            "show_new_badge": true,
-            "new_badge_days": 30,
-            "show_product_tags": false
+            "card_image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.webp",
+            "card_time_badge": "2 minutes",
+            "card_heading": "Clinical Assessment",
+            "card_check_text": "Tell us about you",
+            "card_check_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_730)\">\n    <path d=\"M8 0C6.41775 0 4.87104 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346629 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0ZM12.62 5.46667L8.05334 11.66C8.0002 11.7324 7.93297 11.7933 7.8557 11.8391C7.77843 11.8849 7.6927 11.9146 7.60366 11.9265C7.51462 11.9383 7.42411 11.932 7.33756 11.908C7.25101 11.884 7.17021 11.8427 7.1 11.7867L3.84 9.18C3.77152 9.12499 3.71458 9.05698 3.67247 8.97989C3.63035 8.9028 3.60389 8.81814 3.59459 8.73079C3.5853 8.64344 3.59336 8.55511 3.61832 8.47088C3.64327 8.38666 3.68463 8.30819 3.74 8.24C3.85078 8.10557 4.00977 8.01984 4.18296 8.00115C4.35614 7.98247 4.52976 8.0323 4.66667 8.14L7.38667 10.3133L11.5467 4.66667C11.6516 4.5261 11.8078 4.43257 11.9813 4.40636C12.1547 4.38015 12.3315 4.42338 12.4733 4.52667C12.5453 4.57824 12.6064 4.64364 12.6528 4.71906C12.6993 4.79447 12.7302 4.87839 12.7439 4.9659C12.7575 5.05341 12.7536 5.14277 12.7323 5.22875C12.7111 5.31473 12.6729 5.39561 12.62 5.46667Z\" fill=\"#BFDBCF\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_730\">\n      <rect width=\"16\" height=\"16\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "card_check_icon": "shopify://shop_images/pale-green-tick.svg"
           }
         },
-        "tags_VQtEwT": {
-          "type": "tags",
-          "disabled": true,
-          "settings": {}
-        },
-        "title_xUyak4": {
-          "type": "title",
+        "content_cards_bkidFR": {
+          "type": "content-cards",
           "settings": {
-            "heading_size": "h5"
+            "card_image": "shopify://shop_images/Doctor_Review-cover.webp",
+            "card_time_badge": "< 24 hrs",
+            "card_heading": "Doctor Review",
+            "card_check_text": "Doctor-approved pathway",
+            "card_check_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_746)\">\n    <path d=\"M8 0C6.41775 0 4.87104 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346629 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0ZM12.62 5.46667L8.05334 11.66C8.0002 11.7324 7.93297 11.7933 7.8557 11.8391C7.77843 11.8849 7.6927 11.9146 7.60366 11.9265C7.51462 11.9383 7.42411 11.932 7.33756 11.908C7.25101 11.884 7.17021 11.8427 7.1 11.7867L3.84 9.18C3.77152 9.12499 3.71458 9.05698 3.67247 8.97989C3.63035 8.9028 3.60389 8.81814 3.59459 8.73079C3.5853 8.64344 3.59336 8.55511 3.61832 8.47088C3.64327 8.38666 3.68463 8.30819 3.74 8.24C3.85078 8.10557 4.00977 8.01984 4.18296 8.00115C4.35614 7.98247 4.52976 8.0323 4.66667 8.14L7.38667 10.3133L11.5467 4.66667C11.6516 4.5261 11.8078 4.43257 11.9813 4.40636C12.1547 4.38015 12.3315 4.42338 12.4733 4.52667C12.5453 4.57824 12.6064 4.64364 12.6528 4.71906C12.6993 4.79447 12.7302 4.87839 12.7439 4.9659C12.7575 5.05341 12.7536 5.14277 12.7323 5.22875C12.7111 5.31473 12.6729 5.39561 12.62 5.46667Z\" fill=\"#FFB703\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_746\">\n      <rect width=\"16\" height=\"16\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>"
           }
         },
-        "price_67HLKi": {
-          "type": "price",
+        "content_cards_cULjNp": {
+          "type": "content-cards",
           "settings": {
-            "price_font": "body",
-            "price_font_size": "h4",
-            "show_tax_info": false,
-            "show_installments": false
+            "card_image": "shopify://shop_images/Shop_Treatment_-_cover.webp",
+            "card_time_badge": "1-2 Days",
+            "card_heading": "Shop Treatment",
+            "card_check_text": "Pharmacy-dispensed products",
+            "card_check_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_762)\">\n    <path d=\"M8 0C6.41775 0 4.87104 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346629 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0ZM12.62 5.46667L8.05334 11.66C8.0002 11.7324 7.93297 11.7933 7.8557 11.8391C7.77843 11.8849 7.6927 11.9146 7.60366 11.9265C7.51462 11.9383 7.42411 11.932 7.33756 11.908C7.25101 11.884 7.17021 11.8427 7.1 11.7867L3.84 9.18C3.77152 9.12499 3.71458 9.05698 3.67247 8.97989C3.63035 8.9028 3.60389 8.81814 3.59459 8.73079C3.5853 8.64344 3.59336 8.55511 3.61832 8.47088C3.64327 8.38666 3.68463 8.30819 3.74 8.24C3.85078 8.10557 4.00977 8.01984 4.18296 8.00115C4.35614 7.98247 4.52976 8.0323 4.66667 8.14L7.38667 10.3133L11.5467 4.66667C11.6516 4.5261 11.8078 4.43257 11.9813 4.40636C12.1547 4.38015 12.3315 4.42338 12.4733 4.52667C12.5453 4.57824 12.6064 4.64364 12.6528 4.71906C12.6993 4.79447 12.7302 4.87839 12.7439 4.9659C12.7575 5.05341 12.7536 5.14277 12.7323 5.22875C12.7111 5.31473 12.6729 5.39561 12.62 5.46667Z\" fill=\"#EF6351\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_762\">\n      <rect width=\"16\" height=\"16\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>"
           }
         },
-        "inventory_MTkTE3": {
-          "type": "inventory",
+        "content_cards_txX9PY": {
+          "type": "content-cards",
           "settings": {
-            "inventory_threshold": 10,
-            "show_inventory_quantity": false
-          }
-        },
-        "buy_buttons_BEQPNy": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_quantity_selector": true,
-            "show_gift_card_recipient": false
-          }
-        },
-        "icon_with_text_Kez84C": {
-          "type": "icon_with_text",
-          "settings": {
-            "enable_icon": true,
-            "custom_icon_fit": "cover",
-            "text": "Buy now and receive it in approximately <strong>3 - 5 days</strong>"
-          }
-        },
-        "divider_ATMN8d": {
-          "type": "divider",
-          "settings": {
-            "enable_border": true,
-            "margin_top": "40px",
-            "margin_bottom": "0"
-          }
-        },
-        "description_xKDqxj": {
-          "type": "description",
-          "settings": {
-            "overwrite_text": "<p>A reliable, everyday-use product designed to support planning, note-taking, and creative work. It features a clean layout and sturdy build, making it suitable for personal, academic, or professional tasks.</p>",
-            "description_image_fit": "cover"
-          }
-        },
-        "divider_tqMgJG": {
-          "type": "divider",
-          "settings": {
-            "enable_border": true,
-            "margin_top": "16px",
-            "margin_bottom": "0"
+            "card_image": "shopify://shop_images/Ongoing_Support_-_cover.webp",
+            "card_time_badge": "Ongoing",
+            "card_heading": "Ongoing Support",
+            "card_check_text": "We're with you all the way",
+            "card_check_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_778)\">\n    <path d=\"M8 0C6.41775 0 4.87104 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346629 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0ZM12.62 5.46667L8.05334 11.66C8.0002 11.7324 7.93297 11.7933 7.8557 11.8391C7.77843 11.8849 7.6927 11.9146 7.60366 11.9265C7.51462 11.9383 7.42411 11.932 7.33756 11.908C7.25101 11.884 7.17021 11.8427 7.1 11.7867L3.84 9.18C3.77152 9.12499 3.71458 9.05698 3.67247 8.97989C3.63035 8.9028 3.60389 8.81814 3.59459 8.73079C3.5853 8.64344 3.59336 8.55511 3.61832 8.47088C3.64327 8.38666 3.68463 8.30819 3.74 8.24C3.85078 8.10557 4.00977 8.01984 4.18296 8.00115C4.35614 7.98247 4.52976 8.0323 4.66667 8.14L7.38667 10.3133L11.5467 4.66667C11.6516 4.5261 11.8078 4.43257 11.9813 4.40636C12.1547 4.38015 12.3315 4.42338 12.4733 4.52667C12.5453 4.57824 12.6064 4.64364 12.6528 4.71906C12.6993 4.79447 12.7302 4.87839 12.7439 4.9659C12.7575 5.05341 12.7536 5.14277 12.7323 5.22875C12.7111 5.31473 12.6729 5.39561 12.62 5.46667Z\" fill=\"#218380\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_778\">\n      <rect width=\"16\" height=\"16\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>"
           }
         }
       },
       "block_order": [
-        "badges_dxhHTy",
-        "tags_VQtEwT",
-        "title_xUyak4",
-        "price_67HLKi",
-        "inventory_MTkTE3",
-        "buy_buttons_BEQPNy",
-        "icon_with_text_Kez84C",
-        "divider_ATMN8d",
-        "description_xKDqxj",
-        "divider_tqMgJG"
+        "content_cards_8dxqPP",
+        "content_cards_bkidFR",
+        "content_cards_cULjNp",
+        "content_cards_txX9PY"
       ],
-      "name": "t:sections.featured-product.name",
-      "settings": {
-        "only_two_images": true,
-        "color_scheme": "",
-        "show_full_details": false,
-        "subheading": "Limited edition",
-        "heading": "A note for every one of 365 days",
-        "heading_font": "heading",
-        "heading_size": "h5",
-        "heading_tag": "h2",
-        "heading_group_button_show": false,
-        "heading_group_button_label": "Shop All",
-        "heading_group_button_link": "",
-        "heading_group_button_style": "tertiary",
-        "heading_group_enable_border_bottom": true,
-        "desktop_gallery_order": "before",
-        "mobile_gallery_order": "before",
-        "desktop_media_ratio": "portrait",
-        "mobile_media_ratio": "portrait",
-        "image_fit": "cover",
-        "show_no_media_placeholder": true,
-        "enable_video_looping": true,
-        "enable_video_autoplay": false,
-        "padding_top": "no-indent",
-        "padding_bottom": "no-indent",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "image_with_text_KEn8az": {
-      "type": "image-with-text",
-      "name": "t:sections.image-with-text.name",
-      "settings": {
-        "color_scheme_main": "",
-        "mobile_container": true,
-        "enable_image": true,
-        "image_ratio_desktop": "full_height",
-        "image_ratio_mobile": "full_height",
-        "overlay_opacity": 10,
-        "enable_parallax": true,
-        "color_scheme": "",
-        "subheading": "",
-        "content_heading": "Every idea deserves a space to grow. Our sketchbooks, planners, calendars, pads, and accessories are designed to inspire creativity and keep your life organized.",
-        "content_heading_size": "h5",
-        "content_heading_tag": "h3",
-        "content_description": "",
-        "list_button_show": true,
-        "list_button_label": "About us",
-        "list_button_style": "tertiary",
-        "animated_badge": true,
-        "vertical_alignment": "center",
-        "text_alignment": "center",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "content_cards_gKNrrL": {
-      "type": "content-cards",
-      "blocks": {
-        "content_cards_qVtQaF": {
-          "type": "content-cards",
-          "settings": {
-            "overlay_opacity": 0,
-            "card_heading": "Bright and smooth",
-            "card_heading_font": "body",
-            "card_heading_size": "h6",
-            "card_heading_tag": "h3",
-            "card_description": "Experience paper that’s crisp, clean, and a joy to write on, making every note and sketch stand out."
-          }
-        },
-        "content_cards_afDUJD": {
-          "type": "content-cards",
-          "settings": {
-            "overlay_opacity": 0,
-            "card_heading": "Tear-resistant",
-            "card_heading_font": "body",
-            "card_heading_size": "h6",
-            "card_heading_tag": "h3",
-            "card_description": "Durable and strong, our pages withstand everyday use without ripping or tearing."
-          }
-        },
-        "content_cards_PVHVkw": {
-          "type": "content-cards",
-          "settings": {
-            "overlay_opacity": 0,
-            "card_heading": "Friction-free writing",
-            "card_heading_font": "body",
-            "card_heading_size": "h6",
-            "card_heading_tag": "h3",
-            "card_description": "Glide effortlessly across the page with smooth surfaces designed for seamless writing and drawing."
-          }
-        },
-        "content_cards_nn7zqq": {
-          "type": "content-cards",
-          "settings": {
-            "overlay_opacity": 0,
-            "card_heading": "No bleaches or acids",
-            "card_heading_font": "body",
-            "card_heading_size": "h6",
-            "card_heading_tag": "h3",
-            "card_description": "Made with safe, eco-friendly materials, our paper protects both your creations and the environment."
-          }
-        }
-      },
-      "block_order": [
-        "content_cards_qVtQaF",
-        "content_cards_afDUJD",
-        "content_cards_PVHVkw",
-        "content_cards_nn7zqq"
-      ],
-      "name": "t:sections.content-cards.presets.name",
+      "name": "Content Cards (MyDuke)",
       "settings": {
         "color_scheme": "",
         "subheading": "Our benefits",
-        "heading": "Our promise to you",
-        "heading_font": "heading",
-        "heading_size": "h5",
+        "heading": "How myduke® Works",
         "heading_tag": "h2",
-        "heading_group_button_show": false,
-        "heading_group_button_label": "Shop Now",
-        "heading_group_button_link": "",
-        "heading_group_button_style": "tertiary",
-        "heading_group_enable_border_bottom": true,
-        "items_per_row": 4,
-        "aspect_ratio": "portrait",
-        "object_fit": "cover",
+        "cta_button_label": "Get Started",
+        "cta_button_url": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/",
         "enable_card_numbering": true,
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
@@ -382,180 +142,218 @@
         "margin_bottom": "l"
       }
     },
-    "testimonials_iJmMhk": {
-      "type": "testimonials",
+    "myduke_cost_calculator_gNtdKb": {
+      "type": "myduke-cost-calculator",
       "blocks": {
-        "testimonials_slide_7BXWVh": {
-          "type": "testimonials_slide",
+        "quick_fact_kwtatK": {
+          "type": "quick_fact",
           "settings": {
-            "slide_text": "“I love how smooth and bright the paper is! Writing in my planner has never felt so satisfying. These products make staying organized enjoyable.”",
-            "slide_heading_size": "h5",
-            "slide_heading_tag": "h3",
-            "slide_author": "Daniel Kim",
-            "position_name": "Graphic Designer",
-            "enable_rating": true,
-            "rating": 5,
-            "enable_product": true,
-            "main_color_scheme": "background-4"
+            "fact_text": "Tobacco kills more than 8 million people worldwide every year (WHO)."
           }
         },
-        "testimonials_slide_xnqywh": {
-          "type": "testimonials_slide",
+        "quick_fact_p6ExxW": {
+          "type": "quick_fact",
           "settings": {
-            "slide_text": "\"The quality is outstanding. My sketchbook has held up beautifully, and I can write and draw without worrying about tearing the pages. Highly recommend!\"",
-            "slide_heading_size": "h5",
-            "slide_heading_tag": "h3",
-            "slide_author": "Daniel Kim",
-            "position_name": "Graphic Designer",
-            "enable_rating": true,
-            "rating": 4,
-            "enable_product": true,
-            "main_color_scheme": "background-4"
+            "fact_text": "Within 20 minutes of quitting, your heart rate begins to drop back to normal."
           }
         },
-        "testimonials_slide_YzLjR4": {
-          "type": "testimonials_slide",
+        "quick_fact_h4A9ci": {
+          "type": "quick_fact",
           "settings": {
-            "slide_text": "\"From planners to accessories, everything feels thoughtfully designed. I’ve never had such a seamless experience keeping my ideas and projects in order.\"",
-            "slide_heading_size": "h5",
-            "slide_heading_tag": "h3",
-            "slide_author": "Daniel Kim",
-            "position_name": "Graphic Designer",
-            "enable_rating": true,
-            "rating": 4,
-            "enable_product": true,
-            "main_color_scheme": "background-4"
+            "fact_text": "After 1 year smoke-free, your risk of heart disease is cut in half."
+          }
+        },
+        "quick_fact_LE3kQq": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Nicotine replacement therapies can double your chances of quitting successfully."
           }
         }
       },
       "block_order": [
-        "testimonials_slide_7BXWVh",
-        "testimonials_slide_xnqywh",
-        "testimonials_slide_YzLjR4"
+        "quick_fact_kwtatK",
+        "quick_fact_p6ExxW",
+        "quick_fact_h4A9ci",
+        "quick_fact_LE3kQq"
       ],
-      "name": "t:sections.testimonials.name",
+      "name": "Cost Calculator (MyDuke)",
       "settings": {
-        "color_scheme": "background-1",
-        "enable_autoplay": true,
-        "stop_autoplay": true,
-        "slide_duration": 5,
-        "enable_text_animation": true,
-        "subheading": "Reviews",
-        "heading": "Our customers say it best",
-        "heading_font": "heading",
-        "heading_size": "h5",
-        "heading_tag": "h3",
-        "heading_group_button_show": false,
-        "heading_group_button_label": "Learn More",
-        "heading_group_button_link": "",
-        "heading_group_button_style": "tertiary",
-        "heading_group_enable_border_bottom": true,
-        "color_scheme_media": "background-1",
-        "aspect_ratio": "square",
-        "enable_image": true,
-        "object_fit": "cover",
-        "overlay_opacity": 0,
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/potential-earnings-bg.webp",
+        "heading": "See What You Could Save",
+        "heading_tag": "h2",
+        "slider_label": "Cigarettes per day",
+        "slider_unit": "Cigarettes",
+        "slider_min": 1,
+        "slider_max": 50,
+        "slider_default": 25,
+        "slider_fill_color": "#edf3f0",
+        "cost_per_cigarette": 2,
+        "cost_label": "Cost per cigarette",
+        "show_gst_label": true,
+        "facts_label": "Quick Facts",
+        "weekly_label": "Savings per week",
+        "yearly_label": "Savings per year",
+        "cta_text": "Ready to start saving",
+        "cta_button_label": "Start your assessment",
+        "cta_button_url": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
     },
-    "trust_zwDxUA": {
-      "type": "Trust",
+    "myduke_guided_support_FMLM4X": {
+      "type": "myduke-guided-support",
       "blocks": {
-        "column_nmnHFX": {
-          "type": "column",
+        "card_FnQ6yn": {
+          "type": "card",
           "settings": {
-            "heading": "Natural materials",
-            "text": "",
-            "enable_icon": true,
-            "icon": "custom",
-            "custom_icon_fit": "cover",
-            "show_button": false,
-            "button_label": "Learn More",
-            "button_link": "",
-            "button_style": "tertiary"
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_827)\">\n    <path d=\"M22.0878 7.62163C22.5071 8.6333 22.6704 9.73277 22.5632 10.8226C22.456 11.9125 22.0816 12.9591 21.4733 13.8697C20.865 14.7803 20.0415 15.5268 19.0757 16.0431C18.1099 16.5593 17.0317 16.8294 15.9366 16.8294C14.8415 16.8294 13.7633 16.5593 12.7975 16.0431C11.8317 15.5268 11.0082 14.7803 10.3999 13.8697C9.79154 12.9591 9.4172 11.9125 9.31001 10.8226C9.20282 9.73277 9.36609 8.6333 9.78535 7.62163\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M16.8827 30.2683V19.7199\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.27296 26.3404H13.0778\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M11.1754 24.438V28.2429\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M13.0778 4.58533C13.0778 4.96007 13.1517 5.33115 13.2951 5.67738C13.4385 6.0236 13.6487 6.33819 13.9137 6.60317C14.1786 6.86816 14.4932 7.07836 14.8395 7.22177C15.1857 7.36518 15.5568 7.43899 15.9315 7.43899C16.3063 7.43899 16.6773 7.36518 17.0236 7.22177C17.3698 7.07836 17.6844 6.86816 17.9494 6.60317C18.2143 6.33819 18.4245 6.0236 18.568 5.67738C18.7114 5.33115 18.7852 4.96007 18.7852 4.58533C18.7852 4.21058 18.7114 3.8395 18.568 3.49327C18.4245 3.14705 18.2143 2.83247 17.9494 2.56748C17.6844 2.30249 17.3698 2.09229 17.0236 1.94888C16.6773 1.80547 16.3063 1.73166 15.9315 1.73166C15.5568 1.73166 15.1857 1.80547 14.8395 1.94888C14.4932 2.09229 14.1786 2.30249 13.9137 2.56748C13.6487 2.83247 13.4385 3.14705 13.2951 3.49327C13.1517 3.8395 13.0778 4.21058 13.0778 4.58533Z\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.27422 10.2927H22.5888\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M28.1554 30.2683C27.7309 27.3291 26.2615 24.6412 24.0165 22.6972C21.7715 20.7532 18.9012 19.6831 15.9315 19.6831C12.9618 19.6831 10.0915 20.7532 7.8465 22.6972C5.60152 24.6412 4.13217 27.3291 3.70767 30.2683\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_827\">\n      <rect width=\"32\" height=\"32\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "title": "Expert-Led Support",
+            "list_items": "Healthcare professionals review every pathway\nSafe, supervised nicotine reduction\nRegistered Australian doctors"
           }
         },
-        "column_K89tMF": {
-          "type": "column",
+        "card_AdbceJ": {
+          "type": "card",
           "settings": {
-            "heading": "30-Days Free Returns",
-            "text": "",
-            "enable_icon": true,
-            "icon": "custom",
-            "custom_icon_fit": "cover",
-            "show_button": false,
-            "button_label": "Learn More",
-            "button_link": "",
-            "button_style": "tertiary"
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n  <path d=\"M21.2064 21.3155L20.2323 28.5671C20.1106 29.4274 21.0846 30.0419 21.8151 29.4274L24.2503 26.9693L26.6854 29.4274C27.2942 30.0419 28.39 29.5503 28.2682 28.5671L27.2942 21.3155\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M24.2498 22.246C27.2758 22.246 29.7288 19.7929 29.7288 16.7669C29.7288 13.7409 27.2758 11.2879 24.2498 11.2879C21.2238 11.2879 18.7708 13.7409 18.7708 16.7669C18.7708 19.7929 21.2238 22.246 24.2498 22.246Z\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M24.2498 16.28C24.0063 16.28 23.7628 16.5236 23.7628 16.7671C23.7628 17.0106 24.0063 17.2541 24.2498 17.2541\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M24.2497 16.28C24.4932 16.28 24.7367 16.5236 24.7367 16.7671C24.7367 17.0106 24.4932 17.2541 24.2497 17.2541\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M15.7268 29.6976H3.55118C2.82064 29.6976 2.33362 29.2106 2.33362 28.48V3.51996C2.33362 2.78942 2.82064 2.3024 3.55118 2.3024H15.8486C16.0921 2.3024 16.4574 2.42418 16.7009 2.66769L22.6669 8.02496\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M7.69077 10.2166H15.7267\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M7.69077 16.3044H15.7267\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M7.69077 22.3922H13.7786\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "title": "Clear, Regulated Pathways",
+            "list_items": "Compliant prescribing & dispensing\nTGA notification requirements met\nLicensed pharmacy partners"
           }
         },
-        "column_LDDy4Y": {
-          "type": "column",
+        "card_hMQzMW": {
+          "type": "card",
           "settings": {
-            "heading": "Secure Payment",
-            "text": "",
-            "enable_icon": true,
-            "icon": "custom",
-            "custom_icon_fit": "cover",
-            "show_button": false,
-            "button_label": "Learn More",
-            "button_link": "",
-            "button_style": "tertiary"
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_851)\">\n    <path d=\"M29.3171 28.3659C29.3171 28.8704 29.1167 29.3544 28.76 29.7112C28.4032 30.0679 27.9192 30.2683 27.4147 30.2683H4.58534C4.08078 30.2683 3.59688 30.0679 3.24011 29.7112C2.88333 29.3544 2.68289 28.8704 2.68289 28.3659V3.63411C2.68289 3.12956 2.88333 2.64565 3.24011 2.28888C3.59688 1.9321 4.08078 1.73167 4.58534 1.73167H23.6669C24.1634 1.73139 24.6405 1.92529 24.996 2.27196L28.7426 5.92846C28.9245 6.10568 29.0689 6.31751 29.1676 6.55145C29.2663 6.78538 29.3171 7.03671 29.3171 7.29061V28.3659Z\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M2.68289 20.6338H29.3171\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M8.21774 25.5717H15.8275\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1424 11.0863H24.8476\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1424 15.7439H24.8476\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1424 25.5717H24.8476\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M13.7488 6.42864H10.2968V9.36042H7.365V12.8124H10.2968V15.7441H13.7488V12.8124H16.6804V9.36042H13.7488V6.42864Z\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_851\">\n      <rect width=\"32\" height=\"32\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "title": "Personalised Care Plans",
+            "list_items": "Individualised cessation plan\nPrescribed nicotine pathways\nBehavioural strategies included"
+          }
+        },
+        "card_GNdhCW": {
+          "type": "card",
+          "settings": {
+            "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_901)\">\n    <path d=\"M28.3786 11.2477V3.63792C28.3786 3.13336 28.1781 2.64946 27.8214 2.29269C27.4646 1.93591 26.9807 1.73547 26.4761 1.73547H3.6468C3.14224 1.73547 2.65834 1.93591 2.30157 2.29269C1.94479 2.64946 1.74435 3.13336 1.74435 3.63792V24.5648C1.74435 25.0694 1.94479 25.5533 2.30157 25.91C2.65834 26.2668 3.14224 26.4673 3.6468 26.4673H11.2566\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M1.74435 7.44281H28.3786\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M14.1102 20.7599C14.1102 22.5259 14.8118 24.2195 16.0605 25.4682C17.3092 26.7169 19.0028 27.4185 20.7688 27.4185C22.5347 27.4185 24.2284 26.7169 25.4771 25.4682C26.7258 24.2195 27.4273 22.5259 27.4273 20.7599C27.4273 18.994 26.7258 17.3003 25.4771 16.0516C24.2284 14.8029 22.5347 14.1014 20.7688 14.1014C19.0028 14.1014 17.3092 14.8029 16.0605 16.0516C14.8118 17.3003 14.1102 18.994 14.1102 20.7599Z\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M30.281 30.2721L25.4767 25.4691\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_901\">\n      <rect width=\"32\" height=\"32\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "title": "Evidence-Based Guidance",
+            "list_items": "First-line nicotine replacement therapies\nClinical approaches backed by research\nRACGP-aligned protocols"
           }
         }
       },
       "block_order": [
-        "column_nmnHFX",
-        "column_K89tMF",
-        "column_LDDy4Y"
+        "card_FnQ6yn",
+        "card_AdbceJ",
+        "card_hMQzMW",
+        "card_GNdhCW"
       ],
-      "name": "t:sections.trust.name",
+      "name": "Guided Support(MyDuke)",
+      "settings": {
+        "left_image": "shopify://shop_images/be-in-control.png",
+        "eyebrow": "Your Trusted Clinic",
+        "heading": "Guided, Compliant Support",
+        "li_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_839)\">\n    <path d=\"M8 0C6.41775 0 4.87104 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346629 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0ZM12.62 5.46667L8.05334 11.66C8.0002 11.7324 7.93297 11.7933 7.8557 11.8391C7.77843 11.8849 7.6927 11.9146 7.60366 11.9265C7.51462 11.9383 7.42411 11.932 7.33756 11.908C7.25101 11.884 7.17021 11.8427 7.1 11.7867L3.84 9.18C3.77152 9.12499 3.71458 9.05698 3.67247 8.97989C3.63035 8.9028 3.60389 8.81814 3.59459 8.73079C3.5853 8.64344 3.59336 8.55511 3.61832 8.47088C3.64327 8.38666 3.68463 8.30819 3.74 8.24C3.85078 8.10557 4.00977 8.01984 4.18296 8.00115C4.35614 7.98247 4.52976 8.0323 4.66667 8.14L7.38667 10.3133L11.5467 4.66667C11.6516 4.5261 11.8078 4.43257 11.9813 4.40636C12.1547 4.38015 12.3315 4.42338 12.4733 4.52667C12.5453 4.57824 12.6064 4.64364 12.6528 4.71906C12.6993 4.79447 12.7302 4.87839 12.7439 4.9659C12.7575 5.05341 12.7536 5.14277 12.7323 5.22875C12.7111 5.31473 12.6729 5.39561 12.62 5.46667Z\" fill=\"#BFDBCF\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_839\">\n      <rect width=\"16\" height=\"16\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+        "flex_reverse": false,
+        "button_text": "Start Your Assessment",
+        "button_link": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/"
+      }
+    },
+    "myduke_cta_E6WbRb": {
+      "type": "myduke-cta",
+      "name": "CTA (MyDuke)",
       "settings": {
         "color_scheme": "",
-        "text_alignment": "center",
-        "heading": "",
-        "heading_font": "body",
-        "heading_size": "h6",
+        "bg_image": "shopify://shop_images/cta-bg.webp",
+        "bg_image_mobile": "shopify://shop_images/cta-bg-mob.webp",
+        "fallback_color": "#264653",
+        "eyebrow": "You're not alone",
+        "heading": "myduke® is for quitters",
         "heading_tag": "h2",
-        "heading_group_button_show": false,
-        "heading_group_button_label": "Learn More",
-        "heading_group_button_link": "",
-        "heading_group_button_style": "tertiary",
-        "column_heading_font": "body",
-        "column_heading_size": "body-large",
-        "column_heading_tag": "h3",
-        "padding_top": "xs",
-        "padding_bottom": "xs",
+        "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
+        "button_label": "Get started",
+        "button_url": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
     },
-    "blog-posts": {
-      "type": "blog-posts",
+    "myduke_faq_eiGzkw": {
+      "type": "myduke-faq",
+      "blocks": {
+        "faq_item_aVytjt": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who can use myduke®?",
+            "answer": "<p>myduke® supports adults 18+ seeking help with nicotine dependence or quitting smoking. Access is provided under medical supervision in line with Australian regulations.</p>"
+          }
+        },
+        "faq_item_yrBBnq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I begin my quit journey?",
+            "answer": "<p>Create a myduke® account and complete the secure online assessment. A registered Australian doctor will review your information and determine the most appropriate pathway.</p>"
+          }
+        },
+        "faq_item_RwiJkB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I get a nicotine prescription and how long does it take?",
+            "answer": "<p>After your assessment is reviewed by a registered doctor, most prescriptions are issued within a couple of business days if clinically appropriate. Your prescription is then managed securely through your myduke® account.</p>"
+          }
+        },
+        "faq_item_MBJVEk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I access myduke® from anywhere in Australia?",
+            "answer": "<p>Yes. Our digital platform is designed for adults across Australia, including regional and remote areas. There's no need to visit a clinic or pharmacy in person to get started.</p>"
+          }
+        },
+        "faq_item_FCMYwD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use an existing prescription from another doctor?",
+            "answer": "<p>No. Only prescriptions issued through myduke®'s authorised pathways can be used with our dispensing partners, ensuring your care remains safe, compliant, and consistently monitored.</p>"
+          }
+        },
+        "faq_item_WMFkpn": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if a prescription isn't right for me?",
+            "answer": "<p>If a doctor determines a prescription isn't suitable, you'll receive guidance on safe, evidence-based alternatives to help support your quit journey.</p>"
+          }
+        },
+        "faq_item_X8DPNT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What treatments does myduke® offer?",
+            "answer": "<p>Myduke provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
+          }
+        },
+        "faq_item_nALzUW": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to visit a doctor in person?",
+            "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, your prescription and ongoing care are managed through your secure account.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_aVytjt",
+        "faq_item_yrBBnq",
+        "faq_item_RwiJkB",
+        "faq_item_MBJVEk",
+        "faq_item_FCMYwD",
+        "faq_item_WMFkpn",
+        "faq_item_X8DPNT",
+        "faq_item_nALzUW"
+      ],
+      "name": "FAQ (MyDuke)",
       "settings": {
-        "blog": "",
-        "posts_per_row": 3,
-        "posts_count": 3,
-        "heading_group_enable_border_bottom": true,
-        "subheading": "Journal",
-        "heading": "Keep up with our latest stories",
-        "heading_font": "heading",
-        "heading_size": "h5",
+        "color_scheme": "",
+        "eyebrow": "FAQs",
+        "heading": "Your Questions Answered",
         "heading_tag": "h2",
-        "heading_group_button_show": true,
-        "heading_group_button_label": "Read All",
-        "heading_group_button_style": "tertiary",
-        "show_image": true,
-        "aspect_ratio": "landscape",
-        "object_fit": "cover",
-        "show_date": true,
-        "show_tags": true,
-        "show_author": true,
-        "show_comments_count": false,
-        "show_excerpt": false,
+        "cta_button_label": "More FAQs",
+        "cta_button_url": "",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
@@ -564,15 +362,12 @@
     }
   },
   "order": [
-    "featured_products_FnXqhP",
-    "popular-products",
-    "showcase",
-    "collections_list",
-    "featured_product_VR7LTU",
-    "image_with_text_KEn8az",
-    "content_cards_gKNrrL",
-    "testimonials_iJmMhk",
-    "trust_zwDxUA",
-    "blog-posts"
+    "myduke_hero_b7miwf",
+    "info_banner_T4Ytcx",
+    "content_cards_myduke_Ct4eM8",
+    "myduke_cost_calculator_gNtdKb",
+    "myduke_guided_support_FMLM4X",
+    "myduke_cta_E6WbRb",
+    "myduke_faq_eiGzkw"
   ]
 }

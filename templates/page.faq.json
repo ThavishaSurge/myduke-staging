@@ -1,0 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_info": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "h5",
+        "heading_tag": "h1",
+        "content_align": "left"
+      }
+    },
+    "myduke_faq_page_EhTGJx": {
+      "type": "myduke-faq-page",
+      "blocks": {
+        "faq_item_PW9YtL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who can use myduke®?",
+            "answer": "<p>myduke® supports adults 18+ seeking help with nicotine dependence or quitting smoking. Access is provided under medical supervision in line with Australian regulations.</p>"
+          }
+        },
+        "faq_item_qfG3Pf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I begin my quit journey?",
+            "answer": "<p>Create a myduke® account and complete the secure online assessment. A registered Australian doctor will review your information and determine the most appropriate pathway.</p>"
+          }
+        },
+        "faq_item_NM9K74": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I get a nicotine prescription and how long does it take?",
+            "answer": "<p>After your assessment is reviewed by a registered doctor, most prescriptions are issued within a couple of business days if clinically appropriate. Your prescription is then managed securely through your myduke® account.</p>"
+          }
+        },
+        "faq_item_PL9RAV": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I access myduke® from anywhere in Australia?",
+            "answer": "<p>Yes. Our digital platform is designed for adults across Australia, including regional and remote areas. There's no need to visit a clinic or pharmacy in person to get started.</p>"
+          }
+        },
+        "faq_item_9EN8ja": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use an existing prescription from another doctor?",
+            "answer": "<p>No. Only prescriptions issued through myduke®'s authorised pathways can be used with our dispensing partners, ensuring your care remains safe, compliant, and consistently monitored.</p>"
+          }
+        },
+        "faq_item_8Y98XJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if a prescription isn't right for me?",
+            "answer": "<p>If a doctor determines a prescription isn't suitable, you'll receive guidance on safe, evidence-based alternatives to help support your quit journey.</p>"
+          }
+        },
+        "faq_item_AjX66N": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What treatments does myduke® offer?",
+            "answer": "<p>Myduke provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
+          }
+        },
+        "faq_item_AkRjN8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need to visit a doctor in person?",
+            "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, your prescription and ongoing care are managed through your secure account.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_PW9YtL",
+        "faq_item_qfG3Pf",
+        "faq_item_NM9K74",
+        "faq_item_PL9RAV",
+        "faq_item_9EN8ja",
+        "faq_item_8Y98XJ",
+        "faq_item_AjX66N",
+        "faq_item_AkRjN8"
+      ],
+      "name": "FAQ Page (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "show_heading": true,
+        "heading": "Frequently Asked Questions",
+        "heading_tag": "h2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    }
+  },
+  "order": [
+    "page_info",
+    "myduke_faq_page_EhTGJx"
+  ]
+}

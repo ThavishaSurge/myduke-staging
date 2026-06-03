@@ -16,15 +16,35 @@
       "blocks": {
         "block_1": {
           "type": "link_list",
-          "settings": {}
+          "settings": {
+            "heading": "Shop",
+            "menu": "footer",
+            "default_open": false
+          }
         },
         "block_2": {
           "type": "link_list",
-          "settings": {}
+          "settings": {
+            "heading": "Explore",
+            "menu": "footer-menu-1-copy",
+            "default_open": true
+          }
         },
         "block_3": {
           "type": "link_list",
-          "settings": {}
+          "settings": {
+            "heading": "Legal",
+            "menu": "footer-menu-2-copy",
+            "default_open": true
+          }
+        },
+        "link_list_ww6kYn": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Contact",
+            "menu": "footer-menu-4",
+            "default_open": true
+          }
         },
         "logo_list_dTGYRU": {
           "type": "logo_list",
@@ -34,30 +54,62 @@
           }
         }
       },
-      "block_order": ["block_1", "block_2", "block_3", "logo_list_dTGYRU"],
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "link_list_ww6kYn",
+        "logo_list_dTGYRU"
+      ],
+      "custom_css": [
+        ".footer-main {padding-top: 24px;}",
+        ".footer-copyright__content{color: #264653; font-size:12px;}",
+        "@media (max-width: 750px) {img.footer-logo__image {max-width: 200px; }}"
+      ],
       "settings": {
-        "main_color_scheme": "background-2",
+        "main_color_scheme": "background-5",
         "enable_border_top": true,
         "show_contact": true,
         "show_logo": true,
-        "logo_width": 550,
+        "logo": "shopify://shop_images/MYDUKE-Logos_MYDUKE-R-Black_1.png",
+        "logo_width": 560,
         "show_contact_text": true,
+        "contact_text": "Create a seperate liquid and css files and create the footer. \nScheme should have the logo upload, description, add social links, and menu selection for each column. Signup form can be added later, just keep the space.",
         "enable_image": true,
+        "image_desktop": "shopify://shop_images/09-promo_jpg.webp",
+        "enable_image_animation": true,
         "show_newsletter": true,
         "newsletter_heading": "Join our Newsletter",
-        "show_newsletter_text": true,
+        "show_newsletter_text": false,
         "newsletter_text": "By clicking on the “Subscribe” button, I confirm my agreement with the<a href=\"/policies/privacy-policy\" title=\"Privacy Policy\"> Privacy Policy</a> and <a href=\"/policies/terms-of-service\" title=\"Terms of Service\">Terms of Use</a>",
         "privacy_policy_consent": false,
-        "bottom_color_scheme": "background-2",
+        "bottom_color_scheme": "background-5",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "region_color_scheme": "",
         "payment_enable": true,
+        "payment_image_1": "shopify://shop_images/Item_Img.png",
+        "payment_image_1_alt": "",
+        "payment_image_2": "shopify://shop_images/Item_Img_1.png",
+        "payment_image_2_alt": "",
+        "payment_image_3": "shopify://shop_images/Item_Img_2.png",
+        "payment_image_3_alt": "",
+        "payment_image_4": "shopify://shop_images/Item_Img_3.png",
+        "payment_image_4_alt": "",
+        "payment_image_5": "shopify://shop_images/Item_Img_4.png",
+        "payment_image_5_alt": "",
         "enable_copyright": true,
+        "copyright_text": "© 2026 Myduke. All rights reserved. Australian Owned & Operated.",
         "enable_copyright_date": true,
-        "show_policy": false
+        "show_policy": false,
+        "enable_follow_on_shop": true,
+        "bottom_border_enable": true,
+        "bottom_border_width": 1,
+        "bottom_border_color": "#218380"
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }

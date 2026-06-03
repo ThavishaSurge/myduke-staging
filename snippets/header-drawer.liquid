@@ -16,12 +16,44 @@
     >
       <div class="menu-drawer__inner-container">
         <div class="modal__heading container no-js-hidden">
-          {% assign logo_class = 'logo-in-drawer'
-            | append: ' logo-in-drawer-dark--'
-            | append: section.settings.show_dm_logo_in_mobile_menu
-          %}
-          {% render 'header-logo', class: logo_class, show_logo: section.settings.show_logo %}
-          {% render 'modal-close-button', id: 'mobile-menu-close-btn', only_icon: true %}
+          <div class="modal__heading-left">
+            {% render 'modal-close-button', id: 'mobile-menu-close-btn', only_icon: true %}
+            
+            {%- if section.settings.drawer_logo != blank -%}
+              <div class="header__heading logo-in-drawer">
+                <a href="{{ routes.root_url }}" class="header__heading-link focus-inset" style="--logo-width: {{ section.settings.logo_width }}px;">
+                  {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+                  {%- assign image_size_2x = section.settings.logo_width | times: 2 | at_most: 5760 -%}
+                  <img
+                    srcset="{{ section.settings.drawer_logo | image_url: width: image_size }} 1x, {{ section.settings.drawer_logo | image_url: width: image_size_2x }} 2x"
+                    src="{{ section.settings.drawer_logo | image_url: width: image_size }}"
+                    class="header__heading-logo"
+                    width="{{ section.settings.logo_width }}"
+                    height="auto"
+                    alt="{{ section.settings.drawer_logo.alt | default: shop.name | escape }}"
+                    loading="lazy"
+                  >
+                </a>
+              </div>
+            {%- else -%}
+              {% assign logo_class = 'logo-in-drawer'
+                | append: ' logo-in-drawer-dark--'
+                | append: section.settings.show_dm_logo_in_mobile_menu
+              %}
+              {% render 'header-logo', class: logo_class, show_logo: section.settings.show_logo %}
+            {%- endif -%}
+          </div>
+          
+          <div class="modal__heading-right">
+            {%- if section.settings.enable_additional_button_2 == true and section.settings.additional_button_2_label != blank -%}
+              {% render 'button',
+                btn_label: section.settings.additional_button_2_label,
+                btn_style: section.settings.additional_button_2_style,
+                btn_link: section.settings.additional_button_2_link,
+                class: 'menu-drawer__header-btn'
+              %}
+            {%- endif -%}
+          </div>
         </div>
         <div class="menu-drawer__main">
           {%- if section.settings.menu != blank -%}
@@ -215,14 +247,24 @@
             </div>
           {%- endif -%}
 
-          {%- if section.settings.enable_additional_button -%}
+          {%- if section.settings.enable_additional_button or section.settings.enable_additional_button_2 -%}
             <div class="menu-drawer__additional">
-              {% render 'button',
-                btn_label: section.settings.additional_button_label,
-                btn_style: 'secondary',
-                btn_link: section.settings.additional_button_link,
-                class: 'menu-drawer__additional-btn'
-              %}
+              {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
+                {% render 'button',
+                  btn_label: section.settings.additional_button_label,
+                  btn_style: section.settings.additional_button_style,
+                  btn_link: section.settings.additional_button_link,
+                  class: 'menu-drawer__additional-btn'
+                %}
+              {%- endif -%}
+              {%- if section.settings.enable_additional_button_2 and section.settings.additional_button_2_label != blank -%}
+                {% render 'button',
+                  btn_label: section.settings.additional_button_2_label,
+                  btn_style: section.settings.additional_button_2_style,
+                  btn_link: section.settings.additional_button_2_link,
+                  class: 'menu-drawer__additional-btn'
+                %}
+              {%- endif -%}
             </div>
           {%- endif -%}
 

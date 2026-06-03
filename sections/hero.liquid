@@ -107,6 +107,11 @@
           </p>
         {% endif -%}
       </div>
+      {% if section.settings.enable_eligibility_form %}
+        <div class="hero__eligibility-form-wrap">
+          {% render 'hero-eligibility-form', section: section %}
+        </div>
+      {% endif %}
       <div class="hero__content jarallax" data-jarallax>
         {% liquid
           assign image_primary = section.settings.image_primary
@@ -430,7 +435,15 @@
         {
           "value": "tertiary",
           "label": "t:sections.all.button.button_style.options__3.label"
-        }
+        },
+          {
+            "value": "secondary2",
+            "label": "t:sections.all.button.button_style.options__4.label"
+          },
+          {
+            "value": "accent",
+            "label": "t:sections.all.button.button_style.options__5.label"
+          }
       ],
       "default": "tertiary",
       "label": "t:sections.all.button.button_style.label",
@@ -594,6 +607,38 @@
       ],
       "default": "l",
       "label": "t:sections.all.section-margin.margin_bottom.label"
+    },
+    {
+      "type": "header",
+      "content": "Eligibility Form"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_eligibility_form",
+      "label": "Show eligibility form",
+      "default": false,
+      "info": "Displays the step-by-step eligibility quiz card on the hero section."
+    },
+    {
+      "type": "text",
+      "id": "elig_heading",
+      "label": "Form heading",
+      "default": "Am I Eligible?",
+      "visible_if": "{{ section.settings.enable_eligibility_form }}"
+    },
+    {
+      "type": "textarea",
+      "id": "elig_description",
+      "label": "Form description",
+      "default": "Take our 30-second quiz to find out if you're a candidate for pharmacy-grade cessation treatment.",
+      "visible_if": "{{ section.settings.enable_eligibility_form }}"
+    },
+    {
+      "type": "url",
+      "id": "elig_assessment_link",
+      "label": "Start Assessment link",
+      "info": "URL for the 'Start Full Assessment' button shown after a successful eligibility check.",
+      "visible_if": "{{ section.settings.enable_eligibility_form }}"
     }
   ],
   "presets": [
