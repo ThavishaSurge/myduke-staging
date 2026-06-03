@@ -318,11 +318,11 @@
   }
 
   .footer .footer-block__heading {
-    font-weight: 600;
+    font-weight: 600 !important;
   }
 
-  .footer .footer-menu-block-list__item:first-child .footer-menu-block-list__link {
-    font-weight: 500;
+  .footer .footer-menu-block-list__item {
+    font-weight: 500 !important;
   }
 }
 
