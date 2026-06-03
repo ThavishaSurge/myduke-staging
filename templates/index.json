@@ -13,7 +13,7 @@
       "type": "myduke-hero",
       "name": "MyDuke Hero",
       "settings": {
-        "background_image": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_1.png",
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
         "overlay_color": "#000000",
         "overlay_opacity": 20,
