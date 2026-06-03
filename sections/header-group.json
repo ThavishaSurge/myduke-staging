@@ -22,104 +22,64 @@
     },
     "header": {
       "type": "header",
-      "custom_css": [
-        ".header__cart {display: none;}"
-      ],
-      "settings": {
-        "menu": "main-menu",
-        "sticky_header_type": "none",
-        "transparent_sticky_adaptive": false,
-        "overlay_mode": false,
-        "color_scheme_overlay_mode": "background-2",
-        "overlay_bg_color": "",
-        "enable_border": false,
-        "header_bg_color": "",
-        "scrolled_bg_color": "#218380",
-        "show_logo": true,
-        "logo": "shopify://shop_images/Logo_TM_black.png",
-        "show_dm_logo_in_overlay_mode": true,
-        "logo_position": "left-logo",
-        "menu_position": "left-menu",
-        "logo_width": 100,
-        "h1_logo": false,
-        "show_cart_icon": true,
-        "enable_search": false,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "region_color_scheme": "background-1",
-        "enable_dark_mode_toggle": false,
-        "enable_account_modal": false,
-        "account_button_type": "text",
-        "account_modal_type": "theme_based",
-        "customer_account_menu": "customer-account-main-menu",
-        "enable_additional_button": true,
-        "additional_button_label": "Shop",
-        "additional_button_link": "",
-        "additional_button_style": "secondary",
-        "enable_additional_button_2": true,
-        "additional_button_2_label": "Get Started",
-        "additional_button_2_link": "",
-        "additional_button_2_style": "secondary",
-        "mobile_menu_color_scheme": "background-5",
-        "show_dm_logo_in_mobile_menu": false,
-        "drawer_logo": "shopify://shop_images/Logo_TM_black_1.png",
-        "enable_right_mobile_menu_border": false,
-        "enable_social_on_mobile": false
-      }
-    },
-    "white-header": {
-      "type": "white-header",
-      "custom_css": [
-        ".header__cart {display: none;}",
-        ".button--secondary .button__label {color: black;}",
-        "@media (max-width: 750px) {.menu-drawer-icon .icon {color: rgba(38, 70, 83) !important; }}"
-      ],
+      "blocks": {
+        "search_modal": {
+          "type": "search_modal",
+          "settings": {
+            "search_modal_color_scheme": "background-1",
+            "enable_predictive_search": true
+          }
+        },
+        "mega_menu": {
+          "type": "mega_menu",
+          "settings": {
+            "mega_menu_trigger": "Home",
+            "mega_menu_color_scheme": "background-2",
+            "mega_menu_submenu": "",
+            "enable_shop_all_button": true,
+            "enable_clickable_top_level": true,
+            "mega_menu_collections": []
+          }
+        },
+        "mega_submenu_QFtDC7": {
+          "type": "mega_submenu",
+          "settings": {
+            "mega_submenu_trigger": "",
+            "mega_submenu_color_scheme": "background-2",
+            "enable_clickable_top_level": false
+          }
+        }
+      },
+      "block_order": ["search_modal", "mega_menu", "mega_submenu_QFtDC7"],
       "settings": {
         "menu": "main-menu",
         "sticky_header_type": "on-scroll-up",
-        "transparent_sticky_adaptive": false,
-        "overlay_mode": false,
-        "color_scheme_overlay_mode": "",
-        "overlay_bg_color": "",
+        "overlay_mode": true,
+        "color_scheme_overlay_mode": "background-4",
         "enable_border": true,
-        "header_bg_color": "#ffffff",
-        "scrolled_bg_color": "",
         "show_logo": true,
-        "logo": "shopify://shop_images/Logo_TM_black_1.png",
         "show_dm_logo_in_overlay_mode": true,
         "logo_position": "left-logo",
         "menu_position": "left-menu",
         "logo_width": 100,
         "h1_logo": true,
-        "show_cart_icon": false,
-        "enable_search": false,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
+        "enable_search": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
         "region_color_scheme": "background-1",
-        "enable_dark_mode_toggle": false,
-        "enable_account_modal": false,
+        "enable_dark_mode_toggle": true,
+        "enable_account_modal": true,
         "account_button_type": "text",
-        "account_modal_type": "shopify_based",
+        "account_modal_type": "theme_based",
         "customer_account_menu": "customer-account-main-menu",
         "enable_additional_button": true,
-        "additional_button_label": "Shop",
-        "additional_button_link": "",
-        "additional_button_style": "secondary",
-        "enable_additional_button_2": true,
-        "additional_button_2_label": "Get Started",
-        "additional_button_2_link": "",
-        "additional_button_2_style": "secondary",
-        "mobile_menu_color_scheme": "background-5",
-        "show_dm_logo_in_mobile_menu": true,
-        "drawer_logo": "shopify://shop_images/MYDUKE-Logos_MYDUKE-R-Black_1.png",
+        "additional_button_label": "Contact",
+        "mobile_menu_color_scheme": "background-2",
+        "show_dm_logo_in_mobile_menu": false,
         "enable_right_mobile_menu_border": true,
         "enable_social_on_mobile": true
       }
     }
   },
-  "order": [
-    "announcement-bar",
-    "header",
-    "white-header"
-  ]
+  "order": ["announcement-bar", "header"]
 }

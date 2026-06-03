@@ -149,62 +149,6 @@
           },
           {
             "type": "header",
-            "content": "t:settings_schema.colors.settings.header__secondary2_button.content"
-          },
-          {
-            "type": "color",
-            "id": "colors_secondary2_button_labels",
-            "default": "#FFFFFF",
-            "label": "t:settings_schema.colors.settings.colors_secondary2_button_labels.label"
-          },
-          {
-            "type": "color",
-            "id": "colors_secondary2_button_labels_hover",
-            "default": "#FFFFFF",
-            "label": "t:settings_schema.colors.settings.colors_secondary2_button_labels_hover.label"
-          },
-          {
-            "type": "color",
-            "id": "colors_secondary2_button_background",
-            "default": "#6B6B6B",
-            "label": "t:settings_schema.colors.settings.colors_secondary2_button_background.label"
-          },
-          {
-            "type": "color",
-            "id": "colors_secondary2_button_background_hover",
-            "default": "#4A4A4A",
-            "label": "t:settings_schema.colors.settings.colors_secondary2_button_background_hover.label"
-          },
-          {
-            "type": "header",
-            "content": "t:settings_schema.colors.settings.header__accent_button.content"
-          },
-          {
-            "type": "color",
-            "id": "colors_accent_button_labels",
-            "default": "#FFFFFF",
-            "label": "t:settings_schema.colors.settings.colors_accent_button_labels.label"
-          },
-          {
-            "type": "color",
-            "id": "colors_accent_button_labels_hover",
-            "default": "#FFFFFF",
-            "label": "t:settings_schema.colors.settings.colors_accent_button_labels_hover.label"
-          },
-          {
-            "type": "color",
-            "id": "colors_accent_button_background",
-            "default": "#E32511",
-            "label": "t:settings_schema.colors.settings.colors_accent_button_background.label"
-          },
-          {
-            "type": "color",
-            "id": "colors_accent_button_background_hover",
-            "default": "#B81D0D",
-            "label": "t:settings_schema.colors.settings.colors_accent_button_background_hover.label"
-          },
-          {
-            "type": "header",
             "content": "t:settings_schema.colors.settings.header__tertiary_button.content"
           },
           {

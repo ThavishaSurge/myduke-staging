@@ -72,36 +72,6 @@
         "colors_secondary_button_labels_hover": {
           "label": "Label on hover"
         },
-        "header__secondary2_button": {
-          "content": "Secondary 2 button"
-        },
-        "colors_secondary2_button_background": {
-          "label": "Background"
-        },
-        "colors_secondary2_button_background_hover": {
-          "label": "Background on hover"
-        },
-        "colors_secondary2_button_labels": {
-          "label": "Label"
-        },
-        "colors_secondary2_button_labels_hover": {
-          "label": "Label on hover"
-        },
-        "header__accent_button": {
-          "content": "Accent button"
-        },
-        "colors_accent_button_background": {
-          "label": "Background"
-        },
-        "colors_accent_button_background_hover": {
-          "label": "Background on hover"
-        },
-        "colors_accent_button_labels": {
-          "label": "Label"
-        },
-        "colors_accent_button_labels_hover": {
-          "label": "Label on hover"
-        },
         "header__tertiary_button": {
           "content": "Tertiary button"
         },
@@ -488,6 +458,7 @@
         }
       }
     },
+
     "cart": {
       "name": "Cart",
       "settings": {
@@ -730,12 +701,6 @@
           },
           "options__3": {
             "label": "Tertiary"
-          },
-          "options__4": {
-            "label": "Secondary 2"
-          },
-          "options__5": {
-            "label": "Accent"
           }
         },
         "button_label": {
@@ -2001,16 +1966,6 @@
         "additional_button_link": {
           "label": "Additional button link"
         },
-        "enable_additional_button_2": {
-          "label": "Show additional button 2",
-          "info": "On mobile devices, it will appear inside the drawer menu."
-        },
-        "additional_button_2_label": {
-          "label": "Additional button 2 label"
-        },
-        "additional_button_2_link": {
-          "label": "Additional button 2 link"
-        },
         "enable_dark_mode_toggle": {
           "label": "Enable dark/light mode toggle",
           "info": "On mobile devices, it will appear inside the drawer menu."
@@ -2985,6 +2940,7 @@
           }
         }
       },
+
       "settings": {
         "enable_sticky": {
           "label": "Enable sticky top panel"
@@ -3871,6 +3827,7 @@
         "horizontal_alignment": {
           "info": "In the case of \"Row\" layout, this setting will apply only as text alignment."
         },
+
         "objects_order": {
           "label": "Content order",
           "options__1": {
@@ -4127,9 +4084,7 @@
         "header__cards": {
           "content": "Cards options"
         },
-        "cards_per_row": {
-          "label": "Cards per row"
-        },
+        "cards_per_row": { "label": "Cards per row" },
         "enable_sticky": {
           "label": "Enable sticky info"
         },
@@ -4827,6 +4782,7 @@
           "default": "Use this space to introduce your brand or showcase current offers. Add a message that informs, welcomes, or inspires your visitors."
         }
       },
+
       "presets": {
         "name": "Logo"
       }
@@ -4841,6 +4797,7 @@
           "options__2": {
             "label": "Ticker"
           },
+
           "label": "Layout"
         },
         "enable_ticker_heading": {

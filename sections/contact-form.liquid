@@ -5,9 +5,9 @@
 {%- endstyle -%}
 
 <div class="contact-form">
-  <div class="contact-form__container">
+  <div class="contact-form__container container">
     <div class="contact-form__inner">
-      <div class="contact-form__wrapper container">
+      <div class="contact-form__wrapper">
         {%- if section.settings.heading_form != blank -%}
           <{{ section.settings.heading_form_tag | default: 'h3' }} class="contact-form__title-form {{ section.settings.heading_form_size }} richtext-link-inside">
             {{- section.settings.heading_form -}}
@@ -252,15 +252,7 @@
         {
           "value": "tertiary",
           "label": "t:sections.all.button.button_style.options__3.label"
-        },
-          {
-            "value": "secondary2",
-            "label": "t:sections.all.button.button_style.options__4.label"
-          },
-          {
-            "value": "accent",
-            "label": "t:sections.all.button.button_style.options__5.label"
-          }
+        }
       ],
       "default": "primary",
       "label": "t:sections.all.button.button_style.label"

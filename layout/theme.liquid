@@ -116,16 +116,7 @@
     {% endif %}
   </head>
 
-  {%- comment -%} Pages that should show the white header instead of the standard header {%- endcomment -%}
-  {%- assign white_header_templates = 'page.contact,page.faq' | split: ',' -%}
-  {%- assign use_white_header = false -%}
-  {%- for wht in white_header_templates -%}
-    {%- if template == wht -%}
-      {%- assign use_white_header = true -%}
-    {%- endif -%}
-  {%- endfor -%}
-
-  <body class="template-{{ template.name }} template-{{ template | replace: '.', '-' }}{% if use_white_header %} white-header-page{% endif %}">
+  <body class="template-{{ template.name }} template-{{ template | replace: '.', '-' }}">
     <a class="skip-to-content-link visually-hidden" href="#MainContent">
       {{- 'accessibility.skip_to_text' | t -}}
     </a>

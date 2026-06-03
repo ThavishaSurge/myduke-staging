@@ -38,9 +38,6 @@
       if section.settings.enable_additional_button and section.settings.additional_button_label != blank
         assign elements_count = elements_count | plus: 1
       endif
-      if section.settings.enable_additional_button_2 and section.settings.additional_button_2_label != blank
-        assign elements_count = elements_count | plus: 1
-      endif
       if section.settings.enable_dark_mode_toggle
         assign elements_count = elements_count | plus: 1
       endif
@@ -63,18 +60,9 @@
     {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
       {% render 'button',
         btn_label: section.settings.additional_button_label,
-        btn_style: section.settings.additional_button_style,
+        btn_style: 'secondary',
         btn_link: section.settings.additional_button_link,
         class: 'header__additional-btn header-overlay-transition'
-      %}
-    {%- endif -%}
-
-    {%- if section.settings.enable_additional_button_2 == true and section.settings.additional_button_2_label != blank -%}
-      {% render 'button',
-        btn_label: section.settings.additional_button_2_label,
-        btn_style: section.settings.additional_button_2_style,
-        btn_link: section.settings.additional_button_2_link,
-        class: 'header__additional-btn header__additional-btn--2 header-overlay-transition'
       %}
     {%- endif -%}
 
@@ -84,8 +72,6 @@
 
     {% render 'header-search', section: section %}
 
-    {%- if section.settings.show_cart_icon -%}
-      {% render 'header-cart', section: section %}
-    {%- endif -%}
+    {% render 'header-cart', section: section %}
   </div>
 </div>
