@@ -9,6 +9,29 @@
  */
 {
   "sections": {
+    "myduke_hero_secondary_zLUM4y": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
+        "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "heading": "Contact Us",
+        "description": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_2_text": "",
+        "button_2_link": "",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
+    },
     "form": {
       "type": "contact-form",
       "custom_css": [
@@ -27,6 +50,7 @@
     }
   },
   "order": [
+    "myduke_hero_secondary_zLUM4y",
     "form"
   ]
 }
