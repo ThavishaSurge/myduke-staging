@@ -18,6 +18,28 @@
         "content_align": "left"
       }
     },
+    "myduke_hero_VkNVGC": {
+      "type": "myduke-hero",
+      "name": "MyDuke Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "heading": "Frequently Asked Questions",
+        "description": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_2_text": "",
+        "button_2_link": "",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
+    },
     "myduke_faq_page_EhTGJx": {
       "type": "myduke-faq-page",
       "blocks": {
@@ -92,7 +114,7 @@
       "settings": {
         "color_scheme": "",
         "show_heading": true,
-        "heading": "Frequently Asked Questions",
+        "heading": "",
         "heading_tag": "h2",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
@@ -103,6 +125,7 @@
   },
   "order": [
     "page_info",
+    "myduke_hero_VkNVGC",
     "myduke_faq_page_EhTGJx"
   ]
 }
