@@ -27,7 +27,7 @@
       ],
       "settings": {
         "menu": "main-menu",
-        "sticky_header_type": "none",
+        "sticky_header_type": "on-scroll-up",
         "transparent_sticky_adaptive": false,
         "overlay_mode": false,
         "color_scheme_overlay_mode": "background-2",
@@ -69,6 +69,7 @@
     },
     "white-header": {
       "type": "white-header",
+      "disabled": true,
       "custom_css": [
         ".header__cart {display: none;}",
         ".button--secondary .button__label {color: black;}",
