@@ -14,18 +14,6 @@
   /* Fallback color */
 }
 
-/* Custom overlay with linear gradient */
-.myduke-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(102, 102, 102, 0.20) 27.95%);
-  pointer-events: none;
-}
-
 /* Gradient overlay */
 .myduke-hero::after {
   content: '';
@@ -180,7 +168,8 @@
 @media screen and (max-width: 1159px) {
   .myduke-hero__inner--with-form {
     flex-direction: column;
-    gap: 3rem;
+    align-items: flex-start;
+    gap: 6rem;
   }
 
   .myduke-hero__inner--with-form .myduke-hero__content {
