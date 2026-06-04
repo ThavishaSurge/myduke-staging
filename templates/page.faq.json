@@ -114,6 +114,8 @@
       "name": "FAQ Page (MyDuke)",
       "settings": {
         "color_scheme": "",
+        "faq_heading": "Frequently Asked Questions",
+        "faq_heading_tag": "h2",
         "show_contact_form": true,
         "form_heading": "Need Additional Assistance?",
         "form_heading_tag": "h3",
