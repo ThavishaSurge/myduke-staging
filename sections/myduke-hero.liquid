@@ -5,10 +5,6 @@
   style="
     --bg-desktop: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 2000 }}'){% else %}none{% endif %};
     --bg-mobile: {% if section.settings.background_image_mobile != blank %}url('{{ section.settings.background_image_mobile | image_url: width: 1000 }}'){% elsif section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1000 }}'){% else %}none{% endif %};
-    --overlay-color-desktop: {{ section.settings.overlay_color }};
-    --overlay-opacity-desktop: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
-    --overlay-color-mobile: {{ section.settings.overlay_color_mobile }};
-    --overlay-opacity-mobile: {{ section.settings.overlay_opacity_mobile | divided_by: 100.0 }};
   "
 >
   <div class="page-width container">
