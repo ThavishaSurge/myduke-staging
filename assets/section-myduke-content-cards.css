@@ -89,6 +89,7 @@
 
 /* Card inner: image + info stacked */
 .myduke-cc__card-inner {
+  flex: 1 0 0;
   min-width: 0;
   height: 100%;
   display: flex;
@@ -99,7 +100,6 @@
 
 /* Image area */
 .myduke-cc__image-wrap {
-  flex: 1 0 0;
   min-height: 33rem;
   width: 100%;
   position: relative;
