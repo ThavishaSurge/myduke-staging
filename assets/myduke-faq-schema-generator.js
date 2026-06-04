@@ -204,9 +204,9 @@
   }
 
   /**
-   * Clean HTML content for schema (preserve basic formatting, remove scripts/styles)
+   * Clean HTML content for schema (strip all HTML tags, keep only text)
    * @param {string} html - Raw HTML
-   * @returns {string} Cleaned HTML
+   * @returns {string} Plain text without HTML tags
    */
   function cleanHTML(html) {
     // Create a temporary element to parse HTML
@@ -216,8 +216,8 @@
     // Remove script and style tags
     temp.querySelectorAll('script, style').forEach(el => el.remove());
 
-    // Get the cleaned HTML
-    let cleaned = temp.innerHTML;
+    // Get only the text content (strips all HTML tags)
+    let cleaned = temp.textContent || temp.innerText || '';
 
     // Remove extra whitespace
     cleaned = cleaned.replace(/\s+/g, ' ').trim();
