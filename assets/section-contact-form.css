@@ -2,7 +2,8 @@
   overflow: hidden;
 }
 .contact-form__container {
-  padding-block: 1.2rem;
+  padding-top: 8rem;
+  padding-bottom:8rem;
 }
 .contact-form__inner {
   display: flex;
@@ -25,7 +26,17 @@
 
 @media screen and (min-width: 990px) {
   .contact-form__content-wrapper {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .contact-form__info-column {
+    order: 2;
+  }
+
+  .contact-form__form-column {
+    order: 1;
   }
 }
 
