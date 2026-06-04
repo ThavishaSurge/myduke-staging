@@ -127,11 +127,78 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_faq_schema_generator_H6fhVa": {
+      "type": "myduke-faq-schema-generator",
+      "name": "FAQ Schema Gen",
+      "settings": {
+        "enable_schema": true,
+        "show_preview_in_customizer": true,
+        "include_myduke_faq": true,
+        "include_myduke_faq_page": true
+      }
+    },
+    "myduke_faq_page_A9UDCg": {
+      "type": "myduke-faq-page",
+      "blocks": {
+        "faq_item_Nmm9en": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What materials are your products made from?",
+            "answer": "<p>All our products are crafted using high-quality, durable materials selected to ensure longevity, functionality, and style. Specific materials vary by product type and are detailed on each product page.</p>"
+          }
+        },
+        "faq_item_Vpa6wp": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I care for or maintain this product?",
+            "answer": ""
+          }
+        },
+        "faq_item_6Cdd8j": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer warranties or guarantees?",
+            "answer": ""
+          }
+        },
+        "faq_item_8Lj7G7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return or exchange a product?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_Nmm9en",
+        "faq_item_Vpa6wp",
+        "faq_item_6Cdd8j",
+        "faq_item_8Lj7G7"
+      ],
+      "name": "FAQ Page (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "faq_heading": "Frequently Asked Questions",
+        "faq_heading_tag": "h2",
+        "show_contact_form": false,
+        "form_heading": "Contact us",
+        "form_heading_tag": "h3",
+        "form_text": "Have a question? Fill out the form below and we'll get back to you.",
+        "form_button_style": "primary",
+        "form_additional_text": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_secondary_9n8twt",
-    "myduke_faq_page_EhTGJx"
+    "myduke_faq_page_EhTGJx",
+    "myduke_faq_schema_generator_H6fhVa",
+    "myduke_faq_page_A9UDCg"
   ]
 }
