@@ -63,13 +63,12 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 1.4rem 3.6rem;
+  padding: 9.5px;
   font-size: 1.4rem;
   font-weight: 500;
   text-decoration: none;
   border-radius: 2px;
   transition: opacity 0.3s ease, transform 0.2s ease;
-  min-width: 160px;
   border-radius: 0px;
 }
 
@@ -82,14 +81,15 @@
   background-color: #FEE0A6;
   color: #264653;
   border: 1px solid #FEE0A6;
+  min-width: 231px;
 }
 
 .myduke-hero__btn--secondary {
   background-color: #cbe0d7;
-  /* Pale green/grey */
   color: #218380;
   border: 1px solid #cbe0d7;
   font-weight: 600;
+  min-width: 158px;
 }
 
 @media (min-width: 750px) and (max-width: 1480px) {
