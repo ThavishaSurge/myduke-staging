@@ -17,6 +17,8 @@
 .myduke-cc__header {
   border-bottom: 0.1rem solid #e0dacf;
   padding-bottom: 2.1rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -50,6 +52,8 @@
   display: flex;
   gap: 2.0rem;
   align-items: stretch;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
 }
 
 /* ── Single card ── */
@@ -61,7 +65,6 @@
   flex-direction: row;
   gap: 0.6rem;
   align-items: flex-start;
-  min-height: 50.2rem;
   padding: 2rem 2rem 4rem 2rem;
 }
 
@@ -100,8 +103,7 @@
 
 /* Image area */
 .myduke-cc__image-wrap {
-  flex: 1 0 0;
-  min-height: 18rem;
+  min-height: 33rem;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -235,6 +237,29 @@
   color: #ffffff;
 }
 
+@media screen and (max-width: 1500px){
+  .myduke-cc__image-wrap {
+    min-height: 25rem;
+  }
+
+  .myduke-cc__card-title {
+    font-size: 2.5rem;
+  }
+
+}
+
+@media screen and (max-width: 1340px){
+  .myduke-cc__image-wrap {
+    min-height: 22rem;
+  }
+}
+
+@media screen and (max-width: 1250px){
+  .myduke-cc__image-wrap {
+    min-height: 18rem;
+  }
+}
+
 /* ── Responsive ── */
 @media screen and (max-width: 989px) {
   .myduke-cc__grid {
@@ -247,6 +272,9 @@
   }
   .myduke-cc__heading {
     font-size: 3.6rem;
+  }
+  .myduke-cc__image-wrap {
+    min-height: 28rem;
   }
 }
 

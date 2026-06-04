@@ -549,6 +549,10 @@
     padding: 0 0 2.4rem;
   }
 
+  .footer .footer-logo__image {
+    max-width: 15rem!important;
+  }
+
   /* ---- 1. Newsletter image block pulled to the very top ---- */
   .footer .footer-contact-block__image {
     order: -2;

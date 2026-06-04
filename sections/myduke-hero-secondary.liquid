@@ -1,28 +1,32 @@
-{{ 'section-myduke-hero.css' | asset_url | stylesheet_tag }}
+{{ 'section-myduke-hero-secondary.css' | asset_url | stylesheet_tag }}
 
 <div
-  class="myduke-hero"
+  class="myduke-hero-secondary"
   style="
     --bg-desktop: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 2000 }}'){% else %}none{% endif %};
     --bg-mobile: {% if section.settings.background_image_mobile != blank %}url('{{ section.settings.background_image_mobile | image_url: width: 1000 }}'){% elsif section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1000 }}'){% else %}none{% endif %};
+    --overlay-color-desktop: {{ section.settings.overlay_color }};
+    --overlay-opacity-desktop: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --overlay-color-mobile: {{ section.settings.overlay_color_mobile }};
+    --overlay-opacity-mobile: {{ section.settings.overlay_opacity_mobile | divided_by: 100.0 }};
   "
 >
   <div class="page-width container">
-    <div class="myduke-hero__inner{% if section.settings.enable_eligibility_form %} myduke-hero__inner--with-form{% endif %}">
-      <div class="myduke-hero__content">
+    <div class="myduke-hero-secondary__inner{% if section.settings.enable_eligibility_form %} myduke-hero-secondary__inner--with-form{% endif %}">
+      <div class="myduke-hero-secondary__content">
         {%- if section.settings.heading != blank -%}
-          <h1 class="myduke-hero__heading">{{ section.settings.heading }}</h1>
+          <h1 class="myduke-hero-secondary__heading">{{ section.settings.heading }}</h1>
         {%- endif -%}
 
         {%- if section.settings.description != blank -%}
-          <div class="myduke-hero__description">{{ section.settings.description | newline_to_br }}</div>
+          <div class="myduke-hero-secondary__description">{{ section.settings.description | newline_to_br }}</div>
         {%- endif -%}
 
-        <div class="myduke-hero__buttons">
+        <div class="myduke-hero-secondary__buttons">
           {%- if section.settings.button_1_text != blank -%}
             <a
               href="{{ section.settings.button_1_link | default: '#' }}"
-              class="myduke-hero__btn myduke-hero__btn--primary"
+              class="myduke-hero-secondary__btn myduke-hero-secondary__btn--primary"
             >
               {{ section.settings.button_1_text }}
             </a>
@@ -31,7 +35,7 @@
           {%- if section.settings.button_2_text != blank -%}
             <a
               href="{{ section.settings.button_2_link | default: '#' }}"
-              class="myduke-hero__btn myduke-hero__btn--secondary"
+              class="myduke-hero-secondary__btn myduke-hero-secondary__btn--secondary"
             >
               {{ section.settings.button_2_text }}
             </a>
@@ -41,7 +45,7 @@
 
       {%- if section.settings.enable_eligibility_form -%}
         {{ 'hero-eligibility-form.css' | asset_url | stylesheet_tag }}
-        <div class="myduke-hero__form-col">
+        <div class="myduke-hero-secondary__form-col">
           <div class="eligibility-card" id="eligibility-card-{{ section.id }}">
             <div class="eligibility-card__tabs" role="tablist">
               <button
@@ -81,12 +85,12 @@
                 </p>
 
                 <div class="eligibility-step is-active" data-elig-step="1">
-                  <p class="eligibility-step__question">{{ section.settings.elig_q1_question | default: "What is your age range" }}</p>
+                  <p class="eligibility-step__question">What is your age range</p>
                   <div class="eligibility-step__options eligibility-step__options--4col" role="group">
-                    <button class="eligibility-option" data-elig-option data-value="18-25">{{ section.settings.elig_q1_answer1 | default: "18–25" }}</button>
-                    <button class="eligibility-option" data-elig-option data-value="26-35">{{ section.settings.elig_q1_answer2 | default: "26–35" }}</button>
-                    <button class="eligibility-option" data-elig-option data-value="36-50">{{ section.settings.elig_q1_answer3 | default: "36–50" }}</button>
-                    <button class="eligibility-option" data-elig-option data-value="50+">{{ section.settings.elig_q1_answer4 | default: "50+" }}</button>
+                    <button class="eligibility-option" data-elig-option data-value="18-25">18–25</button>
+                    <button class="eligibility-option" data-elig-option data-value="26-35">26–35</button>
+                    <button class="eligibility-option" data-elig-option data-value="36-50">36–50</button>
+                    <button class="eligibility-option" data-elig-option data-value="50+">50+</button>
                   </div>
                   <div class="eligibility-progress">
                     <div class="eligibility-progress__label">Question 1 / 3</div>
@@ -98,14 +102,14 @@
                 </div>
 
                 <div class="eligibility-step" data-elig-step="2">
-                  <p class="eligibility-step__question">{{ section.settings.elig_q2_question | default: "How long have you been smoking" }}</p>
+                  <p class="eligibility-step__question">How long have you been smoking</p>
                   <div class="eligibility-step__options eligibility-step__options--4col" role="group">
                     <button class="eligibility-option" data-elig-option data-value="less-than-1yr">
-                      {{ section.settings.elig_q2_answer1 | default: "Less than 1 year" }}
+                      Less than 1 year
                     </button>
-                    <button class="eligibility-option" data-elig-option data-value="1-5yr">{{ section.settings.elig_q2_answer2 | default: "1–5 years" }}</button>
-                    <button class="eligibility-option" data-elig-option data-value="5-15yr">{{ section.settings.elig_q2_answer3 | default: "5–15 years" }}</button>
-                    <button class="eligibility-option" data-elig-option data-value="15yr+">{{ section.settings.elig_q2_answer4 | default: "15+ years" }}</button>
+                    <button class="eligibility-option" data-elig-option data-value="1-5yr">1–5 years</button>
+                    <button class="eligibility-option" data-elig-option data-value="5-15yr">5–15 years</button>
+                    <button class="eligibility-option" data-elig-option data-value="15yr+">15+ years</button>
                   </div>
                   <div class="eligibility-progress">
                     <div class="eligibility-progress__label">Question 2 / 3</div>
@@ -117,18 +121,18 @@
                 </div>
 
                 <div class="eligibility-step" data-elig-step="3">
-                  <p class="eligibility-step__question">{{ section.settings.elig_q3_question | default: "What is your primary goal" }}</p>
+                  <p class="eligibility-step__question">What is your primary goal</p>
                   <div class="eligibility-step__options" role="group">
                     <button class="eligibility-option" data-elig-option data-value="quit-completely">
-                      {{ section.settings.elig_q3_answer1 | default: "Quit completely" }}
+                      Quit completely
                     </button>
                     <button class="eligibility-option" data-elig-option data-value="reduce-intake">
-                      {{ section.settings.elig_q3_answer2 | default: "Reduce intake" }}
+                      Reduce intake
                     </button>
                     <button class="eligibility-option" data-elig-option data-value="switch-safer">
-                      {{ section.settings.elig_q3_answer3 | default: "Switch to a safer alternative" }}
+                      Switch to a safer alternative
                     </button>
-                    <button class="eligibility-option" data-elig-option data-value="explore">{{ section.settings.elig_q3_answer4 | default: "Explore options" }}</button>
+                    <button class="eligibility-option" data-elig-option data-value="explore">Explore options</button>
                   </div>
                   <div class="eligibility-progress">
                     <div class="eligibility-progress__label">Question 3 / 3</div>
@@ -140,17 +144,18 @@
                 </div>
 
                 <div class="eligibility-processing" data-elig-processing>
-                  <p class="eligibility-processing__label">{{ section.settings.elig_processing_label | default: "Verifying medical data" }}</p>
+                  <p class="eligibility-processing__label">Verifying medical data</p>
                   <div class="eligibility-processing__track">
                     <div class="eligibility-processing__fill" data-elig-processing-bar></div>
                   </div>
-                  <p class="eligibility-processing__status">{{ section.settings.elig_processing_status | default: "Cross-referencing with clinical eligibility criteria" }}</p>
+                  <p class="eligibility-processing__status">Cross-referencing with clinical eligibility criteria</p>
                 </div>
 
                 <div class="eligibility-result" data-elig-result="eligible">
-                  <p class="eligibility-result__title">{{ section.settings.elig_result_eligible_title | default: "You may be eligible" }}</p>
+                  <p class="eligibility-result__title">You may be eligible</p>
                   <p class="eligibility-result__text">
-                    {{ section.settings.elig_result_eligible_text | default: "Based on your responses, you're a potential candidate. Complete the full medical assessment to proceed." }}
+                    Based on your responses, you're a potential candidate. Complete the full medical assessment to
+                    proceed.
                   </p>
                   <div class="eligibility-result__actions">
                     <a
@@ -165,9 +170,10 @@
                 </div>
 
                 <div class="eligibility-result" data-elig-result="not-eligible">
-                  <p class="eligibility-result__title">{{ section.settings.elig_result_not_eligible_title | default: "Not eligible at this time" }}</p>
+                  <p class="eligibility-result__title">Not eligible at this time</p>
                   <p class="eligibility-result__text">
-                    {{ section.settings.elig_result_not_eligible_text | default: "Based on your responses, you may not qualify for this program right now. Please consult a healthcare professional." }}
+                    Based on your responses, you may not qualify for this program right now. Please consult a healthcare
+                    professional.
                   </p>
                   <div class="eligibility-result__actions">
                     <button class="eligibility-card__btn eligibility-card__btn--outline" data-elig-retake>
@@ -305,7 +311,7 @@
 
 {% schema %}
 {
-  "name": "MyDuke Hero",
+  "name": "MyDuke Seconday Hero",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -423,169 +429,11 @@
       "label": "Sign In link",
       "info": "URL that the 'Sign in' tab directs to.",
       "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "header",
-      "content": "Eligibility Form Content"
-    },
-    {
-      "type": "text",
-      "id": "elig_q1_question",
-      "label": "Question 1 text",
-      "default": "What is your age range",
-      "info": "First eligibility question",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q1_answer1",
-      "label": "Question 1 - Answer 1",
-      "default": "18–25",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q1_answer2",
-      "label": "Question 1 - Answer 2",
-      "default": "26–35",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q1_answer3",
-      "label": "Question 1 - Answer 3",
-      "default": "36–50",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q1_answer4",
-      "label": "Question 1 - Answer 4",
-      "default": "50+",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q2_question",
-      "label": "Question 2 text",
-      "default": "How long have you been smoking",
-      "info": "Second eligibility question",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q2_answer1",
-      "label": "Question 2 - Answer 1",
-      "default": "Less than 1 year",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q2_answer2",
-      "label": "Question 2 - Answer 2",
-      "default": "1–5 years",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q2_answer3",
-      "label": "Question 2 - Answer 3",
-      "default": "5–15 years",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q2_answer4",
-      "label": "Question 2 - Answer 4",
-      "default": "15+ years",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q3_question",
-      "label": "Question 3 text",
-      "default": "What is your primary goal",
-      "info": "Third eligibility question",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q3_answer1",
-      "label": "Question 3 - Answer 1",
-      "default": "Quit completely",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q3_answer2",
-      "label": "Question 3 - Answer 2",
-      "default": "Reduce intake",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q3_answer3",
-      "label": "Question 3 - Answer 3",
-      "default": "Switch to a safer alternative",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_q3_answer4",
-      "label": "Question 3 - Answer 4",
-      "default": "Explore options",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "header",
-      "content": "Eligibility Form Messages"
-    },
-    {
-      "type": "text",
-      "id": "elig_processing_label",
-      "label": "Processing animation label",
-      "default": "Verifying medical data",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_processing_status",
-      "label": "Processing status text",
-      "default": "Cross-referencing with clinical eligibility criteria",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_result_eligible_title",
-      "label": "Eligible result - Title",
-      "default": "You may be eligible",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "textarea",
-      "id": "elig_result_eligible_text",
-      "label": "Eligible result - Description",
-      "default": "Based on your responses, you're a potential candidate. Complete the full medical assessment to proceed.",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "text",
-      "id": "elig_result_not_eligible_title",
-      "label": "Not eligible result - Title",
-      "default": "Not eligible at this time",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
-    },
-    {
-      "type": "textarea",
-      "id": "elig_result_not_eligible_text",
-      "label": "Not eligible result - Description",
-      "default": "Based on your responses, you may not qualify for this program right now. Please consult a healthcare professional.",
-      "visible_if": "{{ section.settings.enable_eligibility_form }}"
     }
   ],
   "presets": [
     {
-      "name": "MyDuke Hero",
+      "name": "MyDuke Secondary Hero",
       "category": "Custom"
     }
   ]

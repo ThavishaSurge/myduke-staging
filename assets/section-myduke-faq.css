@@ -32,7 +32,7 @@
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: calc(var(--font-body-scale) * 1.4rem);
-  line-height: 1;
+  line-height: 140%;
   color: #2b2b2e;
   margin: 0;
 }
@@ -96,7 +96,7 @@
 /* ── Individual item ── */
 .myduke-faq__item {
   border-bottom: 1px solid #bfdbcf;
-  padding: 0rem 2.4rem;
+  padding: 0rem;
 }
 
 .myduke-faq__item:last-child {
