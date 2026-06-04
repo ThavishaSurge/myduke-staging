@@ -93,7 +93,7 @@
         "content_cards_bkidFR": {
           "type": "content-cards",
           "settings": {
-            "card_image": "shopify://shop_images/Doctor_Review.webp",
+            "card_image": "shopify://shop_images/Doctor-review-2.webp",
             "card_time_badge": "< 24 hrs",
             "card_heading": "Doctor Review",
             "card_check_text": "Doctor-approved pathway",
