@@ -389,7 +389,6 @@
 }
 
 .footer .footer-logo__image {
-  max-width: 15rem;
   display: block;
   max-width: 100%;
   height: auto;
@@ -548,6 +547,10 @@
     flex-wrap: nowrap;
     gap: 0;
     padding: 0 0 2.4rem;
+  }
+
+  .footer .footer-logo__image {
+    max-width: 15rem!important;
   }
 
   /* ---- 1. Newsletter image block pulled to the very top ---- */
