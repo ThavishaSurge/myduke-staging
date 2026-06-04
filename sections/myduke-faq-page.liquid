@@ -13,47 +13,75 @@
   <div class="myduke-faq-page__content">
     {%- if section.blocks.size > 0 -%}
       <div class="myduke-faq-page__faq-column">
-        {%- if section.settings.faq_heading != blank -%}
-          <{{ section.settings.faq_heading_tag | default: 'h2' }} class="myduke-faq-page__faq-title">
-            {{- section.settings.faq_heading -}}
-          </{{ section.settings.faq_heading_tag | default: 'h2' }}>
-        {%- endif -%}
-        <div class="myduke-faq-page__list">
+        {%- assign faq_counter = 0 -%}
+        {%- assign in_category = false -%}
+
         {%- for block in section.blocks -%}
-          {%- if block.settings.question != blank -%}
-            <div class="myduke-faq-page__item" {{ block.shopify_attributes }}>
+          {%- if block.type == 'category' -%}
+            {%- comment -%} Close previous category's list if open {%- endcomment -%}
+            {%- if in_category -%}
+              </div>
+            {%- endif -%}
 
-              <button
-                class="myduke-faq-page__trigger"
-                type="button"
-                aria-expanded="{{ forloop.first | default: false }}"
-                aria-controls="myduke-faq-page-panel-{{ section.id }}-{{ forloop.index }}"
-              >
-                <span class="myduke-faq-page__question">{{ block.settings.question }}</span>
-                <span class="myduke-faq-page__icon" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
-                    <rect class="myduke-faq-page__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
-                  </svg>
-                </span>
-              </button>
+            {%- comment -%} Display category heading {%- endcomment -%}
+            {%- if block.settings.category_name != blank -%}
+              <{{ block.settings.category_heading_tag | default: 'h2' }} class="myduke-faq-page__category-title" {{ block.shopify_attributes }}>
+                {{- block.settings.category_name -}}
+              </{{ block.settings.category_heading_tag | default: 'h2' }}>
+            {%- endif -%}
 
-              {%- if block.settings.answer != blank -%}
-                <div
-                  class="myduke-faq-page__panel{% if forloop.first %} is-open{% endif %}"
-                  id="myduke-faq-page-panel-{{ section.id }}-{{ forloop.index }}"
-                  role="region"
+            {%- comment -%} Open new FAQ list for this category {%- endcomment -%}
+            <div class="myduke-faq-page__list">
+            {%- assign in_category = true -%}
+
+          {%- elsif block.type == 'faq_item' -%}
+            {%- comment -%} If no category exists yet, open a list {%- endcomment -%}
+            {%- unless in_category -%}
+              <div class="myduke-faq-page__list">
+              {%- assign in_category = true -%}
+            {%- endunless -%}
+
+            {%- comment -%} Display FAQ item {%- endcomment -%}
+            {%- if block.settings.question != blank -%}
+              {%- assign faq_counter = faq_counter | plus: 1 -%}
+              <div class="myduke-faq-page__item" {{ block.shopify_attributes }}>
+
+                <button
+                  class="myduke-faq-page__trigger"
+                  type="button"
+                  aria-expanded="{{ faq_counter == 1 }}"
+                  aria-controls="myduke-faq-page-panel-{{ section.id }}-{{ faq_counter }}"
                 >
-                  <div class="myduke-faq-page__panel-inner">
-                    <div class="myduke-faq-page__answer">{{ block.settings.answer }}</div>
-                  </div>
-                </div>
-              {%- endif -%}
+                  <span class="myduke-faq-page__question">{{ block.settings.question }}</span>
+                  <span class="myduke-faq-page__icon" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
+                      <rect class="myduke-faq-page__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
+                    </svg>
+                  </span>
+                </button>
 
-            </div>
+                {%- if block.settings.answer != blank -%}
+                  <div
+                    class="myduke-faq-page__panel{% if faq_counter == 1 %} is-open{% endif %}"
+                    id="myduke-faq-page-panel-{{ section.id }}-{{ faq_counter }}"
+                    role="region"
+                  >
+                    <div class="myduke-faq-page__panel-inner">
+                      <div class="myduke-faq-page__answer">{{ block.settings.answer }}</div>
+                    </div>
+                  </div>
+                {%- endif -%}
+
+              </div>
+            {%- endif -%}
           {%- endif -%}
         {%- endfor -%}
-        </div>
+
+        {%- comment -%} Close final list if open {%- endcomment -%}
+        {%- if in_category -%}
+          </div>
+        {%- endif -%}
       </div>
     {%- endif -%}
 
@@ -219,32 +247,6 @@
     },
     {
       "type": "header",
-      "content": "FAQ Section"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "faq_heading",
-      "label": "FAQ heading",
-      "default": "Frequently Asked Questions"
-    },
-    {
-      "type": "select",
-      "id": "faq_heading_tag",
-      "options": [
-        { "value": "h1", "label": "t:sections.all.heading_tag.options__1.label" },
-        { "value": "h2", "label": "t:sections.all.heading_tag.options__2.label" },
-        { "value": "h3", "label": "t:sections.all.heading_tag.options__3.label" },
-        { "value": "h4", "label": "t:sections.all.heading_tag.options__4.label" },
-        { "value": "h5", "label": "t:sections.all.heading_tag.options__5.label" },
-        { "value": "h6", "label": "t:sections.all.heading_tag.options__6.label" },
-        { "value": "div", "label": "t:sections.all.heading_tag.options__7.label" }
-      ],
-      "default": "h2",
-      "label": "FAQ heading tag",
-      "info": "t:sections.all.heading_tag.info"
-    },
-    {
-      "type": "header",
       "content": "Contact Form"
     },
     {
@@ -372,6 +374,31 @@
   ],
   "blocks": [
     {
+      "type": "category",
+      "name": "FAQ Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_name",
+          "label": "Category name",
+          "default": "General Questions"
+        },
+        {
+          "type": "select",
+          "id": "category_heading_tag",
+          "options": [
+            { "value": "h2", "label": "t:sections.all.heading_tag.options__2.label" },
+            { "value": "h3", "label": "t:sections.all.heading_tag.options__3.label" },
+            { "value": "h4", "label": "t:sections.all.heading_tag.options__4.label" },
+            { "value": "h5", "label": "t:sections.all.heading_tag.options__5.label" },
+            { "value": "h6", "label": "t:sections.all.heading_tag.options__6.label" }
+          ],
+          "default": "h2",
+          "label": "Category heading tag"
+        }
+      ]
+    },
+    {
       "type": "faq_item",
       "name": "FAQ Item",
       "settings": [
@@ -392,10 +419,13 @@
     {
       "name": "FAQ Page (MyDuke)",
       "category": "t:sections.categories.storytelling",
-      "settings": {
-        "faq_heading": "Frequently Asked Questions"
-      },
       "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "category_name": "General Questions"
+          }
+        },
         {
           "type": "faq_item",
           "settings": {
@@ -407,6 +437,12 @@
           "type": "faq_item",
           "settings": {
             "question": "How do I care for or maintain this product?"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_name": "Orders & Shipping"
           }
         },
         {
