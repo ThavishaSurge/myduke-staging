@@ -45,7 +45,7 @@
   transition: color 0.2s;
   outline: none;
   position: relative;
-  top: 1px;
+  top: 2px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
