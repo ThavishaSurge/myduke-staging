@@ -18,16 +18,17 @@
         "content_align": "left"
       }
     },
-    "myduke_hero_VkNVGC": {
-      "type": "myduke-hero",
-      "name": "MyDuke Hero",
+    "myduke_hero_secondary_9n8twt": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
       "settings": {
         "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
+        "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
         "overlay_color": "#000000",
         "overlay_opacity": 30,
         "overlay_color_mobile": "#000000",
         "overlay_opacity_mobile": 0,
-        "heading": "Frequently Asked Questions",
+        "heading": "Frequently asked questions",
         "description": "",
         "button_1_text": "",
         "button_1_link": "",
@@ -125,7 +126,7 @@
   },
   "order": [
     "page_info",
-    "myduke_hero_VkNVGC",
+    "myduke_hero_secondary_9n8twt",
     "myduke_faq_page_EhTGJx"
   ]
 }
