@@ -79,14 +79,12 @@
 .myduke-hero__btn--primary {
   background-color: #FFB703;
   color: #264653;
-  border: 1px solid #FEE0A6;
   min-width: 231px;
 }
 
 .myduke-hero__btn--secondary {
   background-color: #cbe0d7;
   color: #218380;
-  border: 1px solid #cbe0d7;
   font-weight: 600;
   min-width: 158px;
 }
