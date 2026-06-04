@@ -51,6 +51,12 @@
 }
 
 .eligibility-card__tab.is-active {
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05)) 1;
+  position: relative;
+  top: 1px;
+  z-index: 1;
   color: #ffffff;
   background: #ffffff1a;
   border-bottom: none;
@@ -65,7 +71,9 @@
 /* ---- Card Body ---- */
 .eligibility-card__body {
   background-color: #FFFFFF1A;
-  border: none;
+  border-width: 1px 1px 1px 1px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05)) 1;
   border-radius: 0px;
   padding: 24px 32px;
   min-height: 340px;
