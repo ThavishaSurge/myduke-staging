@@ -16,44 +16,186 @@
     </{{ section.settings.heading_tag }}>
   {%- endif -%}
 
-  {%- if section.blocks.size > 0 -%}
-    <div class="myduke-faq-page__list">
-      {%- for block in section.blocks -%}
-        {%- if block.settings.question != blank -%}
-          <div class="myduke-faq-page__item" {{ block.shopify_attributes }}>
+  <div class="myduke-faq-page__content">
+    {%- if section.blocks.size > 0 -%}
+      <div class="myduke-faq-page__list">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.question != blank -%}
+            <div class="myduke-faq-page__item" {{ block.shopify_attributes }}>
 
-            <button
-              class="myduke-faq-page__trigger"
-              type="button"
-              aria-expanded="{{ forloop.first | default: false }}"
-              aria-controls="myduke-faq-page-panel-{{ section.id }}-{{ forloop.index }}"
-            >
-              <span class="myduke-faq-page__question">{{ block.settings.question }}</span>
-              <span class="myduke-faq-page__icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
-                  <rect class="myduke-faq-page__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
-                </svg>
-              </span>
-            </button>
-
-            {%- if block.settings.answer != blank -%}
-              <div
-                class="myduke-faq-page__panel{% if forloop.first %} is-open{% endif %}"
-                id="myduke-faq-page-panel-{{ section.id }}-{{ forloop.index }}"
-                role="region"
+              <button
+                class="myduke-faq-page__trigger"
+                type="button"
+                aria-expanded="{{ forloop.first | default: false }}"
+                aria-controls="myduke-faq-page-panel-{{ section.id }}-{{ forloop.index }}"
               >
-                <div class="myduke-faq-page__panel-inner">
-                  <div class="myduke-faq-page__answer">{{ block.settings.answer }}</div>
+                <span class="myduke-faq-page__question">{{ block.settings.question }}</span>
+                <span class="myduke-faq-page__icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
+                    <rect class="myduke-faq-page__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
+                  </svg>
+                </span>
+              </button>
+
+              {%- if block.settings.answer != blank -%}
+                <div
+                  class="myduke-faq-page__panel{% if forloop.first %} is-open{% endif %}"
+                  id="myduke-faq-page-panel-{{ section.id }}-{{ forloop.index }}"
+                  role="region"
+                >
+                  <div class="myduke-faq-page__panel-inner">
+                    <div class="myduke-faq-page__answer">{{ block.settings.answer }}</div>
+                  </div>
                 </div>
+              {%- endif -%}
+
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_contact_form -%}
+      <div class="myduke-faq-page__form-wrapper">
+        {%- if section.settings.form_heading != blank -%}
+          <{{ section.settings.form_heading_tag | default: 'h3' }} class="myduke-faq-page__form-title">
+            {{- section.settings.form_heading -}}
+          </{{ section.settings.form_heading_tag | default: 'h3' }}>
+        {%- endif -%}
+        {%- if section.settings.form_text != blank -%}
+          <p class="myduke-faq-page__form-text">
+            {{- section.settings.form_text -}}
+          </p>
+        {%- endif -%}
+        {%- form 'contact', id: 'MyDukeFaqContactForm', class: 'myduke-faq-page__form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="form-status form-status-list form__message form__message--success body-small">
+              {% render 'icon-success' %}
+              {{- 'templates.contact.form.post_success' | t -}}
+            </div>
+          {%- elsif form.errors -%}
+          {%- endif -%}
+          <div class="field field__name">
+            <input
+              class="field__input focus-inset"
+              autocomplete="name"
+              type="text"
+              id="MyDukeFaqContactForm-name"
+              dir="ltr"
+              name="contact[{{ 'templates.contact.form.name' | t }}]"
+              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+              placeholder="{{- 'templates.contact.form.name' | t -}}"
+            >
+            <label
+              class="field__label body-small"
+              for="MyDukeFaqContactForm-name"
+            >
+              {{- 'templates.contact.form.name' | t -}}
+            </label>
+          </div>
+          <div class="field">
+            <input
+              autocomplete="email"
+              type="email"
+              id="MyDukeFaqContactForm-email"
+              dir="ltr"
+              class="field__input focus-inset"
+              name="contact[email]"
+              spellcheck="false"
+              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="MyDukeFaqContactForm-email-error"
+              {% endif %}
+              placeholder="{{- 'templates.contact.form.email' | t -}}"
+              required
+            >
+            <label
+              class="field__label body-small"
+              for="MyDukeFaqContactForm-email"
+            >
+              {{- 'templates.contact.form.email' | t -}}
+            </label>
+
+            {%- if form.errors contains 'email' -%}
+              <small class="myduke-faq-page__field-error" id="MyDukeFaqContactForm-email-error">
+                <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                <span class="form__message form__message--error">
+                  {{- form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email -}}
+                </span>
+              </small>
+            {%- endif -%}
+          </div>
+          <div class="field">
+            <input
+              type="tel"
+              id="MyDukeFaqContactForm-phone"
+              dir="ltr"
+              class="field__input"
+              autocomplete="tel"
+              name="contact[{{ 'templates.contact.form.phone' | t }}]"
+              pattern="[0-9\-]*"
+              value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+              placeholder="{{- 'templates.contact.form.phone' | t -}}"
+            >
+            <label
+              class="field__label body-small"
+              for="MyDukeFaqContactForm-phone"
+            >
+              {{- 'templates.contact.form.phone' | t -}}
+            </label>
+          </div>
+          <div class="field">
+            <textarea
+              id="MyDukeFaqContactForm-body"
+              dir="ltr"
+              class="text-area field__input"
+              name="contact[{{ 'templates.contact.form.comment' | t }}]"
+              placeholder="{{- 'templates.contact.form.comment' | t -}}"
+              aria-required="true"
+              required
+            >
+              {{- form.body -}}
+            </textarea>
+            <label
+              class="field__label body-small"
+              for="MyDukeFaqContactForm-body"
+            >
+              {{- 'templates.contact.form.comment' | t -}}
+            </label>
+          </div>
+          <div class="myduke-faq-page__form-bottom">
+            <button
+              type="submit"
+              class="button button--{{ section.settings.form_button_style }} focus-inset"
+            >
+              <div class="button__content">
+                {% if section.settings.form_button_style == 'tertiary' %}
+                  <span class="button__icons-container">
+                    {% render 'icon-arrow-tertiary-button' %}
+                    {% render 'icon-arrow-tertiary-button' %}
+                  </span>
+                {% endif %}
+                <span class="button__label">
+                  {{- 'templates.contact.form.send' | t -}}
+                </span>
+              </div>
+            </button>
+            {%- if section.settings.form_additional_text != blank -%}
+              <div class="myduke-faq-page__form-add-text body-small">
+                {{- section.settings.form_additional_text -}}
               </div>
             {%- endif -%}
-
           </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  {%- endif -%}
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+  </div>
 
 </div>
 
@@ -107,6 +249,68 @@
       "label": "t:sections.all.heading_tag.label",
       "info": "t:sections.all.heading_tag.info",
       "visible_if": "{{ section.settings.show_heading }}"
+    },
+    {
+      "type": "header",
+      "content": "Contact Form"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_form",
+      "label": "Show contact form",
+      "default": false,
+      "info": "Display a contact form alongside the FAQs (desktop: right side, mobile: below FAQs)"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "form_heading",
+      "label": "Form heading",
+      "default": "Contact us",
+      "visible_if": "{{ section.settings.show_contact_form }}"
+    },
+    {
+      "type": "select",
+      "id": "form_heading_tag",
+      "options": [
+        { "value": "h1", "label": "t:sections.all.heading_tag.options__1.label" },
+        { "value": "h2", "label": "t:sections.all.heading_tag.options__2.label" },
+        { "value": "h3", "label": "t:sections.all.heading_tag.options__3.label" },
+        { "value": "h4", "label": "t:sections.all.heading_tag.options__4.label" },
+        { "value": "h5", "label": "t:sections.all.heading_tag.options__5.label" },
+        { "value": "h6", "label": "t:sections.all.heading_tag.options__6.label" },
+        { "value": "div", "label": "t:sections.all.heading_tag.options__7.label" }
+      ],
+      "default": "h3",
+      "label": "Form heading tag",
+      "visible_if": "{{ section.settings.show_contact_form }}"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "form_text",
+      "label": "Form description text",
+      "default": "Have a question? Fill out the form below and we'll get back to you.",
+      "visible_if": "{{ section.settings.show_contact_form }}"
+    },
+    {
+      "type": "select",
+      "id": "form_button_style",
+      "options": [
+        { "value": "primary", "label": "t:sections.all.button.button_style.options__1.label" },
+        { "value": "secondary", "label": "t:sections.all.button.button_style.options__2.label" },
+        { "value": "tertiary", "label": "t:sections.all.button.button_style.options__3.label" },
+        { "value": "secondary2", "label": "t:sections.all.button.button_style.options__4.label" },
+        { "value": "accent", "label": "t:sections.all.button.button_style.options__5.label" }
+      ],
+      "default": "primary",
+      "label": "Form button style",
+      "visible_if": "{{ section.settings.show_contact_form }}"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "form_additional_text",
+      "label": "Additional text below button",
+      "info": "Optional text displayed below the submit button",
+      "visible_if": "{{ section.settings.show_contact_form }}"
     },
     {
       "type": "header",

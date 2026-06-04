@@ -2,12 +2,12 @@
 
 .myduke-faq-page {
   background: #ffffff;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 8rem!important;
+  padding-bottom: 8rem!important;
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
-  width: min(92.4rem, 100%);
+  width: min(120rem, 100%);
   margin-left: auto;
   margin-right: auto;
 }
@@ -22,6 +22,20 @@
   letter-spacing: -0.03em;
   color: #264653;
   margin: 0;
+}
+
+/* ── Two-column content wrapper ── */
+.myduke-faq-page__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4.8rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 990px) {
+  .myduke-faq-page__content {
+    grid-template-columns: 1fr 40rem;
+  }
 }
 
 /* ── FAQ list ── */
@@ -129,6 +143,94 @@
   }
 }
 
+/* ── Contact Form Styles ── */
+.myduke-faq-page__form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  position: sticky;
+  top: 2.4rem;
+}
+
+.myduke-faq-page__form-title {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #264653;
+  margin: 0;
+}
+
+.myduke-faq-page__form-text {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  line-height: 1.6;
+  color: rgb(var(--color-foreground-secondary));
+  margin: 0 0 0.6rem 0;
+}
+
+.myduke-faq-page__form {
+  width: 100%;
+}
+
+.myduke-faq-page__form .field {
+  margin-bottom: 2.4rem;
+}
+
+.myduke-faq-page__form .text-area {
+  min-height: 9.2rem;
+}
+
+.myduke-faq-page__form-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.myduke-faq-page__form-add-text {
+  color: rgb(var(--color-foreground-secondary));
+}
+
+.myduke-faq-page__field-error .form__message {
+  align-items: flex-start;
+  margin: 1rem 0 0;
+  font-size: 1.2rem;
+  font-weight: var(--font-body-weight);
+  color: rgba(var(--color-error));
+}
+
+.myduke-faq-page__field-error .form__message:before {
+  content: "*";
+  color: rgba(var(--color-error));
+  margin-right: 0.2rem;
+}
+
+.myduke-faq-page__form .form__message--success {
+  text-align: left;
+  align-items: flex-start;
+  margin: 1.2rem 0 2.4rem;
+}
+
+/* ── Responsive: tablet ── */
+@media screen and (max-width: 989px) {
+  .myduke-faq-page__heading {
+    font-size: 3.6rem;
+  }
+
+  .myduke-faq-page__content {
+    gap: 3.2rem;
+  }
+
+  .myduke-faq-page__form-wrapper {
+    position: static;
+  }
+}
+
 /* ── Responsive: mobile ── */
 @media screen and (max-width: 575px) {
   .myduke-faq-page {
@@ -140,6 +242,9 @@
   }
   .myduke-faq-page__heading {
     font-size: 2.6rem;
+  }
+  .myduke-faq-page__content {
+    gap: 4rem;
   }
   .myduke-faq-page__trigger {
     padding: 1.8rem 0;
@@ -153,5 +258,11 @@
   }
   .myduke-faq-page__answer {
     font-size: 1.4rem;
+  }
+  .myduke-faq-page__form-title {
+    font-size: 2rem;
+  }
+  .myduke-faq-page__form-wrapper {
+    position: static;
   }
 }
