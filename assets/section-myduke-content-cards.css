@@ -238,6 +238,24 @@
   color: #ffffff;
 }
 
+@media screen and (max-width: 1500px){
+  .myduke-cc__image-wrap {
+    min-height: 25rem;
+  }
+}
+
+@media screen and (max-width: 1340px){
+  .myduke-cc__image-wrap {
+    min-height: 22rem;
+  }
+}
+
+@media screen and (max-width: 1250px){
+  .myduke-cc__image-wrap {
+    min-height: 18rem;
+  }
+}
+
 /* ── Responsive ── */
 @media screen and (max-width: 989px) {
   .myduke-cc__grid {
