@@ -127,11 +127,22 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_faq_schema_generator_H6fhVa": {
+      "type": "myduke-faq-schema-generator",
+      "name": "FAQ Schema Gen",
+      "settings": {
+        "enable_schema": true,
+        "show_preview_in_customizer": true,
+        "include_myduke_faq": true,
+        "include_myduke_faq_page": true
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_secondary_9n8twt",
-    "myduke_faq_page_EhTGJx"
+    "myduke_faq_page_EhTGJx",
+    "myduke_faq_schema_generator_H6fhVa"
   ]
 }

@@ -1,0 +1,227 @@
+{%- comment -%}
+  FAQ Schema Generator (MyDuke)
+
+  This section automatically generates FAQPage JSON-LD schema for SEO purposes.
+  It scans the page for FAQ sections and creates valid schema.org markup.
+
+  Features:
+  - Auto-detects myduke-faq and myduke-faq-page sections
+  - Generates valid FAQPage schema
+  - Shows schema preview in Shopify customizer
+  - Hidden from frontend (only schema is visible to search engines)
+{%- endcomment -%}
+
+{%- liquid
+  assign enable_schema = section.settings.enable_schema
+  assign show_preview = section.settings.show_preview_in_customizer
+-%}
+
+{%- if enable_schema -%}
+  {%- comment -%} This script tag will be rendered on the frontend for SEO {%- endcomment -%}
+  <script type="application/ld+json" id="myduke-faq-schema-{{ section.id }}">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": []
+  }
+  </script>
+
+  {%- comment -%} Preview area - only visible in Shopify customizer {%- endcomment -%}
+  {%- if show_preview and request.design_mode -%}
+    <div class="myduke-faq-schema-preview" data-section-id="{{ section.id }}">
+      <div class="myduke-faq-schema-preview__header">
+        <h3 class="myduke-faq-schema-preview__title">FAQ Schema Preview</h3>
+        <p class="myduke-faq-schema-preview__note">This preview is only visible in the theme editor. The schema is hidden on the live site but visible to search engines.</p>
+      </div>
+      <div class="myduke-faq-schema-preview__status">
+        <span class="myduke-faq-schema-preview__label">Status:</span>
+        <span class="myduke-faq-schema-preview__value" data-status>Scanning page...</span>
+      </div>
+      <div class="myduke-faq-schema-preview__stats">
+        <span class="myduke-faq-schema-preview__label">Sections found:</span>
+        <span class="myduke-faq-schema-preview__value" data-sections-count>0</span>
+        <span class="myduke-faq-schema-preview__separator">|</span>
+        <span class="myduke-faq-schema-preview__label">Questions:</span>
+        <span class="myduke-faq-schema-preview__value" data-questions-count>0</span>
+      </div>
+      <details class="myduke-faq-schema-preview__details">
+        <summary class="myduke-faq-schema-preview__summary">View Generated Schema (JSON)</summary>
+        <textarea
+          class="myduke-faq-schema-preview__code"
+          data-schema-output
+          readonly
+          rows="15"
+        >Loading schema...</textarea>
+      </details>
+    </div>
+
+    <style>
+      .myduke-faq-schema-preview {
+        max-width: 90rem;
+        margin: 2.4rem auto;
+        padding: 2.4rem;
+        background: #f8f9fa;
+        border: 2px solid #264653;
+        border-radius: 0.8rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+
+      .myduke-faq-schema-preview__header {
+        margin-bottom: 1.6rem;
+        padding-bottom: 1.6rem;
+        border-bottom: 1px solid #d1d5db;
+      }
+
+      .myduke-faq-schema-preview__title {
+        margin: 0 0 0.8rem 0;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #264653;
+      }
+
+      .myduke-faq-schema-preview__note {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #6b7280;
+        line-height: 1.5;
+      }
+
+      .myduke-faq-schema-preview__status,
+      .myduke-faq-schema-preview__stats {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+        font-size: 1.4rem;
+      }
+
+      .myduke-faq-schema-preview__label {
+        font-weight: 600;
+        color: #374151;
+      }
+
+      .myduke-faq-schema-preview__value {
+        color: #264653;
+        font-weight: 500;
+      }
+
+      .myduke-faq-schema-preview__value[data-status] {
+        padding: 0.4rem 0.8rem;
+        background: #fef3c7;
+        border-radius: 0.4rem;
+        font-size: 1.3rem;
+      }
+
+      .myduke-faq-schema-preview__value[data-status="ready"] {
+        background: #d1fae5;
+        color: #065f46;
+      }
+
+      .myduke-faq-schema-preview__value[data-status="error"] {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      .myduke-faq-schema-preview__separator {
+        color: #d1d5db;
+        margin: 0 0.4rem;
+      }
+
+      .myduke-faq-schema-preview__details {
+        margin-top: 1.6rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.4rem;
+        background: #ffffff;
+      }
+
+      .myduke-faq-schema-preview__summary {
+        padding: 1.2rem 1.6rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #264653;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .myduke-faq-schema-preview__summary:hover {
+        background: #f3f4f6;
+      }
+
+      .myduke-faq-schema-preview__code {
+        width: 100%;
+        padding: 1.6rem;
+        border: none;
+        border-top: 1px solid #d1d5db;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #1f2937;
+        background: #f9fafb;
+        resize: vertical;
+      }
+
+      .myduke-faq-schema-preview__code:focus {
+        outline: 2px solid #264653;
+        outline-offset: -2px;
+      }
+    </style>
+  {%- endif -%}
+
+  {%- comment -%} Load the schema generator script {%- endcomment -%}
+  <script src="{{ 'myduke-faq-schema-generator.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "FAQ Schema Gen",
+  "class": "myduke-faq-schema-generator-section",
+  "tag": "div",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This section automatically generates FAQPage schema for SEO. It scans the page for FAQ sections (myduke-faq and myduke-faq-page) and creates valid schema.org markup. Add this section once per page."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_schema",
+      "label": "Enable FAQ Schema",
+      "default": true,
+      "info": "Generate and include FAQPage schema on this page"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_preview_in_customizer",
+      "label": "Show schema preview in customizer",
+      "default": true,
+      "info": "Display a preview of the generated schema in the Shopify theme editor (not visible on live site)"
+    },
+    {
+      "type": "header",
+      "content": "Advanced Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "include_myduke_faq",
+      "label": "Include FAQ (MyDuke) sections",
+      "default": true,
+      "info": "Scan and include questions from myduke-faq sections"
+    },
+    {
+      "type": "checkbox",
+      "id": "include_myduke_faq_page",
+      "label": "Include FAQ Page (MyDuke) sections",
+      "default": true,
+      "info": "Scan and include questions from myduke-faq-page sections"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Schema Gen",
+      "category": "SEO"
+    }
+  ]
+}
+{% endschema %}
