@@ -115,8 +115,8 @@
       "settings": {
         "color_scheme": "",
         "show_heading": true,
-        "heading": "",
-        "heading_tag": "h2",
+        "heading": "Frequently Asked Questions",
+        "heading_tag": "h3",
         "show_contact_form": true,
         "form_heading": "Need Additional Assistance?",
         "form_heading_tag": "h3",
