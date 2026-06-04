@@ -1,28 +1,32 @@
-{{ 'section-myduke-hero.css' | asset_url | stylesheet_tag }}
+{{ 'section-myduke-hero-secondary.css' | asset_url | stylesheet_tag }}
 
 <div
-  class="myduke-hero"
+  class="myduke-hero-secondary"
   style="
     --bg-desktop: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 2000 }}'){% else %}none{% endif %};
     --bg-mobile: {% if section.settings.background_image_mobile != blank %}url('{{ section.settings.background_image_mobile | image_url: width: 1000 }}'){% elsif section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1000 }}'){% else %}none{% endif %};
+    --overlay-color-desktop: {{ section.settings.overlay_color }};
+    --overlay-opacity-desktop: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --overlay-color-mobile: {{ section.settings.overlay_color_mobile }};
+    --overlay-opacity-mobile: {{ section.settings.overlay_opacity_mobile | divided_by: 100.0 }};
   "
 >
   <div class="page-width container">
-    <div class="myduke-hero__inner{% if section.settings.enable_eligibility_form %} myduke-hero__inner--with-form{% endif %}">
-      <div class="myduke-hero__content">
+    <div class="myduke-hero-secondary__inner{% if section.settings.enable_eligibility_form %} myduke-hero-secondary__inner--with-form{% endif %}">
+      <div class="myduke-hero-secondary__content">
         {%- if section.settings.heading != blank -%}
-          <h1 class="myduke-hero__heading">{{ section.settings.heading }}</h1>
+          <h1 class="myduke-hero-secondary__heading">{{ section.settings.heading }}</h1>
         {%- endif -%}
 
         {%- if section.settings.description != blank -%}
-          <div class="myduke-hero__description">{{ section.settings.description | newline_to_br }}</div>
+          <div class="myduke-hero-secondary__description">{{ section.settings.description | newline_to_br }}</div>
         {%- endif -%}
 
-        <div class="myduke-hero__buttons">
+        <div class="myduke-hero-secondary__buttons">
           {%- if section.settings.button_1_text != blank -%}
             <a
               href="{{ section.settings.button_1_link | default: '#' }}"
-              class="myduke-hero__btn myduke-hero__btn--primary"
+              class="myduke-hero-secondary__btn myduke-hero-secondary__btn--primary"
             >
               {{ section.settings.button_1_text }}
             </a>
@@ -31,7 +35,7 @@
           {%- if section.settings.button_2_text != blank -%}
             <a
               href="{{ section.settings.button_2_link | default: '#' }}"
-              class="myduke-hero__btn myduke-hero__btn--secondary"
+              class="myduke-hero-secondary__btn myduke-hero-secondary__btn--secondary"
             >
               {{ section.settings.button_2_text }}
             </a>
@@ -41,7 +45,7 @@
 
       {%- if section.settings.enable_eligibility_form -%}
         {{ 'hero-eligibility-form.css' | asset_url | stylesheet_tag }}
-        <div class="myduke-hero__form-col">
+        <div class="myduke-hero-secondary__form-col">
           <div class="eligibility-card" id="eligibility-card-{{ section.id }}">
             <div class="eligibility-card__tabs" role="tablist">
               <button
@@ -307,7 +311,7 @@
 
 {% schema %}
 {
-  "name": "MyDuke Hero",
+  "name": "MyDuke Seconday Hero",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -429,7 +433,7 @@
   ],
   "presets": [
     {
-      "name": "MyDuke Hero",
+      "name": "MyDuke Secondary Hero",
       "category": "Custom"
     }
   ]

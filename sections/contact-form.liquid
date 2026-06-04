@@ -8,17 +8,54 @@
   <div class="contact-form__container">
     <div class="contact-form__inner">
       <div class="contact-form__wrapper container">
-        {%- if section.settings.heading_form != blank -%}
-          <{{ section.settings.heading_form_tag | default: 'h3' }} class="contact-form__title-form {{ section.settings.heading_form_size }} richtext-link-inside">
-            {{- section.settings.heading_form -}}
-          </{{ section.settings.heading_form_tag | default: 'h3' }}>
-        {%- endif -%}
-        {%- if section.settings.text_form != blank -%}
-          <p class="contact-form__text-form richtext-link-inside">
-            {{- section.settings.text_form -}}
-          </p>
-        {%- endif -%}
-        {%- form 'contact', id: 'ContactForm', class: 'contact-form__form' -%}
+        <div class="contact-form__content-wrapper">
+          {%- if section.settings.show_contact_info -%}
+            <div class="contact-form__info-column">
+              {%- if section.settings.info_heading != blank -%}
+                <h3 class="contact-form__info-heading">{{ section.settings.info_heading }}</h3>
+              {%- endif -%}
+              {%- if section.settings.info_description != blank -%}
+                <p class="contact-form__info-description">{{ section.settings.info_description }}</p>
+              {%- endif -%}
+              <div class="contact-form__info-items">
+                {%- if section.settings.contact_email != blank -%}
+                  <div class="contact-form__info-item">
+                    <span class="contact-form__info-label">Email:</span>
+                    <a href="mailto:{{ section.settings.contact_email }}" class="contact-form__info-value">
+                      {{ section.settings.contact_email }}
+                    </a>
+                  </div>
+                {%- endif -%}
+                {%- if section.settings.contact_phone != blank -%}
+                  <div class="contact-form__info-item">
+                    <span class="contact-form__info-label">Phone:</span>
+                    <a href="tel:{{ section.settings.contact_phone | replace: ' ', '' | replace: '(', '' | replace: ')', '' }}" class="contact-form__info-value">
+                      {{ section.settings.contact_phone }}
+                    </a>
+                  </div>
+                {%- endif -%}
+                {%- if section.settings.contact_hours != blank -%}
+                  <div class="contact-form__info-item">
+                    <span class="contact-form__info-label">Customer Service Hours:</span>
+                    <span class="contact-form__info-value">{{ section.settings.contact_hours }}</span>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          <div class="contact-form__form-column">
+            {%- if section.settings.heading_form != blank -%}
+              <{{ section.settings.heading_form_tag | default: 'h3' }} class="contact-form__title-form {{ section.settings.heading_form_size }} richtext-link-inside">
+                {{- section.settings.heading_form -}}
+              </{{ section.settings.heading_form_tag | default: 'h3' }}>
+            {%- endif -%}
+            {%- if section.settings.text_form != blank -%}
+              <p class="contact-form__text-form richtext-link-inside">
+                {{- section.settings.text_form -}}
+              </p>
+            {%- endif -%}
+            {%- form 'contact', id: 'ContactForm', class: 'contact-form__form' -%}
           {%- if form.posted_successfully? -%}
             <div class="form-status form-status-list form__message form__message--success body-small">
               {% render 'icon-success' %}
@@ -143,6 +180,8 @@
             {%- endif -%}
           </div>
         {%- endform -%}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -157,6 +196,56 @@
     "templates": ["*"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_info",
+      "label": "Show contact information",
+      "default": false,
+      "info": "Display contact details to the left of the form (desktop) or above it (mobile)"
+    },
+    {
+      "type": "text",
+      "id": "info_heading",
+      "label": "Contact info heading",
+      "default": "Get in Touch",
+      "visible_if": "{{ section.settings.show_contact_info }}"
+    },
+    {
+      "type": "textarea",
+      "id": "info_description",
+      "label": "Contact info description",
+      "default": "We're here to help. Reach out to our team for any inquiries.",
+      "visible_if": "{{ section.settings.show_contact_info }}"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Email address",
+      "default": "hello@myduke.com.au",
+      "visible_if": "{{ section.settings.show_contact_info }}"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Phone number",
+      "default": "(03) 8658 6455",
+      "visible_if": "{{ section.settings.show_contact_info }}"
+    },
+    {
+      "type": "text",
+      "id": "contact_hours",
+      "label": "Customer service hours",
+      "default": "9am - 5pm AEST, Monday - Friday",
+      "visible_if": "{{ section.settings.show_contact_info }}"
+    },
+    {
+      "type": "header",
+      "content": "Form Settings"
+    },
     {
       "type": "inline_richtext",
       "id": "heading_form",
