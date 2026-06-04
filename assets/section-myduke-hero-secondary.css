@@ -1,4 +1,4 @@
-.myduke-hero {
+.myduke-hero-secondary {
   position: relative;
   width: 100%;
   min-height: 60vh;
@@ -15,7 +15,7 @@
 }
 
 /* Custom overlay based on theme settings */
-.myduke-hero::before {
+.myduke-hero-secondary::before {
   content: '';
   position: absolute;
   top: 0;
@@ -27,39 +27,40 @@
   pointer-events: none;
 }
 
-.myduke-hero>.page-width {
+.myduke-hero-secondary>.page-width {
   position: relative;
   z-index: 2;
   width: 100%;
 }
 
-.myduke-hero__content {
+.myduke-hero-secondary__content {
   max-width: 700px;
 }
 
-.myduke-hero__heading {
+.myduke-hero-secondary__heading {
   font-size: 5.6rem;
   line-height: 1.3;
   color: #ffffff;
   margin-bottom: 2rem;
   font-weight: 400;
   letter-spacing: -1px;
+  text-align: center;
 }
 
-.myduke-hero__description {
+.myduke-hero-secondary__description {
   font-size: 1.8rem;
   line-height: 1.5;
   color: #ffffff;
   margin-bottom: 4rem;
 }
 
-.myduke-hero__buttons {
+.myduke-hero-secondary__buttons {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-.myduke-hero__btn {
+.myduke-hero-secondary__btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -73,19 +74,19 @@
   border-radius: 0px;
 }
 
-.myduke-hero__btn:hover {
+.myduke-hero-secondary__btn:hover {
   opacity: 0.9;
   transform: translateY(-1px);
 }
 
-.myduke-hero__btn--primary {
+.myduke-hero-secondary__btn--primary {
   background-color: #FEE0A6;
   /* Yellow */
   color: #000000;
   border: 1px solid #FEE0A6;
 }
 
-.myduke-hero__btn--secondary {
+.myduke-hero-secondary__btn--secondary {
   background-color: #cbe0d7;
   /* Pale green/grey */
   color: #218380;
@@ -94,12 +95,12 @@
 }
 
 @media screen and (max-width: 749px) {
-  .myduke-hero::before {
+  .myduke-hero-secondary::before {
     background-color: var(--overlay-color-mobile);
     opacity: var(--overlay-opacity-mobile);
   }
 
-  .myduke-hero {
+  .myduke-hero-secondary {
     /* min-height: 600px; */
     /* padding-bottom: 4rem; */
     padding: 180px 0px 12px 0px !important;
@@ -107,15 +108,15 @@
     background-position: 0px -20px;
   }
 
-  .myduke-hero__heading {
+  .myduke-hero-secondary__heading {
     font-size: 3.6rem;
   }
 
-  .myduke-hero__description {
+  .myduke-hero-secondary__description {
     font-size: 1.6rem;
   }
 
-  .myduke-hero__btn {
+  .myduke-hero-secondary__btn {
     width: 100%;
   }
 }
@@ -123,26 +124,26 @@
 /* =============================================
    Hero — two-column layout when form is active
    ============================================= */
-.myduke-hero__inner {
+.myduke-hero-secondary__inner {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
 }
 
-.myduke-hero__inner--with-form {
+.myduke-hero-secondary__inner--with-form {
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
   gap: 4rem;
 }
 
-.myduke-hero__inner--with-form .myduke-hero__content {
+.myduke-hero-secondary__inner--with-form .myduke-hero-secondary__content {
   flex: 0 0 auto;
   max-width: 600px;
 }
 
-.myduke-hero__form-col {
+.myduke-hero-secondary__form-col {
   max-width: 720px;
   width: 100%;
   min-width: 0;
@@ -150,27 +151,27 @@
 }
 
 @media screen and (max-width: 1159px) {
-  .myduke-hero__inner--with-form {
+  .myduke-hero-secondary__inner--with-form {
     flex-direction: column;
     gap: 3rem;
   }
 
-  .myduke-hero__inner--with-form .myduke-hero__content {
+  .myduke-hero-secondary__inner--with-form .myduke-hero-secondary__content {
     max-width: 100%;
   }
 
-  .myduke-hero__form-col {
+  .myduke-hero-secondary__form-col {
     width: 100%;
   }
 }
 
 @media screen and (min-width: 750px) and (max-width: 1159px) {
-  .myduke-hero__form-col {
+  .myduke-hero-secondary__form-col {
     max-width: 100%;
     margin: auto;
   }
 
-  .myduke-hero {
+  .myduke-hero-secondary {
     padding: 150px 50px 50px 50px !important;
   }
 }
