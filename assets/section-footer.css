@@ -381,6 +381,7 @@
 }
 
 .footer .footer-logo__image {
+  max-width: 15rem;
   display: block;
   max-width: 100%;
   height: auto;
