@@ -38,6 +38,12 @@
         ".contact-section {padding-top: 0px; padding-bottom: 5rem;}"
       ],
       "settings": {
+        "show_contact_info": true,
+        "info_heading": "Get in Touch",
+        "info_description": "",
+        "contact_email": "hello@myduke.com.au",
+        "contact_phone": "(03) 8658 6455",
+        "contact_hours": "9am - 5pm AEST, Monday - Friday",
         "heading_form": "Contact Us",
         "heading_form_size": "h5",
         "heading_form_tag": "h3",
