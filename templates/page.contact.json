@@ -39,7 +39,7 @@
       ],
       "settings": {
         "show_contact_info": true,
-        "info_heading": "Get in Touch",
+        "info_heading": "",
         "info_description": "",
         "contact_email": "hello@myduke.com.au",
         "contact_phone": "(03) 8658 6455",
