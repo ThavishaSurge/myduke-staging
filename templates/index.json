@@ -29,7 +29,28 @@
         "elig_heading": "Am I Eligible?",
         "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
         "elig_assessment_link": "",
-        "sign_in_link": ""
+        "sign_in_link": "",
+        "elig_q1_question": "What is your age range",
+        "elig_q1_answer1": "18–25",
+        "elig_q1_answer2": "26–35",
+        "elig_q1_answer3": "36–50",
+        "elig_q1_answer4": "50+",
+        "elig_q2_question": "How long have you been smoking",
+        "elig_q2_answer1": "Less than 1 year",
+        "elig_q2_answer2": "1–5 years",
+        "elig_q2_answer3": "5–15 years",
+        "elig_q2_answer4": "15+ years",
+        "elig_q3_question": "What is your primary goal",
+        "elig_q3_answer1": "Quit completely",
+        "elig_q3_answer2": "Reduce intake",
+        "elig_q3_answer3": "Switch to a safer alternative",
+        "elig_q3_answer4": "Explore options",
+        "elig_processing_label": "Verifying medical data",
+        "elig_processing_status": "Cross-referencing with clinical eligibility criteria",
+        "elig_result_eligible_title": "You may be eligible",
+        "elig_result_eligible_text": "Based on your responses, you're a potential candidate. Complete the full medical assessment to proceed.",
+        "elig_result_not_eligible_title": "Not eligible at this time",
+        "elig_result_not_eligible_text": "Based on your responses, you may not qualify for this program right now. Please consult a healthcare professional."
       }
     },
     "info_banner_T4Ytcx": {
@@ -361,6 +382,16 @@
         "margin_bottom": "l"
       }
     },
+    "myduke_faq_schema_generator_cMwjLG": {
+      "type": "myduke-faq-schema-generator",
+      "name": "FAQ Schema Gen",
+      "settings": {
+        "enable_schema": true,
+        "show_preview_in_customizer": true,
+        "include_myduke_faq": true,
+        "include_myduke_faq_page": true
+      }
+    },
     "myduke_cta_zEYXyz": {
       "type": "myduke-cta",
       "name": "CTA (MyDuke)",
@@ -391,6 +422,7 @@
     "myduke_guided_support_FMLM4X",
     "myduke_cta_E6WbRb",
     "myduke_faq_eiGzkw",
+    "myduke_faq_schema_generator_cMwjLG",
     "myduke_cta_zEYXyz"
   ]
 }
