@@ -127,7 +127,7 @@
 /* ---- Option buttons ---- */
 .eligibility-step__options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   margin-bottom: 40px;
 }
@@ -137,7 +137,7 @@
 }
 
 .eligibility-option {
-  padding: 13px 10px;
+  padding: 12px;
   border: 1.5px solid rgba(255, 255, 255, 0.35);
   border-radius: 0px;
   /* background: rgba(255, 255, 255, 0.08); */
@@ -243,29 +243,29 @@
 }
 
 .eligibility-processing__label {
-  font-size: 0.95rem;
+  font-size: 18px;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 12px;
 }
 
 .eligibility-processing__status {
-  font-size: 0.85rem;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.65);
   margin-top: 10px;
 }
 
 /* Animated processing bar */
 .eligibility-processing__track {
-  height: 4px;
+  height: 7px;
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 99px;
+  border-radius: 0px;
   overflow: hidden;
 }
 
 .eligibility-processing__fill {
   height: 100%;
-  border-radius: 99px;
+  border-radius: 0px;
   background: linear-gradient(90deg, #a8d5b0 0%, #f5d97a 60%);
   width: 0%;
   transition: width 2.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -314,7 +314,12 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 10px;
+  gap: 16px;
+}
+
+.eligibility-option[data-value="switch-safer"] {
+  text-align: left;
+  padding: 12px;
 }
 
 .eligibility-signin__msg {
@@ -326,6 +331,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 750px) and (max-width: 1480px) {
+  .eligibility-option[data-value="switch-safer"] {
+    text-align: center;
+  }
 }
 
 /* ---- Responsive ---- */
@@ -342,11 +353,20 @@
   .eligibility-step__options--4col {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .eligibility-option[data-value="switch-safer"] {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 749px) {
+  .eligibility-tab-panel.is-active {
+    gap: 16px;
+  }
+
   .eligibility-card__body {
     padding: 24px 20px;
+
   }
 
   .eligibility-card__tab {
@@ -355,23 +375,23 @@
   }
 
   .eligibility-card__intro-heading {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 0;
   }
 
   .eligibility-card__intro-text {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .eligibility-step__question {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 12px;
   }
 
   .eligibility-step__options {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 40px;
   }
 
   [data-elig-step="2"] .eligibility-step__options,
@@ -381,11 +401,11 @@
 
   .eligibility-option {
     font-size: 15px;
-    padding: 12px 10px;
+    padding: 12px;
   }
 
   .eligibility-progress {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .eligibility-progress__label {

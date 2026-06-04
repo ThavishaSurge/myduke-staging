@@ -13,10 +13,10 @@
       "type": "myduke-hero",
       "name": "MyDuke Hero",
       "settings": {
-        "background_image": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_1.png",
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
         "overlay_color": "#000000",
-        "overlay_opacity": 20,
+        "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
         "overlay_opacity_mobile": 0,
         "heading": "Clinical Support For\nNicotine Dependance",
@@ -93,7 +93,7 @@
         "content_cards_bkidFR": {
           "type": "content-cards",
           "settings": {
-            "card_image": "shopify://shop_images/Doctor_Review.webp",
+            "card_image": "shopify://shop_images/Doctor-review-2.webp",
             "card_time_badge": "< 24 hrs",
             "card_heading": "Doctor Review",
             "card_check_text": "Doctor-approved pathway",
@@ -256,6 +256,27 @@
         "button_link": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/"
       }
     },
+    "myduke_cta_E6WbRb": {
+      "type": "myduke-cta",
+      "name": "CTA (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "visibility": "desktop",
+        "bg_image": "shopify://shop_images/myDuke-support-bg.jpg",
+        "bg_image_mobile": "shopify://shop_images/cta-bg-mob.webp",
+        "fallback_color": "#264653",
+        "eyebrow": "You're not alone",
+        "heading": "myduke® is for quitters",
+        "heading_tag": "h2",
+        "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
+        "button_label": "Get started",
+        "button_url": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
     "myduke_faq_eiGzkw": {
       "type": "myduke-faq",
       "blocks": {
@@ -340,11 +361,12 @@
         "margin_bottom": "l"
       }
     },
-    "myduke_cta_E6WbRb": {
+    "myduke_cta_zEYXyz": {
       "type": "myduke-cta",
       "name": "CTA (MyDuke)",
       "settings": {
         "color_scheme": "",
+        "visibility": "mobile",
         "bg_image": "shopify://shop_images/cta-bg.webp",
         "bg_image_mobile": "shopify://shop_images/cta-bg-mob.webp",
         "fallback_color": "#264653",
@@ -367,7 +389,8 @@
     "content_cards_myduke_Ct4eM8",
     "myduke_cost_calculator_gNtdKb",
     "myduke_guided_support_FMLM4X",
+    "myduke_cta_E6WbRb",
     "myduke_faq_eiGzkw",
-    "myduke_cta_E6WbRb"
+    "myduke_cta_zEYXyz"
   ]
 }

@@ -26,6 +26,18 @@
   pointer-events: none;
 }
 
+/* Gradient overlay */
+.myduke-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(102, 102, 102, 0.2) 27.95%);
+  pointer-events: none;
+}
+
 .myduke-hero>.page-width {
   position: relative;
   z-index: 2;
@@ -40,7 +52,7 @@
   font-size: 7.8rem;
   line-height: 110%;
   color: #ffffff;
-  margin-bottom: 2rem;
+  margin-bottom: 12px;
   font-weight: 400;
   letter-spacing: -2.34px;
 }
@@ -49,7 +61,7 @@
   font-size: 1.8rem;
   line-height: 140%;
   color: #ffffff;
-  margin-bottom: 4rem;
+  margin-bottom: 16px;
 }
 
 .myduke-hero__buttons {
@@ -62,13 +74,12 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 1.4rem 3.6rem;
+  padding: 9.5px;
   font-size: 1.4rem;
   font-weight: 500;
   text-decoration: none;
   border-radius: 2px;
   transition: opacity 0.3s ease, transform 0.2s ease;
-  min-width: 160px;
   border-radius: 0px;
 }
 
@@ -79,17 +90,31 @@
 
 .myduke-hero__btn--primary {
   background-color: #FEE0A6;
-  /* Yellow */
-  color: #000000;
+  color: #264653;
   border: 1px solid #FEE0A6;
+  min-width: 231px;
 }
 
 .myduke-hero__btn--secondary {
   background-color: #cbe0d7;
-  /* Pale green/grey */
   color: #218380;
   border: 1px solid #cbe0d7;
   font-weight: 600;
+  min-width: 158px;
+}
+
+@media (min-width: 750px) and (max-width: 1480px) {
+  .myduke-hero .myduke-hero__inner .myduke-hero__content {
+    max-width: 600px !important;
+  }
+
+  .myduke-hero .myduke-hero__heading {
+    font-size: 6.2rem !important;
+  }
+
+  .eligibility-step__options {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -102,19 +127,25 @@
     /* padding-bottom: 4rem; */
     padding: 180px 0px 12px 0px !important;
     background-image: var(--bg-mobile);
-    background-position: 0px -20px;
+    background-position: 0px 0px;
   }
 
   .myduke-hero__heading {
-    font-size: 3.6rem;
+    font-size: 46px;
   }
 
   .myduke-hero__description {
     font-size: 1.6rem;
+    margin-bottom: 32px;
+  }
+
+  .myduke-hero__buttons {
+    gap: 8px;
   }
 
   .myduke-hero__btn {
     width: 100%;
+    padding: 13.5px;
   }
 }
 
@@ -136,7 +167,7 @@
 
 .myduke-hero__inner--with-form .myduke-hero__content {
   flex: 0 0 auto;
-  max-width: 770px;
+  max-width: 772px;
 }
 
 .myduke-hero__form-col {

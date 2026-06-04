@@ -17,6 +17,8 @@
 .myduke-cc__header {
   border-bottom: 0.1rem solid #e0dacf;
   padding-bottom: 2.1rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -50,6 +52,8 @@
   display: flex;
   gap: 2.0rem;
   align-items: stretch;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
 }
 
 /* ── Single card ── */

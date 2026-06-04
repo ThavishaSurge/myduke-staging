@@ -130,7 +130,7 @@
 @media screen and (min-width: 1150px) {
   .footer .footer-contact-block__image {
     flex-direction: column;
-    max-width: 350px;
+    max-width: 450px;
     margin-top: 6px;
   }
 }
@@ -195,7 +195,7 @@
 
 @media screen and (min-width: 750px) {
   .footer .footer-menu-block {
-    max-width: 20rem;
+    max-width: 224px;
     padding: 0;
     border: none;
   }
@@ -203,7 +203,7 @@
 
 @media screen and (min-width: 1200px) {
   .footer .footer-menu-block {
-    max-width: 30.4rem;
+    max-width: 224px;
   }
 }
 
@@ -315,6 +315,14 @@
 
   .footer footer details[open] ul {
     animation: linksFadeIn var(--duration-default) ease-in forwards;
+  }
+
+  .footer .footer-block__heading {
+    font-weight: 600 !important;
+  }
+
+  .footer .footer-menu-block-list__item {
+    font-weight: 500 !important;
   }
 }
 
@@ -560,7 +568,7 @@
 
   /* ---- 3. Contact block (logo + desc) ---- */
   .footer .footer-contact-block {
-    gap: 1.6rem;
+    gap: 30px;
   }
 
   /* ---- 4. Hide accordion, show expanded desktop-style lists ---- */
