@@ -36,7 +36,7 @@
         "header_bg_color": "",
         "scrolled_bg_color": "#218380",
         "show_logo": true,
-        "logo": "shopify://shop_images/Logo_TM_black.png",
+        "logo": "shopify://shop_images/Logo-white.svg",
         "show_dm_logo_in_overlay_mode": true,
         "logo_position": "left-logo",
         "menu_position": "left-menu",
