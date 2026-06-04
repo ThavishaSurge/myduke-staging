@@ -12,18 +12,6 @@
   margin-right: auto;
 }
 
-/* ── Heading ── */
-.myduke-faq-page__heading {
-  font-family: var(--font-heading-family);
-  font-style: var(--font-heading-style);
-  font-weight: var(--font-heading-weight);
-  font-size: 4.8rem;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: #264653;
-  margin: 0;
-}
-
 /* ── Two-column content wrapper ── */
 .myduke-faq-page__content {
   display: grid;
@@ -36,6 +24,24 @@
   .myduke-faq-page__content {
     grid-template-columns: 1fr 40rem;
   }
+}
+
+/* ── FAQ column ── */
+.myduke-faq-page__faq-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.myduke-faq-page__faq-title {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #264653;
+  margin: 0;
 }
 
 /* ── FAQ list ── */
@@ -218,7 +224,7 @@
 
 /* ── Responsive: tablet ── */
 @media screen and (max-width: 989px) {
-  .myduke-faq-page__heading {
+  .myduke-faq-page__faq-title {
     font-size: 3.6rem;
   }
 
@@ -240,7 +246,10 @@
     padding-right: 1.2rem;
     gap: 2.4rem;
   }
-  .myduke-faq-page__heading {
+  .myduke-faq-page__faq-column {
+    gap: 2.4rem;
+  }
+  .myduke-faq-page__faq-title {
     font-size: 2.6rem;
   }
   .myduke-faq-page__content {
