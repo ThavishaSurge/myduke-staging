@@ -11,14 +11,98 @@
 .contact-form__wrapper {
   position: relative;
   flex: none;
-  width: min(92.4rem, 100%);
+  width: min(120rem, 100%);
   z-index: 3;
+}
+
+/* Two-column layout */
+.contact-form__content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4.8rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 990px) {
+  .contact-form__content-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-form__form-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .contact-form__form {
   width: 100%;
+}
+
+/* Contact Information Column */
+.contact-form__info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.contact-form__info-heading {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: rgb(var(--color-foreground));
+  margin: 0;
+}
+
+.contact-form__info-description {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  line-height: 1.6;
+  color: rgb(var(--color-foreground-secondary));
+  margin: 0;
+}
+
+.contact-form__info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.contact-form__info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-form__info-label {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: 600;
+  font-size: calc(var(--font-body-scale) * 1.2rem);
+  line-height: 1.4;
+  color: rgb(var(--color-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-form__info-value {
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: calc(var(--font-body-scale) * 1.6rem);
+  line-height: 1.5;
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+}
+
+.contact-form__info-value:hover {
+  color: rgb(var(--color-link));
+  text-decoration: underline;
 }
 .contact-form__title-form {
   margin: 0 0 1.2rem 0;
