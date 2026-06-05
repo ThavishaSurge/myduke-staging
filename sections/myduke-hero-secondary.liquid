@@ -9,11 +9,32 @@
     --overlay-opacity-desktop: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --overlay-color-mobile: {{ section.settings.overlay_color_mobile }};
     --overlay-opacity-mobile: {{ section.settings.overlay_opacity_mobile | divided_by: 100.0 }};
+    --height-desktop: {{ section.settings.height_desktop }}vh;
+    --height-mobile: {{ section.settings.height_mobile }}vh;
   "
 >
   <div class="page-width container">
     <div class="myduke-hero-secondary__inner{% if section.settings.enable_eligibility_form %} myduke-hero-secondary__inner--with-form{% endif %}">
       <div class="myduke-hero-secondary__content">
+        {%- if section.settings.enable_breadcrumbs -%}
+          <nav class="myduke-hero-secondary__breadcrumbs" aria-label="Breadcrumb">
+            <a
+              href="{{ section.settings.breadcrumb_parent_link | default: '/' }}"
+              class="myduke-hero-secondary__breadcrumb-link"
+            >
+              {{- section.settings.breadcrumb_parent_text | default: 'Home' -}}
+            </a>
+            <span class="myduke-hero-secondary__breadcrumb-sep" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="160,208 80,128 160,48" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="myduke-hero-secondary__breadcrumb-current" aria-current="page">
+              {{- section.settings.breadcrumb_current_text | default: 'About' -}}
+            </span>
+          </nav>
+        {%- endif -%}
+
         {%- if section.settings.heading != blank -%}
           <h1 class="myduke-hero-secondary__heading">{{ section.settings.heading }}</h1>
         {%- endif -%}
@@ -358,16 +379,74 @@
       "default": 0
     },
     {
+      "type": "header",
+      "content": "Section Height"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Min Height (Desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Min Height (Mobile)",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Breadcrumbs"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_breadcrumbs",
+      "label": "Show breadcrumbs",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "breadcrumb_parent_text",
+      "label": "Parent page label",
+      "default": "Home",
+      "visible_if": "{{ section.settings.enable_breadcrumbs }}"
+    },
+    {
+      "type": "url",
+      "id": "breadcrumb_parent_link",
+      "label": "Parent page link",
+      "visible_if": "{{ section.settings.enable_breadcrumbs }}"
+    },
+    {
+      "type": "text",
+      "id": "breadcrumb_current_text",
+      "label": "Current page label",
+      "default": "About",
+      "visible_if": "{{ section.settings.enable_breadcrumbs }}"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
       "type": "textarea",
       "id": "heading",
       "label": "Heading",
-      "default": "Clinical Support For\nNicotine Dependance"
+      "default": "Your Health Comes First"
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "myduke offers safe and clinically appropriate pathways for smoking cessation, supported by healthcare professionals every step of the way."
+      "default": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework."
     },
     {
       "type": "text",
