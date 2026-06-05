@@ -164,11 +164,45 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_vendor_logos_cjVNAy": {
+      "type": "myduke-vendor-logos",
+      "blocks": {
+        "vendor_LLmB6t": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        }
+      },
+      "block_order": [
+        "vendor_LLmB6t"
+      ],
+      "name": "Vendor Logos (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "heading": "By Brand",
+        "heading_tag": "h2",
+        "description": "Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware.",
+        "show_divider": true,
+        "shop_all_label": "Shop All Brands",
+        "shop_all_url": "",
+        "shop_all_new_tab": false,
+        "enable_slider": false,
+        "show_slider_nav": false,
+        "logos_per_row": 6,
+        "logo_height": 80,
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_popular_products_Xnyz3A",
-    "myduke_popular_products_btYrh9"
+    "myduke_popular_products_btYrh9",
+    "myduke_vendor_logos_cjVNAy"
   ]
 }
