@@ -173,10 +173,87 @@
           "settings": {
             "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
           }
+        },
+        "vendor_KnrVeR": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_B9yLNf": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_MkQXKx": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_x8fxne": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_DpjpG6": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_NUqtHM": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_VA3YRm": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_XYAagr": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_XXXHdn": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_bQabzM": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_V6hHXe": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
         }
       },
       "block_order": [
-        "vendor_LLmB6t"
+        "vendor_LLmB6t",
+        "vendor_KnrVeR",
+        "vendor_B9yLNf",
+        "vendor_MkQXKx",
+        "vendor_x8fxne",
+        "vendor_DpjpG6",
+        "vendor_NUqtHM",
+        "vendor_VA3YRm",
+        "vendor_XYAagr",
+        "vendor_XXXHdn",
+        "vendor_bQabzM",
+        "vendor_V6hHXe"
       ],
       "name": "Vendor Logos (MyDuke)",
       "settings": {
