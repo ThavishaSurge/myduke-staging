@@ -29,19 +29,51 @@
         "content_max_width": 526,
         "heading": "Your Health Comes First",
         "description": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.",
-        "button_1_text": "",
-        "button_1_link": "",
-        "button_2_text": "",
-        "button_2_link": "",
         "enable_eligibility_form": false,
         "elig_heading": "Am I Eligible?",
         "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
         "elig_assessment_link": "",
         "sign_in_link": ""
       }
+    },
+    "myduke_guided_support_FW8znb": {
+      "type": "myduke-guided-support",
+      "blocks": {
+        "card_K66yGR": {
+          "type": "card",
+          "settings": {
+            "icon_svg": "",
+            "title": "",
+            "list_items": "Following changes to Australia's nicotine regulations, many people who smoke have been required to navigate complex medical, pharmacy, and compliance processes when seeking support to quit. myduke® was developed to simplify this pathway while maintaining the safeguards required under Australian law.\n\nThe platform focuses on structured clinical review, transparency, and regulatory alignment, supporting informed decision-making in the context of smoking cessation."
+          }
+        },
+        "card_7p7dEe": {
+          "type": "card",
+          "settings": {
+            "icon_svg": "",
+            "title": "",
+            "list_items": "myduke® operates within Australia's public health framework, which prioritises harm reduction for adult smokers while limiting inappropriate access. The service is designed to support adults who are seeking alternatives to combustible cigarettes as part of a broader smoking cessation approach."
+          }
+        }
+      },
+      "block_order": [
+        "card_K66yGR",
+        "card_7p7dEe"
+      ],
+      "name": "Guided Support(MyDuke)",
+      "settings": {
+        "left_image": "shopify://shop_images/about-ourstory.webp",
+        "eyebrow": "Your Trusted Clinic",
+        "heading": "Guided, Compliant Support",
+        "li_icon_svg": "",
+        "flex_reverse": false,
+        "button_text": "Start Your Assessment",
+        "button_link": ""
+      }
     }
   },
   "order": [
-    "myduke_hero_secondary_7RhEwF"
+    "myduke_hero_secondary_7RhEwF",
+    "myduke_guided_support_FW8znb"
   ]
 }
