@@ -11,6 +11,7 @@
     --overlay-opacity-mobile: {{ section.settings.overlay_opacity_mobile | divided_by: 100.0 }};
     --height-desktop: {{ section.settings.height_desktop }}vh;
     --height-mobile: {{ section.settings.height_mobile }}vh;
+    --content-max-width: {{ section.settings.content_max_width }}px;
   "
 >
   <div class="page-width container">
@@ -435,6 +436,16 @@
     {
       "type": "header",
       "content": "Content"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content Max Width",
+      "min": 300,
+      "max": 1200,
+      "step": 2,
+      "unit": "px",
+      "default": 526
     },
     {
       "type": "textarea",

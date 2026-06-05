@@ -33,7 +33,7 @@
 }
 
 .myduke-hero-secondary__content {
-  max-width: 526px;
+  max-width: var(--content-max-width, 526px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
