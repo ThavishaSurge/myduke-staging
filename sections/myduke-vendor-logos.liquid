@@ -10,90 +10,97 @@
 {%- endstyle -%}
 
 {%- comment -%}
-  ┌──────────────────────────────────────────────────────────────────┐
-  │  myduke-vendor-logos.liquid                                      │
-  │                                                                  │
-  │  Displays vendor logos sourced from a "vendor" Metaobject.      │
-  │                                                                  │
-  │  Setup (one-time, in Shopify Admin):                             │
-  │  1. Admin → Content → Metaobjects → Add definition              │
-  │     • API handle: vendor                                         │
-  │     • Fields:                                                    │
-  │       – name  (Single line text)                                 │
-  │       – logo  (File – image)                                     │
-  │       – url   (URL, optional)                                    │
-  │  2. Add one entry per vendor and upload its logo.                │
-  │  3. Add this section to any page via the theme builder.          │
-  │     Each block = one vendor picked from the metaobject list.    │
-  └──────────────────────────────────────────────────────────────────┘
+  myduke-vendor-logos.liquid
+  Vendor logo grid / slider. Reads from "vendor" Metaobjects.
+  Setup: Admin → Content → Metaobjects → Add definition (API handle: vendor)
+  Fields: name (text), logo (file/image), url (url, optional)
 {%- endcomment -%}
 
 <div
   class="mdvl color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
   data-section-id="{{ section.id }}"
 >
+  <div class="container">
 
-  {%- comment -%} ── Section header ── {%- endcomment -%}
-  {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
-    <div class="mdvl__header container">
-      {%- if section.settings.subheading != blank -%}
-        <p class="mdvl__eyebrow">{{ section.settings.subheading }}</p>
+    {%- comment -%} ── Header row ── {%- endcomment -%}
+    <div class="mdvl__header">
+      <div class="mdvl__header-left">
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="mdvl__heading">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="mdvl__description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.shop_all_label != blank -%}
+        <div class="mdvl__header-right">
+          <a
+            href="{{ section.settings.shop_all_url | default: '#' }}"
+            class="mdvl__shop-all-btn"
+            {% if section.settings.shop_all_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+          >
+            {{- section.settings.shop_all_label -}}
+          </a>
+        </div>
       {%- endif -%}
-      <{{ section.settings.heading_tag }} class="mdvl__heading">
-        {{ section.settings.heading }}
-      </{{ section.settings.heading_tag }}>
     </div>
-  {%- endif -%}
 
-  {%- comment -%} ── Logo grid / slider ── {%- endcomment -%}
-  <div class="mdvl__wrapper container">
+    {%- comment -%} ── Divider ── {%- endcomment -%}
+    {%- if section.settings.show_divider -%}
+      <div class="mdvl__divider"></div>
+    {%- endif -%}
+
+    {%- comment -%} ── Logo grid / slider ── {%- endcomment -%}
     {%- liquid
-      assign enable_slider = section.settings.enable_slider
-      assign logo_height   = section.settings.logo_height
+      assign enable_slider  = section.settings.enable_slider
+      assign cols           = section.settings.logos_per_row | default: 6
+      assign logo_height    = section.settings.logo_height | default: 80
     -%}
 
     <div
       class="mdvl__track{% if enable_slider %} js-mdvl-slider swiper{% endif %}"
       {% if enable_slider %}
-        data-logos-per-row="{{ section.settings.logos_per_row }}"
-        data-space-between="40"
+        data-logos-per-row="{{ cols }}"
+        data-space-between="1"
       {% endif %}
     >
-      <div class="mdvl__list{% if enable_slider %} swiper-wrapper{% else %} mdvl__list--grid{% endif %}">
+      <div
+        class="mdvl__list mdvl__list--{{ cols }}{% if enable_slider %} swiper-wrapper{% else %} mdvl__list--grid{% endif %}"
+      >
 
         {%- for block in section.blocks -%}
-          {%- comment -%}
-            Each block references one "vendor" metaobject entry.
-            block.settings.vendor_ref returns the metaobject handle/reference.
-          {%- endcomment -%}
-
           {%- assign vendor_obj = block.settings.vendor_ref -%}
 
-          {%- if vendor_obj == blank -%}
-            {%- comment -%} Placeholder when no metaobject selected yet {%- endcomment -%}
-            <div class="mdvl__item{% if enable_slider %} swiper-slide{% endif %}" {{ block.shopify_attributes }}>
-              <div class="mdvl__logo-wrap mdvl__logo-wrap--placeholder" style="height: {{ logo_height }}px;">
+          <div
+            class="mdvl__item{% if enable_slider %} swiper-slide{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if vendor_obj == blank -%}
+              {%- comment -%} Placeholder ── no metaobject selected yet {%- endcomment -%}
+              <div class="mdvl__card" style="height: {{ logo_height }}px;">
                 <span class="mdvl__placeholder-text">Vendor Logo</span>
               </div>
-            </div>
-          {%- else -%}
-            {%- liquid
-              assign vendor_name = vendor_obj.name
-              assign vendor_logo = vendor_obj.logo
-              assign vendor_url  = vendor_obj.url
-            -%}
 
-            <div class="mdvl__item{% if enable_slider %} swiper-slide{% endif %}" {{ block.shopify_attributes }}>
+            {%- else -%}
+              {%- liquid
+                assign vendor_name = vendor_obj.name
+                assign vendor_logo = vendor_obj.logo
+                assign vendor_url  = vendor_obj.url
+              -%}
+
               {%- if vendor_url != blank -%}
                 <a
                   href="{{ vendor_url }}"
-                  class="mdvl__logo-wrap"
+                  class="mdvl__card"
                   style="height: {{ logo_height }}px;"
                   aria-label="{{ vendor_name }}"
-                  {% if section.settings.links_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+                  {% if section.settings.shop_all_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
                 >
               {%- else -%}
-                <div class="mdvl__logo-wrap" style="height: {{ logo_height }}px;" aria-label="{{ vendor_name }}">
+                <div class="mdvl__card" style="height: {{ logo_height }}px;" aria-label="{{ vendor_name }}">
               {%- endif -%}
 
                 {%- if vendor_logo != blank -%}
@@ -102,8 +109,8 @@
                     | image_url: width: 400
                     | image_tag:
                       loading: 'lazy',
-                      widths: '100, 150, 200, 300, 400',
-                      sizes: '(min-width: 990px) 10vw, (min-width: 576px) 20vw, 40vw',
+                      widths: '120, 200, 300, 400',
+                      sizes: '(min-width: 990px) 14vw, (min-width: 576px) 28vw, 45vw',
                       alt: vendor_name,
                       class: 'mdvl__logo-img'
                   }}
@@ -116,15 +123,15 @@
               {%- else -%}
                 </div>
               {%- endif -%}
-            </div>
-          {%- endif -%}
+            {%- endif -%}
+          </div>
 
         {%- else -%}
-          {%- comment -%} No blocks — show 6 generic placeholders {%- endcomment -%}
-          {%- for i in (1..6) -%}
+          {%- comment -%} No blocks yet — show placeholder grid {%- endcomment -%}
+          {%- for i in (1..cols) -%}
             <div class="mdvl__item{% if enable_slider %} swiper-slide{% endif %}">
-              <div class="mdvl__logo-wrap mdvl__logo-wrap--placeholder" style="height: {{ logo_height }}px;">
-                <span class="mdvl__placeholder-text">Vendor {{ forloop.index }}</span>
+              <div class="mdvl__card mdvl__card--placeholder" style="height: {{ logo_height }}px;">
+                <span class="mdvl__placeholder-text">Brand {{ forloop.index }}</span>
               </div>
             </div>
           {%- endfor -%}
@@ -132,7 +139,7 @@
 
       </div>
 
-      {%- comment -%} Slider nav ── {%- endcomment -%}
+      {%- comment -%} Optional slider nav ── {%- endcomment -%}
       {%- if enable_slider and section.settings.show_slider_nav -%}
         <div class="mdvl__nav">
           <button class="mdvl__nav-btn js-mdvl-prev" aria-label="Previous">
@@ -148,8 +155,8 @@
         </div>
       {%- endif -%}
     </div>
-  </div>
 
+  </div>
 </div>
 
 {% schema %}
@@ -169,17 +176,13 @@
     },
     {
       "type": "header",
-      "content": "Section heading"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Eyebrow / Subheading"
+      "content": "Heading"
     },
     {
       "type": "inline_richtext",
       "id": "heading",
-      "label": "Heading"
+      "label": "Heading",
+      "default": "By Brand"
     },
     {
       "type": "select",
@@ -197,6 +200,39 @@
       "label": "Heading tag"
     },
     {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "default": true,
+      "label": "Show divider below header"
+    },
+    {
+      "type": "header",
+      "content": "Shop All Button"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_label",
+      "label": "Button label",
+      "default": "Shop All Brands"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "shop_all_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
       "type": "header",
       "content": "Layout"
     },
@@ -204,12 +240,13 @@
       "type": "checkbox",
       "id": "enable_slider",
       "label": "Enable slider (horizontal scroll)",
-      "default": true
+      "default": false,
+      "info": "When off, logos wrap into multiple rows like the design."
     },
     {
       "type": "checkbox",
       "id": "show_slider_nav",
-      "label": "Show slider navigation arrows",
+      "label": "Show prev / next arrows",
       "default": false,
       "visible_if": "{{ section.settings.enable_slider == true }}"
     },
@@ -220,23 +257,17 @@
       "max": 10,
       "step": 1,
       "default": 6,
-      "label": "Logos visible per row (desktop)"
+      "label": "Logos per row (desktop)"
     },
     {
       "type": "range",
       "id": "logo_height",
-      "min": 30,
-      "max": 160,
-      "step": 5,
-      "default": 60,
+      "min": 40,
+      "max": 200,
+      "step": 4,
+      "default": 80,
       "unit": "px",
-      "label": "Logo container height"
-    },
-    {
-      "type": "checkbox",
-      "id": "links_blank",
-      "label": "Open vendor links in new tab",
-      "default": false
+      "label": "Card height"
     },
     {
       "type": "header",
@@ -323,12 +354,20 @@
       "name": "Vendor Logos (MyDuke)",
       "category": "Brand",
       "settings": {
-        "heading": "Our Brands",
-        "enable_slider": true,
+        "heading": "By Brand",
+        "description": "Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware.",
+        "shop_all_label": "Shop All Brands",
+        "enable_slider": false,
         "logos_per_row": 6,
-        "logo_height": 60
+        "logo_height": 80
       },
       "blocks": [
+        { "type": "vendor" },
+        { "type": "vendor" },
+        { "type": "vendor" },
+        { "type": "vendor" },
+        { "type": "vendor" },
+        { "type": "vendor" },
         { "type": "vendor" },
         { "type": "vendor" },
         { "type": "vendor" },
