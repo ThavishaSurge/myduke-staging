@@ -11,6 +11,7 @@
   "sections": {
     "page_info": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
