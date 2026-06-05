@@ -56,10 +56,10 @@
             "collection": "pods"
           }
         },
-        "collection_item_qn4Y9K": {
+        "collection_item_biVzaT": {
           "type": "collection_item",
           "settings": {
-            "collection": ""
+            "collection": "nicotine-base"
           }
         }
       },
@@ -70,7 +70,7 @@
         "collection_item_9JkJcH",
         "collection_item_wP8RW7",
         "collection_item_KxnbEW",
-        "collection_item_qn4Y9K"
+        "collection_item_biVzaT"
       ],
       "name": "Popular Products (MyDuke)",
       "settings": {
@@ -130,10 +130,10 @@
             "collection": "pods"
           }
         },
-        "collection_item_UkiAQp": {
+        "collection_item_w4MdBE": {
           "type": "collection_item",
           "settings": {
-            "collection": ""
+            "collection": "e-liquids"
           }
         }
       },
@@ -144,7 +144,7 @@
         "collection_item_UWn3D9",
         "collection_item_qzBp7R",
         "collection_item_LBhREq",
-        "collection_item_UkiAQp"
+        "collection_item_w4MdBE"
       ],
       "name": "Popular Products (MyDuke)",
       "settings": {
