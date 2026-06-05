@@ -9,186 +9,36 @@
  */
 {
   "sections": {
-    "hero_YYBhCt": {
-      "type": "hero",
-      "name": "t:sections.hero-section.name",
+    "myduke_hero_secondary_7RhEwF": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
       "settings": {
-        "heading_big": "Our Story",
-        "subheading": "",
-        "heading": "This section should introduce the topic in a compelling way that captures attention and motivates to keep reading.",
-        "heading_size": "h5",
-        "heading_tag": "h2",
-        "description": "Use this space to give more details about what’s being shown in the image—this could be product specifications, an event highlight, or an introduction to a collection.",
-        "vertical_alignment": "top",
-        "list_button_show": false,
-        "list_button_label": "About us",
-        "list_button_link": "",
-        "list_button_style": "tertiary",
-        "enable_animation": true,
-        "aspect_ratio_primary": "portrait",
-        "enable_parallax": true,
-        "animated_badge": true,
-        "aspect_ratio_secondary": "portrait",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "slideshow_YPR3t6": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_nPnDjd": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "",
-            "enable_image": true,
-            "show_video": false,
-            "overlay_opacity": 15,
-            "subheading": "",
-            "heading": "This is where you highlight key information",
-            "heading_size": "h2",
-            "heading_tag": "h2",
-            "description": "Use this space to describe what this slide presents, such as a product, offer, or important update.",
-            "card_overlay_link": "",
-            "show_button": false,
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style": "primary"
-          }
-        },
-        "slide_HgdpFB": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "",
-            "enable_image": true,
-            "show_video": false,
-            "overlay_opacity": 15,
-            "subheading": "",
-            "heading": "This is where you highlight key information",
-            "heading_size": "h2",
-            "heading_tag": "h2",
-            "description": "Use this space to describe what this slide presents, such as a product, offer, or important update.",
-            "card_overlay_link": "",
-            "show_button": false,
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style": "primary"
-          }
-        },
-        "slide_hbyxLE": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "",
-            "enable_image": true,
-            "show_video": false,
-            "overlay_opacity": 15,
-            "subheading": "",
-            "heading": "This is where you highlight key information",
-            "heading_size": "h2",
-            "heading_tag": "h2",
-            "description": "Use this space to describe what this slide presents, such as a product, offer, or important update.",
-            "card_overlay_link": "",
-            "show_button": false,
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "slide_nPnDjd",
-        "slide_HgdpFB",
-        "slide_hbyxLE"
-      ],
-      "name": "t:sections.slideshow.presets.name",
-      "settings": {
-        "layout": "overlay",
-        "full_width": true,
-        "subheading": "",
-        "heading": "Main focus",
-        "heading_font": "heading",
-        "heading_size": "h3",
-        "heading_tag": "h2",
-        "description": "Use this text to describe your products, explain your brand philosophy, or tell about your latest offerings.",
-        "image_ratio_desktop": "adapt",
-        "image_ratio_mobile": "adapt",
-        "vertical_alignment": "bottom",
-        "animation_type": "slide",
-        "enable_loop": true,
-        "enable_parallax": false,
-        "enable_pagination": true,
-        "enable_autoplay": false,
-        "enable_flowing_navigation": true,
-        "slide_duration": 5,
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "about_XHnhC8": {
-      "type": "about",
-      "name": "t:sections.about.name",
-      "settings": {
-        "heading": "Here can be your main title",
-        "subtitle": "Here can be a short introduction to your content",
-        "author_name": "<p>Author’s name</p>",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "steps_fdx4Cf": {
-      "type": "steps",
-      "blocks": {
-        "column_EEp8Mx": {
-          "type": "column",
-          "settings": {
-            "label": "Year",
-            "text": "Add a short description about this milestone, feature, or key information. Keep it concise and informative."
-          }
-        },
-        "column_H6NNe9": {
-          "type": "column",
-          "settings": {
-            "label": "Year",
-            "text": "Add a short description about this milestone, feature, or key information. Keep it concise and informative."
-          }
-        },
-        "column_tC8anC": {
-          "type": "column",
-          "settings": {
-            "label": "Year",
-            "text": "Add a short description about this milestone, feature, or key information. Keep it concise and informative."
-          }
-        },
-        "column_KxPF6i": {
-          "type": "column",
-          "settings": {
-            "label": "Year",
-            "text": "Add a short description about this milestone, feature, or key information. Keep it concise and informative."
-          }
-        }
-      },
-      "block_order": [
-        "column_EEp8Mx",
-        "column_H6NNe9",
-        "column_tC8anC",
-        "column_KxPF6i"
-      ],
-      "name": "t:sections.steps.name",
-      "settings": {
-        "heading": "A short phrase introducing your featured content",
-        "heading_size": "h3",
-        "heading_tag": "h3",
-        "side_heading": "Steps",
-        "aspect_ratio": "square",
-        "aspect_ratio_mobile": "square",
-        "margin_top": "no-indent",
-        "margin_bottom": "xl"
+        "background_image": "shopify://shop_images/cost-cal-bg.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "height_desktop": 90,
+        "height_mobile": 90,
+        "enable_breadcrumbs": true,
+        "breadcrumb_parent_text": "Home",
+        "breadcrumb_parent_link": "",
+        "breadcrumb_current_text": "About",
+        "heading": "Your Health Comes First",
+        "description": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_2_text": "",
+        "button_2_link": "",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
       }
     }
   },
   "order": [
-    "hero_YYBhCt",
-    "slideshow_YPR3t6",
-    "about_XHnhC8",
-    "steps_fdx4Cf"
+    "myduke_hero_secondary_7RhEwF"
   ]
 }
