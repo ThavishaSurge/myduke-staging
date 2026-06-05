@@ -261,6 +261,20 @@
   line-height: 1.4;
 }
 
+/* ── Product count badge ── */
+.mdpp__card-count {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 10px;
+  background-color: #f0f1f2;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
 /* ── Placeholder card ── */
 .mdpp__card--placeholder {
   cursor: default;

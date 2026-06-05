@@ -95,6 +95,12 @@
                 {%- endif -%}
               </div>
               <p class="mdpp__card-title">{{ collection.title }}</p>
+              {%- if section.settings.show_product_count -%}
+                <span class="mdpp__card-count">
+                  {{ collection.products_count }}
+                  {%- if section.settings.product_count_label != blank %} {{ section.settings.product_count_label }}{%- endif -%}
+                </span>
+              {%- endif -%}
             </a>
           </div>
 
@@ -107,6 +113,9 @@
                   {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
                 </div>
                 <p class="mdpp__card-title">Collection {{ forloop.index }}</p>
+                {%- if section.settings.show_product_count -%}
+                  <span class="mdpp__card-count">0 {{ section.settings.product_count_label }}</span>
+                {%- endif -%}
               </div>
             </div>
           {%- endfor -%}
@@ -199,6 +208,25 @@
       "type": "url",
       "id": "shop_all_url",
       "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Card"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Show product count",
+      "default": false,
+      "info": "Displays the number of products in the collection below the card title."
+    },
+    {
+      "type": "text",
+      "id": "product_count_label",
+      "label": "Product count label",
+      "default": "compatible products",
+      "info": "Appended after the count number. e.g. \"4 compatible products\"",
+      "visible_if": "{{ section.settings.show_product_count == true }}"
     },
     {
       "type": "header",
