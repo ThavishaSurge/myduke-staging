@@ -3,8 +3,8 @@
   width: 100%;
   min-height: var(--height-desktop, 60vh);
   background-image: var(--bg-desktop);
-  background-size: cover;
-  background-position: center;
+  background-size: 125.078% 153.794%;
+  background-position: top;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
