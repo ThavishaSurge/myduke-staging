@@ -11,6 +11,8 @@
     --overlay-opacity-mobile: {{ section.settings.overlay_opacity_mobile | divided_by: 100.0 }};
     --height-desktop: {{ section.settings.height_desktop }}vh;
     --height-mobile: {{ section.settings.height_mobile }}vh;
+    --content-max-width: {{ section.settings.content_max_width }}px;
+    --mobile-text-color: {% if section.settings.enable_mobile_colors %}{{ section.settings.mobile_text_color }}{% else %}#ffffff{% endif %};
   "
 >
   <div class="page-width container">
@@ -25,8 +27,15 @@
               {{- section.settings.breadcrumb_parent_text | default: 'Home' -}}
             </a>
             <span class="myduke-hero-secondary__breadcrumb-sep" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polyline points="160,208 80,128 160,48" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <g clip-path="url(#clip0_1070_8595)">
+                  <path d="M2.5 1.5L5 4L2.5 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_1070_8595">
+                    <rect width="8" height="8" fill="currentColor"/>
+                  </clipPath>
+                </defs>
               </svg>
             </span>
             <span class="myduke-hero-secondary__breadcrumb-current" aria-current="page">
@@ -43,25 +52,6 @@
           <div class="myduke-hero-secondary__description">{{ section.settings.description | newline_to_br }}</div>
         {%- endif -%}
 
-        <div class="myduke-hero-secondary__buttons">
-          {%- if section.settings.button_1_text != blank -%}
-            <a
-              href="{{ section.settings.button_1_link | default: '#' }}"
-              class="myduke-hero-secondary__btn myduke-hero-secondary__btn--primary"
-            >
-              {{ section.settings.button_1_text }}
-            </a>
-          {%- endif -%}
-
-          {%- if section.settings.button_2_text != blank -%}
-            <a
-              href="{{ section.settings.button_2_link | default: '#' }}"
-              class="myduke-hero-secondary__btn myduke-hero-secondary__btn--secondary"
-            >
-              {{ section.settings.button_2_text }}
-            </a>
-          {%- endif -%}
-        </div>
       </div>
 
       {%- if section.settings.enable_eligibility_form -%}
@@ -404,6 +394,24 @@
     },
     {
       "type": "header",
+      "content": "Mobile Colors"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_colors",
+      "label": "Use custom mobile font colors",
+      "default": false,
+      "info": "When enabled, text uses a separate color on mobile instead of inheriting the desktop color."
+    },
+    {
+      "type": "color",
+      "id": "mobile_text_color",
+      "label": "Text color (mobile)",
+      "default": "#264653",
+      "visible_if": "{{ section.settings.enable_mobile_colors }}"
+    },
+    {
+      "type": "header",
       "content": "Breadcrumbs"
     },
     {
@@ -437,6 +445,12 @@
       "content": "Content"
     },
     {
+      "type": "number",
+      "id": "content_max_width",
+      "label": "Content Max Width (px)",
+      "default": 526
+    },
+    {
       "type": "textarea",
       "id": "heading",
       "label": "Heading",
@@ -447,28 +461,6 @@
       "id": "description",
       "label": "Description",
       "default": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework."
-    },
-    {
-      "type": "text",
-      "id": "button_1_text",
-      "label": "Primary Button Text",
-      "default": "Apply For A Prescription"
-    },
-    {
-      "type": "url",
-      "id": "button_1_link",
-      "label": "Primary Button Link"
-    },
-    {
-      "type": "text",
-      "id": "button_2_text",
-      "label": "Secondary Button Text",
-      "default": "How It Works"
-    },
-    {
-      "type": "url",
-      "id": "button_2_link",
-      "label": "Secondary Button Link"
     },
     {
       "type": "header",
