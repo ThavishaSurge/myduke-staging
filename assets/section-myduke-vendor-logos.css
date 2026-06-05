@@ -1,0 +1,173 @@
+/* ============================================================
+   section-myduke-vendor-logos.css
+   Styles for myduke-vendor-logos.liquid (.mdvl namespace)
+   ============================================================ */
+
+/* ── Variables ── */
+.mdvl {
+  --mdvl-gap: 24px;
+  --mdvl-logo-radius: 6px;
+  --mdvl-placeholder-bg: #f3f4f6;
+  --mdvl-placeholder-border: #e5e7eb;
+}
+
+@media (min-width: 576px) {
+  .mdvl {
+    --mdvl-gap: 32px;
+  }
+}
+
+@media (min-width: 990px) {
+  .mdvl {
+    --mdvl-gap: 48px;
+  }
+}
+
+/* ── Header ── */
+.mdvl__header {
+  margin-bottom: 32px;
+}
+
+.mdvl__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-foreground, #6b7280);
+  margin: 0 0 6px;
+}
+
+.mdvl__heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-foreground, #111827);
+}
+
+/* ── Wrapper / Track ── */
+.mdvl__wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.mdvl__track {
+  width: 100%;
+}
+
+.mdvl__track.swiper {
+  overflow: visible;
+}
+
+/* ── List ── */
+.mdvl__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mdvl__list--grid {
+  flex-wrap: wrap;
+  gap: var(--mdvl-gap);
+  justify-content: center;
+}
+
+.mdvl__list.swiper-wrapper {
+  box-sizing: border-box;
+  align-items: center;
+}
+
+/* ── Item ── */
+.mdvl__item {
+  flex-shrink: 0;
+}
+
+.mdvl__item.swiper-slide {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Logo container ── */
+.mdvl__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.mdvl__logo-wrap:hover {
+  opacity: 0.7;
+}
+
+/* ── Logo image ── */
+.mdvl__logo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: 140px;
+}
+
+/* ── Fallback vendor name ── */
+.mdvl__fallback-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-foreground, #374151);
+  text-align: center;
+}
+
+/* ── Placeholder ── */
+.mdvl__logo-wrap--placeholder {
+  background-color: var(--mdvl-placeholder-bg);
+  border: 1px dashed var(--mdvl-placeholder-border);
+  border-radius: var(--mdvl-logo-radius);
+  min-width: 100px;
+}
+
+.mdvl__placeholder-text {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* ── Slider nav ── */
+.mdvl__nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.mdvl__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-foreground, #111827);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.mdvl__nav-btn:hover {
+  background: var(--color-foreground, #111827);
+  border-color: var(--color-foreground, #111827);
+  color: var(--color-background, #ffffff);
+}
+
+.mdvl__nav-btn.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
