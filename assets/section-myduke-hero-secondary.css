@@ -153,18 +153,28 @@
 
   .myduke-hero-secondary {
     min-height: var(--height-mobile, 60vh);
-    padding: 180px 0px 12px 0px !important;
+    padding: 180px 0px 50px 0px !important;
     background-image: var(--bg-mobile);
     background-position: 0px -20px;
+    justify-content: flex-end;
   }
 
   .myduke-hero-secondary__heading {
-    font-size: 4rem;
-    letter-spacing: -1.2px;
+    font-size: 5.2rem;
+    line-height: 0.94;
+    letter-spacing: -2.34px;
+    color: var(--mobile-text-color, #ffffff);
   }
 
   .myduke-hero-secondary__description {
     font-size: 1.6rem;
+    color: var(--mobile-text-color, #ffffff);
+  }
+
+  .myduke-hero-secondary__breadcrumb-link,
+  .myduke-hero-secondary__breadcrumb-current,
+  .myduke-hero-secondary__breadcrumb-sep {
+    color: var(--mobile-text-color, #ffffff);
   }
 
   .myduke-hero-secondary__btn {
