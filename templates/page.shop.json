@@ -16,9 +16,159 @@
         "heading_tag": "h1",
         "content_align": "left"
       }
+    },
+    "myduke_popular_products_Xnyz3A": {
+      "type": "myduke-popular-products",
+      "blocks": {
+        "collection_item_kFPUJH": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_HUrjj6": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "collection_item_nem7Nm": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods"
+          }
+        },
+        "collection_item_9JkJcH": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_wP8RW7": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "nicotine-base"
+          }
+        },
+        "collection_item_KxnbEW": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods"
+          }
+        },
+        "collection_item_qn4Y9K": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_kFPUJH",
+        "collection_item_HUrjj6",
+        "collection_item_nem7Nm",
+        "collection_item_9JkJcH",
+        "collection_item_wP8RW7",
+        "collection_item_KxnbEW",
+        "collection_item_qn4Y9K"
+      ],
+      "name": "Popular Products (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "heading": "By Product Type",
+        "heading_tag": "h2",
+        "show_divider": true,
+        "shop_all_label": "Shop All Products",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_popular_products_btYrh9": {
+      "type": "myduke-popular-products",
+      "blocks": {
+        "collection_item_7xnjT4": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_whHYaB": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "collection_item_jxhnHA": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods"
+          }
+        },
+        "collection_item_UWn3D9": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_qzBp7R": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "nicotine-base"
+          }
+        },
+        "collection_item_LBhREq": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods"
+          }
+        },
+        "collection_item_UkiAQp": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_7xnjT4",
+        "collection_item_whHYaB",
+        "collection_item_jxhnHA",
+        "collection_item_UWn3D9",
+        "collection_item_qzBp7R",
+        "collection_item_LBhREq",
+        "collection_item_UkiAQp"
+      ],
+      "name": "Popular Products (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "heading": "By Device Compatibility",
+        "heading_tag": "h2",
+        "show_divider": true,
+        "shop_all_label": "Shop All Devices",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
-    "page_info"
+    "page_info",
+    "myduke_popular_products_Xnyz3A",
+    "myduke_popular_products_btYrh9"
   ]
 }
