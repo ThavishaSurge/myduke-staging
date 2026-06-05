@@ -52,25 +52,6 @@
           <div class="myduke-hero-secondary__description">{{ section.settings.description | newline_to_br }}</div>
         {%- endif -%}
 
-        <div class="myduke-hero-secondary__buttons">
-          {%- if section.settings.button_1_text != blank -%}
-            <a
-              href="{{ section.settings.button_1_link | default: '#' }}"
-              class="myduke-hero-secondary__btn myduke-hero-secondary__btn--primary"
-            >
-              {{ section.settings.button_1_text }}
-            </a>
-          {%- endif -%}
-
-          {%- if section.settings.button_2_text != blank -%}
-            <a
-              href="{{ section.settings.button_2_link | default: '#' }}"
-              class="myduke-hero-secondary__btn myduke-hero-secondary__btn--secondary"
-            >
-              {{ section.settings.button_2_text }}
-            </a>
-          {%- endif -%}
-        </div>
       </div>
 
       {%- if section.settings.enable_eligibility_form -%}
@@ -480,28 +461,6 @@
       "id": "description",
       "label": "Description",
       "default": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework."
-    },
-    {
-      "type": "text",
-      "id": "button_1_text",
-      "label": "Primary Button Text",
-      "default": "Apply For A Prescription"
-    },
-    {
-      "type": "url",
-      "id": "button_1_link",
-      "label": "Primary Button Link"
-    },
-    {
-      "type": "text",
-      "id": "button_2_text",
-      "label": "Secondary Button Text",
-      "default": "How It Works"
-    },
-    {
-      "type": "url",
-      "id": "button_2_link",
-      "label": "Secondary Button Link"
     },
     {
       "type": "header",
