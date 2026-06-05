@@ -1,0 +1,234 @@
+/* ============================================================
+   section-myduke-vendor-logos.css
+   Styles for myduke-vendor-logos.liquid (.mdvl namespace)
+   Matches design: grey card tiles in a tight grid, header with
+   heading + description left / Shop All button right.
+   ============================================================ */
+
+/* ── Section wrapper ── */
+.mdvl {
+  --mdvl-card-bg: #f5f6f7;
+  --mdvl-card-border: #e8e9ea;
+  --mdvl-card-radius: 6px;
+  --mdvl-btn-bg: #1a6b6b;
+  --mdvl-btn-color: #ffffff;
+  --mdvl-divider-color: #e5e7eb;
+  --mdvl-heading-color: #0d2b36;
+  --mdvl-desc-color: #4b5563;
+}
+
+/* ── Header row ── */
+.mdvl__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 20px;
+}
+
+.mdvl__header-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mdvl__heading {
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--mdvl-heading-color);
+}
+
+.mdvl__description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--mdvl-desc-color);
+  margin: 0;
+  max-width: 400px;
+}
+
+/* ── Shop All button ── */
+.mdvl__header-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4px;
+}
+
+.mdvl__shop-all-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  background-color: var(--mdvl-btn-bg);
+  color: var(--mdvl-btn-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.mdvl__shop-all-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* ── Divider ── */
+.mdvl__divider {
+  height: 1px;
+  background-color: var(--mdvl-divider-color);
+  margin-bottom: 0;
+}
+
+/* ── Wrapper / Track ── */
+.mdvl__track {
+  width: 100%;
+}
+
+.mdvl__track.swiper {
+  overflow: visible;
+}
+
+/* ── Grid list ── */
+.mdvl__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Grid mode: cards sit flush together with 1px gaps between them
+  achieved with a 1px gap. The card itself has a 1px border so
+  adjacent borders overlap cleanly.
+*/
+.mdvl__list--grid {
+  flex-wrap: wrap;
+  gap: 1px;
+  background-color: var(--mdvl-card-border); /* gap colour shows as lines */
+}
+
+.mdvl__list.swiper-wrapper {
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+/* ── Column width helpers (grid mode) ── */
+/* Mobile: 2 cols always */
+.mdvl__list--grid .mdvl__item {
+  width: calc(50% - 0.5px);
+}
+
+/* 3-col breakpoint for medium screens */
+@media (min-width: 576px) {
+  .mdvl__list--3.mdvl__list--grid .mdvl__item,
+  .mdvl__list--4.mdvl__list--grid .mdvl__item,
+  .mdvl__list--5.mdvl__list--grid .mdvl__item,
+  .mdvl__list--6.mdvl__list--grid .mdvl__item,
+  .mdvl__list--7.mdvl__list--grid .mdvl__item,
+  .mdvl__list--8.mdvl__list--grid .mdvl__item {
+    width: calc(33.333% - 0.667px);
+  }
+}
+
+/* Full column count on desktop */
+@media (min-width: 990px) {
+  .mdvl__list--2.mdvl__list--grid .mdvl__item  { width: calc(50% - 0.5px); }
+  .mdvl__list--3.mdvl__list--grid .mdvl__item  { width: calc(33.333% - 0.667px); }
+  .mdvl__list--4.mdvl__list--grid .mdvl__item  { width: calc(25% - 0.75px); }
+  .mdvl__list--5.mdvl__list--grid .mdvl__item  { width: calc(20% - 0.8px); }
+  .mdvl__list--6.mdvl__list--grid .mdvl__item  { width: calc(16.666% - 0.833px); }
+  .mdvl__list--7.mdvl__list--grid .mdvl__item  { width: calc(14.285% - 0.857px); }
+  .mdvl__list--8.mdvl__list--grid .mdvl__item  { width: calc(12.5% - 0.875px); }
+}
+
+/* ── Item ── */
+.mdvl__item {
+  flex-shrink: 0;
+}
+
+.mdvl__item.swiper-slide {
+  height: auto;
+}
+
+/* ── Card tile ── */
+.mdvl__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--mdvl-card-bg);
+  text-decoration: none;
+  color: inherit;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+a.mdvl__card:hover {
+  background-color: #eceef0;
+}
+
+/* ── Logo image ── */
+.mdvl__logo-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ── Fallback text when no logo uploaded ── */
+.mdvl__fallback-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--mdvl-heading-color);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* ── Placeholder card (no block content yet) ── */
+.mdvl__card--placeholder .mdvl__placeholder-text {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* ── Slider nav ── */
+.mdvl__nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.mdvl__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--mdvl-divider-color);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: var(--mdvl-heading-color);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.mdvl__nav-btn:hover {
+  background: var(--mdvl-heading-color);
+  border-color: var(--mdvl-heading-color);
+  color: #ffffff;
+}
+
+.mdvl__nav-btn.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
