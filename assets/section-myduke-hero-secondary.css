@@ -1,7 +1,7 @@
 .myduke-hero-secondary {
   position: relative;
   width: 100%;
-  min-height: 60vh;
+  min-height: var(--height-desktop, 60vh);
   background-image: var(--bg-desktop);
   background-size: cover;
   background-position: center;
@@ -35,6 +35,35 @@
 
 .myduke-hero-secondary__content {
   max-width: 700px;
+}
+
+.myduke-hero-secondary__breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.myduke-hero-secondary__breadcrumb-link {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.myduke-hero-secondary__breadcrumb-link:hover {
+  color: #ffffff;
+}
+
+.myduke-hero-secondary__breadcrumb-sep {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.myduke-hero-secondary__breadcrumb-current {
+  font-size: 1.4rem;
+  color: #ffffff;
 }
 
 .myduke-hero-secondary__heading {
@@ -101,8 +130,7 @@
   }
 
   .myduke-hero-secondary {
-    /* min-height: 600px; */
-    /* padding-bottom: 4rem; */
+    min-height: var(--height-mobile, 60vh);
     padding: 180px 0px 12px 0px !important;
     background-image: var(--bg-mobile);
     background-position: 0px -20px;

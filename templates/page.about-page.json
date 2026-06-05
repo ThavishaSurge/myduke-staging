@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "myduke_hero_secondary_7RhEwF": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/cost-cal-bg.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "height_desktop": 90,
+        "height_mobile": 90,
+        "enable_breadcrumbs": true,
+        "breadcrumb_parent_text": "Home",
+        "breadcrumb_parent_link": "",
+        "breadcrumb_current_text": "About",
+        "heading": "Your Health Comes First",
+        "description": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_2_text": "",
+        "button_2_link": "",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
+    }
+  },
+  "order": [
+    "myduke_hero_secondary_7RhEwF"
+  ]
+}
