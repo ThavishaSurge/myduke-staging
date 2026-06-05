@@ -18,6 +18,33 @@
         "content_align": "left"
       }
     },
+    "myduke_hero_secondary_hYDajq": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/image_8_1.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "height_desktop": 60,
+        "height_mobile": 60,
+        "enable_mobile_colors": false,
+        "mobile_text_color": "#264653",
+        "enable_breadcrumbs": true,
+        "breadcrumb_parent_text": "Home",
+        "breadcrumb_parent_link": "",
+        "breadcrumb_current_text": "Shop",
+        "content_max_width": 340,
+        "heading": "Myduke Pharmacy",
+        "description": "TGA-approved, pharmacy dispensed products shipped Australia-wide.",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
+    },
     "myduke_popular_products_Xnyz3A": {
       "type": "myduke-popular-products",
       "blocks": {
@@ -283,6 +310,7 @@
   },
   "order": [
     "page_info",
+    "myduke_hero_secondary_hYDajq",
     "myduke_popular_products_Xnyz3A",
     "myduke_popular_products_btYrh9",
     "myduke_vendor_logos_cjVNAy"
