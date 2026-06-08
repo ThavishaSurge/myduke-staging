@@ -27,7 +27,7 @@
         "overlay_color": "#000000",
         "overlay_opacity": 10,
         "overlay_color_mobile": "#000000",
-        "overlay_opacity_mobile": 10,
+        "overlay_opacity_mobile": 20,
         "height_desktop": 60,
         "height_mobile": 60,
         "enable_mobile_colors": false,
