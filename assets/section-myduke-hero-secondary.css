@@ -148,6 +148,11 @@
     color: var(--mobile-text-color, #ffffff);
   }
 
+  .myduke-hero-secondary__description p{
+    font-size: 1.6rem;
+    color: var(--mobile-text-color, #ffffff);
+  }
+
   .myduke-hero-secondary__breadcrumb-link,
   .myduke-hero-secondary__breadcrumb-current,
   .myduke-hero-secondary__breadcrumb-sep {
