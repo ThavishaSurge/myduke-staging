@@ -7,27 +7,19 @@
 /* ── Variables ── */
 .mdpp {
   --mdpp-gap: 12px;
-  --mdpp-card-radius: 8px;
-  --mdpp-card-img-ratio: 1 / 1;       /* square by default */
+  --mdpp-card-radius: 0px;
+  --mdpp-card-img-ratio: 1 / 1;
+  /* square by default */
   --mdpp-heading-size: 1.5rem;
   --mdpp-title-size: 0.875rem;
-  --mdpp-btn-bg: #00897b;             /* teal – matches design */
+  --mdpp-btn-bg: #218380;
+  ;
+  ;
+  /* teal – matches design */
   --mdpp-btn-color: #ffffff;
-  --mdpp-btn-radius: 4px;
-  --mdpp-divider-color: #e5e7eb;
+  --mdpp-btn-radius: 0px;
+  --mdpp-divider-color: #E0DACF;
   overflow: hidden;
-}
-
-@media (min-width: 576px) {
-  .mdpp {
-    --mdpp-gap: 16px;
-  }
-}
-
-@media (min-width: 990px) {
-  .mdpp {
-    --mdpp-gap: 24px;
-  }
 }
 
 /* ── Header ── */
@@ -36,7 +28,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-bottom: 16px;
+  padding: 0px 40px 20px 40px;
 }
 
 .mdpp__header-left {
@@ -55,8 +47,8 @@
 }
 
 .mdpp__heading {
-  font-size: var(--mdpp-heading-size);
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 400;
   line-height: 1.2;
   margin: 0;
   color: var(--color-foreground, #111827);
@@ -64,18 +56,15 @@
 
 /* ── Shop All button ── */
 .mdpp__shop-all-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 20px;
-  background-color: var(--mdpp-btn-bg);
-  color: var(--mdpp-btn-color);
-  font-size: 0.875rem;
-  font-weight: 600;
-  border-radius: var(--mdpp-btn-radius);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 0;
+  border: none;
+  padding: 9.5px;
+  min-width: 189px;
+  text-align: center;
+  margin: auto;
+  display: block;
 }
 
 .mdpp__shop-all-btn:hover {
@@ -87,7 +76,7 @@
 .mdpp__divider {
   height: 1px;
   background-color: var(--mdpp-divider-color);
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 }
 
 /* ── Wrapper / Track ── */
@@ -132,6 +121,7 @@
 .mdpp__list--3.mdpp__list--grid .mdpp__item {
   width: calc((100% - var(--mdpp-gap)) / 2);
 }
+
 @media (min-width: 990px) {
   .mdpp__list--3.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 2) / 3);
@@ -142,6 +132,7 @@
 .mdpp__list--4.mdpp__list--grid .mdpp__item {
   width: calc((100% - var(--mdpp-gap)) / 2);
 }
+
 @media (min-width: 990px) {
   .mdpp__list--4.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 3) / 4);
@@ -152,11 +143,13 @@
 .mdpp__list--5.mdpp__list--grid .mdpp__item {
   width: calc((100% - var(--mdpp-gap)) / 2);
 }
+
 @media (min-width: 990px) {
   .mdpp__list--5.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 2) / 3);
   }
 }
+
 @media (min-width: 1200px) {
   .mdpp__list--5.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 4) / 5);
@@ -167,11 +160,13 @@
 .mdpp__list--6.mdpp__list--grid .mdpp__item {
   width: calc((100% - var(--mdpp-gap)) / 2);
 }
+
 @media (min-width: 576px) {
   .mdpp__list--6.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 2) / 3);
   }
 }
+
 @media (min-width: 1200px) {
   .mdpp__list--6.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 5) / 6);
@@ -182,11 +177,13 @@
 .mdpp__list--7.mdpp__list--grid .mdpp__item {
   width: calc((100% - var(--mdpp-gap)) / 2);
 }
+
 @media (min-width: 576px) {
   .mdpp__list--7.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 2) / 3);
   }
 }
+
 @media (min-width: 1360px) {
   .mdpp__list--7.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 6) / 7);
@@ -197,11 +194,13 @@
 .mdpp__list--8.mdpp__list--grid .mdpp__item {
   width: calc((100% - var(--mdpp-gap)) / 2);
 }
+
 @media (min-width: 576px) {
   .mdpp__list--8.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 3) / 4);
   }
 }
+
 @media (min-width: 1360px) {
   .mdpp__list--8.mdpp__list--grid .mdpp__item {
     width: calc((100% - var(--mdpp-gap) * 7) / 8);
