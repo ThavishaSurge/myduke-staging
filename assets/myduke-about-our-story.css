@@ -165,8 +165,12 @@
   }
 
   .myduke-about-our-story__content {
-    padding: 3.2rem 1.2rem;
-    gap: 3.2rem;
+    padding: 0rem 1.2rem 3.2rem 1.2rem;
+    gap: 3.2rem!important;
+  }
+
+  .myduke-about-our-story__heading-group {
+    gap: 1.6rem;
   }
 
   .myduke-about-our-story__inner.reverse .myduke-about-our-story__content {
