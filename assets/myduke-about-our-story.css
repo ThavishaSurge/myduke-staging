@@ -1,13 +1,12 @@
 .myduke-about-our-story {
   background: #ffffff;
-  padding: 2.4rem;
+  padding: 2.4rem 2.4rem 0rem 2.4rem;
 }
 
 .myduke-about-our-story__inner {
   display: flex;
   gap: 6.4rem;
   align-items: center;
-  background: #f7f8f8;
   overflow: hidden;
 }
 
