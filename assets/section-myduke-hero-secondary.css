@@ -104,6 +104,14 @@
   text-align: center;
 }
 
+.myduke-hero-secondary__description p{
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: #ffffff!important;
+  margin-bottom: 0;
+  text-align: center;
+}
+
 
 @media screen and (max-width: 749px) {
 
