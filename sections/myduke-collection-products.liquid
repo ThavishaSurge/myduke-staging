@@ -11,6 +11,8 @@
     assign col = collections[src_collection]
   endif
   assign cols        = section.settings.columns_per_row | default: 4
+  assign cols_tablet = section.settings.columns_per_row_tablet | default: 2
+  assign cols_mobile = section.settings.columns_per_row_mobile | default: 1
   assign limit       = section.settings.products_per_page | default: 24
   assign sort_by     = section.settings.sort_by | default: 'manual'
 -%}
@@ -18,7 +20,7 @@
 <div
   class="mdcp color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
   data-section-id="{{ section.id }}"
-  style="--mdcp-cols: {{ cols }};"
+  style="--mdcp-cols-desktop: {{ cols }}; --mdcp-cols-tablet: {{ cols_tablet }}; --mdcp-cols-mobile: {{ cols_mobile }};"
 >
   <div class="container">
 
@@ -228,11 +230,29 @@
     {
       "type": "range",
       "id": "columns_per_row",
-      "min": 2,
+      "min": 1,
       "max": 6,
       "step": 1,
       "default": 4,
       "label": "Columns per row (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "columns_per_row_tablet",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2,
+      "label": "Columns per row (tablet)"
+    },
+    {
+      "type": "range",
+      "id": "columns_per_row_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1,
+      "label": "Columns per row (mobile)"
     },
     {
       "type": "text",

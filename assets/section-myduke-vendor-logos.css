@@ -273,4 +273,8 @@ a.mdvl__card:hover {
   .mdvl__description {
     font-size: 16px;
   }
+
+  .mdvl__header-right {
+    align-self: start;
+  }
 }
