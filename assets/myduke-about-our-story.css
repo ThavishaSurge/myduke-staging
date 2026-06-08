@@ -1,3 +1,9 @@
+@media screen and (min-width: 990px) {
+  .myduke-about-our-story__inner {
+    max-height: 73.7rem;
+  }
+}
+
 .myduke-about-our-story {
   background: #ffffff;
   padding: 2.4rem 2.4rem 0rem 2.4rem;
@@ -113,7 +119,7 @@
 }
 
 /* ── Tablet ─────────────────────────────────────────── */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 990px) {
   .myduke-about-our-story__inner {
     flex-direction: column;
     gap: 0;
