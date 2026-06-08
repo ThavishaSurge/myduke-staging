@@ -83,10 +83,38 @@
             "duration": "Months 1-2",
             "color_scheme": "olive"
           }
+        },
+        "phase_6wx9zw": {
+          "type": "phase",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/path-zero-phase-2.svg",
+            "title": "Managed Reduction",
+            "phase_number": "2",
+            "subtitle": "Gradually lower your nicotine over time",
+            "list_items": "Evidence-based tapering protocol\nPersonalised step-down intervals\nRegular clinical checkpoints",
+            "duration": "Months 3-5",
+            "color_scheme": "fern"
+          }
+        },
+        "phase_zUt74G": {
+          "type": "phase",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/path-zero-phase-3_d69163ae-6785-4cbd-b4f8-683ea9cb0479.svg",
+            "title": "Therapeutic Freedom",
+            "phase_number": "3",
+            "subtitle": "Complete cessation of nicotine use",
+            "list_items": "Physical dependence systematically reduced\nBehavioural patterns addressed\nOngoing support available",
+            "duration": "Month 6+",
+            "color_scheme": "sage"
+          }
         }
       },
       "block_order": [
-        "phase_EPfzGz"
+        "phase_EPfzGz",
+        "phase_6wx9zw",
+        "phase_zUt74G"
       ],
       "name": "Path to Zero (About)",
       "settings": {
