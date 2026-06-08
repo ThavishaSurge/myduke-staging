@@ -13,8 +13,6 @@
   --mdpp-heading-size: 1.5rem;
   --mdpp-title-size: 0.875rem;
   --mdpp-btn-bg: #218380;
-  ;
-  ;
   /* teal – matches design */
   --mdpp-btn-color: #ffffff;
   --mdpp-btn-radius: 0px;
@@ -329,6 +327,7 @@
   .mdpp__header {
     flex-direction: column !important;
     justify-content: start !important;
+    align-items: start !important;
   }
 
   .mdpp__heading {
