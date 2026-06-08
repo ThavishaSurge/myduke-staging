@@ -129,6 +129,7 @@
           "type": "badge",
           "settings": {
             "icon_svg": "",
+            "icon": "shopify://shop_images/Doctor-Visit.svg",
             "label": "AHPRA-Registered Doctors"
           }
         },
@@ -136,6 +137,7 @@
           "type": "badge",
           "settings": {
             "icon_svg": "",
+            "icon": "shopify://shop_images/Technology-Privacy-Consent.svg",
             "label": "TGA-Compliant Framework"
           }
         },
@@ -143,6 +145,7 @@
           "type": "badge",
           "settings": {
             "icon_svg": "",
+            "icon": "shopify://shop_images/Medical-File.svg",
             "label": "Secure Medical Data"
           }
         },
@@ -150,6 +153,7 @@
           "type": "badge",
           "settings": {
             "icon_svg": "",
+            "icon": "shopify://shop_images/Aus-owned.svg",
             "label": "Australian Owned & Operated"
           }
         },
