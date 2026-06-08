@@ -170,7 +170,7 @@
 /* ── Responsive columns ── */
 @media (max-width: 989px) {
   .mdcp {
-    --mdcp-cols: 2;
+    --mdcp-cols: var(--mdcp-cols-tablet, 2);
   }
 
   .mdcp__heading {
@@ -182,6 +182,7 @@
   .mdcp {
     padding: 40px 0px !important;
     --mdcp-gap: 16px;
+    --mdcp-cols: var(--mdcp-cols-mobile, 1);
   }
 
   .mdcp__header {
