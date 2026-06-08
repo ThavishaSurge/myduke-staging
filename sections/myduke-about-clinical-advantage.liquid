@@ -1,0 +1,265 @@
+{{ 'myduke-about-clinical-advantage.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="myduke-clinical-advantage"
+  data-section-id="{{ section.id }}"
+>
+  <div class="myduke-clinical-advantage__inner">
+
+    {%- comment -%} ── Left: eyebrow / heading / description ── {%- endcomment -%}
+    <div class="myduke-clinical-advantage__heading-group">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="myduke-clinical-advantage__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="myduke-clinical-advantage__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="myduke-clinical-advantage__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ── Left: badge pills ── {%- endcomment -%}
+    {%- assign has_badges = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'badge' -%}{%- assign has_badges = true -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if has_badges -%}
+      <div class="myduke-clinical-advantage__badges">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'badge' -%}
+            <div class="myduke-clinical-advantage__badge" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon_svg != blank or block.settings.icon != blank -%}
+                <span class="myduke-clinical-advantage__badge-icon">
+                  {%- if block.settings.icon_svg != blank -%}
+                    {{ block.settings.icon_svg }}
+                  {%- elsif block.settings.icon != blank -%}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 52 }}"
+                      alt=""
+                      width="{{ block.settings.icon.width }}"
+                      height="{{ block.settings.icon.height }}"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </span>
+              {%- endif -%}
+              {%- if block.settings.label != blank -%}
+                <span class="myduke-clinical-advantage__badge-label">{{ block.settings.label }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Left: CTA button ── {%- endcomment -%}
+    {%- if section.settings.button_text != blank -%}
+      <div class="myduke-clinical-advantage__cta">
+        <a
+          href="{{ section.settings.button_link | default: '#' }}"
+          class="myduke-clinical-advantage__button"
+        >
+          {{- section.settings.button_text -}}
+        </a>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Right: accordion ── {%- endcomment -%}
+    {%- assign has_accordion = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'accordion_item' and block.settings.title != blank -%}
+        {%- assign has_accordion = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if has_accordion -%}
+      <div class="myduke-clinical-advantage__right">
+        <div class="myduke-clinical-advantage__list">
+          {%- assign first_accordion = true -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'accordion_item' and block.settings.title != blank -%}
+
+              <div class="myduke-clinical-advantage__item" {{ block.shopify_attributes }}>
+
+                <button
+                  class="myduke-clinical-advantage__trigger"
+                  type="button"
+                  aria-expanded="{% if first_accordion %}true{% else %}false{% endif %}"
+                  aria-controls="myduke-ca-panel-{{ section.id }}-{{ forloop.index }}"
+                >
+                  <span class="myduke-clinical-advantage__question">{{ block.settings.title }}</span>
+                  <span class="myduke-clinical-advantage__icon" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
+                      <rect class="myduke-clinical-advantage__icon-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
+                    </svg>
+                  </span>
+                </button>
+
+                {%- if block.settings.content != blank -%}
+                  <div
+                    class="myduke-clinical-advantage__panel{% if first_accordion %} is-open{% endif %}"
+                    id="myduke-ca-panel-{{ section.id }}-{{ forloop.index }}"
+                    role="region"
+                  >
+                    <div class="myduke-clinical-advantage__panel-inner">
+                      <div class="myduke-clinical-advantage__answer">{{ block.settings.content }}</div>
+                    </div>
+                  </div>
+                {%- endif -%}
+
+              </div>
+
+              {%- assign first_accordion = false -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script src="{{ 'myduke-about-clinical-advantage.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Clinical Advantage (About)",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Column"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Our Standards"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Clinical Advantage"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Start your assessment"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge Pill",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG Code",
+          "info": "Paste raw <svg>...</svg> code. Overrides image picker."
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    },
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinical Advantage (About)",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": { "label": "AHPRA-Registered Doctors" }
+        },
+        {
+          "type": "badge",
+          "settings": { "label": "TGA-Compliant Framework" }
+        },
+        {
+          "type": "badge",
+          "settings": { "label": "Secure Medical Data" }
+        },
+        {
+          "type": "badge",
+          "settings": { "label": "Australian Owned & Operated" }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Secure Clinical Assessment",
+            "content": "<p>Eligible adults complete an online medical questionnaire, which is reviewed by an independent Australian-registered doctor. This process helps determine appropriate clinical options based on individual circumstances, in line with professional standards and public health guidance.</p>"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": { "title": "Ongoing Patient Oversight" }
+        },
+        {
+          "type": "accordion_item",
+          "settings": { "title": "Regulatory Alignment" }
+        },
+        {
+          "type": "accordion_item",
+          "settings": { "title": "Zero Upsell Policy" }
+        },
+        {
+          "type": "accordion_item",
+          "settings": { "title": "Evidence-Based Care" }
+        },
+        {
+          "type": "accordion_item",
+          "settings": { "title": "Licensed Pharmacy Dispensing" }
+        },
+        {
+          "type": "accordion_item",
+          "settings": { "title": "Data Security" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

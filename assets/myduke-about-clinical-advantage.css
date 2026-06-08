@@ -1,0 +1,275 @@
+.myduke-clinical-advantage {
+  background: #ffffff;
+  padding: 2.4rem 2.4rem 0;
+}
+
+.myduke-clinical-advantage__inner {
+  background: #f7f8f8;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "heading  accordion"
+    "badges   accordion"
+    "cta      accordion";
+  column-gap: 20rem;
+  padding: 18rem 2.4rem;
+}
+
+/* ── Left: heading group ───────────────────────────── */
+.myduke-clinical-advantage__heading-group {
+  grid-area: heading;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.myduke-clinical-advantage__eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #000000;
+  margin: 0;
+}
+
+.myduke-clinical-advantage__heading {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  color: #264653;
+  margin: 0;
+}
+
+.myduke-clinical-advantage__description {
+  font-family: var(--font-body-family);
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: #264653;
+  margin: 0;
+}
+
+/* ── Left: badge pills ─────────────────────────────── */
+.myduke-clinical-advantage__badges {
+  grid-area: badges;
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.myduke-clinical-advantage__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: #edf3f0;
+  border-radius: 8.6rem;
+  height: 3.8rem;
+  padding: 0.8rem 1.2rem 0.8rem 1.6rem;
+}
+
+.myduke-clinical-advantage__badge-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myduke-clinical-advantage__badge-icon img,
+.myduke-clinical-advantage__badge-icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.myduke-clinical-advantage__badge-label {
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  line-height: 1.575;
+  color: #264653;
+  white-space: nowrap;
+}
+
+/* ── Left: CTA button ──────────────────────────────── */
+.myduke-clinical-advantage__cta {
+  grid-area: cta;
+  align-self: end;
+}
+
+.myduke-clinical-advantage__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #218380;
+  color: #ffffff;
+  font-family: var(--font-button-family);
+  font-weight: 500;
+  font-size: calc(var(--font-button-scale) * 1rem);
+  line-height: 2.1rem;
+  text-transform: capitalize;
+  padding: 0.95rem 3.6rem;
+  min-height: 4rem;
+  text-decoration: none;
+  transition: background 200ms ease;
+  white-space: nowrap;
+}
+
+.myduke-clinical-advantage__button:hover {
+  background: #143847;
+  color: #ffffff;
+}
+
+/* ── Right: accordion ──────────────────────────────── */
+.myduke-clinical-advantage__right {
+  grid-area: accordion;
+}
+
+.myduke-clinical-advantage__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #bfdbcf;
+}
+
+.myduke-clinical-advantage__item {
+  border-bottom: 1px solid #bfdbcf;
+}
+
+.myduke-clinical-advantage__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 1.85rem 0;
+  cursor: pointer;
+  text-align: left;
+  gap: 2.4rem;
+}
+
+.myduke-clinical-advantage__question {
+  font-family: var(--font-body-family);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: #264653;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.myduke-clinical-advantage__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.myduke-clinical-advantage__icon-vert {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 280ms ease;
+}
+
+.myduke-clinical-advantage__trigger[aria-expanded="true"] .myduke-clinical-advantage__icon-vert {
+  transform: rotate(90deg);
+}
+
+/* ── Animated answer panel ─────────────────────────── */
+.myduke-clinical-advantage__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms ease;
+}
+
+.myduke-clinical-advantage__panel.is-open {
+  grid-template-rows: 1fr;
+}
+
+.myduke-clinical-advantage__panel-inner {
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: padding-bottom 280ms ease;
+}
+
+.myduke-clinical-advantage__panel.is-open .myduke-clinical-advantage__panel-inner {
+  padding-bottom: 5.7rem;
+}
+
+.myduke-clinical-advantage__answer {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #264653;
+}
+
+.myduke-clinical-advantage__answer p { margin: 0; }
+.myduke-clinical-advantage__answer p + p { margin-top: 1.2rem; }
+
+/* ── Tablet ─────────────────────────────────────────── */
+@media screen and (max-width: 992px) {
+  .myduke-clinical-advantage__inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "heading"
+      "accordion"
+      "badges"
+      "cta";
+    column-gap: 0;
+    row-gap: 3.2rem;
+    padding: 6rem 3.2rem;
+  }
+
+  .myduke-clinical-advantage__heading {
+    font-size: 3.4rem;
+  }
+}
+
+/* ── Mobile ─────────────────────────────────────────── */
+@media screen and (max-width: 575px) {
+  .myduke-clinical-advantage {
+    padding: 1.2rem 1.2rem 0;
+    background-color: #f7f8f8;
+  }
+
+  .myduke-clinical-advantage__inner {
+    padding: 3.2rem 1.2rem;
+    row-gap: 2.4rem;
+  }
+
+  .myduke-clinical-advantage__heading {
+    font-size: 2.6rem;
+  }
+
+  .myduke-clinical-advantage__description {
+    font-size: 1.6rem;
+  }
+
+  .myduke-clinical-advantage__button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .myduke-clinical-advantage__trigger {
+    padding: 1.6rem 0;
+  }
+
+  .myduke-clinical-advantage__question {
+    font-size: 1.6rem;
+  }
+
+  .myduke-clinical-advantage__panel.is-open .myduke-clinical-advantage__panel-inner {
+    padding-bottom: 2.4rem;
+  }
+
+  .myduke-clinical-advantage__badge-label {
+    font-size: 1.4rem;
+  }
+}
