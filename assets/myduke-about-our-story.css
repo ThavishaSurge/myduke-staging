@@ -97,6 +97,10 @@
   margin: 0;
 }
 
+.myduke-about-our-story__card p + p {
+  margin-top: 1.2rem;
+}
+
 .myduke-about-our-story__button {
   display: inline-flex;
   align-items: center;
