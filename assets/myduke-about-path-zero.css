@@ -95,6 +95,7 @@
   margin: 0;
   flex: 1 0 0;
   min-width: 0;
+  max-width: 2.5rem;
 }
 
 .myduke-path-zero__phase--olive .myduke-path-zero__phase-title,
@@ -137,7 +138,7 @@
   font-family: var(--font-body-family);
   font-size: 9.2rem;
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.8;
   display: block;
   text-align: right;
 }
