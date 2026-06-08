@@ -54,7 +54,7 @@
 }
 
 .myduke-about-standards__description {
-  font-family: var(--font-body-family);
+  font-family: "Instrument Sans", sans-serif;
   font-size: 1.8rem;
   line-height: 1.5;
   color: #264653;

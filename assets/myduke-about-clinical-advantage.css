@@ -212,6 +212,12 @@
 .myduke-clinical-advantage__answer p { margin: 0; }
 .myduke-clinical-advantage__answer p + p { margin-top: 1.2rem; }
 
+@media screen and (max-width: 1355px ){
+  .myduke-clinical-advantage__badges {
+    padding: 2rem 0rem;
+  }
+}
+
 /* ── Tablet ─────────────────────────────────────────── */
 @media screen and (max-width: 992px) {
   .myduke-clinical-advantage__inner {
