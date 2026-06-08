@@ -67,10 +67,37 @@
         "button_text": "Apply For Prescription",
         "button_link": ""
       }
+    },
+    "myduke_about_path_zero_VYbFyq": {
+      "type": "myduke-about-path-zero",
+      "blocks": {
+        "phase_EPfzGz": {
+          "type": "phase",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/path-zero-phase-1.svg",
+            "title": "Clinical Stabilisation",
+            "phase_number": "1",
+            "subtitle": "Replace cigarettes with a regulated alternative",
+            "list_items": "Doctor determines your nicotine strength\nPharmacy-dispensed products only\nBody adjusts to controlled intake",
+            "duration": "Months 1-2",
+            "color_scheme": "olive"
+          }
+        }
+      },
+      "block_order": [
+        "phase_EPfzGz"
+      ],
+      "name": "Path to Zero (About)",
+      "settings": {
+        "right_image": "shopify://shop_images/path-zero-right.webp",
+        "flex_reverse": false
+      }
     }
   },
   "order": [
     "myduke_hero_secondary_7RhEwF",
-    "myduke_about_our_story_eBVAWf"
+    "myduke_about_our_story_eBVAWf",
+    "myduke_about_path_zero_VYbFyq"
   ]
 }
