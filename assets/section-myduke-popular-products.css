@@ -20,6 +20,7 @@
   --mdpp-btn-radius: 0px;
   --mdpp-divider-color: #E0DACF;
   overflow: hidden;
+  padding: 96px 0px !important;
 }
 
 /* ── Header ── */
