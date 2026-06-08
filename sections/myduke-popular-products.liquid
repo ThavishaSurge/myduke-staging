@@ -13,9 +13,10 @@
   class="mdpp color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
   data-section-id="{{ section.id }}"
 >
+  <div class="container">
 
   {%- comment -%} ── Header row ── {%- endcomment -%}
-  <div class="mdpp__header container">
+  <div class="mdpp__header">
     <div class="mdpp__header-left">
       {%- if section.settings.subheading != blank -%}
         <p class="mdpp__eyebrow">{{ section.settings.subheading }}</p>
@@ -41,11 +42,11 @@
 
   {%- comment -%} ── Divider ── {%- endcomment -%}
   {%- if section.settings.show_divider -%}
-    <div class="mdpp__divider container"></div>
+    <div class="mdpp__divider"></div>
   {%- endif -%}
 
   {%- comment -%} ── Cards ── {%- endcomment -%}
-  <div class="mdpp__wrapper container">
+  <div class="mdpp__wrapper">
     {%- liquid
       assign enable_slider = section.settings.enable_slider
       assign cols = section.settings.cards_per_row | default: 6
@@ -141,6 +142,7 @@
     </div>
   </div>
 
+  </div>
 </div>
 
 {% schema %}
