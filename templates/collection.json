@@ -11,15 +11,148 @@
   "sections": {
     "product-grid": {
       "type": "main-collection-product-grid",
-      "settings": {},
       "blocks": {
         "collection-banner": {
           "type": "collection-banner",
-          "settings": {}
+          "settings": {
+            "color_scheme": "",
+            "heading_size": "h3",
+            "show_collection_description": false,
+            "enable_hero_slider": true,
+            "sort": "alphabetical",
+            "all_products_slide_enable": true,
+            "show_collection_image": false,
+            "image_ratio": "adapt_content",
+            "overlay_opacity": 15
+          }
         }
       },
-      "block_order": ["collection-banner"]
+      "block_order": [
+        "collection-banner"
+      ],
+      "disabled": true,
+      "settings": {
+        "products_per_page": 20,
+        "enable_border_top": true,
+        "description": "This section should be structured clearly, ensuring the reader understands the purpose and value of the content.",
+        "enable_per_row_button": true,
+        "default_per_row": "large",
+        "columns": 4,
+        "columns_mobile": "1",
+        "show_quick_view": true,
+        "enable_filtering": true,
+        "enable_filter_button_per_type": true,
+        "enable_total_selected": true,
+        "enable_reset_per_type": true,
+        "enable_sorting": true,
+        "enable_product_count": true,
+        "image_filter_ratio": "1/1",
+        "image_filter_fit": "cover",
+        "image_filter_columns": 3,
+        "margin_top": "no-indent",
+        "margin_bottom": "xl"
+      }
+    },
+    "myduke_hero_secondary_V3apEU": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/image_8_1.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "height_desktop": 60,
+        "height_mobile": 60,
+        "enable_mobile_colors": false,
+        "mobile_text_color": "#264653",
+        "enable_breadcrumbs": true,
+        "breadcrumb_parent_text": "Home",
+        "breadcrumb_parent_link": "",
+        "breadcrumb_current_text": "{{ collection.title }}",
+        "content_max_width": 526,
+        "heading": "Your Health Comes First",
+        "description": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
+    },
+    "myduke_popular_products_FhLQMi": {
+      "type": "myduke-popular-products",
+      "blocks": {
+        "collection_item_AHr7ef": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "all-products"
+          }
+        },
+        "collection_item_FUQ7NF": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_9PRMbw": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_DbAB6Y": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_TVg6eG": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_78F68W": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_AHr7ef",
+        "collection_item_FUQ7NF",
+        "collection_item_9PRMbw",
+        "collection_item_DbAB6Y",
+        "collection_item_TVg6eG",
+        "collection_item_78F68W"
+      ],
+      "name": "Popular Products (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "heading": "By Product Type",
+        "heading_tag": "h2",
+        "show_divider": true,
+        "shop_all_label": "Shop All Products",
+        "shop_all_url": "",
+        "show_product_count": false,
+        "product_count_label": "compatible products",
+        "enable_slider": false,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
-  "order": ["product-grid"]
+  "order": [
+    "product-grid",
+    "myduke_hero_secondary_V3apEU",
+    "myduke_popular_products_FhLQMi"
+  ]
 }
