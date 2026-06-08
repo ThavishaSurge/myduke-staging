@@ -58,10 +58,11 @@
       "name": "MyDuke Secondary Hero",
       "settings": {
         "background_image": "shopify://shop_images/image_8_1.jpg",
+        "background_image_mobile": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_2.webp",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
-        "overlay_opacity_mobile": 0,
+        "overlay_opacity_mobile": 10,
         "height_desktop": 60,
         "height_mobile": 60,
         "enable_mobile_colors": false,
