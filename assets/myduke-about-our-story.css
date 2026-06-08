@@ -11,7 +11,7 @@
 
 .myduke-about-our-story__inner {
   display: flex;
-  gap: 6.4rem;
+  gap: 2rem;
   align-items: center;
   overflow: hidden;
 }
@@ -25,8 +25,8 @@
 }
 
 .myduke-about-our-story__image {
-  flex-shrink: 0;
-  width: 50%;
+  flex: 1 0 0;
+  min-width: 0;
   align-self: stretch;
 }
 
@@ -45,6 +45,7 @@
   flex-direction: column;
   gap: 8rem;
   justify-content: center;
+  padding-left: 4.4rem;
 }
 
 .myduke-about-our-story__inner.reverse .myduke-about-our-story__content {
