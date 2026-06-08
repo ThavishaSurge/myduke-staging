@@ -66,22 +66,12 @@
           </nav>
         {%- endif -%}
 
-        {%- liquid
-          if section.settings.use_page_content and page != blank
-            assign hero_heading     = page.title
-            assign hero_description = page.content
-          else
-            assign hero_heading     = section.settings.heading
-            assign hero_description = section.settings.description
-          endif
-        -%}
-
-        {%- if hero_heading != blank -%}
-          <h1 class="myduke-hero-secondary__heading">{{ hero_heading }}</h1>
+        {%- if section.settings.heading != blank -%}
+          <h1 class="myduke-hero-secondary__heading">{{ section.settings.heading }}</h1>
         {%- endif -%}
 
-        {%- if hero_description != blank -%}
-          <div class="myduke-hero-secondary__description">{{ hero_description | newline_to_br }}</div>
+        {%- if section.settings.description != blank -%}
+          <div class="myduke-hero-secondary__description">{{ section.settings.description }}</div>
         {%- endif -%}
 
       </div>
@@ -497,25 +487,16 @@
       "default": 526
     },
     {
-      "type": "checkbox",
-      "id": "use_page_content",
-      "label": "Use page title & content as heading/description",
-      "default": false,
-      "info": "When enabled, the hero heading and description are pulled from the page's title and content. Useful when this section is used on dynamic page templates."
-    },
-    {
-      "type": "textarea",
+      "type": "inline_richtext",
       "id": "heading",
-      "label": "Heading (fallback)",
-      "default": "Your Health Comes First",
-      "info": "Used when \"Use page title\" is disabled."
+      "label": "Heading",
+      "default": "Your Health Comes First"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "description",
-      "label": "Description (fallback)",
-      "default": "myduke\u00ae is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.",
-      "info": "Used when \"Use page content\" is disabled."
+      "label": "Description",
+      "default": "<p>myduke\u00ae is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.</p>"
     },
     {
       "type": "header",
