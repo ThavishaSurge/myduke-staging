@@ -320,3 +320,22 @@
   cursor: not-allowed;
   pointer-events: none;
 }
+
+@media (max-width:750px) {
+  .mdpp {
+    padding: 40px 0px;
+  }
+
+  .mdpp__header {
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .mdpp__heading {
+    font-size: 32px;
+  }
+
+  .mdpp__card-count {
+    font-size: 12px;
+  }
+}
