@@ -228,12 +228,94 @@
         "button_text": "Start your assessment",
         "button_link": ""
       }
+    },
+    "myduke_about_standards_JFqYJr": {
+      "type": "myduke-about-standards",
+      "blocks": {
+        "row_U7KcjA": {
+          "type": "row",
+          "settings": {
+            "feature": "AHPRA-registered doctor review",
+            "standard_result": "varies"
+          }
+        },
+        "row_ArJAEh": {
+          "type": "row",
+          "settings": {
+            "feature": "Specialist pharmacy dispensing",
+            "standard_result": "cross"
+          }
+        },
+        "row_WNx44X": {
+          "type": "row",
+          "settings": {
+            "feature": "Structured tapering protocol",
+            "standard_result": "cross"
+          }
+        },
+        "row_idHnL9": {
+          "type": "row",
+          "settings": {
+            "feature": "Ongoing clinical follow-up",
+            "standard_result": "cross"
+          }
+        },
+        "row_EERtGp": {
+          "type": "row",
+          "settings": {
+            "feature": "TGA-compliant products only",
+            "standard_result": "varies"
+          }
+        },
+        "row_kzDaCi": {
+          "type": "row",
+          "settings": {
+            "feature": "Transparent pricing, no upsells",
+            "standard_result": "cross"
+          }
+        },
+        "row_Y3RNBP": {
+          "type": "row",
+          "settings": {
+            "feature": "Digital health assessment",
+            "standard_result": "check"
+          }
+        },
+        "row_aRUrLB": {
+          "type": "row",
+          "settings": {
+            "feature": "Nicotine strength management",
+            "standard_result": "cross"
+          }
+        }
+      },
+      "block_order": [
+        "row_U7KcjA",
+        "row_ArJAEh",
+        "row_WNx44X",
+        "row_idHnL9",
+        "row_EERtGp",
+        "row_kzDaCi",
+        "row_Y3RNBP",
+        "row_aRUrLB"
+      ],
+      "name": "Standards (About)",
+      "settings": {
+        "bg_image": "shopify://shop_images/about-standards-bg.webp",
+        "eyebrow": "The MyDuke Difference",
+        "heading": "Why Choose MyDuke?",
+        "description": "",
+        "standard_clinic_label": "Standard Clinic",
+        "button_text": "Start your assessment",
+        "button_link": ""
+      }
     }
   },
   "order": [
     "myduke_hero_secondary_7RhEwF",
     "myduke_about_our_story_eBVAWf",
     "myduke_about_path_zero_VYbFyq",
-    "myduke_about_clinical_advantage_BELaxw"
+    "myduke_about_clinical_advantage_BELaxw",
+    "myduke_about_standards_JFqYJr"
   ]
 }
