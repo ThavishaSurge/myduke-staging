@@ -80,7 +80,6 @@
 .myduke-about-standards__header-row {
   padding: 2.4rem 1.2rem 2.4rem 1.2rem;
   border-bottom: 1px solid #bfdbcf;
-  gap: 2.4rem;
 }
 
 .myduke-about-standards__row {
@@ -212,6 +211,10 @@
 
   .myduke-about-standards__description {
     font-size: 1.6rem;
+  }
+
+  .myduke-about-standards__header-row {
+    gap: 2.4rem;
   }
 
   .myduke-about-standards__col-myduke,
