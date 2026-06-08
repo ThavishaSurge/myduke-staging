@@ -38,7 +38,12 @@
           {%- for block in section.blocks -%}
             {%- if block.settings.text != blank -%}
               <div class="myduke-about-our-story__card" {{ block.shopify_attributes }}>
-                <p>{{ block.settings.text }}</p>
+                {%- assign lines = block.settings.text | newline_to_br | split: '<br />' -%}
+                {%- for line in lines -%}
+                  {%- if line != blank -%}
+                    <p>{{ line | strip }}</p>
+                  {%- endif -%}
+                {%- endfor -%}
               </div>
             {%- endif -%}
           {%- endfor -%}
