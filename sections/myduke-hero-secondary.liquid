@@ -26,6 +26,28 @@
             >
               {{- section.settings.breadcrumb_parent_text | default: 'Home' -}}
             </a>
+
+            {%- if section.settings.breadcrumb_middle_text != blank -%}
+              <span class="myduke-hero-secondary__breadcrumb-sep" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <g clip-path="url(#clip0_mid_sep)">
+                    <path d="M2.5 1.5L5 4L2.5 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_mid_sep">
+                      <rect width="8" height="8" fill="currentColor"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+              <a
+                href="{{ section.settings.breadcrumb_middle_link | default: '#' }}"
+                class="myduke-hero-secondary__breadcrumb-link"
+              >
+                {{- section.settings.breadcrumb_middle_text -}}
+              </a>
+            {%- endif -%}
+
             <span class="myduke-hero-secondary__breadcrumb-sep" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
                 <g clip-path="url(#clip0_1070_8595)">
@@ -49,7 +71,7 @@
         {%- endif -%}
 
         {%- if section.settings.description != blank -%}
-          <div class="myduke-hero-secondary__description">{{ section.settings.description | newline_to_br }}</div>
+          <div class="myduke-hero-secondary__description">{{ section.settings.description }}</div>
         {%- endif -%}
 
       </div>
@@ -320,6 +342,7 @@
   </div>
 </div>
 
+
 {% schema %}
 {
   "name": "MyDuke Seconday Hero",
@@ -441,6 +464,19 @@
       "visible_if": "{{ section.settings.enable_breadcrumbs }}"
     },
     {
+      "type": "text",
+      "id": "breadcrumb_middle_text",
+      "label": "Middle page label (optional)",
+      "info": "If set, a middle breadcrumb link will appear between Parent and Current.",
+      "visible_if": "{{ section.settings.enable_breadcrumbs }}"
+    },
+    {
+      "type": "url",
+      "id": "breadcrumb_middle_link",
+      "label": "Middle page link",
+      "visible_if": "{{ section.settings.enable_breadcrumbs }}"
+    },
+    {
       "type": "header",
       "content": "Content"
     },
@@ -451,16 +487,16 @@
       "default": 526
     },
     {
-      "type": "textarea",
+      "type": "inline_richtext",
       "id": "heading",
       "label": "Heading",
       "default": "Your Health Comes First"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework."
+      "default": "<p>myduke\u00ae is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.</p>"
     },
     {
       "type": "header",

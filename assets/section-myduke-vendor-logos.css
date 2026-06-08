@@ -34,19 +34,19 @@
 }
 
 .mdvl__heading {
-  font-size: clamp(1.375rem, 2vw, 1.75rem);
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 400;
   line-height: 1.2;
   margin: 0;
-  color: var(--mdvl-heading-color);
+  color: #264653;
 }
 
 .mdvl__description {
-  font-size: 0.875rem;
+  font-size: 18px;
   line-height: 1.5;
-  color: var(--mdvl-desc-color);
+  color: #264653;
   margin: 0;
-  max-width: 400px;
+  max-width: 660px;
 }
 
 /* ── Shop All button ── */
@@ -54,21 +54,22 @@
   flex-shrink: 0;
   display: flex;
   align-items: flex-start;
+  align-self: end;
   padding-top: 4px;
 }
 
 .mdvl__shop-all-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 22px;
-  background-color: var(--mdvl-btn-bg);
-  color: var(--mdvl-btn-color);
-  font-size: 0.875rem;
-  font-weight: 600;
-  border-radius: 4px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: opacity 0.2s ease, transform 0.15s ease;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 0;
+  border: none;
+  padding: 9.5px;
+  min-width: 189px;
+  text-align: center;
+  margin: auto;
+  display: block;
+  background-color: #218380;
+  color: #ffffff;
 }
 
 .mdvl__shop-all-btn:hover {
@@ -80,7 +81,7 @@
 .mdvl__divider {
   height: 1px;
   background-color: var(--mdvl-divider-color);
-  margin-bottom: 0;
+  margin-bottom: 40px;
 }
 
 /* ── Wrapper / Track ── */
@@ -108,7 +109,8 @@
 .mdvl__list--grid {
   flex-wrap: wrap;
   gap: 1px;
-  background-color: var(--mdvl-card-border); /* gap colour shows as lines */
+  background-color: var(--mdvl-card-border);
+  /* gap colour shows as lines */
 }
 
 .mdvl__list.swiper-wrapper {
@@ -124,6 +126,7 @@
 
 /* 3-col breakpoint for medium screens */
 @media (min-width: 576px) {
+
   .mdvl__list--3.mdvl__list--grid .mdvl__item,
   .mdvl__list--4.mdvl__list--grid .mdvl__item,
   .mdvl__list--5.mdvl__list--grid .mdvl__item,
@@ -136,13 +139,33 @@
 
 /* Full column count on desktop */
 @media (min-width: 990px) {
-  .mdvl__list--2.mdvl__list--grid .mdvl__item  { width: calc(50% - 0.5px); }
-  .mdvl__list--3.mdvl__list--grid .mdvl__item  { width: calc(33.333% - 0.667px); }
-  .mdvl__list--4.mdvl__list--grid .mdvl__item  { width: calc(25% - 0.75px); }
-  .mdvl__list--5.mdvl__list--grid .mdvl__item  { width: calc(20% - 0.8px); }
-  .mdvl__list--6.mdvl__list--grid .mdvl__item  { width: calc(16.666% - 0.833px); }
-  .mdvl__list--7.mdvl__list--grid .mdvl__item  { width: calc(14.285% - 0.857px); }
-  .mdvl__list--8.mdvl__list--grid .mdvl__item  { width: calc(12.5% - 0.875px); }
+  .mdvl__list--2.mdvl__list--grid .mdvl__item {
+    width: calc(50% - 0.5px);
+  }
+
+  .mdvl__list--3.mdvl__list--grid .mdvl__item {
+    width: calc(33.333% - 0.667px);
+  }
+
+  .mdvl__list--4.mdvl__list--grid .mdvl__item {
+    width: calc(25% - 0.75px);
+  }
+
+  .mdvl__list--5.mdvl__list--grid .mdvl__item {
+    width: calc(20% - 0.8px);
+  }
+
+  .mdvl__list--6.mdvl__list--grid .mdvl__item {
+    width: calc(16.666% - 0.833px);
+  }
+
+  .mdvl__list--7.mdvl__list--grid .mdvl__item {
+    width: calc(14.285% - 0.857px);
+  }
+
+  .mdvl__list--8.mdvl__list--grid .mdvl__item {
+    width: calc(12.5% - 0.875px);
+  }
 }
 
 /* ── Item ── */
@@ -231,4 +254,23 @@ a.mdvl__card:hover {
   opacity: 0.35;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+@media (max-width:750px) {
+  .mdvl {
+    padding: 40px 0px;
+  }
+
+  .mdvl__header {
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .mdvl__heading {
+    font-size: 32px;
+  }
+
+  .mdvl__description {
+    font-size: 16px;
+  }
 }

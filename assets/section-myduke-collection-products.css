@@ -1,0 +1,196 @@
+/* ============================================================
+   section-myduke-collection-products.css
+   Styles for myduke-collection-products section (.mdcp namespace)
+   ============================================================ */
+
+/* ── Variables ── */
+.mdcp {
+  --mdcp-gap: 24px;
+  --mdcp-card-radius: 0px;
+  --mdcp-card-img-ratio: 1 / 1;
+  --mdcp-heading-size: 1.5rem;
+  --mdcp-btn-bg: #218380;
+  --mdcp-btn-color: #ffffff;
+  --mdcp-btn-radius: 0px;
+  --mdcp-divider-color: #E0DACF;
+  --mdcp-cols: 4;
+  overflow: hidden;
+  padding: 96px 0px !important;
+}
+
+.mdcp-section {
+  padding: 0px !important;
+}
+
+/* ── Header ── */
+.mdcp__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.mdcp__header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mdcp__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-foreground, #6b7280);
+  margin: 0;
+}
+
+.mdcp__heading {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-foreground, #111827);
+}
+
+/* ── Shop All button ── */
+.mdcp__shop-all-btn {
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 0;
+  border: none;
+  padding: 9.5px;
+  min-width: 189px;
+  text-align: center;
+  margin: auto;
+  display: block;
+  background-color: #218380;
+  color: #ffffff;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.mdcp__shop-all-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* ── Divider ── */
+.mdcp__divider {
+  height: 1px;
+  background-color: var(--mdcp-divider-color);
+  margin-bottom: 40px;
+}
+
+/* ── Product Grid ── */
+.mdcp__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--mdcp-cols), 1fr);
+  gap: var(--mdcp-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Product Card ── */
+.mdcp__card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mdcp__card:hover .mdcp__card-image-wrap img {
+  transform: scale(1.04);
+}
+
+/* ── Card image ── */
+.mdcp__card-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--mdcp-card-img-ratio);
+  overflow: hidden;
+  border-radius: var(--mdcp-card-radius);
+  background-color: #f3f4f6;
+}
+
+.mdcp__card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.mdcp__card-image-wrap .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Card body ── */
+.mdcp__card-body {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mdcp__card-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2B2B2E;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.mdcp__card-price {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2B2B2E;
+  margin: 0;
+}
+
+.mdcp__card-price--compare {
+  text-decoration: line-through;
+  color: #9ca3af;
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+/* ── Empty state ── */
+.mdcp__empty {
+  text-align: center;
+  padding: 60px 0;
+  color: #6b7280;
+  font-size: 1.6rem;
+}
+
+/* ── Responsive columns ── */
+@media (max-width: 989px) {
+  .mdcp {
+    --mdcp-cols: 2;
+  }
+
+  .mdcp__heading {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 750px) {
+  .mdcp {
+    padding: 40px 0px !important;
+    --mdcp-gap: 16px;
+  }
+
+  .mdcp__header {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .mdcp__heading {
+    font-size: 28px;
+  }
+}
