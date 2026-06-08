@@ -1,0 +1,174 @@
+{{ 'myduke-about-path-zero.css' | asset_url | stylesheet_tag }}
+
+<section class="myduke-path-zero">
+  <div class="myduke-path-zero__inner{% if section.settings.flex_reverse %} reverse{% endif %}">
+
+    <div class="myduke-path-zero__phases">
+      {%- for block in section.blocks -%}
+        <div class="myduke-path-zero__phase myduke-path-zero__phase--{{ block.settings.color_scheme }}" {{ block.shopify_attributes }}>
+
+          <div class="myduke-path-zero__phase-header">
+            <div class="myduke-path-zero__phase-identity">
+              {%- if block.settings.icon_svg != blank or block.settings.icon != blank -%}
+                <div class="myduke-path-zero__phase-icon">
+                  {%- if block.settings.icon_svg != blank -%}
+                    {{ block.settings.icon_svg }}
+                  {%- elsif block.settings.icon != blank -%}
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 112 }}"
+                      alt="{{ block.settings.title | escape }}"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h3 class="myduke-path-zero__phase-title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+            </div>
+            <div class="myduke-path-zero__phase-number-group">
+              <span class="myduke-path-zero__phase-label">Phase</span>
+              {%- if block.settings.phase_number != blank -%}
+                <span class="myduke-path-zero__phase-number">{{ block.settings.phase_number }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <div class="myduke-path-zero__phase-body">
+            <div class="myduke-path-zero__phase-content">
+              {%- if block.settings.subtitle != blank -%}
+                <p class="myduke-path-zero__phase-subtitle">{{ block.settings.subtitle }}</p>
+              {%- endif -%}
+              {%- if block.settings.list_items != blank -%}
+                <ul class="myduke-path-zero__phase-list">
+                  {%- assign items = block.settings.list_items | newline_to_br | split: '<br />' -%}
+                  {%- assign item_counter = 0 -%}
+                  {%- for item in items -%}
+                    {%- if item != blank -%}
+                      {%- assign item_counter = item_counter | plus: 1 -%}
+                      <li class="myduke-path-zero__phase-row">
+                        <span class="myduke-path-zero__phase-num">
+                          {%- if item_counter < 10 -%}0{%- endif -%}{{ item_counter }}.
+                        </span>
+                        <span class="myduke-path-zero__phase-text">{{ item | strip }}</span>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.duration != blank -%}
+              <div class="myduke-path-zero__phase-badge">
+                <span class="myduke-path-zero__badge-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <circle cx="6.5" cy="6.5" r="5.75" stroke="#2b2b2e" stroke-width="1"/>
+                    <path d="M6.5 3.75V6.5L8.25 8.25" stroke="#2b2b2e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="myduke-path-zero__badge-text">{{ block.settings.duration }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="myduke-path-zero__image">
+      {%- if section.settings.right_image != blank -%}
+        <img
+          src="{{ section.settings.right_image | image_url: width: 1200 }}"
+          alt=""
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Path to Zero (About)",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "flex_reverse",
+      "label": "Reverse Columns (image on left)",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "phase",
+      "name": "Phase Card",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG Code",
+          "info": "Paste raw <svg>...</svg> code here. Overrides image picker below."
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Phase Title"
+        },
+        {
+          "type": "text",
+          "id": "phase_number",
+          "label": "Phase Number",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "list_items",
+          "label": "List Items",
+          "info": "Add one item per line"
+        },
+        {
+          "type": "text",
+          "id": "duration",
+          "label": "Duration",
+          "placeholder": "Months 1-2"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "label": "Colour Scheme",
+          "default": "olive",
+          "options": [
+            { "value": "olive", "label": "Olive (Dark Teal)" },
+            { "value": "fern", "label": "Fern (Mid Teal)" },
+            { "value": "sage", "label": "Sage (Light Green)" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Path to Zero (About)"
+    }
+  ]
+}
+{% endschema %}

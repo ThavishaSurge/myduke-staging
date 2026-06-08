@@ -35,9 +35,365 @@
         "elig_assessment_link": "",
         "sign_in_link": ""
       }
+    },
+    "myduke_about_our_story_eBVAWf": {
+      "type": "myduke-about-our-story",
+      "blocks": {
+        "card_PqKxVC": {
+          "type": "card",
+          "settings": {
+            "text": "Following changes to Australia's nicotine regulations, many people who smoke have been required to navigate complex medical, pharmacy, and compliance processes when seeking support to quit. myduke® was developed to simplify this pathway while maintaining the safeguards required under Australian law.\n\nThe platform focuses on structured clinical review, transparency, and regulatory alignment, supporting informed decision-making in the context of smoking cessation."
+          }
+        },
+        "card_gYXYTm": {
+          "type": "card",
+          "settings": {
+            "text": "myduke® operates within Australia's public health framework, which prioritises harm reduction for adult smokers while limiting inappropriate access. The service is designed to support adults who are seeking alternatives to combustible cigarettes as part of a broader smoking cessation approach."
+          }
+        }
+      },
+      "block_order": [
+        "card_PqKxVC",
+        "card_gYXYTm"
+      ],
+      "name": "About — Our Story",
+      "settings": {
+        "left_image": "shopify://shop_images/about-ourstory.webp",
+        "flex_reverse": false,
+        "eyebrow": "Our Story",
+        "heading": "Simplifying the Pathway to Quit",
+        "card_column_gap": 24,
+        "card_row_gap": 24,
+        "button_text": "Apply For Prescription",
+        "button_link": ""
+      }
+    },
+    "myduke_about_path_zero_VYbFyq": {
+      "type": "myduke-about-path-zero",
+      "blocks": {
+        "phase_EPfzGz": {
+          "type": "phase",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/path-zero-phase-1.svg",
+            "title": "Clinical Stabilisation",
+            "phase_number": "1",
+            "subtitle": "Replace cigarettes with a regulated alternative",
+            "list_items": "Doctor determines your nicotine strength\nPharmacy-dispensed products only\nBody adjusts to controlled intake",
+            "duration": "Months 1-2",
+            "color_scheme": "olive"
+          }
+        },
+        "phase_6wx9zw": {
+          "type": "phase",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/path-zero-phase-2.svg",
+            "title": "Managed Reduction",
+            "phase_number": "2",
+            "subtitle": "Gradually lower your nicotine over time",
+            "list_items": "Evidence-based tapering protocol\nPersonalised step-down intervals\nRegular clinical checkpoints",
+            "duration": "Months 3-5",
+            "color_scheme": "fern"
+          }
+        },
+        "phase_zUt74G": {
+          "type": "phase",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/path-zero-phase-3_d69163ae-6785-4cbd-b4f8-683ea9cb0479.svg",
+            "title": "Therapeutic Freedom",
+            "phase_number": "3",
+            "subtitle": "Complete cessation of nicotine use",
+            "list_items": "Physical dependence systematically reduced\nBehavioural patterns addressed\nOngoing support available",
+            "duration": "Month 6+",
+            "color_scheme": "sage"
+          }
+        }
+      },
+      "block_order": [
+        "phase_EPfzGz",
+        "phase_6wx9zw",
+        "phase_zUt74G"
+      ],
+      "name": "Path to Zero (About)",
+      "settings": {
+        "right_image": "shopify://shop_images/path-zero-right.webp",
+        "flex_reverse": false
+      }
+    },
+    "myduke_about_clinical_advantage_BELaxw": {
+      "type": "myduke-about-clinical-advantage",
+      "blocks": {
+        "badge_ALHAwq": {
+          "type": "badge",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/Doctor-Visit.svg",
+            "label": "AHPRA-Registered Doctors"
+          }
+        },
+        "badge_UcGVbA": {
+          "type": "badge",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/Technology-Privacy-Consent.svg",
+            "label": "TGA-Compliant Framework"
+          }
+        },
+        "badge_xP3Uxk": {
+          "type": "badge",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/Medical-File.svg",
+            "label": "Secure Medical Data"
+          }
+        },
+        "badge_hFKM3q": {
+          "type": "badge",
+          "settings": {
+            "icon_svg": "",
+            "icon": "shopify://shop_images/Aus-owned.svg",
+            "label": "Australian Owned & Operated"
+          }
+        },
+        "accordion_item_CrPEgt": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Secure Clinical Assessment",
+            "content": "<p>Eligible adults complete an online medical questionnaire, which is reviewed by an independent Australian-registered doctor. This process helps determine appropriate clinical options based on individual circumstances, in line with professional standards and public health guidance.</p>"
+          }
+        },
+        "accordion_item_aXBMfy": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Ongoing Patient Oversight",
+            "content": ""
+          }
+        },
+        "accordion_item_JEjGDq": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Regulatory Alignment",
+            "content": ""
+          }
+        },
+        "accordion_item_JYMUnn": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Zero Upsell Policy",
+            "content": ""
+          }
+        },
+        "accordion_item_pTWLDp": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Evidence-Based Care",
+            "content": ""
+          }
+        },
+        "accordion_item_UXNpdU": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Licensed Pharmacy Dispensing",
+            "content": ""
+          }
+        },
+        "accordion_item_miVRQc": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Data Security",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "badge_ALHAwq",
+        "badge_UcGVbA",
+        "badge_xP3Uxk",
+        "badge_hFKM3q",
+        "accordion_item_CrPEgt",
+        "accordion_item_aXBMfy",
+        "accordion_item_JEjGDq",
+        "accordion_item_JYMUnn",
+        "accordion_item_pTWLDp",
+        "accordion_item_UXNpdU",
+        "accordion_item_miVRQc"
+      ],
+      "name": "Clinical Advantage (About)",
+      "settings": {
+        "eyebrow": "Our Standards",
+        "heading": "Our Clinical Advantage",
+        "description": "At the centre of the myduke® model is a secure clinical assessment for nicotine dependence, reviewed by independent Australian-registered doctors — ensuring every pathway is personalised, evidence-based, and fully compliant.",
+        "button_text": "Start your assessment",
+        "button_link": ""
+      }
+    },
+    "myduke_about_standards_JFqYJr": {
+      "type": "myduke-about-standards",
+      "blocks": {
+        "row_U7KcjA": {
+          "type": "row",
+          "settings": {
+            "feature": "AHPRA-registered doctor review",
+            "standard_result": "varies"
+          }
+        },
+        "row_ArJAEh": {
+          "type": "row",
+          "settings": {
+            "feature": "Specialist pharmacy dispensing",
+            "standard_result": "cross"
+          }
+        },
+        "row_WNx44X": {
+          "type": "row",
+          "settings": {
+            "feature": "Structured tapering protocol",
+            "standard_result": "cross"
+          }
+        },
+        "row_idHnL9": {
+          "type": "row",
+          "settings": {
+            "feature": "Ongoing clinical follow-up",
+            "standard_result": "cross"
+          }
+        },
+        "row_EERtGp": {
+          "type": "row",
+          "settings": {
+            "feature": "TGA-compliant products only",
+            "standard_result": "varies"
+          }
+        },
+        "row_kzDaCi": {
+          "type": "row",
+          "settings": {
+            "feature": "Transparent pricing, no upsells",
+            "standard_result": "cross"
+          }
+        },
+        "row_Y3RNBP": {
+          "type": "row",
+          "settings": {
+            "feature": "Digital health assessment",
+            "standard_result": "check"
+          }
+        },
+        "row_aRUrLB": {
+          "type": "row",
+          "settings": {
+            "feature": "Nicotine strength management",
+            "standard_result": "cross"
+          }
+        }
+      },
+      "block_order": [
+        "row_U7KcjA",
+        "row_ArJAEh",
+        "row_WNx44X",
+        "row_idHnL9",
+        "row_EERtGp",
+        "row_kzDaCi",
+        "row_Y3RNBP",
+        "row_aRUrLB"
+      ],
+      "name": "Standards (About)",
+      "settings": {
+        "bg_image": "shopify://shop_images/about-standards-bg.webp",
+        "eyebrow": "The MyDuke Difference",
+        "heading": "Why Choose MyDuke?",
+        "description": "See how our clinical care model compares to standard online clinics.",
+        "myduke_logo": "shopify://shop_images/myduke-logo-black.svg",
+        "standard_clinic_label": "Standard Clinic",
+        "button_text": "Start your assessment",
+        "button_link": ""
+      }
+    },
+    "myduke_faq_pbnY3J": {
+      "type": "myduke-faq",
+      "blocks": {
+        "faq_item_q6tbQJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is MyDuke legal in Australia?",
+            "answer": "<p>Yes. All products facilitated through MyDuke are prescribed by AHPRA-registered doctors and dispensed by licensed Australian pharmacies in full compliance with TGA regulations.</p>"
+          }
+        },
+        "faq_item_ezzdkL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does it take to get a prescription after assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_3izeBH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": ""
+          }
+        },
+        "faq_item_wBVfEx": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I access myduke® support if I live in a remote area?",
+            "answer": ""
+          }
+        },
+        "faq_item_mtW8VH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What treatment options are available in Australia to help quit smoking?",
+            "answer": ""
+          }
+        },
+        "faq_item_D6t93g": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why can't I see the medication and price before completing the assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_fnJWFt": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return my order if I have changed my mind?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_q6tbQJ",
+        "faq_item_ezzdkL",
+        "faq_item_3izeBH",
+        "faq_item_wBVfEx",
+        "faq_item_mtW8VH",
+        "faq_item_D6t93g",
+        "faq_item_fnJWFt"
+      ],
+      "name": "FAQ (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "FAQs",
+        "heading": "Your Questions Answered",
+        "heading_tag": "h2",
+        "cta_button_label": "More FAQs",
+        "cta_button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
-    "myduke_hero_secondary_7RhEwF"
+    "myduke_hero_secondary_7RhEwF",
+    "myduke_about_our_story_eBVAWf",
+    "myduke_about_path_zero_VYbFyq",
+    "myduke_about_clinical_advantage_BELaxw",
+    "myduke_about_standards_JFqYJr",
+    "myduke_faq_pbnY3J"
   ]
 }
