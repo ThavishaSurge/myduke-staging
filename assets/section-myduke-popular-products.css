@@ -23,6 +23,10 @@
   padding: 96px 0px !important;
 }
 
+.mdpp-section {
+  padding: 0px !important;
+}
+
 /* ── Header ── */
 .mdpp__header {
   display: flex;
@@ -256,10 +260,10 @@
 
 /* ── Card title ── */
 .mdpp__card-title {
-  margin: 10px 0 0;
-  font-size: var(--mdpp-title-size);
-  font-weight: 500;
-  color: var(--color-foreground, #111827);
+  margin: 20px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #2B2B2E;
   line-height: 1.4;
 }
 
