@@ -13,7 +13,7 @@
   --mdcp-btn-color: #ffffff;
   --mdcp-btn-radius: 0px;
   --mdcp-divider-color: #E0DACF;
-  --mdcp-cols: 4;
+  --mdcp-cols: var(--mdcp-cols-desktop, 4);
   overflow: hidden;
   padding: 96px 0px !important;
 }
