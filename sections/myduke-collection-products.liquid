@@ -1,0 +1,313 @@
+{{ 'section-myduke-collection-products.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  {% render 'section-padding' %}
+  {% render 'section-margin' %}
+{%- endstyle -%}
+
+{%- liquid
+  assign src_collection = section.settings.collection
+  if src_collection != blank
+    assign col = collections[src_collection]
+  endif
+  assign cols        = section.settings.columns_per_row | default: 4
+  assign limit       = section.settings.products_per_page | default: 24
+  assign sort_by     = section.settings.sort_by | default: 'manual'
+-%}
+
+<div
+  class="mdcp color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
+  data-section-id="{{ section.id }}"
+  style="--mdcp-cols: {{ cols }};"
+>
+  <div class="container">
+
+    {%- comment -%} ── Header row ── {%- endcomment -%}
+    <div class="mdcp__header">
+      <div class="mdcp__header-left">
+        {%- if section.settings.subheading != blank -%}
+          <p class="mdcp__eyebrow">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="mdcp__heading">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.shop_all_label != blank -%}
+        <div class="mdcp__header-right">
+          <a
+            href="{{ col.url | default: section.settings.shop_all_url | default: '#' }}"
+            class="mdcp__shop-all-btn"
+          >
+            {{- section.settings.shop_all_label -}}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ── Divider ── {%- endcomment -%}
+    {%- if section.settings.show_divider -%}
+      <div class="mdcp__divider"></div>
+    {%- endif -%}
+
+    {%- comment -%} ── Product Grid ── {%- endcomment -%}
+    {%- if col != blank -%}
+
+      {%- assign products = col.products | sort_by: sort_by -%}
+
+      {%- if col.products_count == 0 -%}
+        <p class="mdcp__empty">{{ section.settings.empty_message | default: 'No products found in this collection.' }}</p>
+
+      {%- else -%}
+        <ul class="mdcp__grid" role="list">
+          {%- for product in products limit: limit -%}
+            <li>
+              <a class="mdcp__card" href="{{ product.url }}">
+                <div class="mdcp__card-image-wrap">
+                  {%- if product.featured_image != blank -%}
+                    {{
+                      product.featured_image
+                      | image_url: width: 800
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '300, 400, 600, 800',
+                        sizes: '(min-width: 990px) calc(100vw / {{ cols }}), (min-width: 750px) 50vw, 50vw',
+                        alt: product.featured_image.alt | escape,
+                        style: 'object-fit:cover'
+                    }}
+                  {%- else -%}
+                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+                <div class="mdcp__card-body">
+                  <p class="mdcp__card-title">{{ product.title }}</p>
+                  <p class="mdcp__card-price">
+                    {%- if product.compare_at_price > product.price -%}
+                      {{ product.price | money }}
+                      <span class="mdcp__card-price--compare">{{ product.compare_at_price | money }}</span>
+                    {%- else -%}
+                      {{ product.price | money }}
+                    {%- endif -%}
+                  </p>
+                </div>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+    {%- else -%}
+      {%- comment -%} Editor placeholder – no collection selected yet {%- endcomment -%}
+      <ul class="mdcp__grid" role="list">
+        {%- for i in (1..cols) -%}
+          <li>
+            <div class="mdcp__card">
+              <div class="mdcp__card-image-wrap">
+                {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+              <div class="mdcp__card-body">
+                <p class="mdcp__card-title">Product Title</p>
+                <p class="mdcp__card-price">$0.00</p>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Products (MyDuke)",
+  "tag": "section",
+  "class": "mdcp-section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "background-1",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Select a collection, or use the attribute button (\u25a3) to bind to the current page's collection."
+    },
+    {
+      "type": "select",
+      "id": "sort_by",
+      "label": "Sort products by",
+      "default": "manual",
+      "options": [
+        { "value": "manual",             "label": "Featured" },
+        { "value": "best-selling",       "label": "Best selling" },
+        { "value": "title-ascending",    "label": "Alphabetically, A–Z" },
+        { "value": "title-descending",   "label": "Alphabetically, Z–A" },
+        { "value": "price-ascending",    "label": "Price, low to high" },
+        { "value": "price-descending",   "label": "Price, high to low" },
+        { "value": "created-ascending",  "label": "Date, old to new" },
+        { "value": "created-descending", "label": "Date, new to old" }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "products_per_page",
+      "label": "Max products to show",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Eyebrow / Subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Use the attribute button to bind to the current collection's title."
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "div", "label": "div" }
+      ],
+      "default": "h2",
+      "label": "Heading tag"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "default": true,
+      "label": "Show divider below heading"
+    },
+    {
+      "type": "header",
+      "content": "Shop All Button"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_label",
+      "label": "Button label",
+      "default": "Shop All Products"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_url",
+      "label": "Button URL fallback",
+      "info": "Only used when no collection is selected. When a collection is selected, the button links to the collection URL automatically."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_per_row",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Columns per row (desktop)"
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty collection message",
+      "default": "No products found in this collection."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-padding.header.content"
+    },
+    {
+      "type": "select",
+      "id": "padding_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-padding.options__1.label" },
+        { "value": "xs",        "label": "t:sections.all.section-padding.options__2.label" },
+        { "value": "s",         "label": "t:sections.all.section-padding.options__3.label" },
+        { "value": "m",         "label": "t:sections.all.section-padding.options__4.label" },
+        { "value": "l",         "label": "t:sections.all.section-padding.options__5.label" },
+        { "value": "xl",        "label": "t:sections.all.section-padding.options__6.label" }
+      ],
+      "default": "m",
+      "label": "t:sections.all.section-padding.padding_top.label"
+    },
+    {
+      "type": "select",
+      "id": "padding_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-padding.options__1.label" },
+        { "value": "xs",        "label": "t:sections.all.section-padding.options__2.label" },
+        { "value": "s",         "label": "t:sections.all.section-padding.options__3.label" },
+        { "value": "m",         "label": "t:sections.all.section-padding.options__4.label" },
+        { "value": "l",         "label": "t:sections.all.section-padding.options__5.label" },
+        { "value": "xl",        "label": "t:sections.all.section-padding.options__6.label" }
+      ],
+      "default": "m",
+      "label": "t:sections.all.section-padding.padding_bottom.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-margin.header.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs",        "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s",         "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m",         "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l",         "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl",        "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-margin.margin_top.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs",        "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s",         "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m",         "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l",         "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl",        "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "l",
+      "label": "t:sections.all.section-margin.margin_bottom.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Products (MyDuke)",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}
