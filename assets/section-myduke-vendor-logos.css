@@ -80,7 +80,7 @@
 .mdvl__divider {
   height: 1px;
   background-color: var(--mdvl-divider-color);
-  margin-bottom: 0;
+  margin-bottom: 40px;
 }
 
 /* ── Wrapper / Track ── */
