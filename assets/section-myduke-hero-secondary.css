@@ -111,7 +111,7 @@
     align-items: end;
   }
 
-  .myduke-hero-secondary__inner{
+  .myduke-hero-secondary__inner {
     padding-bottom: 5rem;
   }
 
@@ -135,7 +135,7 @@
     color: var(--mobile-text-color, #ffffff);
   }
 
-  .myduke-hero-secondary__description {
+  .myduke-hero-secondary__description p {
     font-size: 1.6rem;
     color: var(--mobile-text-color, #ffffff);
   }
