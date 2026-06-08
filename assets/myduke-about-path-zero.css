@@ -283,7 +283,7 @@
 
   .myduke-path-zero__phases {
     width: 100%;
-    gap: 0;
+    gap: 0.8rem;
   }
 
   .myduke-path-zero__image {

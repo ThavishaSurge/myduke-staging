@@ -10,7 +10,8 @@
 }
 
 .myduke-about-our-story__inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: center;
   overflow: hidden;
@@ -122,13 +123,17 @@
 /* ── Tablet ─────────────────────────────────────────── */
 @media screen and (max-width: 990px) {
   .myduke-about-our-story__inner {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 0;
   }
 
   .myduke-about-our-story__inner.reverse .myduke-about-our-story__image,
   .myduke-about-our-story__inner.reverse .myduke-about-our-story__content {
     order: 0;
+  }
+
+  .myduke-about-our-story__cards {
+      flex-direction: column;
   }
 
   .myduke-about-our-story__image {
