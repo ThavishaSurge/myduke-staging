@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 2.4rem;
-  margin: 0 2.4rem;
+  padding: 6.4rem 2.4rem 8rem 2.4rem;
+  margin: 0;
 }
 
 /* ── Frosted card ──────────────────────────────────── */
@@ -30,7 +30,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.6rem;
+  gap: 0.8rem;
   text-align: center;
 }
 
@@ -50,7 +50,7 @@
   line-height: 1.1;
   letter-spacing: -1.8px;
   color: #264653;
-  margin: 0;
+  margin: 0 0 1.6rem 0;
 }
 
 .myduke-about-standards__description {
@@ -74,7 +74,7 @@
 }
 
 .myduke-about-standards__header-row {
-  padding: 0 1.2rem 2.4rem;
+  padding: 2.4rem 1.2rem 2.4rem 1.2rem;
   border-bottom: 1px solid #bfdbcf;
 }
 
@@ -106,7 +106,7 @@
 .myduke-about-standards__standard-label {
   font-family: var(--font-body-family);
   font-size: 2.2rem;
-  line-height: 1.2;
+  line-height: 3.5rem;
   letter-spacing: -0.958px;
   color: #264653;
   text-align: center;
@@ -115,7 +115,7 @@
 .myduke-about-standards__feature-text {
   font-family: var(--font-body-family);
   font-size: 1.8rem;
-  line-height: 1.3;
+  line-height: 1.1;
   color: #264653;
 }
 
@@ -129,7 +129,7 @@
 .myduke-about-standards__varies-text {
   font-family: var(--font-body-family);
   font-size: 1.6rem;
-  line-height: 1.4;
+  line-height: 1.1;
   color: #264653;
   text-align: center;
 }
