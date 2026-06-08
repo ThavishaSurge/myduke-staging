@@ -82,6 +82,28 @@
         "sign_in_link": ""
       }
     },
+    "myduke_collection_products_T9WLk3": {
+      "type": "myduke-collection-products",
+      "name": "Collection (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "{{ collection }}",
+        "sort_by": "manual",
+        "products_per_page": 24,
+        "subheading": "",
+        "heading": "{{ collection.title }}",
+        "heading_tag": "h2",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "columns_per_row": 4,
+        "empty_message": "No products found in this collection.",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
     "myduke_vendor_logos_3MKULM": {
       "type": "myduke-vendor-logos",
       "blocks": {
@@ -196,6 +218,7 @@
   "order": [
     "product-grid",
     "myduke_hero_secondary_V3apEU",
+    "myduke_collection_products_T9WLk3",
     "myduke_vendor_logos_3MKULM"
   ]
 }
