@@ -25,7 +25,7 @@
 }
 
 .myduke-about-our-story__image {
-  flex: 1 0 0;
+  flex: 0 0 50%;
   min-width: 0;
   align-self: stretch;
 }
