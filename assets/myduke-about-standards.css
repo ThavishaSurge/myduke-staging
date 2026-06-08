@@ -62,6 +62,10 @@
 }
 
 /* ── Comparison table ──────────────────────────────── */
+.myduke-about-standards__table-scroll {
+  width: 100%;
+}
+
 .myduke-about-standards__table {
   display: flex;
   flex-direction: column;
@@ -211,6 +215,15 @@
   .myduke-about-standards__col-myduke,
   .myduke-about-standards__col-standard {
     width: 7.2rem;
+  }
+
+  .myduke-about-standards__table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .myduke-about-standards__table {
+    min-width: 42rem;
   }
 
   .myduke-about-standards__feature-text {
