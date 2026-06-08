@@ -121,11 +121,115 @@
         "right_image": "shopify://shop_images/path-zero-right.webp",
         "flex_reverse": false
       }
+    },
+    "myduke_about_clinical_advantage_BELaxw": {
+      "type": "myduke-about-clinical-advantage",
+      "blocks": {
+        "badge_ALHAwq": {
+          "type": "badge",
+          "settings": {
+            "icon_svg": "",
+            "label": "AHPRA-Registered Doctors"
+          }
+        },
+        "badge_UcGVbA": {
+          "type": "badge",
+          "settings": {
+            "icon_svg": "",
+            "label": "TGA-Compliant Framework"
+          }
+        },
+        "badge_xP3Uxk": {
+          "type": "badge",
+          "settings": {
+            "icon_svg": "",
+            "label": "Secure Medical Data"
+          }
+        },
+        "badge_hFKM3q": {
+          "type": "badge",
+          "settings": {
+            "icon_svg": "",
+            "label": "Australian Owned & Operated"
+          }
+        },
+        "accordion_item_CrPEgt": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Secure Clinical Assessment",
+            "content": "<p>Eligible adults complete an online medical questionnaire, which is reviewed by an independent Australian-registered doctor. This process helps determine appropriate clinical options based on individual circumstances, in line with professional standards and public health guidance.</p>"
+          }
+        },
+        "accordion_item_aXBMfy": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Ongoing Patient Oversight",
+            "content": ""
+          }
+        },
+        "accordion_item_JEjGDq": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Regulatory Alignment",
+            "content": ""
+          }
+        },
+        "accordion_item_JYMUnn": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Zero Upsell Policy",
+            "content": ""
+          }
+        },
+        "accordion_item_pTWLDp": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Evidence-Based Care",
+            "content": ""
+          }
+        },
+        "accordion_item_UXNpdU": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Licensed Pharmacy Dispensing",
+            "content": ""
+          }
+        },
+        "accordion_item_miVRQc": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Data Security",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "badge_ALHAwq",
+        "badge_UcGVbA",
+        "badge_xP3Uxk",
+        "badge_hFKM3q",
+        "accordion_item_CrPEgt",
+        "accordion_item_aXBMfy",
+        "accordion_item_JEjGDq",
+        "accordion_item_JYMUnn",
+        "accordion_item_pTWLDp",
+        "accordion_item_UXNpdU",
+        "accordion_item_miVRQc"
+      ],
+      "name": "Clinical Advantage (About)",
+      "settings": {
+        "eyebrow": "Our Standards",
+        "heading": "Our Clinical Advantage",
+        "description": "",
+        "button_text": "Start your assessment",
+        "button_link": ""
+      }
     }
   },
   "order": [
     "myduke_hero_secondary_7RhEwF",
     "myduke_about_our_story_eBVAWf",
-    "myduke_about_path_zero_VYbFyq"
+    "myduke_about_path_zero_VYbFyq",
+    "myduke_about_clinical_advantage_BELaxw"
   ]
 }
