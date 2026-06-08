@@ -1,0 +1,272 @@
+{{ 'myduke-about-standards.css' | asset_url | stylesheet_tag }}
+
+<section class="myduke-about-standards">
+  <div class="myduke-about-standards__inner">
+
+    {%- if section.settings.bg_image != blank -%}
+      <div class="myduke-about-standards__bg">
+        <img
+          src="{{ section.settings.bg_image | image_url: width: 1600 }}"
+          alt=""
+          width="{{ section.settings.bg_image.width }}"
+          height="{{ section.settings.bg_image.height }}"
+          loading="lazy"
+        >
+      </div>
+    {%- endif -%}
+
+    <div class="myduke-about-standards__card">
+
+      <div class="myduke-about-standards__heading-group">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="myduke-about-standards__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="myduke-about-standards__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="myduke-about-standards__description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="myduke-about-standards__table">
+
+        {%- comment -%} Header row {%- endcomment -%}
+        <div class="myduke-about-standards__header-row">
+          <div class="myduke-about-standards__col-feature"></div>
+          <div class="myduke-about-standards__col-myduke">
+            {%- if section.settings.myduke_logo != blank -%}
+              <img
+                src="{{ section.settings.myduke_logo | image_url: width: 200 }}"
+                alt="MyDuke"
+                width="{{ section.settings.myduke_logo.width }}"
+                height="{{ section.settings.myduke_logo.height }}"
+                loading="lazy"
+              >
+            {%- endif -%}
+          </div>
+          <div class="myduke-about-standards__col-standard">
+            <span class="myduke-about-standards__standard-label">
+              {{ section.settings.standard_clinic_label | default: 'Standard Clinic' }}
+            </span>
+          </div>
+        </div>
+
+        {%- comment -%} Data rows {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'row' and block.settings.feature != blank -%}
+            <div class="myduke-about-standards__row" {{ block.shopify_attributes }}>
+
+              <div class="myduke-about-standards__col-feature">
+                <span class="myduke-about-standards__feature-text">{{ block.settings.feature }}</span>
+              </div>
+
+              <div class="myduke-about-standards__col-myduke">
+                <span class="myduke-about-standards__check-icon" aria-label="Yes">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="16" fill="#218380"/>
+                    <path d="M9 16.5L13.5 21L23 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+
+              <div class="myduke-about-standards__col-standard">
+                {%- if block.settings.standard_result == 'check' -%}
+                  <span class="myduke-about-standards__check-icon" aria-label="Yes">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="16" cy="16" r="16" fill="#218380"/>
+                      <path d="M9 16.5L13.5 21L23 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                {%- elsif block.settings.standard_result == 'cross' -%}
+                  <span class="myduke-about-standards__cross-icon" aria-label="No">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="16" cy="16" r="16" fill="#E8E8E8"/>
+                      <path d="M11 11L21 21M21 11L11 21" stroke="#9B2020" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                {%- elsif block.settings.standard_result == 'varies' -%}
+                  <span class="myduke-about-standards__varies-text">Varies</span>
+                {%- endif -%}
+              </div>
+
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+      </div>
+
+      {%- if section.settings.button_text != blank -%}
+        <div class="myduke-about-standards__cta">
+          <a
+            href="{{ section.settings.button_link | default: '#' }}"
+            class="myduke-about-standards__button"
+          >
+            {{- section.settings.button_text -}}
+          </a>
+        </div>
+      {%- endif -%}
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Standards (About)",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Card"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "The MyDuke Difference"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Choose MyDuke?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Table Header"
+    },
+    {
+      "type": "image_picker",
+      "id": "myduke_logo",
+      "label": "MyDuke Logo"
+    },
+    {
+      "type": "text",
+      "id": "standard_clinic_label",
+      "label": "Standard Clinic Label",
+      "default": "Standard Clinic"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Start your assessment"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature"
+        },
+        {
+          "type": "select",
+          "id": "standard_result",
+          "label": "Standard Clinic Result",
+          "default": "cross",
+          "options": [
+            { "value": "check", "label": "Checkmark (Yes)" },
+            { "value": "cross", "label": "Cross (No)" },
+            { "value": "varies", "label": "Varies" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Standards (About)",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "feature": "AHPRA-registered doctor review",
+            "standard_result": "varies"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Specialist pharmacy dispensing",
+            "standard_result": "cross"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Structured tapering protocol",
+            "standard_result": "cross"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Ongoing clinical follow-up",
+            "standard_result": "cross"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "TGA-compliant products only",
+            "standard_result": "varies"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Transparent pricing, no upsells",
+            "standard_result": "cross"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Digital health assessment",
+            "standard_result": "check"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Nicotine strength management",
+            "standard_result": "cross"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
