@@ -323,12 +323,12 @@
 
 @media (max-width:750px) {
   .mdpp {
-    padding: 40px 0px;
+    padding: 40px 0px !important;
   }
 
   .mdpp__header {
-    flex-direction: column;
-    justify-content: start;
+    flex-direction: column !important;
+    justify-content: start !important;
   }
 
   .mdpp__heading {
