@@ -81,10 +81,121 @@
         "elig_assessment_link": "",
         "sign_in_link": ""
       }
+    },
+    "myduke_vendor_logos_3MKULM": {
+      "type": "myduke-vendor-logos",
+      "blocks": {
+        "vendor_3dVBCB": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_kJPjaA": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_VUeLBw": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_fLinjy": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+          }
+        },
+        "vendor_jXgahV": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_dGpWEP": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_Y3MMUy": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_BBUUaN": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_PPGdNk": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_YVEUPc": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_ktxUi6": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_mW8V6h": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor_3dVBCB",
+        "vendor_kJPjaA",
+        "vendor_VUeLBw",
+        "vendor_fLinjy",
+        "vendor_jXgahV",
+        "vendor_dGpWEP",
+        "vendor_Y3MMUy",
+        "vendor_BBUUaN",
+        "vendor_PPGdNk",
+        "vendor_YVEUPc",
+        "vendor_ktxUi6",
+        "vendor_mW8V6h"
+      ],
+      "name": "Vendor Logos (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "heading": "By Brand",
+        "heading_tag": "h2",
+        "description": "Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware.",
+        "show_divider": true,
+        "shop_all_label": "Shop All Brands",
+        "shop_all_url": "",
+        "shop_all_new_tab": false,
+        "enable_slider": false,
+        "show_slider_nav": false,
+        "logos_per_row": 6,
+        "logo_height": 80,
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "product-grid",
-    "myduke_hero_secondary_V3apEU"
+    "myduke_hero_secondary_V3apEU",
+    "myduke_vendor_logos_3MKULM"
   ]
 }

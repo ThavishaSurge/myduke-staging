@@ -30,7 +30,11 @@
         "animated_badge": true,
         "aspect_ratio_secondary": "portrait",
         "margin_top": "no-indent",
-        "margin_bottom": "l"
+        "margin_bottom": "l",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you're a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": ""
       }
     },
     "slideshow_YPR3t6": {
@@ -47,6 +51,7 @@
             "heading": "This is where you highlight key information",
             "heading_size": "h2",
             "heading_tag": "h2",
+            "heading_max_width": "medium",
             "description": "Use this space to describe what this slide presents, such as a product, offer, or important update.",
             "card_overlay_link": "",
             "show_button": false,
@@ -66,6 +71,7 @@
             "heading": "This is where you highlight key information",
             "heading_size": "h2",
             "heading_tag": "h2",
+            "heading_max_width": "medium",
             "description": "Use this space to describe what this slide presents, such as a product, offer, or important update.",
             "card_overlay_link": "",
             "show_button": false,
@@ -85,6 +91,7 @@
             "heading": "This is where you highlight key information",
             "heading_size": "h2",
             "heading_tag": "h2",
+            "heading_max_width": "medium",
             "description": "Use this space to describe what this slide presents, such as a product, offer, or important update.",
             "card_overlay_link": "",
             "show_button": false,
@@ -129,6 +136,7 @@
       "settings": {
         "heading": "Here can be your main title",
         "subtitle": "Here can be a short introduction to your content",
+        "aspect_ratio": "landscape",
         "author_name": "<p>Author’s name</p>",
         "margin_top": "no-indent",
         "margin_bottom": "l"
@@ -137,13 +145,6 @@
     "steps_fdx4Cf": {
       "type": "steps",
       "blocks": {
-        "column_EEp8Mx": {
-          "type": "column",
-          "settings": {
-            "label": "Year",
-            "text": "Add a short description about this milestone, feature, or key information. Keep it concise and informative."
-          }
-        },
         "column_H6NNe9": {
           "type": "column",
           "settings": {
@@ -167,7 +168,6 @@
         }
       },
       "block_order": [
-        "column_EEp8Mx",
         "column_H6NNe9",
         "column_tC8anC",
         "column_KxPF6i"
@@ -183,12 +183,40 @@
         "margin_top": "no-indent",
         "margin_bottom": "xl"
       }
+    },
+    "products_grid_UM7nmX": {
+      "type": "products-grid",
+      "name": "t:sections.products-grid.name",
+      "settings": {
+        "color_scheme": "",
+        "collection": "",
+        "product_list": [],
+        "products_amount": 8,
+        "products_per_row": 4,
+        "products_per_row_mobile": "1",
+        "sort": "title-ascending",
+        "heading": "Products",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "heading_group_button_show": true,
+        "heading_group_button_label": "Shop All",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": true,
+        "show_quick_view": true,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
     }
   },
   "order": [
     "hero_YYBhCt",
     "slideshow_YPR3t6",
     "about_XHnhC8",
-    "steps_fdx4Cf"
+    "steps_fdx4Cf",
+    "products_grid_UM7nmX"
   ]
 }
