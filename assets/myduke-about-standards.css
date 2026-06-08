@@ -1,0 +1,250 @@
+.myduke-about-standards {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6.4rem 2.4rem 8rem 2.4rem;
+  margin: 0;
+}
+
+/* ── Frosted card ──────────────────────────────────── */
+.myduke-about-standards__card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 77.4rem;
+  background: #ffffff;
+  background-clip: padding-box;
+  backdrop-filter: blur(2.4rem);
+  -webkit-backdrop-filter: blur(2.4rem);
+  border: 16px solid rgba(255, 255, 255, 0.2);
+  padding: 4.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+/* ── Heading group ─────────────────────────────────── */
+.myduke-about-standards__heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.myduke-about-standards__eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #000000;
+  margin: 0;
+}
+
+.myduke-about-standards__heading {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+  color: #264653;
+  margin: 0 0 1.6rem 0;
+}
+
+.myduke-about-standards__description {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: #264653;
+  margin: 0;
+}
+
+/* ── Comparison table ──────────────────────────────── */
+.myduke-about-standards__table-scroll {
+  width: 100%;
+}
+
+.myduke-about-standards__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.myduke-about-standards__header-row,
+.myduke-about-standards__row {
+  display: flex;
+  align-items: center;
+}
+
+.myduke-about-standards__header-row {
+  padding: 2.4rem 1.2rem 2.4rem 1.2rem;
+  border-bottom: 1px solid #bfdbcf;
+}
+
+.myduke-about-standards__row {
+  padding: 2.4rem 1.2rem;
+  border-bottom: 1px solid #bfdbcf;
+}
+
+.myduke-about-standards__col-feature {
+  flex: 1;
+  min-width: 0;
+}
+
+.myduke-about-standards__col-myduke,
+.myduke-about-standards__col-standard {
+  width: 17rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myduke-about-standards__col-myduke img {
+  width: 9.9rem;
+  height: auto;
+  display: block;
+}
+
+.myduke-about-standards__standard-label {
+  font-family: var(--font-body-family);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: -0.958px;
+  color: #264653;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.myduke-about-standards__feature-text {
+  font-family: var(--font-body-family);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: #264653;
+}
+
+.myduke-about-standards__check-icon,
+.myduke-about-standards__cross-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myduke-about-standards__varies-text {
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: #264653;
+  text-align: center;
+}
+
+/* ── CTA button ────────────────────────────────────── */
+.myduke-about-standards__cta {
+  width: 100%;
+}
+
+.myduke-about-standards__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #218380;
+  color: #ffffff;
+  font-family: var(--font-button-family);
+  font-weight: 500;
+  font-size: calc(var(--font-button-scale) * 1rem);
+  line-height: 2.1rem;
+  text-transform: capitalize;
+  padding: 0.95rem 3.6rem;
+  min-height: 4rem;
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+
+.myduke-about-standards__button:hover {
+  background: #264653;
+  color: #ffffff;
+}
+
+/* ── Tablet ─────────────────────────────────────────── */
+@media screen and (max-width: 992px) {
+  .myduke-about-standards {
+    padding: 6rem 2.4rem;
+  }
+
+  .myduke-about-standards__card {
+    padding: 3.2rem;
+    gap: 3.2rem;
+  }
+
+  .myduke-about-standards__heading {
+    font-size: 3.4rem;
+  }
+
+  .myduke-about-standards__col-myduke,
+  .myduke-about-standards__col-standard {
+    width: 12rem;
+  }
+
+  .myduke-about-standards__standard-label {
+    font-size: 1.8rem;
+  }
+}
+
+/* ── Mobile ─────────────────────────────────────────── */
+@media screen and (max-width: 575px) {
+  .myduke-about-standards {
+    padding: 6.4rem 0;
+    margin: 0;
+  }
+
+  .myduke-about-standards__card {
+    padding: 2.4rem;
+    gap: 2.4rem;
+    margin: 0 0.8rem;
+  }
+
+  .myduke-about-standards__col-myduke img {
+    width: 7.9rem;
+  }
+
+  .myduke-about-standards__heading {
+    font-size: 2.6rem;
+    letter-spacing: 0;
+  }
+
+  .myduke-about-standards__description {
+    font-size: 1.6rem;
+  }
+
+  .myduke-about-standards__header-row {
+    gap: 2.4rem;
+  }
+
+  .myduke-about-standards__col-myduke,
+  .myduke-about-standards__col-standard {
+    width: 7.2rem;
+  }
+
+  .myduke-about-standards__table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .myduke-about-standards__table {
+    min-width: 42rem;
+  }
+
+  .myduke-about-standards__feature-text {
+    font-size: 1.4rem;
+  }
+
+  .myduke-about-standards__standard-label {
+    font-size: 1.4rem;
+  }
+
+  .myduke-about-standards__varies-text {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,338 @@
+.myduke-path-zero {
+  background: #ffffff;
+  padding: 2.4rem;
+}
+
+.myduke-path-zero__inner {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: #f7f8f8;
+  overflow: hidden;
+}
+
+.myduke-path-zero__inner.reverse .myduke-path-zero__phases {
+  order: 2;
+}
+
+.myduke-path-zero__inner.reverse .myduke-path-zero__image {
+  order: 1;
+}
+
+/* ── Phases column ─────────────────────────────────── */
+.myduke-path-zero__phases {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Image column ──────────────────────────────────── */
+.myduke-path-zero__image {
+  flex: 1 0 0;
+  min-width: 0;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+.myduke-path-zero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 100%;
+}
+
+/* ── Phase card ────────────────────────────────────── */
+.myduke-path-zero__phase {
+  padding: 2rem;
+  border: 1px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.myduke-path-zero__phase--olive { background: rgba(38, 70, 83, 0.8); }
+.myduke-path-zero__phase--fern  { background: #218380; }
+.myduke-path-zero__phase--sage  { background: #bfdbcf; }
+
+/* ── Phase header ──────────────────────────────────── */
+.myduke-path-zero__phase-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.myduke-path-zero__phase-identity {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.myduke-path-zero__phase-icon {
+  width: 5.6rem;
+  height: 5.6rem;
+  flex-shrink: 0;
+}
+
+.myduke-path-zero__phase-icon img,
+.myduke-path-zero__phase-icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.myduke-path-zero__phase-title {
+  font-family: var(--font-body-family);
+  font-size: 3.3rem;
+  line-height: 3.8rem;
+  font-weight: 400;
+  margin: 0;
+  flex: 1 0 0;
+  min-width: 0;
+  max-width: 25rem;
+}
+
+.myduke-path-zero__phase--olive .myduke-path-zero__phase-title,
+.myduke-path-zero__phase--fern .myduke-path-zero__phase-title {
+  color: #ffffff;
+}
+
+.myduke-path-zero__phase--sage .myduke-path-zero__phase-title {
+  color: #264653;
+}
+
+/* ── Phase number group ────────────────────────────── */
+.myduke-path-zero__phase-number-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.myduke-path-zero__phase-label {
+  font-family: var(--font-body-family);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.5;
+  display: block;
+  text-align: right;
+}
+
+.myduke-path-zero__phase--olive .myduke-path-zero__phase-label,
+.myduke-path-zero__phase--fern .myduke-path-zero__phase-label {
+  color: #bfdbcf;
+}
+
+.myduke-path-zero__phase--sage .myduke-path-zero__phase-label {
+  color: #218380;
+}
+
+.myduke-path-zero__phase-number {
+  font-family: var(--font-body-family);
+  font-size: 9.2rem;
+  font-weight: 400;
+  line-height: 0.8;
+  display: block;
+  text-align: right;
+}
+
+.myduke-path-zero__phase--olive .myduke-path-zero__phase-number,
+.myduke-path-zero__phase--fern .myduke-path-zero__phase-number {
+  color: #ffffff;
+}
+
+.myduke-path-zero__phase--sage .myduke-path-zero__phase-number {
+  color: #264653;
+}
+
+/* ── Phase body ────────────────────────────────────── */
+.myduke-path-zero__phase-body {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-end;
+}
+
+.myduke-path-zero__phase-content {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.myduke-path-zero__phase-subtitle {
+  font-family: var(--font-body-family);
+  font-size: 1.8rem;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+}
+
+.myduke-path-zero__phase--olive .myduke-path-zero__phase-subtitle,
+.myduke-path-zero__phase--fern .myduke-path-zero__phase-subtitle {
+  color: #bfdbcf;
+}
+
+.myduke-path-zero__phase--sage .myduke-path-zero__phase-subtitle {
+  color: #264653;
+}
+
+/* ── List items ────────────────────────────────────── */
+.myduke-path-zero__phase-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.myduke-path-zero__phase-row {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.myduke-path-zero__phase-num {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.056rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.myduke-path-zero__phase--olive .myduke-path-zero__phase-num,
+.myduke-path-zero__phase--fern .myduke-path-zero__phase-num {
+  color: #f7f8f8;
+}
+
+.myduke-path-zero__phase--sage .myduke-path-zero__phase-num {
+  color: #264653;
+}
+
+.myduke-path-zero__phase-text {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.myduke-path-zero__phase--olive .myduke-path-zero__phase-text,
+.myduke-path-zero__phase--fern .myduke-path-zero__phase-text {
+  color: #bfdbcf;
+}
+
+.myduke-path-zero__phase--sage .myduke-path-zero__phase-text {
+  color: #264653;
+}
+
+/* ── Duration badge ────────────────────────────────── */
+.myduke-path-zero__phase-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #f7f8f8;
+  border-radius: 3.7rem;
+  padding: 0.4rem 0.6rem;
+  flex-shrink: 0;
+}
+
+.myduke-path-zero__badge-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myduke-path-zero__badge-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.myduke-path-zero__badge-text {
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2b2b2e;
+  white-space: nowrap;
+  line-height: normal;
+}
+
+/* ── Tablet ─────────────────────────────────────────── */
+@media screen and (max-width: 992px) {
+  .myduke-path-zero__inner {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .myduke-path-zero__inner.reverse .myduke-path-zero__phases,
+  .myduke-path-zero__inner.reverse .myduke-path-zero__image {
+    order: 0;
+  }
+
+  .myduke-path-zero__phases {
+    width: 100%;
+    gap: 0.8rem;
+  }
+
+  .myduke-path-zero__image {
+    width: 100%;
+    align-self: auto;
+  }
+
+  .myduke-path-zero__phase-title {
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+
+  .myduke-path-zero__phase-number {
+    font-size: 7rem;
+  }
+}
+
+/* ── Mobile ─────────────────────────────────────────── */
+@media screen and (max-width: 575px) {
+  .myduke-path-zero {
+    padding: 1.2rem 1.2rem 0 1.2rem;
+    background-color: #f7f8f8;
+  }
+
+  .myduke-path-zero__image {
+    display: none;
+  }
+
+  .myduke-path-zero__phase {
+    padding: 1.6rem 1.2rem;
+  }
+
+  .myduke-path-zero__phase-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .myduke-path-zero__phase-number {
+    font-size: 5.6rem;
+  }
+
+  .myduke-path-zero__phase-subtitle {
+    font-size: 1.6rem;
+  }
+
+  .myduke-path-zero__phase-body {
+    gap: 1.6rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

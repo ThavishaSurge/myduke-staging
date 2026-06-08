@@ -1,0 +1,145 @@
+{{ 'myduke-about-our-story.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="myduke-about-our-story"
+  style="
+    --card-col-gap: {{ section.settings.card_column_gap }}px;
+    --card-row-gap: {{ section.settings.card_row_gap }}px;
+  "
+>
+  <div class="myduke-about-our-story__inner{% if section.settings.flex_reverse %} reverse{% endif %}">
+
+    <div class="myduke-about-our-story__image">
+      {%- if section.settings.left_image != blank -%}
+        <img
+          src="{{ section.settings.left_image | image_url: width: 1200 }}"
+          alt="{{ section.settings.heading | escape }}"
+          width="{{ section.settings.left_image.width }}"
+          height="{{ section.settings.left_image.height }}"
+          loading="lazy"
+        >
+     {%- endif -%}
+    </div>
+
+    <div class="myduke-about-our-story__content">
+
+      <div class="myduke-about-our-story__heading-group">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="myduke-about-our-story__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="myduke-about-our-story__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="myduke-about-our-story__cards">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.text != blank -%}
+              <div class="myduke-about-our-story__card" {{ block.shopify_attributes }}>
+                {%- assign lines = block.settings.text | newline_to_br | split: '<br />' -%}
+                {%- for line in lines -%}
+                  {%- if line != blank -%}
+                    <p>{{ line | strip }}</p>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="myduke-about-our-story__button">
+          {{ section.settings.button_text }}
+        </a>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Our Story",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "flex_reverse",
+      "label": "Reverse columns (image on right)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "Our Story"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Simplifying the Pathway to Quit"
+    },
+    {
+      "type": "header",
+      "content": "Card Grid Spacing"
+    },
+    {
+      "type": "number",
+      "id": "card_column_gap",
+      "label": "Column gap (px)",
+      "default": 24
+    },
+    {
+      "type": "number",
+      "id": "card_row_gap",
+      "label": "Row gap (px)",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Apply For Prescription"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Paragraph Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About — Our Story"
+    }
+  ]
+}
+{% endschema %}
