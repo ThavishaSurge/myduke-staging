@@ -1,30 +1,11 @@
 .myduke-about-standards {
-  background: #ffffff;
-  padding: 0 2.4rem 2.4rem;
-}
-
-.myduke-about-standards__inner {
   position: relative;
-  min-height: 112rem;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2.4rem;
-  overflow: hidden;
-}
-
-/* ── Background image ──────────────────────────────── */
-.myduke-about-standards__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.myduke-about-standards__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  padding: 8rem 2.4rem;
+  margin: 0 2.4rem;
 }
 
 /* ── Frosted card ──────────────────────────────────── */
@@ -33,10 +14,11 @@
   z-index: 1;
   width: 100%;
   max-width: 77.4rem;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1.6rem solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  background-clip: padding-box;
+  backdrop-filter: blur(2.4rem);
+  -webkit-backdrop-filter: blur(2.4rem);
+  border: 16px solid rgba(255, 255, 255, 0.2);
   padding: 4.8rem;
   display: flex;
   flex-direction: column;
@@ -77,7 +59,6 @@
   line-height: 1.5;
   color: #264653;
   margin: 0;
-  max-width: 54rem;
 }
 
 /* ── Comparison table ──────────────────────────────── */
@@ -177,12 +158,16 @@
 }
 
 .myduke-about-standards__button:hover {
-  background: #143847;
+  background: #264653;
   color: #ffffff;
 }
 
 /* ── Tablet ─────────────────────────────────────────── */
 @media screen and (max-width: 992px) {
+  .myduke-about-standards {
+    padding: 6rem 2.4rem;
+  }
+
   .myduke-about-standards__card {
     padding: 3.2rem;
     gap: 3.2rem;
@@ -205,13 +190,14 @@
 /* ── Mobile ─────────────────────────────────────────── */
 @media screen and (max-width: 575px) {
   .myduke-about-standards {
-    padding: 0 1.2rem 1.2rem;
+    padding: 6.4rem 0;
+    margin: 0;
   }
 
   .myduke-about-standards__card {
-    padding: 2.4rem 1.6rem;
+    padding: 2.4rem;
     gap: 2.4rem;
-    border-width: 0.8rem;
+    margin: 0 0.8rem;
   }
 
   .myduke-about-standards__heading {
@@ -225,12 +211,6 @@
   .myduke-about-standards__col-myduke,
   .myduke-about-standards__col-standard {
     width: 7.2rem;
-  }
-
-  .myduke-about-standards__check-icon svg,
-  .myduke-about-standards__cross-icon svg {
-    width: 2.4rem;
-    height: 2.4rem;
   }
 
   .myduke-about-standards__feature-text {
