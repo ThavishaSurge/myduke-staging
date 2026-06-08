@@ -66,12 +66,22 @@
           </nav>
         {%- endif -%}
 
-        {%- if section.settings.heading != blank -%}
-          <h1 class="myduke-hero-secondary__heading">{{ section.settings.heading }}</h1>
+        {%- liquid
+          if section.settings.use_page_content and page != blank
+            assign hero_heading     = page.title
+            assign hero_description = page.content
+          else
+            assign hero_heading     = section.settings.heading
+            assign hero_description = section.settings.description
+          endif
+        -%}
+
+        {%- if hero_heading != blank -%}
+          <h1 class="myduke-hero-secondary__heading">{{ hero_heading }}</h1>
         {%- endif -%}
 
-        {%- if section.settings.description != blank -%}
-          <div class="myduke-hero-secondary__description">{{ section.settings.description | newline_to_br }}</div>
+        {%- if hero_description != blank -%}
+          <div class="myduke-hero-secondary__description">{{ hero_description | newline_to_br }}</div>
         {%- endif -%}
 
       </div>
@@ -342,18 +352,6 @@
   </div>
 </div>
 
-{%- if section.settings.page_content_heading != blank or section.settings.page_content_description != blank -%}
-  <div class="myduke-hero-secondary__page-content">
-    <div class="page-width container">
-      {%- if section.settings.page_content_heading != blank -%}
-        <h2 class="myduke-hero-secondary__page-heading">{{ section.settings.page_content_heading }}</h2>
-      {%- endif -%}
-      {%- if section.settings.page_content_description != blank -%}
-        <div class="myduke-hero-secondary__page-description">{{ section.settings.page_content_description | newline_to_br }}</div>
-      {%- endif -%}
-    </div>
-  </div>
-{%- endif -%}
 
 {% schema %}
 {
@@ -499,31 +497,25 @@
       "default": 526
     },
     {
+      "type": "checkbox",
+      "id": "use_page_content",
+      "label": "Use page title & content as heading/description",
+      "default": false,
+      "info": "When enabled, the hero heading and description are pulled from the page's title and content. Useful when this section is used on dynamic page templates."
+    },
+    {
       "type": "textarea",
       "id": "heading",
-      "label": "Heading",
-      "default": "Your Health Comes First"
+      "label": "Heading (fallback)",
+      "default": "Your Health Comes First",
+      "info": "Used when \"Use page title\" is disabled."
     },
     {
       "type": "textarea",
       "id": "description",
-      "label": "Description",
-      "default": "myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework."
-    },
-    {
-      "type": "header",
-      "content": "Page Content (Below Hero)"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "page_content_heading",
-      "label": "Page content heading",
-      "info": "Displayed below the hero banner in a separate content area."
-    },
-    {
-      "type": "richtext",
-      "id": "page_content_description",
-      "label": "Page content description"
+      "label": "Description (fallback)",
+      "default": "myduke\u00ae is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.",
+      "info": "Used when \"Use page content\" is disabled."
     },
     {
       "type": "header",
