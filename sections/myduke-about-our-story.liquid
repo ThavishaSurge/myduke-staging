@@ -14,9 +14,11 @@
         <img
           src="{{ section.settings.left_image | image_url: width: 1200 }}"
           alt="{{ section.settings.heading | escape }}"
+          width="{{ section.settings.left_image.width }}"
+          height="{{ section.settings.left_image.height }}"
           loading="lazy"
         >
-      {%- endif -%}
+     {%- endif -%}
     </div>
 
     <div class="myduke-about-our-story__content">
