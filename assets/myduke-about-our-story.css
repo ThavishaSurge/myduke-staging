@@ -187,9 +187,4 @@
     text-align: center;
   }
 
-  .myduke-path-zero__phase-body {
-    gap: 1.6rem;
-    align-items: flex-start;
-    flex-direction: column;
-  }
 }

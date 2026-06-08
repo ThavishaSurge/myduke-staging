@@ -328,4 +328,10 @@
   .myduke-path-zero__phase-subtitle {
     font-size: 1.6rem;
   }
+
+  .myduke-path-zero__phase-body {
+    gap: 1.6rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

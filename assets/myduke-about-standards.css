@@ -205,8 +205,13 @@
     margin: 0 0.8rem;
   }
 
+  .myduke-about-standards__col-myduke img {
+    width: 7.9rem;
+  }
+
   .myduke-about-standards__heading {
     font-size: 2.6rem;
+    letter-spacing: 0;
   }
 
   .myduke-about-standards__description {
