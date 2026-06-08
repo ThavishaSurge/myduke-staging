@@ -270,13 +270,13 @@
 /* ── Product count badge ── */
 .mdpp__card-count {
   display: inline-block;
-  margin-top: 6px;
-  padding: 4px 10px;
-  background-color: #f0f1f2;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #374151;
+  margin-top: 12px;
+  padding: 4px 8px;
+  background-color: #EDF3F0;
+  border-radius: 37px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2b2e;
   line-height: 1.4;
   white-space: nowrap;
 }
