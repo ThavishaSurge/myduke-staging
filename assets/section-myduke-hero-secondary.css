@@ -205,3 +205,37 @@
     padding: 150px 50px 50px 50px !important;
   }
 }
+
+/* ── Page Content (below hero) ── */
+.myduke-hero-secondary__page-content {
+  padding: 60px 0;
+}
+
+.myduke-hero-secondary__page-heading {
+  font-size: 3.6rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #264653;
+  margin: 0 0 2rem;
+}
+
+.myduke-hero-secondary__page-description {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #264653;
+  max-width: 800px;
+}
+
+@media screen and (max-width: 749px) {
+  .myduke-hero-secondary__page-content {
+    padding: 40px 0;
+  }
+
+  .myduke-hero-secondary__page-heading {
+    font-size: 2.6rem;
+  }
+
+  .myduke-hero-secondary__page-description {
+    font-size: 1.5rem;
+  }
+}
