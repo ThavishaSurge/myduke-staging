@@ -3,6 +3,9 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-search.css' | asset_url | stylesheet_tag }}
 {{ 'template-search.css' | asset_url | stylesheet_tag }}
+{{ 'section-myduke-collection-products.css' | asset_url | stylesheet_tag }}
+{{ 'myduke-search-bar.css' | asset_url | stylesheet_tag }}
+{{ 'myduke-main-search.css' | asset_url | stylesheet_tag }}
 {%- if settings.pagination_type == 'load_more' or settings.pagination_type == 'infinite_scroll' -%}
   <script src="{{ 'load-more.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
@@ -60,58 +63,46 @@
           action="{{ routes.search_url }}"
           method="get"
           role="search"
-          class="search{% if search.performed %} search--perfomed{% endif %}"
+          class="myduke-search-bar__form"
         >
-          <div class="search__form-inner">
-            <div class="custom-field field">
-              <input
-                class="search__input field__input"
-                id="Search-In-Template"
-                dir="ltr"
-                type="search"
-                name="q"
-                value="{{ search.terms | escape }}"
-                placeholder="{{ 'general.search.placeholder' | t }}"
-                autofocus
-                {%- if section.settings.predictive_search_enabled -%}
-                  role="combobox"
-                  aria-expanded="false"
-                  aria-owns="predictive-search-results-list"
-                  aria-controls="predictive-search-results-list"
-                  aria-haspopup="listbox"
-                  aria-autocomplete="list"
-                  autocorrect="off"
-                  autocomplete="off"
-                  autocapitalize="off"
-                  spellcheck="false"
-                {%- endif -%}
-              >
-              {% comment %}<label for="Search-In-Template">{{ 'general.search.placeholder' | t }}</label>{% endcomment %}
-              <input name="options[prefix]" type="hidden" value="last">
+          <input type="hidden" name="type" value="product">
+          <input type="hidden" name="options[prefix]" value="last">
 
-              <button
-                class="search__button field__button focus-inset"
-                aria-label="{{- 'general.search.search' | t -}}"
-                type="submit"
-              >
-                {% render 'icon-search-input' %}
-              </button>
-              <button
-                class="search__button search__button--reset field__button focus-inset"
-                aria-label="{{- 'general.search.reset_search' | t -}}"
-                type="reset"
-                {%- if search.terms != blank -%}
-                  style="display: flex;"
-                {%- endif -%}
-              >
-                <div class="button__content">
-                  <span class="button__icons-container">
-                    {% render 'icon-arrow-tertiary-button' %}
-                  </span>
-                </div>
-              </button>
-            </div>
+          <div class="myduke-search-bar__field">
+            <input
+              class="myduke-search-bar__input"
+              id="Search-In-Template"
+              dir="ltr"
+              type="search"
+              name="q"
+              value="{{ search.terms | escape }}"
+              placeholder="{{ 'general.search.placeholder' | t }}"
+              autofocus
+              {%- if section.settings.predictive_search_enabled -%}
+                role="combobox"
+                aria-expanded="false"
+                aria-owns="predictive-search-results-list"
+                aria-controls="predictive-search-results-list"
+                aria-haspopup="listbox"
+                aria-autocomplete="list"
+                autocorrect="off"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+              {%- endif -%}
+            >
+            <button
+              class="myduke-search-bar__submit"
+              aria-label="{{ 'general.search.search' | t }}"
+              type="submit"
+            >
+              <svg class="myduke-search-bar__arrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M5 16L27 16" stroke="#218380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 25L27 16L18 7" stroke="#218380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </div>
+
           {%- if section.settings.predictive_search_enabled -%}
             <div class="predictive-search predictive-search--search-template" tabindex="-1" data-predictive-search>
               <div class="predictive-search__loading-state">
@@ -511,26 +502,36 @@
                       {{- 'templates.search.item_count' | t: count: search_products_size -}}
                     </div>
                   </div>
-                  <div
-                    class="
-                      collection-product-list container margin_product-cards collection-product-list--{{ section.settings.columns }} collection-product-list-mobile--{{section.settings.columns_mobile}}
-                      {% if section.settings.enable_filtering %} collection-results_filters {% endif %}
-                    "
-                    role="list"
-                  >
+                  <ul class="mdcp__grid mds-search-grid" role="list">
                     {%- for item in search_products -%}
-                      <div class="template-search__item collection-product-card">
-                        {% render 'product-card',
-                          product_card_product: item,
-                          columns: 4,
-                          section_obj: section,
-                          section_id: section.id,
-                          forloop_index: forloop.index,
-                          show_quick_view_overwrite: section.settings.show_quick_view
-                        %}
-                      </div>
+                      <li>
+                        <a class="mdcp__card" href="{{ item.url }}">
+                          <div class="mdcp__card-image-wrap">
+                            {%- if item.featured_image -%}
+                              <img
+                                src="{{ item.featured_image | image_url: width: 600 }}"
+                                alt="{{ item.featured_image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ item.featured_image.width }}"
+                                height="{{ item.featured_image.height }}"
+                              >
+                            {%- else -%}
+                              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                            {%- endif -%}
+                          </div>
+                          <div class="mdcp__card-body">
+                            <p class="mdcp__card-title">{{ item.title }}</p>
+                            <p class="mdcp__card-price">
+                              {{ item.price | money }}
+                              {%- if item.compare_at_price > item.price -%}
+                                <span class="mdcp__card-price--compare">{{ item.compare_at_price | money }}</span>
+                              {%- endif -%}
+                            </p>
+                          </div>
+                        </a>
+                      </li>
                     {%- endfor -%}
-                  </div>
+                  </ul>
                 {% endif %}
 
                 {% if search_articles_size != 0 %}
@@ -621,22 +622,18 @@
       input.setSelectionRange(length, length);
 
       input?.addEventListener('input', (event) => {
-        if (event.target.value) {
-          resetBtn.style.display = 'flex';
-        } else {
-          resetBtn.style.display = 'none';
+        if (resetBtn) {
+          resetBtn.style.display = event.target.value ? 'flex' : 'none';
         }
       });
 
       resetBtn?.addEventListener('click', (event) => {
         event.preventDefault();
-
         if (input) {
           input.value = '';
           input.focus();
         }
-
-        resetBtn.style.display = 'none';
+        if (resetBtn) resetBtn.style.display = 'none';
       });
     }
     window.addEventListener('load', initSearch);
