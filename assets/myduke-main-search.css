@@ -28,10 +28,6 @@
   text-align: center;
 }
 
-.template-search .search-results__title {
-  text-align: center;
-}
-
 /* ── Search page: product grid ───────────────────────── */
 .mds-search-grid {
   --mdcp-cols: 4;
