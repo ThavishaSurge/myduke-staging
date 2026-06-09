@@ -49,7 +49,7 @@
 }
 
 .myduke-cta__heading {
-  font-family: var(--font-heading-family);
+  font-family: var(--font-secondary-text-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   font-size: 4.8rem;
@@ -68,6 +68,8 @@
 }
 
 .myduke-cta__body p{
+  font-family: var(--font-secondary-text-family);
+  font-weight: 400;
   color: #bfdbcf!important;
 }
 

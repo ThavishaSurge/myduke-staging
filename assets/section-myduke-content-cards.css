@@ -218,7 +218,7 @@
   justify-content: center;
   background: #218380;
   color: #ffffff;
-  font-family: var(--font-button-family);
+  font-family: var(--font-secondary-text-family);
   font-style: var(--font-button-style);
   font-weight: 500;
   font-size: calc(var(--font-button-scale) * 1rem);
