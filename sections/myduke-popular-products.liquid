@@ -26,7 +26,7 @@
           {{ section.settings.heading }}
         </{{ section.settings.heading_tag }}>
       {%- endif -%}
-      {%- if section.settings.description != blank -%}
+      {%- if section.settings.show_description and section.settings.description != blank -%}
         <p class="mdpp__description">{{ section.settings.description }}</p>
       {%- endif -%}
     </div>
@@ -192,6 +192,12 @@
       ],
       "default": "h2",
       "label": "Heading tag"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show description",
+      "default": true
     },
     {
       "type": "textarea",
