@@ -6857,3 +6857,7 @@ header.shopify-section-header-sticky .menu-drawer-icon .icon {
 header.shopify-section-header-sticky .menu-drawer-icon {
   border-right: 1px solid #00000012;
 }
+
+.header.shopify-section-header-sticky {
+  border-bottom: 1px solid #00000012;
+}
