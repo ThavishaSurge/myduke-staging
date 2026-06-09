@@ -11,14 +11,40 @@
   "sections": {
     "page_info": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
         "content_align": "left"
       }
+    },
+    "myduke_collection_products_list_m9Lape": {
+      "type": "myduke-collection-products-list",
+      "name": "Collection Products List",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "heading": "Our Products",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "Check out our products.",
+        "show_divider": true,
+        "shop_all_label": "Shop All",
+        "shop_all_url": "",
+        "collection": "e-liquids",
+        "enable_slider": true,
+        "show_slider_nav": true,
+        "cards_per_row": 4,
+        "cards_per_row_mobile": "2",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
-    "page_info"
+    "page_info",
+    "myduke_collection_products_list_m9Lape"
   ]
 }
