@@ -26,6 +26,7 @@
 /* ── Form & field ──────────────────────────────────── */
 .myduke-search-bar__form {
   width: 100%;
+  max-width: 55rem;
 }
 
 .myduke-search-bar__field {
@@ -93,7 +94,6 @@
 .myduke-search-bar__arrow {
   display: block;
   flex-shrink: 0;
-  transform: rotate(-90deg);
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
