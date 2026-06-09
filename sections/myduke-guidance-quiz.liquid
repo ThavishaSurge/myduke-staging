@@ -1,0 +1,482 @@
+{% schema %}
+{
+  "name": "Guidance Quiz",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Need Guidance?"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Take our quick quiz to find out which nicotine strength is right for you."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fallback Background Color",
+      "default": "#F4A261"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image (Optional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question_text",
+          "label": "Question Text",
+          "default": "How many cigarettes do you smoke per day?"
+        },
+        {
+          "type": "text",
+          "id": "question_subtext",
+          "label": "Question Subtext",
+          "default": "This helps determine your nicotine strength"
+        },
+        {
+          "type": "text",
+          "id": "option_1",
+          "label": "Option 1"
+        },
+        {
+          "type": "text",
+          "id": "option_2",
+          "label": "Option 2"
+        },
+        {
+          "type": "text",
+          "id": "option_3",
+          "label": "Option 3"
+        },
+        {
+          "type": "text",
+          "id": "option_4",
+          "label": "Option 4"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Guidance Quiz",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question_text": "How many cigarettes do you smoke per day?",
+            "question_subtext": "This helps determine your nicotine strength",
+            "option_1": "1-5",
+            "option_2": "5-10",
+            "option_3": "10-20",
+            "option_4": "20+"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .guidance-quiz-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 10px;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: {{ section.settings.background_color }};
+    {% if section.settings.background_image %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+    {% else %}
+      /* Placeholder wavy gradient if no image */
+      background: linear-gradient(135deg, #f4a261 0%, #e9c46a 50%, #f4a261 100%);
+    {% endif %}
+    font-family: 'Manrope', 'Instrument Sans', sans-serif;
+  }
+
+  .guidance-quiz-header {
+    text-align: center;
+    color: #111;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .guidance-quiz-header h2 {
+    font-size: 48px;
+    letter-spacing: -1.8px;
+    margin: 0 0 24px 0;
+    line-height: 1.1;
+  }
+
+  .guidance-quiz-header p {
+    font-size: 18px;
+    max-width: 670px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .guidance-quiz-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 48px;
+    width: 100%;
+    max-width: 631px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  .guidance-question-text {
+    color: #264653;
+  }
+
+  .guidance-question-text h3 {
+    font-size: 32px;
+    letter-spacing: -0.95px;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+  }
+
+  .guidance-question-text p {
+    font-size: 18px;
+    margin: 0 0 30px 0;
+    line-height: 1.4;
+  }
+
+  .guidance-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .guidance-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background-color: #edf3f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .guidance-option:hover {
+    background-color: #e2ebe7;
+  }
+
+  .guidance-option.selected {
+    background-color: #218380;
+    color: #f7f8f8;
+  }
+  
+  .guidance-option.selected .guidance-option-text {
+    color: #f7f8f8;
+  }
+
+  .guidance-option-radio {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #264653;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .guidance-option.selected .guidance-option-radio {
+    border-color: #f7f8f8;
+  }
+
+  .guidance-option-radio::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: transparent;
+  }
+
+  .guidance-option.selected .guidance-option-radio::after {
+    background-color: #f7f8f8;
+  }
+
+  .guidance-option-text {
+    font-size: 14px;
+    color: #264653;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .guidance-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: auto;
+  }
+
+  .guidance-progress-container {
+    width: 100%;
+  }
+
+  .guidance-progress-bar-bg {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(33, 131, 128, 0.15);
+    border-radius: 3px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  .guidance-progress-bar-fill {
+    height: 100%;
+    background-color: #264653;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  .guidance-progress-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #264653;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  .guidance-actions {
+    display: flex;
+    gap: 12px;
+  }
+
+  .guidance-btn {
+    flex: 1;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-block;
+  }
+
+  .guidance-btn-back {
+    background-color: #e0e0e0;
+    color: #888;
+    cursor: not-allowed;
+  }
+
+  .guidance-btn-back.active {
+    background-color: #218380;
+    color: white;
+    cursor: pointer;
+  }
+
+  .guidance-btn-next {
+    background-color: transparent;
+    border: 1px solid #218380;
+    color: #218380;
+  }
+  
+  .guidance-btn-next:hover {
+    background-color: rgba(33, 131, 128, 0.05);
+  }
+
+  .guidance-question-block {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .guidance-question-block.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .guidance-quiz-header h2 { font-size: 36px; }
+    .guidance-quiz-card { padding: 32px 24px; border-radius: 12px; }
+    .guidance-question-text h3 { font-size: 24px; }
+  }
+</style>
+
+<div class="guidance-quiz-section" id="GuidanceQuiz-{{ section.id }}">
+  <div class="guidance-quiz-header">
+    <h2>{{ section.settings.heading | escape }}</h2>
+    <p>{{ section.settings.subheading | escape }}</p>
+  </div>
+
+  <div class="guidance-quiz-card">
+    <div id="quiz-questions-container-{{ section.id }}">
+      {% for block in section.blocks %}
+        <div class="guidance-question-block {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index }}" {{ block.shopify_attributes }}>
+          <div class="guidance-question-text">
+            <h3>{{ block.settings.question_text | escape }}</h3>
+            {% if block.settings.question_subtext != blank %}
+              <p>{{ block.settings.question_subtext | escape }}</p>
+            {% endif %}
+          </div>
+
+          <div class="guidance-options">
+            {% assign options = "option_1,option_2,option_3,option_4" | split: "," %}
+            {% for opt in options %}
+              {% if block.settings[opt] != blank %}
+                <div class="guidance-option" onclick="selectOption(this, '{{ section.id }}')">
+                  <div class="guidance-option-radio"></div>
+                  <p class="guidance-option-text">{{ block.settings[opt] | escape }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+      
+      {% if section.blocks.size == 0 %}
+        <div class="guidance-question-block active">
+          <div class="guidance-question-text">
+            <h3>Please add questions in the theme editor</h3>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="guidance-footer">
+      <div class="guidance-progress-container">
+        <div class="guidance-progress-bar-bg">
+          <div class="guidance-progress-bar-fill" id="quiz-progress-{{ section.id }}" style="width: {% if section.blocks.size > 0 %}{{ 100 | divided_by: section.blocks.size }}%{% else %}0%{% endif %}"></div>
+        </div>
+        <p class="guidance-progress-text" id="quiz-progress-text-{{ section.id }}">Question 1 / {{ section.blocks.size | default: 1 }}</p>
+      </div>
+
+      <div class="guidance-actions">
+        <button class="guidance-btn guidance-btn-back" id="quiz-btn-back-{{ section.id }}" onclick="prevQuestion('{{ section.id }}')" disabled>Back</button>
+        <button class="guidance-btn guidance-btn-next" id="quiz-btn-next-{{ section.id }}" onclick="nextQuestion('{{ section.id }}')">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function selectOption(element, sectionId) {
+    const parent = element.closest('.guidance-options');
+    const options = parent.querySelectorAll('.guidance-option');
+    options.forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    window.quizState = window.quizState || {};
+    window.quizState['{{ section.id }}'] = {
+      currentStep: 1,
+      totalSteps: {{ section.blocks.size | default: 1 }}
+    };
+  });
+
+  function updateQuizUI(sectionId) {
+    const state = window.quizState[sectionId];
+    if (!state) return;
+
+    // Update visibility of blocks
+    const container = document.getElementById('quiz-questions-container-' + sectionId);
+    const blocks = container.querySelectorAll('.guidance-question-block');
+    
+    blocks.forEach(block => {
+      if (parseInt(block.getAttribute('data-index')) === state.currentStep) {
+        block.classList.add('active');
+      } else {
+        block.classList.remove('active');
+      }
+    });
+
+    // Update progress bar
+    const progressFill = document.getElementById('quiz-progress-' + sectionId);
+    const progressText = document.getElementById('quiz-progress-text-' + sectionId);
+    
+    if (state.totalSteps > 0) {
+      const percentage = (state.currentStep / state.totalSteps) * 100;
+      progressFill.style.width = percentage + '%';
+      progressText.innerText = 'Question ' + state.currentStep + ' / ' + state.totalSteps;
+    }
+
+    // Update buttons
+    const backBtn = document.getElementById('quiz-btn-back-' + sectionId);
+    const nextBtn = document.getElementById('quiz-btn-next-' + sectionId);
+
+    if (state.currentStep === 1) {
+      backBtn.disabled = true;
+      backBtn.classList.remove('active');
+    } else {
+      backBtn.disabled = false;
+      backBtn.classList.add('active');
+    }
+
+    if (state.currentStep === state.totalSteps) {
+      nextBtn.innerText = 'Finish';
+    } else {
+      nextBtn.innerText = 'Next';
+    }
+  }
+
+  function prevQuestion(sectionId) {
+    const state = window.quizState[sectionId];
+    if (state && state.currentStep > 1) {
+      state.currentStep--;
+      updateQuizUI(sectionId);
+    }
+  }
+
+  function nextQuestion(sectionId) {
+    const state = window.quizState[sectionId];
+    if (state) {
+      // Basic validation: Check if an option is selected on the current slide
+      const container = document.getElementById('quiz-questions-container-' + sectionId);
+      const activeBlock = container.querySelector('.guidance-question-block.active');
+      
+      if (activeBlock) {
+        const selectedOption = activeBlock.querySelector('.guidance-option.selected');
+        if (!selectedOption) {
+          alert('Please select an option to continue.');
+          return;
+        }
+      }
+
+      if (state.currentStep < state.totalSteps) {
+        state.currentStep++;
+        updateQuizUI(sectionId);
+      } else {
+        // Handle finish quiz
+        alert('Quiz completed! Redirecting to recommendations...');
+        // window.location.href = '/collections/all';
+      }
+    }
+  }
+</script>
