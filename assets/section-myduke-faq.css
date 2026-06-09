@@ -187,6 +187,10 @@
   color: #264653;
 }
 
+.template-page-about-page .myduke-faq__answer {
+  font-family: var(--font-secondary-text-family);
+}
+
 .myduke-faq__answer p {
   margin: 0;
 }

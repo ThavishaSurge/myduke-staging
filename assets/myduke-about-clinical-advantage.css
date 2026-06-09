@@ -45,7 +45,7 @@
 }
 
 .myduke-clinical-advantage__description {
-  font-family: var(--font-body-family);
+  font-family: var(--font-secondary-text-family);
   font-size: 1.8rem;
   line-height: 1.5;
   color: #264653;
@@ -203,7 +203,7 @@
 }
 
 .myduke-clinical-advantage__answer {
-  font-family: var(--font-body-family);
+  font-family: var(--font-secondary-text-family);
   font-size: 1.4rem;
   line-height: 1.4;
   color: #264653;
