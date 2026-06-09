@@ -1,0 +1,112 @@
+.myduke-search-bar {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 2rem;
+}
+
+.myduke-search-bar__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Optional heading ──────────────────────────────── */
+.myduke-search-bar__heading {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  color: #264653;
+  margin: 0;
+}
+
+/* ── Form & field ──────────────────────────────────── */
+.myduke-search-bar__form {
+  width: 100%;
+}
+
+.myduke-search-bar__field {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #bfdbcf;
+  height: 5.4rem;
+  padding: 0 1.2rem;
+  overflow: hidden;
+}
+
+.myduke-search-bar__field:focus-within {
+  border-color: #218380;
+}
+
+/* ── Input ─────────────────────────────────────────── */
+.myduke-search-bar__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.4rem 0;
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #264653;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.myduke-search-bar__input::placeholder {
+  color: rgba(38, 70, 83, 0.4);
+}
+
+.myduke-search-bar__input::-webkit-search-cancel-button,
+.myduke-search-bar__input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
+
+/* ── Submit button ─────────────────────────────────── */
+.myduke-search-bar__submit {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #218380;
+  padding: 0;
+  transition: opacity 200ms ease;
+}
+
+.myduke-search-bar__submit:hover {
+  opacity: 0.7;
+}
+
+.myduke-search-bar__arrow {
+  display: block;
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+}
+
+/* ── Mobile ─────────────────────────────────────────── */
+@media screen and (max-width: 575px) {
+  .myduke-search-bar {
+    padding: 1.6rem 1.2rem;
+  }
+
+  .myduke-search-bar__field {
+    height: 4.8rem;
+  }
+
+  .myduke-search-bar__input {
+    font-size: 1.4rem;
+  }
+}
