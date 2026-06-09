@@ -41,6 +41,10 @@
   gap: 8px;
 }
 
+.mdpp__header-right {
+  align-self: end;
+}
+
 .mdpp__eyebrow {
   font-size: 0.75rem;
   font-weight: 600;
