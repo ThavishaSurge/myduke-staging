@@ -8,7 +8,7 @@
 /* ── Section wrapper ── */
 .mdvl {
   --mdvl-card-bg: #F7F8F8;
-  --mdvl-card-border: #e8e9ea;
+  --mdvl-card-border: #fff;
   --mdvl-card-radius: 0px;
   --mdvl-btn-bg: #218380;
   --mdvl-btn-color: #ffffff;
