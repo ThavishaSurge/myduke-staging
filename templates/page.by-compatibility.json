@@ -48,6 +48,18 @@
         "sign_in_link": ""
       }
     },
+    "myduke_search_bar_xPterA": {
+      "type": "myduke-search-bar",
+      "name": "Search",
+      "settings": {
+        "heading": "",
+        "placeholder": "Search products, brands, or strengths",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "margin_top_desktop": 48,
+        "margin_top_mobile": 0
+      }
+    },
     "myduke_collection_products_list_Pmnzf8": {
       "type": "myduke-collection-products-list",
       "name": "C ProductsList (MyDuke)",
@@ -266,6 +278,7 @@
   "order": [
     "page_info",
     "myduke_hero_secondary_mEHT4E",
+    "myduke_search_bar_xPterA",
     "myduke_collection_products_list_Pmnzf8",
     "myduke_collection_products_list_3PBiwF",
     "myduke_collection_products_list_qEJpeM",
