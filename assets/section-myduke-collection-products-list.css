@@ -1,0 +1,291 @@
+/* ============================================================
+   section-myduke-collection-products-list.css
+   Shared styles for myduke-collection-products-list sections (.mdcpl namespace)
+   ============================================================ */
+
+/* ── Variables ── */
+.mdcpl {
+  --mdcpl-gap: 12px;
+  --mdcpl-heading-size: 1.5rem;
+  --mdcpl-title-size: 0.875rem;
+  --mdcpl-btn-bg: #218380;
+  --mdcpl-btn-color: #ffffff;
+  --mdcpl-btn-radius: 0px;
+  --mdcpl-divider-color: #E0DACF;
+  overflow: hidden;
+  padding: 96px 0px !important;
+}
+
+.mdcpl-section {
+  padding: 0px !important;
+}
+
+/* ── Header ── */
+.mdcpl__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.mdcpl__header-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mdcpl__header-right {
+  align-self: end;
+}
+
+.mdcpl__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-foreground, #6b7280);
+  margin: 0;
+}
+
+.mdcpl__heading {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-foreground, #111827);
+}
+
+.mdcpl__description {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-foreground, #264653);
+  margin: 0;
+  max-width: 660px;
+  font-family: var(--font-secondary-text-family);
+}
+
+/* ── Shop All button ── */
+.mdcpl__shop-all-btn {
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 0;
+  border: none;
+  padding: 9.5px;
+  min-width: 189px;
+  text-align: center;
+  margin: auto;
+  display: block;
+  background-color: #218380;
+  color: #ffffff;
+  font-family: var(--font-secondary-text-family);
+}
+
+.mdcpl__shop-all-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* ── Divider ── */
+.mdcpl__divider {
+  height: 1px;
+  background-color: var(--mdcpl-divider-color);
+  margin-bottom: 40px;
+}
+
+/* ── Wrapper / Track ── */
+.mdcpl__wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.mdcpl__track {
+  width: 100%;
+}
+
+.mdcpl__track.swiper {
+  overflow: visible;
+}
+
+/* ── List (grid fallback) ── */
+.mdcpl__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mdcpl__list--grid {
+  flex-wrap: wrap;
+  gap: var(--mdcpl-gap);
+}
+
+/* Swiper wrapper needs box-sizing reset */
+.mdcpl__list.swiper-wrapper {
+  box-sizing: border-box;
+}
+
+/* ── Grid column widths (grid mode) ── */
+/* 2 columns */
+.mdcpl__list--2.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
+}
+
+/* 3 columns */
+.mdcpl__list--3.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
+}
+
+@media (min-width: 990px) {
+  .mdcpl__list--3.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 2) / 3);
+  }
+}
+
+/* 4 columns */
+.mdcpl__list--4.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
+}
+
+@media (min-width: 990px) {
+  .mdcpl__list--4.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 3) / 4);
+  }
+}
+
+/* 5 columns */
+.mdcpl__list--5.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
+}
+
+@media (min-width: 990px) {
+  .mdcpl__list--5.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 2) / 3);
+  }
+}
+
+@media (min-width: 1200px) {
+  .mdcpl__list--5.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 4) / 5);
+  }
+}
+
+/* 6 columns */
+.mdcpl__list--6.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
+}
+
+@media (min-width: 576px) {
+  .mdcpl__list--6.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 2) / 3);
+  }
+}
+
+@media (min-width: 1200px) {
+  .mdcpl__list--6.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 5) / 6);
+  }
+}
+
+/* 7 columns */
+.mdcpl__list--7.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
+}
+
+@media (min-width: 576px) {
+  .mdcpl__list--7.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 2) / 3);
+  }
+}
+
+@media (min-width: 1360px) {
+  .mdcpl__list--7.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 6) / 7);
+  }
+}
+
+/* 8 columns */
+.mdcpl__list--8.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
+}
+
+@media (min-width: 576px) {
+  .mdcpl__list--8.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 3) / 4);
+  }
+}
+
+@media (min-width: 1360px) {
+  .mdcpl__list--8.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 7) / 8);
+  }
+}
+
+/* ── Slide item ── */
+.mdcpl__item {
+  flex-shrink: 0;
+}
+
+.mdcpl__item.swiper-slide {
+  height: auto;
+}
+
+/* ── Slider nav buttons ── */
+.mdcpl__nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.mdcpl__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--mdcpl-divider-color);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-foreground, #111827);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.mdcpl__nav-btn:hover {
+  background: var(--color-foreground, #111827);
+  border-color: var(--color-foreground, #111827);
+  color: var(--color-background, #ffffff);
+}
+
+.mdcpl__nav-btn.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (max-width:750px) {
+  .mdcpl {
+    padding: 40px 0px !important;
+  }
+
+  .mdcpl__header {
+    flex-direction: column !important;
+    justify-content: start !important;
+    align-items: start !important;
+  }
+
+  .mdcpl__heading {
+    font-size: 32px;
+  }
+
+  .mdcpl__description {
+    font-size: 16px;
+  }
+
+  .mdcpl__header-right {
+    align-self: start;
+  }
+}
