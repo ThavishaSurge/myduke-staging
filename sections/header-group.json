@@ -37,7 +37,7 @@
         "scrolled_bg_color": "#ffffff",
         "show_logo": true,
         "logo": "shopify://shop_images/Logo_R_black.png",
-        "logo_2": "shopify://shop_images/Logo_R_black_1.png",
+        "logo_sticky": "shopify://shop_images/Logo_R_black_1.png",
         "show_dm_logo_in_overlay_mode": true,
         "logo_position": "left-logo",
         "menu_position": "left-menu",
