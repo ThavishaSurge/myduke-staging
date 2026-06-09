@@ -864,6 +864,69 @@
           }
         ],
         "default": "none"
+      },
+      {
+        "type": "header",
+        "content": "Inter"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_inter_font",
+        "default": "manrope_n4",
+        "label": "t:settings_schema.typography.settings.type_font.label",
+        "info": "t:settings_schema.typography.settings.type_font.info"
+      },
+      {
+        "type": "range",
+        "id": "inter_scale",
+        "min": 100,
+        "max": 200,
+        "step": 1,
+        "unit": "%",
+        "label": "t:settings_schema.typography.settings.body_scale.label",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "type_inter_letter_spacing",
+        "min": -1,
+        "max": 1,
+        "step": 0.1,
+        "default": 0,
+        "label": "t:settings_schema.typography.settings.type_body_letter_spacing.label"
+      },
+      {
+        "type": "range",
+        "id": "type_inter_line_height",
+        "min": 1,
+        "max": 2,
+        "step": 0.1,
+        "default": 1.4,
+        "label": "t:settings_schema.typography.settings.type_body_line_height.label"
+      },
+      {
+        "type": "select",
+        "id": "inter_text_transform",
+        "label": "t:settings_schema.typography.settings.text_transform.label",
+        "options": [
+          {
+            "value": "none",
+            "label": "t:settings_schema.typography.settings.text_transform.options__1.label"
+          },
+          {
+            "value": "uppercase",
+            "label": "t:settings_schema.typography.settings.text_transform.options__2.label"
+          },
+          {
+            "value": "lowercase",
+            "label": "t:settings_schema.typography.settings.text_transform.options__3.label"
+          },
+          {
+            "value": "capitalize",
+            "label": "t:settings_schema.typography.settings.text_transform.options__4.label"
+          }
+        ],
+        "default": "none"
       }
     ]
   },
@@ -1513,10 +1576,10 @@
       },
       {
         "type": "checkbox",
-        "id": "show_breadcrumbs",
+        "id": "show_inters",
         "default": false,
-        "label": "t:settings_schema.advanced.settings.show_breadcrumbs.label",
-        "info": "t:settings_schema.advanced.settings.show_breadcrumbs.info"
+        "label": "t:settings_schema.advanced.settings.show_inters.label",
+        "info": "t:settings_schema.advanced.settings.show_inters.info"
       },
       {
         "type": "checkbox",
