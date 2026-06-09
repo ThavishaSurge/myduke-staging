@@ -7,24 +7,17 @@
     assign tag_wrapper = 'h2'
   endif
 
-  assign has_svg = false
-  if section.settings.logo_svg != blank
-    assign has_svg = true
-  endif
-
-  if has_svg == false
-    if section.settings.logo != blank and section.settings.logo_2 == blank
-      assign aspect_ratio = section.settings.logo.aspect_ratio
-      assign padding_bottom = 1 | divided_by: aspect_ratio | times: 100
-    elsif section.settings.logo == blank and section.settings.logo_2 != blank
-      assign aspect_ratio = section.settings.logo_2.aspect_ratio
-      assign padding_bottom = 1 | divided_by: aspect_ratio | times: 100
-    elsif section.settings.logo != blank and section.settings.logo_2 != blank
-      assign aspect_ratio = section.settings.logo.aspect_ratio | at_most: section.settings.logo_2.aspect_ratio
-      assign padding_bottom = 1 | divided_by: aspect_ratio | times: 100
-    else
-      assign padding_bottom = 0
-    endif
+  if section.settings.logo != blank and section.settings.logo_2 == blank
+    assign aspect_ratio = section.settings.logo.aspect_ratio
+    assign padding_bottom = 1 | divided_by: aspect_ratio | times: 100
+  elsif section.settings.logo == blank and section.settings.logo_2 != blank
+    assign aspect_ratio = section.settings.logo_2.aspect_ratio
+    assign padding_bottom = 1 | divided_by: aspect_ratio | times: 100
+  elsif section.settings.logo != blank and section.settings.logo_2 != blank
+    assign aspect_ratio = section.settings.logo.aspect_ratio | at_most: section.settings.logo_2.aspect_ratio
+    assign padding_bottom = 1 | divided_by: aspect_ratio | times: 100
+  else
+    assign padding_bottom = 0
   endif
 %}
 <{{ tag_wrapper }} class="header__heading{% if class != blank %} {{ class }}{% endif %}">
@@ -32,35 +25,11 @@
     <a
       href="{{ routes.root_url }}"
       class="header__heading-link header-overlay-transition focus-inset{% if position != blank %} header__heading-link--{{position}}{% endif %}"
-      {% unless has_svg %}
-        {% if section.settings.logo != blank or section.settings.logo_2 != blank %}
-          style="--logo-width: {{ section.settings.logo_width }}px; --padding_bottom: {{ padding_bottom }}%;"
-        {% endif %}
-      {% endunless %}
+      {% if section.settings.logo != blank or section.settings.logo_2 != blank %}
+        style="--logo-width: {{ section.settings.logo_width }}px; --padding_bottom: {{ padding_bottom }}%; "
+      {% endif %}
     >
-      {%- if has_svg -%}
-        {%- comment -%} ── Inline SVG logo – default (pre-scroll) ── {%- endcomment -%}
-        <span
-          class="header__heading-logo header__heading-logo--svg"
-          style="display:block; width:{{ section.settings.logo_width }}px; max-width:100%; height:auto; line-height:0;"
-          aria-label="{{ shop.name }}"
-          role="img"
-        >
-          {{ section.settings.logo_svg }}
-        </span>
-        {%- if section.settings.logo_svg_scrolled != blank -%}
-          {%- comment -%} ── Inline SVG logo – scrolled (solid header) ── {%- endcomment -%}
-          <span
-            class="header__heading-logo header__heading-logo--svg header__heading-logo--scrolled"
-            style="display:block; width:{{ section.settings.logo_width }}px; max-width:100%; height:auto; line-height:0;"
-            aria-label="{{ shop.name }}"
-            role="img"
-            aria-hidden="true"
-          >
-            {{ section.settings.logo_svg_scrolled }}
-          </span>
-        {%- endif -%}
-      {%- elsif section.settings.logo != blank -%}
+      {%- if section.settings.logo != blank -%}
         {%- assign image_size = section.settings.logo_width | append: 'x' -%}
         {%- assign image_size_2x = section.settings.logo_width | times: 2 | at_most: 5760 -%}
         <img
@@ -91,6 +60,17 @@
             width="{{ section.settings.logo_width }}"
             height="auto"
             alt="{{ section.settings.logo_scrolled.alt | default: shop.name | escape }}"
+            loading="lazy"
+          >
+        {%- endif -%}
+        {%- if section.settings.logo_sticky != blank -%}
+          <img
+            srcset="{{ section.settings.logo_sticky | image_url: width: image_size }} 1x, {{ section.settings.logo_sticky | image_url: width: image_size_2x }} 2x"
+            src="{{ section.settings.logo_sticky | image_url: width: image_size }}"
+            class="header__heading-logo header__heading-logo--sticky"
+            width="{{ section.settings.logo_width }}"
+            height="auto"
+            alt="{{ section.settings.logo_sticky.alt | default: shop.name | escape }}"
             loading="lazy"
           >
         {%- endif -%}
@@ -125,4 +105,3 @@
     </a>
   {%- endif -%}
 </{{ tag_wrapper }}>
-
