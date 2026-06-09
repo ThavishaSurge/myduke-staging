@@ -19,6 +19,7 @@
   {{ settings.type_header_font_card | font_face: font_display: 'swap' }}
   {{ settings.type_subtitle_font | font_face: font_display: 'swap' }}
   {{ settings.type_header_menu_font | font_face: font_display: 'swap' }}
+  {{ settings.type_inter_font | font_face: font_display: 'swap' }}
 
   {{ body_font_light | font_face: font_display: 'swap' }}
   {{ body_font_regular | font_face: font_display: 'swap' }}
@@ -80,5 +81,14 @@
     --font-header-menu-text-scale: {{ settings.header_menu_text_scale | divided_by: 100.0 }};
     --font-header-menu-letter-spacing: {{ settings.header_menu_letter_spacing | divided_by: 10.0 }}em;
     --font-header-menu-text-transform: {{ settings.header_menu_text_transform }};
+
+    /* INTER */
+    --font-inter-family: {{ settings.type_inter_font.family }}, {{ settings.type_inter_font.fallback_families }};
+    --font-inter-style: {{ settings.type_inter_font.style }};
+    --font-inter-weight: {{ settings.type_inter_font.weight }};
+    --font-inter-scale: {{ settings.inter_scale | divided_by: 100.0 }};
+    --font-inter-letter-spacing: {{ settings.type_inter_letter_spacing | divided_by: 10.0 }}em;
+    --font-inter-line-height: {{ settings.type_inter_line_height }};
+    --font-inter-text-transform: {{ settings.inter_text_transform }};
   }
 {% endstyle %}
