@@ -7,14 +7,14 @@
 
 /* ── Section wrapper ── */
 .mdvl {
-  --mdvl-card-bg: #f5f6f7;
+  --mdvl-card-bg: #F7F8F8;
   --mdvl-card-border: #e8e9ea;
-  --mdvl-card-radius: 6px;
-  --mdvl-btn-bg: #1a6b6b;
+  --mdvl-card-radius: 0px;
+  --mdvl-btn-bg: #218380;
   --mdvl-btn-color: #ffffff;
-  --mdvl-divider-color: #e5e7eb;
-  --mdvl-heading-color: #0d2b36;
-  --mdvl-desc-color: #4b5563;
+  --mdvl-divider-color: #E0DACF;
+  --mdvl-heading-color: #264653;
+  --mdvl-desc-color: #264653;
 }
 
 /* ── Header row ── */
@@ -110,7 +110,7 @@
 .mdvl__list--grid {
   flex-wrap: wrap;
   gap: 1px;
-  background-color: var(--mdvl-card-border);
+  background-color: #fff;
   /* gap colour shows as lines */
 }
 

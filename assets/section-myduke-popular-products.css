@@ -68,6 +68,7 @@
   color: var(--color-foreground, #264653);
   margin: 0;
   max-width: 660px;
+  font-family: var(--font-secondary-text-family);
 }
 
 /* ── Shop All button ── */
