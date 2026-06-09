@@ -72,6 +72,102 @@
         "margin_bottom": "no-indent"
       }
     },
+    "myduke_collection_products_list_zh3zX7": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "accessories",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_collection_products_list_ng6UhM": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "nicotine",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_collection_products_list_gT8FyC": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "pods",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_collection_products_list_d9iQkF": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "quitting-alternatives",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
     "myduke_vendor_logos_94yERP": {
       "type": "myduke-vendor-logos",
       "blocks": {
@@ -187,6 +283,10 @@
     "page_info",
     "myduke_hero_secondary_pz9LPd",
     "myduke_collection_products_list_JbVGTe",
+    "myduke_collection_products_list_zh3zX7",
+    "myduke_collection_products_list_ng6UhM",
+    "myduke_collection_products_list_gT8FyC",
+    "myduke_collection_products_list_d9iQkF",
     "myduke_vendor_logos_94yERP"
   ]
 }
