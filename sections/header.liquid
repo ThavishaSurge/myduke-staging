@@ -183,6 +183,10 @@
       this.header = document.querySelector('.shopify-section-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always';
       this.mobileMenu = this.querySelector('header-drawer');
+      this.isSearchPage = document.body.classList.contains('template-search');
+      if (this.isSearchPage) {
+        this.header.classList.add('shopify-section-header-sticky');
+      }
       this.currentScrollTop = 0;
       this.preventHide = false;
       this.preventReveal = false;
@@ -213,7 +217,7 @@
           this.header.classList.add('shopify-section-header-sticky');
         }
 
-        if (scrollTop < this.header.offsetHeight) {
+        if (scrollTop < this.header.offsetHeight && !this.isSearchPage) {
           this.header.classList.remove('shopify-section-header-sticky');
         }
       }
@@ -248,7 +252,10 @@
 
     reset() {
       if (this.headerIsAlwaysSticky) return;
-      this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
+      this.header.classList.remove('shopify-section-header-hidden', 'animate');
+      if (!this.isSearchPage) {
+        this.header.classList.remove('shopify-section-header-sticky');
+      }
     }
   }
 
