@@ -81,6 +81,11 @@
 
   var originalTop = null;
 
+  function getNavbarHeight() {
+    var header = document.querySelector('.shopify-section-header') || document.querySelector('header');
+    return header ? header.offsetHeight : 0;
+  }
+
   function getOriginalTop() {
     bar.classList.remove('myduke-search-bar--fixed');
     placeholder.style.display = 'none';
@@ -89,7 +94,8 @@
 
   function update() {
     if (originalTop === null) getOriginalTop();
-    if (window.scrollY >= originalTop) {
+    var navbarHeight = getNavbarHeight();
+    if (window.scrollY >= originalTop - navbarHeight) {
       if (!bar.classList.contains('myduke-search-bar--fixed')) {
         placeholder.style.height = bar.offsetHeight + 'px';
         placeholder.style.display = 'block';
