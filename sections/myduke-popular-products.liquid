@@ -26,6 +26,9 @@
           {{ section.settings.heading }}
         </{{ section.settings.heading_tag }}>
       {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="mdpp__description">{{ section.settings.description }}</p>
+      {%- endif -%}
     </div>
 
     {%- if section.settings.shop_all_label != blank -%}
@@ -189,6 +192,12 @@
       ],
       "default": "h2",
       "label": "Heading tag"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Check out our most popular products and brands."
     },
     {
       "type": "checkbox",

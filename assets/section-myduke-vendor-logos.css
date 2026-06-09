@@ -70,6 +70,7 @@
   display: block;
   background-color: #218380;
   color: #ffffff;
+  font-family: var(--font-secondary-text-family);
 }
 
 .mdvl__shop-all-btn:hover {
