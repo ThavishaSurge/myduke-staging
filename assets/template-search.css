@@ -8,6 +8,7 @@
 
 .template-search .pagination-wrapper {
   padding: 0;
+  margin-top: 2rem;
 }
 .template-search .page-header {
   padding-block: 2.4rem 2rem;

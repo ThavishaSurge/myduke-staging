@@ -8,6 +8,34 @@
   margin: 0 auto;
 }
 
+/* ── Search page: results header text ───────────────── */
+.template-search .page-header {
+  text-align: center;
+}
+
+.template-search .page-header__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.template-search .page-header__inner-title.h4 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.template-search .page-header__inner-text {
+  text-align: center;
+}
+
+.template-search .search__description {
+  text-align: center;
+}
+
+.template-search .search-results__title {
+  text-align: center;
+}
+
 /* ── Search page: product grid ───────────────────────── */
 .mds-search-grid {
   --mdcp-cols: 4;
