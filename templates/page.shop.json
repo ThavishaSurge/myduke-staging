@@ -125,7 +125,7 @@
         "description": "",
         "show_divider": true,
         "shop_all_label": "Shop All Products",
-        "shop_all_url": "",
+        "shop_all_url": "shopify://pages/by-product-type",
         "show_product_count": false,
         "product_count_label": "compatible products",
         "enable_slider": true,
@@ -203,7 +203,7 @@
         "description": "Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware.",
         "show_divider": true,
         "shop_all_label": "Shop All Devices",
-        "shop_all_url": "",
+        "shop_all_url": "shopify://pages/by-compatibility",
         "show_product_count": true,
         "product_count_label": "compatible products",
         "enable_slider": true,
@@ -349,7 +349,7 @@
       "settings": {
         "heading": "Need Guidance?",
         "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
-        "background_color": "#F4A261",
+        "background_color": "#f4a261",
         "background_image": "shopify://shop_images/cost-cal-bg.webp"
       }
     }
