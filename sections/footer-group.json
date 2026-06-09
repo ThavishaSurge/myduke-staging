@@ -63,7 +63,7 @@
       ],
       "custom_css": [
         ".footer-main {padding-top: 24px;}",
-        ".footer-copyright__content{color: #264653; font-size:12px;}",
+        ".footer-copyright__content {color: #264653; font-size: 12px;}",
         "@media (max-width: 750px) {img.footer-logo__image {max-width: 200px; }}"
       ],
       "settings": {
@@ -107,9 +107,36 @@
         "bottom_border_width": 1,
         "bottom_border_color": "#218380"
       }
+    },
+    "myduke_guidance_quiz_nFQhAd": {
+      "type": "myduke-guidance-quiz",
+      "blocks": {
+        "question_bg7kPz": {
+          "type": "question",
+          "settings": {
+            "question_text": "How many cigarettes do you smoke per day?",
+            "question_subtext": "This helps determine your nicotine strength",
+            "option_1": "1-5",
+            "option_2": "5-10",
+            "option_3": "10-20",
+            "option_4": "20+"
+          }
+        }
+      },
+      "block_order": [
+        "question_bg7kPz"
+      ],
+      "name": "Guidance Quiz",
+      "settings": {
+        "heading": "Need Guidance?",
+        "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
+        "background_color": "#F4A261",
+        "background_image": "shopify://shop_images/cost-cal-bg.webp"
+      }
     }
   },
   "order": [
-    "footer"
+    "footer",
+    "myduke_guidance_quiz_nFQhAd"
   ]
 }
