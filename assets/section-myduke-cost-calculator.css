@@ -217,7 +217,7 @@
 }
 
 .myduke-calc__facts-title {
-  font-family: var(--font-body-family);
+  font-family: var(--font-inter-family);
   font-size: calc(var(--font-body-scale) * 1.4rem);
   font-weight: 500;
   text-transform: uppercase;
