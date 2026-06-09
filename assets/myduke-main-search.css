@@ -1,11 +1,21 @@
-/* ── Search page: form wrapper ───────────────────────── */
-.template-search .search-container {
-  padding: 2rem;
+/* ── Search page: sticky search bar ─────────────────── */
+.mds-sticky-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffff;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(191, 219, 207, 0.5);
 }
 
-.template-search .template-search__search {
+.mds-sticky-bar .template-search__search {
   max-width: 59rem;
   margin: 0 auto;
+}
+
+/* ── Search page: results header ─────────────────────── */
+.template-search .search-container {
+  padding: 2rem;
 }
 
 /* ── Search page: results header text ───────────────── */

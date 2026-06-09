@@ -50,9 +50,8 @@
 -%}
 
 <div class="section-{{ section.id }}-padding template-search {% if search.performed == true and search.results_count == 0 and terms != blank and section.settings.enable_filtering == false and section.settings.enable_sorting == false %} template-search--empty {% endif %}">
-  <div class="template-search__header">
-    <div class="search-container container">
-      <div class="template-search__search">
+  <div class="mds-sticky-bar">
+    <div class="template-search__search">
         {%- if section.settings.predictive_search_enabled -%}
           <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
         {%- endif -%}
@@ -175,7 +174,10 @@
             </div>
           {%- endif -%}
         {% endcomment %}
-      </div>
+    </div>
+  </div>
+  <div class="template-search__header">
+    <div class="search-container container">
       <div class="page-header">
         <div class="page-header__inner">
           {%- if search.performed and search.results_count == 0 -%}
