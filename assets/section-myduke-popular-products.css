@@ -356,4 +356,8 @@
   .mdpp__card-count {
     font-size: 12px;
   }
+
+  .mdpp__header-right {
+    align-self: start;
+  }
 }
