@@ -273,6 +273,32 @@
         "margin_top": "no-indent",
         "margin_bottom": "no-indent"
       }
+    },
+    "myduke_guidance_quiz_8L8mdi": {
+      "type": "myduke-guidance-quiz",
+      "blocks": {
+        "question_wa7bnE": {
+          "type": "question",
+          "settings": {
+            "question_text": "How many cigarettes do you smoke per day?",
+            "question_subtext": "This helps determine your nicotine strength",
+            "option_1": "1-5",
+            "option_2": "5-10",
+            "option_3": "10-20",
+            "option_4": "20+"
+          }
+        }
+      },
+      "block_order": [
+        "question_wa7bnE"
+      ],
+      "name": "Guidance Quiz",
+      "settings": {
+        "heading": "Need Guidance?",
+        "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
+        "background_color": "#F4A261",
+        "background_image": "shopify://shop_images/cost-cal-bg.webp"
+      }
     }
   },
   "order": [
@@ -283,6 +309,7 @@
     "myduke_collection_products_list_3PBiwF",
     "myduke_collection_products_list_qEJpeM",
     "myduke_collection_products_list_ftedmR",
-    "myduke_vendor_logos_6RYkr8"
+    "myduke_vendor_logos_6RYkr8",
+    "myduke_guidance_quiz_8L8mdi"
   ]
 }
