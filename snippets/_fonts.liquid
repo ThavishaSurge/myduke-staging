@@ -10,6 +10,16 @@
   assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
   assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
   assign heading_font_italic = settings.type_header_font | font_modify: 'style', 'italic'
+  assign secondary_text_font_light = settings.type_secondary_text_font | font_modify: 'weight', '300'
+  assign secondary_text_font_regular = settings.type_secondary_text_font | font_modify: 'weight', '400'
+  assign secondary_text_font_medium = settings.type_secondary_text_font | font_modify: 'weight', '500'
+  assign secondary_text_font_semibold = settings.type_secondary_text_font | font_modify: 'weight', '600'
+  assign secondary_text_font_bold = settings.type_secondary_text_font | font_modify: 'weight', '700'
+  assign inter_font_light = settings.type_inter_font | font_modify: 'weight', '300'
+  assign inter_font_regular = settings.type_inter_font | font_modify: 'weight', '400'
+  assign inter_font_medium = settings.type_inter_font | font_modify: 'weight', '500'
+  assign inter_font_semibold = settings.type_inter_font | font_modify: 'weight', '600'
+  assign inter_font_bold = settings.type_inter_font | font_modify: 'weight', '700'
 %}
 
 {% style %}
@@ -19,9 +29,17 @@
   {{ settings.type_header_font_card | font_face: font_display: 'swap' }}
   {{ settings.type_subtitle_font | font_face: font_display: 'swap' }}
   {{ settings.type_header_menu_font | font_face: font_display: 'swap' }}
-  {{ settings.type_inter_font | font_face: font_display: 'swap' }}
+  {{ inter_font_light | font_face: font_display: 'swap' }}
+  {{ inter_font_regular | font_face: font_display: 'swap' }}
+  {{ inter_font_medium | font_face: font_display: 'swap' }}
+  {{ inter_font_semibold | font_face: font_display: 'swap' }}
+  {{ inter_font_bold | font_face: font_display: 'swap' }}
   {{ settings.type_secondary_heading_font | font_face: font_display: 'swap' }}
-  {{ settings.type_secondary_text_font | font_face: font_display: 'swap' }}
+  {{ secondary_text_font_light | font_face: font_display: 'swap' }}
+  {{ secondary_text_font_regular | font_face: font_display: 'swap' }}
+  {{ secondary_text_font_medium | font_face: font_display: 'swap' }}
+  {{ secondary_text_font_semibold | font_face: font_display: 'swap' }}
+  {{ secondary_text_font_bold | font_face: font_display: 'swap' }}
 
   {{ body_font_light | font_face: font_display: 'swap' }}
   {{ body_font_regular | font_face: font_display: 'swap' }}
