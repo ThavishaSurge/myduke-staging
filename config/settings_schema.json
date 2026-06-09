@@ -706,7 +706,7 @@
       {
         "type": "font_picker",
         "id": "type_secondary_heading_font",
-        "default": "poppins_n5",
+        "default": "instrument_sans_n4",
         "label": "t:settings_schema.typography.settings.type_font.label",
         "info": "t:settings_schema.typography.settings.type_font.info"
       },
@@ -809,7 +809,7 @@
       {
         "type": "font_picker",
         "id": "type_secondary_text_font",
-        "default": "poppins_n4",
+        "default": "instrument_sans_n4",
         "label": "t:settings_schema.typography.settings.type_font.label",
         "info": "t:settings_schema.typography.settings.type_font.info"
       },
