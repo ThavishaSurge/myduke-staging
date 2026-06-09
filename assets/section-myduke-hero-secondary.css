@@ -80,6 +80,7 @@
 }
 
 .myduke-hero-secondary__breadcrumb-current {
+  font-family: var(--font-inter-family);
   font-size: 1.4rem;
   font-weight: 500;
   color: #ffffff;
