@@ -19,6 +19,8 @@
   {{ settings.type_header_font_card | font_face: font_display: 'swap' }}
   {{ settings.type_subtitle_font | font_face: font_display: 'swap' }}
   {{ settings.type_header_menu_font | font_face: font_display: 'swap' }}
+  {{ settings.type_secondary_heading_font | font_face: font_display: 'swap' }}
+  {{ settings.type_secondary_text_font | font_face: font_display: 'swap' }}
 
   {{ body_font_light | font_face: font_display: 'swap' }}
   {{ body_font_regular | font_face: font_display: 'swap' }}
@@ -80,5 +82,27 @@
     --font-header-menu-text-scale: {{ settings.header_menu_text_scale | divided_by: 100.0 }};
     --font-header-menu-letter-spacing: {{ settings.header_menu_letter_spacing | divided_by: 10.0 }}em;
     --font-header-menu-text-transform: {{ settings.header_menu_text_transform }};
+
+    /* SECONDARY HEADING */
+    --font-secondary-heading-family: {{ settings.type_secondary_heading_font.family }}, {{ settings.type_secondary_heading_font.fallback_families }};
+    --font-secondary-heading-style: {{ settings.type_secondary_heading_font.style }};
+    --font-secondary-heading-weight: {{ settings.type_secondary_heading_font.weight }};
+    --font-secondary-heading-letter-spacing: {{ settings.type_secondary_heading_letter_spacing | divided_by: 10.0 }}em;
+    --font-secondary-heading-line-height: {{ settings.type_secondary_heading_line_height }};
+    --font-secondary-heading-text-transform: {{ settings.secondary_heading_text_transform }};
+    --font-secondary-heading-h1-scale: {{ settings.secondary_heading_h1_scale | divided_by: 100.0 }};
+    --font-secondary-heading-h2-scale: {{ settings.secondary_heading_h2_scale | divided_by: 100.0 }};
+    --font-secondary-heading-h3-scale: {{ settings.secondary_heading_h3_scale | divided_by: 100.0 }};
+    --font-secondary-heading-h4-scale: {{ settings.secondary_heading_h4_scale | divided_by: 100.0 }};
+    --font-secondary-heading-h5-scale: {{ settings.secondary_heading_h5_scale | divided_by: 100.0 }};
+
+    /* SECONDARY TEXT */
+    --font-secondary-text-family: {{ settings.type_secondary_text_font.family }}, {{ settings.type_secondary_text_font.fallback_families }};
+    --font-secondary-text-style: {{ settings.type_secondary_text_font.style }};
+    --font-secondary-text-weight: {{ settings.type_secondary_text_font.weight }};
+    --font-secondary-text-scale: {{ settings.secondary_text_scale | divided_by: 100.0 }};
+    --font-secondary-text-line-height: {{ settings.type_secondary_text_line_height }};
+    --font-secondary-text-letter-spacing: {{ settings.type_secondary_text_letter_spacing | divided_by: 10.0 }}em;
+    --font-secondary-text-transform: {{ settings.secondary_text_transform }};
   }
 {% endstyle %}
