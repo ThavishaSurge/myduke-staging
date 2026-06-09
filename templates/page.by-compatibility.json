@@ -11,14 +11,254 @@
   "sections": {
     "page_info": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
         "content_align": "left"
       }
+    },
+    "myduke_hero_secondary_mEHT4E": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/image_8_1.jpg",
+        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "height_desktop": 60,
+        "height_mobile": 60,
+        "enable_mobile_colors": false,
+        "mobile_text_color": "#264653",
+        "enable_breadcrumbs": true,
+        "breadcrumb_parent_text": "Home",
+        "breadcrumb_parent_link": "",
+        "breadcrumb_current_text": "Compatibility",
+        "breadcrumb_middle_text": "Shop",
+        "breadcrumb_middle_link": "shopify://pages/shop",
+        "content_max_width": 550,
+        "heading": "By Compatibility",
+        "description": "<p>Already own a device? Select it to see </p><p>only the pods, coils, and accessories </p><p>that work with your hardware.</p>",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
+    },
+    "myduke_collection_products_list_3PBiwF": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "e-liquids",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": false,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_vendor_logos_6RYkr8": {
+      "type": "myduke-vendor-logos",
+      "blocks": {
+        "vendor_TQ39LX": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_rXh4pk": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_rnPCyA": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_Q7PMaz": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_tTLpGk": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_wGHJV6": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_8LFArd": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_NEzYKf": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_KdEHgG": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_dwin4D": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_etgatC": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_XrM4Gj": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor_TQ39LX",
+        "vendor_rXh4pk",
+        "vendor_rnPCyA",
+        "vendor_Q7PMaz",
+        "vendor_tTLpGk",
+        "vendor_wGHJV6",
+        "vendor_8LFArd",
+        "vendor_NEzYKf",
+        "vendor_KdEHgG",
+        "vendor_dwin4D",
+        "vendor_etgatC",
+        "vendor_XrM4Gj"
+      ],
+      "name": "Vendor Logos (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "heading": "By Brand",
+        "heading_tag": "h2",
+        "description": "Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware.",
+        "show_divider": true,
+        "shop_all_label": "Shop All Brands",
+        "shop_all_url": "",
+        "shop_all_new_tab": false,
+        "enable_slider": false,
+        "show_slider_nav": false,
+        "logos_per_row": 6,
+        "logo_height": 80,
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_popular_products_wUbFXx": {
+      "type": "myduke-popular-products",
+      "blocks": {
+        "collection_item_brFiPr": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_YhqcBp": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_gNadei": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_dJn4pm": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_QrRfHb": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_item_YADFgr": {
+          "type": "collection_item",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_brFiPr",
+        "collection_item_YhqcBp",
+        "collection_item_gNadei",
+        "collection_item_dJn4pm",
+        "collection_item_QrRfHb",
+        "collection_item_YADFgr"
+      ],
+      "name": "Popular Products (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "heading": "By Product Type",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "Check out our most popular products and brands.",
+        "show_divider": true,
+        "shop_all_label": "Shop All Products",
+        "shop_all_url": "",
+        "show_product_count": false,
+        "product_count_label": "compatible products",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
-    "page_info"
+    "page_info",
+    "myduke_hero_secondary_mEHT4E",
+    "myduke_collection_products_list_3PBiwF",
+    "myduke_vendor_logos_6RYkr8",
+    "myduke_popular_products_wUbFXx"
   ]
 }
