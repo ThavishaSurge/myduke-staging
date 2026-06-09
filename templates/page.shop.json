@@ -55,7 +55,9 @@
         "heading": "",
         "placeholder": "Search products, brands, or strengths",
         "padding_top": 24,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "margin_top_desktop": 40,
+        "margin_top_mobile": 0
       }
     },
     "myduke_popular_products_Xnyz3A": {
