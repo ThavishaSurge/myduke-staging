@@ -111,7 +111,6 @@
   flex-wrap: wrap;
   gap: 1px;
   background-color: #fff;
-  /* gap colour shows as lines */
 }
 
 .mdvl__list.swiper-wrapper {
