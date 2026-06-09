@@ -1,8 +1,8 @@
-{{ 'section-myduke-popular-products.css' | asset_url | stylesheet_tag }}
+{{ 'section-myduke-collection-products-list.css' | asset_url | stylesheet_tag }}
 {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'myduke-popular-products.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'myduke-collection-products-list.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   {% render 'section-padding' %}
@@ -10,32 +10,32 @@
 {%- endstyle -%}
 
 <div
-  class="mdpp mdpp-section color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
+  class="mdcpl mdcpl-section color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
   data-section-id="{{ section.id }}"
 >
   <div class="container">
 
   {%- comment -%} ── Header row ── {%- endcomment -%}
-  <div class="mdpp__header">
-    <div class="mdpp__header-left">
+  <div class="mdcpl__header">
+    <div class="mdcpl__header-left">
       {%- if section.settings.subheading != blank -%}
-        <p class="mdpp__eyebrow">{{ section.settings.subheading }}</p>
+        <p class="mdcpl__eyebrow">{{ section.settings.subheading }}</p>
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
-        <{{ section.settings.heading_tag }} class="mdpp__heading">
+        <{{ section.settings.heading_tag }} class="mdcpl__heading">
           {{ section.settings.heading }}
         </{{ section.settings.heading_tag }}>
       {%- endif -%}
       {%- if section.settings.show_description and section.settings.description != blank -%}
-        <p class="mdpp__description">{{ section.settings.description }}</p>
+        <p class="mdcpl__description">{{ section.settings.description }}</p>
       {%- endif -%}
     </div>
 
     {%- if section.settings.shop_all_label != blank -%}
-      <div class="mdpp__header-right">
+      <div class="mdcpl__header-right">
         <a
           href="{{ section.settings.shop_all_url | default: '#' }}"
-          class="mdpp__shop-all-btn"
+          class="mdcpl__shop-all-btn"
         >
           {{- section.settings.shop_all_label -}}
         </a>
@@ -45,46 +45,56 @@
 
   {%- comment -%} ── Divider ── {%- endcomment -%}
   {%- if section.settings.show_divider -%}
-    <div class="mdpp__divider"></div>
+    <div class="mdcpl__divider"></div>
   {%- endif -%}
 
   {%- comment -%} ── Cards ── {%- endcomment -%}
-  <div class="mdpp__wrapper">
+  <div class="mdcpl__wrapper">
     {%- liquid
       assign enable_slider = section.settings.enable_slider
-      assign cols = section.settings.cards_per_row | default: 4
+      assign cols = section.settings.cards_per_row | default: 6
       assign collection = section.settings.collection
     -%}
 
     <div
-      class="mdpp__track{% if enable_slider %} js-mdpp-slider swiper{% endif %}"
+      class="mdcpl__track{% if enable_slider %} js-mdcpl-slider swiper{% endif %}"
       {% if enable_slider %}
         data-cards-per-row="{{ cols }}"
         data-space-between="24"
       {% endif %}
     >
-      <div class="mdpp__list mdpp__list--{{ cols }}{% if enable_slider %} swiper-wrapper{% endif %}">
+      <div class="mdcpl__list mdcpl__list--{{ cols }}{% if enable_slider %} swiper-wrapper{% endif %}">
 
         {%- for product in collection.products -%}
-          <div class="mdpp__item{% if enable_slider %} swiper-slide{% endif %}">
-            {% render 'product-card',
-              product_card_product: product,
-              section_obj: section,
-              section_id: section.id,
-              forloop_index: forloop.index,
-              columns: cols,
-              heading_tag: 'h3'
-            %}
+          <div class="mdcpl__item{% if enable_slider %} swiper-slide{% endif %}">
+            <a class="mdcpl__card" href="{{ product.url }}">
+              <div class="mdcpl__card-image-wrap">
+                {%- if product.featured_image != blank -%}
+                  {{
+                    product.featured_image
+                    | image_url: width: 600
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '300, 400, 600',
+                      sizes: '(min-width: 990px) 16vw, (min-width: 576px) 33vw, 50vw',
+                      style: 'object-fit:cover'
+                  }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              <p class="mdcpl__card-title">{{ product.title }}</p>
+            </a>
           </div>
         {%- else -%}
           {%- comment -%} Placeholders when no collection selected {%- endcomment -%}
           {%- for i in (1..cols) -%}
-            <div class="mdpp__item{% if enable_slider %} swiper-slide{% endif %}">
-              <div class="mdpp__card mdpp__card--placeholder">
-                <div class="mdpp__card-image-wrap">
+            <div class="mdcpl__item{% if enable_slider %} swiper-slide{% endif %}">
+              <div class="mdcpl__card mdcpl__card--placeholder">
+                <div class="mdcpl__card-image-wrap">
                   {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
                 </div>
-                <p class="mdpp__card-title">Product {{ forloop.index }}</p>
+                <p class="mdcpl__card-title">Product {{ forloop.index }}</p>
               </div>
             </div>
           {%- endfor -%}
@@ -94,13 +104,13 @@
 
       {%- comment -%} Slider navigation ── {%- endcomment -%}
       {%- if enable_slider and section.settings.show_slider_nav -%}
-        <div class="mdpp__nav">
-          <button class="mdpp__nav-btn mdpp__nav-btn--prev js-mdpp-prev" aria-label="Previous">
+        <div class="mdcpl__nav">
+          <button class="mdcpl__nav-btn mdcpl__nav-btn--prev js-mdcpl-prev" aria-label="Previous">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <button class="mdpp__nav-btn mdpp__nav-btn--next js-mdpp-next" aria-label="Next">
+          <button class="mdcpl__nav-btn mdcpl__nav-btn--next js-mdcpl-next" aria-label="Next">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -117,7 +127,7 @@
 {
   "name": "C ProductsList(MyD)",
   "tag": "section",
-  "class": "mdpp-section",
+  "class": "mdcpl-section",
   "enabled_on": {
     "templates": ["*"]
   },
@@ -225,7 +235,7 @@
       "min": 2,
       "max": 8,
       "step": 1,
-      "default": 4,
+      "default": 6,
       "label": "Cards visible per row (desktop)"
     },
     {
@@ -311,7 +321,7 @@
         "heading": "Our Products",
         "shop_all_label": "Shop All Products",
         "enable_slider": true,
-        "cards_per_row": 4
+        "cards_per_row": 6
       }
     }
   ]

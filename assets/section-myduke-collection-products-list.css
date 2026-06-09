@@ -1,11 +1,16 @@
 /* ============================================================
    section-myduke-collection-products-list.css
-   Shared styles for myduke-collection-products-list sections (.mdcpl namespace)
+   Styles for myduke-collection-products-list section (.mdcpl namespace)
+   Mirrors the Popular Products (mdpp) card layout:
+     – square image tile (object-fit: contain, coloured bg)
+     – title below in small plain text
    ============================================================ */
 
 /* ── Variables ── */
 .mdcpl {
   --mdcpl-gap: 12px;
+  --mdcpl-card-radius: 0px;
+  --mdcpl-card-img-ratio: 1 / 1;
   --mdcpl-heading-size: 1.5rem;
   --mdcpl-title-size: 0.875rem;
   --mdcpl-btn-bg: #218380;
@@ -80,6 +85,8 @@
   background-color: #218380;
   color: #ffffff;
   font-family: var(--font-secondary-text-family);
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .mdcpl__shop-all-btn:hover {
@@ -231,6 +238,55 @@
   height: auto;
 }
 
+/* ── Card ── */
+.mdcpl__card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mdcpl__card:hover .mdcpl__card-image-wrap img {
+  transform: scale(1.04);
+}
+
+/* ── Card image ── */
+.mdcpl__card-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--mdcpl-card-img-ratio);
+  overflow: hidden;
+  border-radius: var(--mdcpl-card-radius);
+  background-color: #f3f4f6;
+}
+
+.mdcpl__card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.mdcpl__card-image-wrap .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Card title ── */
+.mdcpl__card-title {
+  margin: 10px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2B2B2E;
+  line-height: 1.4;
+}
+
+/* ── Placeholder card ── */
+.mdcpl__card--placeholder {
+  cursor: default;
+}
+
 /* ── Slider nav buttons ── */
 .mdcpl__nav {
   display: flex;
@@ -266,7 +322,7 @@
   pointer-events: none;
 }
 
-@media (max-width:750px) {
+@media (max-width: 750px) {
   .mdcpl {
     padding: 40px 0px !important;
   }

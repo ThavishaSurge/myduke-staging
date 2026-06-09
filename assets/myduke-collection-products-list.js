@@ -1,8 +1,8 @@
 (function () {
   /**
    * myduke-collection-products-list.js
-   * Shared slider initialisation for:
-   *   .mdcpl-section
+   * Slider initialisation for:
+   *   .mdcpl-section  (myduke-collection-products-list)
    *
    * Relies on Swiper being available globally (swiper-bundle.min.js).
    */
@@ -22,16 +22,16 @@
     return {
       slidesPerViewMobile: mobile,
       breakpoints: {
-        576: { slidesPerView: sm,   spaceBetween },
-        768: { slidesPerView: md,   spaceBetween },
-        990: { slidesPerView: lg,   spaceBetween },
+        576: { slidesPerView: sm,  spaceBetween },
+        768: { slidesPerView: md,  spaceBetween },
+        990: { slidesPerView: lg,  spaceBetween },
       },
     };
   }
 
   function initSlider(section) {
-    const sectionId  = section.dataset.sectionId;
-    const trackEl    = section.querySelector('.js-mdcpl-slider');
+    const sectionId = section.dataset.sectionId;
+    const trackEl   = section.querySelector('.js-mdcpl-slider');
     if (!trackEl) return;
 
     // Destroy any existing instance for this section
