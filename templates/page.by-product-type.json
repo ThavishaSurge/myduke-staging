@@ -48,6 +48,18 @@
         "sign_in_link": ""
       }
     },
+    "myduke_search_bar_pmEYqf": {
+      "type": "myduke-search-bar",
+      "name": "Search",
+      "settings": {
+        "heading": "",
+        "placeholder": "Search products, brands, or strengths",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "margin_top_desktop": 48,
+        "margin_top_mobile": 24
+      }
+    },
     "myduke_collection_products_list_JbVGTe": {
       "type": "myduke-collection-products-list",
       "name": "C ProductsList(MyD)",
@@ -60,6 +72,8 @@
         "show_description": true,
         "description": "",
         "show_divider": true,
+        "show_product_count": false,
+        "product_count_label": "variants",
         "shop_all_label": "",
         "shop_all_url": "",
         "enable_slider": true,
@@ -84,6 +98,8 @@
         "show_description": true,
         "description": "",
         "show_divider": true,
+        "show_product_count": false,
+        "product_count_label": "variants",
         "shop_all_label": "",
         "shop_all_url": "",
         "enable_slider": true,
@@ -108,6 +124,8 @@
         "show_description": true,
         "description": "",
         "show_divider": true,
+        "show_product_count": false,
+        "product_count_label": "variants",
         "shop_all_label": "",
         "shop_all_url": "",
         "enable_slider": true,
@@ -132,6 +150,8 @@
         "show_description": true,
         "description": "",
         "show_divider": true,
+        "show_product_count": false,
+        "product_count_label": "variants",
         "shop_all_label": "",
         "shop_all_url": "",
         "enable_slider": true,
@@ -156,6 +176,8 @@
         "show_description": true,
         "description": "",
         "show_divider": true,
+        "show_product_count": false,
+        "product_count_label": "variants",
         "shop_all_label": "",
         "shop_all_url": "",
         "enable_slider": true,
@@ -282,6 +304,7 @@
   "order": [
     "page_info",
     "myduke_hero_secondary_pz9LPd",
+    "myduke_search_bar_pmEYqf",
     "myduke_collection_products_list_JbVGTe",
     "myduke_collection_products_list_zh3zX7",
     "myduke_collection_products_list_ng6UhM",
