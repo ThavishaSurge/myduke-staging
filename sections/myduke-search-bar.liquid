@@ -70,6 +70,45 @@
   </div>
 </section>
 
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var bar = document.querySelector('.myduke-search-bar[data-section-id="' + sectionId + '"]');
+  if (!bar) return;
+
+  var placeholder = document.createElement('div');
+  bar.after(placeholder);
+
+  var originalTop = null;
+
+  function getOriginalTop() {
+    bar.classList.remove('myduke-search-bar--fixed');
+    placeholder.style.display = 'none';
+    originalTop = bar.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function update() {
+    if (originalTop === null) getOriginalTop();
+    if (window.scrollY >= originalTop) {
+      if (!bar.classList.contains('myduke-search-bar--fixed')) {
+        placeholder.style.height = bar.offsetHeight + 'px';
+        placeholder.style.display = 'block';
+        bar.classList.add('myduke-search-bar--fixed');
+      }
+    } else {
+      if (bar.classList.contains('myduke-search-bar--fixed')) {
+        bar.classList.remove('myduke-search-bar--fixed');
+        placeholder.style.display = 'none';
+      }
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', function() { originalTop = null; update(); });
+  requestAnimationFrame(update);
+})();
+</script>
+
 {% schema %}
 {
   "name": "Search Bar",

@@ -28,9 +28,13 @@
   text-align: center;
 }
 
+.template-search .search-results__title {
+  font-size: 2rem;
+}
+
 /* ── Search page: product grid ───────────────────────── */
 .mds-search-grid {
-  --mdcp-cols: 4;
+  --mdcp-cols: 6;
   --mdcp-gap: 24px;
   --mdcp-card-radius: 0px;
   --mdcp-card-img-ratio: 1 / 1;
