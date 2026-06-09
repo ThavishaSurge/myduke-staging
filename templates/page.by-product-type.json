@@ -48,102 +48,6 @@
         "sign_in_link": ""
       }
     },
-    "myduke_collection_products_KRy7VJ": {
-      "type": "myduke-collection-products",
-      "name": "Collection (MyDuke)",
-      "settings": {
-        "color_scheme": "",
-        "collection": "accessories",
-        "sort_by": "manual",
-        "products_per_page": 24,
-        "subheading": "",
-        "heading": "{{ section.settings.collection.title }}",
-        "heading_tag": "h2",
-        "show_divider": true,
-        "shop_all_label": "",
-        "shop_all_url": "",
-        "columns_per_row": 4,
-        "columns_per_row_tablet": 2,
-        "columns_per_row_mobile": 1,
-        "empty_message": "No products found in this collection.",
-        "padding_top": "m",
-        "padding_bottom": "m",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "myduke_collection_products_yDanKW": {
-      "type": "myduke-collection-products",
-      "name": "Collection (MyDuke)",
-      "settings": {
-        "color_scheme": "",
-        "collection": "e-liquids",
-        "sort_by": "manual",
-        "products_per_page": 24,
-        "subheading": "",
-        "heading": "{{ section.settings.collection.title }}",
-        "heading_tag": "h2",
-        "show_divider": true,
-        "shop_all_label": "",
-        "shop_all_url": "",
-        "columns_per_row": 4,
-        "columns_per_row_tablet": 2,
-        "columns_per_row_mobile": 1,
-        "empty_message": "No products found in this collection.",
-        "padding_top": "m",
-        "padding_bottom": "m",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "myduke_collection_products_HaB4d4": {
-      "type": "myduke-collection-products",
-      "name": "Collection (MyDuke)",
-      "settings": {
-        "color_scheme": "",
-        "collection": "nicotine",
-        "sort_by": "manual",
-        "products_per_page": 24,
-        "subheading": "",
-        "heading": "{{ section.settings.collection.title }}",
-        "heading_tag": "h2",
-        "show_divider": true,
-        "shop_all_label": "",
-        "shop_all_url": "",
-        "columns_per_row": 4,
-        "columns_per_row_tablet": 2,
-        "columns_per_row_mobile": 1,
-        "empty_message": "No products found in this collection.",
-        "padding_top": "m",
-        "padding_bottom": "m",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
-    "myduke_collection_products_m3pAUA": {
-      "type": "myduke-collection-products",
-      "name": "Collection (MyDuke)",
-      "settings": {
-        "color_scheme": "",
-        "collection": "pods",
-        "sort_by": "manual",
-        "products_per_page": 24,
-        "subheading": "",
-        "heading": "{{ section.settings.collection.title }}",
-        "heading_tag": "h2",
-        "show_divider": true,
-        "shop_all_label": "",
-        "shop_all_url": "",
-        "columns_per_row": 4,
-        "columns_per_row_tablet": 2,
-        "columns_per_row_mobile": 1,
-        "empty_message": "No products found in this collection.",
-        "padding_top": "m",
-        "padding_bottom": "m",
-        "margin_top": "no-indent",
-        "margin_bottom": "l"
-      }
-    },
     "myduke_vendor_logos_94yERP": {
       "type": "myduke-vendor-logos",
       "blocks": {
@@ -253,15 +157,36 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_collection_products_list_JbVGTe": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "e-liquids",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "Shop All Products",
+        "shop_all_url": "",
+        "enable_slider": false,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_secondary_pz9LPd",
-    "myduke_collection_products_KRy7VJ",
-    "myduke_collection_products_yDanKW",
-    "myduke_collection_products_HaB4d4",
-    "myduke_collection_products_m3pAUA",
-    "myduke_vendor_logos_94yERP"
+    "myduke_vendor_logos_94yERP",
+    "myduke_collection_products_list_JbVGTe"
   ]
 }
