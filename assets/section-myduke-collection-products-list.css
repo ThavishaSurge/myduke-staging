@@ -281,6 +281,20 @@
   line-height: 1.4;
 }
 
+/* ── Product count badge ── */
+.mdcpl__card-count {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 8px;
+  background-color: #EDF3F0;
+  border-radius: 37px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2b2e;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
 /* ── Placeholder card ── */
 .mdcpl__card--placeholder {
   cursor: default;
@@ -338,6 +352,10 @@
 
   .mdcpl__description {
     font-size: 16px;
+  }
+
+  .mdcpl__card-count {
+    font-size: 12px;
   }
 
   .mdcpl__header-right {
