@@ -53,7 +53,7 @@
       "name": "Collection (MyDuke)",
       "settings": {
         "color_scheme": "",
-        "collection": "e-liquids",
+        "collection": "accessories",
         "sort_by": "manual",
         "products_per_page": 24,
         "subheading": "",
@@ -77,7 +77,55 @@
       "name": "Collection (MyDuke)",
       "settings": {
         "color_scheme": "",
-        "collection": "nicotine-base",
+        "collection": "e-liquids",
+        "sort_by": "manual",
+        "products_per_page": 24,
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "columns_per_row": 4,
+        "columns_per_row_tablet": 2,
+        "columns_per_row_mobile": 1,
+        "empty_message": "No products found in this collection.",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_collection_products_HaB4d4": {
+      "type": "myduke-collection-products",
+      "name": "Collection (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "nicotine",
+        "sort_by": "manual",
+        "products_per_page": 24,
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "columns_per_row": 4,
+        "columns_per_row_tablet": 2,
+        "columns_per_row_mobile": 1,
+        "empty_message": "No products found in this collection.",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_collection_products_m3pAUA": {
+      "type": "myduke-collection-products",
+      "name": "Collection (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "pods",
         "sort_by": "manual",
         "products_per_page": 24,
         "subheading": "",
@@ -212,6 +260,8 @@
     "myduke_hero_secondary_pz9LPd",
     "myduke_collection_products_KRy7VJ",
     "myduke_collection_products_yDanKW",
+    "myduke_collection_products_HaB4d4",
+    "myduke_collection_products_m3pAUA",
     "myduke_vendor_logos_94yERP"
   ]
 }
