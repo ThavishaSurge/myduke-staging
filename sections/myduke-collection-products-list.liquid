@@ -64,8 +64,8 @@
     >
       <div class="mdcpl__list mdcpl__list--{{ cols }}{% if enable_slider %} swiper-wrapper{% endif %}">
 
-        {%- assign collection = section.settings.collection -%}
-        {%- if collection != blank -%}
+        {%- assign collection = collections[section.settings.collection] -%}
+        {%- if collection != blank and collection.products.size > 0 -%}
           {%- for product in collection.products -%}
             <div
               class="mdcpl__item{% if enable_slider %} swiper-slide{% endif %}"
