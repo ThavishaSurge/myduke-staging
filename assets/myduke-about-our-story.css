@@ -90,7 +90,7 @@
 }
 
 .myduke-about-our-story__card p {
-  font-family: var(--type_secondary_text_font);
+  font-family: var(--font-secondary-text-family);
   font-size: 1.4rem;
   line-height: 1.4;
   color: #264653;
@@ -110,7 +110,7 @@
   min-height: 4rem;
   background: #218380;
   color: #ffffff;
-  font-family: var(--type_secondary_text_font);
+  font-family: var(--font-secondary-text-family);
   font-weight: 500;
   font-size: calc(var(--font-button-scale) * 1rem);
   line-height: 2.1rem;
