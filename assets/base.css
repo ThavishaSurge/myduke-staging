@@ -6836,3 +6836,16 @@ deferred-media {
 .template-page .container.base-breadcrumbs {
   max-width: min(92.4rem, 100%) !important;
 }
+
+/* header scroll styles start here */
+header.shopify-section-header-sticky span.header-label {
+  color: #264653;
+}
+
+header.shopify-section-header-sticky button.button--secondary {
+  border: 1px solid #264653;
+}
+
+header.shopify-section-header-sticky button.button--secondary span.button__label {
+  color: #264653;
+}
