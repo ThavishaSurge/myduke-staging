@@ -6,10 +6,7 @@
 {%- endstyle -%}
 
 {%- liquid
-  assign src_collection = section.settings.collection
-  if src_collection != blank
-    assign col = collections[src_collection]
-  endif
+  assign col = section.settings.collection
   assign cols        = section.settings.columns_per_row | default: 4
   assign cols_tablet = section.settings.columns_per_row_tablet | default: 2
   assign cols_mobile = section.settings.columns_per_row_mobile | default: 1
