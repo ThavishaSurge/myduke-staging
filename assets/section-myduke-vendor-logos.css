@@ -111,7 +111,7 @@
 */
 .mdvl__list--grid {
   display: grid;
-  gap: 1px;
+  gap: 20px;
   background-color: #fff;
   /* Mobile: 2 cols always */
   grid-template-columns: repeat(2, 1fr);
