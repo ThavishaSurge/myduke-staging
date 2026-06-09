@@ -80,6 +80,7 @@
   background-color: #FFB703;
   color: #264653;
   min-width: 231px;
+  font-family: var(--font-secondary-text-family);
 }
 
 .myduke-hero__btn--secondary {

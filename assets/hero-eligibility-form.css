@@ -48,6 +48,7 @@
   top: 2px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  font-family: var(--font-secondary-text-family);
 }
 
 .eligibility-card__tab.is-active {
@@ -89,6 +90,7 @@
   font-weight: 400;
   margin: 0px;
   line-height: 1.2;
+  font-family: var(--font-secondary-text-family);
   color: #ffffff;
 }
 
