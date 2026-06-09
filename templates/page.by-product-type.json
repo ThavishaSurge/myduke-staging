@@ -1,0 +1,292 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_info": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "h5",
+        "heading_tag": "h1",
+        "content_align": "left"
+      }
+    },
+    "myduke_hero_secondary_pz9LPd": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/image_8_1.jpg",
+        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "height_desktop": 60,
+        "height_mobile": 60,
+        "enable_mobile_colors": false,
+        "mobile_text_color": "#264653",
+        "enable_breadcrumbs": true,
+        "breadcrumb_parent_text": "Home",
+        "breadcrumb_parent_link": "",
+        "breadcrumb_current_text": "Product Type",
+        "breadcrumb_middle_text": "Shop",
+        "breadcrumb_middle_link": "",
+        "content_max_width": 550,
+        "heading": "By Product Type",
+        "description": "<p>TGA-approved, pharmacy dispensed</p><p>products shipped Australia-wide.</p>",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
+    },
+    "myduke_collection_products_list_JbVGTe": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "e-liquids",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_collection_products_list_zh3zX7": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "accessories",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_collection_products_list_ng6UhM": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "nicotine",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_collection_products_list_gT8FyC": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "pods",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_collection_products_list_d9iQkF": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList(MyD)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "quitting-alternatives",
+        "subheading": "",
+        "heading": "{{ section.settings.collection.title }}",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "shop_all_label": "",
+        "shop_all_url": "",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_vendor_logos_94yERP": {
+      "type": "myduke-vendor-logos",
+      "blocks": {
+        "vendor_8cpEiy": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_aWGYGj": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_EUXpVD": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_Y8rnYj": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_DgQRJX": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_K4chN7": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_LjTNC4": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_rMMTMk": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_QXAjtQ": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_AmaEqt": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_DtDeLP": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        },
+        "vendor_DkUfPM": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor_8cpEiy",
+        "vendor_aWGYGj",
+        "vendor_EUXpVD",
+        "vendor_Y8rnYj",
+        "vendor_DgQRJX",
+        "vendor_K4chN7",
+        "vendor_LjTNC4",
+        "vendor_rMMTMk",
+        "vendor_QXAjtQ",
+        "vendor_AmaEqt",
+        "vendor_DtDeLP",
+        "vendor_DkUfPM"
+      ],
+      "name": "Vendor Logos (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "heading": "By Brand",
+        "heading_tag": "h2",
+        "description": "Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware.",
+        "show_divider": true,
+        "shop_all_label": "Shop All Brands",
+        "shop_all_url": "",
+        "shop_all_new_tab": false,
+        "enable_slider": false,
+        "show_slider_nav": false,
+        "logos_per_row": 6,
+        "logo_height": 80,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    }
+  },
+  "order": [
+    "page_info",
+    "myduke_hero_secondary_pz9LPd",
+    "myduke_collection_products_list_JbVGTe",
+    "myduke_collection_products_list_zh3zX7",
+    "myduke_collection_products_list_ng6UhM",
+    "myduke_collection_products_list_gT8FyC",
+    "myduke_collection_products_list_d9iQkF",
+    "myduke_vendor_logos_94yERP"
+  ]
+}

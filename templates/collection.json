@@ -214,7 +214,7 @@
         "padding_top": "m",
         "padding_bottom": "m",
         "margin_top": "no-indent",
-        "margin_bottom": "l"
+        "margin_bottom": "no-indent"
       }
     }
   },

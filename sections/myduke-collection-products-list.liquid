@@ -1,0 +1,339 @@
+{{ 'section-myduke-collection-products-list.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'myduke-collection-products-list.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  {% render 'section-padding' %}
+  {% render 'section-margin' %}
+{%- endstyle -%}
+
+<div
+  class="mdcpl color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {%- comment -%} ── Header row ── {%- endcomment -%}
+    <div class="mdcpl__header">
+      <div class="mdcpl__header-left">
+        {%- if section.settings.subheading != blank -%}
+          <p class="mdcpl__eyebrow">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="mdcpl__heading">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+        {%- if section.settings.show_description and section.settings.description != blank -%}
+          <p class="mdcpl__description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.shop_all_label != blank -%}
+        <div class="mdcpl__header-right">
+          <a
+            href="{{ section.settings.shop_all_url | default: '#' }}"
+            class="mdcpl__shop-all-btn"
+          >
+            {{- section.settings.shop_all_label -}}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ── Divider ── {%- endcomment -%}
+    {%- if section.settings.show_divider -%}
+      <div class="mdcpl__divider"></div>
+    {%- endif -%}
+
+    {%- comment -%} ── Cards ── {%- endcomment -%}
+    <div class="mdcpl__wrapper">
+      {%- liquid
+        assign enable_slider = section.settings.enable_slider
+        assign cols = section.settings.cards_per_row | default: 6
+        assign collection = section.settings.collection
+      -%}
+
+      <div
+        class="mdcpl__track{% if enable_slider %} js-mdcpl-slider swiper{% endif %}"
+        {% if enable_slider %}
+          data-cards-per-row="{{ cols }}"
+          data-space-between="24"
+        {% endif %}
+      >
+        <div class="mdcpl__list mdcpl__list--{{ cols }}{% if enable_slider %} swiper-wrapper{% endif %}">
+          {%- for product in collection.products -%}
+            <div class="mdcpl__item{% if enable_slider %} swiper-slide{% endif %}">
+              <a class="mdcpl__card" href="{{ product.url }}">
+                <div class="mdcpl__card-image-wrap">
+                  {%- if product.featured_image != blank -%}
+                    {{
+                      product.featured_image
+                      | image_url: width: 600
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '300, 400, 600',
+                        sizes: '(min-width: 990px) 16vw, (min-width: 576px) 33vw, 50vw',
+                        style: 'object-fit:cover'
+                    }}
+                  {%- else -%}
+                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+                <p class="mdcpl__card-title">{{ product.title }}</p>
+              </a>
+            </div>
+          {%- else -%}
+            {%- comment -%} Placeholders when no collection selected {%- endcomment -%}
+            {%- for i in (1..cols) -%}
+              <div class="mdcpl__item{% if enable_slider %} swiper-slide{% endif %}">
+                <div class="mdcpl__card mdcpl__card--placeholder">
+                  <div class="mdcpl__card-image-wrap">
+                    {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                  <p class="mdcpl__card-title">Product {{ forloop.index }}</p>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Slider navigation ── {%- endcomment -%}
+        {%- if enable_slider and section.settings.show_slider_nav -%}
+          <div class="mdcpl__nav">
+            <button class="mdcpl__nav-btn mdcpl__nav-btn--prev js-mdcpl-prev" aria-label="Previous">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="mdcpl__nav-btn mdcpl__nav-btn--next js-mdcpl-next" aria-label="Next">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "C ProductsList(MyD)",
+  "tag": "section",
+  "class": "mdcpl-section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "background-1",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "All products from this collection will be displayed."
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Eyebrow / Subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Products"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" },
+        { "value": "h5", "label": "H5" },
+        { "value": "h6", "label": "H6" },
+        { "value": "div", "label": "div" }
+      ],
+      "default": "h2",
+      "label": "Heading tag"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show description",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Check out our products."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "default": true,
+      "label": "Show divider below heading"
+    },
+    {
+      "type": "header",
+      "content": "Shop All Button"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_label",
+      "label": "Button label",
+      "default": "Shop All Products"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "label": "Enable slider",
+      "default": true,
+      "info": "When enabled, cards scroll horizontally. When disabled, cards wrap in a grid."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slider_nav",
+      "label": "Show slider navigation arrows",
+      "default": false,
+      "visible_if": "{{ section.settings.enable_slider == true }}"
+    },
+    {
+      "type": "range",
+      "id": "cards_per_row",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 6,
+      "label": "Cards visible per row (desktop)"
+    },
+    {
+      "type": "select",
+      "id": "cards_per_row_mobile",
+      "label": "Cards visible per row (mobile)",
+      "default": "2",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-padding.header.content"
+    },
+    {
+      "type": "select",
+      "id": "padding_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-padding.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-padding.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-padding.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-padding.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-padding.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-padding.options__6.label" }
+      ],
+      "default": "m",
+      "label": "t:sections.all.section-padding.padding_top.label"
+    },
+    {
+      "type": "select",
+      "id": "padding_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-padding.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-padding.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-padding.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-padding.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-padding.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-padding.options__6.label" }
+      ],
+      "default": "m",
+      "label": "t:sections.all.section-padding.padding_bottom.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-margin.header.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-margin.margin_top.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "l",
+      "label": "t:sections.all.section-margin.margin_bottom.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "C ProductsList (MyDuke)",
+      "category": "Products",
+      "settings": {
+        "heading": "Our Products",
+        "shop_all_label": "Shop All Products",
+        "enable_slider": true,
+        "cards_per_row": 6
+      }
+    }
+  ]
+}
+{% endschema %}

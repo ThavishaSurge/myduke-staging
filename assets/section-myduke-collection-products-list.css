@@ -1,32 +1,31 @@
 /* ============================================================
-   section-myduke-popular-products.css
-   Shared styles for myduke-popular-products &
-   myduke-manual-products sections (.mdpp namespace)
+   section-myduke-collection-products-list.css
+   Styles for myduke-collection-products-list section (.mdcpl namespace)
+   Mirrors the Popular Products (mdpp) card layout:
+     – square image tile (object-fit: contain, coloured bg)
+     – title below in small plain text
    ============================================================ */
 
 /* ── Variables ── */
-.mdpp {
-  --mdpp-gap: 12px;
-  --mdpp-card-radius: 0px;
-  --mdpp-card-img-ratio: 1 / 1;
-  /* square by default */
-  --mdpp-heading-size: 1.5rem;
-  --mdpp-title-size: 0.875rem;
-  --mdpp-btn-bg: #218380;
-  /* teal – matches design */
-  --mdpp-btn-color: #ffffff;
-  --mdpp-btn-radius: 0px;
-  --mdpp-divider-color: #E0DACF;
+.mdcpl {
+  --mdcpl-gap: 12px;
+  --mdcpl-card-radius: 0px;
+  --mdcpl-card-img-ratio: 1 / 1;
+  --mdcpl-heading-size: 1.5rem;
+  --mdcpl-title-size: 0.875rem;
+  --mdcpl-btn-bg: #218380;
+  --mdcpl-btn-color: #ffffff;
+  --mdcpl-btn-radius: 0px;
+  --mdcpl-divider-color: #E0DACF;
   overflow: hidden;
+}
+
+.mdcpl-section {
   padding: 96px 0px !important;
 }
 
-.mdpp-section {
-  padding: 0px !important;
-}
-
 /* ── Header ── */
-.mdpp__header {
+.mdcpl__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,18 +33,18 @@
   padding-bottom: 20px;
 }
 
-.mdpp__header-left {
+.mdcpl__header-left {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.mdpp__header-right {
+.mdcpl__header-right {
   align-self: end;
 }
 
-.mdpp__eyebrow {
+.mdcpl__eyebrow {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -54,7 +53,7 @@
   margin: 0;
 }
 
-.mdpp__heading {
+.mdcpl__heading {
   font-size: 48px;
   font-weight: 400;
   line-height: 1.2;
@@ -62,7 +61,7 @@
   color: var(--color-foreground, #111827);
 }
 
-.mdpp__description {
+.mdcpl__description {
   font-size: 18px;
   line-height: 1.5;
   color: var(--color-foreground, #264653);
@@ -72,7 +71,7 @@
 }
 
 /* ── Shop All button ── */
-.mdpp__shop-all-btn {
+.mdcpl__shop-all-btn {
   font-size: 14px;
   font-weight: 400;
   border-radius: 0;
@@ -85,179 +84,181 @@
   background-color: #218380;
   color: #ffffff;
   font-family: var(--font-secondary-text-family);
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.mdpp__shop-all-btn:hover {
+.mdcpl__shop-all-btn:hover {
   opacity: 0.88;
   transform: translateY(-1px);
 }
 
 /* ── Divider ── */
-.mdpp__divider {
+.mdcpl__divider {
   height: 1px;
-  background-color: var(--mdpp-divider-color);
+  background-color: var(--mdcpl-divider-color);
   margin-bottom: 40px;
 }
 
 /* ── Wrapper / Track ── */
-.mdpp__wrapper {
+.mdcpl__wrapper {
   width: 100%;
   position: relative;
 }
 
-.mdpp__track {
+.mdcpl__track {
   width: 100%;
 }
 
-.mdpp__track.swiper {
+.mdcpl__track.swiper {
   overflow: visible;
 }
 
 /* ── List (grid fallback) ── */
-.mdpp__list {
+.mdcpl__list {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.mdpp__list--grid {
+.mdcpl__list--grid {
   flex-wrap: wrap;
-  gap: var(--mdpp-gap);
+  gap: var(--mdcpl-gap);
 }
 
 /* Swiper wrapper needs box-sizing reset */
-.mdpp__list.swiper-wrapper {
+.mdcpl__list.swiper-wrapper {
   box-sizing: border-box;
 }
 
 /* ── Grid column widths (grid mode) ── */
 /* 2 columns */
-.mdpp__list--2.mdpp__list--grid .mdpp__item {
-  width: calc((100% - var(--mdpp-gap)) / 2);
+.mdcpl__list--2.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
 }
 
 /* 3 columns */
-.mdpp__list--3.mdpp__list--grid .mdpp__item {
-  width: calc((100% - var(--mdpp-gap)) / 2);
+.mdcpl__list--3.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
 }
 
 @media (min-width: 990px) {
-  .mdpp__list--3.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 2) / 3);
+  .mdcpl__list--3.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 2) / 3);
   }
 }
 
 /* 4 columns */
-.mdpp__list--4.mdpp__list--grid .mdpp__item {
-  width: calc((100% - var(--mdpp-gap)) / 2);
+.mdcpl__list--4.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
 }
 
 @media (min-width: 990px) {
-  .mdpp__list--4.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 3) / 4);
+  .mdcpl__list--4.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 3) / 4);
   }
 }
 
 /* 5 columns */
-.mdpp__list--5.mdpp__list--grid .mdpp__item {
-  width: calc((100% - var(--mdpp-gap)) / 2);
+.mdcpl__list--5.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
 }
 
 @media (min-width: 990px) {
-  .mdpp__list--5.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 2) / 3);
+  .mdcpl__list--5.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 2) / 3);
   }
 }
 
 @media (min-width: 1200px) {
-  .mdpp__list--5.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 4) / 5);
+  .mdcpl__list--5.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 4) / 5);
   }
 }
 
 /* 6 columns */
-.mdpp__list--6.mdpp__list--grid .mdpp__item {
-  width: calc((100% - var(--mdpp-gap)) / 2);
+.mdcpl__list--6.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
 }
 
 @media (min-width: 576px) {
-  .mdpp__list--6.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 2) / 3);
+  .mdcpl__list--6.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 2) / 3);
   }
 }
 
 @media (min-width: 1200px) {
-  .mdpp__list--6.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 5) / 6);
+  .mdcpl__list--6.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 5) / 6);
   }
 }
 
 /* 7 columns */
-.mdpp__list--7.mdpp__list--grid .mdpp__item {
-  width: calc((100% - var(--mdpp-gap)) / 2);
+.mdcpl__list--7.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
 }
 
 @media (min-width: 576px) {
-  .mdpp__list--7.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 2) / 3);
+  .mdcpl__list--7.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 2) / 3);
   }
 }
 
 @media (min-width: 1360px) {
-  .mdpp__list--7.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 6) / 7);
+  .mdcpl__list--7.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 6) / 7);
   }
 }
 
 /* 8 columns */
-.mdpp__list--8.mdpp__list--grid .mdpp__item {
-  width: calc((100% - var(--mdpp-gap)) / 2);
+.mdcpl__list--8.mdcpl__list--grid .mdcpl__item {
+  width: calc((100% - var(--mdcpl-gap)) / 2);
 }
 
 @media (min-width: 576px) {
-  .mdpp__list--8.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 3) / 4);
+  .mdcpl__list--8.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 3) / 4);
   }
 }
 
 @media (min-width: 1360px) {
-  .mdpp__list--8.mdpp__list--grid .mdpp__item {
-    width: calc((100% - var(--mdpp-gap) * 7) / 8);
+  .mdcpl__list--8.mdcpl__list--grid .mdcpl__item {
+    width: calc((100% - var(--mdcpl-gap) * 7) / 8);
   }
 }
 
 /* ── Slide item ── */
-.mdpp__item {
+.mdcpl__item {
   flex-shrink: 0;
 }
 
-.mdpp__item.swiper-slide {
+.mdcpl__item.swiper-slide {
   height: auto;
 }
 
 /* ── Card ── */
-.mdpp__card {
+.mdcpl__card {
   display: block;
   text-decoration: none;
   color: inherit;
 }
 
-.mdpp__card:hover .mdpp__card-image-wrap img {
+.mdcpl__card:hover .mdcpl__card-image-wrap img {
   transform: scale(1.04);
 }
 
 /* ── Card image ── */
-.mdpp__card-image-wrap {
+.mdcpl__card-image-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: var(--mdpp-card-img-ratio);
+  aspect-ratio: var(--mdcpl-card-img-ratio);
   overflow: hidden;
-  border-radius: var(--mdpp-card-radius);
+  border-radius: var(--mdcpl-card-radius);
   background-color: #f3f4f6;
 }
 
-.mdpp__card-image-wrap img {
+.mdcpl__card-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -265,42 +266,28 @@
   transition: transform 0.4s ease;
 }
 
-.mdpp__card-image-wrap .placeholder-svg {
+.mdcpl__card-image-wrap .placeholder-svg {
   width: 100%;
   height: 100%;
   display: block;
 }
 
 /* ── Card title ── */
-.mdpp__card-title {
-  margin: 20px 0 0;
-  font-size: 16px;
+.mdcpl__card-title {
+  margin: 10px 0 0;
+  font-size: 14px;
   font-weight: 400;
   color: #2B2B2E;
   line-height: 1.4;
 }
 
-/* ── Product count badge ── */
-.mdpp__card-count {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 4px 8px;
-  background-color: #EDF3F0;
-  border-radius: 37px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #2b2b2e;
-  line-height: 1.4;
-  white-space: nowrap;
-}
-
 /* ── Placeholder card ── */
-.mdpp__card--placeholder {
+.mdcpl__card--placeholder {
   cursor: default;
 }
 
 /* ── Slider nav buttons ── */
-.mdpp__nav {
+.mdcpl__nav {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -308,13 +295,13 @@
   margin-top: 16px;
 }
 
-.mdpp__nav-btn {
+.mdcpl__nav-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 1px solid var(--mdpp-divider-color);
+  border: 1px solid var(--mdcpl-divider-color);
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
@@ -322,42 +309,38 @@
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.mdpp__nav-btn:hover {
+.mdcpl__nav-btn:hover {
   background: var(--color-foreground, #111827);
   border-color: var(--color-foreground, #111827);
   color: var(--color-background, #ffffff);
 }
 
-.mdpp__nav-btn.swiper-button-disabled {
+.mdcpl__nav-btn.swiper-button-disabled {
   opacity: 0.35;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-@media (max-width:750px) {
-  .mdpp {
+@media (max-width: 750px) {
+  .mdcpl-section {
     padding: 40px 0px !important;
   }
 
-  .mdpp__header {
+  .mdcpl__header {
     flex-direction: column !important;
     justify-content: start !important;
     align-items: start !important;
   }
 
-  .mdpp__heading {
+  .mdcpl__heading {
     font-size: 32px;
   }
 
-  .mdpp__description {
+  .mdcpl__description {
     font-size: 16px;
   }
 
-  .mdpp__card-count {
-    font-size: 12px;
-  }
-
-  .mdpp__header-right {
+  .mdcpl__header-right {
     align-self: start;
   }
 }
