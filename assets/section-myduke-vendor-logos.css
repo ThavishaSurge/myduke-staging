@@ -136,6 +136,7 @@
   .mdvl__list--7.mdvl__list--grid,
   .mdvl__list--8.mdvl__list--grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 }
 
@@ -143,30 +144,37 @@
 @media (min-width: 990px) {
   .mdvl__list--2.mdvl__list--grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .mdvl__list--3.mdvl__list--grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
   .mdvl__list--4.mdvl__list--grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
   .mdvl__list--5.mdvl__list--grid {
     grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
   }
 
   .mdvl__list--6.mdvl__list--grid {
     grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
   }
 
   .mdvl__list--7.mdvl__list--grid {
     grid-template-columns: repeat(7, 1fr);
+    gap: 20px;
   }
 
   .mdvl__list--8.mdvl__list--grid {
     grid-template-columns: repeat(8, 1fr);
+    gap: 20px;
   }
 }
 
