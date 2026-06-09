@@ -95,7 +95,7 @@
   function update() {
     if (originalTop === null) getOriginalTop();
     var navbarHeight = getNavbarHeight();
-    if (window.scrollY >= originalTop - navbarHeight) {
+    if (window.scrollY >= originalTop - navbarHeight - 20) {
       if (!bar.classList.contains('myduke-search-bar--fixed')) {
         placeholder.style.height = bar.offsetHeight + 'px';
         placeholder.style.display = 'block';
