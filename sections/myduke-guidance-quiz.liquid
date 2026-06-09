@@ -98,10 +98,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 80px 10px;
+    padding: 124px 10px;
     position: relative;
     width: 100%;
-    min-height: 100vh;
     background-color: {{ section.settings.background_color }};
     {% if section.settings.background_image %}
       background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
@@ -148,7 +147,7 @@
   }
 
   .guidance-quiz-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 16px solid rgba(255, 255, 255, 0.2);
@@ -212,7 +211,7 @@
   .guidance-option.selected {
     background-color: #218380;
   }
-  
+
   .guidance-option.selected .guidance-option-text {
     color: #f7f8f8;
   }
@@ -221,7 +220,7 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    border: 1px solid #264653;
+    border: 2px solid #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -229,7 +228,7 @@
   }
 
   .guidance-option.selected .guidance-option-radio {
-    border-color: #f7f8f8;
+    border-color: #fff;
   }
 
   .guidance-option-radio::after {
@@ -241,7 +240,7 @@
   }
 
   .guidance-option.selected .guidance-option-radio::after {
-    background-color: #f7f8f8;
+    background-color: #264653;
   }
 
   .guidance-option-text {
@@ -331,7 +330,7 @@
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
   }
-  
+
   .guidance-btn-next:hover {
     background-color: rgba(33, 131, 128, 0.05);
   }
@@ -360,19 +359,19 @@
       gap: 16px;
       margin-bottom: 40px;
     }
-    .guidance-quiz-header h2 { 
-      font-size: 36px; 
+    .guidance-quiz-header h2 {
+      font-size: 36px;
       letter-spacing: -1px;
     }
-    .guidance-quiz-card { 
-      padding: 32px 24px; 
+    .guidance-quiz-card {
+      padding: 32px 24px;
       border-width: 8px;
       height: auto;
       min-height: 600px;
     }
-    .guidance-question-text h3 { 
-      font-size: 28px; 
-      line-height: 1.2; 
+    .guidance-question-text h3 {
+      font-size: 28px;
+      line-height: 1.2;
     }
   }
 </style>
@@ -386,7 +385,11 @@
   <div class="guidance-quiz-card">
     <div id="quiz-questions-container-{{ section.id }}">
       {% for block in section.blocks %}
-        <div class="guidance-question-block {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index }}" {{ block.shopify_attributes }}>
+        <div
+          class="guidance-question-block {% if forloop.first %}active{% endif %}"
+          data-index="{{ forloop.index }}"
+          {{ block.shopify_attributes }}
+        >
           <div class="guidance-question-text">
             <h3>{{ block.settings.question_text | escape }}</h3>
             {% if block.settings.question_subtext != blank %}
@@ -395,7 +398,7 @@
           </div>
 
           <div class="guidance-options">
-            {% assign options = "option_1,option_2,option_3,option_4" | split: "," %}
+            {% assign options = 'option_1,option_2,option_3,option_4' | split: ',' %}
             {% for opt in options %}
               {% if block.settings[opt] != blank %}
                 <div class="guidance-option" onclick="selectOption(this, '{{ section.id }}')">
@@ -407,7 +410,7 @@
           </div>
         </div>
       {% endfor %}
-      
+
       {% if section.blocks.size == 0 %}
         <div class="guidance-question-block active">
           <div class="guidance-question-text">
@@ -420,14 +423,33 @@
     <div class="guidance-footer">
       <div class="guidance-progress-container">
         <div class="guidance-progress-bar-bg">
-          <div class="guidance-progress-bar-fill" id="quiz-progress-{{ section.id }}" style="width: {% if section.blocks.size > 0 %}{{ 100 | divided_by: section.blocks.size }}%{% else %}0%{% endif %}"></div>
+          <div
+            class="guidance-progress-bar-fill"
+            id="quiz-progress-{{ section.id }}"
+            style="width: {% if section.blocks.size > 0 %}{{ 100 | divided_by: section.blocks.size }}%{% else %}0%{% endif %}"
+          ></div>
         </div>
-        <p class="guidance-progress-text" id="quiz-progress-text-{{ section.id }}">Question 1 / {{ section.blocks.size | default: 1 }}</p>
+        <p class="guidance-progress-text" id="quiz-progress-text-{{ section.id }}">
+          Question 1 / {{ section.blocks.size | default: 1 }}
+        </p>
       </div>
 
       <div class="guidance-actions">
-        <button class="guidance-btn guidance-btn-back" id="quiz-btn-back-{{ section.id }}" onclick="prevQuestion('{{ section.id }}')" disabled>Back</button>
-        <button class="guidance-btn guidance-btn-next" id="quiz-btn-next-{{ section.id }}" onclick="nextQuestion('{{ section.id }}')">Next</button>
+        <button
+          class="guidance-btn guidance-btn-back"
+          id="quiz-btn-back-{{ section.id }}"
+          onclick="prevQuestion('{{ section.id }}')"
+          disabled
+        >
+          Back
+        </button>
+        <button
+          class="guidance-btn guidance-btn-next"
+          id="quiz-btn-next-{{ section.id }}"
+          onclick="nextQuestion('{{ section.id }}')"
+        >
+          Next
+        </button>
       </div>
     </div>
   </div>
@@ -456,7 +478,7 @@
     // Update visibility of blocks
     const container = document.getElementById('quiz-questions-container-' + sectionId);
     const blocks = container.querySelectorAll('.guidance-question-block');
-    
+
     blocks.forEach(block => {
       if (parseInt(block.getAttribute('data-index')) === state.currentStep) {
         block.classList.add('active');
@@ -468,7 +490,7 @@
     // Update progress bar
     const progressFill = document.getElementById('quiz-progress-' + sectionId);
     const progressText = document.getElementById('quiz-progress-text-' + sectionId);
-    
+
     if (state.totalSteps > 0) {
       const percentage = (state.currentStep / state.totalSteps) * 100;
       progressFill.style.width = percentage + '%';
@@ -508,7 +530,7 @@
       // Basic validation: Check if an option is selected on the current slide
       const container = document.getElementById('quiz-questions-container-' + sectionId);
       const activeBlock = container.querySelector('.guidance-question-block.active');
-      
+
       if (activeBlock) {
         const selectedOption = activeBlock.querySelector('.guidance-option.selected');
         if (!selectedOption) {
