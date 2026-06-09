@@ -198,6 +198,7 @@
   cursor: pointer;
   text-align: left;
   gap: 1.2rem;
+  font-weight: 500;
 }
 
 .myduke-calc__facts-header {
