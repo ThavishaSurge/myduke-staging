@@ -1,9 +1,8 @@
-{{ 'section-myduke-collection-products-list.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-myduke-popular-products.css' | asset_url | stylesheet_tag }}
 {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'myduke-collection-products-list.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'myduke-popular-products.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   {% render 'section-padding' %}
@@ -11,32 +10,32 @@
 {%- endstyle -%}
 
 <div
-  class="mdcpl-section color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
+  class="mdpp mdpp-section color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
   data-section-id="{{ section.id }}"
 >
-  <div class="mdcpl container">
+  <div class="container">
 
   {%- comment -%} ── Header row ── {%- endcomment -%}
-  <div class="mdcpl__header">
-    <div class="mdcpl__header-left">
+  <div class="mdpp__header">
+    <div class="mdpp__header-left">
       {%- if section.settings.subheading != blank -%}
-        <p class="mdcpl__eyebrow">{{ section.settings.subheading }}</p>
+        <p class="mdpp__eyebrow">{{ section.settings.subheading }}</p>
       {%- endif -%}
       {%- if section.settings.heading != blank -%}
-        <{{ section.settings.heading_tag }} class="mdcpl__heading">
+        <{{ section.settings.heading_tag }} class="mdpp__heading">
           {{ section.settings.heading }}
         </{{ section.settings.heading_tag }}>
       {%- endif -%}
       {%- if section.settings.show_description and section.settings.description != blank -%}
-        <p class="mdcpl__description">{{ section.settings.description }}</p>
+        <p class="mdpp__description">{{ section.settings.description }}</p>
       {%- endif -%}
     </div>
 
     {%- if section.settings.shop_all_label != blank -%}
-      <div class="mdcpl__header-right">
+      <div class="mdpp__header-right">
         <a
           href="{{ section.settings.shop_all_url | default: '#' }}"
-          class="mdcpl__shop-all-btn"
+          class="mdpp__shop-all-btn"
         >
           {{- section.settings.shop_all_label -}}
         </a>
@@ -46,57 +45,62 @@
 
   {%- comment -%} ── Divider ── {%- endcomment -%}
   {%- if section.settings.show_divider -%}
-    <div class="mdcpl__divider"></div>
+    <div class="mdpp__divider"></div>
   {%- endif -%}
 
   {%- comment -%} ── Cards ── {%- endcomment -%}
-  <div class="mdcpl__wrapper">
+  <div class="mdpp__wrapper">
     {%- liquid
       assign enable_slider = section.settings.enable_slider
-      assign cols = section.settings.cards_per_row | default: 6
+      assign cols = section.settings.cards_per_row | default: 4
+      assign collection = section.settings.collection
     -%}
 
     <div
-      class="mdcpl__track{% if enable_slider %} js-mdcpl-slider swiper{% endif %}"
+      class="mdpp__track{% if enable_slider %} js-mdpp-slider swiper{% endif %}"
       {% if enable_slider %}
         data-cards-per-row="{{ cols }}"
         data-space-between="24"
       {% endif %}
     >
-      <div class="mdcpl__list mdcpl__list--{{ cols }}{% if enable_slider %} swiper-wrapper{% endif %}">
+      <div class="mdpp__list mdpp__list--{{ cols }}{% if enable_slider %} swiper-wrapper{% endif %}">
 
-        {%- assign collection = section.settings.collection -%}
-        {%- if collection != blank and collection.products.size > 0 -%}
-          {%- for product in collection.products -%}
-            <div
-              class="mdcpl__item{% if enable_slider %} swiper-slide{% endif %}"
-            >
-               {% render 'product-card', product_card_product: product, section_obj: section %}
-            </div>
-          {%- endfor -%}
+        {%- for product in collection.products -%}
+          <div class="mdpp__item{% if enable_slider %} swiper-slide{% endif %}">
+            {% render 'product-card',
+              product_card_product: product,
+              section_obj: section,
+              section_id: section.id,
+              forloop_index: forloop.index,
+              columns: cols,
+              heading_tag: 'h3'
+            %}
+          </div>
         {%- else -%}
-          {%- comment -%} Placeholders when no collection added {%- endcomment -%}
+          {%- comment -%} Placeholders when no collection selected {%- endcomment -%}
           {%- for i in (1..cols) -%}
-            <div class="mdcpl__item{% if enable_slider %} swiper-slide{% endif %}">
-              <div style="background:#f3f4f6; padding: 20px; text-align: center;">
-                {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
-                <p style="margin-top: 10px;">Product {{ forloop.index }}</p>
+            <div class="mdpp__item{% if enable_slider %} swiper-slide{% endif %}">
+              <div class="mdpp__card mdpp__card--placeholder">
+                <div class="mdpp__card-image-wrap">
+                  {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+                <p class="mdpp__card-title">Product {{ forloop.index }}</p>
               </div>
             </div>
           {%- endfor -%}
-        {%- endif -%}
+        {%- endfor -%}
 
       </div>
 
       {%- comment -%} Slider navigation ── {%- endcomment -%}
       {%- if enable_slider and section.settings.show_slider_nav -%}
-        <div class="mdcpl__nav">
-          <button class="mdcpl__nav-btn mdcpl__nav-btn--prev js-mdcpl-prev" aria-label="Previous">
+        <div class="mdpp__nav">
+          <button class="mdpp__nav-btn mdpp__nav-btn--prev js-mdpp-prev" aria-label="Previous">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <button class="mdcpl__nav-btn mdcpl__nav-btn--next js-mdcpl-next" aria-label="Next">
+          <button class="mdpp__nav-btn mdpp__nav-btn--next js-mdpp-next" aria-label="Next">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -111,8 +115,9 @@
 
 {% schema %}
 {
-  "name": "Collection Products List",
+  "name": "Collection Products List (MyDuke)",
   "tag": "section",
+  "class": "mdpp-section",
   "enabled_on": {
     "templates": ["*"]
   },
@@ -122,6 +127,16 @@
       "id": "color_scheme",
       "default": "background-1",
       "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "All products from this collection will be displayed."
     },
     {
       "type": "header",
@@ -179,21 +194,12 @@
       "type": "text",
       "id": "shop_all_label",
       "label": "Button label",
-      "default": "Shop All"
+      "default": "Shop All Products"
     },
     {
       "type": "url",
       "id": "shop_all_url",
       "label": "Button URL"
-    },
-    {
-      "type": "header",
-      "content": "Collection"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Select Collection"
     },
     {
       "type": "header",
@@ -210,7 +216,7 @@
       "type": "checkbox",
       "id": "show_slider_nav",
       "label": "Show slider navigation arrows",
-      "default": true,
+      "default": false,
       "visible_if": "{{ section.settings.enable_slider == true }}"
     },
     {
@@ -299,8 +305,14 @@
   ],
   "presets": [
     {
-      "name": "Collection Products List",
-      "category": "Products"
+      "name": "Collection Products List (MyDuke)",
+      "category": "Products",
+      "settings": {
+        "heading": "Our Products",
+        "shop_all_label": "Shop All Products",
+        "enable_slider": true,
+        "cards_per_row": 4
+      }
     }
   ]
 }
