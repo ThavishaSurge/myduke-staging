@@ -1,5 +1,16 @@
 {{ 'myduke-search-bar.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+  .myduke-search-bar[data-section-id="{{ section.id }}"] {
+    margin-top: -{{ section.settings.margin_top_desktop }}px;
+  }
+  @media screen and (max-width: 575px) {
+    .myduke-search-bar[data-section-id="{{ section.id }}"] {
+      margin-top: -{{ section.settings.margin_top_mobile }}px;
+    }
+  }
+{% endstyle %}
+
 <section
   class="myduke-search-bar"
   data-section-id="{{ section.id }}"
@@ -99,6 +110,28 @@
       "max": 120,
       "step": 4,
       "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Overlap"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Negative margin top — desktop (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Negative margin top — mobile (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
     }
   ],
   "presets": [

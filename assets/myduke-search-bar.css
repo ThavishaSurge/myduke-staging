@@ -1,4 +1,6 @@
 .myduke-search-bar {
+  position: relative;
+  z-index: 2;
   background: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -8,7 +10,10 @@
 .myduke-search-bar__inner {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
+  max-width: 55rem;
+  margin: 0 auto;
 }
 
 /* ── Optional heading ──────────────────────────────── */
@@ -26,7 +31,6 @@
 /* ── Form & field ──────────────────────────────────── */
 .myduke-search-bar__form {
   width: 100%;
-  max-width: 55rem;
 }
 
 .myduke-search-bar__field {
