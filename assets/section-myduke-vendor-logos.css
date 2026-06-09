@@ -47,6 +47,7 @@
   color: #264653;
   margin: 0;
   max-width: 660px;
+  font-family: var(--font-secondary-text-family);
 }
 
 /* ── Shop All button ── */
@@ -108,9 +109,11 @@
   adjacent borders overlap cleanly.
 */
 .mdvl__list--grid {
-  flex-wrap: wrap;
+  display: grid;
   gap: 1px;
   background-color: #fff;
+  /* Mobile: 2 cols always */
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .mdvl__list.swiper-wrapper {
@@ -119,52 +122,51 @@
 }
 
 /* ── Column width helpers (grid mode) ── */
-/* Mobile: 2 cols always */
 .mdvl__list--grid .mdvl__item {
-  width: calc(50% - 0.5px);
+  width: 100%;
 }
 
 /* 3-col breakpoint for medium screens */
 @media (min-width: 576px) {
 
-  .mdvl__list--3.mdvl__list--grid .mdvl__item,
-  .mdvl__list--4.mdvl__list--grid .mdvl__item,
-  .mdvl__list--5.mdvl__list--grid .mdvl__item,
-  .mdvl__list--6.mdvl__list--grid .mdvl__item,
-  .mdvl__list--7.mdvl__list--grid .mdvl__item,
-  .mdvl__list--8.mdvl__list--grid .mdvl__item {
-    width: calc(33.333% - 0.667px);
+  .mdvl__list--3.mdvl__list--grid,
+  .mdvl__list--4.mdvl__list--grid,
+  .mdvl__list--5.mdvl__list--grid,
+  .mdvl__list--6.mdvl__list--grid,
+  .mdvl__list--7.mdvl__list--grid,
+  .mdvl__list--8.mdvl__list--grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* Full column count on desktop */
 @media (min-width: 990px) {
-  .mdvl__list--2.mdvl__list--grid .mdvl__item {
-    width: calc(50% - 0.5px);
+  .mdvl__list--2.mdvl__list--grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .mdvl__list--3.mdvl__list--grid .mdvl__item {
-    width: calc(33.333% - 0.667px);
+  .mdvl__list--3.mdvl__list--grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .mdvl__list--4.mdvl__list--grid .mdvl__item {
-    width: calc(25% - 0.75px);
+  .mdvl__list--4.mdvl__list--grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .mdvl__list--5.mdvl__list--grid .mdvl__item {
-    width: calc(20% - 0.8px);
+  .mdvl__list--5.mdvl__list--grid {
+    grid-template-columns: repeat(5, 1fr);
   }
 
-  .mdvl__list--6.mdvl__list--grid .mdvl__item {
-    width: calc(16.666% - 0.833px);
+  .mdvl__list--6.mdvl__list--grid {
+    grid-template-columns: repeat(6, 1fr);
   }
 
-  .mdvl__list--7.mdvl__list--grid .mdvl__item {
-    width: calc(14.285% - 0.857px);
+  .mdvl__list--7.mdvl__list--grid {
+    grid-template-columns: repeat(7, 1fr);
   }
 
-  .mdvl__list--8.mdvl__list--grid .mdvl__item {
-    width: calc(12.5% - 0.875px);
+  .mdvl__list--8.mdvl__list--grid {
+    grid-template-columns: repeat(8, 1fr);
   }
 }
 
