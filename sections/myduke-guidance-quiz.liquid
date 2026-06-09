@@ -89,6 +89,10 @@
 {% endschema %}
 
 <style>
+  .guidance-quiz-section, .guidance-quiz-section * {
+    box-sizing: border-box;
+  }
+
   .guidance-quiz-section {
     display: flex;
     flex-direction: column;
@@ -113,77 +117,92 @@
   .guidance-quiz-header {
     text-align: center;
     color: #111;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
   }
 
   .guidance-quiz-header h2 {
+    font-family: 'Manrope', sans-serif;
     font-size: 48px;
     letter-spacing: -1.8px;
-    margin: 0 0 24px 0;
+    margin: 0;
     line-height: 1.1;
+    color: var(--black, black);
+    font-weight: 400;
   }
 
   .guidance-quiz-header p {
+    font-family: 'Instrument Sans', sans-serif;
     font-size: 18px;
-    max-width: 670px;
+    width: 100%;
+    max-width: 669px;
     margin: 0 auto;
     line-height: 1.5;
+    color: var(--black, black);
+    font-variation-settings: "wdth" 100;
   }
 
   .guidance-quiz-card {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 16px;
-    padding: 48px;
+    border: 16px solid rgba(255, 255, 255, 0.2);
+    background-clip: padding-box;
     width: 100%;
     max-width: 631px;
-    min-height: 500px;
+    height: 707px;
+    padding: 48px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     z-index: 2;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   }
 
   .guidance-question-text {
     color: #264653;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .guidance-question-text h3 {
-    font-size: 32px;
-    letter-spacing: -0.95px;
-    margin: 0 0 20px 0;
-    line-height: 1.1;
+    font-family: 'Manrope', sans-serif;
+    font-size: 31.9px;
+    letter-spacing: -0.958px;
+    margin: 0;
+    line-height: 35.11px;
+    font-weight: 400;
   }
 
   .guidance-question-text p {
+    font-family: 'Manrope', sans-serif;
     font-size: 18px;
-    margin: 0 0 30px 0;
-    line-height: 1.4;
+    margin: 0;
+    line-height: 25.2px;
   }
 
   .guidance-options {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 40px;
+    margin-bottom: auto;
+    margin-top: 32px;
   }
 
   .guidance-option {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 16px;
+    padding: 12px;
     background-color: #edf3f0;
-    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 1px solid transparent;
   }
 
   .guidance-option:hover {
@@ -192,7 +211,6 @@
 
   .guidance-option.selected {
     background-color: #218380;
-    color: #f7f8f8;
   }
   
   .guidance-option.selected .guidance-option-text {
@@ -200,13 +218,14 @@
   }
 
   .guidance-option-radio {
-    width: 16px;
-    height: 16px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
-    border: 2px solid #264653;
+    border: 1px solid #264653;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   .guidance-option.selected .guidance-option-radio {
@@ -215,8 +234,8 @@
 
   .guidance-option-radio::after {
     content: '';
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background-color: transparent;
   }
@@ -226,10 +245,12 @@
   }
 
   .guidance-option-text {
+    font-family: 'Manrope', sans-serif;
     font-size: 14px;
     color: #264653;
     margin: 0;
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 1.4;
   }
 
   .guidance-footer {
@@ -241,60 +262,65 @@
 
   .guidance-progress-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .guidance-progress-bar-bg {
     width: 100%;
-    height: 6px;
+    height: 7px;
     background-color: rgba(33, 131, 128, 0.15);
-    border-radius: 3px;
-    margin-bottom: 12px;
-    overflow: hidden;
   }
 
   .guidance-progress-bar-fill {
     height: 100%;
     background-color: #264653;
-    border-radius: 3px;
     transition: width 0.3s ease;
   }
 
   .guidance-progress-text {
-    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
     text-transform: uppercase;
     color: #264653;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-weight: 500;
     margin: 0;
+    line-height: 1;
   }
 
   .guidance-actions {
     display: flex;
-    gap: 12px;
+    gap: 8px;
+    width: 100%;
   }
 
   .guidance-btn {
     flex: 1;
-    padding: 12px 24px;
-    border-radius: 4px;
+    min-height: 40px;
+    padding: 9.5px 36px;
     font-size: 14px;
-    font-weight: 600;
     text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
     border: none;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .guidance-btn-back {
-    background-color: #e0e0e0;
-    color: #888;
+    background-color: #218380;
+    color: white;
+    opacity: 0.2;
     cursor: not-allowed;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
   }
 
   .guidance-btn-back.active {
-    background-color: #218380;
-    color: white;
+    opacity: 1;
     cursor: pointer;
   }
 
@@ -302,6 +328,8 @@
     background-color: transparent;
     border: 1px solid #218380;
     color: #218380;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
   }
   
   .guidance-btn-next:hover {
@@ -311,10 +339,12 @@
   .guidance-question-block {
     display: none;
     animation: fadeIn 0.4s ease forwards;
+    height: 100%;
   }
 
   .guidance-question-block.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   @keyframes fadeIn {
@@ -323,9 +353,27 @@
   }
 
   @media (max-width: 768px) {
-    .guidance-quiz-header h2 { font-size: 36px; }
-    .guidance-quiz-card { padding: 32px 24px; border-radius: 12px; }
-    .guidance-question-text h3 { font-size: 24px; }
+    .guidance-quiz-section {
+      padding: 40px 16px;
+    }
+    .guidance-quiz-header {
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .guidance-quiz-header h2 { 
+      font-size: 36px; 
+      letter-spacing: -1px;
+    }
+    .guidance-quiz-card { 
+      padding: 32px 24px; 
+      border-width: 8px;
+      height: auto;
+      min-height: 600px;
+    }
+    .guidance-question-text h3 { 
+      font-size: 28px; 
+      line-height: 1.2; 
+    }
   }
 </style>
 
