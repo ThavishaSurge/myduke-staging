@@ -273,6 +273,12 @@
         },
         "subtitle_info": {
           "content": "Used for modal window titles, tags, product vendors."
+        },
+        "header__secondary_heading": {
+          "content": "Secondary Heading"
+        },
+        "header__secondary_text": {
+          "content": "Secondary Text"
         }
       }
     },
