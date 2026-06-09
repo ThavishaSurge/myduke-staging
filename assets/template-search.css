@@ -12,6 +12,7 @@
 }
 .template-search .page-header {
   padding-block: 2.4rem 2rem;
+  margin: auto;
 }
 .template-search .page-header__inner-text {
   color: rgb(var(--color-foreground-secondary));
