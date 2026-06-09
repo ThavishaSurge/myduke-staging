@@ -82,6 +82,12 @@
                   {%- endif -%}
                 </div>
                 <p class="mdcpl__card-title">{{ product.title }}</p>
+                {%- if section.settings.show_product_count -%}
+                  <span class="mdcpl__card-count">
+                    {{ product.variants.size }}
+                    {%- if section.settings.product_count_label != blank %} {{ section.settings.product_count_label }}{%- endif -%}
+                  </span>
+                {%- endif -%}
               </a>
             </div>
           {%- else -%}
@@ -93,6 +99,9 @@
                     {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
                   </div>
                   <p class="mdcpl__card-title">Product {{ forloop.index }}</p>
+                  {%- if section.settings.show_product_count -%}
+                    <span class="mdcpl__card-count">0 {{ section.settings.product_count_label }}</span>
+                  {%- endif -%}
                 </div>
               </div>
             {%- endfor -%}
@@ -205,6 +214,25 @@
       "id": "show_divider",
       "default": true,
       "label": "Show divider below heading"
+    },
+    {
+      "type": "header",
+      "content": "Card"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Show product count",
+      "default": false,
+      "info": "Displays the number of variants below the card title."
+    },
+    {
+      "type": "text",
+      "id": "product_count_label",
+      "label": "Product count label",
+      "default": "variants",
+      "info": "Appended after the count number. e.g. \"3 variants\"",
+      "visible_if": "{{ section.settings.show_product_count == true }}"
     },
     {
       "type": "header",
