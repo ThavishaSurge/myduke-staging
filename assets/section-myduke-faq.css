@@ -60,7 +60,7 @@
   justify-content: center;
   background: #218380;
   color: #ffffff;
-  font-family: var(--font-button-family);
+  font-family: var(--font-secondary-text-family);
   font-style: var(--font-button-style);
   font-weight: 500;
   font-size: calc(var(--font-button-scale) * 1rem);
@@ -178,17 +178,13 @@
 }
 
 .myduke-faq__answer {
-  font-family: var(--font-body-family);
+  font-family: var(--font-secondary-text-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
   font-size: calc(var(--font-body-scale) * 1.4rem);
   line-height: 1.6;
   letter-spacing: -0.01em;
   color: #264653;
-}
-
-.template-page-about-page .myduke-faq__answer {
-  font-family: var(--font-secondary-text-family);
 }
 
 .myduke-faq__answer p {
