@@ -208,10 +208,9 @@ a.mdvl__card:hover {
 /* ── Logo image ── */
 .mdvl__logo-img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  max-width: 185px;
+  height: 41px;
+  width: 100%;
   object-fit: contain;
 }
 
