@@ -99,10 +99,51 @@
       position: absolute;
     }
   {% endif %}
+  {% if section.settings.logo_sticky != blank %}
+    /* Sticky logo: hidden by default, shown when header becomes sticky */
+    .header__heading-logo--sticky { display: none; }
+  {% endif %}
 
 </style>
 {%- if section.settings.overlay_mode -%}
   {% render 'header-overlay-mode-styles' %}
+{%- endif -%}
+
+{%- if section.settings.logo_sticky != blank -%}
+<script>
+(function () {
+  var STICKY_CLASS = 'shopify-section-header-sticky';
+
+  function swapLogos(header) {
+    var isSticky = header.classList.contains(STICKY_CLASS);
+    var defaultLogos = header.querySelectorAll(
+      '.header__heading-logo:not(.header__heading-logo--sticky):not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay)'
+    );
+    var stickyLogos = header.querySelectorAll('.header__heading-logo--sticky');
+    if (!stickyLogos.length) return;
+    defaultLogos.forEach(function (el) { el.style.display = isSticky ? 'none' : ''; });
+    stickyLogos.forEach(function (el) { el.style.display = isSticky ? 'block' : 'none'; });
+  }
+
+  function init() {
+    var header = document.querySelector('.shopify-section-header');
+    if (!header) return;
+    swapLogos(header);
+    new MutationObserver(function () { swapLogos(header); })
+      .observe(header, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  document.addEventListener('shopify:section:load', function () {
+    setTimeout(init, 0);
+  });
+})();
+</script>
 {%- endif -%}
 
 {%- liquid
@@ -399,6 +440,13 @@
       "label": "Logo when scrolled (overlay mode)",
       "info": "This logo is shown when the header becomes solid after scrolling in overlay mode.",
       "visible_if": "{{ section.settings.show_logo == true and section.settings.overlay_mode }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_sticky",
+      "label": "Logo when sticky (on scroll)",
+      "info": "Shown instead of the default logo when the header becomes sticky after scrolling. Works with all sticky header modes.",
+      "visible_if": "{{ section.settings.show_logo == true and section.settings.sticky_header_type != 'none' }}"
     },
     {
       "type": "checkbox",

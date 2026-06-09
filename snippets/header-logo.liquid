@@ -63,6 +63,17 @@
             loading="lazy"
           >
         {%- endif -%}
+        {%- if section.settings.logo_sticky != blank -%}
+          <img
+            srcset="{{ section.settings.logo_sticky | image_url: width: image_size }} 1x, {{ section.settings.logo_sticky | image_url: width: image_size_2x }} 2x"
+            src="{{ section.settings.logo_sticky | image_url: width: image_size }}"
+            class="header__heading-logo header__heading-logo--sticky"
+            width="{{ section.settings.logo_width }}"
+            height="auto"
+            alt="{{ section.settings.logo_sticky.alt | default: shop.name | escape }}"
+            loading="lazy"
+          >
+        {%- endif -%}
       {%- elsif section.settings.logo_2 != blank -%}
         {%- assign image_size = section.settings.logo_width | append: 'x' -%}
         {%- assign image_size_2x = section.settings.logo_width | times: 2 | at_most: 5760 -%}
