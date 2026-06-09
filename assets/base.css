@@ -6849,3 +6849,11 @@ header.shopify-section-header-sticky button.button--secondary {
 header.shopify-section-header-sticky button.button--secondary span.button__label {
   color: #264653;
 }
+
+header.shopify-section-header-sticky .menu-drawer-icon .icon {
+  color: #264653;
+}
+
+header.shopify-section-header-sticky .menu-drawer-icon {
+  border-right: 1px solid #00000012;
+}
