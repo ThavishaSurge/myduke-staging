@@ -164,49 +164,49 @@
           "type": "accordion_item",
           "settings": {
             "title": "Secure Clinical Assessment",
-            "content": "<p>Eligible adults complete an online medical questionnaire, which is reviewed by an independent Australian-registered doctor. This process helps determine appropriate clinical options based on individual circumstances, in line with professional standards and public health guidance.</p>"
+            "content": "<p>Eligible adults complete an online medical questionnaire, which is reviewed by an independent Australian-registered doctor. This process supports adults seeking smoking-cessation treatment options tailored to individual circumstances, in line with professional standards and public health guidance. Practitioners exercise independent clinical judgement.</p>"
           }
         },
         "accordion_item_aXBMfy": {
           "type": "accordion_item",
           "settings": {
             "title": "Ongoing Patient Oversight",
-            "content": ""
+            "content": "<p>Beyond the initial assessment, myduke® provides ongoing oversight of your treatment journey. Our dedicated support team and clinical records ensure that your progress, prescribed nicotine strengths, and usage history are monitored in accordance with regulatory obligations and clinical standards, helping you stay informed as you manage your treatment.</p>"
           }
         },
         "accordion_item_JEjGDq": {
           "type": "accordion_item",
           "settings": {
             "title": "Regulatory Alignment",
-            "content": ""
+            "content": "<p>Built with compliance at its core, myduke® integrates medical review and access controls in accordance with TGA, AHPRA, and state-based requirements. This ensures a consistent service for adults seeking structured support, in alignment with regulatory and public health obligations.</p>"
           }
         },
         "accordion_item_JYMUnn": {
           "type": "accordion_item",
           "settings": {
-            "title": "Zero Upsell Policy",
-            "content": ""
+            "title": "Clinical Care Policy",
+            "content": "<p>Every decision is made with your health as the priority, in alignment with clinical standards and individual care needs.</p>"
           }
         },
         "accordion_item_pTWLDp": {
           "type": "accordion_item",
           "settings": {
             "title": "Evidence-Based Care",
-            "content": ""
+            "content": "<p>Our model is grounded in proven harm-reduction strategies and established clinical protocols.</p>"
           }
         },
         "accordion_item_UXNpdU": {
           "type": "accordion_item",
           "settings": {
             "title": "Licensed Pharmacy Dispensing",
-            "content": ""
+            "content": "<p>All treatments are fulfilled by authorised Australian pharmacy partners in accordance with applicable Australian regulatory requirements.</p>"
           }
         },
         "accordion_item_miVRQc": {
           "type": "accordion_item",
           "settings": {
             "title": "Data Security",
-            "content": ""
+            "content": "<p>Your medical information is protected by robust security standards. Retention periods, deletion procedures, and data handling processes are managed in strict adherence to privacy obligations.</p>"
           }
         }
       },
