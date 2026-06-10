@@ -98,6 +98,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 24px;
     padding: 124px 10px;
     position: relative;
     width: 100%;
@@ -375,80 +376,82 @@
   }
 </style>
 
-<div class="guidance-quiz-section" id="GuidanceQuiz-{{ section.id }}">
-  <div class="guidance-quiz-header">
-    <h2>{{ section.settings.heading | escape }}</h2>
-    <p>{{ section.settings.subheading | escape }}</p>
-  </div>
-
-  <div class="guidance-quiz-card">
-    <div id="quiz-questions-container-{{ section.id }}">
-      {% for block in section.blocks %}
-        <div
-          class="guidance-question-block {% if forloop.first %}active{% endif %}"
-          data-index="{{ forloop.index }}"
-          {{ block.shopify_attributes }}
-        >
-          <div class="guidance-question-text">
-            <h3>{{ block.settings.question_text | escape }}</h3>
-            {% if block.settings.question_subtext != blank %}
-              <p>{{ block.settings.question_subtext | escape }}</p>
-            {% endif %}
-          </div>
-
-          <div class="guidance-options">
-            {% assign options = 'option_1,option_2,option_3,option_4' | split: ',' %}
-            {% for opt in options %}
-              {% if block.settings[opt] != blank %}
-                <div class="guidance-option" onclick="selectOption(this, '{{ section.id }}')">
-                  <div class="guidance-option-radio"></div>
-                  <p class="guidance-option-text">{{ block.settings[opt] | escape }}</p>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-      {% endfor %}
-
-      {% if section.blocks.size == 0 %}
-        <div class="guidance-question-block active">
-          <div class="guidance-question-text">
-            <h3>Please add questions in the theme editor</h3>
-          </div>
-        </div>
-      {% endif %}
+<div class="page-width container">
+  <div class="guidance-quiz-section" id="GuidanceQuiz-{{ section.id }}">
+    <div class="guidance-quiz-header">
+      <h2>{{ section.settings.heading | escape }}</h2>
+      <p>{{ section.settings.subheading | escape }}</p>
     </div>
 
-    <div class="guidance-footer">
-      <div class="guidance-progress-container">
-        <div class="guidance-progress-bar-bg">
+    <div class="guidance-quiz-card">
+      <div id="quiz-questions-container-{{ section.id }}">
+        {% for block in section.blocks %}
           <div
-            class="guidance-progress-bar-fill"
-            id="quiz-progress-{{ section.id }}"
-            style="width: {% if section.blocks.size > 0 %}{{ 100 | divided_by: section.blocks.size }}%{% else %}0%{% endif %}"
-          ></div>
-        </div>
-        <p class="guidance-progress-text" id="quiz-progress-text-{{ section.id }}">
-          Question 1 / {{ section.blocks.size | default: 1 }}
-        </p>
+            class="guidance-question-block {% if forloop.first %}active{% endif %}"
+            data-index="{{ forloop.index }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="guidance-question-text">
+              <h3>{{ block.settings.question_text | escape }}</h3>
+              {% if block.settings.question_subtext != blank %}
+                <p>{{ block.settings.question_subtext | escape }}</p>
+              {% endif %}
+            </div>
+
+            <div class="guidance-options">
+              {% assign options = 'option_1,option_2,option_3,option_4' | split: ',' %}
+              {% for opt in options %}
+                {% if block.settings[opt] != blank %}
+                  <div class="guidance-option" onclick="selectOption(this, '{{ section.id }}')">
+                    <div class="guidance-option-radio"></div>
+                    <p class="guidance-option-text">{{ block.settings[opt] | escape }}</p>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+
+        {% if section.blocks.size == 0 %}
+          <div class="guidance-question-block active">
+            <div class="guidance-question-text">
+              <h3>Please add questions in the theme editor</h3>
+            </div>
+          </div>
+        {% endif %}
       </div>
 
-      <div class="guidance-actions">
-        <button
-          class="guidance-btn guidance-btn-back"
-          id="quiz-btn-back-{{ section.id }}"
-          onclick="prevQuestion('{{ section.id }}')"
-          disabled
-        >
-          Back
-        </button>
-        <button
-          class="guidance-btn guidance-btn-next"
-          id="quiz-btn-next-{{ section.id }}"
-          onclick="nextQuestion('{{ section.id }}')"
-        >
-          Next
-        </button>
+      <div class="guidance-footer">
+        <div class="guidance-progress-container">
+          <div class="guidance-progress-bar-bg">
+            <div
+              class="guidance-progress-bar-fill"
+              id="quiz-progress-{{ section.id }}"
+              style="width: {% if section.blocks.size > 0 %}{{ 100 | divided_by: section.blocks.size }}%{% else %}0%{% endif %}"
+            ></div>
+          </div>
+          <p class="guidance-progress-text" id="quiz-progress-text-{{ section.id }}">
+            Question 1 / {{ section.blocks.size | default: 1 }}
+          </p>
+        </div>
+
+        <div class="guidance-actions">
+          <button
+            class="guidance-btn guidance-btn-back"
+            id="quiz-btn-back-{{ section.id }}"
+            onclick="prevQuestion('{{ section.id }}')"
+            disabled
+          >
+            Back
+          </button>
+          <button
+            class="guidance-btn guidance-btn-next"
+            id="quiz-btn-next-{{ section.id }}"
+            onclick="nextQuestion('{{ section.id }}')"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   </div>
