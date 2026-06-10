@@ -1,6 +1,6 @@
 .myduke-search-bar {
   position: relative;
-  z-index: 100;
+  z-index: 10;
   background: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -119,6 +119,7 @@
 @media screen and (max-width: 575px) {
   .myduke-search-bar {
     padding: 1.6rem 1.2rem;
+    width: calc(100% - 24px);
   }
 
   .myduke-search-bar__field {
