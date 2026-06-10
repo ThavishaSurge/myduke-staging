@@ -29,7 +29,7 @@
         "overlay_color_mobile": "#000000",
         "overlay_opacity_mobile": 0,
         "height_desktop": 60,
-        "height_mobile": 60,
+        "height_mobile": 90,
         "enable_mobile_colors": false,
         "mobile_text_color": "#264653",
         "enable_breadcrumbs": true,
@@ -296,7 +296,7 @@
       "settings": {
         "heading": "Need Guidance?",
         "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
-        "background_color": "#F4A261",
+        "background_color": "#f4a261",
         "background_image": "shopify://shop_images/cost-cal-bg.webp"
       }
     }
