@@ -162,12 +162,34 @@
         "heading": "Why Choose MyDuke?",
         "description": "A regulated pathway built around safety, transparency, and your success."
       }
+    },
+    "myduke_cta_PUUdCi": {
+      "type": "myduke-cta",
+      "name": "CTA (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "visibility": "both",
+        "bg_image": "shopify://shop_images/cta-bg.webp",
+        "bg_image_mobile": "shopify://shop_images/cta-bg-mob.webp",
+        "fallback_color": "#264653",
+        "eyebrow": "You're not alone",
+        "heading": "myduke® is for quitters",
+        "heading_tag": "h2",
+        "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
+        "button_label": "Get started",
+        "button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_secondary_wdCVUt",
     "myduke_how_works_services_47YTdi",
-    "myduke_how_works_why_choose_9kT67b"
+    "myduke_how_works_why_choose_9kT67b",
+    "myduke_cta_PUUdCi"
   ]
 }
