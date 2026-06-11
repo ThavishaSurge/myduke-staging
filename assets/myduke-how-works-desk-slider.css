@@ -166,6 +166,7 @@
   overflow: visible !important;
   flex: 1 1 0;
   min-width: 0;
+  max-width: 808px;
 }
 
 /* =============================================
@@ -175,10 +176,9 @@
    spaceBetween=-133 in JS creates the 77px visual overlap matching Figma
    ============================================= */
 .myduke-how-works-desk-slider__slide {
-  width: 396px;
   position: relative;
   padding-top: 12px;
-  opacity: 1; /* Made inactive slides fully visible */
+  opacity: 0.5; /* Figma inactive opacity is 50% */
   transform: scale(0.715);
   transform-origin: center center;
   transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
@@ -374,10 +374,6 @@
 
   .myduke-how-works-desk-slider__right {
     gap: 16px;
-  }
-
-  .myduke-how-works-desk-slider__slide {
-    width: 300px;
   }
 
   .myduke-how-works-desk-slider__card-img-wrap {
