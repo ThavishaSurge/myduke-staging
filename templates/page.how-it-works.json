@@ -49,10 +49,62 @@
         "elig_assessment_link": "",
         "sign_in_link": ""
       }
+    },
+    "myduke_how_works_services_47YTdi": {
+      "type": "myduke-how-works-services",
+      "blocks": {
+        "service_card_Gfadtt": {
+          "type": "service_card",
+          "settings": {
+            "icon": "shopify://shop_images/hw-medical.svg",
+            "title": "Medically Supervised Cessation",
+            "description": "Structured, evidence-based smoking cessation support reviewed by independent Australian-registered healthcare professionals."
+          }
+        },
+        "service_card_Dp8cyg": {
+          "type": "service_card",
+          "settings": {
+            "icon": "shopify://shop_images/hw-gavel.svg",
+            "title": "Simplified Legal Pathway",
+            "description": "We simplify access to evidence-based care while maintaining the medical review and regulatory oversight required under Australian law."
+          }
+        },
+        "service_card_bDNARb": {
+          "type": "service_card",
+          "settings": {
+            "icon": "shopify://shop_images/hw-asclepius.svg",
+            "title": "Harm Reduction Focus",
+            "description": "Operating within Australia's public health framework, which prioritises harm reduction for adult smokers while limiting inappropriate access."
+          }
+        },
+        "service_card_hdjXT8": {
+          "type": "service_card",
+          "settings": {
+            "icon": "shopify://shop_images/hw-local.svg",
+            "title": "Born & Bred in Melbourne",
+            "description": "An Australian smoking cessation service delivering a safe, legal, and clinically appropriate pathway, supported by healthcare professionals."
+          }
+        }
+      },
+      "block_order": [
+        "service_card_Gfadtt",
+        "service_card_Dp8cyg",
+        "service_card_bDNARb",
+        "service_card_hdjXT8"
+      ],
+      "name": "How It Works — Services",
+      "settings": {
+        "left_image": "shopify://shop_images/hw-our-services.webp",
+        "left_bg_color": "rgba(0,0,0,0)",
+        "eyebrow": "Our Services",
+        "heading": "Our Smoking Cessation Support Services",
+        "description": "myduke® is an Australian smoking cessation service providing structured, medically supervised support for adults seeking to quit smoking. Our service simplifies access to evidence-based care while maintaining full regulatory oversight."
+      }
     }
   },
   "order": [
     "page_info",
-    "myduke_hero_secondary_wdCVUt"
+    "myduke_hero_secondary_wdCVUt",
+    "myduke_how_works_services_47YTdi"
   ]
 }
