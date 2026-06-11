@@ -17,7 +17,8 @@
     const swiper = new Swiper(trackEl, {
       slidesPerView: 3,
       centeredSlides: true,
-      spaceBetween: -130, // Default for tablet
+      spaceBetween: -130,
+      loop: true,
       speed: 600,
       allowTouchMove: false,
       navigation: {
