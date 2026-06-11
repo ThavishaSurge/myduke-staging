@@ -21,6 +21,7 @@
       loop: true,
       speed: 600,
       allowTouchMove: false,
+      watchSlidesProgress: true,
       navigation: {
         prevEl: prevBtn || null,
         nextEl: nextBtn || null,
@@ -30,6 +31,14 @@
         // Desktop breakpoint
         1160: {
           spaceBetween: -190,
+        }
+      },
+      on: {
+        progress() {
+          for (let i = 0; i < this.slides.length; i++) {
+            const slide = this.slides[i];
+            slide.style.setProperty('--slide-progress', slide.progress);
+          }
         }
       }
     });
