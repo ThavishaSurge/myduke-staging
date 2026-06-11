@@ -217,6 +217,22 @@
   transform: scale(1) translateZ(0) !important;
 }
 
+/* =============================================
+   Only prev / active / next should be visible.
+   With slidesPerView: 3 + negative spaceBetween,
+   the slide at progress ±2 still peeks ~77px into
+   the swiper. Hiding non-adjacent slides via the
+   :not chain keeps the 600ms opacity transition,
+   so the incoming "next" fades up 0→0.5 while it
+   translates in, and the outgoing "prev" fades
+   0.5→0 while it translates out — both fully in
+   sync with the wrapper, no edge pop.
+   ============================================= */
+.myduke-how-works-desk-slider__slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .myduke-how-works-desk-slider__card {
   display: flex;
   flex-direction: column;
