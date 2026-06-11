@@ -203,10 +203,6 @@
     min-height: 320px;
   }
 
-  .myduke-how-works-services__image {
-    aspect-ratio: 1;
-  }
-
   .myduke-how-works-services__content-col {
     padding: 48px 24px;
     gap: 32px;
