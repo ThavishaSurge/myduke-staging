@@ -118,7 +118,10 @@
                     {%- endif -%}
 
                     {%- if block.settings.checklist_items != blank -%}
-                      {%- assign checklist = block.settings.checklist_items | remove: "\r" | split: "\n" -%}
+                      {%- capture newline -%}
+
+                      {%- endcapture -%}
+                      {%- assign checklist = block.settings.checklist_items | remove: "\r" | split: newline -%}
                       <ul class="myduke-how-works-desk-slider__checklist">
                         {%- for item in checklist -%}
                           {%- assign trimmed = item | strip -%}
