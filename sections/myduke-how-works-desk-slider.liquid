@@ -1,0 +1,314 @@
+{{ 'myduke-how-works-desk-slider.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'myduke-how-works-desk-slider.js' | asset_url }}" defer="defer"></script>
+
+<section
+  class="myduke-how-works-desk-slider-section"
+  data-section-id="{{ section.id }}"
+>
+  <div class="myduke-how-works-desk-slider">
+
+    {%- comment -%} ── Left panel ── {%- endcomment -%}
+    <div
+      class="myduke-how-works-desk-slider__left"
+      style="--left-bg: {{ section.settings.left_bg_color }};"
+    >
+      {%- if section.settings.bg_image != blank -%}
+        <img
+          class="myduke-how-works-desk-slider__bg-img"
+          src="{{ section.settings.bg_image | image_url: width: 1260 }}"
+          alt=""
+          width="{{ section.settings.bg_image.width }}"
+          height="{{ section.settings.bg_image.height }}"
+          loading="lazy"
+        >
+      {%- endif -%}
+
+      <div class="myduke-how-works-desk-slider__left-content">
+        <div class="myduke-how-works-desk-slider__heading-group">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="myduke-how-works-desk-slider__eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="myduke-how-works-desk-slider__heading">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.button_text != blank -%}
+          <a
+            href="{{ section.settings.button_link | default: '#' }}"
+            class="myduke-how-works-desk-slider__btn"
+          >
+            {{- section.settings.button_text -}}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} ── Right slider panel ── {%- endcomment -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="myduke-how-works-desk-slider__right">
+
+        <button
+          class="myduke-how-works-desk-slider__nav-btn js-desk-slider-prev"
+          aria-label="Previous slide"
+          type="button"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+            <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/>
+          </svg>
+        </button>
+
+        <div class="myduke-how-works-desk-slider__swiper swiper js-desk-slider">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div
+                class="myduke-how-works-desk-slider__slide swiper-slide"
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.step_badge != blank -%}
+                  <div class="myduke-how-works-desk-slider__step-badge">
+                    {{- block.settings.step_badge -}}
+                  </div>
+                {%- endif -%}
+
+                <div class="myduke-how-works-desk-slider__card">
+
+                  {%- if block.settings.image != blank -%}
+                    <div class="myduke-how-works-desk-slider__card-img-wrap">
+                      <img
+                        class="myduke-how-works-desk-slider__card-img"
+                        src="{{ block.settings.image | image_url: width: 800 }}"
+                        alt="{{ block.settings.step_title | escape }}"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        loading="lazy"
+                      >
+                    </div>
+                  {%- else -%}
+                    <div class="myduke-how-works-desk-slider__card-img-wrap myduke-how-works-desk-slider__card-img-wrap--placeholder"></div>
+                  {%- endif -%}
+
+                  <div class="myduke-how-works-desk-slider__card-body">
+
+                    <div class="myduke-how-works-desk-slider__card-meta">
+                      {%- if block.settings.time_text != blank -%}
+                        <div class="myduke-how-works-desk-slider__time-badge">
+                          <svg class="myduke-how-works-desk-slider__time-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/>
+                          </svg>
+                          <span class="myduke-how-works-desk-slider__time-text">{{ block.settings.time_text }}</span>
+                        </div>
+                      {%- endif -%}
+
+                      {%- if block.settings.step_counter != blank -%}
+                        <span class="myduke-how-works-desk-slider__counter">{{ block.settings.step_counter }}</span>
+                      {%- endif -%}
+                    </div>
+
+                    <div class="myduke-how-works-desk-slider__card-text">
+                      {%- if block.settings.step_title != blank -%}
+                        <p class="myduke-how-works-desk-slider__card-title">{{ block.settings.step_title }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.subtitle != blank -%}
+                        <p class="myduke-how-works-desk-slider__card-subtitle">{{ block.settings.subtitle }}</p>
+                      {%- endif -%}
+                    </div>
+
+                    {%- if block.settings.checklist_items != blank -%}
+                      {%- assign checklist = block.settings.checklist_items | split: "\n" -%}
+                      <ul class="myduke-how-works-desk-slider__checklist">
+                        {%- for item in checklist -%}
+                          {%- assign trimmed = item | strip -%}
+                          {%- if trimmed != blank -%}
+                            <li class="myduke-how-works-desk-slider__checklist-item">
+                              <svg class="myduke-how-works-desk-slider__check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                                <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                              </svg>
+                              <span class="myduke-how-works-desk-slider__checklist-text">{{ trimmed }}</span>
+                            </li>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <button
+          class="myduke-how-works-desk-slider__nav-btn js-desk-slider-next"
+          aria-label="Next slide"
+          type="button"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+            <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/>
+          </svg>
+        </button>
+
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How It Works — Slider",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Panel"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "left_bg_color",
+      "label": "Background Colour",
+      "default": "#f7f8f8"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our benefits"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How myduke® Works"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get started",
+      "info": "Leave blank to hide the button"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step_slide",
+      "name": "Step Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "step_badge",
+          "label": "Step Badge",
+          "default": "Step 1",
+          "info": "Displayed above the card"
+        },
+        {
+          "type": "text",
+          "id": "time_text",
+          "label": "Time",
+          "default": "4 minutes"
+        },
+        {
+          "type": "text",
+          "id": "step_counter",
+          "label": "Step Counter",
+          "default": "01 / 04"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Title",
+          "default": "Complete Assessment"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Answer a short medical questionnaire"
+        },
+        {
+          "type": "textarea",
+          "id": "checklist_items",
+          "label": "Checklist Items",
+          "info": "One item per line",
+          "default": "Safe and secure\nPrivate and confidential\nDoctor reviewed"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works — Steps Slider",
+      "blocks": [
+        {
+          "type": "step_slide",
+          "settings": {
+            "step_badge": "Step 1",
+            "time_text": "4 minutes",
+            "step_counter": "01 / 04",
+            "step_title": "Complete Your Assessment",
+            "subtitle": "Answer our short online health questionnaire",
+            "checklist_items": "100% online and private\nNo GP referral needed\nTakes just a few minutes"
+          }
+        },
+        {
+          "type": "step_slide",
+          "settings": {
+            "step_badge": "Step 2",
+            "time_text": "24 hours",
+            "step_counter": "02 / 04",
+            "step_title": "Doctor Review",
+            "subtitle": "An AHPRA-registered doctor reviews your assessment",
+            "checklist_items": "Independent medical review\nPersonalised cessation plan\nFull regulatory compliance"
+          }
+        },
+        {
+          "type": "step_slide",
+          "settings": {
+            "step_badge": "Step 3",
+            "time_text": "2-5 days",
+            "step_counter": "03 / 04",
+            "step_title": "Pharmacy Dispatch",
+            "subtitle": "Your medication is dispensed and delivered discreetly",
+            "checklist_items": "TGA-approved medications\nDiscreet packaging\nFast tracked delivery"
+          }
+        },
+        {
+          "type": "step_slide",
+          "settings": {
+            "step_badge": "Step 4",
+            "time_text": "Ongoing",
+            "step_counter": "04 / 04",
+            "step_title": "Ongoing Support",
+            "subtitle": "Stay on track with dedicated check-ins and support",
+            "checklist_items": "Dedicated support team\nProgress tracking\nPlan adjustments as needed"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

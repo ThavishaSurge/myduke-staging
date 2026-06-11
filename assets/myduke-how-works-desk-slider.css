@@ -1,0 +1,402 @@
+/* =============================================
+   Desktop / tablet only — hidden on mobile
+   ============================================= */
+.myduke-how-works-desk-slider-section {
+  display: none;
+  background-color: #f7f8f8;
+}
+
+@media screen and (min-width: 750px) {
+  .myduke-how-works-desk-slider-section {
+    display: block;
+  }
+}
+
+/* =============================================
+   Outer wrapper — flex row, gap 20px, p 24px
+   1482:6211
+   ============================================= */
+.myduke-how-works-desk-slider {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 24px;
+}
+
+/* =============================================
+   Left panel — 627px fixed, stretches to row height
+   1482:6212
+   ============================================= */
+.myduke-how-works-desk-slider__left {
+  position: relative;
+  width: 627px;
+  flex-shrink: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--left-bg, #f7f8f8);
+}
+
+/* Background image fills the panel */
+.myduke-how-works-desk-slider__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+/* Content sits above background */
+.myduke-how-works-desk-slider__left-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 40px 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* =============================================
+   Heading group — flex-col, gap 8px
+   1482:6213
+   ============================================= */
+.myduke-how-works-desk-slider__heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Eyebrow — 14px Manrope, #000 */
+.myduke-how-works-desk-slider__eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Heading — 48px Manrope, #264653, tracking -1.8px */
+.myduke-how-works-desk-slider__heading {
+  font-family: var(--font-body-family);
+  font-size: 4.8rem;
+  font-weight: 400;
+  color: #264653;
+  letter-spacing: -1.8px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* =============================================
+   Button — #218380, white, Instrument Sans Medium
+   1482:6216
+   ============================================= */
+.myduke-how-works-desk-slider__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9.5px 36px;
+  min-height: 40px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: var(--font-secondary-text-family);
+  text-decoration: none;
+  text-transform: capitalize;
+  border-radius: 0;
+  background-color: #218380;
+  color: #ffffff;
+  transition: opacity 0.3s ease;
+}
+
+.myduke-how-works-desk-slider__btn:hover {
+  opacity: 0.85;
+}
+
+/* =============================================
+   Right panel — flex row, gap 32px, centered
+   1482:6217
+   ============================================= */
+.myduke-how-works-desk-slider__right {
+  flex: 1 0 0;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  padding: 24px 0;
+}
+
+/* =============================================
+   Nav buttons — 32×32, caret icons
+   ============================================= */
+.myduke-how-works-desk-slider__nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #264653;
+  transition: opacity 0.2s ease;
+}
+
+.myduke-how-works-desk-slider__nav-btn:hover {
+  opacity: 0.65;
+}
+
+.myduke-how-works-desk-slider__nav-btn.swiper-button-disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+/* =============================================
+   Swiper — overflow visible to show adjacent slides
+   ============================================= */
+.myduke-how-works-desk-slider__swiper {
+  overflow: visible !important;
+  width: 396px;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   Slides — inactive: scale(0.715) + opacity 0.5
+   1482:6285 active: w-396px, drop-shadow
+   ============================================= */
+.myduke-how-works-desk-slider__slide {
+  width: 396px;
+  position: relative;
+  padding-top: 12px;
+  opacity: 0.5;
+  transform: scale(0.715);
+  transform-origin: center center;
+  transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+}
+
+.myduke-how-works-desk-slider__slide.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  filter: drop-shadow(0px 17px 21.45px rgba(126, 74, 24, 0.1));
+}
+
+/* =============================================
+   Step badge — yellow border pill, above card
+   1482:6313: absolute, top -12px, left 50%, border #FFB703
+   ============================================= */
+.myduke-how-works-desk-slider__step-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f7f8f8;
+  border: 1px solid #FFB703;
+  border-radius: 37px;
+  padding: 4px 12px;
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2b2b2e;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* =============================================
+   Card
+   ============================================= */
+.myduke-how-works-desk-slider__card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Card image — h 355px
+   1482:6286
+   ============================================= */
+.myduke-how-works-desk-slider__card-img-wrap {
+  height: 355px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #e8e8e8;
+}
+
+.myduke-how-works-desk-slider__card-img-wrap--placeholder {
+  background-color: #d8d8d8;
+}
+
+.myduke-how-works-desk-slider__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body — white, p 20px, flex-col gap 20px
+   1482:6287
+   ============================================= */
+.myduke-how-works-desk-slider__card-body {
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Meta row — time badge left, counter right
+   1482:6290
+   ============================================= */
+.myduke-how-works-desk-slider__card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Time badge — #f7f8f8 pill, gap 6px
+   1482:6291
+   ============================================= */
+.myduke-how-works-desk-slider__time-badge {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  background-color: #f7f8f8;
+  padding: 4px 6px;
+  border-radius: 37px;
+}
+
+/* Clock icon — 13×13 */
+.myduke-how-works-desk-slider__time-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  color: #2b2b2e;
+}
+
+/* Time text — 12px Manrope SemiBold */
+.myduke-how-works-desk-slider__time-text {
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2b2b2e;
+  line-height: 1;
+}
+
+/* Step counter — 16px Manrope Medium, #264653, opacity 30%
+   1482:6297
+   ============================================= */
+.myduke-how-works-desk-slider__counter {
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #264653;
+  opacity: 0.3;
+}
+
+/* Card text group
+   ============================================= */
+.myduke-how-works-desk-slider__card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Title — 33px Manrope, #2b2b2e, leading 24.2px
+   1482:6298
+   ============================================= */
+.myduke-how-works-desk-slider__card-title {
+  font-family: var(--font-body-family);
+  font-size: 3.3rem;
+  font-weight: 400;
+  color: #2b2b2e;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Subtitle — 18px Manrope, #2b2b2e, leading 19.6px
+   1482:6299
+   ============================================= */
+.myduke-how-works-desk-slider__card-subtitle {
+  font-family: var(--font-body-family);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #2b2b2e;
+  line-height: 19.6px;
+  margin: 0;
+}
+
+/* =============================================
+   Checklist — flex-col, gap 12px
+   1482:6300
+   ============================================= */
+.myduke-how-works-desk-slider__checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.myduke-how-works-desk-slider__checklist-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Check icon — 16×16 */
+.myduke-how-works-desk-slider__check-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: #218380;
+}
+
+/* Checklist text — 14px Manrope, #2b2b2e, leading 19.6px */
+.myduke-how-works-desk-slider__checklist-text {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #2b2b2e;
+  line-height: 19.6px;
+}
+
+/* =============================================
+   Tablet (750px – 1159px)
+   ============================================= */
+@media screen and (min-width: 750px) and (max-width: 1159px) {
+  .myduke-how-works-desk-slider__left {
+    width: 280px;
+  }
+
+  .myduke-how-works-desk-slider__heading {
+    font-size: 3.2rem;
+    letter-spacing: -1.2px;
+  }
+
+  .myduke-how-works-desk-slider__right {
+    gap: 16px;
+  }
+
+  .myduke-how-works-desk-slider__swiper {
+    width: 320px;
+  }
+
+  .myduke-how-works-desk-slider__slide {
+    width: 320px;
+  }
+
+  .myduke-how-works-desk-slider__card-img-wrap {
+    height: 280px;
+  }
+
+  .myduke-how-works-desk-slider__card-title {
+    font-size: 2.6rem;
+  }
+}
