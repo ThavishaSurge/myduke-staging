@@ -161,6 +161,7 @@
       ],
       "name": "How It Works — Steps Slider",
       "settings": {
+        "bg_image": "shopify://shop_images/hw-hw-bg.webp",
         "left_bg_color": "#f7f8f8",
         "eyebrow": "Our benefits",
         "heading": "How myduke® Works",
