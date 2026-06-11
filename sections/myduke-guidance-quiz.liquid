@@ -595,7 +595,8 @@
           </div>
           <div class="res-cards-container">
             <a href="#" class="res-device-card" id="res-category-link-{{ section.id }}">
-              <div class="res-device-image-ph"></div>
+              <img src="" alt="" class="res-device-image" id="res-category-image-{{ section.id }}" style="display: none; width: 100%; height: 176px; object-fit: cover;" />
+              <div class="res-device-image-ph" id="res-category-image-ph-{{ section.id }}"></div>
               <div class="res-device-info">
                 <h5 id="res-category-name-{{ section.id }}">Category Name</h5>
                 <svg
@@ -676,6 +677,13 @@
 </div>
 
 <script>
+  const collectionImages = {
+    'closed': {% if collections['closed-systems'].image %}"{{ collections['closed-systems'].image | image_url: width: 500 }}"{% else %}null{% endif %},
+    'hybrid': {% if collections['hybrid-systems'].image %}"{{ collections['hybrid-systems'].image | image_url: width: 500 }}"{% else %}null{% endif %},
+    'open': {% if collections['open-tank-systems'].image %}"{{ collections['open-tank-systems'].image | image_url: width: 500 }}"{% else %}null{% endif %},
+    'nrt': {% if collections['nrt'].image %}"{{ collections['nrt'].image | image_url: width: 500 }}"{% else %}null{% endif %}
+  };
+
   const quizData = [
     {
       id: 'q1',
@@ -1098,6 +1106,18 @@
     document.getElementById('res-category-name-' + sectionId).innerText = title;
     document.getElementById('res-category-link-' + sectionId).href = link;
 
+    const imgUrl = collectionImages[category];
+    const imageEl = document.getElementById('res-category-image-' + sectionId);
+    const imagePh = document.getElementById('res-category-image-ph-' + sectionId);
+    if (imgUrl) {
+      imageEl.src = imgUrl;
+      imageEl.style.display = 'block';
+      imagePh.style.display = 'none';
+    } else {
+      imageEl.style.display = 'none';
+      imagePh.style.display = 'block';
+    }
+
     document.getElementById('res-why-' + sectionId).innerHTML = why
       .map(
         (w) => `
@@ -1111,10 +1131,10 @@
     document.getElementById('res-needs-' + sectionId).innerHTML = needs
       .map(
         (w) => `
-      <div class="res-need-row">
+      <a href="${link}" class="res-need-row" style="text-decoration: none;">
         <p>${w}</p>
         <div class="res-list-icon">${arrowIcon}</div>
-      </div>`
+      </a>`
       )
       .join('');
 
