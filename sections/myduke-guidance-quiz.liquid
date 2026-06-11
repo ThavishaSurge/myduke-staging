@@ -299,7 +299,7 @@
     background-color: #1a6b68;
     color: white;
   }
-  
+
   .guidance-btn-retake {
     background-color: transparent;
     border: none;
@@ -327,7 +327,7 @@
     padding-bottom: 24px;
     border-bottom: 1px solid #e0dacf;
   }
-  
+
   .result-section:last-child {
     border-bottom: none;
     padding-bottom: 0;
@@ -364,7 +364,7 @@
   .result-section li {
     margin-bottom: 8px;
   }
-  
+
   .result-category-card {
     background: #edf3f0;
     padding: 24px;
@@ -372,14 +372,14 @@
     text-align: center;
     margin-top: 12px;
   }
-  
+
   .result-category-card h3 {
     margin: 0 0 8px 0;
     color: #264653;
     font-family: 'Manrope', sans-serif;
     font-size: 28px;
   }
-  
+
   .result-category-card p {
     color: #264653;
   }
@@ -432,16 +432,23 @@
           <div class="guidance-progress-bar-bg">
             <div class="guidance-progress-bar-fill" id="quiz-progress-{{ section.id }}" style="width: 0%"></div>
           </div>
-          <p class="guidance-progress-text" id="quiz-progress-text-{{ section.id }}">
-            Question 1 / 6
-          </p>
+          <p class="guidance-progress-text" id="quiz-progress-text-{{ section.id }}">Question 1 / 6</p>
         </div>
 
         <div class="guidance-actions">
-          <button class="guidance-btn guidance-btn-back" id="quiz-btn-back-{{ section.id }}" onclick="prevQuestion('{{ section.id }}')" disabled>
+          <button
+            class="guidance-btn guidance-btn-back"
+            id="quiz-btn-back-{{ section.id }}"
+            onclick="prevQuestion('{{ section.id }}')"
+            disabled
+          >
             Back
           </button>
-          <button class="guidance-btn guidance-btn-next" id="quiz-btn-next-{{ section.id }}" onclick="nextQuestion('{{ section.id }}')">
+          <button
+            class="guidance-btn guidance-btn-next"
+            id="quiz-btn-next-{{ section.id }}"
+            onclick="nextQuestion('{{ section.id }}')"
+          >
             Next
           </button>
         </div>
@@ -450,13 +457,14 @@
 
     <!-- Results Card -->
     <div class="guidance-results-card" id="results-card-{{ section.id }}">
-      
       <div class="result-section">
         <h4>Your Recommended Setup</h4>
         <div class="result-category-card">
           <h3 id="res-category-name-{{ section.id }}">Category</h3>
           <p id="res-category-desc-{{ section.id }}">Description</p>
-          <a href="#" id="res-category-link-{{ section.id }}" class="guidance-btn guidance-btn-shop">Shop Recommended Products</a>
+          <a href="#" id="res-category-link-{{ section.id }}" class="guidance-btn guidance-btn-shop"
+            >Shop Recommended Products</a
+          >
         </div>
       </div>
 
@@ -488,7 +496,6 @@
       </div>
 
       <button class="guidance-btn-retake" onclick="restartQuiz('{{ section.id }}')">Retake Quiz</button>
-
     </div>
   </div>
 </div>
@@ -496,94 +503,98 @@
 <script>
   const quizData = [
     {
-      id: "q1",
-      question: "How many cigarettes do you smoke per day?",
-      subtext: "This helps determine your nicotine strength",
+      id: 'q1',
+      question: 'How many cigarettes do you smoke per day?',
+      subtext: 'This helps determine your nicotine strength',
       options: [
-        { text: "1–5", value: "1-5" },
-        { text: "5–10", value: "5-10" },
-        { text: "10–20", value: "10-20" },
-        { text: "20+", value: "20+" },
-        { text: "None - I am already using nicotine replacement therapy (NRT)", value: "nrt" }
-      ]
+        { text: '1–5', value: '1-5' },
+        { text: '5–10', value: '5-10' },
+        { text: '10–20', value: '10-20' },
+        { text: '20+', value: '20+' },
+        { text: 'None - I am already using nicotine replacement therapy (NRT)', value: 'nrt' },
+      ],
     },
     {
-      id: "q2",
-      question: "How would you prefer to manage nicotine cravings?",
-      subtext: "",
+      id: 'q2',
+      question: 'How would you prefer to manage nicotine cravings?',
+      subtext: '',
       options: [
-        { text: "I'd like a vaping device", value: "vaping" },
-        { text: "I'm open to either vaping or nicotine replacement products", value: "either" },
-        { text: "I'd prefer not to use a vaping device", value: "not_vape" }
-      ]
+        { text: "I'd like a vaping device", value: 'vaping' },
+        { text: "I'm open to either vaping or nicotine replacement products", value: 'either' },
+        { text: "I'd prefer not to use a vaping device", value: 'not_vape' },
+      ],
     },
     {
-      id: "q3",
-      question: "What matters most to you?",
-      subtext: "",
+      id: 'q3',
+      question: 'What matters most to you?',
+      subtext: '',
       options: [
-        { text: "Easiest option (no setup)", value: "easiest" },
-        { text: "Feels closest to a cigarette", value: "closest" },
-        { text: "More control & customisation", value: "control" }
-      ]
+        { text: 'Easiest option (no setup)', value: 'easiest' },
+        { text: 'Feels closest to a cigarette', value: 'closest' },
+        { text: 'More control & customisation', value: 'control' },
+      ],
     },
     {
-      id: "q4",
-      question: "How do you prefer to inhale?",
-      subtext: "",
+      id: 'q4',
+      question: 'How do you prefer to inhale?',
+      subtext: '',
       options: [
-        { text: "Tight draw (like a cigarette)", value: "tight" },
-        { text: "Airy draw (more vapour)", value: "airy" },
-        { text: "Not sure", value: "notsure" }
-      ]
+        { text: 'Tight draw (like a cigarette)', value: 'tight' },
+        { text: 'Airy draw (more vapour)', value: 'airy' },
+        { text: 'Not sure', value: 'notsure' },
+      ],
     },
     {
-      id: "q5",
-      question: "Do you want to refill the liquid yourself?",
-      subtext: "",
+      id: 'q5',
+      question: 'Do you want to refill the liquid yourself?',
+      subtext: '',
       options: [
-        { text: "No, keep it simple", value: "no" },
-        { text: "Yes, I want to refill", value: "yes" },
-        { text: "I'd like both options", value: "both" }
-      ]
+        { text: 'No, keep it simple', value: 'no' },
+        { text: 'Yes, I want to refill', value: 'yes' },
+        { text: "I'd like both options", value: 'both' },
+      ],
     },
     {
-      id: "q6",
+      id: 'q6',
       question: "What's your experience level?",
-      subtext: "",
+      subtext: '',
       options: [
-        { text: "Beginner", value: "beginner" },
-        { text: "Some experience", value: "some" },
-        { text: "Experienced", value: "experienced" }
-      ]
+        { text: 'Beginner', value: 'beginner' },
+        { text: 'Some experience', value: 'some' },
+        { text: 'Experienced', value: 'experienced' },
+      ],
     },
     {
-      id: "q7",
+      id: 'q7',
       question: "What's your top priority?",
-      subtext: "",
+      subtext: '',
       options: [
-        { text: "Quit smoking", value: "quit" },
-        { text: "Save money", value: "save" },
-        { text: "Better flavour / performance", value: "flavour" }
-      ]
-    }
+        { text: 'Quit smoking', value: 'quit' },
+        { text: 'Save money', value: 'save' },
+        { text: 'Better flavour / performance', value: 'flavour' },
+      ],
+    },
   ];
 
   function renderQuiz(sectionId) {
     const container = document.getElementById('quiz-questions-container-' + sectionId);
     container.innerHTML = '';
-    
+
     quizData.forEach((q, index) => {
       const block = document.createElement('div');
       block.className = `guidance-question-block ${index === 0 ? 'active' : ''}`;
       block.setAttribute('data-index', index + 1);
 
-      let optionsHtml = q.options.map((opt, optIndex) => `
+      let optionsHtml = q.options
+        .map(
+          (opt, optIndex) => `
         <div class="guidance-option" onclick="selectOption(this, '${sectionId}', '${q.id}', '${opt.value}')">
           <div class="guidance-option-radio"></div>
           <p class="guidance-option-text">${opt.text}</p>
         </div>
-      `).join('');
+      `
+        )
+        .join('');
 
       block.innerHTML = `
         <div class="guidance-question-text">
@@ -601,35 +612,76 @@
   }
 
   function calculateRunningScores(answers) {
-    let closed = 0, hybrid = 0, open = 0, nrt = 0;
+    let closed = 0,
+      hybrid = 0,
+      open = 0,
+      nrt = 0;
 
     // Q2
-    if (answers.q2 === 'vaping') { closed += 2; hybrid += 2; open += 2; }
-    if (answers.q2 === 'either') { closed += 1; hybrid += 1; open += 1; nrt += 2; }
-    if (answers.q2 === 'not_vape') { nrt += 6; }
+    if (answers.q2 === 'vaping') {
+      closed += 2;
+      hybrid += 2;
+      open += 2;
+    }
+    if (answers.q2 === 'either') {
+      closed += 1;
+      hybrid += 1;
+      open += 1;
+      nrt += 2;
+    }
+    if (answers.q2 === 'not_vape') {
+      nrt += 6;
+    }
 
     // Q3
-    if (answers.q3 === 'easiest') closed += 3;
-    if (answers.q3 === 'closest') closed += 3;
-    if (answers.q3 === 'control') open += 3;
+    if (answers.q3 === 'easiest') {
+      closed += 3;
+      nrt += 3;
+    }
+    if (answers.q3 === 'closest') {
+      closed += 3;
+    }
+    if (answers.q3 === 'control') {
+      open += 3;
+    }
 
     // Q4
-    if (answers.q4 === 'tight') closed += 2;
-    if (answers.q4 === 'airy') open += 2;
-    if (answers.q4 === 'notsure') { closed += 1; hybrid += 1; }
+    if (answers.q4 === 'tight') {
+      closed += 2;
+    }
+    if (answers.q4 === 'airy') {
+      open += 2;
+    }
+    if (answers.q4 === 'notsure') {
+      closed += 1;
+      hybrid += 1;
+      nrt += 1;
+    }
 
     // Q5
-    if (answers.q5 === 'no') closed += 4;
-    if (answers.q5 === 'yes') { hybrid += 2; open += 2; }
+    if (answers.q5 === 'no') {
+      closed += 4;
+      nrt += 2;
+    }
+    if (answers.q5 === 'yes') {
+      hybrid += 2;
+      open += 2;
+    }
     if (answers.q5 === 'both') hybrid += 3;
 
     // Q6
-    if (answers.q6 === 'beginner') closed += 3;
+    if (answers.q6 === 'beginner') {
+      closed += 2;
+      nrt += 2;
+    }
     if (answers.q6 === 'some') hybrid += 3;
     if (answers.q6 === 'experienced') open += 3;
 
     // Q7
-    if (answers.q7 === 'quit') closed += 3;
+    if (answers.q7 === 'quit') {
+      closed += 2;
+      nrt += 4;
+    }
     if (answers.q7 === 'save') hybrid += 3;
     if (answers.q7 === 'flavour') open += 3;
 
@@ -639,7 +691,7 @@
   function selectOption(element, sectionId, questionId, value) {
     const parent = element.closest('.guidance-options');
     const options = parent.querySelectorAll('.guidance-option');
-    options.forEach(opt => opt.classList.remove('selected'));
+    options.forEach((opt) => opt.classList.remove('selected'));
     element.classList.add('selected');
 
     // Save answers to state and sessionStorage
@@ -652,29 +704,29 @@
     sessionStorage.setItem('myduke_quiz_scores', JSON.stringify(currentScores));
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     window.quizState = window.quizState || {};
-    
+
     // Check if we have saved answers and scores
     let savedAnswers = {};
     let savedScores = { closed: 0, hybrid: 0, open: 0, nrt: 0 };
     try {
       const savedA = sessionStorage.getItem('myduke_quiz_answers');
       if (savedA) savedAnswers = JSON.parse(savedA);
-      
+
       const savedS = sessionStorage.getItem('myduke_quiz_scores');
       if (savedS) savedScores = JSON.parse(savedS);
-    } catch(e) {}
+    } catch (e) {}
 
     window.quizState['{{ section.id }}'] = {
       currentStep: 1,
       totalSteps: quizData.length,
       answers: savedAnswers,
-      scores: savedScores
+      scores: savedScores,
     };
 
     renderQuiz('{{ section.id }}');
-    
+
     // If we have saved answers, pre-select them
     setTimeout(() => {
       if (Object.keys(savedAnswers).length > 0) {
@@ -685,7 +737,7 @@
             const block = container.querySelector(`[data-index="${index + 1}"]`);
             if (block) {
               const options = block.querySelectorAll('.guidance-option');
-              const idx = q.options.findIndex(o => o.value === val);
+              const idx = q.options.findIndex((o) => o.value === val);
               if (idx !== -1 && options[idx]) {
                 options[idx].classList.add('selected');
               }
@@ -703,7 +755,7 @@
     const container = document.getElementById('quiz-questions-container-' + sectionId);
     const blocks = container.querySelectorAll('.guidance-question-block');
 
-    blocks.forEach(block => {
+    blocks.forEach((block) => {
       if (parseInt(block.getAttribute('data-index')) === state.currentStep) {
         block.classList.add('active');
       } else {
@@ -806,70 +858,81 @@
     document.getElementById('results-card-' + sectionId).style.display = 'flex';
 
     // 1. Setup
-    let title = '', subtitle = '', link = '', why = [], needs = [], usage = [];
+    let title = '',
+      subtitle = '',
+      link = '',
+      why = [],
+      needs = [],
+      usage = [];
 
     if (category === 'closed') {
       title = 'Closed Systems';
       subtitle = 'Simple, reliable and closest to smoking.';
       link = '/collections/closed-systems';
       why = [
-        "No maintenance or refilling required",
-        "Closest experience to smoking a cigarette",
-        "Pre-filled pods - simply click and go",
-        "Ideal for beginners switching from smoking"
+        'No maintenance or refilling required',
+        'Closest experience to smoking a cigarette',
+        'Pre-filled pods - simply click and go',
+        'Ideal for beginners switching from smoking',
       ];
-      needs = ["Closed System Device", "Pre-Filled Pods", "USB Charging Cable (if applicable)"];
-      usage = ["Approximately 2–4 pods per week depending on usage", "Minimal maintenance required", "Replace pods when empty"];
+      needs = ['Closed System Device', 'Pre-Filled Pods', 'USB Charging Cable (if applicable)'];
+      usage = [
+        'Approximately 2–4 pods per week depending on usage',
+        'Minimal maintenance required',
+        'Replace pods when empty',
+      ];
     } else if (category === 'hybrid') {
       title = 'Hybrid Systems';
       subtitle = 'Flexible, refillable and easy to use.';
       link = '/collections/hybrid-systems';
       why = [
-        "Refillable pod system",
-        "More flavour flexibility",
-        "Lower ongoing costs",
-        "Easy to use and maintain",
-        "Great balance of simplicity and performance"
+        'Refillable pod system',
+        'More flavour flexibility',
+        'Lower ongoing costs',
+        'Easy to use and maintain',
+        'Great balance of simplicity and performance',
       ];
-      needs = ["Refillable Pod Device", "E-Liquid", "Replacement Pods", "USB Charging Cable"];
-      usage = ["Refill pods as required", "Replace pods periodically", "Moderate maintenance required"];
+      needs = ['Refillable Pod Device', 'E-Liquid', 'Replacement Pods', 'USB Charging Cable'];
+      usage = ['Refill pods as required', 'Replace pods periodically', 'Moderate maintenance required'];
     } else if (category === 'open') {
       title = 'Open Tank Systems';
       subtitle = 'Maximum flavour, control and performance.';
       link = '/collections/open-tank-systems';
       why = [
-        "Maximum customisation",
-        "Greater flavour performance",
-        "Larger vapour production",
-        "Adjustable airflow and settings",
-        "Designed for experienced users"
+        'Maximum customisation',
+        'Greater flavour performance',
+        'Larger vapour production',
+        'Adjustable airflow and settings',
+        'Designed for experienced users',
       ];
-      needs = ["Open Tank Device", "E-Liquid", "Replacement Coils", "USB Charging Cable"];
-      usage = ["Refill tank regularly", "Replace coils periodically", "More maintenance than pod systems"];
+      needs = ['Open Tank Device', 'E-Liquid', 'Replacement Coils', 'USB Charging Cable'];
+      usage = ['Refill tank regularly', 'Replace coils periodically', 'More maintenance than pod systems'];
     } else if (category === 'nrt') {
       title = 'Nicotine Replacement Therapy (NRT)';
       subtitle = 'Manage cravings reliably without vaping.';
       link = '/collections/nrt';
       why = [
-        "Clinically proven methods to manage cravings",
-        "No vaping or inhalation required",
-        "Easy to use in areas where vaping is restricted",
-        "A measured approach to stepping down nicotine intake"
+        'Clinically proven methods to manage cravings',
+        'No vaping or inhalation required',
+        'Easy to use in areas where vaping is restricted',
+        'A measured approach to stepping down nicotine intake',
       ];
-      needs = ["NRT Patches, Gums, or Lozenges"];
-      usage = ["Use daily as directed", "Follow the recommended step-down schedule"];
+      needs = ['NRT Patches, Gums, or Lozenges'];
+      usage = ['Use daily as directed', 'Follow the recommended step-down schedule'];
     }
 
     document.getElementById('res-category-name-' + sectionId).innerText = title;
     document.getElementById('res-category-desc-' + sectionId).innerText = subtitle;
     document.getElementById('res-category-link-' + sectionId).href = link;
 
-    document.getElementById('res-why-' + sectionId).innerHTML = why.map(w => `<li>${w}</li>`).join('');
-    document.getElementById('res-needs-' + sectionId).innerHTML = needs.map(w => `<li>${w}</li>`).join('');
-    document.getElementById('res-usage-' + sectionId).innerHTML = usage.map(w => `<li>${w}</li>`).join('');
+    document.getElementById('res-why-' + sectionId).innerHTML = why.map((w) => `<li>${w}</li>`).join('');
+    document.getElementById('res-needs-' + sectionId).innerHTML = needs.map((w) => `<li>${w}</li>`).join('');
+    document.getElementById('res-usage-' + sectionId).innerHTML = usage.map((w) => `<li>${w}</li>`).join('');
 
     // 3. Nicotine Strength
-    let nicStrength = '', nicRange = '', nicMsg = '';
+    let nicStrength = '',
+      nicRange = '',
+      nicMsg = '';
     if (answers.q1 === '1-5') {
       nicStrength = 'Low Strength Nicotine';
       nicRange = '5mg–10mg Nicotine Salts';
@@ -887,23 +950,30 @@
       nicRange = '30mg–50mg Nicotine Salts';
       nicMsg = 'A higher nicotine strength may help manage cravings during the transition.';
     }
-    
+
     document.getElementById('res-nic-strength-' + sectionId).innerText = nicStrength;
     document.getElementById('res-nic-range-' + sectionId).querySelector('span').innerText = nicRange;
     document.getElementById('res-nic-message-' + sectionId).innerText = nicMsg;
 
     // 6. Insights
     let insights = [];
-    if (answers.q2 === 'not_vape' || answers.q2 === 'either') insights.push("You indicated that you are open to managing cravings without a vaping device.");
-    if (answers.q3 === 'easiest') insights.push("You indicated that simplicity is important, so we've prioritised ease of use in your recommendation.");
-    if (answers.q3 === 'closest') insights.push("You indicated that a familiar cigarette-style experience is important to you.");
-    if (answers.q3 === 'control') insights.push("You indicated that greater control and flexibility are important to you.");
-    
-    if (answers.q4 === 'tight') insights.push("You prefer a tighter draw similar to a traditional cigarette.");
-    if (answers.q4 === 'airy') insights.push("You prefer a more open draw with increased vapour production.");
-    if (answers.q4 === 'notsure') insights.push("If you're unsure, most customers transitioning from smoking start with a tighter draw style.");
+    if (answers.q2 === 'not_vape' || answers.q2 === 'either')
+      insights.push('You indicated that you are open to managing cravings without a vaping device.');
+    if (answers.q3 === 'easiest')
+      insights.push(
+        "You indicated that simplicity is important, so we've prioritised ease of use in your recommendation."
+      );
+    if (answers.q3 === 'closest')
+      insights.push('You indicated that a familiar cigarette-style experience is important to you.');
+    if (answers.q3 === 'control')
+      insights.push('You indicated that greater control and flexibility are important to you.');
 
-    document.getElementById('res-insights-' + sectionId).innerHTML = insights.map(i => `<p>${i}</p>`).join('');
+    if (answers.q4 === 'tight') insights.push('You prefer a tighter draw similar to a traditional cigarette.');
+    if (answers.q4 === 'airy') insights.push('You prefer a more open draw with increased vapour production.');
+    if (answers.q4 === 'notsure')
+      insights.push("If you're unsure, most customers transitioning from smoking start with a tighter draw style.");
+
+    document.getElementById('res-insights-' + sectionId).innerHTML = insights.map((i) => `<p>${i}</p>`).join('');
   }
 
   function restartQuiz(sectionId) {
@@ -912,10 +982,10 @@
     window.quizState[sectionId].answers = {};
     window.quizState[sectionId].scores = { closed: 0, hybrid: 0, open: 0, nrt: 0 };
     window.quizState[sectionId].currentStep = 1;
-    
+
     document.getElementById('results-card-' + sectionId).style.display = 'none';
     document.getElementById('quiz-card-' + sectionId).style.display = 'flex';
-    
+
     renderQuiz(sectionId);
   }
 </script>
