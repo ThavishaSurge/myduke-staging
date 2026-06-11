@@ -107,36 +107,42 @@
         "feature_item_NPzYtR": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Doctor-Visit.svg",
             "label": "AHPRA-Registered Doctor oversight"
           }
         },
         "feature_item_aHBLDR": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Hw-personalised-plan.svg",
             "label": "Personalised Cessation Plan"
           }
         },
         "feature_item_LDWpCp": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Technology-Privacy-Consent.svg",
             "label": "TGA & State-based Compliance"
           }
         },
         "feature_item_Fa4TXz": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Medical-File.svg",
             "label": "Pharmacy-dispensed Treatments"
           }
         },
         "feature_item_Q4phPi": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/ClockCounterClockwise.svg",
             "label": "Full Treatment History Visibility"
           }
         },
         "feature_item_xgxMNQ": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Headset.svg",
             "label": "Dedicated Support Team"
           }
         }
