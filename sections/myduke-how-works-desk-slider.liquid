@@ -92,39 +92,41 @@
 
                   <div class="myduke-how-works-desk-slider__card-body">
 
-                    <div class="myduke-how-works-desk-slider__card-meta">
-                      {%- if block.settings.time_text != blank -%}
-                        <div class="myduke-how-works-desk-slider__time-badge">
-                          <svg class="myduke-how-works-desk-slider__time-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/>
-                          </svg>
-                          <span class="myduke-how-works-desk-slider__time-text">{{ block.settings.time_text }}</span>
-                        </div>
-                      {%- endif -%}
+                    <div class="myduke-how-works-desk-slider__card-top">
+                      <div class="myduke-how-works-desk-slider__card-meta">
+                        {%- if block.settings.time_text != blank -%}
+                          <div class="myduke-how-works-desk-slider__time-badge">
+                            <svg class="myduke-how-works-desk-slider__time-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/>
+                            </svg>
+                            <span class="myduke-how-works-desk-slider__time-text">{{ block.settings.time_text }}</span>
+                          </div>
+                        {%- endif -%}
 
-                      {%- if block.settings.step_counter != blank -%}
-                        <span class="myduke-how-works-desk-slider__counter">{{ block.settings.step_counter }}</span>
-                      {%- endif -%}
-                    </div>
+                        {%- if block.settings.step_counter != blank -%}
+                          <span class="myduke-how-works-desk-slider__counter">{{ block.settings.step_counter }}</span>
+                        {%- endif -%}
+                      </div>
 
-                    <div class="myduke-how-works-desk-slider__card-text">
                       {%- if block.settings.step_title != blank -%}
                         <p class="myduke-how-works-desk-slider__card-title">{{ block.settings.step_title }}</p>
                       {%- endif -%}
-                      {%- if block.settings.subtitle != blank -%}
-                        <p class="myduke-how-works-desk-slider__card-subtitle">{{ block.settings.subtitle }}</p>
-                      {%- endif -%}
                     </div>
 
+                    {%- if block.settings.subtitle != blank -%}
+                      <p class="myduke-how-works-desk-slider__card-subtitle">{{ block.settings.subtitle }}</p>
+                    {%- endif -%}
+
                     {%- if block.settings.checklist_items != blank -%}
-                      {%- assign checklist = block.settings.checklist_items | split: "\n" -%}
+                      {%- assign checklist = block.settings.checklist_items | remove: "\r" | split: "\n" -%}
                       <ul class="myduke-how-works-desk-slider__checklist">
                         {%- for item in checklist -%}
                           {%- assign trimmed = item | strip -%}
                           {%- if trimmed != blank -%}
                             <li class="myduke-how-works-desk-slider__checklist-item">
-                              <svg class="myduke-how-works-desk-slider__check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                                <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                              <svg class="myduke-how-works-desk-slider__check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+                                <circle cx="8" cy="8" r="8" fill="#FFB703"/>
+                                <path d="M4.5 8.5L6.5 10.5L11.5 5.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                               </svg>
                               <span class="myduke-how-works-desk-slider__checklist-text">{{ trimmed }}</span>
                             </li>

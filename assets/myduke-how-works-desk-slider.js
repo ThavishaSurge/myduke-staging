@@ -17,10 +17,13 @@
     const swiper = new Swiper(trackEl, {
       slidesPerView: 'auto',
       centeredSlides: true,
-      // Negative spaceBetween compensates for the phantom space left by
-      // scale(0.715) on inactive slides: (396 - 396*0.715) / 2 ≈ 56px per side.
-      // -80 brings the scaled slides visually close without overlapping.
-      spaceBetween: -80,
+      // -133px derived from Figma layout (1482:6211):
+      // Inactive slides are visual 283px (71.5% of 396px active).
+      // DOM bounding box stays 396px (CSS scale doesn't affect layout).
+      // Dead space each side of inactive = (396-283)/2 = 56.5px.
+      // Active left edge in Figma = 206.36px, inactive left bounding-box = 206-396+133 = -57px
+      // → inactive visual starts at -57+56.5 ≈ 0. Matches Figma exactly.
+      spaceBetween: -133,
       speed: 600,
       allowTouchMove: false,
       navigation: {
