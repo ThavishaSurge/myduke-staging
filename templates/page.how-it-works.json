@@ -111,9 +111,9 @@
             "step_badge": "Step 1",
             "time_text": "4 minutes",
             "step_counter": "01 / 04",
-            "step_title": "Complete Your Assessment",
-            "subtitle": "Answer our short online health questionnaire",
-            "checklist_items": "100% online and private\nNo GP referral needed\nTakes just a few minutes"
+            "step_title": "Clinical Assessment",
+            "subtitle": "Tell us about you",
+            "checklist_items": "Sign up & set your quit goals\nConfidential health questionnaire\nTakes just 2 minutes"
           }
         },
         "step_slide_q7teKh": {
@@ -123,9 +123,9 @@
             "step_badge": "Step 2",
             "time_text": "24 hours",
             "step_counter": "02 / 04",
-            "step_title": "Doctor Review",
-            "subtitle": "An AHPRA-registered doctor reviews your assessment",
-            "checklist_items": "Independent medical review\nPersonalised cessation plan\nFull regulatory compliance"
+            "step_title": "Medical Review",
+            "subtitle": "Doctor-approved pathway",
+            "checklist_items": "AHPRA-registered doctor reviews\nPersonalised cessation care plan\nMedically appropriate recommendations"
           }
         },
         "step_slide_YyeUf3": {
@@ -135,9 +135,9 @@
             "step_badge": "Step 3",
             "time_text": "2-5 days",
             "step_counter": "03 / 04",
-            "step_title": "Pharmacy Dispatch",
-            "subtitle": "Your medication is dispensed and delivered discreetly",
-            "checklist_items": "TGA-approved medications\nDiscreet packaging\nFast tracked delivery"
+            "step_title": "Treatment & Dispatch",
+            "subtitle": "Pharmacy-dispensed products",
+            "checklist_items": "Receive your clinical plan\nTGA-compliant regulated products\nDispatched within 24–48 hrs"
           }
         },
         "step_slide_rQiAmc": {
@@ -148,8 +148,8 @@
             "time_text": "Ongoing",
             "step_counter": "04 / 04",
             "step_title": "Ongoing Support",
-            "subtitle": "Stay on track with dedicated check-ins and support",
-            "checklist_items": "Dedicated support team\nProgress tracking\nPlan adjustments as needed"
+            "subtitle": "We're with you all the way",
+            "checklist_items": "Monitored care plan\nProfessional dispensing partners\nStep-down guidance over time"
           }
         }
       },
