@@ -183,6 +183,92 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_faq_nckpVL": {
+      "type": "myduke-faq",
+      "blocks": {
+        "faq_item_4JD84b": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is MyDuke legal in Australia?",
+            "answer": "<p>Yes. All products facilitated through MyDuke are prescribed by AHPRA-registered doctors and dispensed by licensed Australian pharmacies in full compliance with TGA regulations.</p>"
+          }
+        },
+        "faq_item_g6zxyD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does it take to get a prescription after assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_tb63Fg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": ""
+          }
+        },
+        "faq_item_wPWTg7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I access myduke® support if I live in a remote area?",
+            "answer": ""
+          }
+        },
+        "faq_item_KYPDXQ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What treatment options are available in Australia to help quit smoking?",
+            "answer": ""
+          }
+        },
+        "faq_item_TEJm8X": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why can't I see the medication and price before completing the assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_qgYiYJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return my order if I have changed my mind?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_4JD84b",
+        "faq_item_g6zxyD",
+        "faq_item_tb63Fg",
+        "faq_item_wPWTg7",
+        "faq_item_KYPDXQ",
+        "faq_item_TEJm8X",
+        "faq_item_qgYiYJ"
+      ],
+      "name": "FAQ (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "FAQs",
+        "heading": "Your Questions Answered",
+        "heading_tag": "h2",
+        "cta_button_label": "More FAQs",
+        "cta_button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_faq_schema_generator_L6Brmt": {
+      "type": "myduke-faq-schema-generator",
+      "name": "FAQ Schema Gen",
+      "settings": {
+        "enable_schema": true,
+        "show_preview_in_customizer": true,
+        "include_myduke_faq": true,
+        "include_myduke_faq_page": true
+      }
     }
   },
   "order": [
@@ -190,6 +276,8 @@
     "myduke_hero_secondary_wdCVUt",
     "myduke_how_works_services_47YTdi",
     "myduke_how_works_why_choose_9kT67b",
-    "myduke_cta_PUUdCi"
+    "myduke_cta_PUUdCi",
+    "myduke_faq_nckpVL",
+    "myduke_faq_schema_generator_L6Brmt"
   ]
 }
