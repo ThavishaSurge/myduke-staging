@@ -509,6 +509,16 @@
     },
     {
       id: "q2",
+      question: "How would you prefer to manage nicotine cravings?",
+      subtext: "",
+      options: [
+        { text: "I'd like a vaping device", value: "vaping" },
+        { text: "I'm open to either vaping or nicotine replacement products", value: "either" },
+        { text: "I'd prefer not to use a vaping device", value: "not_vape" }
+      ]
+    },
+    {
+      id: "q3",
       question: "What matters most to you?",
       subtext: "",
       options: [
@@ -518,7 +528,7 @@
       ]
     },
     {
-      id: "q3",
+      id: "q4",
       question: "How do you prefer to inhale?",
       subtext: "",
       options: [
@@ -528,7 +538,7 @@
       ]
     },
     {
-      id: "q4",
+      id: "q5",
       question: "Do you want to refill the liquid yourself?",
       subtext: "",
       options: [
@@ -538,7 +548,7 @@
       ]
     },
     {
-      id: "q5",
+      id: "q6",
       question: "What's your experience level?",
       subtext: "",
       options: [
@@ -548,7 +558,7 @@
       ]
     },
     {
-      id: "q6",
+      id: "q7",
       question: "What's your top priority?",
       subtext: "",
       options: [
@@ -590,31 +600,77 @@
     updateQuizUI(sectionId);
   }
 
+  function calculateRunningScores(answers) {
+    let closed = 0, hybrid = 0, open = 0, nrt = 0;
+
+    // Q2
+    if (answers.q2 === 'vaping') { closed += 2; hybrid += 2; open += 2; }
+    if (answers.q2 === 'either') { closed += 1; hybrid += 1; open += 1; nrt += 2; }
+    if (answers.q2 === 'not_vape') { nrt += 6; }
+
+    // Q3
+    if (answers.q3 === 'easiest') closed += 3;
+    if (answers.q3 === 'closest') closed += 3;
+    if (answers.q3 === 'control') open += 3;
+
+    // Q4
+    if (answers.q4 === 'tight') closed += 2;
+    if (answers.q4 === 'airy') open += 2;
+    if (answers.q4 === 'notsure') { closed += 1; hybrid += 1; }
+
+    // Q5
+    if (answers.q5 === 'no') closed += 4;
+    if (answers.q5 === 'yes') { hybrid += 2; open += 2; }
+    if (answers.q5 === 'both') hybrid += 3;
+
+    // Q6
+    if (answers.q6 === 'beginner') closed += 3;
+    if (answers.q6 === 'some') hybrid += 3;
+    if (answers.q6 === 'experienced') open += 3;
+
+    // Q7
+    if (answers.q7 === 'quit') closed += 3;
+    if (answers.q7 === 'save') hybrid += 3;
+    if (answers.q7 === 'flavour') open += 3;
+
+    return { closed, hybrid, open, nrt };
+  }
+
   function selectOption(element, sectionId, questionId, value) {
     const parent = element.closest('.guidance-options');
     const options = parent.querySelectorAll('.guidance-option');
     options.forEach(opt => opt.classList.remove('selected'));
     element.classList.add('selected');
 
-    // Save to state and sessionStorage
+    // Save answers to state and sessionStorage
     window.quizState[sectionId].answers[questionId] = value;
     sessionStorage.setItem('myduke_quiz_answers', JSON.stringify(window.quizState[sectionId].answers));
+
+    // Calculate running scores and store in sessionStorage
+    const currentScores = calculateRunningScores(window.quizState[sectionId].answers);
+    window.quizState[sectionId].scores = currentScores;
+    sessionStorage.setItem('myduke_quiz_scores', JSON.stringify(currentScores));
   }
 
   document.addEventListener('DOMContentLoaded', function() {
     window.quizState = window.quizState || {};
     
-    // Check if we have saved answers
+    // Check if we have saved answers and scores
     let savedAnswers = {};
+    let savedScores = { closed: 0, hybrid: 0, open: 0, nrt: 0 };
     try {
-      const saved = sessionStorage.getItem('myduke_quiz_answers');
-      if (saved) savedAnswers = JSON.parse(saved);
+      const savedA = sessionStorage.getItem('myduke_quiz_answers');
+      if (savedA) savedAnswers = JSON.parse(savedA);
+      
+      const savedS = sessionStorage.getItem('myduke_quiz_scores');
+      if (savedS) savedScores = JSON.parse(savedS);
     } catch(e) {}
 
     window.quizState['{{ section.id }}'] = {
       currentStep: 1,
       totalSteps: quizData.length,
-      answers: savedAnswers
+      answers: savedAnswers,
+      scores: savedScores
     };
 
     renderQuiz('{{ section.id }}');
@@ -715,51 +771,26 @@
 
   function calculateResults(sectionId) {
     const answers = window.quizState[sectionId].answers;
-    
-    // Scoring
-    let closed = 0, hybrid = 0, open = 0;
-
-    // Q2
-    if (answers.q2 === 'easiest') closed += 3;
-    if (answers.q2 === 'closest') closed += 3;
-    if (answers.q2 === 'control') open += 3;
-
-    // Q3
-    if (answers.q3 === 'tight') closed += 2;
-    if (answers.q3 === 'airy') open += 2;
-    if (answers.q3 === 'notsure') { closed += 1; hybrid += 1; }
-
-    // Q4
-    if (answers.q4 === 'no') closed += 4;
-    if (answers.q4 === 'yes') { hybrid += 2; open += 2; }
-    if (answers.q4 === 'both') hybrid += 3;
-
-    // Q5
-    if (answers.q5 === 'beginner') closed += 3;
-    if (answers.q5 === 'some') hybrid += 3;
-    if (answers.q5 === 'experienced') open += 3;
-
-    // Q6
-    if (answers.q6 === 'quit') closed += 3;
-    if (answers.q6 === 'save') hybrid += 3;
-    if (answers.q6 === 'flavour') open += 3;
+    const scores = calculateRunningScores(answers);
+    const { closed, hybrid, open, nrt } = scores;
 
     // Determine winner
-    let max = Math.max(closed, hybrid, open);
+    let max = Math.max(closed, hybrid, open, nrt);
     let winners = [];
     if (closed === max) winners.push('closed');
     if (hybrid === max) winners.push('hybrid');
     if (open === max) winners.push('open');
+    if (nrt === max) winners.push('nrt');
 
     let resultCategory = winners[0];
 
-    // Tie Breakers
+    // Tie Breakers (using shifted question numbers)
     if (winners.length > 1) {
-      if (answers.q5 === 'beginner') {
+      if (answers.q6 === 'beginner') {
         resultCategory = 'closed';
-      } else if (answers.q4 === 'both') {
+      } else if (answers.q5 === 'both') {
         resultCategory = 'hybrid';
-      } else if (answers.q5 === 'experienced') {
+      } else if (answers.q6 === 'experienced') {
         resultCategory = 'open';
       } else {
         resultCategory = 'hybrid'; // Rule 4: safest middle-ground
@@ -802,7 +833,7 @@
       ];
       needs = ["Refillable Pod Device", "E-Liquid", "Replacement Pods", "USB Charging Cable"];
       usage = ["Refill pods as required", "Replace pods periodically", "Moderate maintenance required"];
-    } else {
+    } else if (category === 'open') {
       title = 'Open Tank Systems';
       subtitle = 'Maximum flavour, control and performance.';
       link = '/collections/open-tank-systems';
@@ -815,6 +846,18 @@
       ];
       needs = ["Open Tank Device", "E-Liquid", "Replacement Coils", "USB Charging Cable"];
       usage = ["Refill tank regularly", "Replace coils periodically", "More maintenance than pod systems"];
+    } else if (category === 'nrt') {
+      title = 'Nicotine Replacement Therapy (NRT)';
+      subtitle = 'Manage cravings reliably without vaping.';
+      link = '/collections/nrt';
+      why = [
+        "Clinically proven methods to manage cravings",
+        "No vaping or inhalation required",
+        "Easy to use in areas where vaping is restricted",
+        "A measured approach to stepping down nicotine intake"
+      ];
+      needs = ["NRT Patches, Gums, or Lozenges"];
+      usage = ["Use daily as directed", "Follow the recommended step-down schedule"];
     }
 
     document.getElementById('res-category-name-' + sectionId).innerText = title;
@@ -851,20 +894,23 @@
 
     // 6. Insights
     let insights = [];
-    if (answers.q2 === 'easiest') insights.push("You indicated that simplicity is important, so we've prioritised ease of use in your recommendation.");
-    if (answers.q2 === 'closest') insights.push("You indicated that a familiar cigarette-style experience is important to you.");
-    if (answers.q2 === 'control') insights.push("You indicated that greater control and flexibility are important to you.");
+    if (answers.q2 === 'not_vape' || answers.q2 === 'either') insights.push("You indicated that you are open to managing cravings without a vaping device.");
+    if (answers.q3 === 'easiest') insights.push("You indicated that simplicity is important, so we've prioritised ease of use in your recommendation.");
+    if (answers.q3 === 'closest') insights.push("You indicated that a familiar cigarette-style experience is important to you.");
+    if (answers.q3 === 'control') insights.push("You indicated that greater control and flexibility are important to you.");
     
-    if (answers.q3 === 'tight') insights.push("You prefer a tighter draw similar to a traditional cigarette.");
-    if (answers.q3 === 'airy') insights.push("You prefer a more open draw with increased vapour production.");
-    if (answers.q3 === 'notsure') insights.push("If you're unsure, most customers transitioning from smoking start with a tighter draw style.");
+    if (answers.q4 === 'tight') insights.push("You prefer a tighter draw similar to a traditional cigarette.");
+    if (answers.q4 === 'airy') insights.push("You prefer a more open draw with increased vapour production.");
+    if (answers.q4 === 'notsure') insights.push("If you're unsure, most customers transitioning from smoking start with a tighter draw style.");
 
     document.getElementById('res-insights-' + sectionId).innerHTML = insights.map(i => `<p>${i}</p>`).join('');
   }
 
   function restartQuiz(sectionId) {
     sessionStorage.removeItem('myduke_quiz_answers');
+    sessionStorage.removeItem('myduke_quiz_scores');
     window.quizState[sectionId].answers = {};
+    window.quizState[sectionId].scores = { closed: 0, hybrid: 0, open: 0, nrt: 0 };
     window.quizState[sectionId].currentStep = 1;
     
     document.getElementById('results-card-' + sectionId).style.display = 'none';
