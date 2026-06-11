@@ -158,63 +158,54 @@
 }
 
 /* =============================================
-   Swiper — fills right panel, overflow visible
-   so adjacent slides show. Section clips at boundary.
-   Figma: w-[808.818px], but we let it fill available space.
+   Swiper — fills right panel, clips at its own
+   boundary so only prev/active/next show. Extra
+   bottom padding leaves room for the active slide's
+   drop-shadow.
    ============================================= */
 .myduke-how-works-desk-slider__swiper {
-  overflow: visible !important;
+  overflow: hidden;
   flex: 1 1 0;
   min-width: 0;
   max-width: 808px;
+  padding-bottom: 40px;
 }
 
 /* =============================================
-   Slides — class-based. The off-screen default
-   matches the prev/next opacity (0.5) so slides
-   sliding in from the right don't fade in from
-   invisible. Only the active <-> prev/next state
-   animates opacity, in sync with the 600ms wrapper
-   translate, giving the classic scale + slide feel.
+   Slides — classic slider effect. Default state
+   (applied to every slide except the active one)
+   is opacity 0.5 + scale 0.7. The active slide
+   is opacity 1 + scale 1. Both opacity and scale
+   live on the slide itself with a single transition,
+   so as Swiper translates the wrapper the outgoing
+   active scales/dims down to prev, and the incoming
+   slide scales/brightens up to active — perfectly
+   in sync over 600ms.
    ============================================= */
 .myduke-how-works-desk-slider__slide {
   position: relative;
   padding-top: 12px;
   opacity: 0.5;
+  transform: scale(0.7);
+  transform-origin: center center;
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
   pointer-events: none;
   z-index: 1;
-  transition: opacity 0.6s ease, filter 0.6s ease;
-}
-
-.myduke-how-works-desk-slider__slide.swiper-slide-prev,
-.myduke-how-works-desk-slider__slide.swiper-slide-next {
-  opacity: 0.5;
-  pointer-events: auto;
-  z-index: 2;
+  will-change: transform, opacity;
 }
 
 .myduke-how-works-desk-slider__slide.swiper-slide-active {
   opacity: 1;
+  transform: scale(1);
   pointer-events: auto;
   filter: drop-shadow(0px 17px 21.45px rgba(126, 74, 24, 0.15));
   z-index: 3;
 }
 
-/* =============================================
-   Card — scales smoothly from 0.7 to 1 in sync
-   with the wrapper translate.
-   ============================================= */
 .myduke-how-works-desk-slider__card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transform: scale(0.7);
-  transform-origin: center center;
-  transition: transform 0.6s ease;
-}
-
-.myduke-how-works-desk-slider__slide.swiper-slide-active .myduke-how-works-desk-slider__card {
-  transform: scale(1);
 }
 
 /* =============================================
