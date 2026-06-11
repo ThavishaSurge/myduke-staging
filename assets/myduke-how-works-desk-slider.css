@@ -180,7 +180,7 @@
   padding-top: 12px;
   opacity: 0; /* Hide other slides by default */
   pointer-events: none;
-  transform: scale(0.715);
+  transform: scale(1);
   transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
   z-index: 1;
 }
@@ -189,12 +189,14 @@
   opacity: 0.5; /* Figma inactive opacity is 50% */
   pointer-events: auto;
   transform-origin: left center;
+  transform: scale(0.7);
 }
 
 .myduke-how-works-desk-slider__slide.swiper-slide-next {
   opacity: 0.5; /* Figma inactive opacity is 50% */
   pointer-events: auto;
   transform-origin: right center;
+  transform: scale(0.7);
 }
 
 .myduke-how-works-desk-slider__slide.swiper-slide-active {
