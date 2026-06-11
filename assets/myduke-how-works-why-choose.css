@@ -9,53 +9,38 @@
 
 /* =============================================
    inner frame
-   flex, gap: 36px, align-items: center
+   grid 1fr 1fr, column-gap: 36px, overflow hidden
    ============================================= */
 .myduke-how-works-why-choose__inner {
-  display: flex;
-  gap: 36px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 36px;
+  overflow: hidden;
 }
 
 /* =============================================
    1070:8670 — left image panel
-   fixed: w-948px h-756px, px: 10px, py: 80px
-   overflow hidden, items-end justify-center
+   fills grid cell, bg color, overflow hidden
    ============================================= */
 .myduke-how-works-why-choose__image-col {
-  flex-shrink: 0;
-  width: 948px;
-  height: 756px;
   background-color: var(--panel-bg, #f5c518);
-  position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 80px 10px;
 }
 
-/* 1483:12066 — image 40: 948×948, centered absolute */
+/* image fills grid cell */
 .myduke-how-works-why-choose__image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 948px;
-  height: 948px;
-  max-width: none;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  pointer-events: none;
+  display: block;
+  min-height: 100%;
 }
 
 /* =============================================
    1070:8672 — right content col
-   flex-[1_0_0], flex-col, gap: 48px
-   px: 20px, py: 130px
+   flex-col, gap: 48px, px: 20px, py: 130px
    ============================================= */
 .myduke-how-works-why-choose__content-col {
-  flex: 1 0 0;
-  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -150,13 +135,7 @@
   }
 
   .myduke-how-works-why-choose__inner {
-    gap: 24px;
-  }
-
-  .myduke-how-works-why-choose__image-col {
-    width: 45%;
-    height: auto;
-    min-height: 500px;
+    column-gap: 24px;
   }
 
   .myduke-how-works-why-choose__content-col {
@@ -187,25 +166,15 @@
   }
 
   .myduke-how-works-why-choose__inner {
-    flex-direction: column;
-    gap: 0;
+    grid-template-columns: 1fr;
   }
 
   .myduke-how-works-why-choose__image-col {
-    width: 100%;
-    height: auto;
     min-height: 300px;
-    padding: 40px 10px;
   }
 
   .myduke-how-works-why-choose__image {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    top: 0;
-    left: 0;
-    transform: none;
-    object-fit: cover;
+    aspect-ratio: 1;
   }
 
   .myduke-how-works-why-choose__content-col {
