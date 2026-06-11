@@ -26,63 +26,10 @@
       "label": "Background Image (Optional)"
     }
   ],
-  "blocks": [
-    {
-      "type": "question",
-      "name": "Question",
-      "settings": [
-        {
-          "type": "text",
-          "id": "question_text",
-          "label": "Question Text",
-          "default": "How many cigarettes do you smoke per day?"
-        },
-        {
-          "type": "text",
-          "id": "question_subtext",
-          "label": "Question Subtext",
-          "default": "This helps determine your nicotine strength"
-        },
-        {
-          "type": "text",
-          "id": "option_1",
-          "label": "Option 1"
-        },
-        {
-          "type": "text",
-          "id": "option_2",
-          "label": "Option 2"
-        },
-        {
-          "type": "text",
-          "id": "option_3",
-          "label": "Option 3"
-        },
-        {
-          "type": "text",
-          "id": "option_4",
-          "label": "Option 4"
-        }
-      ]
-    }
-  ],
   "presets": [
     {
       "name": "Guidance Quiz",
-      "category": "Custom",
-      "blocks": [
-        {
-          "type": "question",
-          "settings": {
-            "question_text": "How many cigarettes do you smoke per day?",
-            "question_subtext": "This helps determine your nicotine strength",
-            "option_1": "1-5",
-            "option_2": "5-10",
-            "option_3": "10-20",
-            "option_4": "20+"
-          }
-        }
-      ]
+      "category": "Custom"
     }
   ]
 }
@@ -147,8 +94,8 @@
     font-variation-settings: "wdth" 100;
   }
 
-  .guidance-quiz-card {
-    background: rgba(255, 255, 255);
+  .guidance-quiz-card, .guidance-results-card {
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 16px solid rgba(255, 255, 255, 0.2);
@@ -161,6 +108,12 @@
     justify-content: space-between;
     position: relative;
     z-index: 2;
+  }
+
+  .guidance-results-card {
+    max-width: 800px; /* Slightly wider for results */
+    display: none; /* Hidden initially */
+    gap: 32px;
   }
 
   .guidance-question-text {
@@ -191,7 +144,7 @@
     flex-direction: column;
     gap: 8px;
     margin-bottom: auto;
-    margin-top: 92px;
+    margin-top: 40px;
   }
 
   .guidance-option {
@@ -256,7 +209,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    margin-top: 109px;
+    margin-top: 60px;
   }
 
   .guidance-progress-container {
@@ -306,6 +259,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
   }
 
   .guidance-btn-back {
@@ -323,7 +277,7 @@
     cursor: pointer;
   }
 
-  .guidance-btn-next {
+  .guidance-btn-next, .guidance-btn-shop {
     background-color: transparent;
     border: 1px solid #218380;
     color: #218380;
@@ -331,8 +285,27 @@
     font-weight: 600;
   }
 
-  .guidance-btn-next:hover {
+  .guidance-btn-next:hover, .guidance-btn-shop:hover {
     background-color: rgba(33, 131, 128, 0.05);
+  }
+
+  .guidance-btn-shop {
+    background-color: #218380;
+    color: white;
+    margin-top: 16px;
+  }
+
+  .guidance-btn-shop:hover {
+    background-color: #1a6b68;
+    color: white;
+  }
+  
+  .guidance-btn-retake {
+    background-color: transparent;
+    border: none;
+    color: #264653;
+    text-decoration: underline;
+    margin-top: 16px;
   }
 
   .guidance-question-block {
@@ -344,6 +317,71 @@
   .guidance-question-block.active {
     display: flex;
     flex-direction: column;
+  }
+
+  /* Results Styling */
+  .result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e0dacf;
+  }
+  
+  .result-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .result-section h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    color: #264653;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .result-section h5 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    color: #218380;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .result-section p, .result-section ul {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    color: #4a4a4a;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .result-section ul {
+    padding-left: 20px;
+  }
+
+  .result-section li {
+    margin-bottom: 8px;
+  }
+  
+  .result-category-card {
+    background: #edf3f0;
+    padding: 24px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  
+  .result-category-card h3 {
+    margin: 0 0 8px 0;
+    color: #264653;
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+  }
+  
+  .result-category-card p {
+    color: #264653;
   }
 
   @keyframes fadeIn {
@@ -363,7 +401,7 @@
       font-size: 36px;
       letter-spacing: -1px;
     }
-    .guidance-quiz-card {
+    .guidance-quiz-card, .guidance-results-card {
       padding: 32px 24px;
       border-width: 8px;
       height: auto;
@@ -383,101 +421,229 @@
       <p>{{ section.settings.subheading | escape }}</p>
     </div>
 
-    <div class="guidance-quiz-card">
+    <!-- Quiz Card -->
+    <div class="guidance-quiz-card" id="quiz-card-{{ section.id }}">
       <div id="quiz-questions-container-{{ section.id }}">
-        {% for block in section.blocks %}
-          <div
-            class="guidance-question-block {% if forloop.first %}active{% endif %}"
-            data-index="{{ forloop.index }}"
-            {{ block.shopify_attributes }}
-          >
-            <div class="guidance-question-text">
-              <h3>{{ block.settings.question_text | escape }}</h3>
-              {% if block.settings.question_subtext != blank %}
-                <p>{{ block.settings.question_subtext | escape }}</p>
-              {% endif %}
-            </div>
-
-            <div class="guidance-options">
-              {% assign options = 'option_1,option_2,option_3,option_4' | split: ',' %}
-              {% for opt in options %}
-                {% if block.settings[opt] != blank %}
-                  <div class="guidance-option" onclick="selectOption(this, '{{ section.id }}')">
-                    <div class="guidance-option-radio"></div>
-                    <p class="guidance-option-text">{{ block.settings[opt] | escape }}</p>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-        {% endfor %}
-
-        {% if section.blocks.size == 0 %}
-          <div class="guidance-question-block active">
-            <div class="guidance-question-text">
-              <h3>Please add questions in the theme editor</h3>
-            </div>
-          </div>
-        {% endif %}
+        <!-- Questions injected by JS -->
       </div>
 
       <div class="guidance-footer">
         <div class="guidance-progress-container">
           <div class="guidance-progress-bar-bg">
-            <div
-              class="guidance-progress-bar-fill"
-              id="quiz-progress-{{ section.id }}"
-              style="width: {% if section.blocks.size > 0 %}{{ 100 | divided_by: section.blocks.size }}%{% else %}0%{% endif %}"
-            ></div>
+            <div class="guidance-progress-bar-fill" id="quiz-progress-{{ section.id }}" style="width: 0%"></div>
           </div>
           <p class="guidance-progress-text" id="quiz-progress-text-{{ section.id }}">
-            Question 1 / {{ section.blocks.size | default: 1 }}
+            Question 1 / 6
           </p>
         </div>
 
         <div class="guidance-actions">
-          <button
-            class="guidance-btn guidance-btn-back"
-            id="quiz-btn-back-{{ section.id }}"
-            onclick="prevQuestion('{{ section.id }}')"
-            disabled
-          >
+          <button class="guidance-btn guidance-btn-back" id="quiz-btn-back-{{ section.id }}" onclick="prevQuestion('{{ section.id }}')" disabled>
             Back
           </button>
-          <button
-            class="guidance-btn guidance-btn-next"
-            id="quiz-btn-next-{{ section.id }}"
-            onclick="nextQuestion('{{ section.id }}')"
-          >
+          <button class="guidance-btn guidance-btn-next" id="quiz-btn-next-{{ section.id }}" onclick="nextQuestion('{{ section.id }}')">
             Next
           </button>
         </div>
       </div>
     </div>
+
+    <!-- Results Card -->
+    <div class="guidance-results-card" id="results-card-{{ section.id }}">
+      
+      <div class="result-section">
+        <h4>Your Recommended Setup</h4>
+        <div class="result-category-card">
+          <h3 id="res-category-name-{{ section.id }}">Category</h3>
+          <p id="res-category-desc-{{ section.id }}">Description</p>
+          <a href="#" id="res-category-link-{{ section.id }}" class="guidance-btn guidance-btn-shop">Shop Recommended Products</a>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <h4>Personalised Insights</h4>
+        <div id="res-insights-{{ section.id }}"></div>
+      </div>
+
+      <div class="result-section">
+        <h4>Why It's Right For You</h4>
+        <ul id="res-why-{{ section.id }}"></ul>
+      </div>
+
+      <div class="result-section">
+        <h4>Nicotine Recommendation</h4>
+        <h5 id="res-nic-strength-{{ section.id }}">Strength</h5>
+        <p id="res-nic-range-{{ section.id }}"><strong>Range:</strong> <span></span></p>
+        <p id="res-nic-message-{{ section.id }}"></p>
+      </div>
+
+      <div class="result-section">
+        <h4>What You'll Need</h4>
+        <ul id="res-needs-{{ section.id }}"></ul>
+      </div>
+
+      <div class="result-section">
+        <h4>Usage Expectations</h4>
+        <ul id="res-usage-{{ section.id }}"></ul>
+      </div>
+
+      <button class="guidance-btn-retake" onclick="restartQuiz('{{ section.id }}')">Retake Quiz</button>
+
+    </div>
   </div>
 </div>
 
 <script>
-  function selectOption(element, sectionId) {
+  const quizData = [
+    {
+      id: "q1",
+      question: "How many cigarettes do you smoke per day?",
+      subtext: "This helps determine your nicotine strength",
+      options: [
+        { text: "1–5", value: "1-5" },
+        { text: "5–10", value: "5-10" },
+        { text: "10–20", value: "10-20" },
+        { text: "20+", value: "20+" },
+        { text: "None - I am already using nicotine replacement therapy (NRT)", value: "nrt" }
+      ]
+    },
+    {
+      id: "q2",
+      question: "What matters most to you?",
+      subtext: "",
+      options: [
+        { text: "Easiest option (no setup)", value: "easiest" },
+        { text: "Feels closest to a cigarette", value: "closest" },
+        { text: "More control & customisation", value: "control" }
+      ]
+    },
+    {
+      id: "q3",
+      question: "How do you prefer to inhale?",
+      subtext: "",
+      options: [
+        { text: "Tight draw (like a cigarette)", value: "tight" },
+        { text: "Airy draw (more vapour)", value: "airy" },
+        { text: "Not sure", value: "notsure" }
+      ]
+    },
+    {
+      id: "q4",
+      question: "Do you want to refill the liquid yourself?",
+      subtext: "",
+      options: [
+        { text: "No, keep it simple", value: "no" },
+        { text: "Yes, I want to refill", value: "yes" },
+        { text: "I'd like both options", value: "both" }
+      ]
+    },
+    {
+      id: "q5",
+      question: "What's your experience level?",
+      subtext: "",
+      options: [
+        { text: "Beginner", value: "beginner" },
+        { text: "Some experience", value: "some" },
+        { text: "Experienced", value: "experienced" }
+      ]
+    },
+    {
+      id: "q6",
+      question: "What's your top priority?",
+      subtext: "",
+      options: [
+        { text: "Quit smoking", value: "quit" },
+        { text: "Save money", value: "save" },
+        { text: "Better flavour / performance", value: "flavour" }
+      ]
+    }
+  ];
+
+  function renderQuiz(sectionId) {
+    const container = document.getElementById('quiz-questions-container-' + sectionId);
+    container.innerHTML = '';
+    
+    quizData.forEach((q, index) => {
+      const block = document.createElement('div');
+      block.className = `guidance-question-block ${index === 0 ? 'active' : ''}`;
+      block.setAttribute('data-index', index + 1);
+
+      let optionsHtml = q.options.map((opt, optIndex) => `
+        <div class="guidance-option" onclick="selectOption(this, '${sectionId}', '${q.id}', '${opt.value}')">
+          <div class="guidance-option-radio"></div>
+          <p class="guidance-option-text">${opt.text}</p>
+        </div>
+      `).join('');
+
+      block.innerHTML = `
+        <div class="guidance-question-text">
+          <h3>${q.question}</h3>
+          ${q.subtext ? `<p>${q.subtext}</p>` : ''}
+        </div>
+        <div class="guidance-options">
+          ${optionsHtml}
+        </div>
+      `;
+      container.appendChild(block);
+    });
+
+    updateQuizUI(sectionId);
+  }
+
+  function selectOption(element, sectionId, questionId, value) {
     const parent = element.closest('.guidance-options');
     const options = parent.querySelectorAll('.guidance-option');
     options.forEach(opt => opt.classList.remove('selected'));
     element.classList.add('selected');
+
+    // Save to state and sessionStorage
+    window.quizState[sectionId].answers[questionId] = value;
+    sessionStorage.setItem('myduke_quiz_answers', JSON.stringify(window.quizState[sectionId].answers));
   }
 
   document.addEventListener('DOMContentLoaded', function() {
     window.quizState = window.quizState || {};
+    
+    // Check if we have saved answers
+    let savedAnswers = {};
+    try {
+      const saved = sessionStorage.getItem('myduke_quiz_answers');
+      if (saved) savedAnswers = JSON.parse(saved);
+    } catch(e) {}
+
     window.quizState['{{ section.id }}'] = {
       currentStep: 1,
-      totalSteps: {{ section.blocks.size | default: 1 }}
+      totalSteps: quizData.length,
+      answers: savedAnswers
     };
+
+    renderQuiz('{{ section.id }}');
+    
+    // If we have saved answers, pre-select them
+    setTimeout(() => {
+      if (Object.keys(savedAnswers).length > 0) {
+        const container = document.getElementById('quiz-questions-container-{{ section.id }}');
+        quizData.forEach((q, index) => {
+          const val = savedAnswers[q.id];
+          if (val) {
+            const block = container.querySelector(`[data-index="${index + 1}"]`);
+            if (block) {
+              const options = block.querySelectorAll('.guidance-option');
+              const idx = q.options.findIndex(o => o.value === val);
+              if (idx !== -1 && options[idx]) {
+                options[idx].classList.add('selected');
+              }
+            }
+          }
+        });
+      }
+    }, 100);
   });
 
   function updateQuizUI(sectionId) {
     const state = window.quizState[sectionId];
     if (!state) return;
 
-    // Update visibility of blocks
     const container = document.getElementById('quiz-questions-container-' + sectionId);
     const blocks = container.querySelectorAll('.guidance-question-block');
 
@@ -489,7 +655,6 @@
       }
     });
 
-    // Update progress bar
     const progressFill = document.getElementById('quiz-progress-' + sectionId);
     const progressText = document.getElementById('quiz-progress-text-' + sectionId);
 
@@ -499,7 +664,6 @@
       progressText.innerText = 'Question ' + state.currentStep + ' / ' + state.totalSteps;
     }
 
-    // Update buttons
     const backBtn = document.getElementById('quiz-btn-back-' + sectionId);
     const nextBtn = document.getElementById('quiz-btn-next-' + sectionId);
 
@@ -512,7 +676,7 @@
     }
 
     if (state.currentStep === state.totalSteps) {
-      nextBtn.innerText = 'Finish';
+      nextBtn.innerText = 'Show Results';
     } else {
       nextBtn.innerText = 'Next';
     }
@@ -529,7 +693,6 @@
   function nextQuestion(sectionId) {
     const state = window.quizState[sectionId];
     if (state) {
-      // Basic validation: Check if an option is selected on the current slide
       const container = document.getElementById('quiz-questions-container-' + sectionId);
       const activeBlock = container.querySelector('.guidance-question-block.active');
 
@@ -545,10 +708,168 @@
         state.currentStep++;
         updateQuizUI(sectionId);
       } else {
-        // Handle finish quiz
-        alert('Quiz completed! Redirecting to recommendations...');
-        // window.location.href = '/collections/all';
+        calculateResults(sectionId);
       }
     }
+  }
+
+  function calculateResults(sectionId) {
+    const answers = window.quizState[sectionId].answers;
+    
+    // Scoring
+    let closed = 0, hybrid = 0, open = 0;
+
+    // Q2
+    if (answers.q2 === 'easiest') closed += 3;
+    if (answers.q2 === 'closest') closed += 3;
+    if (answers.q2 === 'control') open += 3;
+
+    // Q3
+    if (answers.q3 === 'tight') closed += 2;
+    if (answers.q3 === 'airy') open += 2;
+    if (answers.q3 === 'notsure') { closed += 1; hybrid += 1; }
+
+    // Q4
+    if (answers.q4 === 'no') closed += 4;
+    if (answers.q4 === 'yes') { hybrid += 2; open += 2; }
+    if (answers.q4 === 'both') hybrid += 3;
+
+    // Q5
+    if (answers.q5 === 'beginner') closed += 3;
+    if (answers.q5 === 'some') hybrid += 3;
+    if (answers.q5 === 'experienced') open += 3;
+
+    // Q6
+    if (answers.q6 === 'quit') closed += 3;
+    if (answers.q6 === 'save') hybrid += 3;
+    if (answers.q6 === 'flavour') open += 3;
+
+    // Determine winner
+    let max = Math.max(closed, hybrid, open);
+    let winners = [];
+    if (closed === max) winners.push('closed');
+    if (hybrid === max) winners.push('hybrid');
+    if (open === max) winners.push('open');
+
+    let resultCategory = winners[0];
+
+    // Tie Breakers
+    if (winners.length > 1) {
+      if (answers.q5 === 'beginner') {
+        resultCategory = 'closed';
+      } else if (answers.q4 === 'both') {
+        resultCategory = 'hybrid';
+      } else if (answers.q5 === 'experienced') {
+        resultCategory = 'open';
+      } else {
+        resultCategory = 'hybrid'; // Rule 4: safest middle-ground
+      }
+    }
+
+    renderResults(sectionId, resultCategory, answers);
+  }
+
+  function renderResults(sectionId, category, answers) {
+    // Hide quiz, show results
+    document.getElementById('quiz-card-' + sectionId).style.display = 'none';
+    document.getElementById('results-card-' + sectionId).style.display = 'flex';
+
+    // 1. Setup
+    let title = '', subtitle = '', link = '', why = [], needs = [], usage = [];
+
+    if (category === 'closed') {
+      title = 'Closed Systems';
+      subtitle = 'Simple, reliable and closest to smoking.';
+      link = '/collections/closed-systems';
+      why = [
+        "No maintenance or refilling required",
+        "Closest experience to smoking a cigarette",
+        "Pre-filled pods - simply click and go",
+        "Ideal for beginners switching from smoking"
+      ];
+      needs = ["Closed System Device", "Pre-Filled Pods", "USB Charging Cable (if applicable)"];
+      usage = ["Approximately 2–4 pods per week depending on usage", "Minimal maintenance required", "Replace pods when empty"];
+    } else if (category === 'hybrid') {
+      title = 'Hybrid Systems';
+      subtitle = 'Flexible, refillable and easy to use.';
+      link = '/collections/hybrid-systems';
+      why = [
+        "Refillable pod system",
+        "More flavour flexibility",
+        "Lower ongoing costs",
+        "Easy to use and maintain",
+        "Great balance of simplicity and performance"
+      ];
+      needs = ["Refillable Pod Device", "E-Liquid", "Replacement Pods", "USB Charging Cable"];
+      usage = ["Refill pods as required", "Replace pods periodically", "Moderate maintenance required"];
+    } else {
+      title = 'Open Tank Systems';
+      subtitle = 'Maximum flavour, control and performance.';
+      link = '/collections/open-tank-systems';
+      why = [
+        "Maximum customisation",
+        "Greater flavour performance",
+        "Larger vapour production",
+        "Adjustable airflow and settings",
+        "Designed for experienced users"
+      ];
+      needs = ["Open Tank Device", "E-Liquid", "Replacement Coils", "USB Charging Cable"];
+      usage = ["Refill tank regularly", "Replace coils periodically", "More maintenance than pod systems"];
+    }
+
+    document.getElementById('res-category-name-' + sectionId).innerText = title;
+    document.getElementById('res-category-desc-' + sectionId).innerText = subtitle;
+    document.getElementById('res-category-link-' + sectionId).href = link;
+
+    document.getElementById('res-why-' + sectionId).innerHTML = why.map(w => `<li>${w}</li>`).join('');
+    document.getElementById('res-needs-' + sectionId).innerHTML = needs.map(w => `<li>${w}</li>`).join('');
+    document.getElementById('res-usage-' + sectionId).innerHTML = usage.map(w => `<li>${w}</li>`).join('');
+
+    // 3. Nicotine Strength
+    let nicStrength = '', nicRange = '', nicMsg = '';
+    if (answers.q1 === '1-5') {
+      nicStrength = 'Low Strength Nicotine';
+      nicRange = '5mg–10mg Nicotine Salts';
+      nicMsg = 'A lower nicotine strength is typically suitable for lighter smokers.';
+    } else if (answers.q1 === '5-10') {
+      nicStrength = 'Medium Strength Nicotine';
+      nicRange = '10mg–20mg Nicotine Salts';
+      nicMsg = 'A medium nicotine strength is often preferred by moderate smokers.';
+    } else if (answers.q1 === '10-20' || answers.q1 === 'nrt') {
+      nicStrength = 'Medium-High Strength Nicotine';
+      nicRange = '20mg–30mg Nicotine Salts';
+      nicMsg = 'This strength is commonly used by customers transitioning from regular smoking.';
+    } else if (answers.q1 === '20+') {
+      nicStrength = 'High Strength Nicotine';
+      nicRange = '30mg–50mg Nicotine Salts';
+      nicMsg = 'A higher nicotine strength may help manage cravings during the transition.';
+    }
+    
+    document.getElementById('res-nic-strength-' + sectionId).innerText = nicStrength;
+    document.getElementById('res-nic-range-' + sectionId).querySelector('span').innerText = nicRange;
+    document.getElementById('res-nic-message-' + sectionId).innerText = nicMsg;
+
+    // 6. Insights
+    let insights = [];
+    if (answers.q2 === 'easiest') insights.push("You indicated that simplicity is important, so we've prioritised ease of use in your recommendation.");
+    if (answers.q2 === 'closest') insights.push("You indicated that a familiar cigarette-style experience is important to you.");
+    if (answers.q2 === 'control') insights.push("You indicated that greater control and flexibility are important to you.");
+    
+    if (answers.q3 === 'tight') insights.push("You prefer a tighter draw similar to a traditional cigarette.");
+    if (answers.q3 === 'airy') insights.push("You prefer a more open draw with increased vapour production.");
+    if (answers.q3 === 'notsure') insights.push("If you're unsure, most customers transitioning from smoking start with a tighter draw style.");
+
+    document.getElementById('res-insights-' + sectionId).innerHTML = insights.map(i => `<p>${i}</p>`).join('');
+  }
+
+  function restartQuiz(sectionId) {
+    sessionStorage.removeItem('myduke_quiz_answers');
+    window.quizState[sectionId].answers = {};
+    window.quizState[sectionId].currentStep = 1;
+    
+    document.getElementById('results-card-' + sectionId).style.display = 'none';
+    document.getElementById('quiz-card-' + sectionId).style.display = 'flex';
+    
+    renderQuiz(sectionId);
   }
 </script>
