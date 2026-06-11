@@ -178,7 +178,7 @@
   width: 396px;
   position: relative;
   padding-top: 12px;
-  opacity: 0.5;
+  opacity: 1; /* Made inactive slides fully visible */
   transform: scale(0.715);
   transform-origin: center center;
   transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
@@ -188,7 +188,7 @@
 .myduke-how-works-desk-slider__slide.swiper-slide-active {
   opacity: 1;
   transform: scale(1);
-  filter: drop-shadow(0px 17px 21.45px rgba(126, 74, 24, 0.1));
+  filter: drop-shadow(0px 17px 21.45px rgba(126, 74, 24, 0.15));
   z-index: 3;
 }
 
@@ -201,16 +201,22 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #f7f8f8;
+  background-color: #ffffff;
   border: 1px solid #FFB703;
   border-radius: 37px;
-  padding: 4px 12px;
+  padding: 4px 16px;
   font-family: var(--font-body-family);
   font-size: 1.2rem;
   font-weight: 600;
   color: #2b2b2e;
   white-space: nowrap;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.myduke-how-works-desk-slider__slide.swiper-slide-active .myduke-how-works-desk-slider__step-badge {
+  opacity: 1;
 }
 
 /* =============================================
@@ -241,7 +247,7 @@
 /* Card body — white, p-20px, flex-col gap-20px (1482:6287) */
 .myduke-how-works-desk-slider__card-body {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 28px 24px 32px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -304,7 +310,7 @@
   font-size: 3.3rem;
   font-weight: 400;
   color: #2b2b2e;
-  line-height: 24.2px;
+  line-height: 1.2;
   margin: 0;
   width: 100%;
 }
@@ -315,7 +321,7 @@
   font-size: 1.8rem;
   font-weight: 400;
   color: #2b2b2e;
-  line-height: 19.6px;
+  line-height: 1.4;
   margin: 0;
 }
 
