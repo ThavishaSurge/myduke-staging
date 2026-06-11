@@ -1,23 +1,36 @@
 .myduke-how-works-services {
-  background-color: #f7f8f8;
-}
-
-.myduke-how-works-services__inner {
-  display: flex;
-  align-items: stretch;
-  min-height: 838px;
+  background-color: #ffffff;
 }
 
 /* =============================================
-   Left image panel
+   885:7987 — two-column inner frame
+   gap: 36px, align-items: center, height: 838px
+   ============================================= */
+.myduke-how-works-services__inner {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  min-height: 838px;
+  background-color: #f7f8f8;
+  width: 100%;
+}
+
+/* =============================================
+   885:7988 — left image panel
+   flex: 1, padding: 80px 10px, overflow hidden
+   image 918×918 absolutely centered
    ============================================= */
 .myduke-how-works-services__image-col {
   flex: 1 0 0;
   min-width: 0;
+  align-self: stretch;
   background-color: var(--panel-bg, #ef6351);
   position: relative;
   overflow: hidden;
-  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 80px 10px;
 }
 
 .myduke-how-works-services__image {
@@ -33,7 +46,8 @@
 }
 
 /* =============================================
-   Right content panel
+   885:7990 — right content panel
+   flex: 1, padding: 130px 20px, gap: 48px
    ============================================= */
 .myduke-how-works-services__content-col {
   flex: 1 0 0;
@@ -41,31 +55,44 @@
   display: flex;
   flex-direction: column;
   gap: 48px;
+  align-items: flex-start;
   padding: 130px 20px;
 }
 
-/* Header */
+/* =============================================
+   885:7991 — header group (HorizontalBorder)
+   flex-col, gap: 24px
+   ============================================= */
 .myduke-how-works-services__header {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  align-items: flex-start;
+  width: 100%;
 }
 
+/* =============================================
+   885:7992 — heading group
+   flex-col, gap: 8px
+   ============================================= */
 .myduke-how-works-services__heading-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
 }
 
+/* 885:7993 — eyebrow */
 .myduke-how-works-services__eyebrow {
   font-family: var(--font-body-family);
   font-size: 1.4rem;
   font-weight: 400;
   color: #000000;
-  line-height: 1.4;
+  line-height: 19.6px;
   margin: 0;
 }
 
+/* 885:7994 — heading */
 .myduke-how-works-services__heading {
   font-family: var(--font-body-family);
   font-size: 4.8rem;
@@ -76,6 +103,7 @@
   margin: 0;
 }
 
+/* 885:7995 — description */
 .myduke-how-works-services__description {
   font-family: var(--font-secondary-text-family);
   font-size: 1.8rem;
@@ -83,25 +111,36 @@
   color: #264653;
   line-height: 1.5;
   margin: 0;
+  width: 100%;
 }
 
 /* =============================================
-   Service cards grid
+   885:7996 — cards grid
+   flex-wrap, gap: 36px, height: 340px, align-content: start
    ============================================= */
 .myduke-how-works-services__cards {
   display: flex;
   flex-wrap: wrap;
   gap: 36px;
+  align-items: flex-start;
   align-content: flex-start;
+  width: 100%;
 }
 
+/* =============================================
+   885:7997–8029 — each service card
+   flex-col, gap: 24px, width: 381px
+   ============================================= */
 .myduke-how-works-services__card {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: calc(50% - 18px);
+  align-items: flex-start;
+  width: 381px;
+  max-width: 100%;
 }
 
+/* card icon — 885:7998, 885:8011, 885:8021, 885:8030 — size: 32px */
 .myduke-how-works-services__card-icon {
   display: block;
   width: 32px;
@@ -110,54 +149,71 @@
   flex-shrink: 0;
 }
 
+/* 885:8007 — card text group, gap: 12px */
 .myduke-how-works-services__card-text {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 
+/* 885:8008 — card title: 22px, leading: 24.2px */
 .myduke-how-works-services__card-title {
   font-family: var(--font-body-family);
   font-size: 2.2rem;
   font-weight: 400;
   color: #2b2b2e;
-  line-height: 1.1;
+  line-height: 24.2px;
   margin: 0;
 }
 
+/* 885:8009 — card description: 14px, leading: 19.6px */
 .myduke-how-works-services__card-desc {
   font-family: var(--font-body-family);
   font-size: 1.4rem;
   font-weight: 400;
   color: #2b2b2e;
-  line-height: 1.4;
+  line-height: 19.6px;
   margin: 0;
 }
 
 /* =============================================
-   Tablet
+   Tablet (750px – 1159px)
    ============================================= */
 @media screen and (min-width: 750px) and (max-width: 1159px) {
+  .myduke-how-works-services__inner {
+    gap: 24px;
+  }
+
   .myduke-how-works-services__content-col {
-    padding: 60px 32px;
+    padding: 60px 24px;
+    gap: 36px;
   }
 
   .myduke-how-works-services__heading {
     font-size: 3.6rem;
+    letter-spacing: -1.2px;
+  }
+
+  .myduke-how-works-services__card {
+    width: calc(50% - 18px);
   }
 }
 
 /* =============================================
-   Mobile
+   Mobile (< 750px)
    ============================================= */
 @media screen and (max-width: 749px) {
   .myduke-how-works-services__inner {
     flex-direction: column;
+    gap: 0;
     min-height: unset;
   }
 
   .myduke-how-works-services__image-col {
+    width: 100%;
     min-height: 320px;
+    padding: 40px 10px;
   }
 
   .myduke-how-works-services__image {
@@ -182,6 +238,10 @@
 
   .myduke-how-works-services__description {
     font-size: 1.6rem;
+  }
+
+  .myduke-how-works-services__cards {
+    gap: 32px;
   }
 
   .myduke-how-works-services__card {
