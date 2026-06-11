@@ -220,3 +220,44 @@
     padding: 150px 50px 50px 50px !important;
   }
 }
+
+/* =============================================
+   Button
+   ============================================= */
+.myduke-hero-secondary__actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.myduke-hero-secondary__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9.5px 24px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: var(--font-secondary-text-family);
+  text-decoration: none;
+  border-radius: 0px;
+  background-color: #FFB703;
+  color: #264653;
+  min-width: 231px;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.myduke-hero-secondary__btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+@media screen and (max-width: 749px) {
+  .myduke-hero-secondary__actions {
+    justify-content: center;
+  }
+
+  .myduke-hero-secondary__btn {
+    width: 100%;
+    min-width: unset;
+  }
+}
