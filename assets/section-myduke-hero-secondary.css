@@ -256,9 +256,4 @@
   .myduke-hero-secondary__actions {
     justify-content: center;
   }
-
-  .myduke-hero-secondary__btn {
-    width: 100%;
-    min-width: unset;
-  }
 }
