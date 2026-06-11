@@ -177,19 +177,19 @@
 .myduke-how-works-desk-slider__slide {
   position: relative;
   padding-top: 12px;
-  opacity: 0; /* Hide inactive off-screen slides */
+  opacity: 0.5; 
   pointer-events: none;
   z-index: 1;
   /* Match Swiper's JS speed parameter (600ms) for perfect sync */
   transition: opacity 0.6s ease, filter 0.6s ease; 
 }
 
-.myduke-how-works-desk-slider__slide.swiper-slide-prev,
+/* .myduke-how-works-desk-slider__slide.swiper-slide-prev,
 .myduke-how-works-desk-slider__slide.swiper-slide-next {
-  opacity: 0.5; /* Figma inactive opacity is 50% */
+  opacity: 0.5;
   pointer-events: auto;
   z-index: 2;
-}
+} */
 
 .myduke-how-works-desk-slider__slide.swiper-slide-active {
   opacity: 1;
