@@ -100,11 +100,68 @@
         "heading": "Our Smoking Cessation Support Services",
         "description": "myduke® is an Australian smoking cessation service providing structured, medically supervised support for adults seeking to quit smoking. Our service simplifies access to evidence-based care while maintaining full regulatory oversight."
       }
+    },
+    "myduke_how_works_why_choose_9kT67b": {
+      "type": "myduke-how-works-why-choose",
+      "blocks": {
+        "feature_item_NPzYtR": {
+          "type": "feature_item",
+          "settings": {
+            "label": "AHPRA-Registered Doctor oversight"
+          }
+        },
+        "feature_item_aHBLDR": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Personalised Cessation Plan"
+          }
+        },
+        "feature_item_LDWpCp": {
+          "type": "feature_item",
+          "settings": {
+            "label": "TGA & State-based Compliance"
+          }
+        },
+        "feature_item_Fa4TXz": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Pharmacy-dispensed Treatments"
+          }
+        },
+        "feature_item_Q4phPi": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Full Treatment History Visibility"
+          }
+        },
+        "feature_item_xgxMNQ": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Dedicated Support Team"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_NPzYtR",
+        "feature_item_aHBLDR",
+        "feature_item_LDWpCp",
+        "feature_item_Fa4TXz",
+        "feature_item_Q4phPi",
+        "feature_item_xgxMNQ"
+      ],
+      "name": "How It Works — Why Choose",
+      "settings": {
+        "left_image": "shopify://shop_images/hw-why-choose.webp",
+        "left_bg_color": "rgba(0,0,0,0)",
+        "heading": "Why Choose MyDuke?",
+        "description": "A regulated pathway built around safety, transparency, and your success."
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_secondary_wdCVUt",
-    "myduke_how_works_services_47YTdi"
+    "myduke_how_works_services_47YTdi",
+    "myduke_how_works_why_choose_9kT67b"
   ]
 }
