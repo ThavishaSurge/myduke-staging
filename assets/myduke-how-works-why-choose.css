@@ -5,6 +5,7 @@
 .myduke-how-works-why-choose {
   background-color: #ffffff;
   padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 /* =============================================
@@ -132,6 +133,7 @@
 @media screen and (min-width: 750px) and (max-width: 1159px) {
   .myduke-how-works-why-choose {
     padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   .myduke-how-works-why-choose__inner {
