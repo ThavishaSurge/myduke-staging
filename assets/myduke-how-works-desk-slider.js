@@ -19,7 +19,6 @@
       centeredSlides: true,
       spaceBetween: -130,
       loop: true,
-      loopAdditionalSlides: 2,
       speed: 600,
       allowTouchMove: false,
       navigation: {
