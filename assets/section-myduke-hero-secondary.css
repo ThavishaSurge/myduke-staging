@@ -234,15 +234,16 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 9.5px 24px;
+  padding: 9.5px 36px;
+  min-height: 40px;
   font-size: 1.4rem;
   font-weight: 500;
   font-family: var(--font-secondary-text-family);
   text-decoration: none;
-  border-radius: 0px;
-  background-color: #FFB703;
-  color: #264653;
-  min-width: 231px;
+  text-transform: capitalize;
+  border-radius: 0;
+  background-color: #218380;
+  color: #ffffff;
   transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
