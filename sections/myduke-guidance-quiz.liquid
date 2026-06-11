@@ -102,6 +102,7 @@
     background-clip: padding-box;
     width: 100%;
     max-width: 631px;
+    min-height: 688px;
     padding: 48px;
     display: flex;
     flex-direction: column;
@@ -190,10 +191,6 @@
     height: 7px;
     border-radius: 50%;
     background-color: transparent;
-  }
-
-  .guidance-option.selected .guidance-option-radio::after {
-    background-color: #264653;
   }
 
   .guidance-option-text {
@@ -319,69 +316,199 @@
     flex-direction: column;
   }
 
-  /* Results Styling */
-  .result-section {
+  /* Results Styling - Updated to match Figma */
+  .guidance-results-card {
+    max-width: 1160px;
+    display: none; /* Hidden initially */
+    flex-direction: row;
+    gap: 64px;
+    padding: 48px;
+    border: 16px solid rgba(255, 255, 255, 0.2);
+    background-clip: padding-box;
+  }
+
+  .res-col-left, .res-col-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 32px;
+  }
+
+  /* Shared header for sections */
+  .res-section-header {
+    border-bottom: 1px solid #e0dacf;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+
+  .res-section-header h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    color: #2b2b2e;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  /* Nicotine Header specific (flex between) */
+  .res-section-header.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nic-pill {
+    background-color: #edf3f0;
+    padding: 4px 12px;
+    border-radius: 37px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #2b2b2e;
+  }
+
+  /* Cards */
+  .res-cards-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .res-device-card {
+    background-color: #f7f8f8;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .res-device-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .res-device-image-ph {
+    background-color: #bfdbcf;
+    height: 176px;
+    width: 100%;
+  }
+
+  .res-device-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .res-device-info h5 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    color: #2b2b2e;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  /* Lists */
+  .res-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #e0dacf;
   }
 
-  .result-section:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+  .res-list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
-  .result-section h4 {
+  .res-list-item p {
     font-family: 'Manrope', sans-serif;
-    font-size: 24px;
-    color: #264653;
+    font-size: 14px;
+    color: #2b2b2e;
     margin: 0;
-    font-weight: 600;
   }
 
-  .result-section h5 {
+  .res-list-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Need Row */
+  .res-need-row {
+    background-color: #edf3f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+  }
+
+  .res-need-row p {
     font-family: 'Manrope', sans-serif;
-    font-size: 18px;
-    color: #218380;
-    margin: 0;
     font-weight: 500;
-  }
-
-  .result-section p, .result-section ul {
-    font-family: 'Manrope', sans-serif;
-    font-size: 16px;
-    color: #4a4a4a;
+    font-size: 14px;
+    color: #2b2b2e;
     margin: 0;
-    line-height: 1.5;
   }
 
-  .result-section ul {
-    padding-left: 20px;
+  /* Text & Insights */
+  .res-text-block {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: #2b2b2e;
+    line-height: 1.4;
+    margin: 0;
   }
 
-  .result-section li {
-    margin-bottom: 8px;
+  .res-disclaimer {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
   }
 
-  .result-category-card {
-    background: #edf3f0;
-    padding: 24px;
-    border-radius: 8px;
-    text-align: center;
-    margin-top: 12px;
-  }
-
-  .result-category-card h3 {
-    margin: 0 0 8px 0;
+  .res-disclaimer-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #264653;
     color: #264653;
     font-family: 'Manrope', sans-serif;
-    font-size: 28px;
+    font-size: 9px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    flex-shrink: 0;
   }
 
-  .result-category-card p {
+  .res-disclaimer p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
     color: #264653;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .guidance-btn-retake {
+    background-color: transparent;
+    border: none;
+    color: #264653;
+    text-decoration: underline;
+    margin-top: 16px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    .guidance-results-card {
+      flex-direction: column;
+      gap: 40px;
+    }
   }
 
   @keyframes fadeIn {
@@ -457,50 +584,106 @@
 
     <!-- Results Card -->
     <div class="guidance-results-card" id="results-card-{{ section.id }}">
-      <div class="result-section">
-        <h4>Your Recommended Setup</h4>
-        <div class="result-category-card">
-          <h3 id="res-category-name-{{ section.id }}">Category</h3>
-          <p id="res-category-desc-{{ section.id }}">Description</p>
-          <a href="#" id="res-category-link-{{ section.id }}" class="guidance-btn guidance-btn-shop"
-            >Shop Recommended Products</a
-          >
+      <div class="res-col-left">
+        <div class="guidance-question-text" style="margin-bottom: -12px;">
+          <h3>Your Recommended Setup</h3>
+        </div>
+
+        <div class="res-section">
+          <div class="res-section-header">
+            <h4>Your Recommended Devices</h4>
+          </div>
+          <div class="res-cards-container">
+            <a href="#" class="res-device-card" id="res-category-link-{{ section.id }}">
+              <img src="" alt="" class="res-device-image" id="res-category-image-{{ section.id }}" style="display: none; width: 100%; height: 176px; object-fit: cover;" />
+              <div class="res-device-image-ph" id="res-category-image-ph-{{ section.id }}"></div>
+              <div class="res-device-info">
+                <h5 id="res-category-name-{{ section.id }}">Category Name</h5>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="transform: rotate(-90deg);"
+                >
+                  <path d="M11 15L6 10L7.4 8.6L11 12.2L14.6 8.6L16 10L11 15Z" fill="#218380"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="res-section">
+          <div class="res-section-header">
+            <h4>Why It's Right For You</h4>
+          </div>
+          <div class="res-list" id="res-why-{{ section.id }}">
+            <!-- dynamically injected checkmark rows -->
+          </div>
         </div>
       </div>
 
-      <div class="result-section">
-        <h4>Why It's Right For You</h4>
-        <ul id="res-why-{{ section.id }}"></ul>
-      </div>
+      <div class="res-col-right">
+        <div class="res-section">
+          <div class="res-section-header flex-between">
+            <h4>Your Nicotine Recommendation</h4>
+            <div class="nic-pill" id="res-nic-range-{{ section.id }}">Range</div>
+          </div>
+          <p class="res-text-block" id="res-nic-message-{{ section.id }}"></p>
+        </div>
 
-      <div class="result-section">
-        <h4>Nicotine Recommendation</h4>
-        <h5 id="res-nic-strength-{{ section.id }}">Strength</h5>
-        <p id="res-nic-range-{{ section.id }}"><strong>Range:</strong> <span></span></p>
-        <p id="res-nic-message-{{ section.id }}"></p>
-      </div>
+        <div class="res-section">
+          <div class="res-section-header">
+            <h4>What You'll Need</h4>
+          </div>
+          <div class="res-list" id="res-needs-{{ section.id }}">
+            <!-- dynamically injected rows -->
+          </div>
+        </div>
 
-      <div class="result-section">
-        <h4>What You'll Need</h4>
-        <ul id="res-needs-{{ section.id }}"></ul>
-      </div>
+        <div class="res-section">
+          <div class="res-section-header">
+            <h4>Usage Expectation</h4>
+          </div>
+          <div class="res-list" id="res-usage-{{ section.id }}">
+            <!-- dynamically injected checkmark rows -->
+          </div>
+        </div>
 
-      <div class="result-section">
-        <h4>Usage Expectations</h4>
-        <ul id="res-usage-{{ section.id }}"></ul>
-      </div>
+        <div class="res-disclaimer">
+          <div class="res-disclaimer-icon">!</div>
+          <p>
+            This is guidance only and does not constitute medical advice. The goal is to reduce nicotine concentration
+            over time. Please consult your healthcare professional before making changes.
+          </p>
+        </div>
 
-      <div class="result-section">
-        <h4>Personalised Insights</h4>
-        <div id="res-insights-{{ section.id }}"></div>
-      </div>
+        {% comment %}
+          <div class="res-section" style="margin-top: 12px;">
+            <div class="res-section-header">
+              <h4>Personalised Insights</h4>
+            </div>
+            <div class="res-list" id="res-insights-{{ section.id }}">
+              <!-- dynamic text paragraphs -->
+            </div>
+          </div>
+        {% endcomment %}
 
-      <button class="guidance-btn-retake" onclick="restartQuiz('{{ section.id }}')">Retake Quiz</button>
+        {% comment %} <button class="guidance-btn-retake" onclick="restartQuiz('{{ section.id }}')">Retake Quiz</button> {% endcomment %}
+      </div>
     </div>
   </div>
 </div>
 
 <script>
+  const collectionImages = {
+    'closed': {% if collections['closed-systems'].image %}"{{ collections['closed-systems'].image | image_url: width: 500 }}"{% else %}null{% endif %},
+    'hybrid': {% if collections['hybrid-systems'].image %}"{{ collections['hybrid-systems'].image | image_url: width: 500 }}"{% else %}null{% endif %},
+    'open': {% if collections['open-tank-systems'].image %}"{{ collections['open-tank-systems'].image | image_url: width: 500 }}"{% else %}null{% endif %},
+    'nrt': {% if collections['nrt'].image %}"{{ collections['nrt'].image | image_url: width: 500 }}"{% else %}null{% endif %}
+  };
+
   const quizData = [
     {
       id: 'q1',
@@ -857,9 +1040,17 @@
     document.getElementById('quiz-card-' + sectionId).style.display = 'none';
     document.getElementById('results-card-' + sectionId).style.display = 'flex';
 
+    // SVG icons
+    const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M8 0C6.41775 0 4.87104 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346629 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0ZM12.62 5.46667L8.05334 11.66C8.0002 11.7324 7.93297 11.7933 7.8557 11.8391C7.77843 11.8849 7.6927 11.9146 7.60366 11.9265C7.51462 11.9383 7.42411 11.932 7.33756 11.908C7.25101 11.884 7.17021 11.8427 7.1 11.7867L3.84 9.18C3.77152 9.12499 3.71458 9.05698 3.67247 8.97989C3.63035 8.9028 3.60389 8.81814 3.59459 8.73079C3.5853 8.64344 3.59336 8.55511 3.61832 8.47088C3.64327 8.38666 3.68463 8.30819 3.74 8.24C3.85078 8.10557 4.00977 8.01984 4.18296 8.00115C4.35614 7.98247 4.52976 8.0323 4.66667 8.14L7.38667 10.3133L11.5467 4.66667C11.6516 4.5261 11.8078 4.43257 11.9813 4.40636C12.1547 4.38015 12.3315 4.42338 12.4733 4.52667C12.5453 4.57824 12.6064 4.64364 12.6528 4.71906C12.6993 4.79447 12.7302 4.87839 12.7439 4.9659C12.7575 5.05341 12.7536 5.14277 12.7323 5.22875C12.7111 5.31473 12.6729 5.39561 12.62 5.46667Z" fill="#BFDBCF"/>
+</svg>`;
+    const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+  <path d="M3.4375 11L18.5625 11" stroke="#218380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12.375 17.1875L18.5625 11L12.375 4.8125" stroke="#218380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
     // 1. Setup
     let title = '',
-      subtitle = '',
       link = '',
       why = [],
       needs = [],
@@ -867,36 +1058,28 @@
 
     if (category === 'closed') {
       title = 'Closed Systems';
-      subtitle = 'Simple, reliable and closest to smoking.';
       link = '/collections/closed-systems';
       why = [
         'No maintenance or refilling required',
         'Closest experience to smoking a cigarette',
-        'Pre-filled pods - simply click and go',
+        'Pre-filled pods — just click in and go',
         'Ideal for beginners switching from smoking',
       ];
-      needs = ['Closed System Device', 'Pre-Filled Pods', 'USB Charging Cable (if applicable)'];
-      usage = [
-        'Approximately 2–4 pods per week depending on usage',
-        'Minimal maintenance required',
-        'Replace pods when empty',
-      ];
+      needs = ['Device (starter kit)', 'Pre-filled pods (your chosen flavour)', 'USB charger (included)'];
+      usage = ['~2–4 pods per week, depending on usage', 'Minimal maintenance required', 'Replace pods when empty'];
     } else if (category === 'hybrid') {
       title = 'Hybrid Systems';
-      subtitle = 'Flexible, refillable and easy to use.';
       link = '/collections/hybrid-systems';
       why = [
         'Refillable pod system',
         'More flavour flexibility',
         'Lower ongoing costs',
-        'Easy to use and maintain',
         'Great balance of simplicity and performance',
       ];
-      needs = ['Refillable Pod Device', 'E-Liquid', 'Replacement Pods', 'USB Charging Cable'];
+      needs = ['Refillable Pod Device', 'E-Liquid (your chosen flavour)', 'Replacement Pods', 'USB charger'];
       usage = ['Refill pods as required', 'Replace pods periodically', 'Moderate maintenance required'];
     } else if (category === 'open') {
       title = 'Open Tank Systems';
-      subtitle = 'Maximum flavour, control and performance.';
       link = '/collections/open-tank-systems';
       why = [
         'Maximum customisation',
@@ -905,11 +1088,10 @@
         'Adjustable airflow and settings',
         'Designed for experienced users',
       ];
-      needs = ['Open Tank Device', 'E-Liquid', 'Replacement Coils', 'USB Charging Cable'];
+      needs = ['Open Tank Device', 'E-Liquid', 'Replacement Coils', 'USB charger'];
       usage = ['Refill tank regularly', 'Replace coils periodically', 'More maintenance than pod systems'];
     } else if (category === 'nrt') {
-      title = 'Nicotine Replacement Therapy (NRT)';
-      subtitle = 'Manage cravings reliably without vaping.';
+      title = 'Nicotine Replacement Therapy';
       link = '/collections/nrt';
       why = [
         'Clinically proven methods to manage cravings',
@@ -922,38 +1104,71 @@
     }
 
     document.getElementById('res-category-name-' + sectionId).innerText = title;
-    document.getElementById('res-category-desc-' + sectionId).innerText = subtitle;
     document.getElementById('res-category-link-' + sectionId).href = link;
 
-    document.getElementById('res-why-' + sectionId).innerHTML = why.map((w) => `<li>${w}</li>`).join('');
-    document.getElementById('res-needs-' + sectionId).innerHTML = needs.map((w) => `<li>${w}</li>`).join('');
-    document.getElementById('res-usage-' + sectionId).innerHTML = usage.map((w) => `<li>${w}</li>`).join('');
-
-    // 3. Nicotine Strength
-    let nicStrength = '',
-      nicRange = '',
-      nicMsg = '';
-    if (answers.q1 === '1-5') {
-      nicStrength = 'Low Strength Nicotine';
-      nicRange = '5mg–10mg Nicotine Salts';
-      nicMsg = 'A lower nicotine strength is typically suitable for lighter smokers.';
-    } else if (answers.q1 === '5-10') {
-      nicStrength = 'Medium Strength Nicotine';
-      nicRange = '10mg–20mg Nicotine Salts';
-      nicMsg = 'A medium nicotine strength is often preferred by moderate smokers.';
-    } else if (answers.q1 === '10-20' || answers.q1 === 'nrt') {
-      nicStrength = 'Medium-High Strength Nicotine';
-      nicRange = '20mg–30mg Nicotine Salts';
-      nicMsg = 'This strength is commonly used by customers transitioning from regular smoking.';
-    } else if (answers.q1 === '20+') {
-      nicStrength = 'High Strength Nicotine';
-      nicRange = '30mg–50mg Nicotine Salts';
-      nicMsg = 'A higher nicotine strength may help manage cravings during the transition.';
+    const imgUrl = collectionImages[category];
+    const imageEl = document.getElementById('res-category-image-' + sectionId);
+    const imagePh = document.getElementById('res-category-image-ph-' + sectionId);
+    if (imgUrl) {
+      imageEl.src = imgUrl;
+      imageEl.style.display = 'block';
+      imagePh.style.display = 'none';
+    } else {
+      imageEl.style.display = 'none';
+      imagePh.style.display = 'block';
     }
 
-    document.getElementById('res-nic-strength-' + sectionId).innerText = nicStrength;
-    document.getElementById('res-nic-range-' + sectionId).querySelector('span').innerText = nicRange;
-    document.getElementById('res-nic-message-' + sectionId).innerText = nicMsg;
+    document.getElementById('res-why-' + sectionId).innerHTML = why
+      .map(
+        (w) => `
+      <div class="res-list-item">
+        <div class="res-list-icon">${checkIcon}</div>
+        <p>${w}</p>
+      </div>`
+      )
+      .join('');
+
+    document.getElementById('res-needs-' + sectionId).innerHTML = needs
+      .map(
+        (w) => `
+      <a href="${link}" class="res-need-row" style="text-decoration: none;">
+        <p>${w}</p>
+        <div class="res-list-icon">${arrowIcon}</div>
+      </a>`
+      )
+      .join('');
+
+    document.getElementById('res-usage-' + sectionId).innerHTML = usage
+      .map(
+        (w) => `
+      <div class="res-list-item">
+        <div class="res-list-icon">${checkIcon}</div>
+        <p>${w}</p>
+      </div>`
+      )
+      .join('');
+
+    // 3. Nicotine Strength
+    let nicRange = '',
+      nicMsgTail = '';
+    if (answers.q1 === '1-5') {
+      nicRange = '5–10mg Nicotine Salts';
+      nicMsgTail = 'A lower nicotine strength is typically suitable for lighter smokers.';
+    } else if (answers.q1 === '5-10') {
+      nicRange = '10–20mg Nicotine Salts';
+      nicMsgTail = 'A medium nicotine strength is often preferred by moderate smokers.';
+    } else if (answers.q1 === '10-20' || answers.q1 === 'nrt') {
+      nicRange = '20–30mg Nicotine Salts';
+      nicMsgTail = 'This strength is commonly used by customers transitioning from regular smoking.';
+    } else if (answers.q1 === '20+') {
+      nicRange = '30–50mg Nicotine Salts';
+      nicMsgTail = 'A higher nicotine strength may help manage cravings during the transition.';
+    }
+
+    document.getElementById('res-nic-range-' + sectionId).innerText = nicRange;
+    document.getElementById(
+      'res-nic-message-' + sectionId
+    ).innerText = `We recommend starting with ${nicRange.toLowerCase()} to help manage cravings. ${nicMsgTail}`;
 
     // 6. Insights
     let insights = [];
@@ -973,7 +1188,9 @@
     if (answers.q4 === 'notsure')
       insights.push("If you're unsure, most customers transitioning from smoking start with a tighter draw style.");
 
-    document.getElementById('res-insights-' + sectionId).innerHTML = insights.map((i) => `<p>${i}</p>`).join('');
+    document.getElementById('res-insights-' + sectionId).innerHTML = insights
+      .map((i) => `<p class="res-text-block" style="margin-bottom: 8px;">${i}</p>`)
+      .join('');
   }
 
   function restartQuiz(sectionId) {
