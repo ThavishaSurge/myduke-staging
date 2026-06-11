@@ -658,16 +658,18 @@
           </p>
         </div>
 
-        <div class="res-section" style="margin-top: 12px;">
-          <div class="res-section-header">
-            <h4>Personalised Insights</h4>
+        {% comment %}
+          <div class="res-section" style="margin-top: 12px;">
+            <div class="res-section-header">
+              <h4>Personalised Insights</h4>
+            </div>
+            <div class="res-list" id="res-insights-{{ section.id }}">
+              <!-- dynamic text paragraphs -->
+            </div>
           </div>
-          <div class="res-list" id="res-insights-{{ section.id }}">
-            <!-- dynamic text paragraphs -->
-          </div>
-        </div>
+        {% endcomment %}
 
-        <button class="guidance-btn-retake" onclick="restartQuiz('{{ section.id }}')">Retake Quiz</button>
+        {% comment %} <button class="guidance-btn-retake" onclick="restartQuiz('{{ section.id }}')">Retake Quiz</button> {% endcomment %}
       </div>
     </div>
   </div>
