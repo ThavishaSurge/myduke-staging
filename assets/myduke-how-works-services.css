@@ -1,5 +1,6 @@
 .myduke-how-works-services {
   background-color: #ffffff;
+  padding-top: 24px;
 }
 
 /* =============================================
@@ -39,7 +40,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 918px;
-  height: 918px;
+  height: 100%;
   max-width: none;
   object-fit: cover;
   pointer-events: none;
@@ -204,6 +205,12 @@
    Mobile (< 750px)
    ============================================= */
 @media screen and (max-width: 749px) {
+
+    .myduke-how-works-services {
+        padding-top: 12px;
+    }
+
+
   .myduke-how-works-services__inner {
     flex-direction: column;
     gap: 0;
