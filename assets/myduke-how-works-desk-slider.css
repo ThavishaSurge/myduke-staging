@@ -189,14 +189,14 @@
   opacity: 0.5; /* Figma inactive opacity is 50% */
   pointer-events: auto;
   transform-origin: left center;
-  transform: scale(0.7);
+  transform: scale(0.7)!important;
 }
 
 .myduke-how-works-desk-slider__slide.swiper-slide-next {
   opacity: 0.5; /* Figma inactive opacity is 50% */
   pointer-events: auto;
   transform-origin: right center;
-  transform: scale(0.7);
+  transform: scale(0.7)!important;
 }
 
 .myduke-how-works-desk-slider__slide.swiper-slide-active {
