@@ -172,15 +172,22 @@
 }
 
 /* =============================================
-   Slides — classic slider effect. Default state
-   (applied to every slide except the active one)
-   is opacity 0.5 + scale 0.7. The active slide
-   is opacity 1 + scale 1. Both opacity and scale
-   live on the slide itself with a single transition,
-   so as Swiper translates the wrapper the outgoing
-   active scales/dims down to prev, and the incoming
-   slide scales/brightens up to active — perfectly
-   in sync over 600ms.
+   Slides — classic slider effect.
+
+   swiper-bundle.min.css ships rules that fight us:
+     .swiper-slide { transition-property: transform; }
+     .swiper-backface-hidden .swiper-slide {
+       transform: translateZ(0);
+     }
+   The first kills our opacity transition; the second
+   wipes out scale because of its 2-class specificity.
+   We load this stylesheet AFTER the bundle, and the
+   .swiper-backface-hidden override below matches that
+   specificity (so source order wins). translateZ(0)
+   is kept in the transform so the browser still gives
+   us a hardware-accelerated layer. !important on the
+   active state guarantees the larger transform applies
+   regardless of which Swiper-added classes are present.
    ============================================= */
 .myduke-how-works-desk-slider__slide {
   position: relative;
@@ -194,12 +201,20 @@
   will-change: transform, opacity;
 }
 
+.swiper-backface-hidden .myduke-how-works-desk-slider__slide {
+  transform: scale(0.7) translateZ(0);
+}
+
 .myduke-how-works-desk-slider__slide.swiper-slide-active {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 1 !important;
+  transform: scale(1) !important;
   pointer-events: auto;
   filter: drop-shadow(0px 17px 21.45px rgba(126, 74, 24, 0.15));
   z-index: 3;
+}
+
+.swiper-backface-hidden .myduke-how-works-desk-slider__slide.swiper-slide-active {
+  transform: scale(1) translateZ(0) !important;
 }
 
 .myduke-how-works-desk-slider__card {
