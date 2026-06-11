@@ -101,6 +101,73 @@
         "description": "myduke® is an Australian smoking cessation service providing structured, medically supervised support for adults seeking to quit smoking. Our service simplifies access to evidence-based care while maintaining full regulatory oversight."
       }
     },
+    "myduke_how_works_desk_slider_fEVPi9": {
+      "type": "myduke-how-works-desk-slider",
+      "blocks": {
+        "step_slide_NmNjWn": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.webp",
+            "step_badge": "Step 1",
+            "time_text": "4 minutes",
+            "step_counter": "01 / 04",
+            "step_title": "Complete Your Assessment",
+            "subtitle": "Answer our short online health questionnaire",
+            "checklist_items": "100% online and private\nNo GP referral needed\nTakes just a few minutes"
+          }
+        },
+        "step_slide_q7teKh": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Doctor-review-2.webp",
+            "step_badge": "Step 2",
+            "time_text": "24 hours",
+            "step_counter": "02 / 04",
+            "step_title": "Doctor Review",
+            "subtitle": "An AHPRA-registered doctor reviews your assessment",
+            "checklist_items": "Independent medical review\nPersonalised cessation plan\nFull regulatory compliance"
+          }
+        },
+        "step_slide_YyeUf3": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Shop_Treatment.webp",
+            "step_badge": "Step 3",
+            "time_text": "2-5 days",
+            "step_counter": "03 / 04",
+            "step_title": "Pharmacy Dispatch",
+            "subtitle": "Your medication is dispensed and delivered discreetly",
+            "checklist_items": "TGA-approved medications\nDiscreet packaging\nFast tracked delivery"
+          }
+        },
+        "step_slide_rQiAmc": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Ongoing_Support.webp",
+            "step_badge": "Step 4",
+            "time_text": "Ongoing",
+            "step_counter": "04 / 04",
+            "step_title": "Ongoing Support",
+            "subtitle": "Stay on track with dedicated check-ins and support",
+            "checklist_items": "Dedicated support team\nProgress tracking\nPlan adjustments as needed"
+          }
+        }
+      },
+      "block_order": [
+        "step_slide_NmNjWn",
+        "step_slide_q7teKh",
+        "step_slide_YyeUf3",
+        "step_slide_rQiAmc"
+      ],
+      "name": "How It Works — Steps Slider",
+      "settings": {
+        "left_bg_color": "#f7f8f8",
+        "eyebrow": "Our benefits",
+        "heading": "How myduke® Works",
+        "button_text": "Get started",
+        "button_link": ""
+      }
+    },
     "myduke_how_works_why_choose_9kT67b": {
       "type": "myduke-how-works-why-choose",
       "blocks": {
@@ -161,69 +228,6 @@
         "left_bg_color": "rgba(0,0,0,0)",
         "heading": "Why Choose MyDuke?",
         "description": "A regulated pathway built around safety, transparency, and your success."
-      }
-    },
-    "myduke_how_works_desk_slider_fEVPi9": {
-      "type": "myduke-how-works-desk-slider",
-      "blocks": {
-        "step_slide_NmNjWn": {
-          "type": "step_slide",
-          "settings": {
-            "step_badge": "Step 1",
-            "time_text": "4 minutes",
-            "step_counter": "01 / 04",
-            "step_title": "Complete Your Assessment",
-            "subtitle": "Answer our short online health questionnaire",
-            "checklist_items": "100% online and private\nNo GP referral needed\nTakes just a few minutes"
-          }
-        },
-        "step_slide_q7teKh": {
-          "type": "step_slide",
-          "settings": {
-            "step_badge": "Step 2",
-            "time_text": "24 hours",
-            "step_counter": "02 / 04",
-            "step_title": "Doctor Review",
-            "subtitle": "An AHPRA-registered doctor reviews your assessment",
-            "checklist_items": "Independent medical review\nPersonalised cessation plan\nFull regulatory compliance"
-          }
-        },
-        "step_slide_YyeUf3": {
-          "type": "step_slide",
-          "settings": {
-            "step_badge": "Step 3",
-            "time_text": "2-5 days",
-            "step_counter": "03 / 04",
-            "step_title": "Pharmacy Dispatch",
-            "subtitle": "Your medication is dispensed and delivered discreetly",
-            "checklist_items": "TGA-approved medications\nDiscreet packaging\nFast tracked delivery"
-          }
-        },
-        "step_slide_rQiAmc": {
-          "type": "step_slide",
-          "settings": {
-            "step_badge": "Step 4",
-            "time_text": "Ongoing",
-            "step_counter": "04 / 04",
-            "step_title": "Ongoing Support",
-            "subtitle": "Stay on track with dedicated check-ins and support",
-            "checklist_items": "Dedicated support team\nProgress tracking\nPlan adjustments as needed"
-          }
-        }
-      },
-      "block_order": [
-        "step_slide_NmNjWn",
-        "step_slide_q7teKh",
-        "step_slide_YyeUf3",
-        "step_slide_rQiAmc"
-      ],
-      "name": "How It Works — Steps Slider",
-      "settings": {
-        "left_bg_color": "#f7f8f8",
-        "eyebrow": "Our benefits",
-        "heading": "How myduke® Works",
-        "button_text": "Get started",
-        "button_link": ""
       }
     },
     "myduke_cta_PUUdCi": {
