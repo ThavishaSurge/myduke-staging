@@ -29,7 +29,7 @@
         "overlay_color_mobile": "#000000",
         "overlay_opacity_mobile": 0,
         "height_desktop": 60,
-        "height_mobile": 90,
+        "height_mobile": 60,
         "enable_mobile_colors": false,
         "mobile_text_color": "#264653",
         "enable_breadcrumbs": true,
@@ -41,6 +41,8 @@
         "content_max_width": 550,
         "heading": "By Product Type",
         "description": "<p>TGA-approved, pharmacy dispensed</p><p>products shipped Australia-wide.</p>",
+        "button_text": "",
+        "button_link": "",
         "enable_eligibility_form": false,
         "elig_heading": "Am I Eligible?",
         "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
@@ -302,22 +304,6 @@
     },
     "myduke_guidance_quiz_Pjzryf": {
       "type": "myduke-guidance-quiz",
-      "blocks": {
-        "question_MaYy7r": {
-          "type": "question",
-          "settings": {
-            "question_text": "How many cigarettes do you smoke per day?",
-            "question_subtext": "This helps determine your nicotine strength",
-            "option_1": "1-5",
-            "option_2": "5-10",
-            "option_3": "10-20",
-            "option_4": "20+"
-          }
-        }
-      },
-      "block_order": [
-        "question_MaYy7r"
-      ],
       "name": "Guidance Quiz",
       "settings": {
         "heading": "Need Guidance?",
