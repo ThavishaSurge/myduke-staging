@@ -15,7 +15,7 @@
     const nextBtn = sectionEl.querySelector('.js-desk-slider-next');
 
     const swiper = new Swiper(trackEl, {
-      slidesPerView: 3,
+      slidesPerView: 'auto',
       centeredSlides: true,
       spaceBetween: -130,
       loop: true,

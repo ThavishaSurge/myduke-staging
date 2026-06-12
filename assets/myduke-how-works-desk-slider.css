@@ -1,15 +1,37 @@
 /* =============================================
-   Desktop / tablet only — hidden on mobile
+   Desktop / tablet only — hidden on mobile.
+
+   --slider-card-width, --slider-card-space, and
+   --slider-inactive-scale drive both the slide
+   width (CSS) and the swiper container width
+   (calc below). Keep --slider-card-space in sync
+   with `spaceBetween` in the Swiper JS config so
+   layout and translate math agree.
    ============================================= */
 .myduke-how-works-desk-slider-section {
   display: none;
   background-color: #f7f8f8;
   overflow: hidden;
+
+  --slider-card-width: 356px;
+  --slider-card-space: -130px;
+  --slider-inactive-scale: 0.7;
+  /* visible_width = 2 * (slideWidth + space) + slideWidth * inactiveScale */
+  --slider-visible-width: calc(
+    2 * (var(--slider-card-width) + var(--slider-card-space))
+    + var(--slider-card-width) * var(--slider-inactive-scale)
+  );
 }
 
 @media screen and (min-width: 750px) {
   .myduke-how-works-desk-slider-section {
     display: block;
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .myduke-how-works-desk-slider-section {
+    --slider-card-space: -190px;
   }
 }
 
@@ -124,7 +146,7 @@
   align-items: center;
   justify-content: center;
   min-width: 0;
-  padding: 24px 0;
+  padding: 144px 0;
 }
 
 /* =============================================
@@ -158,40 +180,26 @@
 }
 
 /* =============================================
-   Swiper — fills right panel, clips at its own
-   boundary so only prev/active/next show. Extra
-   bottom padding leaves room for the active slide's
-   drop-shadow.
+   Swiper — width is locked to the visible 3-card
+   span (computed from --slider-card-width and
+   --slider-card-space), so the flex `gap: 32px`
+   in the right panel lands the nav arrows exactly
+   32px from the visible cards instead of from the
+   swiper's empty padding.
    ============================================= */
 .myduke-how-works-desk-slider__swiper {
   overflow: hidden;
-  flex: 1 1 0;
+  flex: 0 1 var(--slider-visible-width);
+  width: var(--slider-visible-width);
   min-width: 0;
-  max-width: 808px;
+  max-width: 100%;
   padding-bottom: 40px;
 }
 
-/* =============================================
-   Slides — classic slider effect.
-
-   swiper-bundle.min.css ships rules that fight us:
-     .swiper-slide { transition-property: transform; }
-     .swiper-backface-hidden .swiper-slide {
-       transform: translateZ(0);
-     }
-   The first kills our opacity transition; the second
-   wipes out scale because of its 2-class specificity.
-   We load this stylesheet AFTER the bundle, and the
-   .swiper-backface-hidden override below matches that
-   specificity (so source order wins). translateZ(0)
-   is kept in the transform so the browser still gives
-   us a hardware-accelerated layer. !important on the
-   active state guarantees the larger transform applies
-   regardless of which Swiper-added classes are present.
-   ============================================= */
 .myduke-how-works-desk-slider__slide {
   position: relative;
   padding-top: 12px;
+  width: var(--slider-card-width);
   opacity: 0.5;
   transform: scale(0.7);
   transform-origin: center center;
@@ -217,17 +225,6 @@
   transform: scale(1) translateZ(0) !important;
 }
 
-/* =============================================
-   Only prev / active / next should be visible.
-   With slidesPerView: 3 + negative spaceBetween,
-   the slide at progress ±2 still peeks ~77px into
-   the swiper. Hiding non-adjacent slides via the
-   :not chain keeps the 600ms opacity transition,
-   so the incoming "next" fades up 0→0.5 while it
-   translates in, and the outgoing "prev" fades
-   0.5→0 while it translates out — both fully in
-   sync with the wrapper, no edge pop.
-   ============================================= */
 .myduke-how-works-desk-slider__slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
   opacity: 0;
   pointer-events: none;
