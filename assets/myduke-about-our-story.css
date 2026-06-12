@@ -143,7 +143,6 @@
 
   .myduke-about-our-story__image {
     width: 100%;
-    align-self: auto;
   }
 
   .myduke-about-our-story__content {
@@ -152,7 +151,7 @@
   }
 
   .myduke-about-our-story__inner.reverse .myduke-about-our-story__content {
-    padding: 6rem 3.2rem;
+    padding: 3.2rem 3.2rem;
   }
 
   .myduke-about-our-story__heading {
