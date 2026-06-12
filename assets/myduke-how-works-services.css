@@ -225,3 +225,9 @@
     width: 100%;
   }
 }
+
+.reg-mark {
+  font-size: 0.45em;
+  vertical-align: super;
+  line-height: 0;
+}

@@ -27,11 +27,11 @@
             <p class="myduke-how-works-services__eyebrow">{{ section.settings.eyebrow }}</p>
           {%- endif -%}
           {%- if section.settings.heading != blank -%}
-            <h2 class="myduke-how-works-services__heading">{{ section.settings.heading }}</h2>
+            <h2 class="myduke-how-works-services__heading">{{ section.settings.heading | replace: '®', '<span class="reg-mark">®</span>' }}</h2>
           {%- endif -%}
         </div>
         {%- if section.settings.description != blank -%}
-          <p class="myduke-how-works-services__description">{{ section.settings.description }}</p>
+          <p class="myduke-how-works-services__description">{{ section.settings.description | replace: '®', '<span class="reg-mark">®</span>' }}</p>
         {%- endif -%}
       </div>
 
