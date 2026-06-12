@@ -227,7 +227,9 @@
 }
 
 .reg-mark {
-  font-size: 0.45em;
+  font-size: .75em;
   vertical-align: super;
   line-height: 0;
+  position: relative;
+  top: 4px;
 }
