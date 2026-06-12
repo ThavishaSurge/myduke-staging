@@ -3,11 +3,10 @@
     background-color: rgba(0, 0, 0, 0.6) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   .age-verification__wrapper {
     width: 100%;
     height: auto !important;
@@ -18,7 +17,7 @@
   .age-verification__wrapper > .container {
     background-color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     padding: 4rem;
     max-width: 500px;
@@ -52,7 +51,7 @@
     margin-top: 0 !important;
   }
 
-  .age-verification__button-no {
+  .age-verification__leave-btn {
     background: transparent;
     border: none;
     color: #2b5cff;
@@ -63,13 +62,13 @@
     padding: 0;
     transition: color 0.2s ease;
   }
-  
-  .age-verification__button-no:hover {
+
+  .age-verification__leave-btn:hover {
     color: #1a3fb3;
   }
 
   .age-verification__popup-close {
-    background-color: #1e3a5f;
+    background-color: #218380;
     color: #ffffff;
     border: none;
     border-radius: 30px;
@@ -131,11 +130,11 @@
                 {{- section.settings.button_label_yes -}}
               </span>
             </button>
-            <button class="age-verification__button-no focus-inset">
+            <a href="https://www.google.com" class="age-verification__leave-btn focus-inset">
               <span class="button__label" data-label="{{- section.settings.button_label_no -}}">
                 {{- section.settings.button_label_no -}}
               </span>
-            </button>
+            </a>
           </div>
         </div>
 
