@@ -394,8 +394,13 @@
    Tablet (750px – 1159px)
    ============================================= */
 @media screen and (min-width: 750px) and (max-width: 1159px) {
+
+  .myduke-how-works-desk-slider {
+    grid-template-columns: 1fr;
+  }
+
   .myduke-how-works-desk-slider__left {
-    width: 260px;
+    width: 100%;
   }
 
   .myduke-how-works-desk-slider__heading {
@@ -405,6 +410,7 @@
 
   .myduke-how-works-desk-slider__right {
     gap: 16px;
+    padding: 0px;
   }
 
   .myduke-how-works-desk-slider__card-img-wrap {
