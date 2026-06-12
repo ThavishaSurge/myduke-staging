@@ -186,12 +186,111 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_cta_diTNCn": {
+      "type": "myduke-cta",
+      "name": "CTA (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "visibility": "both",
+        "bg_image": "shopify://shop_images/cta-bg.webp",
+        "bg_image_mobile": "shopify://shop_images/cta-bg-mob.webp",
+        "fallback_color": "#264653",
+        "eyebrow": "You're not alone",
+        "heading": "myduke® is for quitters",
+        "heading_tag": "h2",
+        "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
+        "button_label": "Get started",
+        "button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_faq_mULHMX": {
+      "type": "myduke-faq",
+      "blocks": {
+        "faq_item_4h6gf8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is MyDuke legal in Australia?",
+            "answer": "<p>Yes. All products facilitated through MyDuke are prescribed by AHPRA-registered doctors and dispensed by licensed Australian pharmacies in full compliance with TGA regulations.</p>"
+          }
+        },
+        "faq_item_EtxnC6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does it take to get a prescription after assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_CBY4Eg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": ""
+          }
+        },
+        "faq_item_GMAPf7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I access myduke® support if I live in a remote area?",
+            "answer": ""
+          }
+        },
+        "faq_item_xYTykN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What treatment options are available in Australia to help quit smoking?",
+            "answer": ""
+          }
+        },
+        "faq_item_aY8tHN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why can't I see the medication and price before completing the assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_p6TLbJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return my order if I have changed my mind?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_4h6gf8",
+        "faq_item_EtxnC6",
+        "faq_item_CBY4Eg",
+        "faq_item_GMAPf7",
+        "faq_item_xYTykN",
+        "faq_item_aY8tHN",
+        "faq_item_p6TLbJ"
+      ],
+      "name": "FAQ (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "FAQs",
+        "heading": "Your Questions Answered",
+        "heading_tag": "h2",
+        "cta_button_label": "More FAQs",
+        "cta_button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_xYteCE",
     "content_cards_myduke_yLHD6k",
-    "myduke_cost_calculator_comp_Rcw8wR"
+    "myduke_cost_calculator_comp_Rcw8wR",
+    "myduke_cta_diTNCn",
+    "myduke_faq_mULHMX"
   ]
 }
