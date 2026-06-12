@@ -278,7 +278,7 @@
 /* Card body — white, p-20px, flex-col gap-20px (1482:6287) */
 .myduke-how-works-desk-slider__card-body {
   background-color: #ffffff;
-  padding: 28px 24px 32px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
