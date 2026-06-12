@@ -32,7 +32,10 @@
               <div class="myduke-how-works-mob-slider__card">
 
                 {%- if block.settings.step_badge != blank -%}
-                  <div class="myduke-how-works-mob-slider__step-badge">
+                  <div
+                    class="myduke-how-works-mob-slider__step-badge"
+                    style="border-color: {{ block.settings.check_color | default: '#218380' }};"
+                  >
                     {{- block.settings.step_badge -}}
                   </div>
                 {%- endif -%}
