@@ -197,6 +197,7 @@
         "quick_fact_h4A9ci",
         "quick_fact_LE3kQq"
       ],
+      "disabled": true,
       "name": "Cost Calculator (MyDuke)",
       "settings": {
         "color_scheme": "",
@@ -218,6 +219,67 @@
         "cta_text": "Ready to start saving",
         "cta_button_label": "Start your assessment",
         "cta_button_url": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_cost_calculator_comp_fJ9E6R": {
+      "type": "myduke-cost-calculator-comp",
+      "blocks": {
+        "quick_fact_BCQy73": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Tobacco kills more than 8 million people worldwide every year (WHO)."
+          }
+        },
+        "quick_fact_x6C7ed": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Within 20 minutes of quitting, your heart rate begins to drop back to normal."
+          }
+        },
+        "quick_fact_Umm7cX": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "After 1 year smoke-free, your risk of heart disease is cut in half."
+          }
+        },
+        "quick_fact_GMLrDL": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Nicotine replacement therapies can double your chances of quitting successfully."
+          }
+        }
+      },
+      "block_order": [
+        "quick_fact_BCQy73",
+        "quick_fact_x6C7ed",
+        "quick_fact_Umm7cX",
+        "quick_fact_GMLrDL"
+      ],
+      "name": "Cost Calculator (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/cost-cal-bg.webp",
+        "heading": "See What You Could Save",
+        "heading_tag": "h2",
+        "slider_label": "Cigarettes per day",
+        "slider_unit": "Cigarettes",
+        "slider_min": 1,
+        "slider_max": 60,
+        "slider_default": 30,
+        "slider_fill_color": "#218380",
+        "cost_per_cigarette": 2,
+        "cost_label": "Cost per cigarette",
+        "show_gst_label": true,
+        "facts_label": "Quick Facts",
+        "weekly_label": "Savings per week",
+        "yearly_label": "Savings per year",
+        "cta_text": "Ready to start saving",
+        "cta_button_label": "Start your assessment",
+        "cta_button_url": "",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
@@ -419,6 +481,7 @@
     "info_banner_T4Ytcx",
     "content_cards_myduke_Ct4eM8",
     "myduke_cost_calculator_gNtdKb",
+    "myduke_cost_calculator_comp_fJ9E6R",
     "myduke_guided_support_FMLM4X",
     "myduke_cta_E6WbRb",
     "myduke_faq_eiGzkw",
