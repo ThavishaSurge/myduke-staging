@@ -129,6 +129,8 @@
                 <img
                   src="{{ block.settings.image | image_url: width: 140 }}"
                   alt=""
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
                   loading="lazy"
                 >
               {%- else -%}
