@@ -320,16 +320,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       },
 
-      /*
-       * Age popup
-       */
       agePopup: function (event) {
         let el = event.target ? event.target : event;
 
         // Get popup container.
         let popup = el.closest(".popup");
         $this.setStorage("popup-age-" + popup.getAttribute("data-id"), 1, {
-          expires: 360,
+          expires: 1,
         });
       },
 
