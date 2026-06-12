@@ -219,6 +219,18 @@
     "myduke_vendor_logos_cjVNAy": {
       "type": "myduke-vendor-logos",
       "blocks": {
+        "vendor_zmLJNi": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "chosen"
+          }
+        },
+        "vendor_Lqn6YT": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "lula"
+          }
+        },
         "vendor_LLmB6t": {
           "type": "vendor",
           "settings": {
@@ -293,6 +305,8 @@
         }
       },
       "block_order": [
+        "vendor_zmLJNi",
+        "vendor_Lqn6YT",
         "vendor_LLmB6t",
         "vendor_KnrVeR",
         "vendor_B9yLNf",
@@ -328,22 +342,6 @@
     },
     "myduke_guidance_quiz_LiX6dP": {
       "type": "myduke-guidance-quiz",
-      "blocks": {
-        "question_ePG9LF": {
-          "type": "question",
-          "settings": {
-            "question_text": "How many cigarettes do you smoke per day?",
-            "question_subtext": "This helps determine your nicotine strength",
-            "option_1": "1-5",
-            "option_2": "5-10",
-            "option_3": "10-20",
-            "option_4": "20+"
-          }
-        }
-      },
-      "block_order": [
-        "question_ePG9LF"
-      ],
       "custom_css": [],
       "name": "Guidance Quiz",
       "settings": {
