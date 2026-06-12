@@ -113,7 +113,8 @@
             "step_counter": "01 / 04",
             "step_title": "Clinical Assessment",
             "subtitle": "Tell us about you",
-            "checklist_items": "Sign up & set your quit goals\nConfidential health questionnaire\nTakes just 2 minutes"
+            "checklist_items": "Sign up & set your quit goals\nConfidential health questionnaire\nTakes just 2 minutes",
+            "check_color": "#bfdbcf"
           }
         },
         "step_slide_q7teKh": {
@@ -125,7 +126,8 @@
             "step_counter": "02 / 04",
             "step_title": "Medical Review",
             "subtitle": "Doctor-approved pathway",
-            "checklist_items": "AHPRA-registered doctor reviews\nPersonalised cessation care plan\nMedically appropriate recommendations"
+            "checklist_items": "AHPRA-registered doctor reviews\nPersonalised cessation care plan\nMedically appropriate recommendations",
+            "check_color": "#ffb703"
           }
         },
         "step_slide_YyeUf3": {
@@ -137,7 +139,8 @@
             "step_counter": "03 / 04",
             "step_title": "Treatment & Dispatch",
             "subtitle": "Pharmacy-dispensed products",
-            "checklist_items": "Receive your clinical plan\nTGA-compliant regulated products\nDispatched within 24–48 hrs"
+            "checklist_items": "Receive your clinical plan\nTGA-compliant regulated products\nDispatched within 24–48 hrs",
+            "check_color": "#ef6351"
           }
         },
         "step_slide_rQiAmc": {
@@ -149,7 +152,8 @@
             "step_counter": "04 / 04",
             "step_title": "Ongoing Support",
             "subtitle": "We're with you all the way",
-            "checklist_items": "Monitored care plan\nProfessional dispensing partners\nStep-down guidance over time"
+            "checklist_items": "Monitored care plan\nProfessional dispensing partners\nStep-down guidance over time",
+            "check_color": "#218380"
           }
         }
       },
