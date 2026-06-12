@@ -147,7 +147,7 @@
   align-items: center;
   justify-content: center;
   min-width: 0;
-  padding: 144px 0;
+  padding:124px 0;
 }
 
 /* =============================================
@@ -180,24 +180,13 @@
   cursor: default;
 }
 
-/* =============================================
-   Swiper — width is locked to the visible 3-card
-   span (computed from --slider-card-width and
-   --slider-card-space), so the flex `gap: 32px`
-   in the right panel lands the nav arrows exactly
-   32px from the visible cards instead of from the
-   swiper's empty padding.
-   ============================================= */
-/* Compound selector (.swiper is also on this element) so specificity beats
-   swiper-bundle.min.css's `.swiper { padding: 0; margin: auto; }` regardless
-   of which stylesheet loads last. */
 .myduke-how-works-desk-slider__swiper.swiper {
   overflow: hidden;
   flex: 0 1 var(--slider-visible-width);
   width: var(--slider-visible-width);
   min-width: 0;
   max-width: 100%;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   margin-left: 0;
   margin-right: 0;
 }
@@ -225,7 +214,7 @@
   opacity: 1 !important;
   transform: scale(1) !important;
   pointer-events: auto;
-  filter: drop-shadow(0px 17px 21.45px rgba(126, 74, 24, 0.15));
+  filter: drop-shadow(0px 17px 21.45px var(--slide-shadow, rgba(126, 74, 24, 0.1)));
   z-index: 3;
 }
 

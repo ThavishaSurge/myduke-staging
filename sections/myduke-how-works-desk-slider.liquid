@@ -65,6 +65,7 @@
             {%- for block in section.blocks -%}
               <div
                 class="myduke-how-works-desk-slider__slide swiper-slide"
+                style="--slide-shadow: {{ block.settings.check_color | default: '#FFB703' | color_modify: 'alpha', 0.1 }};"
                 {{ block.shopify_attributes }}
               >
                 {%- if block.settings.step_badge != blank -%}
