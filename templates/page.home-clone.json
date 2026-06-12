@@ -1,0 +1,296 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_info": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "h5",
+        "heading_tag": "h1",
+        "content_align": "left"
+      }
+    },
+    "myduke_hero_xYteCE": {
+      "type": "myduke-hero",
+      "name": "MyDuke Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "heading": "Clinical Support For\nNicotine Dependance",
+        "description": "myduke offers safe and clinically appropriate pathways for smoking cessation, supported by healthcare professionals every step of the way.",
+        "button_1_text": "Apply For A Prescription",
+        "button_1_link": "",
+        "button_2_text": "How It Works",
+        "button_2_link": "",
+        "enable_eligibility_form": true,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": "",
+        "elig_q1_question": "What is your age range",
+        "elig_q1_answer1": "18–25",
+        "elig_q1_answer2": "26–35",
+        "elig_q1_answer3": "36–50",
+        "elig_q1_answer4": "50+",
+        "elig_q2_question": "How long have you been smoking",
+        "elig_q2_answer1": "Less than 1 year",
+        "elig_q2_answer2": "1–5 years",
+        "elig_q2_answer3": "5–15 years",
+        "elig_q2_answer4": "15+ years",
+        "elig_q3_question": "What is your primary goal",
+        "elig_q3_answer1": "Quit completely",
+        "elig_q3_answer2": "Reduce intake",
+        "elig_q3_answer3": "Switch to a safer alternative",
+        "elig_q3_answer4": "Explore options",
+        "elig_processing_label": "Verifying medical data",
+        "elig_processing_status": "Cross-referencing with clinical eligibility criteria",
+        "elig_result_eligible_title": "You may be eligible",
+        "elig_result_eligible_text": "Based on your responses, you're a potential candidate. Complete the full medical assessment to proceed.",
+        "elig_result_not_eligible_title": "Not eligible at this time",
+        "elig_result_not_eligible_text": "Based on your responses, you may not qualify for this program right now. Please consult a healthcare professional."
+      }
+    },
+    "content_cards_myduke_yLHD6k": {
+      "type": "content-cards-myduke",
+      "blocks": {
+        "content_cards_9GQURw": {
+          "type": "content-cards",
+          "settings": {
+            "card_image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.png",
+            "card_time_badge": "2 minutes",
+            "card_heading": "Clinical Assessment",
+            "card_check_text": "Tell us about you",
+            "card_check_icon_svg": ""
+          }
+        },
+        "content_cards_mAhmWD": {
+          "type": "content-cards",
+          "settings": {
+            "card_image": "shopify://shop_images/Doctor-review-2.webp",
+            "card_time_badge": "< 24 hrs",
+            "card_heading": "Doctor Review",
+            "card_check_text": "Doctor-approved pathway",
+            "card_check_icon_svg": ""
+          }
+        },
+        "content_cards_JdbK9x": {
+          "type": "content-cards",
+          "settings": {
+            "card_image": "shopify://shop_images/Shop_Treatment.webp",
+            "card_time_badge": "1-2 Days",
+            "card_heading": "Shop Treatment",
+            "card_check_text": "Pharmacy-dispensed products",
+            "card_check_icon_svg": ""
+          }
+        },
+        "content_cards_9JBazF": {
+          "type": "content-cards",
+          "settings": {
+            "card_image": "shopify://shop_images/Ongoing_Support.webp",
+            "card_time_badge": "Ongoing",
+            "card_heading": "Ongoing Support",
+            "card_check_text": "We're with you all the way",
+            "card_check_icon_svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_cards_9GQURw",
+        "content_cards_mAhmWD",
+        "content_cards_JdbK9x",
+        "content_cards_9JBazF"
+      ],
+      "name": "Content Cards (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "Our benefits",
+        "heading": "How myduke® Works",
+        "heading_tag": "h2",
+        "cta_button_label": "Get Started",
+        "cta_button_url": "",
+        "enable_card_numbering": true,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_cost_calculator_comp_Rcw8wR": {
+      "type": "myduke-cost-calculator-comp",
+      "blocks": {
+        "quick_fact_PFqxMV": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Tobacco kills more than 8 million people worldwide every year (WHO)."
+          }
+        },
+        "quick_fact_6TMaJX": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Within 20 minutes of quitting, your heart rate begins to drop back to normal."
+          }
+        },
+        "quick_fact_QDNd4X": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "After 1 year smoke-free, your risk of heart disease is cut in half."
+          }
+        },
+        "quick_fact_AmmQWU": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Nicotine replacement therapies can double your chances of quitting successfully."
+          }
+        }
+      },
+      "block_order": [
+        "quick_fact_PFqxMV",
+        "quick_fact_6TMaJX",
+        "quick_fact_QDNd4X",
+        "quick_fact_AmmQWU"
+      ],
+      "name": "Cost Calculator (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/cost-cal-bg.webp",
+        "heading": "See What You Could Save",
+        "heading_tag": "h2",
+        "slider_label": "Cigarettes per day",
+        "slider_unit": "Cigarettes",
+        "slider_min": 1,
+        "slider_max": 60,
+        "slider_default": 30,
+        "slider_fill_color": "#218380",
+        "cost_per_cigarette": 2,
+        "cost_label": "Cost per cigarette",
+        "show_gst_label": true,
+        "facts_label": "Quick Facts",
+        "weekly_label": "Savings per week",
+        "yearly_label": "Savings per year",
+        "cta_text": "Ready to start saving",
+        "cta_button_label": "Start your assessment",
+        "cta_button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_cta_diTNCn": {
+      "type": "myduke-cta",
+      "name": "CTA (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "visibility": "both",
+        "bg_image": "shopify://shop_images/cta-bg.webp",
+        "bg_image_mobile": "shopify://shop_images/cta-bg-mob.webp",
+        "fallback_color": "#264653",
+        "eyebrow": "You're not alone",
+        "heading": "myduke® is for quitters",
+        "heading_tag": "h2",
+        "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
+        "button_label": "Get started",
+        "button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "myduke_faq_mULHMX": {
+      "type": "myduke-faq",
+      "blocks": {
+        "faq_item_4h6gf8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is MyDuke legal in Australia?",
+            "answer": "<p>Yes. All products facilitated through MyDuke are prescribed by AHPRA-registered doctors and dispensed by licensed Australian pharmacies in full compliance with TGA regulations.</p>"
+          }
+        },
+        "faq_item_EtxnC6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does it take to get a prescription after assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_CBY4Eg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": ""
+          }
+        },
+        "faq_item_GMAPf7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I access myduke® support if I live in a remote area?",
+            "answer": ""
+          }
+        },
+        "faq_item_xYTykN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What treatment options are available in Australia to help quit smoking?",
+            "answer": ""
+          }
+        },
+        "faq_item_aY8tHN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why can't I see the medication and price before completing the assessment?",
+            "answer": ""
+          }
+        },
+        "faq_item_p6TLbJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return my order if I have changed my mind?",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_4h6gf8",
+        "faq_item_EtxnC6",
+        "faq_item_CBY4Eg",
+        "faq_item_GMAPf7",
+        "faq_item_xYTykN",
+        "faq_item_aY8tHN",
+        "faq_item_p6TLbJ"
+      ],
+      "name": "FAQ (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "eyebrow": "FAQs",
+        "heading": "Your Questions Answered",
+        "heading_tag": "h2",
+        "cta_button_label": "More FAQs",
+        "cta_button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    }
+  },
+  "order": [
+    "page_info",
+    "myduke_hero_xYteCE",
+    "content_cards_myduke_yLHD6k",
+    "myduke_cost_calculator_comp_Rcw8wR",
+    "myduke_cta_diTNCn",
+    "myduke_faq_mULHMX"
+  ]
+}

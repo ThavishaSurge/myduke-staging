@@ -33,7 +33,6 @@
   flex: 1 0 0;
   min-width: 0;
   align-self: stretch;
-  overflow: hidden;
 }
 
 .myduke-path-zero__image img {
@@ -42,6 +41,7 @@
   object-fit: cover;
   display: block;
   min-height: 100%;
+  max-height: 914px;
 }
 
 /* ── Phase card ────────────────────────────────────── */
@@ -273,8 +273,8 @@
 /* ── Tablet ─────────────────────────────────────────── */
 @media screen and (max-width: 992px) {
   .myduke-path-zero__inner {
-    flex-direction: column;
-    gap: 0;
+    flex-direction: column-reverse;
+    gap: 1.6rem;
   }
 
   .myduke-path-zero__inner.reverse .myduke-path-zero__phases,
@@ -307,10 +307,6 @@
   .myduke-path-zero {
     padding: 1.2rem 1.2rem 0 1.2rem;
     background-color: #f7f8f8;
-  }
-
-  .myduke-path-zero__image {
-    display: none;
   }
 
   .myduke-path-zero__phase {
