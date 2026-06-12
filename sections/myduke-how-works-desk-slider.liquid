@@ -127,7 +127,7 @@
                           {%- if trimmed != blank -%}
                             <li class="myduke-how-works-desk-slider__checklist-item">
                               <svg class="myduke-how-works-desk-slider__check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
-                                <circle cx="8" cy="8" r="8" fill="#FFB703"/>
+                                <circle cx="8" cy="8" r="8" fill="{{ block.settings.check_color | default: '#FFB703' }}"/>
                                 <path d="M4.5 8.5L6.5 10.5L11.5 5.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                               </svg>
                               <span class="myduke-how-works-desk-slider__checklist-text">{{ trimmed }}</span>
@@ -259,6 +259,12 @@
           "label": "Checklist Items",
           "info": "One item per line",
           "default": "Safe and secure\nPrivate and confidential\nDoctor reviewed"
+        },
+        {
+          "type": "color",
+          "id": "check_color",
+          "label": "Check Icon Colour",
+          "default": "#FFB703"
         }
       ]
     }
