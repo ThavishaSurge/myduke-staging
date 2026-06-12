@@ -188,22 +188,23 @@
    32px from the visible cards instead of from the
    swiper's empty padding.
    ============================================= */
-.myduke-how-works-desk-slider__swiper {
+/* Compound selector (.swiper is also on this element) so specificity beats
+   swiper-bundle.min.css's `.swiper { padding: 0; margin: auto; }` regardless
+   of which stylesheet loads last. */
+.myduke-how-works-desk-slider__swiper.swiper {
   overflow: hidden;
   flex: 0 1 var(--slider-visible-width);
   width: var(--slider-visible-width);
   min-width: 0;
   max-width: 100%;
   padding-bottom: 40px;
-  /* swiper-bundle.min.css sets `.swiper { margin-left: auto; margin-right: auto; }`
-     which steals the leftover horizontal space and pushes the nav arrows away
-     from the card edge. Reset it so the right panel's flex `gap: 32px` lands
-     exactly 32px from the visible cards. */
   margin-left: 0;
   margin-right: 0;
 }
 
-.myduke-how-works-desk-slider__slide {
+/* .swiper-slide is also on this element — compound selector beats
+   swiper-bundle.min.css's `.swiper-slide { width: 100%; transition-property: transform; }` */
+.myduke-how-works-desk-slider__slide.swiper-slide {
   position: relative;
   padding-top: 12px;
   width: var(--slider-card-width);
@@ -216,7 +217,7 @@
   will-change: transform, opacity;
 }
 
-.swiper-backface-hidden .myduke-how-works-desk-slider__slide {
+.swiper-backface-hidden .myduke-how-works-desk-slider__slide.swiper-slide {
   transform: scale(0.7) translateZ(0);
 }
 
@@ -232,7 +233,7 @@
   transform: scale(1) translateZ(0) !important;
 }
 
-.myduke-how-works-desk-slider__slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
+.myduke-how-works-desk-slider__slide.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
   opacity: 0;
   pointer-events: none;
 }
