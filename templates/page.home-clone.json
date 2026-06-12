@@ -11,14 +11,125 @@
   "sections": {
     "page_info": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
         "content_align": "left"
       }
+    },
+    "myduke_hero_xYteCE": {
+      "type": "myduke-hero",
+      "name": "MyDuke Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "heading": "Clinical Support For\nNicotine Dependance",
+        "description": "myduke offers safe and clinically appropriate pathways for smoking cessation, supported by healthcare professionals every step of the way.",
+        "button_1_text": "Apply For A Prescription",
+        "button_1_link": "",
+        "button_2_text": "How It Works",
+        "button_2_link": "",
+        "enable_eligibility_form": true,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": "",
+        "elig_q1_question": "What is your age range",
+        "elig_q1_answer1": "18–25",
+        "elig_q1_answer2": "26–35",
+        "elig_q1_answer3": "36–50",
+        "elig_q1_answer4": "50+",
+        "elig_q2_question": "How long have you been smoking",
+        "elig_q2_answer1": "Less than 1 year",
+        "elig_q2_answer2": "1–5 years",
+        "elig_q2_answer3": "5–15 years",
+        "elig_q2_answer4": "15+ years",
+        "elig_q3_question": "What is your primary goal",
+        "elig_q3_answer1": "Quit completely",
+        "elig_q3_answer2": "Reduce intake",
+        "elig_q3_answer3": "Switch to a safer alternative",
+        "elig_q3_answer4": "Explore options",
+        "elig_processing_label": "Verifying medical data",
+        "elig_processing_status": "Cross-referencing with clinical eligibility criteria",
+        "elig_result_eligible_title": "You may be eligible",
+        "elig_result_eligible_text": "Based on your responses, you're a potential candidate. Complete the full medical assessment to proceed.",
+        "elig_result_not_eligible_title": "Not eligible at this time",
+        "elig_result_not_eligible_text": "Based on your responses, you may not qualify for this program right now. Please consult a healthcare professional."
+      }
+    },
+    "content_cards_myduke_yLHD6k": {
+      "type": "content-cards-myduke",
+      "blocks": {
+        "content_cards_9GQURw": {
+          "type": "content-cards",
+          "settings": {
+            "card_image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.png",
+            "card_time_badge": "2 minutes",
+            "card_heading": "Clinical Assessment",
+            "card_check_text": "Tell us about you",
+            "card_check_icon_svg": ""
+          }
+        },
+        "content_cards_mAhmWD": {
+          "type": "content-cards",
+          "settings": {
+            "card_image": "shopify://shop_images/Doctor-review-2.webp",
+            "card_time_badge": "< 24 hrs",
+            "card_heading": "Doctor Review",
+            "card_check_text": "Doctor-approved pathway",
+            "card_check_icon_svg": ""
+          }
+        },
+        "content_cards_JdbK9x": {
+          "type": "content-cards",
+          "settings": {
+            "card_image": "shopify://shop_images/Shop_Treatment.webp",
+            "card_time_badge": "1-2 Days",
+            "card_heading": "Shop Treatment",
+            "card_check_text": "Pharmacy-dispensed products",
+            "card_check_icon_svg": ""
+          }
+        },
+        "content_cards_9JBazF": {
+          "type": "content-cards",
+          "settings": {
+            "card_image": "shopify://shop_images/Ongoing_Support.webp",
+            "card_time_badge": "Ongoing",
+            "card_heading": "Ongoing Support",
+            "card_check_text": "We're with you all the way",
+            "card_check_icon_svg": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_cards_9GQURw",
+        "content_cards_mAhmWD",
+        "content_cards_JdbK9x",
+        "content_cards_9JBazF"
+      ],
+      "name": "Content Cards (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "Our benefits",
+        "heading": "How myduke® Works",
+        "heading_tag": "h2",
+        "cta_button_label": "Get Started",
+        "cta_button_url": "",
+        "enable_card_numbering": true,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
-    "page_info"
+    "page_info",
+    "myduke_hero_xYteCE",
+    "content_cards_myduke_yLHD6k"
   ]
 }
