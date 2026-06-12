@@ -13,7 +13,7 @@
   background-color: #f7f8f8;
   overflow: hidden;
 
-  --slider-card-width: 356px;
+  --slider-card-width: 396px;
   --slider-card-space: -130px;
   --slider-inactive-scale: 0.7;
   /* visible_width = 2 * (slideWidth + space) + slideWidth * inactiveScale */
