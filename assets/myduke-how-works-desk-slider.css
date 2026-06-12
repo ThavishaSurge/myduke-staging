@@ -40,7 +40,8 @@
    1482:6211
    ============================================= */
 .myduke-how-works-desk-slider {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
   gap: 20px;
   align-items: center;
   padding: 24px;
