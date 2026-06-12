@@ -125,11 +125,73 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_cost_calculator_comp_Rcw8wR": {
+      "type": "myduke-cost-calculator-comp",
+      "blocks": {
+        "quick_fact_PFqxMV": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Tobacco kills more than 8 million people worldwide every year (WHO)."
+          }
+        },
+        "quick_fact_6TMaJX": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Within 20 minutes of quitting, your heart rate begins to drop back to normal."
+          }
+        },
+        "quick_fact_QDNd4X": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "After 1 year smoke-free, your risk of heart disease is cut in half."
+          }
+        },
+        "quick_fact_AmmQWU": {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Nicotine replacement therapies can double your chances of quitting successfully."
+          }
+        }
+      },
+      "block_order": [
+        "quick_fact_PFqxMV",
+        "quick_fact_6TMaJX",
+        "quick_fact_QDNd4X",
+        "quick_fact_AmmQWU"
+      ],
+      "name": "Cost Calculator (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/cost-cal-bg.webp",
+        "heading": "See What You Could Save",
+        "heading_tag": "h2",
+        "slider_label": "Cigarettes per day",
+        "slider_unit": "Cigarettes",
+        "slider_min": 1,
+        "slider_max": 60,
+        "slider_default": 30,
+        "slider_fill_color": "#218380",
+        "cost_per_cigarette": 2,
+        "cost_label": "Cost per cigarette",
+        "show_gst_label": true,
+        "facts_label": "Quick Facts",
+        "weekly_label": "Savings per week",
+        "yearly_label": "Savings per year",
+        "cta_text": "Ready to start saving",
+        "cta_button_label": "Start your assessment",
+        "cta_button_url": "",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_xYteCE",
-    "content_cards_myduke_yLHD6k"
+    "content_cards_myduke_yLHD6k",
+    "myduke_cost_calculator_comp_Rcw8wR"
   ]
 }
