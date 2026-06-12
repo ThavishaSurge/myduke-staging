@@ -194,6 +194,12 @@
   min-width: 0;
   max-width: 100%;
   padding-bottom: 40px;
+  /* swiper-bundle.min.css sets `.swiper { margin-left: auto; margin-right: auto; }`
+     which steals the leftover horizontal space and pushes the nav arrows away
+     from the card edge. Reset it so the right panel's flex `gap: 32px` lands
+     exactly 32px from the visible cards. */
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .myduke-how-works-desk-slider__slide {
