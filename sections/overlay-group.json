@@ -11,6 +11,17 @@
   "type": "custom.overlay",
   "name": "t:sections.overlay-group.name",
   "sections": {
+    "age_verification": {
+      "type": "age-verification",
+      "settings": {
+        "heading": "",
+        "text": "<p>You must be 18 years of age or older to enter myduke®.</p>",
+        "button_label_no": "Leave site",
+        "button_label_yes": "Enter site",
+        "heading_declined": "Access Denied",
+        "text_declined": "<p>You must be 18 years of age or older to access this site.</p>"
+      }
+    },
     "notification_banner": {
       "type": "notification-banner",
       "blocks": {
@@ -63,6 +74,7 @@
     }
   },
   "order": [
+    "age_verification",
     "notification_banner",
     "notification_bar"
   ]
