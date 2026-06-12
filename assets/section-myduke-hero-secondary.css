@@ -132,7 +132,7 @@
 
   .myduke-hero-secondary {
     min-height: var(--height-mobile, 60vh);
-    padding: 180px 0px 80px 0px !important;
+    padding: 180px 0px 0px 0px !important;
     background-image: var(--bg-mobile);
     background-position: 0px;
     justify-content: flex-end;
