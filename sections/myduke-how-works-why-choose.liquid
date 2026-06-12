@@ -1,0 +1,162 @@
+{{ 'myduke-how-works-why-choose.css' | asset_url | stylesheet_tag }}
+
+<section class="myduke-how-works-why-choose container">
+  <div class="myduke-how-works-why-choose__inner">
+
+    <div
+      class="myduke-how-works-why-choose__image-col"
+      style="--panel-bg: {{ section.settings.left_bg_color }};"
+    >
+      {%- if section.settings.left_image != blank -%}
+        <img
+          class="myduke-how-works-why-choose__image"
+          src="{{ section.settings.left_image | image_url: width: 1000 }}"
+          alt="{{ section.settings.heading | escape }}"
+          width="{{ section.settings.left_image.width }}"
+          height="{{ section.settings.left_image.height }}"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+
+    <div class="myduke-how-works-why-choose__content-col">
+
+      <div class="myduke-how-works-why-choose__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="myduke-how-works-why-choose__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="myduke-how-works-why-choose__description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="myduke-how-works-why-choose__features">
+          {%- for block in section.blocks -%}
+            <div class="myduke-how-works-why-choose__feature" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                <img
+                  class="myduke-how-works-why-choose__feature-icon"
+                  src="{{ block.settings.icon | image_url: width: 52 }}"
+                  alt="{{ block.settings.label | escape }}"
+                  width="26"
+                  height="26"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              {%- if block.settings.label != blank -%}
+                <span class="myduke-how-works-why-choose__feature-label">{{ block.settings.label }}</span>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How It Works — Why Choose",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Panel"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Panel Illustration"
+    },
+    {
+      "type": "color",
+      "id": "left_bg_color",
+      "label": "Panel Background Color",
+      "default": "#f5c518"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Choose MyDuke?"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "A regulated pathway built around safety, transparency, and your success."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_item",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Feature label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works — Why Choose",
+      "blocks": [
+        {
+          "type": "feature_item",
+          "settings": {
+            "label": "AHPRA-Registered Doctor oversight"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "label": "Personalised Cessation Plan"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "label": "TGA & State-based Compliance"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "label": "Pharmacy-dispensed Treatments"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "label": "Full Treatment History Visibility"
+          }
+        },
+        {
+          "type": "feature_item",
+          "settings": {
+            "label": "Dedicated Support Team"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

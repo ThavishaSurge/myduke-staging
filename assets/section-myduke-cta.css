@@ -59,6 +59,12 @@
   margin: 0;
 }
 
+.myduke-cta__reg {
+  font-size: 0.45em;
+  vertical-align: super;
+  line-height: 0;
+}
+
 /* ── Body + button ── */
 .myduke-cta__right {
   display: flex;

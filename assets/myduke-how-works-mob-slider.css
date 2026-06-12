@@ -1,0 +1,339 @@
+/* =============================================
+   Mobile only — hidden on tablet/desktop.
+   ============================================= */
+.myduke-how-works-mob-slider-section {
+  display: block;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 750px) {
+  .myduke-how-works-mob-slider-section {
+    display: none;
+  }
+}
+
+
+/* =============================================
+   Outer wrapper — flex column, gap 20px
+   ============================================= */
+.myduke-how-works-mob-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 12px 20px;
+}
+
+/* =============================================
+   Header — eyebrow + heading with bottom border
+   1483:11912
+   ============================================= */
+.myduke-how-works-mob-slider__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0dacf;
+}
+
+.myduke-how-works-mob-slider__eyebrow {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #000000;
+  line-height: 19.6px;
+  margin: 0;
+}
+
+.myduke-how-works-mob-slider__heading {
+  font-family: var(--font-body-family);
+  font-size: 4.6rem;
+  font-weight: 400;
+  color: #264653;
+  letter-spacing: -1.8px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* =============================================
+   Swiper — one full-width slide at a time
+   ============================================= */
+.myduke-how-works-mob-slider__swiper {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+}
+
+.myduke-how-works-mob-slider__slide {
+  width: 100%;
+}
+
+/* =============================================
+   Card
+   ============================================= */
+.myduke-how-works-mob-slider__card {
+  position: relative;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Step badge — centered above image (1483:11944) */
+.myduke-how-works-mob-slider__step-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f7f8f8;
+  border: 1px solid #bfdbcf;
+  border-radius: 37px;
+  padding: 4px 12px;
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2b2b2e;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Card image — 340px tall (1483:11918) */
+.myduke-how-works-mob-slider__card-img-wrap {
+  height: 340px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #d8d8d8;
+}
+
+.myduke-how-works-mob-slider__card-img-wrap--placeholder {
+  background-color: #d8d8d8;
+}
+
+.myduke-how-works-mob-slider__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+/* Card body — flex-col gap-16px (1483:11919) */
+.myduke-how-works-mob-slider__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 22px;
+}
+
+/* Meta row — time badge + counter (1483:11920) */
+.myduke-how-works-mob-slider__card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Time badge (1483:11921) */
+.myduke-how-works-mob-slider__time-badge {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  background-color: #f7f8f8;
+  padding: 4px 6px;
+  border-radius: 37px;
+}
+
+.myduke-how-works-mob-slider__time-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  color: #2b2b2e;
+}
+
+.myduke-how-works-mob-slider__time-text {
+  font-family: var(--font-body-family);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2b2b2e;
+  line-height: 1;
+}
+
+/* Counter — 14px, #264653, 30% opacity (1483:11927) */
+.myduke-how-works-mob-slider__counter {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #264653;
+  opacity: 0.3;
+}
+
+/* Title + subtitle group (1483:11928) */
+.myduke-how-works-mob-slider__card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Title — 22px, #264653 (1483:11929) */
+.myduke-how-works-mob-slider__card-title {
+  font-family: var(--font-body-family);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #264653;
+  line-height: 19.6px;
+  margin: 0;
+}
+
+/* Subtitle — 16px, #2b2b2e (1483:11930) */
+.myduke-how-works-mob-slider__card-subtitle {
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #2b2b2e;
+  line-height: 19.6px;
+  margin: 0;
+}
+
+/* =============================================
+   Checklist (1483:11931)
+   ============================================= */
+.myduke-how-works-mob-slider__checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.myduke-how-works-mob-slider__checklist-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.myduke-how-works-mob-slider__check-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.myduke-how-works-mob-slider__checklist-text {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #264653;
+  line-height: 19.6px;
+}
+
+/* =============================================
+   Navigation — prev · thumbnails · next
+   1483:11946
+   ============================================= */
+.myduke-how-works-mob-slider__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.myduke-how-works-mob-slider__nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  min-width: 10px;
+  height: 15px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #264653;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.myduke-how-works-mob-slider__nav-btn svg {
+  width: 10px;
+  height: 15px;
+}
+
+.myduke-how-works-mob-slider__nav-btn:hover {
+  opacity: 0.65;
+}
+
+.myduke-how-works-mob-slider__nav-btn.swiper-button-disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+/* Thumbnails row (1483:11949) */
+.myduke-how-works-mob-slider__thumbs {
+  display: flex;
+  gap: 6.5px;
+  align-items: center;
+}
+
+/* Each thumb — 70×68px, inactive at 20% opacity */
+.myduke-how-works-mob-slider__thumb {
+  position: relative;
+  width: 70px;
+  height: 68px;
+  padding: 0;
+  border: none;
+  background: #d8d8d8;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0.2;
+  box-shadow: 0px 2.728px 8.662px 0px rgba(159, 95, 34, 0.15);
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.myduke-how-works-mob-slider__thumb.is-active {
+  opacity: 1;
+  box-shadow: 0px 2.859px 32.88px 0px rgba(160, 88, 20, 0.2);
+}
+
+.myduke-how-works-mob-slider__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+.myduke-how-works-mob-slider__thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #d8d8d8;
+}
+
+/* =============================================
+   CTA Button — full width, teal, bottom
+   1483:11956 / 1483:11957
+   ============================================= */
+.myduke-how-works-mob-slider__btn-wrap {
+  padding: 0 12px;
+  width: 100%;
+}
+
+.myduke-how-works-mob-slider__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 9.5px 36px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: var(--font-secondary-text-family);
+  text-decoration: none;
+  text-transform: capitalize;
+  background-color: #218380;
+  color: #ffffff;
+  transition: opacity 0.3s ease;
+}
+
+.myduke-how-works-mob-slider__btn:hover {
+  opacity: 0.85;
+}

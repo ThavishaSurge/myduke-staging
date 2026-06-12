@@ -1,0 +1,202 @@
+/* =============================================
+   1070:8669 — section
+   pt: 20px, px: 20px, bg: white
+   ============================================= */
+.myduke-how-works-why-choose {
+  background-color: #ffffff;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+/* =============================================
+   inner frame
+   grid 1fr 1fr, column-gap: 36px, overflow hidden
+   ============================================= */
+.myduke-how-works-why-choose__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 36px;
+  overflow: hidden;
+}
+
+/* =============================================
+   1070:8670 — left image panel
+   fills grid cell, bg color, overflow hidden
+   ============================================= */
+.myduke-how-works-why-choose__image-col {
+  background-color: var(--panel-bg, #f5c518);
+  overflow: hidden;
+}
+
+/* image fills grid cell */
+.myduke-how-works-why-choose__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 100%;
+}
+
+/* =============================================
+   1070:8672 — right content col
+   flex-col, gap: 48px, px: 20px, py: 130px
+   ============================================= */
+.myduke-how-works-why-choose__content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: flex-start;
+  padding: 130px 20px;
+}
+
+/* =============================================
+   1070:8673 — header (HorizontalBorder)
+   flex-col, gap: 24px
+   ============================================= */
+.myduke-how-works-why-choose__header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* 1070:8674 — heading: 48px, tracking -1.8px, leading 1.1, Manrope, #264653 */
+.myduke-how-works-why-choose__heading {
+  font-family: var(--font-body-family);
+  font-size: 4.8rem;
+  font-weight: 400;
+  color: #264653;
+  letter-spacing: -1.8px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* 1070:8675 — description: 18px, leading 1.5, Instrument Sans, #264653 */
+.myduke-how-works-why-choose__description {
+  font-family: var(--font-secondary-text-family);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #264653;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =============================================
+   1070:8676 — features grid
+   flex-wrap, gap: 20px, align-content: start
+   ============================================= */
+.myduke-how-works-why-choose__features {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 100%;
+}
+
+/* =============================================
+   1070:8677–8719 — each feature item
+   flex, gap: 10px, items-start, py: 8px, w: 434px
+   ============================================= */
+.myduke-how-works-why-choose__feature {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 0;
+  width: 434px;
+  max-width: 100%;
+}
+
+/* icon: size 26px */
+.myduke-how-works-why-choose__feature-icon {
+  display: block;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* label: 16px, leading 25.2px, Manrope, #264653, nowrap */
+.myduke-how-works-why-choose__feature-label {
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #264653;
+  line-height: 25.2px;
+  white-space: nowrap;
+}
+
+/* =============================================
+   Tablet (750px – 1159px)
+   ============================================= */
+@media screen and (min-width: 750px) and (max-width: 1159px) {
+  .myduke-how-works-why-choose {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .myduke-how-works-why-choose__inner {
+    column-gap: 24px;
+  }
+
+  .myduke-how-works-why-choose__content-col {
+    padding: 60px 24px;
+    gap: 36px;
+  }
+
+  .myduke-how-works-why-choose__heading {
+    font-size: 3.6rem;
+    letter-spacing: -1.2px;
+  }
+
+  .myduke-how-works-why-choose__feature {
+    width: calc(50% - 10px);
+  }
+
+  .myduke-how-works-why-choose__feature-label {
+    white-space: normal;
+  }
+}
+
+/* =============================================
+   Mobile (< 750px)
+   ============================================= */
+@media screen and (max-width: 749px) {
+
+  
+  .myduke-how-works-why-choose {
+    padding-top: 12px;
+  }
+
+  .myduke-how-works-why-choose__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .myduke-how-works-why-choose__image-col {
+    min-height: 300px;
+  }
+
+  .myduke-how-works-why-choose__content-col {
+    padding: 24px 0px;
+    gap: 32px;
+  }
+
+  .myduke-how-works-why-choose__heading {
+    font-size: 3.2rem;
+    letter-spacing: -1px;
+  }
+
+  .myduke-how-works-why-choose__description {
+    font-size: 1.6rem;
+  }
+
+  .myduke-how-works-why-choose__feature {
+    width: 100%;
+  }
+
+  .myduke-how-works-why-choose__feature-label {
+    white-space: normal;
+  }
+}

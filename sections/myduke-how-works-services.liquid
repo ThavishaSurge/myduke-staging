@@ -1,0 +1,176 @@
+{{ 'myduke-how-works-services.css' | asset_url | stylesheet_tag }}
+
+<section class="myduke-how-works-services container">
+  <div class="myduke-how-works-services__inner">
+
+    <div
+      class="myduke-how-works-services__image-col"
+      style="--panel-bg: {{ section.settings.left_bg_color }};"
+    >
+      {%- if section.settings.left_image != blank -%}
+        <img
+          class="myduke-how-works-services__image"
+          src="{{ section.settings.left_image | image_url: width: 1000 }}"
+          alt="{{ section.settings.heading | escape }}"
+          width="{{ section.settings.left_image.width }}"
+          height="{{ section.settings.left_image.height }}"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+
+    <div class="myduke-how-works-services__content-col">
+
+      <div class="myduke-how-works-services__header">
+        <div class="myduke-how-works-services__heading-group">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="myduke-how-works-services__eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="myduke-how-works-services__heading">{{ section.settings.heading | replace: '®', '<span class="reg-mark">®</span>' }}</h2>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.description != blank -%}
+          <p class="myduke-how-works-services__description">{{ section.settings.description | replace: '®', '<span class="reg-mark">®</span>' }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="myduke-how-works-services__cards">
+          {%- for block in section.blocks -%}
+            <div class="myduke-how-works-services__card" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                <img
+                  class="myduke-how-works-services__card-icon"
+                  src="{{ block.settings.icon | image_url: width: 64 }}"
+                  alt="{{ block.settings.title | escape }}"
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              <div class="myduke-how-works-services__card-text">
+                {%- if block.settings.title != blank -%}
+                  <p class="myduke-how-works-services__card-title">{{ block.settings.title }}</p>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <p class="myduke-how-works-services__card-desc">{{ block.settings.description }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How It Works — Services",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Panel"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Panel Illustration"
+    },
+    {
+      "type": "color",
+      "id": "left_bg_color",
+      "label": "Panel Background Color",
+      "default": "#ef6351"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Services"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Smoking Cessation Support Services"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "myduke® is an Australian smoking cessation service providing structured, medically supervised support for adults seeking to quit smoking. Our service simplifies access to evidence-based care while maintaining full regulatory oversight."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service_card",
+      "name": "Service Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Service Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Service description goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works — Services",
+      "blocks": [
+        {
+          "type": "service_card",
+          "settings": {
+            "title": "Medically Supervised Cessation",
+            "description": "Structured, evidence-based smoking cessation support reviewed by independent Australian-registered healthcare professionals."
+          }
+        },
+        {
+          "type": "service_card",
+          "settings": {
+            "title": "Simplified Legal Pathway",
+            "description": "We simplify access to evidence-based care while maintaining the medical review and regulatory oversight required under Australian law."
+          }
+        },
+        {
+          "type": "service_card",
+          "settings": {
+            "title": "Harm Reduction Focus",
+            "description": "Operating within Australia's public health framework, which prioritises harm reduction for adult smokers while limiting inappropriate access."
+          }
+        },
+        {
+          "type": "service_card",
+          "settings": {
+            "title": "Born & Bred in Melbourne",
+            "description": "An Australian smoking cessation service delivering a safe, legal, and clinically appropriate pathway, supported by healthcare professionals."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
