@@ -13,10 +13,6 @@
   }
 }
 
-/* Keep visible in Shopify theme editor (desktop viewport) */
-.shopify-design-mode .myduke-how-works-mob-slider-section {
-  display: block;
-}
 
 /* =============================================
    Outer wrapper — flex column, gap 20px

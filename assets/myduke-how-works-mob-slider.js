@@ -1,5 +1,6 @@
 (function () {
   const activeSliders = new Map();
+  const MQ = window.matchMedia('(max-width: 749px)');
 
   function initSlider(sectionEl) {
     const sectionId = sectionEl.dataset.sectionId || sectionEl.id;
@@ -63,11 +64,31 @@
     return root.querySelector ? root.querySelector('.myduke-how-works-mob-slider-section') : null;
   }
 
-  document.querySelectorAll('.myduke-how-works-mob-slider-section').forEach(initSlider);
+  function initAll() {
+    document.querySelectorAll('.myduke-how-works-mob-slider-section').forEach(initSlider);
+  }
 
+  function destroyAll() {
+    document.querySelectorAll('.myduke-how-works-mob-slider-section').forEach(destroySlider);
+  }
+
+  // Only initialise at mobile viewport widths — never touch the desktop slider
+  if (MQ.matches) {
+    initAll();
+  }
+
+  MQ.addEventListener('change', function (e) {
+    if (e.matches) {
+      initAll();
+    } else {
+      destroyAll();
+    }
+  });
+
+  // ── Shopify theme-editor events ──
   document.addEventListener('shopify:section:load', function (event) {
     const section = findSection(event.target);
-    if (section) initSlider(section);
+    if (section && MQ.matches) initSlider(section);
   });
 
   document.addEventListener('shopify:section:unload', function (event) {
