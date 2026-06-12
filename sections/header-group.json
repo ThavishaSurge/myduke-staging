@@ -36,7 +36,7 @@
         "header_bg_color": "",
         "scrolled_bg_color": "#ffffff",
         "show_logo": true,
-        "logo": "shopify://shop_images/Logo-white.svg",
+        "logo": "shopify://shop_images/Logo_R_black.svg",
         "logo_sticky": "shopify://shop_images/myduke-logo-black.svg",
         "show_dm_logo_in_overlay_mode": true,
         "logo_position": "left-logo",
