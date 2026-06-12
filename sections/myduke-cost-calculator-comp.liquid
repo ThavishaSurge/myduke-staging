@@ -1,0 +1,435 @@
+{{ 'section-myduke-cost-calculator-comp.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  /* {% render 'section-padding' %}
+  {% render 'section-margin' %} */
+
+  .myduke-calc[data-section-id="{{ section.id }}"] {
+    {%- if section.settings.bg_image != blank -%}
+    background-image: url('{{ section.settings.bg_image | image_url: width: 1920 }}');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    {%- else -%}
+    background: #f0a11f;
+    {%- endif -%}
+    --calc-fill-color: {{ section.settings.slider_fill_color }};
+    --slider-handle-url: url('{{ 'myduke-slider-handle.svg' | asset_url }}');
+  }
+{% endstyle %}
+
+{%- liquid
+  assign slider_min     = section.settings.slider_min
+  assign slider_max     = section.settings.slider_max
+  assign slider_default = section.settings.slider_default | plus: 0
+  if slider_default < slider_min
+    assign slider_default = slider_min
+  endif
+  if slider_default > slider_max
+    assign slider_default = slider_max
+  endif
+  assign cost_raw = section.settings.cost_per_cigarette | default: 2.00 | plus: 0 | round: 2
+-%}
+
+<div
+  class="myduke-calc color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
+  data-section-id="{{ section.id }}"
+  data-cost="{{ cost_raw | escape }}"
+>
+
+  <div class="myduke-calc__card">
+
+    {%- if section.settings.heading != blank -%}
+      <{{ section.settings.heading_tag }} class="myduke-calc__heading">
+        {{ section.settings.heading }}
+      </{{ section.settings.heading_tag }}>
+    {%- endif -%}
+
+    <div class="myduke-calc__queries">
+
+      <div class="myduke-calc__count-group">
+        <p class="myduke-calc__count-label">{{ section.settings.slider_label }}</p>
+        <p class="myduke-calc__count-display">
+          <span id="myduke-calc-count-{{ section.id }}">{{ slider_default }}</span>&nbsp;{{ section.settings.slider_unit }}
+        </p>
+      </div>
+
+      <div class="myduke-calc__slider-wrap">
+        <input
+          type="range"
+          class="myduke-calc__slider"
+          id="myduke-calc-slider-{{ section.id }}"
+          min="{{ slider_min }}"
+          max="{{ slider_max }}"
+          value="{{ slider_default }}"
+          aria-label="{{ section.settings.slider_label }}"
+        >
+      </div>
+
+      <div class="myduke-calc__list">
+
+        <div class="myduke-calc__list-row">
+          <span>{{ section.settings.cost_label }}</span>
+          <span>${{ cost_raw }}{%- if section.settings.show_gst_label -%}+GST{%- endif -%}</span>
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="myduke-calc__list-row myduke-calc__list-row--facts">
+            <button
+              class="myduke-calc__facts-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="myduke-calc-facts-{{ section.id }}"
+            >
+              <div class="myduke-calc__facts-header">
+                <svg class="myduke-calc__facts-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <path d="M9.00003 1.035C4.26003 1.035 0.405029 4.2075 0.405029 8.115C0.419559 9.05253 0.639271 9.97549 1.04872 10.819C1.45817 11.6625 2.04741 12.4061 2.77503 12.9975L1.06503 16.425C1.02977 16.4938 1.01661 16.5717 1.02735 16.6483C1.03809 16.7248 1.0722 16.7961 1.12503 16.8525C1.18054 16.9064 1.25055 16.9428 1.32648 16.9575C1.40241 16.9721 1.48097 16.9643 1.55253 16.935L6.15003 14.7975C7.07674 15.0627 8.03611 15.1965 9.00003 15.195C13.74 15.195 17.595 12.015 17.595 8.115C17.595 4.215 13.74 1.035 9.00003 1.035ZM10.875 12.0975H7.87503C7.72584 12.0975 7.58277 12.0382 7.47728 11.9328C7.37179 11.8273 7.31253 11.6842 7.31253 11.535C7.31253 11.3858 7.37179 11.2427 7.47728 11.1373C7.58277 11.0318 7.72584 10.9725 7.87503 10.9725H8.81253V7.035C8.81253 6.98528 8.79278 6.93758 8.75761 6.90242C8.72245 6.86726 8.67476 6.8475 8.62503 6.8475H7.87503C7.72584 6.8475 7.58277 6.78824 7.47728 6.68275C7.37179 6.57726 7.31253 6.43419 7.31253 6.285C7.31253 6.13582 7.37179 5.99275 7.47728 5.88726C7.58277 5.78177 7.72584 5.7225 7.87503 5.7225H8.62503C8.97313 5.7225 9.30697 5.86078 9.55311 6.10693C9.79925 6.35307 9.93753 6.68691 9.93753 7.035V10.9725H10.875C11.0242 10.9725 11.1673 11.0318 11.2728 11.1373C11.3783 11.2427 11.4375 11.3858 11.4375 11.535C11.4375 11.6842 11.3783 11.8273 11.2728 11.9328C11.1673 12.0382 11.0242 12.0975 10.875 12.0975ZM9.09003 3.285C9.28894 3.285 9.47971 3.36402 9.62036 3.50467C9.76101 3.64533 9.84003 3.83609 9.84003 4.035C9.84003 4.23392 9.76101 4.42468 9.62036 4.56533C9.47971 4.70599 9.28894 4.785 9.09003 4.785C8.89112 4.785 8.70035 4.70599 8.5597 4.56533C8.41905 4.42468 8.34003 4.23392 8.34003 4.035C8.34003 3.83609 8.41905 3.64533 8.5597 3.50467C8.70035 3.36402 8.89112 3.285 9.09003 3.285Z" fill="#34414A"/>
+                </svg>
+                <span class="myduke-calc__facts-title">{{ section.settings.facts_label }}</span>
+              </div>
+              <span class="myduke-calc__toggle-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="6.5" width="12" height="1" fill="#264653"/>
+                  <rect class="myduke-calc__toggle-vert" x="6.5" y="1" width="1" height="12" fill="#264653"/>
+                </svg>
+              </span>
+            </button>
+            <ul
+              class="myduke-calc__facts-list"
+              id="myduke-calc-facts-{{ section.id }}"
+              hidden
+            >
+              {%- for block in section.blocks -%}
+                {%- if block.settings.fact_text != blank -%}
+                  <li {{ block.shopify_attributes }}>{{ block.settings.fact_text }}</li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+      </div>
+    </div>
+
+    <div class="myduke-calc__savings">
+      <div class="myduke-calc__tile myduke-calc__tile--week">
+        <p class="myduke-calc__tile-label">{{ section.settings.weekly_label }}</p>
+        <p class="myduke-calc__tile-value" id="myduke-calc-weekly-{{ section.id }}">$0.00</p>
+      </div>
+      <div class="myduke-calc__tile myduke-calc__tile--year">
+        <p class="myduke-calc__tile-label">{{ section.settings.yearly_label }}</p>
+        <p class="myduke-calc__tile-value" id="myduke-calc-yearly-{{ section.id }}">$0.00</p>
+      </div>
+    </div>
+
+    {%- if section.settings.cta_text != blank or section.settings.cta_button_label != blank -%}
+      <div class="myduke-calc__cta">
+        {%- if section.settings.cta_text != blank -%}
+          <p class="myduke-calc__cta-text">{{ section.settings.cta_text }}</p>
+        {%- endif -%}
+        {%- if section.settings.cta_button_label != blank -%}
+          <a
+            href="{{ section.settings.cta_button_url | default: '#' }}"
+            class="myduke-calc__btn"
+            {% if settings.links_blank and section.settings.cta_button_url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+          >
+            {{- section.settings.cta_button_label -}}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<script src="{{ 'myduke-cost-calculator.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Cost Calculator (Comp)",
+  "class": "myduke-calc-section",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "background-1",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image",
+      "info": "Full-bleed image behind the card. Falls back to amber if unset."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.all.heading.label",
+      "default": "See What You Could Save"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        { "value": "h1", "label": "t:sections.all.heading_tag.options__1.label" },
+        { "value": "h2", "label": "t:sections.all.heading_tag.options__2.label" },
+        { "value": "h3", "label": "t:sections.all.heading_tag.options__3.label" },
+        { "value": "h4", "label": "t:sections.all.heading_tag.options__4.label" },
+        { "value": "h5", "label": "t:sections.all.heading_tag.options__5.label" },
+        { "value": "h6", "label": "t:sections.all.heading_tag.options__6.label" },
+        { "value": "div", "label": "t:sections.all.heading_tag.options__7.label" }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_tag.label",
+      "info": "t:sections.all.heading_tag.info",
+      "visible_if": "{{ section.settings.heading != blank }}"
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "text",
+      "id": "slider_label",
+      "label": "Slider label",
+      "default": "Cigarettes per day"
+    },
+    {
+      "type": "text",
+      "id": "slider_unit",
+      "label": "Count unit",
+      "default": "Cigarettes",
+      "info": "Text shown after the number, e.g. \"Cigarettes\"."
+    },
+    {
+      "type": "range",
+      "id": "slider_min",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 1,
+      "label": "Slider minimum"
+    },
+    {
+      "type": "range",
+      "id": "slider_max",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "default": 60,
+      "label": "Slider maximum"
+    },
+    {
+      "type": "range",
+      "id": "slider_default",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "default": 30,
+      "label": "Default value",
+      "info": "Initial slider position. Must be between minimum and maximum."
+    },
+    {
+      "type": "color",
+      "id": "slider_fill_color",
+      "label": "Track fill colour",
+      "default": "#218380",
+      "info": "Colour of the completed (left) portion of the slider track."
+    },
+    {
+      "type": "header",
+      "content": "Cost"
+    },
+    {
+      "type": "number",
+      "id": "cost_per_cigarette",
+      "label": "Cost per cigarette ($)",
+      "default": 2,
+      "info": "Cost in dollars, e.g. 2. Drives the weekly and yearly savings calculation."
+    },
+    {
+      "type": "text",
+      "id": "cost_label",
+      "label": "Cost row label",
+      "default": "Cost per cigarette"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gst_label",
+      "label": "Show \"+GST\" suffix on cost",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Quick Facts"
+    },
+    {
+      "type": "text",
+      "id": "facts_label",
+      "label": "Facts section label",
+      "default": "Quick Facts"
+    },
+    {
+      "type": "header",
+      "content": "Results"
+    },
+    {
+      "type": "text",
+      "id": "weekly_label",
+      "label": "Weekly tile label",
+      "default": "Savings per week"
+    },
+    {
+      "type": "text",
+      "id": "yearly_label",
+      "label": "Yearly tile label",
+      "default": "Savings per year"
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "Ready to start saving"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_label",
+      "label": "Button label",
+      "default": "Start your assessment"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-padding.header.content"
+    },
+    {
+      "type": "select",
+      "id": "padding_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-padding.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-padding.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-padding.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-padding.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-padding.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-padding.options__6.label" }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-padding.padding_top.label"
+    },
+    {
+      "type": "select",
+      "id": "padding_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-padding.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-padding.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-padding.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-padding.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-padding.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-padding.options__6.label" }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-padding.padding_bottom.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-margin.header.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-margin.margin_top.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs", "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s", "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m", "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l", "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl", "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "l",
+      "label": "t:sections.all.section-margin.margin_bottom.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quick_fact",
+      "name": "Quick Fact",
+      "settings": [
+        {
+          "type": "text",
+          "id": "fact_text",
+          "label": "Fact text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cost Calculator (MyDuke)",
+      "category": "t:sections.categories.storytelling",
+      "settings": {
+        "heading": "See What You Could Save",
+        "cost_per_cigarette": 2,
+        "slider_default": 30,
+        "cta_text": "Ready to start saving",
+        "cta_button_label": "Start your assessment"
+      },
+      "blocks": [
+        {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Tobacco kills more than 8 million people worldwide every year (WHO)."
+          }
+        },
+        {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Within 20 minutes of quitting, your heart rate begins to drop back to normal."
+          }
+        },
+        {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "After 1 year smoke-free, your risk of heart disease is cut in half."
+          }
+        },
+        {
+          "type": "quick_fact",
+          "settings": {
+            "fact_text": "Nicotine replacement therapies can double your chances of quitting successfully."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
