@@ -24,8 +24,11 @@
       "settings": {
         "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "fallback_bg_color": "#226e65",
+        "enable_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
         "loading_text": "Loading products...",
-        "text_color": "#1b4332",
+        "text_color": "#FFFFFF",
         "spinner_color": "#226e65"
       }
     },
