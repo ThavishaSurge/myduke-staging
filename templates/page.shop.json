@@ -22,8 +22,7 @@
       "type": "myduke-loading-screen",
       "name": "Loading Screen",
       "settings": {
-        "background_image": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_2.webp",
-        "fallback_bg_color": "#F2F5F3",
+        "fallback_bg_color": "#226E65",
         "loading_text": "Loading your products...",
         "text_color": "#1B4332",
         "spinner_color": "#226E65"
