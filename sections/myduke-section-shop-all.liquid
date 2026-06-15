@@ -241,14 +241,14 @@
             data-sort-featured="{{ forloop.index }}"
             data-best-selling="0"
           >
-            {% render 'card-product',
-              card_product: product,
-              media_aspect_ratio: section.settings.image_ratio,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              show_quick_view: section.settings.show_quick_view,
-              lazy_load: true
+            {% render 'product-card',
+              product_card_product: product,
+              media_ratio_overwrite: section.settings.image_ratio,
+              show_quick_view_overwrite: section.settings.show_quick_view,
+              columns: cols_desktop,
+              columns_mobile: cols_mobile,
+              section_obj: section,
+              forloop_index: forloop.index
             %}
           </div>
         {%- endfor -%}
