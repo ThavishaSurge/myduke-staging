@@ -104,10 +104,18 @@
    885:7996 — cards grid
    flex-wrap, gap: 36px, height: 340px, align-content: start
    ============================================= */
-.myduke-how-works-services__cards {
+/* .myduke-how-works-services__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 36px;
+  width: 100%;
+} */
+
+.myduke-how-works-services__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 36px;
+  row-gap: 0; /* Row gaps are now handled by margins */
   width: 100%;
 }
 
@@ -115,11 +123,20 @@
    885:7997–8029 — each service card
    flex-col, gap: 24px, width: 381px
    ============================================= */
-.myduke-how-works-services__card {
+/* .myduke-how-works-services__card {
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: flex-start;
+  max-width: 100%;
+} */
+
+.myduke-how-works-services__card {
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* Fallback for older browsers */
+  grid-template-rows: subgrid; /* The magic that aligns the rows */
+  grid-row: span 3; /* Spans the icon, title, and description */
+  align-items: start;
   max-width: 100%;
 }
 
@@ -133,31 +150,55 @@
 }
 
 /* 885:8007 — card text group, gap: 12px */
-.myduke-how-works-services__card-text {
+/* .myduke-how-works-services__card-text {
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
+} */
+
+/* 885:8007 — card text group */
+.myduke-how-works-services__card-text {
+  display: contents; /* Flattens this wrapper so title and desc join the subgrid */
 }
 
 /* 885:8008 — card title: 22px, leading: 24.2px */
-.myduke-how-works-services__card-title {
+/* .myduke-how-works-services__card-title {
   font-family: var(--font-body-family);
   font-size: 2.2rem;
   font-weight: 400;
   color: #2b2b2e;
   line-height: 24.2px;
   margin: 0;
+} */
+
+.myduke-how-works-services__card-title {
+  font-family: var(--font-body-family);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #2b2b2e;
+  line-height: 24.2px;
+  margin: 24px 0 12px 0; /* Replaces the old 24px and 12px flex gaps */
 }
 
+
 /* 885:8009 — card description: 14px, leading: 19.6px */
-.myduke-how-works-services__card-desc {
+/* .myduke-how-works-services__card-desc {
   font-family: var(--font-body-family);
   font-size: 1.4rem;
   font-weight: 400;
   color: #2b2b2e;
   line-height: 19.6px;
   margin: 0;
+} */
+
+.myduke-how-works-services__card-desc {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #2b2b2e;
+  line-height: 19.6px;
+  margin: 0 0 36px 0; /* Creates the 36px space between rows of cards */
 }
 
 /* =============================================
@@ -192,6 +233,11 @@
 
   .myduke-how-works-services__cards {
     grid-template-columns: 1fr;
+    gap: 0; /*new*/
+  }
+
+  myduke-how-works-services__card-desc {
+    margin-bottom: 32px; /* Standard mobile spacing to the next card */
   }
 
   .myduke-how-works-services {
