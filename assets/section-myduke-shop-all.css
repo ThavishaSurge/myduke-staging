@@ -95,8 +95,15 @@
 }
 
 @keyframes msaDropdownIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .msa__dropdown-inner {
@@ -312,7 +319,7 @@
   width: 100%;
   max-width: 289px;
   max-height: 289px;
-  margin: 0 auto;
+  margin: 0;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: var(--msa-card-radius);
