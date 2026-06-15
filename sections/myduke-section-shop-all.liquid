@@ -1,0 +1,886 @@
+{{ 'section-myduke-shop-all.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  {% render 'section-padding' %}
+  {% render 'section-margin' %}
+{%- endstyle -%}
+
+{%- liquid
+  assign show_device_filter      = section.settings.show_device_filter
+  assign show_type_filter        = section.settings.show_type_filter
+  assign show_sort               = section.settings.show_sort
+  assign products_per_page       = section.settings.products_per_page | default: 12
+  assign cols_desktop            = section.settings.columns_desktop | default: 4
+  assign cols_mobile             = section.settings.columns_mobile | default: 2
+
+  comment
+    Collect all collections used for each filter via blocks
+  endcomment
+  assign device_collections = '' | split: ''
+  assign type_collections   = '' | split: ''
+  for block in section.blocks
+    if block.type == 'device_filter_item'
+      assign col_handle = block.settings.collection_handle | strip
+      if col_handle != blank
+        assign device_collections = device_collections | push: col_handle
+      endif
+    endif
+    if block.type == 'type_filter_item'
+      assign col_handle = block.settings.collection_handle | strip
+      if col_handle != blank
+        assign type_collections = type_collections | push: col_handle
+      endif
+    endif
+  endfor
+-%}
+
+<div
+  class="msa color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
+  data-section-id="{{ section.id }}"
+  id="shopify-section-shop-all"
+>
+  <div class="container">
+
+    {%- comment -%} ── Toolbar: Filters + Sort ── {%- endcomment -%}
+    {%- if show_device_filter or show_type_filter or show_sort -%}
+      <div class="msa__toolbar">
+
+        <div class="msa__filters">
+
+          {%- if show_device_filter -%}
+            <div class="msa__filter-group" data-filter-group="device">
+              <button
+                class="msa__filter-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                id="msa-device-btn-{{ section.id }}"
+              >
+                <span class="msa__filter-label">
+                  {{- section.settings.device_filter_label | default: 'Device Compatibility' -}}
+                </span>
+                <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <div class="msa__dropdown" role="listbox" aria-labelledby="msa-device-btn-{{ section.id }}">
+                <div class="msa__dropdown-inner">
+                  <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
+                    {{ section.settings.device_filter_all_label | default: 'All Devices' }}
+                  </button>
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'device_filter_item' -%}
+                      {%- assign col_handle = block.settings.collection_handle | strip -%}
+                      {%- assign col = collections[col_handle] -%}
+                      {%- if col_handle != blank -%}
+                        <button
+                          class="msa__dropdown-item"
+                          data-filter-value="{{ col_handle }}"
+                          data-filter-type="device"
+                          role="option"
+                          aria-selected="false"
+                          {{ block.shopify_attributes }}
+                        >
+                          {{- block.settings.label | default: col.title -}}
+                        </button>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- if show_type_filter -%}
+            <div class="msa__filter-group" data-filter-group="type">
+              <button
+                class="msa__filter-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                id="msa-type-btn-{{ section.id }}"
+              >
+                <span class="msa__filter-label">
+                  {{- section.settings.type_filter_label | default: 'Product Type' -}}
+                </span>
+                <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <div class="msa__dropdown" role="listbox" aria-labelledby="msa-type-btn-{{ section.id }}">
+                <div class="msa__dropdown-inner">
+                  <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
+                    {{ section.settings.type_filter_all_label | default: 'All Types' }}
+                  </button>
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'type_filter_item' -%}
+                      {%- assign col_handle = block.settings.collection_handle | strip -%}
+                      {%- assign col = collections[col_handle] -%}
+                      {%- if col_handle != blank -%}
+                        <button
+                          class="msa__dropdown-item"
+                          data-filter-value="{{ col_handle }}"
+                          data-filter-type="type"
+                          role="option"
+                          aria-selected="false"
+                          {{ block.shopify_attributes }}
+                        >
+                          {{- block.settings.label | default: col.title -}}
+                        </button>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
+        </div>
+
+        {%- if show_sort -%}
+          <div class="msa__sort-group">
+            <label class="msa__sort-label" for="msa-sort-{{ section.id }}">
+              {{ section.settings.sort_label | default: 'Sort by' }}
+            </label>
+            <div class="msa__sort-select-wrap">
+              <select class="msa__sort-select" id="msa-sort-{{ section.id }}" aria-label="Sort products">
+                {%- if section.settings.show_sort_featured -%}
+                  <option value="manual">{{ section.settings.sort_featured_label | default: 'Featured' }}</option>
+                {%- endif -%}
+                {%- if section.settings.show_sort_best -%}
+                  <option value="best-selling">{{ section.settings.sort_best_label | default: 'Best Selling' }}</option>
+                {%- endif -%}
+                {%- if section.settings.show_sort_az -%}
+                  <option value="title-ascending">{{ section.settings.sort_az_label | default: 'A–Z' }}</option>
+                {%- endif -%}
+                {%- if section.settings.show_sort_za -%}
+                  <option value="title-descending">{{ section.settings.sort_za_label | default: 'Z–A' }}</option>
+                {%- endif -%}
+                {%- if section.settings.show_sort_price_asc -%}
+                  <option value="price-ascending">{{ section.settings.sort_price_asc_label | default: 'Price: Low → High' }}</option>
+                {%- endif -%}
+                {%- if section.settings.show_sort_price_desc -%}
+                  <option value="price-descending">{{ section.settings.sort_price_desc_label | default: 'Price: High → Low' }}</option>
+                {%- endif -%}
+                {%- if section.settings.show_sort_new -%}
+                  <option value="created-descending">{{ section.settings.sort_new_label | default: 'Newest' }}</option>
+                {%- endif -%}
+                {%- if section.settings.show_sort_old -%}
+                  <option value="created-ascending">{{ section.settings.sort_old_label | default: 'Oldest' }}</option>
+                {%- endif -%}
+              </select>
+              <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        {%- endif -%}
+
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ── Active filter pills ── {%- endcomment -%}
+    <div class="msa__active-filters" id="msa-active-filters-{{ section.id }}" hidden></div>
+
+    {%- comment -%} ── Results count ── {%- endcomment -%}
+    <p class="msa__results-count" id="msa-results-count-{{ section.id }}" aria-live="polite"></p>
+
+    {%- comment -%} ── Product Grid ── {%- endcomment -%}
+    <div
+      class="msa__grid msa__grid--{{ cols_desktop }}-col msa__grid--mobile-{{ cols_mobile }}-col"
+      id="msa-grid-{{ section.id }}"
+      data-cols-desktop="{{ cols_desktop }}"
+      data-cols-mobile="{{ cols_mobile }}"
+      data-products-per-page="{{ products_per_page }}"
+      aria-label="Products"
+    >
+
+      {%- comment -%}
+        Build a unified list:
+        1. Collect all product IDs from the source collection (all products).
+        2. For each product in the source collection, attach its collection handles
+           so JS can filter client-side.
+      {%- endcomment -%}
+
+      {%- assign source_collection = section.settings.source_collection -%}
+      {%- assign all_products = collections[source_collection].products -%}
+
+      {%- if all_products.size > 0 -%}
+        {%- for product in all_products limit: products_per_page -%}
+          {%- comment -%} Determine which filter collections this product belongs to {%- endcomment -%}
+          {%- assign product_device_tags = '' -%}
+          {%- assign product_type_tags   = '' -%}
+          {%- for col_handle in device_collections -%}
+            {%- assign test_col = collections[col_handle] -%}
+            {%- for p in test_col.products -%}
+              {%- if p.id == product.id -%}
+                {%- assign product_device_tags = product_device_tags | append: col_handle | append: ',' -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+          {%- for col_handle in type_collections -%}
+            {%- assign test_col = collections[col_handle] -%}
+            {%- for p in test_col.products -%}
+              {%- if p.id == product.id -%}
+                {%- assign product_type_tags = product_type_tags | append: col_handle | append: ',' -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+
+          <div
+            class="msa__product-item"
+            data-product-id="{{ product.id }}"
+            data-device-filters="{{ product_device_tags | remove_last: ',' }}"
+            data-type-filters="{{ product_type_tags | remove_last: ',' }}"
+            data-price="{{ product.price }}"
+            data-title="{{ product.title | downcase }}"
+            data-created="{{ product.published_at | date: '%s' }}"
+            data-sort-featured="{{ forloop.index }}"
+            data-best-selling="0"
+          >
+            {% render 'card-product',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: section.settings.show_secondary_image,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_view: section.settings.show_quick_view,
+              lazy_load: true
+            %}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Placeholder cards {%- endcomment -%}
+        {%- for i in (1..cols_desktop) -%}
+          <div class="msa__product-item msa__product-item--placeholder">
+            <div class="msa__placeholder-card">
+              {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+              <p class="msa__placeholder-title">Product title</p>
+              <p class="msa__placeholder-price">$0.00</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+
+    </div>
+
+    {%- comment -%} ── No results ── {%- endcomment -%}
+    <div class="msa__no-results" id="msa-no-results-{{ section.id }}" hidden>
+      <p>{{ section.settings.no_results_text | default: 'No products found. Try adjusting your filters.' }}</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var sectionId = '{{ section.id }}';
+  var root = document.getElementById('shopify-section-shop-all');
+  if (!root) return;
+
+  var grid      = root.querySelector('#msa-grid-' + sectionId);
+  var noResults = root.querySelector('#msa-no-results-' + sectionId);
+  var countEl   = root.querySelector('#msa-results-count-' + sectionId);
+  var pillsEl   = root.querySelector('#msa-active-filters-' + sectionId);
+
+  // ── State ──
+  var state = {
+    device: 'all',
+    type: 'all',
+    sort: 'manual'
+  };
+
+  // ── Filter dropdowns ──
+  root.querySelectorAll('.msa__filter-group').forEach(function (group) {
+    var btn      = group.querySelector('.msa__filter-btn');
+    var dropdown = group.querySelector('.msa__dropdown');
+
+    if (!btn || !dropdown) return;
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      root.querySelectorAll('.msa__filter-btn').forEach(function (b) {
+        b.setAttribute('aria-expanded', 'false');
+        b.closest('.msa__filter-group').querySelector('.msa__dropdown').removeAttribute('data-open');
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        dropdown.setAttribute('data-open', '');
+      }
+    });
+
+    group.querySelectorAll('.msa__dropdown-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var filterType  = group.getAttribute('data-filter-group');
+        var filterValue = item.getAttribute('data-filter-value');
+
+        // Update active state within dropdown
+        group.querySelectorAll('.msa__dropdown-item').forEach(function (i) {
+          i.classList.remove('msa__dropdown-item--active');
+          i.setAttribute('aria-selected', 'false');
+        });
+        item.classList.add('msa__dropdown-item--active');
+        item.setAttribute('aria-selected', 'true');
+
+        // Update label
+        btn.querySelector('.msa__filter-label').textContent = item.textContent.trim();
+
+        // Update state
+        state[filterType] = filterValue;
+
+        // Close dropdown
+        btn.setAttribute('aria-expanded', 'false');
+        dropdown.removeAttribute('data-open');
+
+        applyFiltersAndSort();
+      });
+    });
+  });
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', function () {
+    root.querySelectorAll('.msa__filter-btn').forEach(function (b) {
+      b.setAttribute('aria-expanded', 'false');
+    });
+    root.querySelectorAll('.msa__dropdown').forEach(function (d) {
+      d.removeAttribute('data-open');
+    });
+  });
+
+  // ── Sort ──
+  var sortSelect = root.querySelector('.msa__sort-select');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function () {
+      state.sort = sortSelect.value;
+      applyFiltersAndSort();
+    });
+  }
+
+  // ── Core: filter + sort ──
+  function applyFiltersAndSort() {
+    var items = Array.from(grid.querySelectorAll('.msa__product-item:not(.msa__product-item--placeholder)'));
+
+    // Filter
+    var visible = items.filter(function (item) {
+      var deviceOk = state.device === 'all' ||
+        (item.dataset.deviceFilters || '').split(',').indexOf(state.device) !== -1;
+      var typeOk   = state.type   === 'all' ||
+        (item.dataset.typeFilters   || '').split(',').indexOf(state.type)   !== -1;
+      return deviceOk && typeOk;
+    });
+
+    // Sort
+    visible.sort(function (a, b) {
+      switch (state.sort) {
+        case 'title-ascending':
+          return (a.dataset.title || '').localeCompare(b.dataset.title || '');
+        case 'title-descending':
+          return (b.dataset.title || '').localeCompare(a.dataset.title || '');
+        case 'price-ascending':
+          return parseInt(a.dataset.price || '0') - parseInt(b.dataset.price || '0');
+        case 'price-descending':
+          return parseInt(b.dataset.price || '0') - parseInt(a.dataset.price || '0');
+        case 'created-descending':
+          return parseInt(b.dataset.created || '0') - parseInt(a.dataset.created || '0');
+        case 'created-ascending':
+          return parseInt(a.dataset.created || '0') - parseInt(b.dataset.created || '0');
+        case 'best-selling':
+          return parseInt(b.dataset.bestSelling || '0') - parseInt(a.dataset.bestSelling || '0');
+        default:
+          return parseInt(a.dataset.sortFeatured || '0') - parseInt(b.dataset.sortFeatured || '0');
+      }
+    });
+
+    // Hide all first
+    items.forEach(function (item) {
+      item.hidden = true;
+    });
+
+    // Re-append in sorted order and show
+    visible.forEach(function (item) {
+      item.hidden = false;
+      grid.appendChild(item);
+    });
+
+    // No results
+    if (visible.length === 0) {
+      noResults.hidden = false;
+    } else {
+      noResults.hidden = true;
+    }
+
+    // Count
+    if (countEl) {
+      countEl.textContent = visible.length + ' product' + (visible.length !== 1 ? 's' : '');
+    }
+
+    // Pills
+    updatePills();
+  }
+
+  function updatePills() {
+    if (!pillsEl) return;
+    pillsEl.innerHTML = '';
+    var hasActive = false;
+
+    function addPill(type, value, label) {
+      hasActive = true;
+      var pill = document.createElement('button');
+      pill.className = 'msa__pill';
+      pill.setAttribute('aria-label', 'Remove filter: ' + label);
+      pill.innerHTML = label + ' <span aria-hidden="true">&times;</span>';
+      pill.addEventListener('click', function () {
+        state[type] = 'all';
+        // Reset dropdown button label & selection
+        var group = root.querySelector('[data-filter-group="' + type + '"]');
+        if (group) {
+          var allItem = group.querySelector('[data-filter-value="all"]');
+          if (allItem) {
+            group.querySelectorAll('.msa__dropdown-item').forEach(function (i) {
+              i.classList.remove('msa__dropdown-item--active');
+              i.setAttribute('aria-selected', 'false');
+            });
+            allItem.classList.add('msa__dropdown-item--active');
+            allItem.setAttribute('aria-selected', 'true');
+            var defaultLabel = group.querySelector('.msa__filter-btn .msa__filter-label');
+            if (defaultLabel) defaultLabel.textContent = allItem.textContent.trim();
+          }
+        }
+        applyFiltersAndSort();
+      });
+      pillsEl.appendChild(pill);
+    }
+
+    if (state.device !== 'all') {
+      var deviceItem = root.querySelector('[data-filter-type="device"][data-filter-value="' + state.device + '"]');
+      addPill('device', state.device, deviceItem ? deviceItem.textContent.trim() : state.device);
+    }
+    if (state.type !== 'all') {
+      var typeItem = root.querySelector('[data-filter-type="type"][data-filter-value="' + state.type + '"]');
+      addPill('type', state.type, typeItem ? typeItem.textContent.trim() : state.type);
+    }
+
+    pillsEl.hidden = !hasActive;
+  }
+
+  // ── Init ──
+  applyFiltersAndSort();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Shop All (MyDuke)",
+  "tag": "section",
+  "class": "msa-section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "background-1",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "source_collection",
+      "label": "Source collection",
+      "info": "All products from this collection will be displayed in the grid."
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 4,
+      "max": 48,
+      "step": 4,
+      "default": 12,
+      "label": "Products per page"
+    },
+    {
+      "type": "header",
+      "content": "Card Options"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" },
+        { "value": "landscape", "label": "Landscape" }
+      ],
+      "default": "adapt",
+      "label": "Image ratio"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "Show secondary image on hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "Show rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_view",
+      "default": true,
+      "label": "Show quick view"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Columns (desktop)"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ],
+      "default": "2",
+      "label": "Columns (mobile)"
+    },
+    {
+      "type": "header",
+      "content": "Device Compatibility Filter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_device_filter",
+      "label": "Show Device Compatibility filter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "device_filter_label",
+      "label": "Filter button label",
+      "default": "Device Compatibility",
+      "visible_if": "{{ section.settings.show_device_filter == true }}"
+    },
+    {
+      "type": "text",
+      "id": "device_filter_all_label",
+      "label": "\"All\" option label",
+      "default": "All Devices",
+      "visible_if": "{{ section.settings.show_device_filter == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Product Type Filter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_type_filter",
+      "label": "Show Product Type filter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "type_filter_label",
+      "label": "Filter button label",
+      "default": "Product Type",
+      "visible_if": "{{ section.settings.show_type_filter == true }}"
+    },
+    {
+      "type": "text",
+      "id": "type_filter_all_label",
+      "label": "\"All\" option label",
+      "default": "All Types",
+      "visible_if": "{{ section.settings.show_type_filter == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Sort Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort",
+      "label": "Show sort dropdown",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sort_label",
+      "label": "Sort label",
+      "default": "Sort by",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_featured",
+      "label": "Show \"Featured\"",
+      "default": true,
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "text",
+      "id": "sort_featured_label",
+      "label": "\"Featured\" label",
+      "default": "Featured",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_best",
+      "label": "Show \"Best Selling\"",
+      "default": true,
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "text",
+      "id": "sort_best_label",
+      "label": "\"Best Selling\" label",
+      "default": "Best Selling",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_az",
+      "label": "Show \"A–Z\"",
+      "default": true,
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "text",
+      "id": "sort_az_label",
+      "label": "\"A–Z\" label",
+      "default": "A–Z",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_za",
+      "label": "Show \"Z–A\"",
+      "default": true,
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "text",
+      "id": "sort_za_label",
+      "label": "\"Z–A\" label",
+      "default": "Z–A",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_price_asc",
+      "label": "Show \"Price: Low → High\"",
+      "default": true,
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "text",
+      "id": "sort_price_asc_label",
+      "label": "\"Price: Low → High\" label",
+      "default": "Price: Low → High",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_price_desc",
+      "label": "Show \"Price: High → Low\"",
+      "default": true,
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "text",
+      "id": "sort_price_desc_label",
+      "label": "\"Price: High → Low\" label",
+      "default": "Price: High → Low",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_new",
+      "label": "Show \"Newest\"",
+      "default": true,
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "text",
+      "id": "sort_new_label",
+      "label": "\"Newest\" label",
+      "default": "Newest",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_old",
+      "label": "Show \"Oldest\"",
+      "default": false,
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "text",
+      "id": "sort_old_label",
+      "label": "\"Oldest\" label",
+      "default": "Oldest",
+      "visible_if": "{{ section.settings.show_sort == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Empty State"
+    },
+    {
+      "type": "text",
+      "id": "no_results_text",
+      "label": "No results message",
+      "default": "No products found. Try adjusting your filters."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-padding.header.content"
+    },
+    {
+      "type": "select",
+      "id": "padding_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-padding.options__1.label" },
+        { "value": "xs",        "label": "t:sections.all.section-padding.options__2.label" },
+        { "value": "s",         "label": "t:sections.all.section-padding.options__3.label" },
+        { "value": "m",         "label": "t:sections.all.section-padding.options__4.label" },
+        { "value": "l",         "label": "t:sections.all.section-padding.options__5.label" },
+        { "value": "xl",        "label": "t:sections.all.section-padding.options__6.label" }
+      ],
+      "default": "m",
+      "label": "t:sections.all.section-padding.padding_top.label"
+    },
+    {
+      "type": "select",
+      "id": "padding_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-padding.options__1.label" },
+        { "value": "xs",        "label": "t:sections.all.section-padding.options__2.label" },
+        { "value": "s",         "label": "t:sections.all.section-padding.options__3.label" },
+        { "value": "m",         "label": "t:sections.all.section-padding.options__4.label" },
+        { "value": "l",         "label": "t:sections.all.section-padding.options__5.label" },
+        { "value": "xl",        "label": "t:sections.all.section-padding.options__6.label" }
+      ],
+      "default": "m",
+      "label": "t:sections.all.section-padding.padding_bottom.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section-margin.header.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_top",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs",        "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s",         "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m",         "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l",         "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl",        "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "no-indent",
+      "label": "t:sections.all.section-margin.margin_top.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "options": [
+        { "value": "no-indent", "label": "t:sections.all.section-margin.options__1.label" },
+        { "value": "xs",        "label": "t:sections.all.section-margin.options__2.label" },
+        { "value": "s",         "label": "t:sections.all.section-margin.options__3.label" },
+        { "value": "m",         "label": "t:sections.all.section-margin.options__4.label" },
+        { "value": "l",         "label": "t:sections.all.section-margin.options__5.label" },
+        { "value": "xl",        "label": "t:sections.all.section-margin.options__6.label" }
+      ],
+      "default": "l",
+      "label": "t:sections.all.section-margin.margin_bottom.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "device_filter_item",
+      "name": "Device Filter Option",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection_handle",
+          "label": "Collection",
+          "info": "Products in this collection will match this filter option."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Option label",
+          "info": "Leave blank to use the collection title."
+        }
+      ]
+    },
+    {
+      "type": "type_filter_item",
+      "name": "Product Type Filter Option",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection_handle",
+          "label": "Collection",
+          "info": "Products in this collection will match this filter option."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Option label",
+          "info": "Leave blank to use the collection title."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop All (MyDuke)",
+      "category": "Products",
+      "settings": {
+        "show_device_filter": true,
+        "show_type_filter": true,
+        "show_sort": true,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "products_per_page": 12
+      },
+      "blocks": [
+        { "type": "device_filter_item" },
+        { "type": "device_filter_item" },
+        { "type": "type_filter_item" },
+        { "type": "type_filter_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}
