@@ -28,7 +28,7 @@
         "overlay_color": "#000000",
         "overlay_opacity": 10,
         "loading_text": "Loading products...",
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "spinner_color": "#226e65"
       }
     },
@@ -256,67 +256,61 @@
         "vendor_KnrVeR": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "nicorette"
           }
         },
         "vendor_B9yLNf": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "wild"
           }
         },
         "vendor_MkQXKx": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "smok"
           }
         },
         "vendor_x8fxne": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "phix"
           }
         },
         "vendor_DpjpG6": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "ozpod"
           }
         },
         "vendor_NUqtHM": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "lanavape"
           }
         },
         "vendor_VA3YRm": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "relx"
           }
         },
         "vendor_XYAagr": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "vapure"
           }
         },
         "vendor_XXXHdn": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "rift-pro"
           }
         },
         "vendor_bQabzM": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
-          }
-        },
-        "vendor_V6hHXe": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "blu"
           }
         }
       },
@@ -333,8 +327,7 @@
         "vendor_VA3YRm",
         "vendor_XYAagr",
         "vendor_XXXHdn",
-        "vendor_bQabzM",
-        "vendor_V6hHXe"
+        "vendor_bQabzM"
       ],
       "name": "Vendor Logos (MyDuke)",
       "settings": {
