@@ -127,6 +127,7 @@
   }
   .myduke-cta__heading {
     font-size: 4.8rem;
+            max-width: 26rem;
   }
 
   .shopify-section.myduke-cta-section {
