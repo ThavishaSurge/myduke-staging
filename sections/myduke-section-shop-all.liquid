@@ -1,6 +1,4 @@
 {{ 'section-myduke-shop-all.css' | asset_url | stylesheet_tag }}
-{{ 'section-myduke-collection-products-list.css' | asset_url | stylesheet_tag }}
-
 
 {%- style -%}
   {% render 'section-padding' %}
@@ -195,14 +193,14 @@
 
     {%- comment -%} ── Product Grid ── {%- endcomment -%}
     <div
-      class="msa__grid mdcpl__track"
+      class="msa__grid"
       id="msa-grid-{{ section.id }}"
       data-cols-desktop="{{ cols_desktop }}"
       data-cols-mobile="{{ cols_mobile }}"
       data-products-per-page="{{ products_per_page }}"
       aria-label="Products"
     >
-      <div class="msa__list mdcpl__list mdcpl__list--{{ cols_desktop }} mdcpl__list--grid">
+      <div class="msa__list msa__list--{{ cols_desktop }} msa__list--grid">
 
       {%- assign source_collection = section.settings.source_collection -%}
       {%- assign all_products = collections[source_collection].products -%}
@@ -222,7 +220,7 @@
           {%- endfor -%}
 
           <div
-            class="msa__product-item mdcpl__item"
+            class="msa__product-item"
             data-product-id="{{ product.id }}"
             data-device-filters="{{ product_device_handles | remove_last: ',' }}"
             data-type-filters="{{ product_type_handles | remove_last: ',' }}"
@@ -232,8 +230,8 @@
             data-sort-featured="{{ forloop.index }}"
             data-best-selling="0"
           >
-            <a class="mdcpl__card" href="{{ product.url }}">
-              <div class="mdcpl__card-image-wrap">
+            <a class="msa__card" href="{{ product.url }}">
+              <div class="msa__card-image-wrap">
                 {%- if product.featured_image != blank -%}
                   {{
                     product.featured_image
@@ -242,13 +240,13 @@
                       loading: 'lazy',
                       widths: '300, 400, 600',
                       sizes: '(min-width: 1200px) 16vw, (min-width: 990px) 20vw, (min-width: 576px) 33vw, 50vw',
-                      style: 'object-fit:cover'
+                      style: 'object-fit:contain'
                   }}
                 {%- else -%}
                   {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
                 {%- endif -%}
               </div>
-              <p class="mdcpl__card-title">{{ product.title }}</p>
+              <p class="msa__card-title">{{ product.title }}</p>
               <p class="msa__card-price">
                 {%- if product.compare_at_price > product.price -%}
                   <span class="msa__card-price--compare">{{ product.compare_at_price | money }}</span>
@@ -260,12 +258,12 @@
         {%- endfor -%}
       {%- else -%}
         {%- for i in (1..cols_desktop) -%}
-          <div class="msa__product-item mdcpl__item msa__product-item--placeholder">
-            <div class="mdcpl__card mdcpl__card--placeholder">
-              <div class="mdcpl__card-image-wrap">
+          <div class="msa__product-item msa__product-item--placeholder">
+            <div class="msa__card msa__card--placeholder">
+              <div class="msa__card-image-wrap">
                 {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
               </div>
-              <p class="mdcpl__card-title">Product title</p>
+              <p class="msa__card-title">Product title</p>
               <p class="msa__card-price">$0.00</p>
             </div>
           </div>
