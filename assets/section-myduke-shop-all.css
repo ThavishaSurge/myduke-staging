@@ -44,9 +44,40 @@
   position: relative;
 }
 
+@media (max-width: 767.98px) {
+  .msa__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .msa__filters {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .msa__filter-group,
+  .msa__filter-btn {
+    width: 100%;
+  }
+
+  .msa__sort-group {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .msa__sort-select-wrap,
+  .msa__sort-select {
+    width: 100%;
+  }
+}
+
 .msa__filter-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   padding: 10px 16px;
   background: transparent;
@@ -58,6 +89,14 @@
   transition: border-color 0.2s, background 0.2s;
   white-space: nowrap;
   line-height: 1.4;
+  min-width: 220px;
+  max-width: 100%;
+}
+
+.msa__filter-btn-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
 }
 
 .msa__filter-btn:hover,
@@ -177,6 +216,11 @@
   cursor: pointer;
   outline: none;
   transition: border-color 0.2s;
+  min-width: 220px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .msa__sort-select:hover,
