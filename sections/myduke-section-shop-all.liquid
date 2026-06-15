@@ -21,14 +21,15 @@
   assign device_collections = '' | split: ''
   assign type_collections   = '' | split: ''
   for block in section.blocks
+    assign col_obj = block.settings.collection_handle
+    assign col_handle = col_obj.handle | default: col_obj
+
     if block.type == 'device_filter_item'
-      assign col_handle = block.settings.collection_handle | strip
       if col_handle != blank
         assign device_collections = device_collections | push: col_handle
       endif
     endif
     if block.type == 'type_filter_item'
-      assign col_handle = block.settings.collection_handle | strip
       if col_handle != blank
         assign type_collections = type_collections | push: col_handle
       endif
@@ -72,7 +73,8 @@
                   </button>
                   {%- for block in section.blocks -%}
                     {%- if block.type == 'device_filter_item' -%}
-                      {%- assign col_handle = block.settings.collection_handle | strip -%}
+                      {%- assign col_obj = block.settings.collection_handle -%}
+                      {%- assign col_handle = col_obj.handle | default: col_obj -%}
                       {%- assign col = collections[col_handle] -%}
                       {%- if col_handle != blank -%}
                         <button
@@ -116,7 +118,8 @@
                   </button>
                   {%- for block in section.blocks -%}
                     {%- if block.type == 'type_filter_item' -%}
-                      {%- assign col_handle = block.settings.collection_handle | strip -%}
+                      {%- assign col_obj = block.settings.collection_handle -%}
+                      {%- assign col_handle = col_obj.handle | default: col_obj -%}
                       {%- assign col = collections[col_handle] -%}
                       {%- if col_handle != blank -%}
                         <button
