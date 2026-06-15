@@ -14,17 +14,16 @@
    * attribute so the slider always matches the theme-editor setting.
    */
   function buildBreakpoints(cardsPerRow, spaceBetween) {
-    const mobile = cardsPerRow >= 2 ? 2 : 1;
-    const sm     = cardsPerRow >= 3 ? 3 : mobile;
+    const sm     = cardsPerRow >= 3 ? 3 : 2;
     const md     = cardsPerRow >= 4 ? 4 : sm;
     const lg     = cardsPerRow;
 
     return {
-      slidesPerViewMobile: mobile,
+      slidesPerViewMobile: 2,
       breakpoints: {
-        576: { slidesPerView: sm,  spaceBetween },
-        768: { slidesPerView: md,  spaceBetween },
-        990: { slidesPerView: lg,  spaceBetween },
+        576: { slidesPerView: sm,  spaceBetween, grid: { rows: 1 }, slidesPerGroup: 1 },
+        768: { slidesPerView: md,  spaceBetween, grid: { rows: 1 }, slidesPerGroup: 1 },
+        990: { slidesPerView: lg,  spaceBetween, grid: { rows: 1 }, slidesPerGroup: 1 },
       },
     };
   }
@@ -50,6 +49,11 @@
 
     const swiper = new Swiper(trackEl, {
       slidesPerView : slidesPerViewMobile,
+      slidesPerGroup: slidesPerViewMobile,
+      grid: {
+        rows: 2,
+        fill: 'row'
+      },
       spaceBetween  : spaceBetween / 2,
       speed         : 700,
       watchSlideProgress: true,
