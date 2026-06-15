@@ -233,7 +233,7 @@
           this.header.classList.add('shopify-section-header-sticky');
         }
 
-        if (scrollTop < this.header.offsetHeight && !this.isSearchPage) {
+        if (scrollTop < this.header.offsetHeight && !this.isStickyPage) {
           this.header.classList.remove('shopify-section-header-sticky');
         }
       }
@@ -269,7 +269,7 @@
     reset() {
       if (this.headerIsAlwaysSticky) return;
       this.header.classList.remove('shopify-section-header-hidden', 'animate');
-      if (!this.isSearchPage) {
+      if (!this.isStickyPage) {
         this.header.classList.remove('shopify-section-header-sticky');
       }
     }
