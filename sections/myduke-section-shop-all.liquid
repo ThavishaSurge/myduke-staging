@@ -1,5 +1,6 @@
 {{ 'section-myduke-shop-all.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-myduke-collection-products-list.css' | asset_url | stylesheet_tag }}
+
 
 {%- style -%}
   {% render 'section-padding' %}
@@ -10,8 +11,8 @@
   assign show_device_filter      = section.settings.show_device_filter
   assign show_type_filter        = section.settings.show_type_filter
   assign show_sort               = section.settings.show_sort
-  assign products_per_page       = section.settings.products_per_page | default: 12
-  assign cols_desktop            = section.settings.columns_desktop | default: 4
+  assign products_per_page       = section.settings.products_per_page | default: 24
+  assign cols_desktop            = section.settings.columns_desktop | default: 6
   assign cols_mobile             = section.settings.columns_mobile | default: 2
 
   comment
@@ -188,30 +189,20 @@
 
     {%- comment -%} ── Product Grid ── {%- endcomment -%}
     <div
-      class="msa__grid msa__grid--{{ cols_desktop }}-col msa__grid--mobile-{{ cols_mobile }}-col"
+      class="msa__grid mdcpl__track"
       id="msa-grid-{{ section.id }}"
       data-cols-desktop="{{ cols_desktop }}"
       data-cols-mobile="{{ cols_mobile }}"
       data-products-per-page="{{ products_per_page }}"
       aria-label="Products"
     >
-
-      {%- comment -%}
-        Build a unified list:
-        1. Collect all product IDs from the source collection (all products).
-        2. For each product in the source collection, attach its collection handles
-           so JS can filter client-side.
-      {%- endcomment -%}
+      <div class="msa__list mdcpl__list mdcpl__list--{{ cols_desktop }} mdcpl__list--grid">
 
       {%- assign source_collection = section.settings.source_collection -%}
       {%- assign all_products = collections[source_collection].products -%}
 
       {%- if all_products.size > 0 -%}
         {%- for product in all_products limit: products_per_page -%}
-          {%- comment -%}
-            Use product.collections to check membership — avoids the 20-product
-            pagination cap that collections[handle].products has.
-          {%- endcomment -%}
           {%- assign product_device_handles = '' | split: '' -%}
           {%- assign product_type_handles   = '' | split: '' -%}
 
@@ -225,7 +216,7 @@
           {%- endfor -%}
 
           <div
-            class="msa__product-item"
+            class="msa__product-item mdcpl__item"
             data-product-id="{{ product.id }}"
             data-device-filters="{{ product_device_handles | join: ',' }}"
             data-type-filters="{{ product_type_handles | join: ',' }}"
@@ -235,30 +226,47 @@
             data-sort-featured="{{ forloop.index }}"
             data-best-selling="0"
           >
-            {% render 'product-card',
-              product_card_product: product,
-              media_ratio_overwrite: section.settings.image_ratio,
-              show_quick_view_overwrite: section.settings.show_quick_view,
-              columns: cols_desktop,
-              columns_mobile: cols_mobile,
-              section_obj: section,
-              forloop_index: forloop.index
-            %}
+            <a class="mdcpl__card" href="{{ product.url }}">
+              <div class="mdcpl__card-image-wrap">
+                {%- if product.featured_image != blank -%}
+                  {{
+                    product.featured_image
+                    | image_url: width: 600
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '300, 400, 600',
+                      sizes: '(min-width: 1200px) 16vw, (min-width: 990px) 20vw, (min-width: 576px) 33vw, 50vw',
+                      style: 'object-fit:cover'
+                  }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              <p class="mdcpl__card-title">{{ product.title }}</p>
+              <p class="msa__card-price">
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="msa__card-price--compare">{{ product.compare_at_price | money }}</span>
+                {%- endif -%}
+                {{ product.price | money }}
+              </p>
+            </a>
           </div>
         {%- endfor -%}
       {%- else -%}
-        {%- comment -%} Placeholder cards {%- endcomment -%}
         {%- for i in (1..cols_desktop) -%}
-          <div class="msa__product-item msa__product-item--placeholder">
-            <div class="msa__placeholder-card">
-              {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
-              <p class="msa__placeholder-title">Product title</p>
-              <p class="msa__placeholder-price">$0.00</p>
+          <div class="msa__product-item mdcpl__item msa__product-item--placeholder">
+            <div class="mdcpl__card mdcpl__card--placeholder">
+              <div class="mdcpl__card-image-wrap">
+                {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+              <p class="mdcpl__card-title">Product title</p>
+              <p class="msa__card-price">$0.00</p>
             </div>
           </div>
         {%- endfor -%}
       {%- endif -%}
 
+      </div>
     </div>
 
     {%- comment -%} ── No results ── {%- endcomment -%}
@@ -277,7 +285,7 @@
   var root = document.getElementById('shopify-section-shop-all');
   if (!root) return;
 
-  var grid      = root.querySelector('#msa-grid-' + sectionId);
+  var grid      = root.querySelector('#msa-grid-' + sectionId + ' .msa__list');
   var noResults = root.querySelector('#msa-no-results-' + sectionId);
   var countEl   = root.querySelector('#msa-results-count-' + sectionId);
   var pillsEl   = root.querySelector('#msa-active-filters-' + sectionId);

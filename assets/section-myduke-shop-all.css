@@ -289,6 +289,23 @@
   width: 50%;
 }
 
+/* ── Card price ── */
+.msa__card-price {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--msa-teal);
+  font-family: var(--font-body-family);
+  font-weight: 500;
+}
+
+.msa__card-price--compare {
+  font-size: 12px;
+  color: var(--msa-text-secondary);
+  text-decoration: line-through;
+  margin-right: 4px;
+  font-weight: 400;
+}
+
 /* ── No results ── */
 .msa__no-results {
   padding: 48px 24px;
