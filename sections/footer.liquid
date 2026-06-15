@@ -464,6 +464,7 @@
                 or section.settings.payment_image_3 != blank
                 or section.settings.payment_image_4 != blank
                 or section.settings.payment_image_5 != blank
+                or section.settings.payment_image_6 != blank
               -%}
                 {%- comment -%} Render uploaded payment images {%- endcomment -%}
                 <ul class="list-payment list-payment--images list-unstyled" role="list">
@@ -746,6 +747,18 @@
       "id": "payment_image_5_alt",
       "label": "Image 5 Alt Text",
       "visible_if": "{{ section.settings.payment_enable and section.settings.payment_image_5 != blank }}"
+    },
+      {
+      "type": "image_picker",
+      "id": "payment_image_6",
+      "label": "Payment Image 6",
+      "visible_if": "{{ section.settings.payment_enable }}"
+    },
+    {
+      "type": "text",
+      "id": "payment_image_6_alt",
+      "label": "Image 6 Alt Text",
+      "visible_if": "{{ section.settings.payment_enable and section.settings.payment_image_6 != blank }}"
     },
     {
       "type": "checkbox",
