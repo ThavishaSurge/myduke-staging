@@ -638,7 +638,6 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  max-height: 600px;
 }
 .product__media-list .deferred-media {
   position: absolute;
@@ -730,7 +729,7 @@
   width: 100% !important;
   height: 100%;
   max-width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   position: absolute;
   inset: 0;
@@ -824,7 +823,6 @@
 @media (min-width: 990px) {
   .product__media-sublist .product__media-sublist-container {
     flex-direction: column;
-    max-height: 600px;
   }
 }
 .product__media-sublist:not(.swiper-initialized) .product__media-subitem {
