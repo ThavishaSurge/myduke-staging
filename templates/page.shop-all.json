@@ -48,10 +48,108 @@
         "elig_assessment_link": "",
         "sign_in_link": ""
       }
+    },
+    "myduke_section_shop_all_xAJxQA": {
+      "type": "myduke-section-shop-all",
+      "blocks": {
+        "device_filter_item_efCwUk": {
+          "type": "device_filter_item",
+          "settings": {
+            "collection_handle": "pods",
+            "label": ""
+          }
+        },
+        "device_filter_item_iXbt8c": {
+          "type": "device_filter_item",
+          "settings": {
+            "collection_handle": "e-liquids",
+            "label": ""
+          }
+        },
+        "device_filter_item_3XrQ3B": {
+          "type": "device_filter_item",
+          "settings": {
+            "collection_handle": "accessories",
+            "label": ""
+          }
+        },
+        "type_filter_item_VT3wCJ": {
+          "type": "type_filter_item",
+          "settings": {
+            "collection_handle": "open-tank-systems",
+            "label": ""
+          }
+        },
+        "type_filter_item_4yRGNb": {
+          "type": "type_filter_item",
+          "settings": {
+            "collection_handle": "hybrid-systems",
+            "label": ""
+          }
+        },
+        "type_filter_item_xtiKnQ": {
+          "type": "type_filter_item",
+          "settings": {
+            "collection_handle": "closed-systems",
+            "label": ""
+          }
+        }
+      },
+      "block_order": [
+        "device_filter_item_efCwUk",
+        "device_filter_item_iXbt8c",
+        "device_filter_item_3XrQ3B",
+        "type_filter_item_VT3wCJ",
+        "type_filter_item_4yRGNb",
+        "type_filter_item_xtiKnQ"
+      ],
+      "name": "Shop All (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "source_collection": "all-products",
+        "products_per_page": 12,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_view": true,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "show_device_filter": true,
+        "device_filter_label": "Device Compatibility",
+        "device_filter_all_label": "All Devices",
+        "show_type_filter": true,
+        "type_filter_label": "Product Type",
+        "type_filter_all_label": "All Types",
+        "show_sort": true,
+        "sort_label": "Sort by",
+        "show_sort_featured": true,
+        "sort_featured_label": "Featured",
+        "show_sort_best": true,
+        "sort_best_label": "Best Selling",
+        "show_sort_az": true,
+        "sort_az_label": "A–Z",
+        "show_sort_za": true,
+        "sort_za_label": "Z–A",
+        "show_sort_price_asc": true,
+        "sort_price_asc_label": "Price: Low → High",
+        "show_sort_price_desc": true,
+        "sort_price_desc_label": "Price: High → Low",
+        "show_sort_new": true,
+        "sort_new_label": "Newest",
+        "show_sort_old": false,
+        "sort_old_label": "Oldest",
+        "no_results_text": "No products found. Try adjusting your filters.",
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
     }
   },
   "order": [
     "page_info",
-    "myduke_hero_secondary_ALHhrd"
+    "myduke_hero_secondary_ALHhrd",
+    "myduke_section_shop_all_xAJxQA"
   ]
 }
