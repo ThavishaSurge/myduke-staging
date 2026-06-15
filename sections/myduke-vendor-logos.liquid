@@ -80,7 +80,7 @@
           >
             {%- if vendor_obj == blank -%}
               {%- comment -%} Placeholder ── no metaobject selected yet {%- endcomment -%}
-              <div class="mdvl__card" style="height: {{ logo_height }}px;">
+              <div class="mdvl__card">
                 <span class="mdvl__placeholder-text">Vendor Logo</span>
               </div>
 
@@ -95,12 +95,11 @@
                 <a
                   href="{{ vendor_url }}"
                   class="mdvl__card"
-                  style="height: {{ logo_height }}px;"
                   aria-label="{{ vendor_name }}"
                   {% if section.settings.shop_all_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
                 >
               {%- else -%}
-                <div class="mdvl__card" style="height: {{ logo_height }}px;" aria-label="{{ vendor_name }}">
+                <div class="mdvl__card" aria-label="{{ vendor_name }}">
               {%- endif -%}
 
                 {%- if vendor_logo != blank -%}
@@ -130,7 +129,7 @@
           {%- comment -%} No blocks yet — show placeholder grid {%- endcomment -%}
           {%- for i in (1..cols) -%}
             <div class="mdvl__item{% if enable_slider %} swiper-slide{% endif %}">
-              <div class="mdvl__card mdvl__card--placeholder" style="height: {{ logo_height }}px;">
+              <div class="mdvl__card mdvl__card--placeholder">
                 <span class="mdvl__placeholder-text">Brand {{ forloop.index }}</span>
               </div>
             </div>
