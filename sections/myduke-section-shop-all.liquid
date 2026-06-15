@@ -208,33 +208,27 @@
 
       {%- if all_products.size > 0 -%}
         {%- for product in all_products limit: products_per_page -%}
-          {%- comment -%} Determine which filter collections this product belongs to {%- endcomment -%}
-          {%- assign product_device_tags = '' -%}
-          {%- assign product_type_tags   = '' -%}
-          {%- for col_handle in device_collections -%}
-            {%- assign test_col = collections[col_handle] -%}
-            {%- for p in test_col.products -%}
-              {%- if p.id == product.id -%}
-                {%- assign product_device_tags = product_device_tags | append: col_handle | append: ',' -%}
-                {%- break -%}
-              {%- endif -%}
-            {%- endfor -%}
-          {%- endfor -%}
-          {%- for col_handle in type_collections -%}
-            {%- assign test_col = collections[col_handle] -%}
-            {%- for p in test_col.products -%}
-              {%- if p.id == product.id -%}
-                {%- assign product_type_tags = product_type_tags | append: col_handle | append: ',' -%}
-                {%- break -%}
-              {%- endif -%}
-            {%- endfor -%}
+          {%- comment -%}
+            Use product.collections to check membership — avoids the 20-product
+            pagination cap that collections[handle].products has.
+          {%- endcomment -%}
+          {%- assign product_device_handles = '' | split: '' -%}
+          {%- assign product_type_handles   = '' | split: '' -%}
+
+          {%- for prod_col in product.collections -%}
+            {%- if device_collections contains prod_col.handle -%}
+              {%- assign product_device_handles = product_device_handles | push: prod_col.handle -%}
+            {%- endif -%}
+            {%- if type_collections contains prod_col.handle -%}
+              {%- assign product_type_handles = product_type_handles | push: prod_col.handle -%}
+            {%- endif -%}
           {%- endfor -%}
 
           <div
             class="msa__product-item"
             data-product-id="{{ product.id }}"
-            data-device-filters="{{ product_device_tags | remove_last: ',' }}"
-            data-type-filters="{{ product_type_tags | remove_last: ',' }}"
+            data-device-filters="{{ product_device_handles | join: ',' }}"
+            data-type-filters="{{ product_type_handles | join: ',' }}"
             data-price="{{ product.price }}"
             data-title="{{ product.title | downcase }}"
             data-created="{{ product.published_at | date: '%s' }}"
