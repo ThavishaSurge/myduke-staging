@@ -176,6 +176,7 @@
     },
     "product_details_g3Lwh4": {
       "type": "product-details",
+      "disabled": true,
       "name": "t:sections.product-details.name",
       "settings": {
         "subheading": "",
@@ -247,6 +248,7 @@
         "image_gallery_slide_ietGwq",
         "image_gallery_slide_44mHq4"
       ],
+      "disabled": true,
       "name": "t:sections.image-gallery.name",
       "settings": {
         "main_color_scheme": "",
@@ -319,6 +321,7 @@
         "column_hWetPt",
         "column_tT6tJn"
       ],
+      "disabled": true,
       "name": "t:sections.trust.name",
       "settings": {
         "color_scheme": "",
