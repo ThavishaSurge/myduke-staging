@@ -18,23 +18,26 @@
   comment
     Collect all collections used for each filter via blocks
   endcomment
-  assign device_collections = '' | split: ''
-  assign type_collections   = '' | split: ''
+  assign device_collections = ''
+  assign type_collections   = ''
   for block in section.blocks
     assign col_obj = block.settings.collection_handle
     assign col_handle = col_obj.handle | default: col_obj
 
     if block.type == 'device_filter_item'
       if col_handle != blank
-        assign device_collections = device_collections | push: col_handle
+        assign device_collections = device_collections | append: col_handle | append: ','
       endif
     endif
     if block.type == 'type_filter_item'
       if col_handle != blank
-        assign type_collections = type_collections | push: col_handle
+        assign type_collections = type_collections | append: col_handle | append: ','
       endif
     endif
   endfor
+
+  assign device_collections_array = device_collections | split: ','
+  assign type_collections_array = type_collections | split: ','
 -%}
 
 <div
@@ -206,23 +209,23 @@
 
       {%- if all_products.size > 0 -%}
         {%- for product in all_products limit: products_per_page -%}
-          {%- assign product_device_handles = '' | split: '' -%}
-          {%- assign product_type_handles   = '' | split: '' -%}
+          {%- assign product_device_handles = '' -%}
+          {%- assign product_type_handles   = '' -%}
 
           {%- for prod_col in product.collections -%}
-            {%- if device_collections contains prod_col.handle -%}
-              {%- assign product_device_handles = product_device_handles | push: prod_col.handle -%}
+            {%- if device_collections_array contains prod_col.handle -%}
+              {%- assign product_device_handles = product_device_handles | append: prod_col.handle | append: ',' -%}
             {%- endif -%}
-            {%- if type_collections contains prod_col.handle -%}
-              {%- assign product_type_handles = product_type_handles | push: prod_col.handle -%}
+            {%- if type_collections_array contains prod_col.handle -%}
+              {%- assign product_type_handles = product_type_handles | append: prod_col.handle | append: ',' -%}
             {%- endif -%}
           {%- endfor -%}
 
           <div
             class="msa__product-item mdcpl__item"
             data-product-id="{{ product.id }}"
-            data-device-filters="{{ product_device_handles | join: ',' }}"
-            data-type-filters="{{ product_type_handles | join: ',' }}"
+            data-device-filters="{{ product_device_handles | remove_last: ',' }}"
+            data-type-filters="{{ product_type_handles | remove_last: ',' }}"
             data-price="{{ product.price }}"
             data-title="{{ product.title | downcase }}"
             data-created="{{ product.published_at | date: '%s' }}"
