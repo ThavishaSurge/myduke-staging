@@ -152,8 +152,11 @@
   .myduke-cta__inner {
     padding: 0 2.4rem;
   }
+  .myduke-cta__body p {
+    margin: 0;
+    max-width: 26rem;
+  }
   .myduke-cta__btn {
-    width: 100%;
     justify-content: center;
   }
 }
