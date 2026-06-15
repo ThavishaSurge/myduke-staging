@@ -126,7 +126,8 @@
     padding: 6rem 3.2rem 6rem 9.6rem;
   }
   .myduke-cta__heading {
-    font-size: 3.6rem;
+    font-size: 4.8rem;
+            max-width: 26rem;
   }
 
   .shopify-section.myduke-cta-section {
@@ -152,8 +153,11 @@
   .myduke-cta__inner {
     padding: 0 2.4rem;
   }
+  .myduke-cta__body p {
+    margin: 0;
+    max-width: 26rem;
+  }
   .myduke-cta__btn {
-    width: 100%;
     justify-content: center;
   }
 }
