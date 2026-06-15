@@ -109,7 +109,7 @@
           "settings": {
             "image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.webp",
             "step_badge": "Step 1",
-            "time_text": "4 minutes",
+            "time_text": "2 mins",
             "step_counter": "01 / 04",
             "step_title": "Clinical Assessment",
             "subtitle": "Tell us about you",
@@ -122,7 +122,7 @@
           "settings": {
             "image": "shopify://shop_images/Doctor-review-2.webp",
             "step_badge": "Step 2",
-            "time_text": "24 hours",
+            "time_text": "< 24 hrs",
             "step_counter": "02 / 04",
             "step_title": "Medical Review",
             "subtitle": "Doctor-approved pathway",
@@ -135,7 +135,7 @@
           "settings": {
             "image": "shopify://shop_images/Shop_Treatment.webp",
             "step_badge": "Step 3",
-            "time_text": "2-5 days",
+            "time_text": "24–48 hrs",
             "step_counter": "03 / 04",
             "step_title": "Treatment & Dispatch",
             "subtitle": "Pharmacy-dispensed products",
