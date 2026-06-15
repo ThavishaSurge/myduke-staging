@@ -103,47 +103,51 @@
     /* Sticky logo: hidden by default, shown when header becomes sticky */
     .header__heading-logo--sticky { display: none; }
   {% endif %}
-
 </style>
 {%- if section.settings.overlay_mode -%}
   {% render 'header-overlay-mode-styles' %}
 {%- endif -%}
 
 {%- if section.settings.logo_sticky != blank -%}
-<script>
-(function () {
-  var STICKY_CLASS = 'shopify-section-header-sticky';
+  <script>
+    (function () {
+      var STICKY_CLASS = 'shopify-section-header-sticky';
 
-  function swapLogos(header) {
-    var isSticky = header.classList.contains(STICKY_CLASS);
-    var defaultLogos = header.querySelectorAll(
-      '.header__heading-logo:not(.header__heading-logo--sticky):not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay)'
-    );
-    var stickyLogos = header.querySelectorAll('.header__heading-logo--sticky');
-    if (!stickyLogos.length) return;
-    defaultLogos.forEach(function (el) { el.style.display = isSticky ? 'none' : ''; });
-    stickyLogos.forEach(function (el) { el.style.display = isSticky ? 'block' : 'none'; });
-  }
+      function swapLogos(header) {
+        var isSticky = header.classList.contains(STICKY_CLASS);
+        var defaultLogos = header.querySelectorAll(
+          '.header__heading-logo:not(.header__heading-logo--sticky):not(.header__heading-logo--scrolled):not(.header__heading-logo--overlay)'
+        );
+        var stickyLogos = header.querySelectorAll('.header__heading-logo--sticky');
+        if (!stickyLogos.length) return;
+        defaultLogos.forEach(function (el) {
+          el.style.display = isSticky ? 'none' : '';
+        });
+        stickyLogos.forEach(function (el) {
+          el.style.display = isSticky ? 'block' : 'none';
+        });
+      }
 
-  function init() {
-    var header = document.querySelector('.shopify-section-header');
-    if (!header) return;
-    swapLogos(header);
-    new MutationObserver(function () { swapLogos(header); })
-      .observe(header, { attributes: true, attributeFilter: ['class'] });
-  }
+      function init() {
+        var header = document.querySelector('.shopify-section-header');
+        if (!header) return;
+        swapLogos(header);
+        new MutationObserver(function () {
+          swapLogos(header);
+        }).observe(header, { attributes: true, attributeFilter: ['class'] });
+      }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
 
-  document.addEventListener('shopify:section:load', function () {
-    setTimeout(init, 0);
-  });
-})();
-</script>
+      document.addEventListener('shopify:section:load', function () {
+        setTimeout(init, 0);
+      });
+    })();
+  </script>
 {%- endif -%}
 
 {%- liquid
@@ -163,9 +167,20 @@
 {%- endcapture -%}
 
 {%- if section.settings.sticky_header_type != 'none' -%}
-  <sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}" class="{{ wrapper_class }}"{% if transparent_sticky_adaptive %} data-transparent-sticky-adapt{% endif %}>
+  <sticky-header
+    data-sticky-type="{{ section.settings.sticky_header_type }}"
+    class="{{ wrapper_class }}"
+    {% if transparent_sticky_adaptive %}
+      data-transparent-sticky-adapt
+    {% endif %}
+  >
 {%- else -%}
-  <div class="{{ wrapper_class }}"{% if transparent_sticky_adaptive %} data-transparent-sticky-adapt{% endif %}>
+  <div
+    class="{{ wrapper_class }}"
+    {% if transparent_sticky_adaptive %}
+      data-transparent-sticky-adapt
+    {% endif %}
+  >
 {%- endif -%}
 <div class="header header--{{ section.settings.logo_position }} header--{{ section.settings.menu_position }}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if section.settings.overlay_mode %} header--overlay-mode {% if section.settings.show_dm_logo_in_overlay_mode %} header--overlay-mode-dm-logo{% endif %}{% endif %}{% if transparent_sticky_adaptive %} header--transparent-sticky{% if tsk_dual_logo %} header--tsk-dual-logo{% else %} header--tsk-single-logo{% endif %}{% endif %}">
   {% render 'header-inner', section: section %}
@@ -183,9 +198,9 @@
       this.header = document.querySelector('.shopify-section-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always';
       this.mobileMenu = this.querySelector('header-drawer');
-      this.isSearchPage = document.body.classList.contains('template-search');
-      this.isProductPage = document.body.classList.contains('template-product');
-      if (this.isSearchPage || this.isProductPage) {
+      const stickyTemplates = ['template-search', 'template-product'];
+      this.isStickyPage = stickyTemplates.some((template) => document.body.classList.contains(template));
+      if (this.isStickyPage) {
         this.header.classList.add('shopify-section-header-sticky');
       }
       this.currentScrollTop = 0;
