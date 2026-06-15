@@ -194,7 +194,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: var(--mdvl-card-bg);
+  /* background-color: var(--mdvl-card-bg); */
+  background-color: #fff;
   text-decoration: none;
   color: inherit;
   box-sizing: border-box;
