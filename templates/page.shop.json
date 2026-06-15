@@ -22,10 +22,11 @@
       "type": "myduke-loading-screen",
       "name": "Loading Screen",
       "settings": {
-        "fallback_bg_color": "#226E65",
-        "loading_text": "Loading your products...",
-        "text_color": "#1B4332",
-        "spinner_color": "#226E65"
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
+        "fallback_bg_color": "#226e65",
+        "loading_text": "Loading products...",
+        "text_color": "#1b4332",
+        "spinner_color": "#226e65"
       }
     },
     "myduke_hero_secondary_hYDajq": {
