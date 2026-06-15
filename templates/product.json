@@ -154,9 +154,9 @@
       "settings": {
         "color_scheme": "",
         "show_breadcrumbs": true,
-        "desktop_gallery_type": "grid",
+        "desktop_gallery_type": "slider_previews",
         "preset_block_layout": false,
-        "mobile_gallery_type": "grid",
+        "mobile_gallery_type": "carousel",
         "desktop_gallery_order": "before",
         "mobile_gallery_order": "before",
         "desktop_media_ratio": "portrait",
@@ -314,7 +314,11 @@
           }
         }
       },
-      "block_order": ["column_DepghV", "column_hWetPt", "column_tT6tJn"],
+      "block_order": [
+        "column_DepghV",
+        "column_hWetPt",
+        "column_tT6tJn"
+      ],
       "name": "t:sections.trust.name",
       "settings": {
         "color_scheme": "",
