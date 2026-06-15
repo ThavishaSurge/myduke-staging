@@ -197,7 +197,7 @@
   background-color: var(--mdvl-card-bg);
   text-decoration: none;
   color: inherit;
-  padding: 16px 20px;
+  padding: 20px 20px;
   box-sizing: border-box;
   transition: background-color 0.2s ease;
 }
@@ -209,8 +209,6 @@ a.mdvl__card:hover {
 /* ── Logo image ── */
 .mdvl__logo-img {
   display: block;
-  max-width: 185px;
-  height: 41px;
   width: 100%;
   object-fit: contain;
 }
