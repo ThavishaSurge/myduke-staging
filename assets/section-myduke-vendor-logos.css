@@ -211,6 +211,7 @@ a.mdvl__card:hover {
   display: block;
   width: 100%;
   object-fit: contain;
+  height: auto;
 }
 
 /* ── Fallback text when no logo uploaded ── */
