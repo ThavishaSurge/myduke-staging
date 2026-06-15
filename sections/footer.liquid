@@ -468,7 +468,7 @@
               -%}
                 {%- comment -%} Render uploaded payment images {%- endcomment -%}
                 <ul class="list-payment list-payment--images list-unstyled" role="list">
-                  {%- for i in (1..5) -%}
+                  {%- for i in (1..6) -%}
                     {%- assign img_key = 'payment_image_' | append: i -%}
                     {%- assign img_alt_key = 'payment_image_' | append: i | append: '_alt' -%}
                     {%- assign payment_img = section.settings[img_key] -%}
