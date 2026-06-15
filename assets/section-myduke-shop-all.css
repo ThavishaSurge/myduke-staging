@@ -5,7 +5,7 @@
 
 /* ── Section wrapper ── */
 .msa {
-  --msa-gap: 20px;
+  --msa-gap: 12px;
   --msa-card-radius: 0px;
   --msa-teal: #218380;
   --msa-border: #E0DACF;
