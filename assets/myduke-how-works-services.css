@@ -233,7 +233,7 @@
 
   .myduke-how-works-services__cards {
     grid-template-columns: 1fr;
-    gap: 0; /*new*/
+    gap: 32px; 
   }
 
   myduke-how-works-services__card-desc {
@@ -268,12 +268,33 @@
   }
 
   .myduke-how-works-services__cards {
+    grid-template-columns: 1fr;
     gap: 32px;
   }
 
-  .myduke-how-works-services__card {
+  /* .myduke-how-works-services__card {
+    width: 100%;
+  } */
+   .myduke-how-works-services__card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    grid-row: auto; /* Kills the span 3 stretching */
     width: 100%;
   }
+
+  .myduke-how-works-services__card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* 4. Remove the desktop margins so the Flex gaps handle the spacing again */
+  .myduke-how-works-services__card-title,
+  .myduke-how-works-services__card-desc {
+    margin: 0;
+  }
+
 }
 
 .reg-mark {
