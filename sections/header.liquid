@@ -184,7 +184,8 @@
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always';
       this.mobileMenu = this.querySelector('header-drawer');
       this.isSearchPage = document.body.classList.contains('template-search');
-      if (this.isSearchPage) {
+      this.isProductPage = document.body.classList.contains('template-product');
+      if (this.isSearchPage || this.isProductPage) {
         this.header.classList.add('shopify-section-header-sticky');
       }
       this.currentScrollTop = 0;
