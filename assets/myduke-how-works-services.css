@@ -42,6 +42,7 @@
   flex-direction: column;
   gap: 48px;
   align-items: flex-start;
+      justify-content: center;
   padding: 130px 20px;
 }
 
