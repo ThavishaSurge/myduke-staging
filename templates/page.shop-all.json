@@ -17,9 +17,41 @@
         "heading_tag": "h1",
         "content_align": "left"
       }
+    },
+    "myduke_hero_secondary_ALHhrd": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/image_8_1.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 0,
+        "height_desktop": 60,
+        "height_mobile": 60,
+        "enable_mobile_colors": false,
+        "mobile_text_color": "#264653",
+        "enable_breadcrumbs": false,
+        "breadcrumb_parent_text": "Home",
+        "breadcrumb_parent_link": "",
+        "breadcrumb_current_text": "About",
+        "breadcrumb_middle_text": "",
+        "breadcrumb_middle_link": "",
+        "content_max_width": 526,
+        "heading": "{{ page.title }}",
+        "description": "<p>myduke® is an Australian clinical health service established to support adults seeking smoking cessation support within a regulated and medically supervised framework.</p>",
+        "button_text": "",
+        "button_link": "",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
     }
   },
   "order": [
-    "page_info"
+    "page_info",
+    "myduke_hero_secondary_ALHhrd"
   ]
 }
