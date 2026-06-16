@@ -774,7 +774,7 @@
             <p class="res-section-label">What You'll Need</p>
             <div class="res-needs-wrapper">
               <p class="res-needs-sublabel" id="res-needs-sublabel-{{ section.id }}"></p>
-              <div id="res-needs-{{ section.id }}">
+              <div class="res-needs-div" id="res-needs-{{ section.id }}">
                 <!-- dynamically injected need rows -->
               </div>
             </div>
@@ -1244,7 +1244,7 @@
       )
       .join('');
 
-    document.getElementById('res-needs-div res-needs-' + sectionId).innerHTML = needs
+    document.getElementById('res-needs-' + sectionId).innerHTML = needs
       .map(
         (w) => `
       <a href="${link}" class="res-need-row">
