@@ -205,7 +205,7 @@
       {%- assign source_collection = section.settings.source_collection -%}
       {%- assign all_products = collections[source_collection].products -%}
 
-      {%- paginate collections[source_collection].products by products_per_page -%}
+      {%- paginate collections[source_collection].products by 1000 -%}
       {%- if all_products.size > 0 -%}
         {%- for product in collections[source_collection].products -%}
           {%- assign product_device_handles = '' -%}
@@ -274,11 +274,9 @@
       </div>
     </div>
 
-    {%- if paginate.pages > 1 -%}
-      <div class="msa__pagination" style="margin-top: 4.8rem; display: flex; justify-content: center;">
-        {% render 'pagination', paginate: paginate %}
-      </div>
-    {%- endif -%}
+    {%- comment -%} ── Client-side Pagination Wrapper ── {%- endcomment -%}
+    <div class="msa__client-pagination"></div>
+
     {%- endpaginate -%}
 
     {%- comment -%} ── No results ── {%- endcomment -%}
@@ -306,7 +304,8 @@
   var state = {
     device: 'all',
     type: 'all',
-    sort: 'manual'
+    sort: 'manual',
+    page: 1
   };
 
   // ── Filter dropdowns ──
@@ -348,6 +347,7 @@
 
         // Update state
         state[filterType] = filterValue;
+        state.page = 1;
 
         // Close dropdown
         btn.setAttribute('aria-expanded', 'false');
@@ -373,6 +373,7 @@
   if (sortSelect) {
     sortSelect.addEventListener('change', function () {
       state.sort = sortSelect.value;
+      state.page = 1;
       applyFiltersAndSort();
     });
   }
@@ -412,15 +413,30 @@
       }
     });
 
+    // --- Pagination Logic ---
+    var perPageStr = grid.getAttribute('data-products-per-page');
+    var perPage = perPageStr ? parseInt(perPageStr, 10) : 24;
+    var totalPages = Math.ceil(visible.length / perPage);
+    
+    if (state.page < 1) state.page = 1;
+    if (state.page > totalPages && totalPages > 0) state.page = totalPages;
+
+    var start = (state.page - 1) * perPage;
+    var end = start + perPage;
+
     // Hide all first
     items.forEach(function (item) {
       item.hidden = true;
     });
 
-    // Re-append in sorted order and show
-    visible.forEach(function (item) {
-      item.hidden = false;
+    // Re-append ONLY paginated in sorted order and show
+    visible.forEach(function (item, index) {
       grid.appendChild(item);
+      if (index >= start && index < end) {
+        item.hidden = false;
+      } else {
+        item.hidden = true;
+      }
     });
 
     // No results
@@ -437,6 +453,9 @@
 
     // Pills
     updatePills();
+
+    // Render Pagination
+    renderPagination(visible.length, perPage, totalPages);
   }
 
   function updatePills() {
@@ -452,6 +471,7 @@
       pill.innerHTML = label + ' <span aria-hidden="true">&times;</span>';
       pill.addEventListener('click', function () {
         state[type] = 'all';
+        state.page = 1;
         // Reset dropdown button label & selection
         var group = root.querySelector('[data-filter-group="' + type + '"]');
         if (group) {
@@ -482,6 +502,75 @@
     }
 
     pillsEl.hidden = !hasActive;
+  }
+
+  // ── Render Pagination ──
+  function renderPagination(totalVisible, perPage, totalPages) {
+    var wrapper = root.querySelector('.msa__client-pagination');
+    if (!wrapper) return;
+
+    if (totalPages <= 1) {
+      wrapper.innerHTML = '';
+      return;
+    }
+
+    var html = '<div class="pagination-wrapper no-js-block" style="margin-top: 4.8rem;">' +
+               '<nav class="pagination container" role="navigation" aria-label="Pagination">' +
+               '<ul class="pagination__list list-unstyled" role="list">';
+
+    // Prev
+    html += '<li class="' + (state.page <= 1 ? 'paginate_none' : '') + '">';
+    if (state.page > 1) {
+      html += '<a href="#" class="pagination__item-toggler pagination__item-toggler--prev button" data-page="' + (state.page - 1) + '" aria-label="Previous page">';
+      html += '<svg class="icon icon-arrow-slider-left" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2L6 10L14 18" stroke="currentColor"/></svg>';
+      html += '</a>';
+    } else {
+      html += '<span class="pagination__item-toggler pagination__item-toggler--prev button" style="opacity:0.5; pointer-events:none;" aria-label="Previous page">';
+      html += '<svg class="icon icon-arrow-slider-left" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2L6 10L14 18" stroke="currentColor"/></svg>';
+      html += '</span>';
+    }
+    html += '</li>';
+
+    // Numbers
+    for (var i = 1; i <= totalPages; i++) {
+      html += '<li>';
+      if (i === state.page) {
+        html += '<span class="pagination__item pagination__item--current body-normal" aria-current="page">' + i + '</span>';
+      } else {
+        html += '<a href="#" class="pagination__item body-normal" data-page="' + i + '" aria-label="Page ' + i + '">' + i + '</a>';
+      }
+      html += '</li>';
+    }
+
+    // Next
+    html += '<li class="' + (state.page >= totalPages ? 'paginate_none' : '') + '">';
+    if (state.page < totalPages) {
+      html += '<a href="#" class="pagination__item-toggler pagination__item-toggler--next button" data-page="' + (state.page + 1) + '" aria-label="Next page">';
+      html += '<svg class="icon icon-arrow-slider-right" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L14 10L6 18" stroke="currentColor"/></svg>';
+      html += '</a>';
+    } else {
+      html += '<span class="pagination__item-toggler pagination__item-toggler--next button" style="opacity:0.5; pointer-events:none;" aria-label="Next page">';
+      html += '<svg class="icon icon-arrow-slider-right" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2L14 10L6 18" stroke="currentColor"/></svg>';
+      html += '</span>';
+    }
+    html += '</li>';
+
+    html += '</ul></nav></div>';
+
+    wrapper.innerHTML = html;
+
+    wrapper.querySelectorAll('a[data-page]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        state.page = parseInt(this.getAttribute('data-page'), 10);
+        applyFiltersAndSort();
+        var topEl = root.querySelector('.msa__toolbar');
+        if (topEl) {
+          var y = topEl.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({top: y, behavior: 'smooth'});
+        }
+      });
+    });
   }
 
   // ── Init ──
