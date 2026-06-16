@@ -506,7 +506,11 @@
     line-height: 19.6px;
     white-space: nowrap;
   }
-
+  .res-needs-div{
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+  }
   .res-need-row {
     background-color: #edf3f0;
     display: flex;
@@ -1240,7 +1244,7 @@
       )
       .join('');
 
-    document.getElementById('res-needs-' + sectionId).innerHTML = needs
+    document.getElementById('res-needs-div res-needs-' + sectionId).innerHTML = needs
       .map(
         (w) => `
       <a href="${link}" class="res-need-row">
