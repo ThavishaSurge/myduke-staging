@@ -46,7 +46,7 @@
       "settings": {
         "posts_per_page": 12,
         "posts_per_row": 4,
-        "description": "",
+        "description": "This section should be structured clearly, ensuring the reader understands the purpose and value of the content.",
         "heading_font": "body",
         "heading_size": "h3",
         "text_alignment": "left",
@@ -60,7 +60,7 @@
         "show_author": true,
         "show_excerpt": false,
         "show_comments_count": false,
-        "padding_top": "s",
+        "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
         "margin_bottom": "no-indent"
