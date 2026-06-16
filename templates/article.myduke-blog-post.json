@@ -16,7 +16,7 @@
           "type": "article-header",
           "settings": {
             "heading_size": "h4",
-            "heading_tag": "h2",
+            "heading_tag": "h1",
             "show_image": false,
             "blog_show_excerpt": false,
             "blog_show_date": true,
