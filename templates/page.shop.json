@@ -27,7 +27,7 @@
         "enable_overlay": true,
         "overlay_color": "#000000",
         "overlay_opacity": 10,
-        "loading_text": "Loading MyDuke Pharmacy…",
+        "loading_text": "Loading myduke Pharmacy…",
         "text_color": "#ffffff",
         "spinner_color": "#226e65"
       }
