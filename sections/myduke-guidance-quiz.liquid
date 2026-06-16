@@ -36,6 +36,9 @@
 {% endschema %}
 
 <style>
+  .full-w-section{
+    margin:2.4rem;
+  }
   .guidance-quiz-section, .guidance-quiz-section * {
     box-sizing: border-box;
   }
@@ -602,6 +605,9 @@
   }
 
   @media (max-width: 768px) {
+    .full-w-section{
+      margin:0;
+    }
     /* Outer section */
     .guidance-quiz-section {
       padding: 64px 24px;
@@ -679,7 +685,7 @@
   }
 </style>
 
-<div class="page-width container">
+<div class="page-width full-w-section">
   <div class="guidance-quiz-section" id="GuidanceQuiz-{{ section.id }}">
     <div class="guidance-quiz-header">
       <h2>{{ section.settings.heading | escape }}</h2>
