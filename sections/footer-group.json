@@ -14,14 +14,6 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "block_1": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Shop",
-            "menu": "footer",
-            "default_open": false
-          }
-        },
         "block_2": {
           "type": "link_list",
           "settings": {
@@ -55,7 +47,6 @@
         }
       },
       "block_order": [
-        "block_1",
         "block_2",
         "block_3",
         "link_list_ww6kYn",
