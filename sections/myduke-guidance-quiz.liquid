@@ -502,6 +502,29 @@
     cursor: pointer;
     font-family: 'Manrope', sans-serif;
     align-self: flex-start;
+    font-size: 14px;
+  }
+
+  /* Recommended devices text block */
+  .res-device-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .res-device-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2b2b2e;
+    margin: 0;
+  }
+
+  .res-device-tagline {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: #5a6672;
+    margin: 0;
   }
 
   @media (max-width: 768px) {
@@ -593,24 +616,9 @@
           <div class="res-section-header">
             <h4>Your Recommended Devices</h4>
           </div>
-          <div class="res-cards-container">
-            <a href="#" class="res-device-card" id="res-category-link-{{ section.id }}">
-              <img src="" alt="" class="res-device-image" id="res-category-image-{{ section.id }}" style="display: none; width: 100%; height: 176px; object-fit: cover;" />
-              <div class="res-device-image-ph" id="res-category-image-ph-{{ section.id }}"></div>
-              <div class="res-device-info">
-                <h5 id="res-category-name-{{ section.id }}">Category Name</h5>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style="transform: rotate(-90deg);"
-                >
-                  <path d="M11 15L6 10L7.4 8.6L11 12.2L14.6 8.6L16 10L11 15Z" fill="#218380"/>
-                </svg>
-              </div>
-            </a>
+          <div class="res-device-text-block">
+            <p class="res-device-title" id="res-category-name-{{ section.id }}"></p>
+            <p class="res-device-tagline" id="res-category-tagline-{{ section.id }}"></p>
           </div>
         </div>
 
@@ -620,6 +628,15 @@
           </div>
           <div class="res-list" id="res-why-{{ section.id }}">
             <!-- dynamically injected checkmark rows -->
+          </div>
+        </div>
+
+        <div class="res-section">
+          <div class="res-section-header">
+            <h4>Personalised Insights</h4>
+          </div>
+          <div id="res-insights-{{ section.id }}">
+            <!-- dynamic text paragraphs -->
           </div>
         </div>
       </div>
@@ -659,18 +676,7 @@
           </p>
         </div>
 
-        {% comment %}
-          <div class="res-section" style="margin-top: 12px;">
-            <div class="res-section-header">
-              <h4>Personalised Insights</h4>
-            </div>
-            <div class="res-list" id="res-insights-{{ section.id }}">
-              <!-- dynamic text paragraphs -->
-            </div>
-          </div>
-        {% endcomment %}
-
-        {% comment %} <button class="guidance-btn-retake" onclick="restartQuiz('{{ section.id }}')">Retake Quiz</button> {% endcomment %}
+        <button class="guidance-btn-retake" onclick="restartQuiz('{{ section.id }}')">Retake Quiz</button>
       </div>
     </div>
   </div>
@@ -1051,24 +1057,27 @@
 
     // 1. Setup
     let title = '',
+      tagline = '',
       link = '',
       why = [],
       needs = [],
       usage = [];
 
     if (category === 'closed') {
-      title = 'Closed Systems';
+      title = 'Closed System';
+      tagline = 'Simple, reliable and closest to smoking.';
       link = '/collections/closed-systems';
       why = [
         'No maintenance or refilling required',
         'Closest experience to smoking a cigarette',
-        'Pre-filled pods — just click in and go',
+        'Pre-filled pods — simply click and go',
         'Ideal for beginners switching from smoking',
       ];
-      needs = ['Device (starter kit)', 'Pre-filled pods (your chosen flavour)', 'USB charger (included)'];
-      usage = ['~2–4 pods per week, depending on usage', 'Minimal maintenance required', 'Replace pods when empty'];
+      needs = ['Closed System Device', 'Pre-Filled Pods', 'USB Charging Cable (if applicable)'];
+      usage = ['Approximately 2–4 pods per week depending on usage', 'Minimal maintenance required', 'Replace pods when empty'];
     } else if (category === 'hybrid') {
-      title = 'Hybrid Systems';
+      title = 'Hybrid System';
+      tagline = 'The best of both worlds — flexibility meets simplicity.';
       link = '/collections/hybrid-systems';
       why = [
         'Refillable pod system',
@@ -1076,10 +1085,11 @@
         'Lower ongoing costs',
         'Great balance of simplicity and performance',
       ];
-      needs = ['Refillable Pod Device', 'E-Liquid (your chosen flavour)', 'Replacement Pods', 'USB charger'];
+      needs = ['Refillable Pod Device', 'E-Liquid (your chosen flavour)', 'Replacement Pods', 'USB Charging Cable'];
       usage = ['Refill pods as required', 'Replace pods periodically', 'Moderate maintenance required'];
     } else if (category === 'open') {
-      title = 'Open Tank Systems';
+      title = 'Open Tank System';
+      tagline = 'Maximum control and customisation for experienced users.';
       link = '/collections/open-tank-systems';
       why = [
         'Maximum customisation',
@@ -1088,10 +1098,11 @@
         'Adjustable airflow and settings',
         'Designed for experienced users',
       ];
-      needs = ['Open Tank Device', 'E-Liquid', 'Replacement Coils', 'USB charger'];
+      needs = ['Open Tank Device', 'E-Liquid', 'Replacement Coils', 'USB Charging Cable'];
       usage = ['Refill tank regularly', 'Replace coils periodically', 'More maintenance than pod systems'];
     } else if (category === 'nrt') {
       title = 'Nicotine Replacement Therapy';
+      tagline = 'A clinically proven, smoke-free approach to managing cravings.';
       link = '/collections/nrt';
       why = [
         'Clinically proven methods to manage cravings',
@@ -1104,19 +1115,7 @@
     }
 
     document.getElementById('res-category-name-' + sectionId).innerText = title;
-    document.getElementById('res-category-link-' + sectionId).href = link;
-
-    const imgUrl = collectionImages[category];
-    const imageEl = document.getElementById('res-category-image-' + sectionId);
-    const imagePh = document.getElementById('res-category-image-ph-' + sectionId);
-    if (imgUrl) {
-      imageEl.src = imgUrl;
-      imageEl.style.display = 'block';
-      imagePh.style.display = 'none';
-    } else {
-      imageEl.style.display = 'none';
-      imagePh.style.display = 'block';
-    }
+    document.getElementById('res-category-tagline-' + sectionId).innerText = tagline;
 
     document.getElementById('res-why-' + sectionId).innerHTML = why
       .map(
@@ -1170,27 +1169,41 @@
       'res-nic-message-' + sectionId
     ).innerText = `We recommend starting with ${nicRange.toLowerCase()} to help manage cravings. ${nicMsgTail}`;
 
-    // 6. Insights
+    // 6. Insights — driven by quiz answers
     let insights = [];
-    if (answers.q2 === 'not_vape' || answers.q2 === 'either')
+    if (answers.q2 === 'not_vape')
+      insights.push('You indicated that you prefer not to use a vaping device.');
+    if (answers.q2 === 'either')
       insights.push('You indicated that you are open to managing cravings without a vaping device.');
     if (answers.q3 === 'easiest')
-      insights.push(
-        "You indicated that simplicity is important, so we've prioritised ease of use in your recommendation."
-      );
+      insights.push("You indicated that simplicity is important, so we've prioritised ease of use in your recommendation.");
     if (answers.q3 === 'closest')
       insights.push('You indicated that a familiar cigarette-style experience is important to you.');
     if (answers.q3 === 'control')
       insights.push('You indicated that greater control and flexibility are important to you.');
-
-    if (answers.q4 === 'tight') insights.push('You prefer a tighter draw similar to a traditional cigarette.');
-    if (answers.q4 === 'airy') insights.push('You prefer a more open draw with increased vapour production.');
+    if (answers.q4 === 'tight')
+      insights.push('You prefer a tighter draw similar to a traditional cigarette.');
+    if (answers.q4 === 'airy')
+      insights.push('You prefer a more open draw with increased vapour production.');
     if (answers.q4 === 'notsure')
       insights.push("If you're unsure, most customers transitioning from smoking start with a tighter draw style.");
+    if (answers.q5 === 'no')
+      insights.push('You prefer a device that requires no refilling or maintenance.');
+    if (answers.q5 === 'yes')
+      insights.push('You are comfortable refilling your device yourself.');
+    if (answers.q7 === 'quit')
+      insights.push('Your primary goal is to quit smoking — your recommendation supports a structured step-down approach.');
+    if (answers.q7 === 'save')
+      insights.push('Saving money is a priority for you, so we have factored cost-efficiency into your recommendation.');
+    if (answers.q7 === 'flavour')
+      insights.push('Better flavour and performance matter to you, reflected in your recommended setup.');
 
-    document.getElementById('res-insights-' + sectionId).innerHTML = insights
-      .map((i) => `<p class="res-text-block" style="margin-bottom: 8px;">${i}</p>`)
-      .join('');
+    const insightsEl = document.getElementById('res-insights-' + sectionId);
+    if (insightsEl) {
+      insightsEl.innerHTML = insights
+        .map((i) => `<p class="res-text-block" style="margin-bottom: 8px;">${i}</p>`)
+        .join('');
+    }
   }
 
   function restartQuiz(sectionId) {
