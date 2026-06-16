@@ -205,8 +205,9 @@
       {%- assign source_collection = section.settings.source_collection -%}
       {%- assign all_products = collections[source_collection].products -%}
 
+      {%- paginate collections[source_collection].products by products_per_page -%}
       {%- if all_products.size > 0 -%}
-        {%- for product in all_products limit: products_per_page -%}
+        {%- for product in collections[source_collection].products -%}
           {%- assign product_device_handles = '' -%}
           {%- assign product_type_handles   = '' -%}
 
@@ -272,6 +273,13 @@
 
       </div>
     </div>
+
+    {%- if paginate.pages > 1 -%}
+      <div class="msa__pagination" style="margin-top: 4.8rem; display: flex; justify-content: center;">
+        {% render 'pagination', paginate: paginate %}
+      </div>
+    {%- endif -%}
+    {%- endpaginate -%}
 
     {%- comment -%} ── No results ── {%- endcomment -%}
     <div class="msa__no-results" id="msa-no-results-{{ section.id }}" hidden>
