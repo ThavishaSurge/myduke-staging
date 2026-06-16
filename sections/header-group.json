@@ -55,7 +55,7 @@
         "customer_account_menu": "customer-account-main-menu",
         "enable_additional_button": true,
         "additional_button_label": "Shop",
-        "additional_button_link": "",
+        "additional_button_link": "shopify://pages/shop",
         "additional_button_style": "secondary",
         "enable_additional_button_2": true,
         "additional_button_2_label": "Get Started",
