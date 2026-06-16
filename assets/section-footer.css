@@ -358,6 +358,7 @@
   width: 100%;
   max-width: 100%;
   gap: 3.2rem;
+  margin-bottom: 40px;
 }
 
 .footer .footer-contact-block__description {
@@ -555,7 +556,7 @@
   }
 
   .footer .footer-logo__image {
-    max-width: 15rem!important;
+    max-width: 15rem !important;
   }
 
   /* ---- 1. Newsletter image block pulled to the very top ---- */
