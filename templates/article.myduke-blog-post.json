@@ -10,7 +10,7 @@
 {
   "sections": {
     "main-article": {
-      "type": "main-article",
+      "type": "myduke-blog-articles",
       "blocks": {
         "title": {
           "type": "article-header",
