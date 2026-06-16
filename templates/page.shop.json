@@ -76,46 +76,72 @@
         "margin_top_mobile": 24
       }
     },
-    "myduke_popular_products_Xnyz3A": {
+    "myduke_collection_products_list_eBg74f": {
+      "type": "myduke-collection-products-list",
+      "name": "C ProductsList (MyDuke)",
+      "settings": {
+        "color_scheme": "",
+        "collection": "all-products",
+        "subheading": "",
+        "heading": "Shop All",
+        "heading_tag": "h2",
+        "show_description": true,
+        "description": "",
+        "show_divider": true,
+        "show_product_count": false,
+        "product_count_label": "variants",
+        "shop_all_label": "Shop All Products",
+        "shop_all_url": "shopify://pages/shop-all",
+        "enable_slider": true,
+        "show_slider_nav": false,
+        "cards_per_row": 6,
+        "cards_per_row_mobile": "2",
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "myduke_popular_products_7QXUXY": {
       "type": "myduke-popular-products",
       "blocks": {
-        "collection_item_kFPUJH": {
+        "collection_item_t8Qh3X": {
           "type": "collection_item",
           "settings": {
             "collection": "e-liquids"
           }
         },
-        "collection_item_HUrjj6": {
+        "collection_item_rqUfCn": {
           "type": "collection_item",
           "settings": {
             "collection": "accessories"
           }
         },
-        "collection_item_nem7Nm": {
+        "collection_item_kUeHz6": {
           "type": "collection_item",
           "settings": {
             "collection": "pods"
           }
         },
-        "collection_item_9JkJcH": {
+        "collection_item_3V3jMi": {
           "type": "collection_item",
           "settings": {
             "collection": "e-liquids"
           }
         },
-        "collection_item_wP8RW7": {
+        "collection_item_WAjmHn": {
           "type": "collection_item",
           "settings": {
             "collection": "nicotine-base"
           }
         },
-        "collection_item_KxnbEW": {
+        "collection_item_i8JNAg": {
           "type": "collection_item",
           "settings": {
             "collection": "pods"
           }
         },
-        "collection_item_biVzaT": {
+        "collection_item_Aze4Fi": {
           "type": "collection_item",
           "settings": {
             "collection": "nicotine-base"
@@ -123,13 +149,13 @@
         }
       },
       "block_order": [
-        "collection_item_kFPUJH",
-        "collection_item_HUrjj6",
-        "collection_item_nem7Nm",
-        "collection_item_9JkJcH",
-        "collection_item_wP8RW7",
-        "collection_item_KxnbEW",
-        "collection_item_biVzaT"
+        "collection_item_t8Qh3X",
+        "collection_item_rqUfCn",
+        "collection_item_kUeHz6",
+        "collection_item_3V3jMi",
+        "collection_item_WAjmHn",
+        "collection_item_i8JNAg",
+        "collection_item_Aze4Fi"
       ],
       "name": "Popular Products (MyDuke)",
       "settings": {
@@ -366,7 +392,8 @@
     "myduke_loading_screen_mhWL9Q",
     "myduke_hero_secondary_hYDajq",
     "myduke_search_bar_UYXYTU",
-    "myduke_popular_products_Xnyz3A",
+    "myduke_collection_products_list_eBg74f",
+    "myduke_popular_products_7QXUXY",
     "myduke_popular_products_btYrh9",
     "myduke_vendor_logos_cjVNAy",
     "myduke_guidance_quiz_LiX6dP"
