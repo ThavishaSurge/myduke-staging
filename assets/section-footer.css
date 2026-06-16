@@ -35,6 +35,11 @@
   gap: 4.8rem;
 }
 
+.footer .footer-main .footer-main-wrapper_inner.footer-main-wrapper_inner--no-text {
+  justify-content: flex-start;
+  gap: 0;
+}
+
 .footer .field input[type=email]::placeholder {
   color: rgba(var(--color-foreground));
 }
@@ -567,6 +572,10 @@
     order: -1;
     gap: 2.4rem;
     padding: 0;
+  }
+
+  .footer .footer-main-wrapper_inner.footer-main-wrapper_inner--no-text {
+    gap: 0;
   }
 
   /* ---- 3. Contact block (logo + desc) ---- */

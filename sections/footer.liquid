@@ -54,7 +54,7 @@
     %}
     <div class="footer-main container color-{{ section.settings.main_color_scheme }} background">
       <div class="footer-main-wrapper">
-        <div class="footer-main-wrapper_inner">
+        <div class="footer-main-wrapper_inner{% if section.settings.show_contact_text == false or section.settings.contact_text == blank %} footer-main-wrapper_inner--no-text{% endif %}">
           {% comment %} ----- FOOTER CONTACT INFORMATION ----- {% endcomment %}
           {%- if section.settings.show_contact -%}
             <div class="footer-block footer-contact-block{% if section.settings.show_newsletter == false %} left-on-desktop{% endif %}">
