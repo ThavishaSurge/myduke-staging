@@ -28,12 +28,12 @@
   backdrop-filter: blur(2.4rem);
   -webkit-backdrop-filter: blur(2.4rem);
   border: 16px solid rgba(255, 255, 255, 0.2);
-  padding: 2.4rem;
+  padding: 2rem;
   width: 100%;
   max-width: 63.1rem;
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: 2.8rem;
 }
 
 /* ── Heading ── */
@@ -270,7 +270,7 @@
 .myduke-calc__tile {
   flex: 1 0 0;
   min-width: 0;
-  padding: 2.4rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
