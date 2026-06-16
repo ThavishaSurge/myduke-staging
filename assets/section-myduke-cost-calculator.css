@@ -41,7 +41,7 @@
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   line-height: 1.1;
   letter-spacing: -0.03em;
   color: #264653;
@@ -52,7 +52,7 @@
 .myduke-calc__queries {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 2rem;
 }
 
 .myduke-calc__count-group {
@@ -76,7 +76,7 @@
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
-  font-size: 3.8rem;
+  font-size: 3.2rem;
   line-height: 1.1;
   letter-spacing: -0.038em;
   color: #264653;
@@ -294,7 +294,7 @@
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: 300;
-  font-size: 3.6rem;
+  font-size: 3rem;
   line-height: 1.2;
   letter-spacing: -0.04em;
   color: #000000;
