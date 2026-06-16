@@ -6848,6 +6848,14 @@ header.shopify-section-header-sticky button.button--secondary span.button__label
   color: #264653;
 }
 
+header.shopify-section-header-sticky .header__buttons a {
+  border: 1px solid #264653;
+}
+
+header.shopify-section-header-sticky .header__buttons a span {
+  color: #264653;
+}
+
 header.shopify-section-header-sticky .menu-drawer-icon .icon {
   color: #264653 !important;
 }
