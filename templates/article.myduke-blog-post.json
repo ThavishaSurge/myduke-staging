@@ -10,7 +10,7 @@
 {
   "sections": {
     "main-article": {
-      "type": "myduke-blog-articles",
+      "type": "main-article",
       "blocks": {
         "title": {
           "type": "article-header",
@@ -60,13 +60,23 @@
         "content",
         "article_footer"
       ],
+      "disabled": true,
       "settings": {
         "padding_top": "no-indent",
         "padding_bottom": "xl"
       }
+    },
+    "myduke_blog_articles_DxhCgJ": {
+      "type": "myduke-blog-articles",
+      "name": "Myduke blog post",
+      "settings": {
+        "show_image": true,
+        "show_meta": true
+      }
     }
   },
   "order": [
-    "main-article"
+    "main-article",
+    "myduke_blog_articles_DxhCgJ"
   ]
 }
