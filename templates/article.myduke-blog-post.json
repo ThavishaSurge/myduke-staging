@@ -14,7 +14,24 @@
       "blocks": {
         "title": {
           "type": "article-header",
-          "settings": {}
+          "settings": {
+            "heading_size": "h4",
+            "heading_tag": "h2",
+            "show_image": false,
+            "blog_show_excerpt": false,
+            "blog_show_date": true,
+            "blog_show_author": true,
+            "blog_show_tags": true,
+            "show_share": true,
+            "show_share_facebook": true,
+            "show_share_twitter": true,
+            "show_share_telegram": false,
+            "show_share_pinterest": true,
+            "show_share_copy": true,
+            "image_ratio_desktop": "adapt",
+            "image_ratio_mobile": "adapt",
+            "overlay_opacity": 0
+          }
         },
         "content": {
           "type": "content",
@@ -22,7 +39,20 @@
         },
         "article_footer": {
           "type": "article-footer",
-          "settings": {}
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "next_post": true,
+            "next_post_heading_tag": "h3",
+            "heading_size": "h4",
+            "show_share": true,
+            "show_share_facebook": true,
+            "show_share_twitter": true,
+            "show_share_telegram": false,
+            "show_share_pinterest": true,
+            "show_share_copy": true
+          }
         }
       },
       "block_order": [
@@ -30,7 +60,10 @@
         "content",
         "article_footer"
       ],
-      "settings": {}
+      "settings": {
+        "padding_top": "no-indent",
+        "padding_bottom": "xl"
+      }
     }
   },
   "order": [
