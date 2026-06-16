@@ -194,19 +194,24 @@
 
 /* ── Mobile ─────────────────────────────────────────── */
 @media screen and (max-width: 575px) {
+
+  .myduke-about-standards__row {
+    padding: 2.4rem 0rem;
+  }
+
   .myduke-about-standards {
     padding: 6.4rem 0;
     margin: 0;
   }
 
   .myduke-about-standards__card {
-    padding: 2.4rem;
+    padding: 1.2rem;
     gap: 2.4rem;
     margin: 0 0.8rem;
   }
 
   .myduke-about-standards__col-myduke img {
-    width: 7.9rem;
+    width: 5rem;
   }
 
   .myduke-about-standards__heading {
@@ -219,21 +224,21 @@
   }
 
   .myduke-about-standards__header-row {
-    gap: 2.4rem;
+    gap: 0.8rem;
   }
 
   .myduke-about-standards__col-myduke,
   .myduke-about-standards__col-standard {
-    width: 7.2rem;
+    width: 6rem;
+    flex-shrink: 1;
   }
 
   .myduke-about-standards__table-scroll {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    width: 100%;
   }
 
   .myduke-about-standards__table {
-    min-width: 42rem;
+    width: 100%;
   }
 
   .myduke-about-standards__feature-text {
@@ -247,4 +252,6 @@
   .myduke-about-standards__varies-text {
     font-size: 1.3rem;
   }
+
+
 }
