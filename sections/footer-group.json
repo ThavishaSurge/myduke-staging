@@ -18,15 +18,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Account",
-            "menu": "footer-menu-1-copy",
-            "default_open": true
-          }
-        },
-        "link_list_izjYmT": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Explore",
-            "menu": "footer-menu-1-copy",
+            "menu": "footer",
             "default_open": true
           }
         },
@@ -35,6 +27,14 @@
           "settings": {
             "heading": "Support",
             "menu": "footer-menu-2-copy",
+            "default_open": true
+          }
+        },
+        "link_list_izjYmT": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Explore",
+            "menu": "footer-menu-1-copy",
             "default_open": true
           }
         },
@@ -48,8 +48,8 @@
       },
       "block_order": [
         "block_2",
-        "link_list_izjYmT",
         "block_3",
+        "link_list_izjYmT",
         "logo_list_dTGYRU"
       ],
       "custom_css": [
