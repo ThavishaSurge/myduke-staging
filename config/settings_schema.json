@@ -1509,6 +1509,73 @@
         "type": "url",
         "id": "social_vimeo_link",
         "label": "t:settings_schema.social_media.settings.social_vimeo_link.label"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.social_media.settings.header__custom.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.social_media.settings.paragraph__custom.content"
+      },
+      {
+        "type": "text",
+        "id": "social_custom_1_label",
+        "label": "t:settings_schema.social_media.settings.social_custom_label.label",
+        "placeholder": "t:settings_schema.social_media.settings.social_custom_label.placeholder"
+      },
+      {
+        "type": "url",
+        "id": "social_custom_1_link",
+        "label": "t:settings_schema.social_media.settings.social_custom_link.label"
+      },
+      {
+        "type": "textarea",
+        "id": "social_custom_1_svg",
+        "label": "t:settings_schema.social_media.settings.social_custom_svg.label",
+        "info": "t:settings_schema.social_media.settings.social_custom_svg.info"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.social_media.settings.header__custom_2.content"
+      },
+      {
+        "type": "text",
+        "id": "social_custom_2_label",
+        "label": "t:settings_schema.social_media.settings.social_custom_label.label",
+        "placeholder": "t:settings_schema.social_media.settings.social_custom_label.placeholder"
+      },
+      {
+        "type": "url",
+        "id": "social_custom_2_link",
+        "label": "t:settings_schema.social_media.settings.social_custom_link.label"
+      },
+      {
+        "type": "textarea",
+        "id": "social_custom_2_svg",
+        "label": "t:settings_schema.social_media.settings.social_custom_svg.label",
+        "info": "t:settings_schema.social_media.settings.social_custom_svg.info"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.social_media.settings.header__custom_3.content"
+      },
+      {
+        "type": "text",
+        "id": "social_custom_3_label",
+        "label": "t:settings_schema.social_media.settings.social_custom_label.label",
+        "placeholder": "t:settings_schema.social_media.settings.social_custom_label.placeholder"
+      },
+      {
+        "type": "url",
+        "id": "social_custom_3_link",
+        "label": "t:settings_schema.social_media.settings.social_custom_link.label"
+      },
+      {
+        "type": "textarea",
+        "id": "social_custom_3_svg",
+        "label": "t:settings_schema.social_media.settings.social_custom_svg.label",
+        "info": "t:settings_schema.social_media.settings.social_custom_svg.info"
       }
     ]
   },
