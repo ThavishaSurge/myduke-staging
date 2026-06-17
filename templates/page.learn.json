@@ -50,6 +50,19 @@
         "sign_in_link": ""
       }
     },
+    "myduke_blog_search_bar_a8DmET": {
+      "type": "myduke-blog-search-bar",
+      "name": "MyDuke Blog Search",
+      "settings": {
+        "heading": "",
+        "placeholder": "Search blog posts…",
+        "blog": "",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "margin_top_desktop": 0,
+        "margin_top_mobile": 0
+      }
+    },
     "blog_posts_BnjMHt": {
       "type": "blog-posts",
       "name": "t:sections.blog-posts.name",
@@ -116,6 +129,7 @@
   "order": [
     "page_info",
     "myduke_hero_secondary_p9AM89",
+    "myduke_blog_search_bar_a8DmET",
     "blog_posts_BnjMHt",
     "blog_posts_6UaEPW"
   ]
