@@ -375,7 +375,7 @@
         "heading": "Your Questions Answered",
         "heading_tag": "h2",
         "cta_button_label": "More FAQs",
-        "cta_button_url": "",
+        "cta_button_url": "shopify://pages/contact",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
