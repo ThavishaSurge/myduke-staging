@@ -41,10 +41,11 @@
     var hasFormHash = window.location.hash.indexOf('ContactForm') !== -1;
 
     if (formResult || hasFormHash) {
-      // Use a slight delay to allow the browser to finish its native anchor jumping first, 
-      // then override it with our smooth scroll to the center of the viewport.
+      
+      var scrollcontainer = document.getElementById('myduke-faq-page-container');
+
       setTimeout(function() {
-        contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        scrollcontainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 150);
     }
   }
