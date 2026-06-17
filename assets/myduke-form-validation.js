@@ -105,10 +105,22 @@
         var isValid = true;
         var emailInput = form.querySelector('input[type="email"]');
 
-        if (emailInput && !validateEmail(emailInput.value)) {
+        if (emailInput) {
+        if (emailInput.value.trim() === '') {
+          showError(emailInput, 'Email address is required.');
+          isValid = false;
+        } else if (!validateEmail(emailInput.value)) {
           showError(emailInput, 'Please enter a valid email address.');
           isValid = false;
         }
+      }
+
+      if (messageInput) {
+        if (messageInput.value.trim() === '') {
+          showError(messageInput, 'Please enter a message.');
+          isValid = false;
+        }
+      }
 
         if (phoneInput && phoneInput.value.trim() !== '') {
           var cleanNumber = phoneInput.value.replace(/[^\d]/g, '');
