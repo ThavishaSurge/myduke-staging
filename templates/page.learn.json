@@ -50,11 +50,11 @@
         "sign_in_link": ""
       }
     },
-    "blog_posts_6UaEPW": {
+    "blog_posts_BnjMHt": {
       "type": "blog-posts",
       "name": "t:sections.blog-posts.name",
       "settings": {
-        "blog": "support-guidance",
+        "blog": "treatment-eligibility",
         "posts_per_row": 3,
         "posts_count": 3,
         "heading_group_enable_border_bottom": true,
@@ -81,11 +81,11 @@
         "margin_bottom": "no-indent"
       }
     },
-    "blog_posts_BnjMHt": {
+    "blog_posts_6UaEPW": {
       "type": "blog-posts",
       "name": "t:sections.blog-posts.name",
       "settings": {
-        "blog": "treatment-eligibility",
+        "blog": "support-guidance",
         "posts_per_row": 3,
         "posts_count": 3,
         "heading_group_enable_border_bottom": true,
@@ -96,7 +96,7 @@
         "heading_tag": "h2",
         "heading_group_button_show": true,
         "heading_group_button_label": "Read All",
-        "heading_group_button_link": "shopify://blogs/treatment-eligibility",
+        "heading_group_button_link": "shopify://blogs/support-guidance",
         "heading_group_button_style": "tertiary",
         "show_image": true,
         "aspect_ratio": "landscape",
