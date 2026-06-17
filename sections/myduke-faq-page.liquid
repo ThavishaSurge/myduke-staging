@@ -10,7 +10,7 @@
   data-section-id="{{ section.id }}"
 >
 
-  <div class="myduke-faq-page__content">
+  <div class="myduke-faq-page__content" id="myduke-form-scroller">
     {%- if section.blocks.size > 0 -%}
       <div class="myduke-faq-page__faq-column">
         {%- if section.settings.faq_heading != blank -%}
@@ -54,6 +54,18 @@
           {%- endif -%}
         {%- endfor -%}
         </div>
+
+        {%- if section.settings.button_text != blank -%}
+          <div class="myduke-faq-page__action" style="margin-top: 3.2rem;">
+            <a 
+              href="{{ section.settings.button_link | default: '#' }}" 
+              class="myduke-faq-sec__btn"
+            >
+              {{ section.settings.button_text }}
+            </a>
+          </div>
+        {%- endif -%}
+
       </div>
     {%- endif -%}
 
@@ -201,6 +213,7 @@
 </div>
 
 <script src="{{ 'myduke-faq-page.js' | asset_url }}" defer></script>
+<script src="{{ 'myduke-form-validation.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
@@ -242,6 +255,17 @@
       "default": "h2",
       "label": "FAQ heading tag",
       "info": "t:sections.all.heading_tag.info"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "View all FAQs"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
     },
     {
       "type": "header",
@@ -393,7 +417,8 @@
       "name": "FAQ Page (MyDuke)",
       "category": "t:sections.categories.storytelling",
       "settings": {
-        "faq_heading": "Frequently Asked Questions"
+        "faq_heading": "Frequently Asked Questions",
+        "button_text": "View all FAQs"
       },
       "blocks": [
         {

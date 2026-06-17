@@ -42,7 +42,7 @@
         "heading": "How It Works",
         "description": "<p>Four clinical milestones between you and a smoke-free life — each one medically supervised, fully regulated, and built around you.</p>",
         "button_text": "Begin your assessment",
-        "button_link": "",
+        "button_link": "https://portal.myduke.com.au/signup",
         "enable_eligibility_form": false,
         "elig_heading": "Am I Eligible?",
         "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
@@ -170,7 +170,7 @@
         "eyebrow": "Our benefits",
         "heading": "How myduke® Works",
         "button_text": "Get started",
-        "button_link": ""
+        "button_link": "https://portal.myduke.com.au/signup"
       }
     },
     "myduke_how_works_mob_slider_RRdWAe": {
@@ -301,8 +301,10 @@
       "settings": {
         "left_image": "shopify://shop_images/hw-why-choose.webp",
         "left_bg_color": "rgba(0,0,0,0)",
-        "heading": "Why Choose myduke?",
-        "description": "A regulated pathway built around safety, transparency, and your success."
+        "heading": "Why Choose myduke®?",
+        "description": "A regulated pathway built around safety, transparency, and your success.",
+        "button_text": "Begin Your Assessment",
+        "button_link": "https://portal.myduke.com.au/signup"
       }
     },
     "myduke_cta_PUUdCi": {
@@ -319,7 +321,7 @@
         "heading_tag": "h2",
         "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
         "button_label": "Get started",
-        "button_url": "",
+        "button_url": "https://portal.myduke.com.au/signup",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
@@ -375,7 +377,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What treatments does myduke® offer?",
-            "answer": "<p>Myduke provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
+            "answer": "<p>myduke® provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
           }
         },
         "faq_item_LLCR7L": {
@@ -402,8 +404,8 @@
         "eyebrow": "FAQs",
         "heading": "Your Questions Answered",
         "heading_tag": "h2",
-        "cta_button_label": "More FAQs",
-        "cta_button_url": "",
+        "cta_button_label": "More Questions?",
+        "cta_button_url": "shopify://pages/contact",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",

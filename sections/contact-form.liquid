@@ -5,7 +5,7 @@
 {%- endstyle -%}
 
 <div class="contact-form">
-  <div class="contact-form__container">
+  <div class="contact-form__container" id="myduke-form-scroller">
     <div class="contact-form__inner">
       <div class="contact-form__wrapper container">
         <div class="contact-form__content-wrapper">
@@ -186,6 +186,8 @@
     </div>
   </div>
 </div>
+
+<script src="{{ 'myduke-form-validation.js' | asset_url }}" defer></script>
 
 {% schema %}
 {

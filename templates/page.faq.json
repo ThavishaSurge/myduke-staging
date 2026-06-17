@@ -32,17 +32,17 @@
         "height_mobile": 80,
         "enable_mobile_colors": false,
         "mobile_text_color": "#264653",
-        "enable_breadcrumbs": false,
+        "enable_breadcrumbs": true,
         "breadcrumb_parent_text": "Home",
         "breadcrumb_parent_link": "",
-        "breadcrumb_current_text": "About",
+        "breadcrumb_current_text": "FAQ",
         "breadcrumb_middle_text": "",
         "breadcrumb_middle_link": "",
-        "content_max_width": 1000,
+        "content_max_width": 750,
         "heading": "Frequently Asked Questions",
-        "description": "",
-        "button_text": "",
-        "button_link": "",
+        "description": "<p>Answers to common questions about myduke®, treatment, and your quit-smoking journey.</p>",
+        "button_text": "Begin Your Assessment",
+        "button_link": "https://portal.myduke.com.au/signup",
         "enable_eligibility_form": false,
         "elig_heading": "Am I Eligible?",
         "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
@@ -99,7 +99,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What treatments does myduke® offer?",
-            "answer": "<p>Myduke provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
+            "answer": "<p>myduke® provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
           }
         },
         "faq_item_AkRjN8": {
@@ -125,6 +125,8 @@
         "color_scheme": "",
         "faq_heading": "Frequently Asked Questions",
         "faq_heading_tag": "h2",
+        "button_text": "Begin Your Assessment",
+        "button_link": "https://portal.myduke.com.au/signup",
         "show_contact_form": true,
         "form_heading": "Need Additional Assistance?",
         "form_heading_tag": "h3",

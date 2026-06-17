@@ -82,6 +82,22 @@
   margin: 0;
 }
 
+.myduke-how-works-why-choose__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9.5px 36px;
+  min-height: 40px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: var(--font-secondary-text-family);
+  text-decoration: none;
+  text-transform: capitalize;
+  border-radius: 0;
+  background-color: #218380;
+  color: #ffffff;
+}
+
 /* =============================================
    1070:8676 — features grid
    flex-wrap, gap: 20px, align-content: start
