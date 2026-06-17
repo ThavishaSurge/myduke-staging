@@ -31,13 +31,18 @@
 
   // --- Contact Form AJAX Logic ---
   function initContactForm(sectionEl) {
-    var contactForm = sectionEl.querySelector('#MyDukeFaqContactForm');
+    // Select by class instead of ID for better reliability across Shopify themes
+    var contactForm = sectionEl.querySelector('.myduke-faq-page__form');
     
-    if (!contactForm) return;
+    if (!contactForm) {
+      return; 
+    }
 
-    contactForm.addEventListener('submit', async function(event) {
+    contactForm.addEventListener('submit', function(event) {
+      // 1. Immediately stop the page reload
       event.preventDefault();
-
+      
+      // 2. Setup button loading state
       var submitBtn = contactForm.querySelector('button[type="submit"]');
       var originalBtnText = '';
       
@@ -47,36 +52,50 @@
         submitBtn.disabled = true;
       }
 
-      try {
-        var formData = new FormData(contactForm);
-        var response = await fetch(window.location.pathname, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'text/html'
-          }
-        });
+      // 3. Package the form data
+      var formData = new FormData(contactForm);
 
-        var html = await response.text();
+      // 4. Send background request using standard Promises (avoids async/await compiler errors)
+      fetch(contactForm.action || window.location.pathname, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'text/html'
+        }
+      })
+      .then(function(response) {
+        return response.text();
+      })
+      .then(function(html) {
+        // 5. Parse the returned page 
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, 'text/html');
 
-        var newForm = doc.querySelector('#MyDukeFaqContactForm');
+        // 6. Extract the updated form with the success/error messages
+        var newForm = doc.querySelector('.myduke-faq-page__form');
 
         if (newForm) {
           contactForm.innerHTML = newForm.innerHTML;
+        } else {
+          // Fallback if parsing fails
+          if (submitBtn) {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+          }
         }
-      } catch (error) {
+      })
+      .catch(function(error) {
         console.error('Error submitting form:', error);
-        // Revert button state if a network error occurs
+        // Revert button on network error
         if (submitBtn) {
           submitBtn.innerHTML = originalBtnText;
           submitBtn.disabled = false;
         }
-      }
+      });
     });
   }
 
+  // --- Initialize Everything ---
   function initAll() {
     document.querySelectorAll('.myduke-faq-page[data-section-id]').forEach(function(sectionEl) {
       initFaqPage(sectionEl);
