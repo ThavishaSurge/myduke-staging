@@ -1,5 +1,4 @@
 (function () {
-  // --- FAQ Accordion Logic ---
   function initFaqPage(sectionEl) {
     var items = Array.prototype.slice.call(sectionEl.querySelectorAll('.myduke-faq-page__item'));
 
@@ -29,53 +28,8 @@
     });
   }
 
-  // --- Handle Post-Submission Scroll ---
-  function handleFormScroll() {
-    var contactForm = document.querySelector('.myduke-faq-page__form');
-    if (!contactForm) return;
-
-    var formResult = contactForm.querySelector('.form-status');
-    
-    var hasFormHash = window.location.hash.indexOf('ContactForm') !== -1;
-
-    if (formResult || hasFormHash) {
-      var scrollcontainer = document.getElementById('myduke-faq-page-container');
-
-      if (scrollcontainer) {
-        setTimeout(function() {
-          scrollcontainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 150);
-      }
-    }
-  }
-
-  // --- Handle Submit Button Loading State ---
-  function initFormSubmitUI() {
-    var contactForm = document.querySelector('.myduke-faq-page__form');
-    if (!contactForm) return;
-
-    contactForm.addEventListener('submit', function() {
-      var submitBtn = contactForm.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        var label = submitBtn.querySelector('.button__label');
-        
-        if (label) {
-          label.textContent = 'Submitting...';
-        } else {
-          submitBtn.textContent = 'Submitting...';
-        }
-        setTimeout(function() {
-          submitBtn.disabled = true;
-        }, 10);
-      }
-    });
-  }
-
-  // --- Initialize Everything ---
   function initAll() {
     document.querySelectorAll('.myduke-faq-page[data-section-id]').forEach(initFaqPage);
-    handleFormScroll();
-    initFormSubmitUI();
   }
 
   if (document.readyState === 'loading') {
