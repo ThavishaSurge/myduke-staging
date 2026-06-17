@@ -29,8 +29,30 @@
     });
   }
 
+  // --- 2. Handle Post-Submission Scroll ---
+  function handleFormScroll() {
+    var contactForm = document.querySelector('.myduke-faq-page__form');
+    if (!contactForm) return;
+
+    // Check if there is a success or error message inside our specific form
+    var formResult = contactForm.querySelector('.form-status');
+    
+    // Also check if the URL hash contains the form ID (Shopify's default redirection behavior)
+    var hasFormHash = window.location.hash.indexOf('ContactForm') !== -1;
+
+    if (formResult || hasFormHash) {
+      // Use a slight delay to allow the browser to finish its native anchor jumping first, 
+      // then override it with our smooth scroll to the center of the viewport.
+      setTimeout(function() {
+        contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 150);
+    }
+  }
+
+  // --- Initialize Everything ---
   function initAll() {
     document.querySelectorAll('.myduke-faq-page[data-section-id]').forEach(initFaqPage);
+    handleFormScroll();
   }
 
   if (document.readyState === 'loading') {
@@ -38,82 +60,4 @@
   } else {
     initAll();
   }
-
-  // --- 2. Contact Form AJAX Logic (Capturing Phase) ---
-  
-  // The 'true' argument forces our listener to catch the event BEFORE Shopify's native scripts.
-  document.addEventListener('submit', function(event) {
-    var contactForm = event.target;
-    
-    // Check if the form being submitted is our FAQ contact form
-    if (contactForm && (contactForm.id === 'MyDukeFaqContactForm' || contactForm.classList.contains('myduke-faq-page__form'))) {
-      
-      // 1. Prevent the standard reload
-      event.preventDefault();
-      
-      // 2. Kill the event completely so Shopify's reCAPTCHA script cannot hijack it
-      event.stopImmediatePropagation();
-      
-      var submitBtn = contactForm.querySelector('button[type="submit"]');
-      var originalBtnText = '';
-      
-      // 3. Set loading state
-      if (submitBtn) {
-        originalBtnText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<div class="button__content"><span class="button__label">Sending...</span></div>';
-        submitBtn.disabled = true;
-      }
-
-      var formData = new FormData(contactForm);
-
-      // 4. Send background request
-      fetch(contactForm.action || '/contact', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'text/html',
-          'X-Requested-With': 'XMLHttpRequest'
-        }
-      })
-      .then(function(response) {
-        // Allow Shopify's Captcha redirect if absolutely necessary
-        if (response.url && response.url.indexOf('/challenge') !== -1) {
-          window.location.href = response.url;
-          return null;
-        }
-        return response.text();
-      })
-      .then(function(html) {
-        if (!html) return; 
-        
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, 'text/html');
-        
-        var newForm = doc.querySelector('#MyDukeFaqContactForm') || doc.querySelector('.myduke-faq-page__form');
-
-        if (newForm) {
-          // 5. Inject the new HTML
-          contactForm.innerHTML = newForm.innerHTML;
-          
-          // 6. Smooth scroll the success message into the center of the viewport
-          setTimeout(function() {
-            contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 100);
-
-        } else {
-           if (submitBtn) {
-             submitBtn.innerHTML = originalBtnText;
-             submitBtn.disabled = false;
-           }
-        }
-      })
-      .catch(function(error) {
-        console.error('AJAX Form Error:', error);
-        if (submitBtn) {
-          submitBtn.innerHTML = originalBtnText;
-          submitBtn.disabled = false;
-        }
-      });
-    }
-  }, true); 
 })();
