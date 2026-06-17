@@ -302,7 +302,9 @@
         "left_image": "shopify://shop_images/hw-why-choose.webp",
         "left_bg_color": "rgba(0,0,0,0)",
         "heading": "Why Choose myduke®?",
-        "description": "A regulated pathway built around safety, transparency, and your success."
+        "description": "A regulated pathway built around safety, transparency, and your success.",
+        "button_text": "Begin Your Assessment",
+        "button_link": "https://portal.myduke.com.au/signup"
       }
     },
     "myduke_cta_PUUdCi": {
@@ -319,7 +321,7 @@
         "heading_tag": "h2",
         "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
         "button_label": "Get started",
-        "button_url": "",
+        "button_url": "https://portal.myduke.com.au/signup",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
