@@ -42,7 +42,7 @@
         "heading": "How It Works",
         "description": "<p>Four clinical milestones between you and a smoke-free life — each one medically supervised, fully regulated, and built around you.</p>",
         "button_text": "Begin your assessment",
-        "button_link": "",
+        "button_link": "https://portal.myduke.com.au/signup",
         "enable_eligibility_form": false,
         "elig_heading": "Am I Eligible?",
         "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
