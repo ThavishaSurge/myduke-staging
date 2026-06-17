@@ -1,5 +1,5 @@
 (function () {
-  // --- Handle Post-Submission Scroll ---
+  // --- 1. Handle Post-Submission Scroll ---
   function handleFormScroll() {
     var formResult = document.querySelector('.form-status');
     var hasFormHash = window.location.hash.indexOf('ContactForm') !== -1;
@@ -15,7 +15,7 @@
     }
   }
 
-  // --- Validation Helpers ---
+  // --- 2. Validation Helpers ---
   function validateEmail(email) {
     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
@@ -52,7 +52,7 @@
     inputElement.parentNode.appendChild(errorMsg);
   }
 
-  // --- Handle Submit Validation, Loading State & Formatting ---
+  // --- 3. Handle Submit Validation, Loading State & Formatting ---
   function initGlobalForms() {
     var contactForms = document.querySelectorAll('form[action*="/contact"]');
     
@@ -63,6 +63,7 @@
       
       // --- AU Phone Auto-Formatting ---
       if (phoneInput) {
+        // Format as user types
         phoneInput.addEventListener('input', function(e) {
           var cleanNumber = this.value.replace(/[^\d]/g, '');
           var formattedNumber = '';
@@ -88,7 +89,6 @@
           var cleanNumber = this.value.replace(/[^\d]/g, '');
           var maxLength = cleanNumber.startsWith('0') ? 10 : 9;
           
-          // Allow only number keys (char codes 48-57)
           if (e.which < 48 || e.which > 57) {
             e.preventDefault();
           }
@@ -104,24 +104,28 @@
         
         var isValid = true;
         var emailInput = form.querySelector('input[type="email"]');
+        var messageInput = form.querySelector('textarea'); // Selects the message text area
 
+        // 1. Validate Email (Required & Format)
         if (emailInput) {
-        if (emailInput.value.trim() === '') {
-          showError(emailInput, 'Email address is required.');
-          isValid = false;
-        } else if (!validateEmail(emailInput.value)) {
-          showError(emailInput, 'Please enter a valid email address.');
-          isValid = false;
+          if (emailInput.value.trim() === '') {
+            showError(emailInput, 'Email address is required.');
+            isValid = false;
+          } else if (!validateEmail(emailInput.value)) {
+            showError(emailInput, 'Please enter a valid email address.');
+            isValid = false;
+          }
         }
-      }
 
-      if (messageInput) {
-        if (messageInput.value.trim() === '') {
-          showError(messageInput, 'Please enter a message.');
-          isValid = false;
+        // 2. Validate Message (Required)
+        if (messageInput) {
+          if (messageInput.value.trim() === '') {
+            showError(messageInput, 'Please enter a message.');
+            isValid = false;
+          }
         }
-      }
 
+        // 3. Validate Phone (Optional, but checks format if provided)
         if (phoneInput && phoneInput.value.trim() !== '') {
           var cleanNumber = phoneInput.value.replace(/[^\d]/g, '');
           if (!validatePhone(cleanNumber)) {
@@ -133,12 +137,14 @@
           }
         }
 
+        // 4. Halt submission if any validation failed
         if (!isValid) {
           event.preventDefault();
           event.stopImmediatePropagation();
           return;
         }
 
+        // 5. Update UI to "Submitting..."
         var submitBtn = form.querySelector('button[type="submit"]');
         if (submitBtn) {
           var label = submitBtn.querySelector('.button__label');
