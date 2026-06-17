@@ -25,7 +25,7 @@
         "block_3": {
           "type": "link_list",
           "settings": {
-            "heading": "Legal",
+            "heading": "Support",
             "menu": "footer-menu-2-copy",
             "default_open": true
           }
