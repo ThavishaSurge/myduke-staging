@@ -1,5 +1,5 @@
 (function () {
-  // --- FAQ Accordion Logic ---
+  // --- 1. FAQ Accordion Logic ---
   function initFaqPage(sectionEl) {
     var items = Array.prototype.slice.call(sectionEl.querySelectorAll('.myduke-faq-page__item'));
 
@@ -29,78 +29,8 @@
     });
   }
 
-  // --- Contact Form AJAX Logic ---
-  function initContactForm(sectionEl) {
-    // Select by class instead of ID for better reliability across Shopify themes
-    var contactForm = sectionEl.querySelector('.myduke-faq-page__form');
-    
-    if (!contactForm) {
-      return; 
-    }
-
-    contactForm.addEventListener('submit', function(event) {
-      // 1. Immediately stop the page reload
-      event.preventDefault();
-      
-      // 2. Setup button loading state
-      var submitBtn = contactForm.querySelector('button[type="submit"]');
-      var originalBtnText = '';
-      
-      if (submitBtn) {
-        originalBtnText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<div class="button__content"><span class="button__label">Sending...</span></div>';
-        submitBtn.disabled = true;
-      }
-
-      // 3. Package the form data
-      var formData = new FormData(contactForm);
-
-      // 4. Send background request using standard Promises (avoids async/await compiler errors)
-      fetch(contactForm.action || window.location.pathname, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'text/html'
-        }
-      })
-      .then(function(response) {
-        return response.text();
-      })
-      .then(function(html) {
-        // 5. Parse the returned page 
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, 'text/html');
-
-        // 6. Extract the updated form with the success/error messages
-        var newForm = doc.querySelector('.myduke-faq-page__form');
-
-        if (newForm) {
-          contactForm.innerHTML = newForm.innerHTML;
-        } else {
-          // Fallback if parsing fails
-          if (submitBtn) {
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-          }
-        }
-      })
-      .catch(function(error) {
-        console.error('Error submitting form:', error);
-        // Revert button on network error
-        if (submitBtn) {
-          submitBtn.innerHTML = originalBtnText;
-          submitBtn.disabled = false;
-        }
-      });
-    });
-  }
-
-  // --- Initialize Everything ---
   function initAll() {
-    document.querySelectorAll('.myduke-faq-page[data-section-id]').forEach(function(sectionEl) {
-      initFaqPage(sectionEl);
-      initContactForm(sectionEl);
-    });
+    document.querySelectorAll('.myduke-faq-page[data-section-id]').forEach(initFaqPage);
   }
 
   if (document.readyState === 'loading') {
@@ -108,4 +38,82 @@
   } else {
     initAll();
   }
+
+  // --- 2. Contact Form AJAX Logic (Capturing Phase) ---
+  
+  // The 'true' argument forces our listener to catch the event BEFORE Shopify's native scripts.
+  document.addEventListener('submit', function(event) {
+    var contactForm = event.target;
+    
+    // Check if the form being submitted is our FAQ contact form
+    if (contactForm && (contactForm.id === 'MyDukeFaqContactForm' || contactForm.classList.contains('myduke-faq-page__form'))) {
+      
+      // 1. Prevent the standard reload
+      event.preventDefault();
+      
+      // 2. Kill the event completely so Shopify's reCAPTCHA script cannot hijack it
+      event.stopImmediatePropagation();
+      
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      var originalBtnText = '';
+      
+      // 3. Set loading state
+      if (submitBtn) {
+        originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<div class="button__content"><span class="button__label">Sending...</span></div>';
+        submitBtn.disabled = true;
+      }
+
+      var formData = new FormData(contactForm);
+
+      // 4. Send background request
+      fetch(contactForm.action || '/contact', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'text/html',
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(function(response) {
+        // Allow Shopify's Captcha redirect if absolutely necessary
+        if (response.url && response.url.indexOf('/challenge') !== -1) {
+          window.location.href = response.url;
+          return null;
+        }
+        return response.text();
+      })
+      .then(function(html) {
+        if (!html) return; 
+        
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        
+        var newForm = doc.querySelector('#MyDukeFaqContactForm') || doc.querySelector('.myduke-faq-page__form');
+
+        if (newForm) {
+          // 5. Inject the new HTML
+          contactForm.innerHTML = newForm.innerHTML;
+          
+          // 6. Smooth scroll the success message into the center of the viewport
+          setTimeout(function() {
+            contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
+
+        } else {
+           if (submitBtn) {
+             submitBtn.innerHTML = originalBtnText;
+             submitBtn.disabled = false;
+           }
+        }
+      })
+      .catch(function(error) {
+        console.error('AJAX Form Error:', error);
+        if (submitBtn) {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  }, true); 
 })();
