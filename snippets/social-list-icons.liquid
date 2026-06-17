@@ -26,6 +26,9 @@
   or settings.social_snapchat_link != blank
   or settings.social_youtube_link != blank
   or settings.social_vimeo_link != blank
+  or settings.social_custom_1_link != blank
+  or settings.social_custom_2_link != blank
+  or settings.social_custom_3_link != blank
 -%}
   <ul
     class="list-social{% if show_labels %} list-social--labels{% endif %} list-unstyled{% if class != blank %} {{ class }}{% endif %}"
@@ -199,6 +202,63 @@
           {%- endif -%}
           <span class="body-small{% if show_icons %} visually-hidden{% endif %}">
             {{- 'general.social.links.vimeo' | t -}}
+          </span>
+        </a>
+      </li>
+    {%- endif -%}
+
+    {%- if settings.social_custom_1_link != blank -%}
+      <li>
+        <a
+          href="{{ settings.social_custom_1_link }}"
+          class="list-social__link{% if show_labels %} list-social__link--label{% endif %} focus-inset"
+          {%- if settings.links_blank and settings.social_custom_1_link.type == 'external_link' -%}
+            target="_blank"
+          {%- endif -%}
+        >
+          {%- if show_icons and settings.social_custom_1_svg != blank -%}
+            {{ settings.social_custom_1_svg }}
+          {%- endif -%}
+          <span class="body-small{% if show_icons and settings.social_custom_1_svg != blank %} visually-hidden{% endif %}">
+            {{- settings.social_custom_1_label | default: 'Social' -}}
+          </span>
+        </a>
+      </li>
+    {%- endif -%}
+
+    {%- if settings.social_custom_2_link != blank -%}
+      <li>
+        <a
+          href="{{ settings.social_custom_2_link }}"
+          class="list-social__link{% if show_labels %} list-social__link--label{% endif %} focus-inset"
+          {%- if settings.links_blank and settings.social_custom_2_link.type == 'external_link' -%}
+            target="_blank"
+          {%- endif -%}
+        >
+          {%- if show_icons and settings.social_custom_2_svg != blank -%}
+            {{ settings.social_custom_2_svg }}
+          {%- endif -%}
+          <span class="body-small{% if show_icons and settings.social_custom_2_svg != blank %} visually-hidden{% endif %}">
+            {{- settings.social_custom_2_label | default: 'Social' -}}
+          </span>
+        </a>
+      </li>
+    {%- endif -%}
+
+    {%- if settings.social_custom_3_link != blank -%}
+      <li>
+        <a
+          href="{{ settings.social_custom_3_link }}"
+          class="list-social__link{% if show_labels %} list-social__link--label{% endif %} focus-inset"
+          {%- if settings.links_blank and settings.social_custom_3_link.type == 'external_link' -%}
+            target="_blank"
+          {%- endif -%}
+        >
+          {%- if show_icons and settings.social_custom_3_svg != blank -%}
+            {{ settings.social_custom_3_svg }}
+          {%- endif -%}
+          <span class="body-small{% if show_icons and settings.social_custom_3_svg != blank %} visually-hidden{% endif %}">
+            {{- settings.social_custom_3_label | default: 'Social' -}}
           </span>
         </a>
       </li>

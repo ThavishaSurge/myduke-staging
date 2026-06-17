@@ -460,6 +460,29 @@
         "social_vimeo_link": {
           "label": "Vimeo",
           "info": "https://vimeo.com/shopify"
+        },
+        "header__custom": {
+          "content": "Custom social network 1"
+        },
+        "paragraph__custom": {
+          "content": "Add any social platform not listed above. Paste the SVG icon code from sites like simpleicons.org."
+        },
+        "header__custom_2": {
+          "content": "Custom social network 2"
+        },
+        "header__custom_3": {
+          "content": "Custom social network 3"
+        },
+        "social_custom_label": {
+          "label": "Platform name",
+          "placeholder": "e.g. LinkedIn"
+        },
+        "social_custom_link": {
+          "label": "Profile URL"
+        },
+        "social_custom_svg": {
+          "label": "Icon SVG",
+          "info": "Paste raw SVG markup for your icon (e.g. from simpleicons.org). Recommended viewBox: 0 0 24 24."
         }
       }
     },
