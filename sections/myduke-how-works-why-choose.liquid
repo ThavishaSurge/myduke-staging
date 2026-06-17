@@ -52,6 +52,17 @@
         </div>
       {%- endif -%}
 
+      {%- if section.settings.button_text != blank -%}
+        <div class="myduke-how-works-why-choose__actions">
+          <a 
+            href="{{ section.settings.button_link | default: '#' }}" 
+            class="myduke-how-works-why-choose__btn"
+          >
+            {{ section.settings.button_text }}
+          </a>
+        </div>
+      {%- endif -%}
+
     </div>
   </div>
 </section>
@@ -94,6 +105,21 @@
       "id": "description",
       "label": "Description",
       "default": "A regulated pathway built around safety, transparency, and your success."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
     }
   ],
   "blocks": [
