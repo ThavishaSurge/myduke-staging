@@ -9,6 +9,38 @@
  */
 {
   "sections": {
+    "myduke_hero_secondary_BTz8xq": {
+      "type": "myduke-hero-secondary",
+      "name": "MyDuke Secondary Hero",
+      "settings": {
+        "background_image": "shopify://shop_images/image_26.webp",
+        "background_image_mobile": "shopify://shop_images/Frame_427320840_1.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "overlay_color_mobile": "#000000",
+        "overlay_opacity_mobile": 30,
+        "height_desktop": 60,
+        "height_mobile": 80,
+        "enable_mobile_colors": false,
+        "mobile_text_color": "#264653",
+        "enable_breadcrumbs": true,
+        "breadcrumb_parent_text": "Home",
+        "breadcrumb_parent_link": "",
+        "breadcrumb_current_text": "Privacy Policy",
+        "breadcrumb_middle_text": "",
+        "breadcrumb_middle_link": "",
+        "content_max_width": 526,
+        "heading": "Privacy policy",
+        "description": "<p>Your privacy is important to us. Learn how we collect and manange your personal information.</p>",
+        "button_text": "Contact Us",
+        "button_link": "shopify://pages/contact",
+        "enable_eligibility_form": false,
+        "elig_heading": "Am I Eligible?",
+        "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
+        "elig_assessment_link": "",
+        "sign_in_link": ""
+      }
+    },
     "page_info": {
       "type": "main-page",
       "settings": {
@@ -19,6 +51,7 @@
     }
   },
   "order": [
+    "myduke_hero_secondary_BTz8xq",
     "page_info"
   ]
 }
