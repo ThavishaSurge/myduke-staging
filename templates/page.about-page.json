@@ -70,7 +70,7 @@
         "card_column_gap": 24,
         "card_row_gap": 24,
         "button_text": "Apply For Prescription",
-        "button_link": ""
+        "button_link": "https://portal.myduke.com.au/signup"
       }
     },
     "myduke_about_path_zero_VYbFyq": {
@@ -231,7 +231,7 @@
         "heading": "Our Clinical Advantage",
         "description": "At the centre of the myduke® model is a secure clinical assessment for nicotine dependence, reviewed by independent Australian-registered doctors — ensuring every pathway is personalised, evidence-based, and fully compliant.",
         "button_text": "Start your assessment",
-        "button_link": ""
+        "button_link": "https://portal.myduke.com.au/signup"
       }
     },
     "myduke_about_standards_JFqYJr": {
@@ -313,7 +313,7 @@
         "myduke_logo": "shopify://shop_images/myduke-logo-black.svg",
         "standard_clinic_label": "Standard Clinic",
         "button_text": "Start your assessment",
-        "button_link": ""
+        "button_link": "https://portal.myduke.com.au/signup"
       }
     },
     "myduke_faq_pbnY3J": {
