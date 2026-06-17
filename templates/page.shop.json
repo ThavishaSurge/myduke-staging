@@ -164,7 +164,7 @@
         "heading": "By Product Type",
         "heading_tag": "h2",
         "show_description": true,
-        "description": "",
+        "description": "Looking for something specific? Browse by product type to quickly find the products you're after.",
         "show_divider": true,
         "shop_all_label": "Shop All Products",
         "shop_all_url": "shopify://pages/by-product-type",
