@@ -30,7 +30,7 @@
         "breadcrumb_middle_text": "",
         "breadcrumb_middle_link": "",
         "content_max_width": 526,
-        "heading": "Learn Hub",
+        "heading": "{{ blog.title }}",
         "description": "<p>Explore articles, insights, and practical resources to support your journey.</p>",
         "button_text": "Begin Your Assessment",
         "button_link": "https://portal.myduke.com.au/signup",
