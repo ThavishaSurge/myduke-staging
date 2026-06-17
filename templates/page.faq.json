@@ -125,6 +125,8 @@
         "color_scheme": "",
         "faq_heading": "Frequently Asked Questions",
         "faq_heading_tag": "h2",
+        "button_text": "Begin Your Assessment",
+        "button_link": "https://portal.myduke.com.au/signup",
         "show_contact_form": true,
         "form_heading": "Need Additional Assistance?",
         "form_heading_tag": "h3",
