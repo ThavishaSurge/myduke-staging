@@ -257,7 +257,7 @@
 .myduke-calc__facts-list li {
   font-family: var(--font-body-family);
   font-size: calc(var(--font-body-scale) * 1.4rem);
-  line-height: 1.4;
+  line-height: 1.6;
   color: #264653;
 }
 
