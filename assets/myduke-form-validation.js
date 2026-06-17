@@ -1,23 +1,22 @@
 (function () {
-  // --- 1. Handle Post-Submission Scroll ---
+  // --- Handle Post-Submission Scroll ---
   function handleFormScroll() {
-    // This looks for any element containing Shopify's default form status classes
     var formResult = document.querySelector('.form-status');
     var hasFormHash = window.location.hash.indexOf('ContactForm') !== -1;
 
     if (formResult || hasFormHash) {
-      // Find the closest parent form container to scroll to
-      var contactForm = formResult ? formResult.closest('form') : document.querySelector(window.location.hash);
+      // Target your specific scroller ID
+      var scrollTarget = document.getElementById('myduke-form-scroller');
       
-      if (contactForm) {
+      if (scrollTarget) {
         setTimeout(function() {
-          contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 150);
       }
     }
   }
 
-  // --- 2. Validation Helpers ---
+  // --- Validation Helpers ---
   function validateEmail(email) {
     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
@@ -44,7 +43,7 @@
     inputElement.parentNode.appendChild(errorMsg);
   }
 
-  // --- 3. Handle Submit Validation & Loading State ---
+  // --- Handle Submit Validation & Loading State ---
   function initGlobalForms() {
     // Select all forms on the page that have an action pointing to /contact
     var contactForms = document.querySelectorAll('form[action*="/contact"]');
