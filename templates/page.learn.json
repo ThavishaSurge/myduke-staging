@@ -106,7 +106,7 @@
         "show_author": false,
         "show_comments_count": false,
         "show_excerpt": true,
-        "padding_top": "m",
+        "padding_top": "no-indent",
         "padding_bottom": "m",
         "margin_top": "no-indent",
         "margin_bottom": "no-indent"
