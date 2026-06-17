@@ -377,7 +377,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What treatments does myduke® offer?",
-            "answer": "<p>Myduke provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
+            "answer": "<p>myduke® provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
           }
         },
         "faq_item_LLCR7L": {
@@ -404,8 +404,8 @@
         "eyebrow": "FAQs",
         "heading": "Your Questions Answered",
         "heading_tag": "h2",
-        "cta_button_label": "More FAQs",
-        "cta_button_url": "",
+        "cta_button_label": "More Questions?",
+        "cta_button_url": "https://myduke-staging.myshopify.com/pages/contact",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
