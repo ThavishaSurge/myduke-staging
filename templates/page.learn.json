@@ -54,18 +54,18 @@
       "type": "blog-posts",
       "name": "t:sections.blog-posts.name",
       "settings": {
-        "blog": "",
+        "blog": "support-guidance",
         "posts_per_row": 3,
         "posts_count": 3,
         "heading_group_enable_border_bottom": true,
-        "subheading": "Journal",
-        "heading": "Blog",
+        "subheading": "",
+        "heading": "{{ section.settings.blog.title }}",
         "heading_font": "heading",
         "heading_size": "h4",
         "heading_tag": "h2",
         "heading_group_button_show": true,
         "heading_group_button_label": "Read All",
-        "heading_group_button_link": "",
+        "heading_group_button_link": "shopify://blogs/treatment-eligibility",
         "heading_group_button_style": "tertiary",
         "show_image": true,
         "aspect_ratio": "landscape",
@@ -75,16 +75,48 @@
         "show_author": false,
         "show_comments_count": false,
         "show_excerpt": true,
-        "padding_top": "no-indent",
-        "padding_bottom": "no-indent",
+        "padding_top": "m",
+        "padding_bottom": "m",
         "margin_top": "no-indent",
-        "margin_bottom": "xl"
+        "margin_bottom": "no-indent"
+      }
+    },
+    "blog_posts_BnjMHt": {
+      "type": "blog-posts",
+      "name": "t:sections.blog-posts.name",
+      "settings": {
+        "blog": "treatment-eligibility",
+        "posts_per_row": 3,
+        "posts_count": 3,
+        "heading_group_enable_border_bottom": true,
+        "subheading": "",
+        "heading": "{{ section.settings.blog.title }}",
+        "heading_font": "heading",
+        "heading_size": "h4",
+        "heading_tag": "h2",
+        "heading_group_button_show": true,
+        "heading_group_button_label": "Read All",
+        "heading_group_button_link": "shopify://blogs/treatment-eligibility",
+        "heading_group_button_style": "tertiary",
+        "show_image": true,
+        "aspect_ratio": "landscape",
+        "object_fit": "cover",
+        "show_date": true,
+        "show_tags": false,
+        "show_author": false,
+        "show_comments_count": false,
+        "show_excerpt": true,
+        "padding_top": "m",
+        "padding_bottom": "m",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
       }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_secondary_p9AM89",
+    "blog_posts_BnjMHt",
     "blog_posts_6UaEPW"
   ]
 }
