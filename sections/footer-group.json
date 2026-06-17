@@ -17,6 +17,14 @@
         "block_2": {
           "type": "link_list",
           "settings": {
+            "heading": "Account",
+            "menu": "footer-menu-1-copy",
+            "default_open": true
+          }
+        },
+        "link_list_izjYmT": {
+          "type": "link_list",
+          "settings": {
             "heading": "Explore",
             "menu": "footer-menu-1-copy",
             "default_open": true
@@ -30,14 +38,6 @@
             "default_open": true
           }
         },
-        "link_list_ww6kYn": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Contact",
-            "menu": "footer-menu-4",
-            "default_open": true
-          }
-        },
         "logo_list_dTGYRU": {
           "type": "logo_list",
           "settings": {
@@ -48,8 +48,8 @@
       },
       "block_order": [
         "block_2",
+        "link_list_izjYmT",
         "block_3",
-        "link_list_ww6kYn",
         "logo_list_dTGYRU"
       ],
       "custom_css": [
