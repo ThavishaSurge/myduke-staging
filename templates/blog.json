@@ -41,6 +41,19 @@
         "sign_in_link": ""
       }
     },
+    "myduke_blog_search_bar_eFxnUm": {
+      "type": "myduke-blog-search-bar",
+      "name": "MyDuke Blog Search",
+      "settings": {
+        "heading": "",
+        "placeholder": "Search blog posts…",
+        "blog": "{{ blog }}",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "margin_top_desktop": 0,
+        "margin_top_mobile": 0
+      }
+    },
     "main": {
       "type": "main-blog",
       "settings": {
@@ -69,6 +82,7 @@
   },
   "order": [
     "myduke_hero_secondary_Fngb76",
+    "myduke_blog_search_bar_eFxnUm",
     "main"
   ]
 }
