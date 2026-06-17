@@ -1,0 +1,196 @@
+{{ 'myduke-search-bar.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .myduke-search-bar[data-section-id="{{ section.id }}"] {
+    margin-top: -{{ section.settings.margin_top_desktop }}px;
+  }
+  @media screen and (max-width: 575px) {
+    .myduke-search-bar[data-section-id="{{ section.id }}"] {
+      margin-top: -{{ section.settings.margin_top_mobile }}px;
+      margin-left: 1.2rem;
+      margin-right: 1.2rem;
+    }
+  }
+{% endstyle %}
+
+<section
+  class="myduke-search-bar"
+  data-section-id="{{ section.id }}"
+>
+  <div class="myduke-search-bar__inner">
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="myduke-search-bar__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <form
+      class="myduke-search-bar__form"
+      action="{{ routes.search_url }}"
+      method="get"
+      role="search"
+    >
+      {%- comment -%} Restrict results to blog articles only {%- endcomment -%}
+      <input type="hidden" name="type" value="article">
+      <input type="hidden" name="options[prefix]" value="last">
+
+      {%- comment -%}
+        Scope results to a specific blog when the section setting is filled.
+        Uses Shopify Search & Discovery filter parameter.
+      {%- endcomment -%}
+      {%- if section.settings.blog != blank -%}
+        <input type="hidden" name="filter.p.blog" value="{{ section.settings.blog.handle }}">
+      {%- endif -%}
+
+      <div class="myduke-search-bar__field">
+        <input
+          class="myduke-search-bar__input"
+          type="search"
+          name="q"
+          id="myduke-blog-search-{{ section.id }}"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ section.settings.placeholder | default: 'Search blog posts…' }}"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-label="{{ section.settings.placeholder | default: 'Search blog posts…' }}"
+        >
+        <button
+          class="myduke-search-bar__submit"
+          type="submit"
+          aria-label="Search"
+        >
+          <svg class="myduke-search-bar__arrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M5 16L27 16" stroke="#218380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 25L27 16L18 7" stroke="#218380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var bar = document.querySelector('.myduke-search-bar[data-section-id="' + sectionId + '"]');
+  if (!bar) return;
+
+  var placeholder = document.createElement('div');
+  bar.after(placeholder);
+
+  var originalTop = null;
+
+  function getNavbarHeight() {
+    var header = document.querySelector('.shopify-section-header') || document.querySelector('header');
+    return header ? header.offsetHeight : 0;
+  }
+
+  function getOriginalTop() {
+    bar.classList.remove('myduke-search-bar--fixed');
+    placeholder.style.display = 'none';
+    originalTop = bar.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function update() {
+    if (originalTop === null) getOriginalTop();
+    var navbarHeight = getNavbarHeight();
+    if (window.scrollY >= originalTop - navbarHeight - 20) {
+      if (!bar.classList.contains('myduke-search-bar--fixed')) {
+        placeholder.style.height = bar.offsetHeight + 'px';
+        placeholder.style.display = 'block';
+        bar.classList.add('myduke-search-bar--fixed');
+      }
+    } else {
+      if (bar.classList.contains('myduke-search-bar--fixed')) {
+        bar.classList.remove('myduke-search-bar--fixed');
+        placeholder.style.display = 'none';
+      }
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', function() { originalTop = null; update(); });
+  requestAnimationFrame(update);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "MyDuke Blog Search",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "Search blog posts…"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Limit to blog (optional)",
+      "info": "When set, results are filtered to articles within this blog only."
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Overlap"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Negative margin top — desktop (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Negative margin top — mobile (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "MyDuke Blog Search"
+    }
+  ]
+}
+{% endschema %}
