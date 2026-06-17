@@ -393,7 +393,7 @@
         "heading": "Your Questions Answered",
         "heading_tag": "h2",
         "cta_button_label": "More Questions?",
-        "cta_button_url": "shopify://pages/faq",
+        "cta_button_url": "https://myduke-staging.myshopify.com/pages/contact",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
