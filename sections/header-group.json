@@ -59,7 +59,7 @@
         "additional_button_style": "secondary",
         "enable_additional_button_2": true,
         "additional_button_2_label": "Get Started",
-        "additional_button_2_link": "",
+        "additional_button_2_link": "https://portal.myduke.com.au/signup",
         "additional_button_2_style": "secondary",
         "mobile_menu_color_scheme": "background-5",
         "show_dm_logo_in_mobile_menu": false,
