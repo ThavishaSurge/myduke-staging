@@ -65,23 +65,10 @@
         "margin_top": "no-indent",
         "margin_bottom": "no-indent"
       }
-    },
-    "myduke_search_bar_cq97eF": {
-      "type": "myduke-search-bar",
-      "name": "Search",
-      "settings": {
-        "heading": "",
-        "placeholder": "Search products, brands, or strengths",
-        "padding_top": 24,
-        "padding_bottom": 24,
-        "margin_top_desktop": 0,
-        "margin_top_mobile": 0
-      }
     }
   },
   "order": [
     "myduke_hero_secondary_Fngb76",
-    "myduke_search_bar_cq97eF",
     "main"
   ]
 }
