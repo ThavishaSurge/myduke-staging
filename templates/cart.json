@@ -7,6 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
+
 {
   "sections": {
     "cart-items": {
@@ -41,3 +42,52 @@
     "cart-footer"
   ]
 }
+
+//  Code from Theme
+// {
+//   "sections": {
+//     "main-cart": {
+//       "type": "main-cart-items",
+//       "blocks": {
+//         "subtotal": {
+//           "type": "subtotal",
+//           "settings": {}
+//         },
+//         "cart_note": {
+//           "type": "cart_note",
+//           "disabled": true,
+//           "settings": {}
+//         },
+//         "buttons": {
+//           "type": "buttons",
+//           "settings": {}
+//         },
+//         "additional_text": {
+//           "type": "additional_text",
+//           "settings": {}
+//         }
+//       },
+//       "block_order": [
+//         "subtotal",
+//         "cart_note",
+//         "buttons",
+//         "additional_text"
+//       ],
+//       "settings": {}
+//     },
+//     "popular-products": {
+//       "type": "popular-products",
+//       "settings": {
+//         "products_per_row": 6,
+//         "products_per_row_mobile": "2",
+//         "heading": "You May Be Interested",
+//         "heading_font": "body",
+//         "show_quick_view": true
+//       }
+//     }
+//   },
+//   "order": [
+//     "main-cart",
+//     "popular-products"
+//   ]
+// }
