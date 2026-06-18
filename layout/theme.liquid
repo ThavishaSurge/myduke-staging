@@ -207,6 +207,9 @@
         $('.logoutlink span').text('Logout ('+ getEmail() + ')');
         $('#menu-drawer .menu-drawer__menu').append('<li class="our-services "><a href="javascript:void(0)" onclick="logout()" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Logout ('+ getEmail() + ')</a></li>');
         $('.menu-drawer__utility-links .login-mobile').hide();
+
+        {% comment %} New Codes {% endcomment %}
+         $('.mydk-header-shop-btn').show();
       } else {
         $('.afterlogin').hide();
         document.querySelectorAll('.customertype_withlogin').forEach(function(el) {el.style.display = 'none';});
@@ -215,6 +218,8 @@
         //$('.header__icons a').attr('href','#');
         $('.list-menu .shop').hide();
         $('.menu-drawer__utility-links .login-mobile').show();
+        {% comment %} new codes {% endcomment %}
+         $('.mydk-header-shop-btn').hide();
     }
     </script>
 
