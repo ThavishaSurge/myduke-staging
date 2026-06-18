@@ -33,6 +33,7 @@
 
     {% render '_meta-tags' %}
 
+    <script src="{{  'jquery.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
@@ -69,8 +70,8 @@
     {%- if request.page_type != 'cart' -%}
       {%- if settings.enable_cart_drawer -%}
         {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-        {{ 'component-cart-items-BAK.css' | asset_url | stylesheet_tag }}
-        <script src="{{ 'cart-bak.js' | asset_url }}" defer="defer"></script>
+        {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
         {%- if settings.show_shipping -%}
           {{ 'component-cart-shipping.css' | asset_url | stylesheet_tag }}
         {%- endif -%}
