@@ -43,7 +43,7 @@
         "menu_position": "left-menu",
         "logo_width": 100,
         "h1_logo": false,
-        "show_cart_icon": true,
+        "show_cart_icon": false,
         "enable_search": false,
         "enable_country_selector": false,
         "enable_language_selector": false,
