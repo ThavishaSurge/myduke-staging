@@ -31,7 +31,7 @@
           </{{ section.settings.heading_tag }}>
         {%- endif -%}
         {%- if section.settings.description != blank -%}
-          <p class="mdvl__description">{{ section.settings.description }}</p>
+          <div class="mdvl__description">{{ section.settings.description }}</div>
         {%- endif -%}
       </div>
 
@@ -199,10 +199,10 @@
       "label": "Heading tag"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware."
+      "default": "<p>Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware.</p>"
     },
     {
       "type": "checkbox",
