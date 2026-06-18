@@ -72,10 +72,12 @@
   </div>
 </section>
 
-{% comment %} <script>
-(function() {
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
   var sectionId = '{{ section.id }}';
   var bar = document.querySelector('.myduke-search-bar[data-section-id="' + sectionId + '"]');
+
   if (!bar) return;
 
   var placeholder = document.createElement('div');
@@ -97,61 +99,6 @@
   function update() {
     if (originalTop === null) getOriginalTop();
     var navbarHeight = getNavbarHeight();
-    if (window.scrollY >= originalTop - navbarHeight - 20) {
-      if (!bar.classList.contains('myduke-search-bar--fixed')) {
-        placeholder.style.height = bar.offsetHeight + 'px';
-        placeholder.style.display = 'block';
-        bar.classList.add('myduke-search-bar--fixed');
-      }
-    } else {
-      if (bar.classList.contains('myduke-search-bar--fixed')) {
-        bar.classList.remove('myduke-search-bar--fixed');
-        placeholder.style.display = 'none';
-      }
-    }
-  }
-
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', function() { originalTop = null; update(); });
-  requestAnimationFrame(update);
-})();
-</script> {% endcomment %}
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  console.log("--- MyDuke Product Search Bar Script Initializing ---");
-
-  var sectionId = '{{ section.id }}';
-  var bar = document.querySelector('.myduke-search-bar[data-section-id="' + sectionId + '"]');
-  
-  console.log("Search Bar Element Found:", !!bar);
-
-  if (!bar) {
-    console.error("ABORTING: Could not find search bar with section ID:", sectionId);
-    return;
-  }
-
-  var placeholder = document.createElement('div');
-  bar.after(placeholder);
-
-  var originalTop = null;
-  var debugCounter = 0; // Throttles the scroll logs so it doesn't freeze your browser
-
-  function getNavbarHeight() {
-    var header = document.querySelector('.shopify-section-header') || document.querySelector('header');
-    return header ? header.offsetHeight : 0;
-  }
-
-  function getOriginalTop() {
-    bar.classList.remove('myduke-search-bar--fixed');
-    placeholder.style.display = 'none';
-    originalTop = bar.getBoundingClientRect().top + window.scrollY;
-    console.log("[Search Bar] Original top calculated:", originalTop);
-  }
-
-  function update() {
-    if (originalTop === null) getOriginalTop();
-    var navbarHeight = getNavbarHeight();
     
     // Look for the quiz section dynamically on scroll
     var quizSection = document.querySelector('.guidance-quiz-section');
@@ -161,18 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Checks if the top of the quiz has crossed the bottom of the viewport
       isQuizInView = quizSection.getBoundingClientRect().top <= window.innerHeight;
     }
-
-    // --- DEBUG LOGGING ---
-    debugCounter++;
-    if (debugCounter % 20 === 0) {
-      console.log("--- Scroll Debug Check ---");
-      console.log("1. Quiz Section Found in DOM?", !!quizSection);
-      if (quizSection) {
-        console.log("2. Is Quiz In View?", isQuizInView, "| Quiz Top:", quizSection.getBoundingClientRect().top);
-      }
-      console.log("3. Is Bar Currently Fixed?", bar.classList.contains('myduke-search-bar--fixed'));
-    }
-    // ---------------------
 
     // Stick condition: scrolled past the original position AND the quiz is not in view
     if (window.scrollY >= originalTop - navbarHeight - 20 && !isQuizInView) {
