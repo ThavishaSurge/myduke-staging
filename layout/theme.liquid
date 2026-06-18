@@ -194,12 +194,12 @@
     <script>
       payload = tokenPayload();
       console.log(payload);
-      var spanLogin = document.getElementById('login_html_span');
-      var spanLoginmobile = document.getElementById('login_html_span_mobile');
+      //var spanLogin = document.getElementById('login_html_span');
+      //var spanLoginmobile = document.getElementById('login_html_span_mobile');
       if(isAuthenticated()) {
         console.log('Authenticated');
-        spanLogin.href = "https://staging.myduke.com.au/customer";
-        spanLoginmobile.href = "https://staging.myduke.com.au/customer";
+        //spanLogin.href = "https://staging.myduke.com.au/customer";
+        //spanLoginmobile.href = "https://staging.myduke.com.au/customer";
         $('#login_html_span span').html('My Account');
         //document.querySelectorAll('.customertype_withoutlogin').forEach(function(el) {el.style.display = 'none';});
         //document.querySelectorAll('.onlywithlogin').forEach(function(el) {el.style.display = 'block';});
