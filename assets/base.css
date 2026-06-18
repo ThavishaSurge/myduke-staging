@@ -1352,11 +1352,11 @@ details>* {
   color: rgb(var(--color-button-secondary2-text));
 }
 
-.menu-drawer__custom-cta button.button--secondary2 {
+.menu-drawer__custom-cta a.button--secondary2 {
   background-color: #ffb703;
 }
 
-.menu-drawer__custom-cta button.button--secondary2 span.button__label {
+.menu-drawer__custom-cta a.button--secondary2 span.button__label {
   color: #264653;
 }
 
