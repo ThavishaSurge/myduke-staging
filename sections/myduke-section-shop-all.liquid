@@ -8,6 +8,8 @@
 {%- liquid
   assign show_device_filter      = section.settings.show_device_filter
   assign show_type_filter        = section.settings.show_type_filter
+  assign show_brand_filter       = section.settings.show_brand_filter
+  assign show_strength_filter    = section.settings.show_strength_filter
   assign show_sort               = section.settings.show_sort
   assign products_per_page       = section.settings.products_per_page | default: 24
   assign cols_desktop            = section.settings.columns_desktop | default: 6
@@ -36,6 +38,77 @@
 
   assign device_collections_array = device_collections | split: ','
   assign type_collections_array = type_collections | split: ','
+
+  comment
+    Collect unique vendors from source collection for Brands filter
+  endcomment
+  assign source_col_handle = section.settings.source_collection
+  assign unique_vendors = ''
+  assign seen_vendor_handles = ''
+  for product in collections[source_col_handle].products
+    assign vendor_handle = product.vendor | handleize
+    assign vendor_check = '|' | append: vendor_handle | append: '|'
+    assign seen_check_string = '|' | append: seen_vendor_handles | append: '|'
+    unless seen_check_string contains vendor_check
+      if seen_vendor_handles == blank
+        assign seen_vendor_handles = vendor_handle
+      else
+        assign seen_vendor_handles = seen_vendor_handles | append: '|' | append: vendor_handle
+      endif
+      if unique_vendors == blank
+        assign unique_vendors = product.vendor
+      else
+        assign unique_vendors = unique_vendors | append: '§' | append: product.vendor
+      endif
+    endunless
+  endfor
+  assign unique_vendors_array = unique_vendors | split: '§'
+
+  comment
+    Collect unique Strength values from variant options across the source collection
+  endcomment
+  assign unique_strengths = ''
+  assign seen_strength_handles = ''
+  for product in collections[source_col_handle].products
+    assign strength_option_index = -1
+    for opt_name in product.options
+      assign opt_name_lower = opt_name | downcase
+      if opt_name_lower == 'strength'
+        assign strength_option_index = forloop.index0
+      endif
+    endfor
+    if strength_option_index >= 0
+      for variant in product.variants
+        assign s_val = ''
+        case strength_option_index
+          when 0
+            assign s_val = variant.option1
+          when 1
+            assign s_val = variant.option2
+          when 2
+            assign s_val = variant.option3
+        endcase
+        if s_val != blank
+          assign s_handle = s_val | handleize
+          assign s_check = '|' | append: s_handle | append: '|'
+          assign seen_s_str = '|' | append: seen_strength_handles | append: '|'
+          unless seen_s_str contains s_check
+            if seen_strength_handles == blank
+              assign seen_strength_handles = s_handle
+            else
+              assign seen_strength_handles = seen_strength_handles | append: '|' | append: s_handle
+            endif
+            if unique_strengths == blank
+              assign unique_strengths = s_val
+            else
+              assign unique_strengths = unique_strengths | append: '§' | append: s_val
+            endif
+          endunless
+        endif
+      endfor
+    endif
+  endfor
+  assign unique_strengths_array = unique_strengths | split: '§'
 -%}
 
 <div
@@ -46,7 +119,7 @@
   <div class="container">
 
     {%- comment -%} ── Toolbar: Filters + Sort ── {%- endcomment -%}
-    {%- if show_device_filter or show_type_filter or show_sort -%}
+    {%- if show_device_filter or show_type_filter or show_brand_filter or show_strength_filter or show_sort -%}
       <div class="msa__toolbar">
 
         <div class="msa__filters">
@@ -141,6 +214,82 @@
             </div>
           {%- endif -%}
 
+          {%- if show_brand_filter and unique_vendors_array.size > 0 -%}
+            <div class="msa__filter-group" data-filter-group="brand">
+              <button
+                class="msa__filter-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                id="msa-brand-btn-{{ section.id }}"
+              >
+                <span class="msa__filter-label">
+                  {{- section.settings.brand_filter_label | default: 'Brands' -}}
+                </span>
+                <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <div class="msa__dropdown" role="listbox" aria-labelledby="msa-brand-btn-{{ section.id }}">
+                <div class="msa__dropdown-inner">
+                  <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
+                    {{ section.settings.brand_filter_all_label | default: 'All Brands' }}
+                  </button>
+                  {%- for vendor in unique_vendors_array -%}
+                    {%- assign vendor_handle = vendor | handleize -%}
+                    <button
+                      class="msa__dropdown-item"
+                      data-filter-value="{{ vendor_handle }}"
+                      data-filter-type="brand"
+                      role="option"
+                      aria-selected="false"
+                    >
+                      {{- vendor -}}
+                    </button>
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- if show_strength_filter and unique_strengths_array.size > 0 -%}
+            <div class="msa__filter-group" data-filter-group="strength">
+              <button
+                class="msa__filter-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                id="msa-strength-btn-{{ section.id }}"
+              >
+                <span class="msa__filter-label">
+                  {{- section.settings.strength_filter_label | default: 'Strength' -}}
+                </span>
+                <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <div class="msa__dropdown" role="listbox" aria-labelledby="msa-strength-btn-{{ section.id }}">
+                <div class="msa__dropdown-inner">
+                  <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
+                    {{ section.settings.strength_filter_all_label | default: 'All Strengths' }}
+                  </button>
+                  {%- for strength_val in unique_strengths_array -%}
+                    {%- assign strength_handle = strength_val | handleize -%}
+                    <button
+                      class="msa__dropdown-item"
+                      data-filter-value="{{ strength_handle }}"
+                      data-filter-type="strength"
+                      role="option"
+                      aria-selected="false"
+                    >
+                      {{- strength_val -}}
+                    </button>
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
         </div>
 
         {%- if show_sort -%}
@@ -210,6 +359,7 @@
         {%- for product in collections[source_collection].products -%}
           {%- assign product_device_handles = '' -%}
           {%- assign product_type_handles   = '' -%}
+          {%- assign product_strength_handles = '' -%}
 
           {%- for prod_col in product.collections -%}
             {%- if device_collections_array contains prod_col.handle -%}
@@ -220,11 +370,40 @@
             {%- endif -%}
           {%- endfor -%}
 
+          {%- comment -%} Collect Strength option values for this product's variants {%- endcomment -%}
+          {%- assign product_strength_opt_index = -1 -%}
+          {%- for opt_name in product.options -%}
+            {%- assign opt_lower = opt_name | downcase -%}
+            {%- if opt_lower == 'strength' -%}
+              {%- assign product_strength_opt_index = forloop.index0 -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if product_strength_opt_index >= 0 -%}
+            {%- for variant in product.variants -%}
+              {%- assign sv = '' -%}
+              {%- case product_strength_opt_index -%}
+                {%- when 0 -%}{%- assign sv = variant.option1 -%}
+                {%- when 1 -%}{%- assign sv = variant.option2 -%}
+                {%- when 2 -%}{%- assign sv = variant.option3 -%}
+              {%- endcase -%}
+              {%- if sv != blank -%}
+                {%- assign sv_handle = sv | handleize -%}
+                {%- assign sv_check = ',' | append: sv_handle | append: ',' -%}
+                {%- assign existing_str = ',' | append: product_strength_handles | append: ',' -%}
+                {%- unless existing_str contains sv_check -%}
+                  {%- assign product_strength_handles = product_strength_handles | append: sv_handle | append: ',' -%}
+                {%- endunless -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+
           <div
             class="msa__product-item"
             data-product-id="{{ product.id }}"
             data-device-filters="{{ product_device_handles | remove_last: ',' }}"
             data-type-filters="{{ product_type_handles | remove_last: ',' }}"
+            data-strength-filters="{{ product_strength_handles | remove_last: ',' }}"
+            data-brand-filter="{{ product.vendor | handleize }}"
             data-price="{{ product.price }}"
             data-title="{{ product.title | downcase }}"
             data-created="{{ product.published_at | date: '%s' }}"
@@ -304,6 +483,8 @@
   var state = {
     device: 'all',
     type: 'all',
+    brand: 'all',
+    strength: 'all',
     sort: 'manual',
     page: 1
   };
@@ -384,11 +565,15 @@
 
     // Filter
     var visible = items.filter(function (item) {
-      var deviceOk = state.device === 'all' ||
-        (item.dataset.deviceFilters || '').split(',').indexOf(state.device) !== -1;
-      var typeOk   = state.type   === 'all' ||
-        (item.dataset.typeFilters   || '').split(',').indexOf(state.type)   !== -1;
-      return deviceOk && typeOk;
+      var deviceOk   = state.device   === 'all' ||
+        (item.dataset.deviceFilters   || '').split(',').indexOf(state.device)   !== -1;
+      var typeOk     = state.type     === 'all' ||
+        (item.dataset.typeFilters     || '').split(',').indexOf(state.type)     !== -1;
+      var brandOk    = state.brand    === 'all' ||
+        (item.dataset.brandFilter     || '') === state.brand;
+      var strengthOk = state.strength === 'all' ||
+        (item.dataset.strengthFilters || '').split(',').indexOf(state.strength) !== -1;
+      return deviceOk && typeOk && brandOk && strengthOk;
     });
 
     // Sort
@@ -499,6 +684,14 @@
     if (state.type !== 'all') {
       var typeItem = root.querySelector('[data-filter-type="type"][data-filter-value="' + state.type + '"]');
       addPill('type', state.type, typeItem ? typeItem.textContent.trim() : state.type);
+    }
+    if (state.brand !== 'all') {
+      var brandItem = root.querySelector('[data-filter-type="brand"][data-filter-value="' + state.brand + '"]');
+      addPill('brand', state.brand, brandItem ? brandItem.textContent.trim() : state.brand);
+    }
+    if (state.strength !== 'all') {
+      var strengthItem = root.querySelector('[data-filter-type="strength"][data-filter-value="' + state.strength + '"]');
+      addPill('strength', state.strength, strengthItem ? strengthItem.textContent.trim() : state.strength);
     }
 
     pillsEl.hidden = !hasActive;
@@ -722,6 +915,56 @@
       "label": "\"All\" option label",
       "default": "All Types",
       "visible_if": "{{ section.settings.show_type_filter == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Brands Filter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_brand_filter",
+      "label": "Show Brands filter",
+      "default": true,
+      "info": "Automatically lists all product vendors from the source collection."
+    },
+    {
+      "type": "text",
+      "id": "brand_filter_label",
+      "label": "Filter button label",
+      "default": "Brands",
+      "visible_if": "{{ section.settings.show_brand_filter == true }}"
+    },
+    {
+      "type": "text",
+      "id": "brand_filter_all_label",
+      "label": "\"All\" option label",
+      "default": "All Brands",
+      "visible_if": "{{ section.settings.show_brand_filter == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Strength Filter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_strength_filter",
+      "label": "Show Strength filter",
+      "default": true,
+      "info": "Automatically lists all unique values from the 'Strength' variant option across products in the source collection."
+    },
+    {
+      "type": "text",
+      "id": "strength_filter_label",
+      "label": "Filter button label",
+      "default": "Strength",
+      "visible_if": "{{ section.settings.show_strength_filter == true }}"
+    },
+    {
+      "type": "text",
+      "id": "strength_filter_all_label",
+      "label": "\"All\" option label",
+      "default": "All Strengths",
+      "visible_if": "{{ section.settings.show_strength_filter == true }}"
     },
     {
       "type": "header",
