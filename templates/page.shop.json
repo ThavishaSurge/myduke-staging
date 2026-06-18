@@ -360,7 +360,7 @@
         "color_scheme": "",
         "heading": "By Brand",
         "heading_tag": "h2",
-        "description": "Prefer a specific brand? Shop by brand to quickly find the products you're familiar with and trust.",
+        "description_richtext": "<p>Prefer a specific brand? </p><p>Shop by brand to quickly find the products you're familiar with and trust.</p>",
         "show_divider": true,
         "shop_all_label": "Shop All Brands",
         "shop_all_url": "",
