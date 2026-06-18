@@ -62,6 +62,17 @@
         </div>
       {%- endif -%}
 
+      {%- if section.settings.button_text != blank -%}
+        <div class="myduke-how-works-services__actions">
+          <a 
+            href="{{ section.settings.button_link | default: '#' }}" 
+            class="myduke-how-works-services__btn"
+          >
+            {{ section.settings.button_text }}
+          </a>
+        </div>
+      {%- endif -%}
+
     </div>
   </div>
 </section>
@@ -110,6 +121,21 @@
       "id": "description",
       "label": "Description",
       "default": "myduke® is an Australian smoking cessation service providing structured, medically supervised support for adults seeking to quit smoking. Our service simplifies access to evidence-based care while maintaining full regulatory oversight."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
     }
   ],
   "blocks": [

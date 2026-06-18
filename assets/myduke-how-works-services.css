@@ -101,6 +101,22 @@
   width: 100%;
 }
 
+.myduke-how-works-services__btn {
+    display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9.5px 36px;
+  min-height: 40px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: var(--font-secondary-text-family);
+  text-decoration: none;
+  text-transform: capitalize;
+  border-radius: 0;
+  background-color: #218380;
+  color: #ffffff;
+}
+
 /* =============================================
    885:7996 — cards grid
    flex-wrap, gap: 36px, height: 340px, align-content: start
