@@ -69,6 +69,16 @@
       %}
     {%- endif -%}
 
+    {%- if section.settings.enable_additional_button_2 == true
+      and section.settings.additional_button_2_label != blank
+    -%}
+      {% render 'button',
+        btn_label: section.settings.additional_button_2_label,
+        btn_style: section.settings.additional_button_2_style,
+        btn_link: section.settings.additional_button_2_link,
+        class: 'header__additional-btn header__additional-btn--2 header-overlay-transition'
+      %}
+    {%- endif -%}
     {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
       <style>
         .header__custom-account-icon {
@@ -90,7 +100,10 @@
           display: flex;
         }
       </style>
-      <a href="{{ section.settings.custom_account_icon_link }}" class="header__custom-account-icon header-overlay-transition">
+      <a
+        href="{{ section.settings.custom_account_icon_link }}"
+        class="header__custom-account-icon header-overlay-transition"
+      >
         {%- if section.settings.custom_account_icon_scrolled_svg != blank -%}
           <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
           <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_scrolled_svg }}</span>
@@ -100,16 +113,6 @@
         {%- endif -%}
       </a>
     {%- endif -%}
-
-    {%- if section.settings.enable_additional_button_2 == true and section.settings.additional_button_2_label != blank -%}
-      {% render 'button',
-        btn_label: section.settings.additional_button_2_label,
-        btn_style: section.settings.additional_button_2_style,
-        btn_link: section.settings.additional_button_2_link,
-        class: 'header__additional-btn header__additional-btn--2 header-overlay-transition'
-      %}
-    {%- endif -%}
-
     {% render 'header-color-scheme', section_obj: section %}
 
     {% render 'modal-region-selector', section_obj: section, class: 'header__region', modal_location: 'header' %}
