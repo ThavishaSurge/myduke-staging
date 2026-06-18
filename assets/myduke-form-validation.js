@@ -23,17 +23,7 @@
 
   function validatePhone(phone) {
     var cleanNumber = phone.replace(/[^\d]/g, '');
-    
-    // Check for 10 digits starting with 0[2,3,4,7,8]
-    if (cleanNumber.length === 10 && cleanNumber.startsWith('0')) {
-        return /^0[23478]\d{8}$/.test(cleanNumber);
-    } 
-    // Check for 9 digits starting with [2,3,4,7,8] (Assumes +61 prefix context)
-    else if (cleanNumber.length === 9 && !cleanNumber.startsWith('0')) {
-        return /^[23478]\d{8}$/.test(cleanNumber);
-    }
-    
-    return false;
+    return cleanNumber.length === 10;
   }
 
   function clearErrors(form) {
@@ -61,33 +51,25 @@
 
       var phoneInput = form.querySelector('input[type="tel"]');
       
-      // --- AU Phone Auto-Formatting ---
+      // --- Phone Auto-Formatting ---
       if (phoneInput) {
-        // Format as user types
+        // Format as user types (XXXX XXX XXX)
         phoneInput.addEventListener('input', function(e) {
           var cleanNumber = this.value.replace(/[^\d]/g, '');
           var formattedNumber = '';
 
           if (cleanNumber.length > 0) {
-            if (cleanNumber.startsWith('0')) {
-              // Format: 0412 345 678 (4, 3, 3)
-              formattedNumber = cleanNumber.substring(0, 4);
-              if (cleanNumber.length > 4) formattedNumber += ' ' + cleanNumber.substring(4, 7);
-              if (cleanNumber.length > 7) formattedNumber += ' ' + cleanNumber.substring(7, 10);
-            } else {
-              // Format: 412 345 678 (3, 3, 3)
-              formattedNumber = cleanNumber.substring(0, 3);
-              if (cleanNumber.length > 3) formattedNumber += ' ' + cleanNumber.substring(3, 6);
-              if (cleanNumber.length > 6) formattedNumber += ' ' + cleanNumber.substring(6, 9);
-            }
+            formattedNumber = cleanNumber.substring(0, 4);
+            if (cleanNumber.length > 4) formattedNumber += ' ' + cleanNumber.substring(4, 7);
+            if (cleanNumber.length > 7) formattedNumber += ' ' + cleanNumber.substring(7, 10);
           }
           this.value = formattedNumber;
         });
 
-        // Restrict keystrokes to numbers and max length
+        // Restrict keystrokes to numbers and max length of 10
         phoneInput.addEventListener('keypress', function(e) {
           var cleanNumber = this.value.replace(/[^\d]/g, '');
-          var maxLength = cleanNumber.startsWith('0') ? 10 : 9;
+          var maxLength = 10;
           
           if (e.which < 48 || e.which > 57) {
             e.preventDefault();
@@ -104,7 +86,7 @@
         
         var isValid = true;
         var emailInput = form.querySelector('input[type="email"]');
-        var messageInput = form.querySelector('textarea'); // Selects the message text area
+        var messageInput = form.querySelector('textarea'); 
 
         // 1. Validate Email (Required & Format)
         if (emailInput) {
@@ -125,14 +107,11 @@
           }
         }
 
-        // 3. Validate Phone (Optional, but checks format if provided)
+        // 3. Validate Phone (Optional, but checks length if provided)
         if (phoneInput && phoneInput.value.trim() !== '') {
           var cleanNumber = phoneInput.value.replace(/[^\d]/g, '');
           if (!validatePhone(cleanNumber)) {
-            var errorText = cleanNumber.length !== 10 && cleanNumber.startsWith('0') 
-              ? 'Please enter exactly 10 digits.' 
-              : 'Please enter a valid Australian number (e.g., starting with 04, 02, 03).';
-            showError(phoneInput, errorText);
+            showError(phoneInput, 'Please enter exactly 10 digits.');
             isValid = false;
           }
         }
