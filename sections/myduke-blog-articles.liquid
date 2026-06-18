@@ -1,6 +1,12 @@
 <section class="myduke-article">
   <div class="myduke-article__inner">
     
+    {%- comment -%} ── Breadcrumbs ── {%- endcomment -%}
+    {% assign template_base = template | split: '.' | first %}
+    {%- if settings.show_breadcrumbs and template_base == 'article' -%}
+      {% render 'breadcrumbs' %}
+    {%- endif -%}
+
     <header class="myduke-article__header">
       <p class="myduke-article__eyebrow">{{ blog.title }}</p>
       <h1 class="myduke-article__heading">{{ article.title }}</h1>
