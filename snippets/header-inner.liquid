@@ -69,6 +69,38 @@
       %}
     {%- endif -%}
 
+    {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
+      <style>
+        .header__custom-account-icon {
+          display: flex;
+          align-items: center;
+          margin-left: 1.5rem;
+          color: inherit;
+        }
+        .custom-account-icon-initial {
+          display: flex;
+        }
+        .custom-account-icon-scrolled {
+          display: none;
+        }
+        .shopify-section-header-sticky .custom-account-icon-initial {
+          display: none;
+        }
+        .shopify-section-header-sticky .custom-account-icon-scrolled {
+          display: flex;
+        }
+      </style>
+      <a href="{{ section.settings.custom_account_icon_link }}" class="header__custom-account-icon header-overlay-transition">
+        {%- if section.settings.custom_account_icon_scrolled_svg != blank -%}
+          <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
+          <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_scrolled_svg }}</span>
+        {%- else -%}
+          <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
+          <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_svg }}</span>
+        {%- endif -%}
+      </a>
+    {%- endif -%}
+
     {%- if section.settings.enable_additional_button_2 == true and section.settings.additional_button_2_label != blank -%}
       {% render 'button',
         btn_label: section.settings.additional_button_2_label,
