@@ -1,0 +1,52 @@
+{% if settings.is_free_shipping_bar %} 
+    {% assign promote_txt = settings.promote_free_shipping_txt | escape %}
+    {% assign unlocked_txt = settings.unlocked_free_shipping_txt | escape %}
+    {% assign threshold = settings.free_shipping_treshold | times: 100 %}
+    {% assign shipping_quotient = settings.free_shipping_treshold %}
+    {% assign shipping_procent = cart.total_price | divided_by: shipping_quotient | at_most: 100 %}
+    {% assign value_left = threshold | minus: cart.total_price %}
+    {% assign value_left_money = value_left | money %}
+    <div class="shipping-bar-wrapper">
+    <div class="shipping-bar sticky-shipping" data-promote="{{promote_txt}}" data-unlocked="{{unlocked_txt}}" data-threshold="{{threshold}}" data-procent="{{shipping_procent}}">
+    {% if value_left <= 0 %}
+    <p class="shipping-bar-success shipping-bar__message">{{unlocked_txt}}<img style="float:right;margin-top: -4px;" height="25px" width="25px" src="https://cdn.shopify.com/s/files/1/2649/1130/files/free-ship.svg?v=1635029424"/></p>
+    {% else %}
+    <div id="free-shipping__progress">&nbsp;</div><p class="shipping-bar__message">{{promote_txt | replace:'[value]' , value_left_money}}<img style="float:right;margin-top: -4px;" height="25px" width="25px" src="https://cdn.shopify.com/s/files/1/2649/1130/files/free-ship.svg?v=1635029424"/></p>
+    {% endif %}
+    </div>
+    </div>
+{% endif %}
+
+
+<style> 
+    .shipping-bar {
+    background-color: #000;
+    position:relative !important;
+    margin-top: 5px;
+    
+    }
+    .shipping-bar-success {
+    background-color: #25a799;
+    
+    }
+    .shipping-bar__message {
+    color: #fff;
+    padding: 13px 10px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 1.42;
+    text-transform: uppercase;
+    font-weight:bold;
+    text-align: left;
+    position: relative !important;
+    }
+    #free-shipping__progress {
+    position:absolute !important;
+    background-color: #EF6351;
+    left: 0!important;
+    top: 0!important;
+    height: 100% !important;
+    
+    width: {{shipping_procent}}%;
+    }
+</style>
