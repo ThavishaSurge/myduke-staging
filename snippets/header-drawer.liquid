@@ -56,10 +56,13 @@
           </div>
         </div>
         <div class="menu-drawer__main">
-          {%- if section.settings.menu != blank -%}
+          {% liquid
+            assign drawer_menu = section.settings.mobile_menu | default: section.settings.menu
+          %}
+          {%- if drawer_menu != blank -%}
             <nav class="menu-drawer__navigation">
               <ul class="menu-drawer__menu list-menu" role="list">
-                {%- for link in section.settings.menu.links -%}
+                {%- for link in drawer_menu.links -%}
                   {% liquid
                     assign mega_menu = false
                   %}
