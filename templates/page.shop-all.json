@@ -124,6 +124,9 @@
         "show_brand_filter": true,
         "brand_filter_label": "Brands",
         "brand_filter_all_label": "All Brands",
+        "show_strength_filter": true,
+        "strength_filter_label": "Strength",
+        "strength_filter_all_label": "All Strengths",
         "show_sort": true,
         "sort_label": "Sort by",
         "show_sort_featured": true,
@@ -148,11 +151,22 @@
         "margin_top": "no-indent",
         "margin_bottom": "l"
       }
+    },
+    "myduke_guidance_quiz_He9ppk": {
+      "type": "myduke-guidance-quiz",
+      "name": "Guidance Quiz",
+      "settings": {
+        "heading": "Need Guidance?",
+        "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
+        "background_color": "#F4A261",
+        "background_image": "shopify://shop_images/cost-cal-bg.webp"
+      }
     }
   },
   "order": [
     "page_info",
     "myduke_hero_secondary_ALHhrd",
-    "myduke_section_shop_all_xAJxQA"
+    "myduke_section_shop_all_xAJxQA",
+    "myduke_guidance_quiz_He9ppk"
   ]
 }
