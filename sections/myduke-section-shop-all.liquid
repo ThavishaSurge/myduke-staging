@@ -8,6 +8,7 @@
 {%- liquid
   assign show_device_filter      = section.settings.show_device_filter
   assign show_type_filter        = section.settings.show_type_filter
+  assign show_brand_filter       = section.settings.show_brand_filter
   assign show_sort               = section.settings.show_sort
   assign products_per_page       = section.settings.products_per_page | default: 24
   assign cols_desktop            = section.settings.columns_desktop | default: 6
@@ -36,6 +37,25 @@
 
   assign device_collections_array = device_collections | split: ','
   assign type_collections_array = type_collections | split: ','
+
+  comment
+    Collect unique vendors from source collection for Brands filter
+  endcomment
+  assign source_col_handle = section.settings.source_collection
+  assign unique_vendors = ''
+  for product in collections[source_col_handle].products
+    assign vendor_handle = product.vendor | handleize
+    assign vendor_check = ',' | append: vendor_handle | append: ','
+    assign vendors_check_string = ',' | append: unique_vendors | append: ','
+    unless vendors_check_string contains vendor_check
+      if unique_vendors == blank
+        assign unique_vendors = product.vendor
+      else
+        assign unique_vendors = unique_vendors | append: '|' | append: product.vendor
+      endif
+    endunless
+  endfor
+  assign unique_vendors_array = unique_vendors | split: '|'
 -%}
 
 <div
@@ -46,7 +66,7 @@
   <div class="container">
 
     {%- comment -%} ── Toolbar: Filters + Sort ── {%- endcomment -%}
-    {%- if show_device_filter or show_type_filter or show_sort -%}
+    {%- if show_device_filter or show_type_filter or show_brand_filter or show_sort -%}
       <div class="msa__toolbar">
 
         <div class="msa__filters">
@@ -141,6 +161,44 @@
             </div>
           {%- endif -%}
 
+          {%- if show_brand_filter and unique_vendors_array.size > 0 -%}
+            <div class="msa__filter-group" data-filter-group="brand">
+              <button
+                class="msa__filter-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                id="msa-brand-btn-{{ section.id }}"
+              >
+                <span class="msa__filter-label">
+                  {{- section.settings.brand_filter_label | default: 'Brands' -}}
+                </span>
+                <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <div class="msa__dropdown" role="listbox" aria-labelledby="msa-brand-btn-{{ section.id }}">
+                <div class="msa__dropdown-inner">
+                  <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
+                    {{ section.settings.brand_filter_all_label | default: 'All Brands' }}
+                  </button>
+                  {%- for vendor in unique_vendors_array -%}
+                    {%- assign vendor_handle = vendor | handleize -%}
+                    <button
+                      class="msa__dropdown-item"
+                      data-filter-value="{{ vendor_handle }}"
+                      data-filter-type="brand"
+                      role="option"
+                      aria-selected="false"
+                    >
+                      {{- vendor -}}
+                    </button>
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
         </div>
 
         {%- if show_sort -%}
@@ -225,6 +283,7 @@
             data-product-id="{{ product.id }}"
             data-device-filters="{{ product_device_handles | remove_last: ',' }}"
             data-type-filters="{{ product_type_handles | remove_last: ',' }}"
+            data-brand-filter="{{ product.vendor | handleize }}"
             data-price="{{ product.price }}"
             data-title="{{ product.title | downcase }}"
             data-created="{{ product.published_at | date: '%s' }}"
@@ -304,6 +363,7 @@
   var state = {
     device: 'all',
     type: 'all',
+    brand: 'all',
     sort: 'manual',
     page: 1
   };
@@ -388,7 +448,9 @@
         (item.dataset.deviceFilters || '').split(',').indexOf(state.device) !== -1;
       var typeOk   = state.type   === 'all' ||
         (item.dataset.typeFilters   || '').split(',').indexOf(state.type)   !== -1;
-      return deviceOk && typeOk;
+      var brandOk  = state.brand  === 'all' ||
+        (item.dataset.brandFilter || '') === state.brand;
+      return deviceOk && typeOk && brandOk;
     });
 
     // Sort
@@ -499,6 +561,10 @@
     if (state.type !== 'all') {
       var typeItem = root.querySelector('[data-filter-type="type"][data-filter-value="' + state.type + '"]');
       addPill('type', state.type, typeItem ? typeItem.textContent.trim() : state.type);
+    }
+    if (state.brand !== 'all') {
+      var brandItem = root.querySelector('[data-filter-type="brand"][data-filter-value="' + state.brand + '"]');
+      addPill('brand', state.brand, brandItem ? brandItem.textContent.trim() : state.brand);
     }
 
     pillsEl.hidden = !hasActive;
@@ -722,6 +788,31 @@
       "label": "\"All\" option label",
       "default": "All Types",
       "visible_if": "{{ section.settings.show_type_filter == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Brands Filter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_brand_filter",
+      "label": "Show Brands filter",
+      "default": true,
+      "info": "Automatically lists all product vendors from the source collection."
+    },
+    {
+      "type": "text",
+      "id": "brand_filter_label",
+      "label": "Filter button label",
+      "default": "Brands",
+      "visible_if": "{{ section.settings.show_brand_filter == true }}"
+    },
+    {
+      "type": "text",
+      "id": "brand_filter_all_label",
+      "label": "\"All\" option label",
+      "default": "All Brands",
+      "visible_if": "{{ section.settings.show_brand_filter == true }}"
     },
     {
       "type": "header",
