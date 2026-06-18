@@ -91,7 +91,7 @@
           "card_regular_price_color": "#2b2b2e",
           "card_sale_price_color": "#2b2b2e",
           "card_old_price_color": "#71706c",
-          "color_accent": "#3361fc",
+          "color_accent": "#218380",
           "color_border": "#e0dacf",
           "color_interface_elements": "#e8e8e8",
           "colors_background_overlay": "#0c0c0c"
@@ -284,7 +284,7 @@
           "colors_accent_button_labels_hover": "#ffffff",
           "colors_accent_button_background": "#e32511",
           "colors_accent_button_background_hover": "#b81d0d",
-          "colors_tertiary_button_labels": "#3361fc",
+          "colors_tertiary_button_labels": "#218380",
           "sale_badge_bg": "#ffe3e0",
           "sale_badge_color": "#dd1b1f",
           "sold_out_badge_bg": "#ffffff",
@@ -296,7 +296,7 @@
           "card_regular_price_color": "#2b2b2e",
           "card_sale_price_color": "#2b2b2e",
           "card_old_price_color": "#71706c",
-          "color_accent": "#3361fc",
+          "color_accent": "#218380",
           "color_border": "#e0dacf",
           "color_interface_elements": "#e8e8e8",
           "colors_background_overlay": "#0c0c0c"
