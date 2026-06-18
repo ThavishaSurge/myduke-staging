@@ -105,6 +105,24 @@
     "myduke_popular_products_7QXUXY": {
       "type": "myduke-popular-products",
       "blocks": {
+        "collection_item_FyPNjp": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods-copy"
+          }
+        },
+        "collection_item_pAMNPi": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "hybrid-systems"
+          }
+        },
+        "collection_item_t8Qh3X": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "zero-nicotine"
+          }
+        },
         "collection_item_R4iEkc": {
           "type": "collection_item",
           "settings": {
@@ -117,24 +135,6 @@
             "collection": "nicotine-replacement-therapy"
           }
         },
-        "collection_item_pAMNPi": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "hybrid-systems"
-          }
-        },
-        "collection_item_FyPNjp": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "pods-copy"
-          }
-        },
-        "collection_item_t8Qh3X": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "zero-nicotine"
-          }
-        },
         "collection_item_kUeHz6": {
           "type": "collection_item",
           "settings": {
@@ -144,16 +144,16 @@
         "collection_item_Aze4Fi": {
           "type": "collection_item",
           "settings": {
-            "collection": "nicotine-base"
+            "collection": "e-liquids"
           }
         }
       },
       "block_order": [
+        "collection_item_FyPNjp",
+        "collection_item_pAMNPi",
+        "collection_item_t8Qh3X",
         "collection_item_R4iEkc",
         "collection_item_VVhghz",
-        "collection_item_pAMNPi",
-        "collection_item_FyPNjp",
-        "collection_item_t8Qh3X",
         "collection_item_kUeHz6",
         "collection_item_Aze4Fi"
       ],
@@ -184,16 +184,22 @@
     "myduke_popular_products_btYrh9": {
       "type": "myduke-popular-products",
       "blocks": {
-        "collection_item_7xnjT4": {
+        "collection_item_cdwWeD": {
           "type": "collection_item",
           "settings": {
-            "collection": "e-liquids"
+            "collection": "zero-nicotine-1"
           }
         },
-        "collection_item_whHYaB": {
+        "collection_item_ntKrzk": {
           "type": "collection_item",
           "settings": {
-            "collection": "accessories"
+            "collection": "pods-copy"
+          }
+        },
+        "collection_item_xtDYtU": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "hybrid-systems"
           }
         },
         "collection_item_jxhnHA": {
@@ -213,28 +219,15 @@
           "settings": {
             "collection": "nicotine-base"
           }
-        },
-        "collection_item_LBhREq": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "pods"
-          }
-        },
-        "collection_item_w4MdBE": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "e-liquids"
-          }
         }
       },
       "block_order": [
-        "collection_item_7xnjT4",
-        "collection_item_whHYaB",
+        "collection_item_cdwWeD",
+        "collection_item_ntKrzk",
+        "collection_item_xtDYtU",
         "collection_item_jxhnHA",
         "collection_item_UWn3D9",
-        "collection_item_qzBp7R",
-        "collection_item_LBhREq",
-        "collection_item_w4MdBE"
+        "collection_item_qzBp7R"
       ],
       "name": "Popular Products (MyDuke)",
       "settings": {
