@@ -1657,7 +1657,7 @@
       {
         "type": "checkbox",
         "id": "links_blank",
-        "default": true,
+        "default": false,
         "label": "t:settings_schema.advanced.settings.links_blank.label",
         "info": "t:settings_schema.advanced.settings.links_blank.info"
       }
