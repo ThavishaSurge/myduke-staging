@@ -212,6 +212,11 @@
         {% comment %} New Codes {% endcomment %}
          $('.mydk-header-shop-btn').show();
          $('.mydk-header-getstarted-btn').hide();
+         if(payload){
+          $('.mydk-header-account-icon').append(
+            `<span class="mydke-user-email button__label">(${payload.email})</span>`
+          );
+        }
       } else {
         console.log('NOT - Authenticated');
         $('.afterlogin').hide();
