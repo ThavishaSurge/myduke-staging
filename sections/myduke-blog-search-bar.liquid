@@ -127,8 +127,6 @@
   bar.after(placeholder);
 
   var originalTop = null;
-  // Select the guidance quiz section
-  var quizSection = document.querySelector('.guidance-quiz-section');
 
   function getNavbarHeight() {
     var header = document.querySelector('.shopify-section-header') || document.querySelector('header');
@@ -145,13 +143,15 @@
     if (originalTop === null) getOriginalTop();
     var navbarHeight = getNavbarHeight();
     
-    // Check if the quiz section is entering the bottom of the viewport
+    // Look for the quiz section dynamically on scroll
+    var quizSection = document.querySelector('.guidance-quiz-section');
     var isQuizInView = false;
+    
     if (quizSection) {
+      // Check if the top of the quiz section has entered the bottom of the screen
       isQuizInView = quizSection.getBoundingClientRect().top <= window.innerHeight;
     }
 
-    // Stick the bar ONLY if scrolled past the trigger point AND the quiz is not in view
     if (window.scrollY >= originalTop - navbarHeight - 20 && !isQuizInView) {
       if (!bar.classList.contains('myduke-search-bar--fixed')) {
         placeholder.style.height = bar.offsetHeight + 'px';
@@ -168,6 +168,9 @@
 
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', function() { originalTop = null; update(); });
+  
+  // Run once everything is loaded
+  document.addEventListener('DOMContentLoaded', update);
   requestAnimationFrame(update);
 })();
 </script>
