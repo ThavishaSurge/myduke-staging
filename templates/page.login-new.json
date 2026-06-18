@@ -9,16 +9,12 @@
  */
 {
   "sections": {
-    "page_info": {
-      "type": "main-page",
-      "settings": {
-        "heading_size": "h5",
-        "heading_tag": "h1",
-        "content_align": "left"
-      }
+    "main": {
+      "type": "login-new",
+      "settings": {}
     }
   },
   "order": [
-    "page_info"
+    "main"
   ]
 }
