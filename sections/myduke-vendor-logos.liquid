@@ -30,7 +30,7 @@
             {{ section.settings.heading }}
           </{{ section.settings.heading_tag }}>
         {%- endif -%}
-        {%- if section.settings.description != blank -%}
+        {%- if section.settings.description_richtext != blank -%}
           <div class="mdvl__description test">{{ section.settings.description }}</div>
         {%- endif -%}
       </div>
@@ -200,7 +200,7 @@
     },
     {
       "type": "richtext",
-      "id": "description",
+      "id": "description_richtext",
       "label": "Description",
       "default": "<p>Already own a device? Select it to see only the pods, coils, and accessories that work with your hardware.</p>"
     },
