@@ -72,7 +72,7 @@
   </div>
 </section>
 
-<script>
+{% comment %} <script>
 (function() {
   var sectionId = '{{ section.id }}';
   var bar = document.querySelector('.myduke-search-bar[data-section-id="' + sectionId + '"]');
@@ -98,6 +98,61 @@
     if (originalTop === null) getOriginalTop();
     var navbarHeight = getNavbarHeight();
     if (window.scrollY >= originalTop - navbarHeight - 20) {
+      if (!bar.classList.contains('myduke-search-bar--fixed')) {
+        placeholder.style.height = bar.offsetHeight + 'px';
+        placeholder.style.display = 'block';
+        bar.classList.add('myduke-search-bar--fixed');
+      }
+    } else {
+      if (bar.classList.contains('myduke-search-bar--fixed')) {
+        bar.classList.remove('myduke-search-bar--fixed');
+        placeholder.style.display = 'none';
+      }
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', function() { originalTop = null; update(); });
+  requestAnimationFrame(update);
+})();
+</script> {% endcomment %}
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var bar = document.querySelector('.myduke-search-bar[data-section-id="' + sectionId + '"]');
+  if (!bar) return;
+
+  var placeholder = document.createElement('div');
+  bar.after(placeholder);
+
+  var originalTop = null;
+  // Select the guidance quiz section
+  var quizSection = document.querySelector('.guidance-quiz-section');
+
+  function getNavbarHeight() {
+    var header = document.querySelector('.shopify-section-header') || document.querySelector('header');
+    return header ? header.offsetHeight : 0;
+  }
+
+  function getOriginalTop() {
+    bar.classList.remove('myduke-search-bar--fixed');
+    placeholder.style.display = 'none';
+    originalTop = bar.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function update() {
+    if (originalTop === null) getOriginalTop();
+    var navbarHeight = getNavbarHeight();
+    
+    // Check if the quiz section is entering the bottom of the viewport
+    var isQuizInView = false;
+    if (quizSection) {
+      isQuizInView = quizSection.getBoundingClientRect().top <= window.innerHeight;
+    }
+
+    // Stick the bar ONLY if scrolled past the trigger point AND the quiz is not in view
+    if (window.scrollY >= originalTop - navbarHeight - 20 && !isQuizInView) {
       if (!bar.classList.contains('myduke-search-bar--fixed')) {
         placeholder.style.height = bar.offsetHeight + 'px';
         placeholder.style.display = 'block';
