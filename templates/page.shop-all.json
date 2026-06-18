@@ -52,6 +52,13 @@
     "myduke_section_shop_all_xAJxQA": {
       "type": "myduke-section-shop-all",
       "blocks": {
+        "type_filter_item_FxEfAF": {
+          "type": "type_filter_item",
+          "settings": {
+            "collection_handle": "accessories",
+            "label": ""
+          }
+        },
         "type_filter_item_by3aWt": {
           "type": "type_filter_item",
           "settings": {
@@ -96,6 +103,7 @@
         }
       },
       "block_order": [
+        "type_filter_item_FxEfAF",
         "type_filter_item_by3aWt",
         "type_filter_item_zEdEFp",
         "type_filter_item_ykHYET",
