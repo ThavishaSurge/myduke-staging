@@ -72,7 +72,13 @@
             class="mdpp__item{% if enable_slider %} swiper-slide{% endif %}"
             {{ block.shopify_attributes }}
           >
-            <a class="mdpp__card" href="{{ collection.url }}">
+            {%- liquid
+              assign collection_url = collection.url
+              if section.settings.dynamic_filter_urls
+                assign collection_url = '/pages/shop-all?type=' | append: collection.handle
+              endif
+            -%}
+            <a class="mdpp__card" href="{{ collection_url }}">
               <div class="mdpp__card-image-wrap">
                 {%- if collection.image != blank -%}
                   {{
@@ -225,6 +231,13 @@
       "type": "url",
       "id": "shop_all_url",
       "label": "Button URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "dynamic_filter_urls",
+      "label": "Enable dynamic filter URLs",
+      "default": false,
+      "info": "When enabled, collection cards will link to '/pages/shop-all?type=[collection-handle]' instead of the standard collection page."
     },
     {
       "type": "header",
