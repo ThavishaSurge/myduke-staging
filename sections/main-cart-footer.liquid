@@ -175,6 +175,7 @@
 
   function setCart() {
     var data = {{ cart | json }};
+    console.log(data);
     data.items.map((item) => {
 
       if(item.properties._total_nicotine){
