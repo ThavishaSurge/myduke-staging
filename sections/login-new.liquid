@@ -1,0 +1,28 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div class="{{ template }} customer login section-{{ section.id }}-padding">
+  <h2 tabindex="-1">Going back to the store and logging you in...</h2>
+</div>
+<script src="{{ 'user.js' | asset_url }}"></script>
+<script src="{{ 'grpc-bundled.js' | asset_url }}"></script>
+<script src="{{ 'nicotine.js' | asset_url }}"></script>
+<script src="{{ 'loadSubscription.js' | asset_url }}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    console.log('jaydip testing');
+    loginAndRedirect(event, "{{ routes.root_url }}");
+  })
+</script>
+<script>
+  window.addEventListener("load", function() {
+    console.log('jaydip testing 1');
+    //loginAndRedirect(event, "{{ routes.root_url }}");
+  })
+</script>
+
+{% schema %}
+{
+  "name": "Login New",
+  "settings": []
+}
+{% endschema %}}}
