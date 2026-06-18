@@ -26,7 +26,7 @@
           </{{ section.settings.heading_tag }}>
         {%- endif -%}
         {%- if section.settings.show_description and section.settings.description != blank -%}
-          <p class="mdcpl__description">{{ section.settings.description }}</p>
+          <div class="mdcpl__description">{{ section.settings.description }}</div>
         {%- endif -%}
       </div>
 
@@ -204,10 +204,10 @@
       "default": true
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "Check out our products."
+      "default": "<p>Check out our products.</p>"
     },
     {
       "type": "checkbox",

@@ -27,7 +27,7 @@
         </{{ section.settings.heading_tag }}>
       {%- endif -%}
       {%- if section.settings.show_description and section.settings.description != blank -%}
-        <p class="mdpp__description">{{ section.settings.description }}</p>
+        <div class="mdpp__description">{{ section.settings.description }}</div>
       {%- endif -%}
     </div>
 
@@ -200,10 +200,10 @@
       "default": true
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "Check out our most popular products and brands."
+      "default": "<p>Check out our most popular products and brands.</p>"
     },
     {
       "type": "checkbox",
