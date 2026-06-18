@@ -69,7 +69,7 @@
     {%- if request.page_type != 'cart' -%}
       {%- if settings.enable_cart_drawer -%}
         {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-        {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+        {{ 'component-cart-items-BAK.css' | asset_url | stylesheet_tag }}
         <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
         {%- if settings.show_shipping -%}
           {{ 'component-cart-shipping.css' | asset_url | stylesheet_tag }}
