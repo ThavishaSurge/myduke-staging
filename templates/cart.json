@@ -9,48 +9,35 @@
  */
 {
   "sections": {
-    "main-cart": {
+    "cart-items": {
       "type": "main-cart-items",
+      "settings": {
+        "checkout_duke_url": "https://staging.myduke.com.au/checkout",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
       "blocks": {
         "subtotal": {
           "type": "subtotal",
           "settings": {}
         },
-        "cart_note": {
-          "type": "cart_note",
-          "disabled": true,
-          "settings": {}
-        },
         "buttons": {
           "type": "buttons",
-          "settings": {}
-        },
-        "additional_text": {
-          "type": "additional_text",
           "settings": {}
         }
       },
       "block_order": [
         "subtotal",
-        "cart_note",
-        "buttons",
-        "additional_text"
+        "buttons"
       ],
       "settings": {}
-    },
-    "popular-products": {
-      "type": "popular-products",
-      "settings": {
-        "products_per_row": 6,
-        "products_per_row_mobile": "2",
-        "heading": "You May Be Interested",
-        "heading_font": "body",
-        "show_quick_view": true
-      }
     }
   },
   "order": [
-    "main-cart",
-    "popular-products"
+    "cart-items",
+    "cart-footer"
   ]
 }
