@@ -1360,16 +1360,6 @@ details>* {
   color: #264653;
 }
 
-@media screen and (pointer: fine) {
-  .button--secondary2:hover {
-    color: rgb(var(--color-button-secondary2-text-hover));
-  }
-
-  .button--secondary2:hover .button__label {
-    color: rgb(var(--color-button-secondary2-text-hover));
-  }
-}
-
 .button--secondary2:focus {
   color: rgb(var(--color-button-secondary2-text-hover));
 }
