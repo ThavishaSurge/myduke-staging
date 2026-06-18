@@ -1,0 +1,265 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width{% if 1 != 1 %} is-empty{% endif %} customertype_withlogin" id="main-cart-footer" data-id="{{ section.id }}">
+  <div>
+    <div class="cart__footer">
+      {%- if settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea
+            class="text-area field__input"
+            name="note"
+            form="cart"
+            id="Cart-note"
+            placeholder="{{ 'sections.cart.note' | t }}"
+          >{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+      <div class="cart__blocks">
+        <div id="excess-nicotine-popup" class="hidden">
+          <div class="fixed w-full h-full bg-black bg-opacity-90 left-0 top-0 flex items-center justify-center z-50">
+            <div class="max-w-md w-full bg-white p-8 mx-2">
+                <p class="mb-5 text-xl">Your order exceeds the nicotine limit you've been prescribed. Your order details will be forwarded to one of our doctors for reassessment, would you like to proceed?</p>
+                <div class="flex items-center">
+                  <button id="excess-nicotine-popup-enter" class="inline-flex text-base text-center text-white font-semibold leading-tight px-5 py-5 bg-blue-800 hover:bg-blue-700 rounded-full mr-6">Proceed to checkout</button>
+                  <a href="#" id="excess-nicotine-popup-cancel" class="underline mr-6">Back</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} Nicotine Exceeded error message {% endcomment %}
+      <div id="mydk-cart-limit-error" class="mydk-cart-limit-error" style="display:none;">
+        <div class="mydk-cart-limit-error__content">
+          <div class="mydk-cart-err-header">
+            <div class="mydk-cart-limit-error__icon">⚠️</div>
+            <strong>Nicotine Limit Exceeded</strong>
+          </div>
+          <p>please lower your dosage.</p>
+          <p>your prescribed nicotine amount is <span class="mydk-nicotine-amount"></span>.</p>
+        </div>
+      </div>
+      {% comment %} END | Nicotine Exceeded error message {% endcomment %}
+
+      <div class="cart__blocks p-4 sm:p-8">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between">
+                <p>Today's products</p>
+                <p data-cart-subtotal="" class="todaysproductsamount">{{ cart.total_price | money_with_currency }}</p>
+              </div>
+              <div class="js-contents" {{ block.shopify_attributes }}>
+                
+                <!-- <div class="totals">
+                  <h2 class="totals__subtotal">Today's products</h2>
+                  <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+                </div> -->
+
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--position">
+                          {%- render 'icon-discount' -%}
+                          {{ discount.title }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+
+                <small class="tax-note caption-large rte" style="display:none;">
+                  {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                  {%- elsif cart.taxes_included -%}
+                    {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                  {%- elsif shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+                  {%- else -%}
+                    {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                  {%- endif -%}
+                </small>
+              </div>
+            {%- else -%}
+              <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between">
+                <p>Prescription</p>
+                <p>Free</p>
+              </div>
+              <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between">
+                <p>Express Shipping</p>
+                <p class="expressshippingamount">{%- if cart.total_price >= 15000 -%}Free{% else %}$15.00{%- endif -%}</p>
+              </div>
+              <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between font-bold">
+                <p>Today's total</p>
+                {%- if cart.total_price >= 15000 -%}
+                  <p class="todaystotal" data-total="{{cart.total_price | money_without_currency }}">{{cart.total_price | money_with_currency }}</p>
+                {% else %}
+                  <p class="todaystotal" data-total="{{cart.total_price | plus: 1500 | money_without_currency }}">{{cart.total_price | plus: 1500 | money_with_currency }}</p>
+                {%- endif -%}
+                
+              </div>
+              {% render 'free-shipping' %}
+              <div class="cart__submit-controls cart__ctas">
+                <button id="continueButton" type="button" onclick="addSubscriptionData()" name="continue" class="cart__checkout-button button mydk-cart-checkout-btn">Next</button>                     
+              </div>
+              <div class="cart__ctas" {{ block.shopify_attributes }} style="display:none;">
+                <noscript>
+                  <button type="submit" class="cart__update-button button button--secondary" form="cart">
+                    {{ 'sections.cart.update' | t }}
+                  </button>
+                </noscript>
+
+                <button
+                  type="submit"
+                  id="checkout"
+                  class="cart__checkout-button button"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
+              </div>
+              {% comment %}
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+            {% endcomment %}
+          {%- endcase -%}
+        {% endfor %}
+
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return msie > 0 || trident > 0;
+    }
+
+    if (!isIE()) return;
+    const cartSubmitInput = document.createElement('input');
+    cartSubmitInput.setAttribute('name', 'checkout');
+    cartSubmitInput.setAttribute('type', 'hidden');
+    document.querySelector('#cart').appendChild(cartSubmitInput);
+    document.querySelector('#checkout').addEventListener('click', function (event) {
+      document.querySelector('#cart').submit();
+    });
+  });
+</script>
+<script src="{{ 'user.js' | asset_url }}"></script>
+<script src="{{ 'updateSubscription.js' | asset_url }}"></script>
+<script>
+  // Liquid dependent code held here
+  var total_nicotine = 0;
+  setCart();
+
+  function setCart() {
+    var data = {{ cart | json }};
+    data.items.map((item) => {
+
+      if(item.properties._total_nicotine){
+        total_nicotine += item.properties._total_nicotine * item.quantity
+      } 
+      item.category = $('.dataleteritemid_'+item.id).data('category');
+      //item.price = item.line_price;
+      delete item.product_description;
+      delete item.featured_image;
+      delete item.url;
+      delete item.key;
+      delete item.image;
+      delete item.id;
+      delete item.discounted_price;
+      delete item.discount;
+      delete item.original_line_price;
+      delete item.original_price;
+      delete item.title;
+      delete item.variant_options;
+      //delete item.product_type;
+      delete item.line_price;
+      delete item.handle;
+      delete item.gift_card;
+      delete item.grams;
+      delete item.discounts;
+      delete item.line_level_discount_allocations;
+      delete item.final_line_price;
+      delete item.final_price;
+      delete item.line_level_total_discount;
+      delete item.total_discount;
+      delete item.options_with_values;
+      delete item.requires_shipping;
+      delete item.product_has_only_default_variant;
+      delete item.product_has_only_default_variant;
+    });
+    delete data.attributes;
+    delete data.cart_level_discount_applications;
+    delete data.requires_shipping;
+    delete data.items_subtotal_price;
+    delete data.note;
+
+    data.total_nicotine = total_nicotine;
+
+    // TODO: add conditional shipping costs here when duke phases off free shipping promotion
+    data.shipping_price = 0;
+    document.getElementById("cart_id").value = getCookie('cart');
+    document.getElementById("cart_data").value = JSON.stringify(data);
+  }
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+</script>
+
+<script src="{{ 'grpc-bundled.js' | asset_url }}"></script>
+<script src="{{ 'nicotine.js' | asset_url }}"></script>
+<script src="{{ 'loadSubscription.js' | asset_url }}"></script>
+<script src="{{ 'subscription.js' | asset_url }}"></script>
+<script>
+  
+const existingProductId = [7479674044574,7479674077342,7479674142878,7479674175646,42560877363358,42560877330590];
+const updatedProductId = [7763564101790, 7763564232862];
+getProductUpgradeStat(existingProductId, updatedProductId);
+  
+</script>
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper",
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}
