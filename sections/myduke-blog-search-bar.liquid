@@ -119,9 +119,20 @@
 
 <script>
 (function() {
+  console.log("--- MyDuke Search Bar Script Initializing ---");
+  
   var sectionId = '{{ section.id }}';
-  var bar = document.querySelector('.myduke-search-bar[data-section-id="' + sectionId + '"]');
-  if (!bar) return;
+  console.log("Section ID:", sectionId);
+  
+  var barSelector = '.myduke-search-bar[data-section-id="' + sectionId + '"]';
+  var bar = document.querySelector(barSelector);
+  
+  console.log("Search Bar Element Found:", !!bar);
+
+  if (!bar) {
+    console.error("ABORTING: Could not find search bar with selector:", barSelector);
+    return;
+  }
 
   var placeholder = document.createElement('div');
   bar.after(placeholder);
