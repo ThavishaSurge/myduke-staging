@@ -216,7 +216,7 @@
           {% comment %} $('.mydk-header-account-icon').append(
             `<span class="mydke-user-email button__label">(${payload.email})</span>`
           ); {% endcomment %}
-          $('.mydk-header-shop-btn').after(`<a href="/pages/shop" aria-label="Logout" class="button button--secondary header__additional-btn header-overlay-transition mydk-header-logout-btn focus-inset">
+          $('.mydk-header-shop-btn').after(`<a href="javascript:void(0)" onclick="logout()" aria-label="Logout" class="button button--secondary header__additional-btn header-overlay-transition mydk-header-logout-btn focus-inset">
             <span class="button__content">
               <span class="button__label">Logout(${payload.email})</span>
             </span>
