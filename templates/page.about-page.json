@@ -22,7 +22,7 @@
         "height_desktop": 100,
         "height_mobile": 80,
         "enable_mobile_colors": true,
-        "mobile_text_color": "#264653",
+        "mobile_text_color": "#FFFFFF",
         "enable_breadcrumbs": true,
         "breadcrumb_parent_text": "Home",
         "breadcrumb_parent_link": "",
