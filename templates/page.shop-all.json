@@ -113,7 +113,7 @@
         "show_vendor": false,
         "show_rating": false,
         "show_quick_view": true,
-        "columns_desktop": 6,
+        "columns_desktop": 4,
         "columns_mobile": "2",
         "show_device_filter": true,
         "device_filter_label": "Device Compatibility",
