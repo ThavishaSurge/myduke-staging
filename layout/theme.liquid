@@ -176,6 +176,48 @@
         cellsSmall: `{% render 'icon-cells-small' %}`,
       };
     </script>
+
+    <script src="{{ 'user.js' | asset_url }}"></script>
+    <script src="{{ 'grpc-bundled.js' | asset_url }}"></script>
+    <script src="{{ 'nicotine.js' | asset_url }}"></script>
+    <script src="{{ 'loadSubscription.js' | asset_url }}"></script>
+    <script>
+    var cartId = document.cookie.split('; ').find(row => row.startsWith('cart=')).split('=')[1];
+    if (cartId) {
+      grpcModule.getCartCompletionStatus(cartId).then((res)=>{
+        if (res){
+          document.cookie = 'cart=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+      });
+    }
+    </script>
+    <script>
+      payload = tokenPayload();
+      console.log(payload);
+      var spanLogin = document.getElementById('login_html_span');
+      var spanLoginmobile = document.getElementById('login_html_span_mobile');
+      if(isAuthenticated()) {
+        spanLogin.href = "https://staging.myduke.com.au/customer";
+        spanLoginmobile.href = "https://staging.myduke.com.au/customer";
+        $('#login_html_span span').html('My Account');
+        //document.querySelectorAll('.customertype_withoutlogin').forEach(function(el) {el.style.display = 'none';});
+        //document.querySelectorAll('.onlywithlogin').forEach(function(el) {el.style.display = 'block';});
+
+        $('.afterlogin').show();
+        $('.logoutlink span').text('Logout ('+ getEmail() + ')');
+        $('#menu-drawer .menu-drawer__menu').append('<li class="our-services "><a href="javascript:void(0)" onclick="logout()" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Logout ('+ getEmail() + ')</a></li>');
+        $('.menu-drawer__utility-links .login-mobile').hide();
+      } else {
+        $('.afterlogin').hide();
+        document.querySelectorAll('.customertype_withlogin').forEach(function(el) {el.style.display = 'none';});
+        $('#login_html_span span').html('Login');
+        $('.header__icons a').html('Take the assessment');
+        //$('.header__icons a').attr('href','#');
+        $('.list-menu .shop').hide();
+        $('.menu-drawer__utility-links .login-mobile').show();
+    }
+    </script>
+
     <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-ap1.hs-scripts.com/442968870.js"></script>
     <!-- End of HubSpot Embed Code -->
