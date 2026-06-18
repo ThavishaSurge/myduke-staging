@@ -36,6 +36,7 @@
     "type_secondary_text_font": "manrope_n4",
     "type_inter_font": "manrope_n4",
     "featured_product_show_description": true,
+    "cart_type": "page",
     "show_shipping": true,
     "is_free_shipping_bar": true,
     "promote_free_shipping_txt": "Spend [value] more to get free shipping!",
