@@ -196,6 +196,8 @@
       console.log(payload.email);
       //var spanLogin = document.getElementById('login_html_span');
       //var spanLoginmobile = document.getElementById('login_html_span_mobile');
+      {% comment %} NEW CODE {% endcomment %}
+      var AccountIcon = $('a.mydk-header-account-icon');
       if(isAuthenticated()) {
         console.log('Authenticated');
         //spanLogin.href = "https://staging.myduke.com.au/customer";
@@ -209,20 +211,18 @@
         $('#menu-drawer .menu-drawer__menu').append('<li class="our-services "><a href="javascript:void(0)" onclick="logout()" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Logout ('+ getEmail() + ')</a></li>');
         $('.menu-drawer__utility-links .login-mobile').hide();
 
-        {% comment %} New Codes {% endcomment %}
+        {% comment %} NEW CODE {% endcomment %}
          $('.mydk-header-shop-btn').show();
          $('.mydk-header-getstarted-btn').hide();
          if(payload){
-          {% comment %} $('.mydk-header-account-icon').append(
-            `<span class="mydke-user-email button__label">(${payload.email})</span>`
-          ); {% endcomment %}
           $('.mydk-header-shop-btn').after(`<a href="javascript:void(0)" onclick="logout()" aria-label="Logout" class="button button--secondary header__additional-btn header-overlay-transition mydk-header-logout-btn focus-inset">
             <span class="button__content">
               <span class="button__label">Logout(${payload.email})</span>
             </span>
           </a>`)
-
         }
+        AccountIcon.href = "https://staging.myduke.com.au/customer";
+
       } else {
         console.log('NOT - Authenticated');
         $('.afterlogin').hide();
@@ -232,9 +232,10 @@
         //$('.header__icons a').attr('href','#');
         $('.list-menu .shop').hide();
         $('.menu-drawer__utility-links .login-mobile').show();
-        {% comment %} new codes {% endcomment %}
+        {% comment %} NEW CODE {% endcomment %}
          $('.mydk-header-shop-btn').hide();
          $('.mydk-header-getstarted-btn').show();
+         AccountIcon.href = "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/";
     }
     </script>
 
