@@ -1,0 +1,269 @@
+{% if page_type == 'pagelisting' %}
+<script>
+  var waitforuserid = setInterval(function () {
+    if(typeof getUserId() !== 'undefined'){
+      clearInterval(waitforuserid);
+      var dataLayerarray = ({
+        event: "view_item_list",
+        'user_type': "customer",
+        'userID': getUserId(),
+        'page_type': "VPN/view_item_list",
+        'utm_source': (readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
+        'utm_medium': (readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
+        'utm_campaign': (readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
+        'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
+        'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
+        ecommerce: {
+          item_list_id: "{% if collection %}{{ collection.id }}{% endif %}", //unique id of the list
+          item_list_name: "{% if collection %}{{ collection.handle | capitalize }}{% endif %}",  // All, nicotine, you may also like etc
+          items: [
+            {{datalayerforitems}}
+          ]
+        }
+      });
+      console.log(dataLayerarray);
+      dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+      dataLayer.push(dataLayerarray);
+    }
+  }, 500);
+  
+</script>
+{% endif %}
+{% if page_type == 'product' %}
+<script>
+var waitforuserid = setInterval(function () {
+  if(typeof getUserId() !== 'undefined'){
+    clearInterval(waitforuserid);
+    var dataLayerarray = ({
+      event: "view_item",
+      'user_type': "customer",
+      'userID': getUserId(),
+      'page_type': "VPN/view_item",
+      'utm_source': (readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
+      'utm_medium': (readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
+      'utm_campaign': (readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
+      'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
+      'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
+      ecommerce: {
+        currency: "{{shop.currency}}",
+        value: "{{product.price | money_without_currency}}",
+        items: [
+        {
+          item_id: "{{product.id}}",  // unique id of the product
+          item_name: "{{product.title | escape}}", // VEEV ONE Device
+          index: "1",
+          item_brand: "{{product.vendor}}",
+          item_category: "{% for collection in product.collections %}{{ collection.title | escape }},{% endfor %}",  //device, e-liquid etc
+          item_variant: "{{product.variants | size}}",
+          price: "{{product.price | money_without_currency}}",
+          quantity: "{{product.selected_or_first_available_variant.inventory_quantity}}"
+        }
+        ]
+      }
+    });
+    console.log(dataLayerarray);
+    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    dataLayer.push(dataLayerarray);
+  }
+}, 500);
+</script>
+{% endif %}
+{% if page_type == 'featurecollecion' %}
+<script>
+var waitforuserid = setInterval(function () {
+  if(typeof getUserId() !== 'undefined'){
+    clearInterval(waitforuserid);
+    var dataLayerarray =({
+      event: "view_item_list",
+      'user_type': "customer",
+      'userID': getUserId(),
+      'page_type': "VPN/view_item_list",
+      'utm_source': (readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
+      'utm_medium': (readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
+      'utm_campaign': (readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
+      'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
+      'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
+      ecommerce: {
+        item_list_id: "{{ section.id }}", //unique id of the list
+        item_list_name: "{{ section.settings.title }}",  // All, nicotine, you may also like etc
+        items: [
+          {{datalayerforitems}}
+        ]
+      }
+    });
+    console.log(dataLayerarray);
+    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    dataLayer.push(dataLayerarray);
+  }
+}, 500);
+</script>
+{% endif %}
+{% if page_type == 'cartitems' %}
+<script>
+var waitforuserid = setInterval(function () {
+  if(typeof getUserId() !== 'undefined'){
+    clearInterval(waitforuserid);
+    var dataLayerarray = ({
+      event: "view_cart",
+      'user_type': "customer",
+      'userID': getUserId(),
+      'page_type': "VPN/view_cart",
+      'utm_source': (readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
+      'utm_medium': (readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
+      'utm_campaign': (readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
+      'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
+      'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
+      ecommerce: {
+        currency: "{{shop.currency}}",
+        value: $('.todaystotal').data('total'),
+        items: [
+          {{datalayerforitems}}
+        ]
+      }
+    });
+    console.log(dataLayerarray);
+    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    dataLayer.push(dataLayerarray);
+  }
+}, 500);
+$('body').on('click','.cart__submit-controls #continueButton', function(){
+  var dataLayerarray = ({
+    event: "begin_checkout",
+    'user_type': "customer",
+    'userID': getUserId(),
+    'page_type': "VPN/begin_checkout",
+    'utm_source': (readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
+    'utm_medium': (readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
+    'utm_campaign': (readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
+    'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
+    'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
+    ecommerce: {
+      currency: "{{shop.currency}}",
+      value: $('.todaystotal').data('total'),
+      coupon: "",
+      items: [
+        {{datalayerforitems}}
+      ]
+    }
+  });
+  console.log(dataLayerarray);
+  dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+  dataLayer.push(dataLayerarray);
+});
+</script>
+{% endif %}
+{% if page_type == 'productclickdata' %}
+<script>
+$('body').on('click','#product-grid .grid__item', function(){
+  var datalayeritemdata = $(this).find('.datalayeritemdata').html();
+  if(datalayeritemdata != ''){
+    datalayeritemdata = JSON.parse(datalayeritemdata);
+    var item_list_id = "{% if collection %}{{ collection.id }}{% endif %}";
+    var item_list_name = "{% if collection %}{{ collection.handle | capitalize }}{% endif %}";
+    datalayersend('select_item', 'VPN/select_item', item_list_id, item_list_name, datalayeritemdata);
+  }
+});
+$('body').on('click','slider-component .grid__item', function(){
+  var datalayeritemdata = $(this).find('.datalayeritemdata').html();
+  if(datalayeritemdata != ''){
+    datalayeritemdata = JSON.parse(datalayeritemdata);
+    var item_list_id = "template--17963334598814__301a5747-795b-408b-a4aa-7df05aae8ac9";
+    var item_list_name = "New Options";
+    datalayersend('select_item', 'VPN/select_item', item_list_id, item_list_name, datalayeritemdata);
+  }
+});
+$('body').on('click','product-recommendations .grid__item', function(){
+  var datalayeritemdata = $(this).find('.datalayeritemdata').html();
+  if(datalayeritemdata != ''){
+    datalayeritemdata = JSON.parse(datalayeritemdata);
+    var item_list_id = "template--17963334959262__related-products";
+    var item_list_name = "You may also like";
+    datalayersend('select_item', 'VPN/select_item', item_list_id, item_list_name, datalayeritemdata);
+  }
+});
+function datalayersend(event, page_type, item_list_id, item_list_name, datalayeritemdata){
+  var dataLayerarray = ({
+    event: event,
+   'user_type': "customer",
+   'userID': getUserId(),
+   'page_type': page_type,
+   'utm_source': (readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
+   'utm_medium': (readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
+   'utm_campaign': (readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
+   'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
+   'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
+   ecommerce: {
+      item_list_id: item_list_id, //unique id of the list
+      item_list_name: item_list_name,  // All, nicotine, you may also like etc
+      items: datalayeritemdata
+    }
+  });
+  console.log(dataLayerarray);
+  dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+  dataLayer.push(dataLayerarray);
+}
+$('form .product-form__buttons button').click(function(){
+  var datalayeritemdata = [];
+  datalayeritemdata.push({
+    item_id: "{{product.id}}",  // unique id of the product
+    item_name: "{{product.title | escape}}", // VEEV ONE Device
+    index: "1",
+    item_brand: "{{product.vendor}}",
+    item_category: "{% for collection in product.collections %}{{ collection.title | escape }},{% endfor %}",  //device, e-liquid etc
+    item_variant: "{{product.variants | size}}",
+    price: "{{product.price | money_without_currency}}",
+    quantity: $('input[name="quantity"]').val()
+  });
+  var pricevalue = "{{product.price | money_without_currency}}";
+  datalayersendaddtocart('add_to_cart', 'VPN/add_to_cart', datalayeritemdata, pricevalue);
+});
+$('quantity-input .quantity__button[name="plus"]').click(function(){
+  var datalayeritemdata = $(this).parents('tr').find('.datalayeritemdata').html();
+  if(datalayeritemdata != ''){
+    datalayeritemdata = JSON.parse(datalayeritemdata);
+    datalayeritemdata.quantity = (parseInt($('quantity-input .quantity__input').val())+1);
+    var pricevalue = (parseFloat(datalayeritemdata.price)*parseInt(datalayeritemdata.quantity));
+    datalayersendaddtocart('add_to_cart', 'VPN/add_to_cart', datalayeritemdata, pricevalue);
+  }
+});
+$('quantity-input .quantity__button[name="minus"]').click(function(){
+  var datalayeritemdata = $(this).parents('tr').find('.datalayeritemdata').html();
+  if(datalayeritemdata != ''){
+    datalayeritemdata = JSON.parse(datalayeritemdata);
+    datalayeritemdata.quantity = (parseInt($('quantity-input .quantity__input').val())-1);
+    var pricevalue = (parseFloat(datalayeritemdata.price)*parseInt(datalayeritemdata.quantity));
+    datalayersendaddtocart('remove_from_cart', 'VPN/remove_from_cart', datalayeritemdata, pricevalue);
+  }
+});
+$('cart-remove-button a').click(function(){
+  var datalayeritemdata = $(this).parents('tr').find('.datalayeritemdata').html();
+  if(datalayeritemdata != ''){
+    datalayeritemdata = JSON.parse(datalayeritemdata);
+    var pricevalue = (parseFloat(datalayeritemdata.price)*parseInt(datalayeritemdata.quantity));
+    datalayersendaddtocart('remove_from_cart', 'VPN/remove_from_cart', datalayeritemdata, pricevalue);
+  }
+});
+function datalayersendaddtocart(event, page_type, datalayeritemdata, pricevalue){
+  
+  var dataLayerarray = ({
+    event: event,
+   'user_type': "customer",
+   'userID': getUserId(),
+   'page_type': page_type,
+   'utm_source': (readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
+   'utm_medium': (readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
+   'utm_campaign': (readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
+   'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
+   'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
+   ecommerce: {
+      currency: "{{shop.currency}}", //unique id of the list
+      value: pricevalue,
+      items: datalayeritemdata
+    }
+  });
+  console.log(dataLayerarray);
+  dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+  dataLayer.push(dataLayerarray);
+}
+</script>
+{% endif %}
