@@ -52,56 +52,64 @@
     "myduke_section_shop_all_xAJxQA": {
       "type": "myduke-section-shop-all",
       "blocks": {
-        "device_filter_item_efCwUk": {
-          "type": "device_filter_item",
-          "settings": {
-            "collection_handle": "pods",
-            "label": ""
-          }
-        },
-        "device_filter_item_iXbt8c": {
-          "type": "device_filter_item",
-          "settings": {
-            "collection_handle": "e-liquids",
-            "label": ""
-          }
-        },
-        "device_filter_item_3XrQ3B": {
-          "type": "device_filter_item",
+        "type_filter_item_FxEfAF": {
+          "type": "type_filter_item",
           "settings": {
             "collection_handle": "accessories",
             "label": ""
           }
         },
-        "type_filter_item_VT3wCJ": {
+        "type_filter_item_by3aWt": {
           "type": "type_filter_item",
           "settings": {
-            "collection_handle": "open-tank-systems",
+            "collection_handle": "nicotine",
             "label": ""
           }
         },
-        "type_filter_item_4yRGNb": {
+        "type_filter_item_zEdEFp": {
+          "type": "type_filter_item",
+          "settings": {
+            "collection_handle": "pods",
+            "label": ""
+          }
+        },
+        "type_filter_item_ykHYET": {
+          "type": "type_filter_item",
+          "settings": {
+            "collection_handle": "nicotine-replacement-therapy",
+            "label": ""
+          }
+        },
+        "type_filter_item_D6LwVE": {
           "type": "type_filter_item",
           "settings": {
             "collection_handle": "hybrid-systems",
             "label": ""
           }
         },
-        "type_filter_item_xtiKnQ": {
+        "type_filter_item_QhzhNH": {
           "type": "type_filter_item",
           "settings": {
-            "collection_handle": "closed-systems",
+            "collection_handle": "pods-copy",
+            "label": ""
+          }
+        },
+        "type_filter_item_b7CHqQ": {
+          "type": "type_filter_item",
+          "settings": {
+            "collection_handle": "e-liquids",
             "label": ""
           }
         }
       },
       "block_order": [
-        "device_filter_item_efCwUk",
-        "device_filter_item_iXbt8c",
-        "device_filter_item_3XrQ3B",
-        "type_filter_item_VT3wCJ",
-        "type_filter_item_4yRGNb",
-        "type_filter_item_xtiKnQ"
+        "type_filter_item_FxEfAF",
+        "type_filter_item_by3aWt",
+        "type_filter_item_zEdEFp",
+        "type_filter_item_ykHYET",
+        "type_filter_item_D6LwVE",
+        "type_filter_item_QhzhNH",
+        "type_filter_item_b7CHqQ"
       ],
       "name": "Shop All (MyDuke)",
       "settings": {
@@ -115,7 +123,7 @@
         "show_quick_view": true,
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "show_device_filter": false,
+        "show_device_filter": true,
         "device_filter_label": "Device Compatibility",
         "device_filter_all_label": "All Devices",
         "show_type_filter": true,

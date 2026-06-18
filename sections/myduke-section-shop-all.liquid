@@ -480,13 +480,14 @@
   var pillsEl   = root.querySelector('#msa-active-filters-' + sectionId);
 
   // ── State ──
+  var urlParams = new URLSearchParams(window.location.search);
   var state = {
-    device: 'all',
-    type: 'all',
-    brand: 'all',
-    strength: 'all',
-    sort: 'manual',
-    page: 1
+    device: urlParams.get('device') || 'all',
+    type: urlParams.get('type') || 'all',
+    brand: urlParams.get('brand') || 'all',
+    strength: urlParams.get('strength') || 'all',
+    sort: urlParams.get('sort') || 'manual',
+    page: parseInt(urlParams.get('page')) || 1
   };
 
   // ── Filter dropdowns ──
@@ -641,6 +642,22 @@
 
     // Render Pagination
     renderPagination(visible.length, perPage, totalPages);
+
+    // Update URL Params
+    var newUrl = new URL(window.location.href);
+    ['device', 'type', 'brand', 'strength', 'sort'].forEach(function(key) {
+      if (state[key] !== 'all' && state[key] !== 'manual') {
+        newUrl.searchParams.set(key, state[key]);
+      } else {
+        newUrl.searchParams.delete(key);
+      }
+    });
+    if (state.page > 1) {
+      newUrl.searchParams.set('page', state.page);
+    } else {
+      newUrl.searchParams.delete('page');
+    }
+    history.replaceState(null, '', newUrl.toString());
   }
 
   function updatePills() {
@@ -766,7 +783,41 @@
     });
   }
 
+  // ── Init UI from State ──
+  function initUIFromState() {
+    ['device', 'type', 'brand', 'strength'].forEach(function(filterType) {
+      var group = root.querySelector('[data-filter-group="' + filterType + '"]');
+      if (group) {
+        var item = group.querySelector('[data-filter-value="' + state[filterType] + '"]');
+        if (!item) {
+          item = group.querySelector('[data-filter-value="all"]');
+          state[filterType] = 'all'; // fallback if param is invalid
+        }
+        if (item) {
+          group.querySelectorAll('.msa__dropdown-item').forEach(function(i) {
+            i.classList.remove('msa__dropdown-item--active');
+            i.setAttribute('aria-selected', 'false');
+          });
+          item.classList.add('msa__dropdown-item--active');
+          item.setAttribute('aria-selected', 'true');
+          var btnLabel = group.querySelector('.msa__filter-label');
+          if (btnLabel) btnLabel.textContent = item.textContent.trim();
+        }
+      }
+    });
+
+    if (sortSelect && state.sort) {
+      var option = sortSelect.querySelector('option[value="' + state.sort + '"]');
+      if (option) {
+        sortSelect.value = state.sort;
+      } else {
+        state.sort = 'manual';
+      }
+    }
+  }
+
   // ── Init ──
+  initUIFromState();
   applyFiltersAndSort();
 })();
 </script>
