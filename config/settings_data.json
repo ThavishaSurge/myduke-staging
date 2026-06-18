@@ -51,6 +51,7 @@
     "social_custom_3_link": "https://www.linkedin.com/company/myduke-au/",
     "social_custom_3_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewbox=\"0 0 20 20\" fill=\"none\">\n  <g clip-path=\"url(#clip0_3003_94)\">\n    <path d=\"M0.309956 6.63997H4.46349V19.9998H0.309956V6.63997ZM2.38684 -0.000976562C3.71436 -0.000976562 4.7932 1.07787 4.7932 2.40762C4.7932 3.73603 3.71436 4.81488 2.38684 4.81488C1.0562 4.81488 -0.0195312 3.73603 -0.0195312 2.40762C-0.0195312 1.07787 1.0562 -0.000976562 2.38684 -0.000976562Z\" fill=\"#264653\"></path>\n    <path d=\"M7.06836 6.64039H11.0511V8.46726H11.1079C11.6623 7.41647 13.0172 6.30957 15.0366 6.30957C19.2413 6.30957 20.0174 9.0757 20.0174 12.6729V20.0002H15.867V13.5033C15.867 11.9536 15.8401 9.96086 13.7093 9.96086C11.5485 9.96086 11.2188 11.6499 11.2188 13.392V20.0002H7.06836V6.64039Z\" fill=\"#264653\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_3003_94\">\n      <rect width=\"20\" height=\"20\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
     "enable_vendor_link": false,
+    "links_blank": false,
     "show_breadcrumbs": true,
     "show_color_swatch": true,
     "content_for_index": [],
