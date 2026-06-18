@@ -56,10 +56,13 @@
           </div>
         </div>
         <div class="menu-drawer__main">
-          {%- if section.settings.menu != blank -%}
+          {% liquid
+            assign drawer_menu = section.settings.mobile_menu | default: section.settings.menu
+          %}
+          {%- if drawer_menu != blank -%}
             <nav class="menu-drawer__navigation">
               <ul class="menu-drawer__menu list-menu" role="list">
-                {%- for link in section.settings.menu.links -%}
+                {%- for link in drawer_menu.links -%}
                   {% liquid
                     assign mega_menu = false
                   %}
@@ -264,6 +267,25 @@
                   btn_link: section.settings.additional_button_2_link,
                   class: 'menu-drawer__additional-btn'
                 %}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.mobile_cta_label != blank or section.settings.mobile_cta_subtext != blank -%}
+            <div class="menu-drawer__custom-cta" style="padding: 2.4rem 1.2rem 0; display: flex; flex-direction: column; align-items: center; gap: 1.6rem; width: 100%;">
+              {%- if section.settings.mobile_cta_label != blank -%}
+                {% render 'button',
+                  btn_label: section.settings.mobile_cta_label,
+                  btn_style: 'secondary2',
+                  btn_link: section.settings.mobile_cta_link,
+                  class: 'button--full-width',
+                  style: 'width: 100%;'
+                %}
+              {%- endif -%}
+              {%- if section.settings.mobile_cta_subtext != blank -%}
+                <a href="{{ section.settings.mobile_cta_subtext_link | default: routes.account_login_url }}" style="text-decoration: underline; font-size: 1.4rem; color: rgb(var(--color-foreground)); font-weight: 500;">
+                  {{ section.settings.mobile_cta_subtext }}
+                </a>
               {%- endif -%}
             </div>
           {%- endif -%}

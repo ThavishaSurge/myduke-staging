@@ -1352,14 +1352,12 @@ details>* {
   color: rgb(var(--color-button-secondary2-text));
 }
 
-@media screen and (pointer: fine) {
-  .button--secondary2:hover {
-    color: rgb(var(--color-button-secondary2-text-hover));
-  }
+.menu-drawer__custom-cta a.button--secondary2 {
+  background-color: #ffb703;
+}
 
-  .button--secondary2:hover .button__label {
-    color: rgb(var(--color-button-secondary2-text-hover));
-  }
+.menu-drawer__custom-cta a.button--secondary2 span.button__label {
+  color: #264653;
 }
 
 .button--secondary2:focus {
