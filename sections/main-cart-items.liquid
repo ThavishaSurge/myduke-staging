@@ -21,7 +21,7 @@
 {%- endstyle -%}
 {% assign freeitemid = 7763564101790 %}
 {%- unless settings.cart_type == 'drawer' -%}
-  <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'cart-bak.js' | asset_url }}" defer="defer"></script>
 {%- endunless -%}
 <cart-items class="page-width{% if 1 !=1  %} is-empty{% else %} section-{{ section.id }}-padding{% endif %} customertype_withlogin">
   <div class="title-wrapper-with-link">
