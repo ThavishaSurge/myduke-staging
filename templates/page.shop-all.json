@@ -41,7 +41,7 @@
         "heading": "Shop All Products",
         "description": "<p>Browse products by category, device compatibility, or explore our complete range.</p>",
         "button_text": "Need Guidance?",
-        "button_link": "",
+        "button_link": "#guidance-quiz-section-main",
         "enable_eligibility_form": false,
         "elig_heading": "Am I Eligible?",
         "elig_description": "Take our 30-second quiz to find out if you’re a candidate for pharmacy-grade cessation treatment.",
@@ -158,7 +158,7 @@
       "settings": {
         "heading": "Need Guidance?",
         "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
-        "background_color": "#F4A261",
+        "background_color": "#f4a261",
         "background_image": "shopify://shop_images/cost-cal-bg.webp"
       }
     }
