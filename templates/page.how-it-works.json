@@ -98,7 +98,9 @@
         "left_bg_color": "rgba(0,0,0,0)",
         "eyebrow": "Our Services",
         "heading": "Our Smoking Cessation Support Services",
-        "description": "myduke® is an Australian smoking cessation service providing structured, medically supervised support for adults seeking to quit smoking. Our service simplifies access to evidence-based care while maintaining full regulatory oversight."
+        "description": "myduke® is an Australian smoking cessation service providing structured, medically supervised support for adults seeking to quit smoking. Our service simplifies access to evidence-based care while maintaining full regulatory oversight.",
+        "button_text": "Begin Your Assessment",
+        "button_link": "https://portal.myduke.com.au/signup"
       }
     },
     "myduke_how_works_desk_slider_fEVPi9": {
