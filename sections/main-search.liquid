@@ -65,7 +65,8 @@
           role="search"
           class="myduke-search-bar__form"
         >
-          <input type="hidden" name="type" value="product">
+          {% comment %} <input type="hidden" name="type" value="product"> {% endcomment %}
+          <input type="hidden" name="type" value="{{ search.types | join: ',' | default: 'product,article,page' }}">
           <input type="hidden" name="options[prefix]" value="last">
 
           <div class="myduke-search-bar__field">
