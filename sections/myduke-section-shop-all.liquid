@@ -43,19 +43,25 @@
   endcomment
   assign source_col_handle = section.settings.source_collection
   assign unique_vendors = ''
+  assign seen_vendor_handles = ''
   for product in collections[source_col_handle].products
     assign vendor_handle = product.vendor | handleize
-    assign vendor_check = ',' | append: vendor_handle | append: ','
-    assign vendors_check_string = ',' | append: unique_vendors | append: ','
-    unless vendors_check_string contains vendor_check
+    assign vendor_check = '|' | append: vendor_handle | append: '|'
+    assign seen_check_string = '|' | append: seen_vendor_handles | append: '|'
+    unless seen_check_string contains vendor_check
+      if seen_vendor_handles == blank
+        assign seen_vendor_handles = vendor_handle
+      else
+        assign seen_vendor_handles = seen_vendor_handles | append: '|' | append: vendor_handle
+      endif
       if unique_vendors == blank
         assign unique_vendors = product.vendor
       else
-        assign unique_vendors = unique_vendors | append: '|' | append: product.vendor
+        assign unique_vendors = unique_vendors | append: '§' | append: product.vendor
       endif
     endunless
   endfor
-  assign unique_vendors_array = unique_vendors | split: '|'
+  assign unique_vendors_array = unique_vendors | split: '§'
 -%}
 
 <div
