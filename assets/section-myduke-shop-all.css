@@ -88,6 +88,10 @@
   position: relative;
 }
 
+.msa__filter-btn {
+  border: 1px solid #111827;
+}
+
 @media (max-width: 767.98px) {
 
   /* ── Toolbar wrapper ── */
@@ -220,7 +224,7 @@
 
   .msa__filter-btn {
     width: 100%;
-    border: 1px solid #111827;
+    border: none;
     border-radius: 0;
     padding: 18px 20px;
     background: transparent;
