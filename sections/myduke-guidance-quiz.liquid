@@ -24,6 +24,97 @@
       "type": "image_picker",
       "id": "background_image",
       "label": "Background Image (Optional)"
+    },
+    {
+      "type": "header",
+      "content": "Closed Systems URLs"
+    },
+    {
+      "type": "url",
+      "id": "closed_cta_url",
+      "label": "Main CTA URL"
+    },
+    {
+      "type": "url",
+      "id": "closed_devices_url",
+      "label": "Devices Collection URL"
+    },
+    {
+      "type": "url",
+      "id": "closed_pods_url",
+      "label": "Pre-Filled Pods Collection URL"
+    },
+    {
+      "type": "header",
+      "content": "Hybrid Systems URLs"
+    },
+    {
+      "type": "url",
+      "id": "hybrid_cta_url",
+      "label": "Main CTA URL"
+    },
+    {
+      "type": "url",
+      "id": "hybrid_devices_url",
+      "label": "Refillable Pod Devices URL"
+    },
+    {
+      "type": "url",
+      "id": "hybrid_eliquid_url",
+      "label": "E-Liquid URL"
+    },
+    {
+      "type": "url",
+      "id": "hybrid_pods_url",
+      "label": "Replacement Pods URL"
+    },
+    {
+      "type": "header",
+      "content": "Open Tank Systems URLs"
+    },
+    {
+      "type": "url",
+      "id": "open_cta_url",
+      "label": "Main CTA URL"
+    },
+    {
+      "type": "url",
+      "id": "open_devices_url",
+      "label": "Open Tank Devices URL"
+    },
+    {
+      "type": "url",
+      "id": "open_eliquid_url",
+      "label": "Freebase E-Liquid URL"
+    },
+    {
+      "type": "url",
+      "id": "open_coils_url",
+      "label": "Replacement Coils URL"
+    },
+    {
+      "type": "header",
+      "content": "NRT URLs"
+    },
+    {
+      "type": "url",
+      "id": "nrt_cta_url",
+      "label": "Main CTA URL"
+    },
+    {
+      "type": "url",
+      "id": "nrt_gum_url",
+      "label": "Nicotine Gum URL"
+    },
+    {
+      "type": "url",
+      "id": "nrt_lozenges_url",
+      "label": "Nicotine Lozenges URL"
+    },
+    {
+      "type": "url",
+      "id": "nrt_spray_url",
+      "label": "Nicotine Spray URL"
     }
   ],
   "presets": [
@@ -1244,7 +1335,7 @@
     if (category === 'closed') {
       title = 'Closed Systems';
       tagline = 'Simple, reliable and closest to smoking.';
-      link = '/collections/closed-systems';
+      link = '{{ section.settings.closed_cta_url | default: "/collections/closed-systems" }}';
       why = [
         'No maintenance or refilling required',
         'Closest experience to smoking a cigarette',
@@ -1252,14 +1343,14 @@
         'Ideal for beginners switching from smoking',
       ];
       needs = [
-        { text: 'Closed System Devices', url: '/collections/closed-systems' },
-        { text: 'Pre-Filled Pods', url: '/collections/closed-pods' }
+        { text: 'Closed System Devices', url: '{{ section.settings.closed_devices_url | default: "/collections/closed-systems" }}' },
+        { text: 'Pre-Filled Pods', url: '{{ section.settings.closed_pods_url | default: "/collections/closed-pods" }}' }
       ];
       usage = ['Approximately 2–4 pods per week depending on usage', 'Minimal maintenance required', 'Replace pods when empty'];
     } else if (category === 'hybrid') {
       title = 'Hybrid Systems';
       tagline = 'Flexible, refillable and easy to use.';
-      link = '/collections/hybrid-systems';
+      link = '{{ section.settings.hybrid_cta_url | default: "/collections/hybrid-systems" }}';
       why = [
         'Refillable pod system',
         'More flavour flexibility',
@@ -1267,15 +1358,15 @@
         'Great balance of simplicity and performance',
       ];
       needs = [
-        { text: 'Refillable Pod Devices', url: '/collections/hybrid-systems' },
-        { text: 'E-Liquid', url: '/collections/e-liquid' },
-        { text: 'Replacement Pods', url: '/collections/pods-and-coils' }
+        { text: 'Refillable Pod Devices', url: '{{ section.settings.hybrid_devices_url | default: "/collections/hybrid-systems" }}' },
+        { text: 'E-Liquid', url: '{{ section.settings.hybrid_eliquid_url | default: "/collections/e-liquid" }}' },
+        { text: 'Replacement Pods', url: '{{ section.settings.hybrid_pods_url | default: "/collections/pods-and-coils" }}' }
       ];
       usage = ['Refill pods as required', 'Replace pods periodically', 'Moderate maintenance required'];
     } else if (category === 'open') {
       title = 'Open Tank Systems';
       tagline = 'Maximum flavour, control and performance.';
-      link = '/collections/open-tank-systems';
+      link = '{{ section.settings.open_cta_url | default: "/collections/open-tank-systems" }}';
       why = [
         'Maximum customisation',
         'Greater flavour performance',
@@ -1284,15 +1375,15 @@
         'Designed for experienced users',
       ];
       needs = [
-        { text: 'Open Tank Devices', url: '/collections/open-tank-systems' },
-        { text: 'Freebase E-Liquid', url: '/collections/freebase' },
-        { text: 'Replacement Coils', url: '/collections/pods-and-coils' }
+        { text: 'Open Tank Devices', url: '{{ section.settings.open_devices_url | default: "/collections/open-tank-systems" }}' },
+        { text: 'Freebase E-Liquid', url: '{{ section.settings.open_eliquid_url | default: "/collections/freebase" }}' },
+        { text: 'Replacement Coils', url: '{{ section.settings.open_coils_url | default: "/collections/pods-and-coils" }}' }
       ];
       usage = ['Refill tank regularly', 'Replace coils periodically', 'More maintenance than pod systems'];
     } else if (category === 'nrt') {
       title = 'Nicotine Replacement Therapy';
       tagline = 'Simple, discreet nicotine support without a vaping device.';
-      link = '/collections/nrt';
+      link = '{{ section.settings.nrt_cta_url | default: "/collections/nrt" }}';
       why = [
         'Clinically proven methods to manage cravings',
         'No vaping or inhalation required',
@@ -1300,9 +1391,9 @@
         'A measured approach to stepping down nicotine intake',
       ];
       needs = [
-        { text: 'Nicotine Gum', url: '/collections/nrt' },
-        { text: 'Nicotine Lozenges', url: '/collections/nrt' },
-        { text: 'Nicotine Spray', url: '/collections/nrt' }
+        { text: 'Nicotine Gum', url: '{{ section.settings.nrt_gum_url | default: "/collections/nrt" }}' },
+        { text: 'Nicotine Lozenges', url: '{{ section.settings.nrt_lozenges_url | default: "/collections/nrt" }}' },
+        { text: 'Nicotine Spray', url: '{{ section.settings.nrt_spray_url | default: "/collections/nrt" }}' }
       ];
       usage = ['Use daily as directed', 'Follow the recommended step-down schedule'];
     }
