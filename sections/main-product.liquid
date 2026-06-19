@@ -54,7 +54,7 @@
 <div
   id="MainProduct-{{ section.id }}"
   data-section="{{ section.id }}"
-  class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} background main-product"
+  class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} background main-product mydk-product-container-auth"
 >
   {%- if section.settings.show_breadcrumbs and template contains 'product' and position_desktop_absolute == false -%}
     {% render 'breadcrumbs',
