@@ -126,16 +126,22 @@
           {%- if show_device_filter or show_type_filter or show_brand_filter or show_strength_filter -%}
             <button class="msa__mobile-toggle js-msa-mobile-toggle" aria-expanded="false">
               <span class="msa__mobile-toggle-inner">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                <span>Filter by</span>
+              </span>
+              <span class="msa__plus-minus">
+                <svg class="msa__icon-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
-                <span>Filters</span>
+                <svg class="msa__icon-minus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
               </span>
             </button>
           {%- endif -%}
 
           {%- if show_sort -%}
-            <div class="msa__sort-group">
+            <div class="msa__sort-group msa__sort-desktop">
               <label class="msa__sort-label" for="msa-sort-{{ section.id }}">
                 {{ section.settings.sort_label | default: 'Sort by' }}
               </label>
@@ -186,6 +192,59 @@
                     </svg>
                   </span>
                 </span>
+              </div>
+            </div>
+
+            <div class="msa__filter-group msa__sort-mobile" data-filter-group="sort">
+              <button
+                class="msa__filter-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                id="msa-sort-mobile-btn-{{ section.id }}"
+              >
+                <span class="msa__filter-label">
+                  {{- section.settings.sort_label | default: 'Sort by' -}}
+                </span>
+                <span class="msa__filter-icons" aria-hidden="true">
+                  <span class="msa__plus-minus" style="display: flex;">
+                    <svg class="msa__icon-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <svg class="msa__icon-minus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </span>
+              </button>
+
+              <div class="msa__dropdown" role="listbox" aria-labelledby="msa-sort-mobile-btn-{{ section.id }}">
+                <div class="msa__dropdown-inner">
+                  {%- if section.settings.show_sort_featured -%}
+                    <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="manual" data-filter-type="sort" role="option" aria-selected="true">{{ section.settings.sort_featured_label | default: 'Featured' }}</button>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_best -%}
+                    <button class="msa__dropdown-item" data-filter-value="best-selling" data-filter-type="sort" role="option" aria-selected="false">{{ section.settings.sort_best_label | default: 'Best Selling' }}</button>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_az -%}
+                    <button class="msa__dropdown-item" data-filter-value="title-ascending" data-filter-type="sort" role="option" aria-selected="false">{{ section.settings.sort_az_label | default: 'A–Z' }}</button>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_za -%}
+                    <button class="msa__dropdown-item" data-filter-value="title-descending" data-filter-type="sort" role="option" aria-selected="false">{{ section.settings.sort_za_label | default: 'Z–A' }}</button>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_price_asc -%}
+                    <button class="msa__dropdown-item" data-filter-value="price-ascending" data-filter-type="sort" role="option" aria-selected="false">{{ section.settings.sort_price_asc_label | default: 'Price: Low → High' }}</button>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_price_desc -%}
+                    <button class="msa__dropdown-item" data-filter-value="price-descending" data-filter-type="sort" role="option" aria-selected="false">{{ section.settings.sort_price_desc_label | default: 'Price: High → Low' }}</button>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_new -%}
+                    <button class="msa__dropdown-item" data-filter-value="created-descending" data-filter-type="sort" role="option" aria-selected="false">{{ section.settings.sort_new_label | default: 'Newest' }}</button>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_old -%}
+                    <button class="msa__dropdown-item" data-filter-value="created-ascending" data-filter-type="sort" role="option" aria-selected="false">{{ section.settings.sort_old_label | default: 'Oldest' }}</button>
+                  {%- endif -%}
+                </div>
               </div>
             </div>
           {%- endif -%}

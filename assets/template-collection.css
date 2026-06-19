@@ -368,3 +368,76 @@
 [data-scheme=dark] .collection-top__layout-toggler-button.active-layout {
   color: rgba(var(--color-foreground), 1);
 }
+/* --- Mobile Filter & Sort Overrides --- */
+@media (min-width: 768px) {
+  .mobile-only-text, .mobile-plus-icon {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .desktop-icon, .desktop-only-text {
+    display: none !important;
+  }
+  
+  .collection-top__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+
+  .collection-top__container-left, .collection-top__container-right {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Make filter form full width */
+  .collection-top__container facet-filters-form, .facets-sorting {
+    width: 100%;
+  }
+
+  .collection-top .facets-button-show, 
+  .facet-sort-select__select {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-top: 1px solid rgba(var(--color-foreground), 0.08);
+    border-radius: 0;
+    padding: 18px 0;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(var(--color-foreground));
+    box-shadow: none;
+    min-height: auto;
+  }
+
+  /* Make sure sort select has border-bottom for the last item */
+  .facet-sort-select__select {
+    border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+    padding: 18px 0;
+  }
+
+  /* Adjust internal spacing */
+  .collection-top .facets-button-show .button__label,
+  .facet-sort-select__current {
+    font-size: 15px;
+    font-family: var(--font-body-family);
+    color: rgb(var(--color-foreground));
+  }
+
+  .mobile-plus-icon {
+    display: flex;
+    align-items: center;
+    color: rgb(var(--color-foreground), 0.6);
+  }
+
+  /* Hide product count and per row toggle on mobile if they are in the way of the stacked design */
+  .collection-top__layout-toggler, .facets__product-count {
+    display: none !important;
+  }
+}

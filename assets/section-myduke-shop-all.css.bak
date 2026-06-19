@@ -24,7 +24,6 @@
 .msa__toolbar {
   display: flex;
   align-items: center;
-  flex-direction: row-reverse;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
@@ -88,10 +87,6 @@
   position: relative;
 }
 
-.msa__filter-btn {
-  border: 1px solid #111827;
-}
-
 @media (max-width: 767.98px) {
 
   /* ── Toolbar wrapper ── */
@@ -99,7 +94,7 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    border-bottom: none;
+    border-bottom: 1px solid var(--msa-border);
     padding-bottom: 0;
     margin-bottom: 16px;
   }
@@ -219,7 +214,7 @@
   /* ── Each filter row ── */
   .msa__filter-group {
     width: 100%;
-    border-top: none;
+    border-top: 1px solid var(--msa-border);
   }
 
   .msa__filter-btn {
@@ -260,7 +255,6 @@
 
   .msa__icon-plus,
   .msa__icon-minus {
-    display: block !important;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -371,7 +365,6 @@
   line-height: 1.4;
   min-width: 180px;
   max-width: 100%;
-  border: 1px solid #111827;
 }
 
 .msa__filter-btn-label {
@@ -511,12 +504,8 @@
 .msa__sort-group {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   margin-left: auto;
-  border: 1px solid var(--msa-border);
-  padding: 0 0 0 20px;
-  background: transparent;
-  transition: all 0.3s ease;
 }
 
 .msa__sort-label {
@@ -535,8 +524,8 @@
 .msa__sort-select {
   appearance: none;
   -webkit-appearance: none;
-  padding: 12px 40px 12px 6px;
-  border: none;
+  padding: 12px 40px 12px 20px;
+  border: 1px solid var(--msa-border);
   border-radius: 0;
   background: transparent;
   font-family: var(--font-body-family);
@@ -554,12 +543,11 @@
 
 .msa__filter-icons {
   position: relative;
-  display: flex;
-  align-items: center;
+  bottom: 7px;
 }
 
-.msa__sort-group.msa__sort-desktop:hover,
-.msa__sort-group.msa__sort-desktop:focus-within {
+.msa__sort-select:hover,
+.msa__sort-select:focus {
   border-color: var(--msa-teal);
   box-shadow: 0 4px 12px rgba(33, 131, 128, 0.08);
 }
@@ -775,181 +763,4 @@
   font-family: var(--font-body-family);
   font-size: 15px;
   border: 1px dashed var(--msa-border);
-}
-
-/* --- New Mobile Overrides for Shop All --- */
-.msa__sort-mobile {
-  display: none;
-}
-
-@media (max-width: 767.98px) {
-  .msa__sort-desktop {
-    display: none !important;
-  }
-
-  .msa__sort-mobile {
-    display: block;
-  }
-
-  /* Redefine the mobile toggles container to be stacked instead of side-by-side */
-  .msa__mobile-toggles {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 0;
-    gap: 12px;
-    border-top: none;
-  }
-
-  /* Style the mobile filters button to match the accordions */
-  .msa__mobile-toggle {
-    display: inline-flex;
-    border-radius: 0;
-    background: transparent;
-    color: var(--msa-text);
-    border: none;
-    font-size: 15px;
-    font-weight: 400;
-    padding: 14px 0;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
-    transition: none;
-    width: auto;
-  }
-
-  .msa__mobile-toggle[aria-expanded="true"] {
-    background: transparent;
-    color: var(--msa-text);
-    border: none;
-    box-shadow: none;
-  }
-
-  /* Plus/Minus icons for the mobile toggle */
-  .msa__mobile-toggle .msa__plus-minus {
-    display: flex;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .msa__mobile-toggle[aria-expanded="true"] .msa__icon-plus {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-
-  .msa__mobile-toggle[aria-expanded="true"] .msa__icon-minus {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  /* Ensure sort-mobile has a border at the bottom */
-  .msa__sort-mobile {
-    border: none;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .msa__sort-mobile .msa__filter-btn {
-    display: inline-flex;
-    width: auto;
-    padding: 14px 0;
-    border: none;
-    justify-content: flex-start;
-    gap: 8px;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .msa__sort-mobile .msa__dropdown {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    left: auto;
-    width: max-content;
-    min-width: 200px;
-    background: #fff;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    border: 1px solid var(--msa-border);
-    z-index: 100;
-    /* Reset inline accordion styles for the floating dropdown */
-    display: none !important;
-    grid-template-rows: none;
-  }
-
-  .msa__sort-mobile .msa__dropdown[data-open] {
-    display: block !important;
-    animation: msaDropdownIn 0.15s ease;
-  }
-
-  .msa__sort-mobile .msa__dropdown-inner {
-    padding: 6px 0;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .msa__sort-mobile.msa__filter-group {
-    border-top: none;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .msa__sort-mobile.msa__filter-group {
-    width: auto;
-    border-top: none;
-  }
-
-  .msa__mobile-toggle {
-    white-space: nowrap;
-    min-width: 0;
-  }
-
-  .msa__sort-mobile .msa__filter-btn {
-    white-space: nowrap;
-    min-width: 0;
-  }
-}
-
-/* Remove background color change on Sort extended */
-.msa__sort-mobile .msa__filter-btn[aria-expanded="true"] {
-  background: transparent;
-  color: var(--msa-text);
-  border: none;
-  box-shadow: none;
-}
-
-.msa__sort-mobile .msa__filter-btn[aria-expanded="true"] .msa__plus-minus {
-  color: var(--msa-text);
-}
-
-@media (max-width: 767.98px) {
-  .msa__sort-mobile .msa__plus-minus {
-    display: flex !important;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Make sure the icons rotate correctly for sort too */
-  .msa__sort-mobile .msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-
-  .msa__sort-mobile .msa__filter-btn[aria-expanded="true"] .msa__icon-minus {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-}
-
-@media (max-width: 767.98px) {
-  .msa__filter-btn {
-    border: none;
-  }
 }
