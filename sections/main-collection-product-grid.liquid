@@ -95,7 +95,7 @@
   {% endif %}
 {% endcomment %}
 {% if section.blocks.size > 0 and block.type == 'collection-banner' %}
-  <div class="collection-hero">
+  <div class="collection-hero mydk-product-container-auth">
     <div
       class="collection-hero__wrapper{% if block.settings.enable_hero_slider %} collection-hero__wrapper-with-slider{% endif %}{% if block.settings.show_collection_image and collection_image != blank %} color-{{ block.settings.color_scheme }} background collection-hero__wrapper--with-image{% endif %} container"
       style="--padding-bottom: {{ padding_bottom }}%"
