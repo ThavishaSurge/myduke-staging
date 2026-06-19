@@ -93,178 +93,22 @@
               {%- endif -%}
             >
             <button
-              class="myduke-search-bar__submit"
-              aria-label="{{ 'general.search.search' | t }}"
-              type="submit"
-            >
-              <svg class="myduke-search-bar__arrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <path d="M5 16L27 16" stroke="#218380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M18 25L27 16L18 7" stroke="#218380" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          {%- if section.settings.predictive_search_enabled -%}
-            <div class="predictive-search predictive-search--search-template" tabindex="-1" data-predictive-search>
-              <div class="predictive-search__loading-state">
-                {% render 'icon-loading' %}
-              </div>
-            </div>
-            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
-          {%- endif -%}
-        </form>
-
-        {%- if search.performed and search.results_count == 0 and search.filters == empty -%}
-          </div>
-        {% endif %}
-        {%- if section.settings.predictive_search_enabled -%}
-          </predictive-search>
-        {%- endif -%}
-        {% comment %}
-          {%- if search.performed == false
-            and section.settings.enable_trending_search
-            and section.settings.trending_search_menu != blank
-          -%}
-            <div class="trending-search">
-              {% if section.settings.trending_search_title != blank -%}
-                <h3 class="trending-search-title title font--body body-small">
-                  {{ section.settings.trending_search_title }}
-                </h3>
-
-                {%- if section.settings.trending_search_menu != blank -%}
-                  {% assign search_menu = section.settings.trending_search_menu %}
-                  <div class="predictive-search-results-wrapper">
-                    <div
-                      id="trending-search-list"
-                      class="predictive-search__results-list list-unstyled"
-                      role="group"
-                      tabindex="-1"
-                    >
-                      <div class="header__search-popular-links first-column">
-                        {%- for link in search_menu.links limit: 4 -%}
-                          <div class="header__search-popular-link-wrapper ">
-                            <a
-                              href="{{ link.url }}"
-                              class="header__search-popular-link hover-underlined-link-secondary body-small focus-inset{% if forloop.index < 5 %} first-column{% else %} second-column{% endif %}"
-                              role="option"
-                            >
-                              <span>{{- link.title | escape -}}</span>
-                            </a>
-                          </div>
-                        {%- endfor -%}
-                      </div>
-
-                      {% if search_menu.size > 4 %}
-                        <div class="header__search-popular-links second-column">
-                          {%- for link in search_menu.links offset: 4 limit: 4 -%}
-                            <div class="header__search-popular-link-wrapper ">
-                              <a
-                                href="{{ link.url }}"
-                                class="header__search-popular-link hover-underlined-link-secondary body-small focus-inset{% if forloop.index <span 5 %} first-column{% else %} second-column{% endif %}"
-                                role="option"
-                              >
-                                <span>{{- link.title | escape -}}</span>
-                              </a>
-                            </div>
-                          {%- endfor -%}
-                        </div>
-                      {% endif %}
-                    </div>
-                  </div>
-                {%- endif -%}
-              {% endif %}
-            </div>
-          {%- endif -%}
-        {% endcomment %}
-      </div>
-      <div class="page-header">
-        <div class="page-header__inner">
-          {%- if search.performed and search.results_count == 0 -%}
-            <h1 class="page-header__inner-title h4" role="status">
-              {{ 'templates.search.no_results' | t: terms: search.terms }}
-            </h1>
-            <p class="page-header__inner-text body-small">
-              {{ 'templates.search.no_results_text' | t }}
-            </p>
-          {%- elsif search.performed and search.results_count == 1 -%}
-            <h1 class="page-header__inner-title h4">
-              {{ 'templates.search.title.one' | t: count: search.results_count }}: "{{ terms }}"
-            </h1>
-          {%- elsif search.performed and search.results_count > 1 -%}
-            <h1 class="page-header__inner-title h4">
-              {{ 'templates.search.title.many' | t: count: search.results_count }}: "{{ terms }}"
-            </h1>
-          {%- else -%}
-            <h1 class="page-header__inner-title h4">{{- 'general.search.search' | t -}}</h1>
-          {%- endif -%}
-        </div>
-        {%- if section.settings.show_contact_text and search.results_count != 0 -%}
-          {%- if section.settings.contact_text != blank -%}
-            <div class="search__description">
-              {{- section.settings.contact_text -}}
-            </div>
-          {%- endif -%}
-        {%- endif -%}
-      </div>
-    </div>
-  </div>
-
-  {%- if search.performed -%}
-    {% liquid
-      assign filter_show = false
-      for filter in search.filters
-        if filter.range_max != 0
-          assign filter_show = true
-        endif
-      endfor
-    %}
-
-    <div class="container">
-      {% comment %} ACTIVE DESKTOP FILTERS {% endcomment %}
-      <div
-        class="
-          collection-wrapper collection-wrapper--{{ section.settings.columns }}
-          collection-wrapper--vertical
-        "
-      >
-        {%- if search.filters != empty -%}
-          {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-            {% render 'facets',
-              results: search,
-              enable_filtering: section.settings.enable_filtering,
-              enable_sorting: section.settings.enable_sorting,
-              image_filter_ratio: section.settings.image_filter_ratio,
-              image_filter_fit: section.settings.image_filter_fit,
-              image_filter_columns: section.settings.image_filter_columns,
-              enable_reset_per_type: section.settings.enable_reset_per_type,
-              total_selected_filters: section.settings.enable_total_selected
-            %}
-          {%- endif -%}
-        {%- endif -%}
-        {% if search.results.size > 0 %}
-          {% liquid
-            assign search_products = search.results | where: 'object_type', 'product'
-            assign search_products_size = search_products | size
-          %}
-          {% if search_products_size > 0 %}
-            {% if section.settings.enable_filtering or section.settings.enable_sorting %}
-              <div class="collection-top">
-                <div class="collection-top__container">
-                  {% if section.settings.enable_filtering %}
-                    <div class="collection-top__container-left">
-                      <button
                         type="button"
                         data-desktop-modal="FacetsWrapperDesktop-{{ section.id }}"
                         class="button facets-button-show vertical no-js-hidden focus-inset"
                       >
-                        <span class="show-label" aria-label="{{ 'products.facets.filters' | t }}">
+                        <span class="show-label desktop-icon" aria-label="{{ 'products.facets.filters' | t }}">
                           {%- render 'icon-filter' -%}
                         </span>
-                        <span class="hide-label hidden" aria-label="{{ 'accessibility.close' | t }}">
+                        <span class="hide-label hidden desktop-icon" aria-label="{{ 'accessibility.close' | t }}">
                           {%- render 'icon-filter' -%}
                         </span>
-                        <span class="button__label" data-label="{{ 'products.facets.filters' | t }}">
-                          {{ 'products.facets.filters' | t -}}
+                        <span class="button__label" data-label="Filter by">
+                          <span class="desktop-only-text">{{ 'products.facets.filters' | t }}</span>
+                          <span class="mobile-only-text">Filter by</span>
+                        </span>
+                        <span class="mobile-plus-icon">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                         </span>
                       </button>
                     </div>
@@ -292,19 +136,26 @@
                                 aria-describedby="a11y-refresh-page-message"
                               >
                               <div class="facet-sort-select__select focus-inset button button--secondary" tabindex="0">
-                                <div class="facet-sort-select__icon">
-                                  {% render 'icon-sort' %}
-                                </div>
-                                <span class="facet-sort-select__current body-normal">
-                                  {%- for option in search.sort_options -%}
-                                    {% if option.value == sort_by %}
-                                      {{- option.name | escape -}}
-                                    {% endif %}
-                                  {%- endfor -%}
-                                </span>
-                              </div>
-                              <div
-                                class="facet-sort-modal"
+                        <div class="facet-sort-select__icon desktop-icon">
+                          {% render 'icon-sort' %}
+                        </div>
+                        <span class="facet-sort-select__current body-normal desktop-only-text">
+                          {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
+                          {%- for option in search.sort_options -%}
+                            {% if option.value == sort_by %}
+                              {{- option.name | escape -}}
+                            {% endif %}
+                          {%- endfor -%}
+                        </span>
+                        <span class="facet-sort-select__current body-normal mobile-only-text">
+                          Sort by
+                        </span>
+                        <span class="mobile-plus-icon">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </span>
+                      </div>
+                      <div
+                        class="facet-sort-modal"
                                 role="dialog"
                                 aria-modal="true"
                                 tabindex="-1"
