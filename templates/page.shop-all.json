@@ -22,7 +22,8 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/image_8_1.jpg",
+        "bg_position_desktop": "center",
+        "bg_position_mobile": "center",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
@@ -219,7 +220,21 @@
         "heading": "Need Guidance?",
         "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
         "background_color": "#f4a261",
-        "background_image": "shopify://shop_images/cost-cal-bg.webp"
+        "closed_cta_url": "shopify://collections/need-guidance-closed-systems",
+        "closed_devices_url": "shopify://collections/need-guidance-closed-systems",
+        "closed_pods_url": "shopify://collections/pods",
+        "hybrid_cta_url": "shopify://collections/hyrbid-devices",
+        "hybrid_devices_url": "shopify://collections/hyrbid-devices",
+        "hybrid_eliquid_url": "shopify://collections/e-liquids",
+        "hybrid_pods_url": "shopify://collections/pods-coils-new-website-1",
+        "open_cta_url": "shopify://collections/open-tank",
+        "open_devices_url": "shopify://collections/open-tank",
+        "open_eliquid_url": "shopify://collections/freebase-e-liquids-new-website",
+        "open_coils_url": "shopify://collections/pods-coils-new-website-1",
+        "nrt_cta_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_gum_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_lozenges_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_spray_url": "shopify://collections/nicotine-replacement-therapy"
       }
     }
   },
