@@ -1268,11 +1268,6 @@
           return;
         }
 
-        // Check for early exit on Q2
-        if (state.currentStep === 2 && state.answers.q2 === 'not_vape') {
-          calculateResults(sectionId, true);
-          return;
-        }
       }
 
       if (state.currentStep < state.totalSteps) {
