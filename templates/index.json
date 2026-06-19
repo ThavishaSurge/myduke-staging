@@ -14,6 +14,7 @@
       "name": "MyDuke Hero",
       "settings": {
         "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
+        "background_image_mobile": "shopify://shop_images/Frame_427320840.jpg",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
@@ -396,6 +397,8 @@
       "settings": {
         "color_scheme": "",
         "visibility": "mobile",
+        "bg_image": "shopify://shop_images/myDuke-support-bg.jpg",
+        "bg_image_mobile": "shopify://shop_images/cta-quitters-mob-bg.jpg",
         "fallback_color": "#264653",
         "eyebrow": "You're not alone",
         "heading": "myduke® is for quitters",
