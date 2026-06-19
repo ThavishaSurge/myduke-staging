@@ -26,3 +26,30 @@
 #free-shipping__progress {
     background-color: rgb(33, 131, 128);    
 }
+
+.myduke-cart-submit {
+      display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #218380;
+  color: #ffffff;
+  font-family: var(--font-secondary-text-family);
+  font-weight: 500;
+  font-size: calc(var(--font-button-scale) * 1rem);
+  line-height: 2.1rem;
+  text-transform: capitalize;
+  padding: 0.95rem 3.6rem;
+  min-height: 4rem;
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+
+.myduke-cart-submit button {
+    color: #ffffff;
+}
+
+.base-breadcrumbs {
+    max-width: 70rem;
+    padding-left: 0rem;
+}
