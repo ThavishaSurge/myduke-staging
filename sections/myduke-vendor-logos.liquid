@@ -88,7 +88,13 @@
               {%- liquid
                 assign vendor_name = vendor_obj.name
                 assign vendor_logo = vendor_obj.logo
-                assign vendor_url  = vendor_obj.url
+
+                if section.settings.dynamic_filter_urls
+                  assign vendor_handle = vendor_name | handleize
+                  assign vendor_url = '/pages/shop-all?brand=' | append: vendor_handle
+                else
+                  assign vendor_url = vendor_obj.url
+                endif
               -%}
 
               {%- if vendor_url != blank -%}
@@ -96,10 +102,11 @@
                   href="{{ vendor_url }}"
                   class="mdvl__card"
                   aria-label="{{ vendor_name }}"
+                  data-vendor="{{ vendor_name }}"
                   {% if section.settings.shop_all_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
                 >
               {%- else -%}
-                <div class="mdvl__card" aria-label="{{ vendor_name }}">
+                <div class="mdvl__card" aria-label="{{ vendor_name }}" data-vendor="{{ vendor_name }}">
               {%- endif -%}
 
                 {%- if vendor_logo != blank -%}
@@ -230,6 +237,13 @@
       "id": "shop_all_new_tab",
       "label": "Open in new tab",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "dynamic_filter_urls",
+      "label": "Enable dynamic filter URLs",
+      "default": false,
+      "info": "When enabled, vendor cards will link to '/pages/shop-all?brand=[vendor-name]' instead of the standard vendor URL."
     },
     {
       "type": "header",
