@@ -22,12 +22,14 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/image_8_1.jpg",
-        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.webp",
+        "background_image": "shopify://shop_images/image_8_1.webp",
+        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.jpg",
+        "bg_position_desktop": "center",
+        "bg_position_mobile": "center",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
-        "overlay_opacity_mobile": 0,
+        "overlay_opacity_mobile": 30,
         "height_desktop": 80,
         "height_mobile": 80,
         "enable_mobile_colors": false,
@@ -198,73 +200,79 @@
         "vendor_8cpEiy": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "chosen"
           }
         },
         "vendor_aWGYGj": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "lula"
           }
         },
         "vendor_EUXpVD": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "nicorette"
           }
         },
         "vendor_Y8rnYj": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "alt-x"
           }
         },
         "vendor_DgQRJX": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "wild-by-instinct"
           }
         },
         "vendor_K4chN7": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "smok"
           }
         },
         "vendor_LjTNC4": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "phix"
           }
         },
         "vendor_rMMTMk": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "ozpod"
           }
         },
         "vendor_QXAjtQ": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "lanavape"
           }
         },
         "vendor_AmaEqt": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "relx"
           }
         },
         "vendor_DtDeLP": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "vapure"
           }
         },
         "vendor_DkUfPM": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "rift-pro"
+          }
+        },
+        "vendor_GRmBTz": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "blu"
           }
         }
       },
@@ -280,7 +288,8 @@
         "vendor_QXAjtQ",
         "vendor_AmaEqt",
         "vendor_DtDeLP",
-        "vendor_DkUfPM"
+        "vendor_DkUfPM",
+        "vendor_GRmBTz"
       ],
       "name": "Vendor Logos (MyDuke)",
       "settings": {
@@ -289,9 +298,10 @@
         "heading_tag": "h2",
         "description_richtext": "<p>Already own a device? Select it to see only the pods, coils, and accessories that work with your hardwar.</p>",
         "show_divider": true,
-        "shop_all_label": "Shop All Brands",
+        "shop_all_label": "",
         "shop_all_url": "",
         "shop_all_new_tab": false,
+        "dynamic_filter_urls": false,
         "enable_slider": false,
         "show_slider_nav": false,
         "logos_per_row": 6,
@@ -309,7 +319,22 @@
         "heading": "Need Guidance?",
         "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
         "background_color": "#f4a261",
-        "background_image": "shopify://shop_images/cost-cal-bg.webp"
+        "background_image": "shopify://shop_images/cost-cal-bg.jpg",
+        "closed_cta_url": "shopify://collections/need-guidance-closed-systems",
+        "closed_devices_url": "shopify://collections/need-guidance-closed-systems",
+        "closed_pods_url": "shopify://collections/pods",
+        "hybrid_cta_url": "shopify://collections/hyrbid-devices",
+        "hybrid_devices_url": "shopify://collections/hyrbid-devices",
+        "hybrid_eliquid_url": "shopify://collections/e-liquids",
+        "hybrid_pods_url": "shopify://collections/pods-coils-new-website-1",
+        "open_cta_url": "shopify://collections/open-tank",
+        "open_devices_url": "shopify://collections/open-tank",
+        "open_eliquid_url": "shopify://collections/freebase-e-liquids-new-website",
+        "open_coils_url": "shopify://collections/pods-coils-new-website-1",
+        "nrt_cta_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_gum_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_lozenges_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_spray_url": "shopify://collections/nicotine-replacement-therapy"
       }
     }
   },

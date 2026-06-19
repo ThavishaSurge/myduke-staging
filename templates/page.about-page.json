@@ -13,8 +13,7 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/about-bg-hero.webp",
-        "background_image_mobile": "shopify://shop_images/about-mob-bg-hero.webp",
+        "background_image": "shopify://shop_images/about-bg-hero.png",
         "bg_position_desktop": "bottom",
         "bg_position_mobile": "bottom",
         "overlay_color": "#000000",
@@ -65,7 +64,7 @@
       ],
       "name": "About — Our Story",
       "settings": {
-        "left_image": "shopify://shop_images/about-ourstory.webp",
+        "left_image": "shopify://shop_images/about-ourstory.jpg",
         "flex_reverse": false,
         "eyebrow": "Our Story",
         "heading": "Simplifying the Pathway to Quit",
@@ -125,7 +124,7 @@
       ],
       "name": "Path to Zero (About)",
       "settings": {
-        "right_image": "shopify://shop_images/path-zero-right.webp",
+        "right_image": "shopify://shop_images/path-zero-right.jpg",
         "flex_reverse": false
       }
     },
@@ -308,7 +307,7 @@
       ],
       "name": "Standards (About)",
       "settings": {
-        "bg_image": "shopify://shop_images/about-standards-bg.webp",
+        "bg_image": "shopify://shop_images/about-standards-bg.jpg",
         "eyebrow": "Why Choose Us",
         "heading": "The myduke® Standard",
         "description": "See how our clinical care model compares to standard online clinics.",

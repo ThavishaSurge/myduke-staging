@@ -22,12 +22,14 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/image_8_1.jpg",
-        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.webp",
+        "background_image": "shopify://shop_images/image_8_1.webp",
+        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.jpg",
+        "bg_position_desktop": "center",
+        "bg_position_mobile": "center",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
-        "overlay_opacity_mobile": 0,
+        "overlay_opacity_mobile": 30,
         "height_desktop": 80,
         "height_mobile": 80,
         "enable_mobile_colors": false,
@@ -172,73 +174,85 @@
         "vendor_TQ39LX": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "chosen"
           }
         },
         "vendor_rXh4pk": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "lula"
           }
         },
         "vendor_rnPCyA": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "nicorette"
           }
         },
         "vendor_Q7PMaz": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "alt-x"
           }
         },
         "vendor_tTLpGk": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "alt-x"
           }
         },
         "vendor_wGHJV6": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "wild-by-instinct"
           }
         },
         "vendor_8LFArd": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "smok"
           }
         },
         "vendor_NEzYKf": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "phix"
           }
         },
         "vendor_KdEHgG": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "ozpod"
           }
         },
         "vendor_dwin4D": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "lanavape"
           }
         },
         "vendor_etgatC": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "relx"
           }
         },
         "vendor_XrM4Gj": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "vapure"
+          }
+        },
+        "vendor_BxBRLq": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "rift-pro"
+          }
+        },
+        "vendor_nygTHg": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "blu"
           }
         }
       },
@@ -254,7 +268,9 @@
         "vendor_KdEHgG",
         "vendor_dwin4D",
         "vendor_etgatC",
-        "vendor_XrM4Gj"
+        "vendor_XrM4Gj",
+        "vendor_BxBRLq",
+        "vendor_nygTHg"
       ],
       "name": "Vendor Logos (MyDuke)",
       "settings": {
@@ -263,9 +279,10 @@
         "heading_tag": "h2",
         "description_richtext": "<p>Already own a device? Select it to see only the pods, coils, and accessories that work with your hardwar.</p>",
         "show_divider": true,
-        "shop_all_label": "Shop All Brands",
+        "shop_all_label": "",
         "shop_all_url": "",
         "shop_all_new_tab": false,
+        "dynamic_filter_urls": false,
         "enable_slider": false,
         "show_slider_nav": false,
         "logos_per_row": 6,
@@ -281,9 +298,24 @@
       "name": "Guidance Quiz",
       "settings": {
         "heading": "Need Guidance?",
-        "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
+        "subheading": "Take our quick quiz to help identify nicotine replacement options that may be suitable for you. \nThis assessment is provided as a guide only. Individual nicotine requirements may vary, and a healthcare professional can help determine the most appropriate treatment option for you.",
         "background_color": "#f4a261",
-        "background_image": "shopify://shop_images/cost-cal-bg.webp"
+        "background_image": "shopify://shop_images/cost-cal-bg.jpg",
+        "closed_cta_url": "shopify://collections/need-guidance-closed-systems",
+        "closed_devices_url": "shopify://collections/need-guidance-closed-systems",
+        "closed_pods_url": "shopify://collections/pods",
+        "hybrid_cta_url": "shopify://collections/hyrbid-devices",
+        "hybrid_devices_url": "shopify://collections/hyrbid-devices",
+        "hybrid_eliquid_url": "shopify://collections/e-liquids",
+        "hybrid_pods_url": "shopify://collections/pods-coils-new-website-1",
+        "open_cta_url": "shopify://collections/open-tank",
+        "open_devices_url": "shopify://collections/open-tank",
+        "open_eliquid_url": "shopify://collections/freebase-e-liquids-new-website",
+        "open_coils_url": "shopify://collections/pods-coils-new-website-1",
+        "nrt_cta_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_gum_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_lozenges_url": "shopify://collections/nicotine-replacement-therapy",
+        "nrt_spray_url": "shopify://collections/nicotine-replacement-therapy"
       }
     }
   },
