@@ -442,8 +442,9 @@
       "name": "Guidance Quiz",
       "settings": {
         "heading": "Need Guidance?",
-        "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
+        "subheading": "Take our quick quiz to help identify nicotine replacement options that may be suitable for you. \nThis assessment is provided as a guide only. Individual nicotine requirements may vary, and a healthcare professional can help determine the most appropriate treatment option for you.",
         "background_color": "#f4a261",
+        "background_image": "shopify://shop_images/cost-cal-bg.jpg",
         "closed_cta_url": "shopify://collections/need-guidance-closed-systems",
         "closed_devices_url": "shopify://collections/need-guidance-closed-systems",
         "closed_pods_url": "shopify://collections/pods",
