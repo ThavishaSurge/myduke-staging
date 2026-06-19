@@ -387,29 +387,64 @@
     font-style: normal;
   }
 
-  /* Device name + tagline block */
+  /* Device name + tagline block styled like a card */
+  .res-device-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f9f8;
+    border-radius: 12px;
+    border-left: 4px solid #218380;
+    padding: 16px 20px;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+    width: 100%;
+  }
+
+  .res-device-card:hover {
+    background-color: #edf3f0;
+  }
+
   .res-device-text-block {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
   }
 
   .res-device-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     color: #2b2b2e;
     margin: 0;
-    line-height: 19.6px;
+    line-height: 1.2;
   }
 
   .res-device-tagline {
     font-family: 'Manrope', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #2b2b2e;
+    color: #6b7280;
     margin: 0;
-    line-height: 19.6px;
+    line-height: 1.4;
+  }
+
+  .res-device-arrow-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #218380;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .res-device-arrow-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: #fff;
   }
 
   /* Why list */
@@ -735,13 +770,20 @@
       <div class="res-columns">
         <!-- LEFT COLUMN -->
         <div class="res-col-left">
-          <!-- Your Recommended Devices -->
+          <!-- Your Recommended Setup -->
           <div class="res-section">
-            <p class="res-section-label">Your Recommended Devices</p>
-            <div class="res-device-text-block">
-              <p class="res-device-title" id="res-category-name-{{ section.id }}"></p>
-              <p class="res-device-tagline" id="res-category-tagline-{{ section.id }}"></p>
-            </div>
+            <p class="res-section-label">Your Recommended Setup</p>
+            <a href="#" class="res-device-card" id="res-device-card-{{ section.id }}">
+              <div class="res-device-text-block">
+                <p class="res-device-title" id="res-category-name-{{ section.id }}"></p>
+                <p class="res-device-tagline" id="res-category-tagline-{{ section.id }}"></p>
+              </div>
+              <div class="res-device-arrow-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
           </div>
 
           <!-- Why It's Right For You -->
@@ -753,9 +795,9 @@
           </div>
 
           <!-- Your Nicotine Recommendation -->
-          <div class="res-section">
+          <div class="res-section" id="res-nic-section-{{ section.id }}">
             <p class="res-section-label">Your Nicotine Recommendation</p>
-            <div class="res-nic-row">
+            <div class="res-nic-row" id="res-nic-row-{{ section.id }}">
               <div class="res-nic-text">
                 <p class="res-nic-strength-label" id="res-nic-strength-label-{{ section.id }}"></p>
                 <p class="res-nic-description" id="res-nic-message-{{ section.id }}"></p>
@@ -1122,6 +1164,12 @@
           alert('Please select an option to continue.');
           return;
         }
+
+        // Check for early exit on Q2
+        if (state.currentStep === 2 && state.answers.q2 === 'not_vape') {
+          calculateResults(sectionId, true);
+          return;
+        }
       }
 
       if (state.currentStep < state.totalSteps) {
@@ -1133,31 +1181,38 @@
     }
   }
 
-  function calculateResults(sectionId) {
+  function calculateResults(sectionId, forceNrt = false) {
     const answers = window.quizState[sectionId].answers;
-    const scores = calculateRunningScores(answers);
-    const { closed, hybrid, open, nrt } = scores;
+    
+    let resultCategory = 'closed';
+    
+    if (forceNrt) {
+      resultCategory = 'nrt';
+    } else {
+      const scores = calculateRunningScores(answers);
+      const { closed, hybrid, open, nrt } = scores;
 
-    // Determine winner
-    let max = Math.max(closed, hybrid, open, nrt);
-    let winners = [];
-    if (closed === max) winners.push('closed');
-    if (hybrid === max) winners.push('hybrid');
-    if (open === max) winners.push('open');
-    if (nrt === max) winners.push('nrt');
+      // Determine winner
+      let max = Math.max(closed, hybrid, open, nrt);
+      let winners = [];
+      if (closed === max) winners.push('closed');
+      if (hybrid === max) winners.push('hybrid');
+      if (open === max) winners.push('open');
+      if (nrt === max) winners.push('nrt');
 
-    let resultCategory = winners[0];
+      resultCategory = winners[0];
 
-    // Tie Breakers (using shifted question numbers)
-    if (winners.length > 1) {
-      if (answers.q6 === 'beginner') {
-        resultCategory = 'closed';
-      } else if (answers.q5 === 'both') {
-        resultCategory = 'hybrid';
-      } else if (answers.q6 === 'experienced') {
-        resultCategory = 'open';
-      } else {
-        resultCategory = 'hybrid'; // Rule 4: safest middle-ground
+      // Tie Breakers (using shifted question numbers)
+      if (winners.length > 1) {
+        if (answers.q6 === 'beginner') {
+          resultCategory = 'closed';
+        } else if (answers.q5 === 'both') {
+          resultCategory = 'hybrid';
+        } else if (answers.q6 === 'experienced') {
+          resultCategory = 'open';
+        } else {
+          resultCategory = 'hybrid'; // Rule 4: safest middle-ground
+        }
       }
     }
 
@@ -1187,7 +1242,7 @@
       usage = [];
 
     if (category === 'closed') {
-      title = 'Closed System';
+      title = 'Closed Systems';
       tagline = 'Simple, reliable and closest to smoking.';
       link = '/collections/closed-systems';
       why = [
@@ -1196,11 +1251,14 @@
         'Pre-filled pods — simply click and go',
         'Ideal for beginners switching from smoking',
       ];
-      needs = ['Closed System Device', 'Pre-Filled Pods', 'USB Charging Cable (if applicable)'];
+      needs = [
+        { text: 'Closed System Devices', url: '/collections/closed-systems' },
+        { text: 'Pre-Filled Pods', url: '/collections/closed-pods' }
+      ];
       usage = ['Approximately 2–4 pods per week depending on usage', 'Minimal maintenance required', 'Replace pods when empty'];
     } else if (category === 'hybrid') {
-      title = 'Hybrid System';
-      tagline = 'The best of both worlds — flexibility meets simplicity.';
+      title = 'Hybrid Systems';
+      tagline = 'Flexible, refillable and easy to use.';
       link = '/collections/hybrid-systems';
       why = [
         'Refillable pod system',
@@ -1208,11 +1266,15 @@
         'Lower ongoing costs',
         'Great balance of simplicity and performance',
       ];
-      needs = ['Refillable Pod Device', 'E-Liquid (your chosen flavour)', 'Replacement Pods', 'USB Charging Cable'];
+      needs = [
+        { text: 'Refillable Pod Devices', url: '/collections/hybrid-systems' },
+        { text: 'E-Liquid', url: '/collections/e-liquid' },
+        { text: 'Replacement Pods', url: '/collections/pods-and-coils' }
+      ];
       usage = ['Refill pods as required', 'Replace pods periodically', 'Moderate maintenance required'];
     } else if (category === 'open') {
-      title = 'Open Tank System';
-      tagline = 'Maximum control and customisation for experienced users.';
+      title = 'Open Tank Systems';
+      tagline = 'Maximum flavour, control and performance.';
       link = '/collections/open-tank-systems';
       why = [
         'Maximum customisation',
@@ -1221,11 +1283,15 @@
         'Adjustable airflow and settings',
         'Designed for experienced users',
       ];
-      needs = ['Open Tank Device', 'E-Liquid', 'Replacement Coils', 'USB Charging Cable'];
+      needs = [
+        { text: 'Open Tank Devices', url: '/collections/open-tank-systems' },
+        { text: 'Freebase E-Liquid', url: '/collections/freebase' },
+        { text: 'Replacement Coils', url: '/collections/pods-and-coils' }
+      ];
       usage = ['Refill tank regularly', 'Replace coils periodically', 'More maintenance than pod systems'];
     } else if (category === 'nrt') {
       title = 'Nicotine Replacement Therapy';
-      tagline = 'A clinically proven, smoke-free approach to managing cravings.';
+      tagline = 'Simple, discreet nicotine support without a vaping device.';
       link = '/collections/nrt';
       why = [
         'Clinically proven methods to manage cravings',
@@ -1233,12 +1299,20 @@
         'Easy to use in areas where vaping is restricted',
         'A measured approach to stepping down nicotine intake',
       ];
-      needs = ['NRT Patches, Gums, or Lozenges'];
+      needs = [
+        { text: 'Nicotine Gum', url: '/collections/nrt' },
+        { text: 'Nicotine Lozenges', url: '/collections/nrt' },
+        { text: 'Nicotine Spray', url: '/collections/nrt' }
+      ];
       usage = ['Use daily as directed', 'Follow the recommended step-down schedule'];
     }
 
     document.getElementById('res-category-name-' + sectionId).innerText = title;
     document.getElementById('res-category-tagline-' + sectionId).innerText = tagline;
+    
+    // Set link on the new device card
+    const deviceCardEl = document.getElementById('res-device-card-' + sectionId);
+    if (deviceCardEl) deviceCardEl.href = link;
 
     document.getElementById('res-why-' + sectionId).innerHTML = why
       .map(
@@ -1252,9 +1326,9 @@
 
     document.getElementById('res-needs-' + sectionId).innerHTML = needs
       .map(
-        (w) => `
-      <a href="${link}" class="res-need-row">
-        <p>${w}</p>
+        (n) => `
+      <a href="${n.url}" class="res-need-row">
+        <p>${n.text}</p>
         <div class="res-need-arrow">${arrowIcon}</div>
       </a>`
       )
@@ -1339,12 +1413,26 @@
       insights.push('Saving money is a priority for you, so we have factored cost-efficiency into your recommendation.');
     if (answers.q7 === 'flavour')
       insights.push('Better flavour and performance matter to you, reflected in your recommended setup.');
+      
+    if (category === 'nrt') {
+      insights.push('Based on your answers, Nicotine Replacement Therapy offers a suitable, discreet option to support you without the use of a vaping device.');
+    }
 
     const insightsEl = document.getElementById('res-insights-' + sectionId);
     if (insightsEl) {
       insightsEl.innerHTML = insights
         .map((i) => `<p class="res-insights-text" style="margin-bottom: 8px;">${i}</p>`)
         .join('');
+    }
+    
+    // Hide Nicotine Recommendation Section if user selected NRT on Question 1
+    const nicSectionEl = document.getElementById('res-nic-section-' + sectionId);
+    if (nicSectionEl) {
+      if (answers.q1 === 'nrt') {
+        nicSectionEl.style.display = 'none';
+      } else {
+        nicSectionEl.style.display = 'flex';
+      }
     }
   }
 
