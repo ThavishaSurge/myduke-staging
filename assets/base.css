@@ -6850,6 +6850,10 @@ header.shopify-section-header-sticky .header__buttons a {
   border: 1px solid #264653;
 }
 
+header.shopify-section-header-sticky .header__custom-account-icon {
+  border: 0px!important;
+}
+
 header.shopify-section-header-sticky .header__buttons a span {
   color: #264653;
 }
