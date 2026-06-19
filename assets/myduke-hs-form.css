@@ -49,24 +49,20 @@ form.hs-form {
   overflow: visible !important;
 }
 
-/* Arrow icon at the end of the email row via pseudo-element */
+/* Arrow icon at the end of the email row via pseudo-element.
+   Simplified SVG (clip-path removed — it only clipped to the 16×16
+   viewBox rect, which is a no-op). Color #218380 comes from the SVG
+   stroke so no mask needed. */
 .hs_email.hs-form-field::after {
   content: '';
   display: block;
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  background-color: #264653;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M1.0278 8.04455L15.0738 8.04455M15.0738 8.04455L7.95312 15.1653M15.0738 8.04455L7.95312 0.923828' stroke='black' stroke-linecap='square'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M1.0278 8.04455L15.0738 8.04455M15.0738 8.04455L7.95312 15.1653M15.0738 8.04455L7.95312 0.923828' stroke='black' stroke-linecap='square'/%3E%3C/svg%3E");
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-mode: alpha;
-  mask-mode: alpha;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M1.02734 8.04455H15.0733M7.95266 0.923828L15.0733 8.04455L7.95266 15.1653' stroke='%23218380' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 /* Hide label (empty span) */
