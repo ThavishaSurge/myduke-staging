@@ -29,7 +29,8 @@
     {% endif %}
     
     z-index: 999999;
-    display: flex;
+    /* Hidden by default to prevent flashing. JS will switch this to flex if needed. */
+    display: none; 
     justify-content: center;
     align-items: center;
     transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
@@ -87,32 +88,74 @@
 </style>
 
 <script>
-  const loaderStartTime = Date.now();
-  const minimumLoadTime = 2000; 
-
-  window.addEventListener('load', function() {
+  (function() {
     const loader = document.getElementById('custom-page-loader');
-    if (loader) {
-      const elapsedTime = Date.now() - loaderStartTime;
+    if (!loader) return;
+
+    // 1. Get the excluded paths from the schema and format them into an array
+    const excludedPathsRaw = "{{ section.settings.excluded_referrers | escape }}";
+    const excludedPaths = excludedPathsRaw.split(',').map(path => path.trim()).filter(path => path !== '');
+    
+    // 2. Check where the user came from
+    const referrer = document.referrer;
+    let shouldShowLoader = true;
+
+    if (referrer) {
+      try {
+        const referrerUrl = new URL(referrer);
+        
+        // Only apply logic if the user is navigating within your own domain
+        if (referrerUrl.hostname === window.location.hostname) {
+          const referrerPath = referrerUrl.pathname;
+          
+          // If the previous page path matches anything in our excluded list, don't show the loader
+          if (excludedPaths.some(path => referrerPath.includes(path))) {
+            shouldShowLoader = false;
+          }
+        }
+      } catch (e) {
+        console.error("Invalid referrer URL");
+      }
+    }
+
+    // 3. If they didn't come from an excluded page, run the loader logic
+    if (shouldShowLoader) {
+      loader.style.display = 'flex'; // Immediately show the loader
       
-      const delay = Math.max(0, minimumLoadTime - elapsedTime);
-      
-      setTimeout(function() {
-        loader.style.opacity = '0';
+      const loaderStartTime = Date.now();
+      const minimumLoadTime = 2000; 
+
+      window.addEventListener('load', function() {
+        const elapsedTime = Date.now() - loaderStartTime;
+        const delay = Math.max(0, minimumLoadTime - elapsedTime);
         
         setTimeout(function() {
-          loader.style.visibility = 'hidden';
-          loader.style.display = 'none';
-        }, 600); 
-      }, delay);
+          loader.style.opacity = '0';
+          
+          setTimeout(function() {
+            loader.style.visibility = 'hidden';
+            loader.style.display = 'none';
+          }, 600); 
+        }, delay);
+      });
     }
-  });
+  })();
 </script>
 
 {% schema %}
 {
   "name": "Loading Screen",
   "settings": [
+    {
+      "type": "header",
+      "content": "Behavior"
+    },
+    {
+      "type": "textarea",
+      "id": "excluded_referrers",
+      "label": "Exclude Previous Pages",
+      "info": "Comma-separated list of paths (e.g., /cart, /pages/about). If a user navigates to this page from one of these, the loader will not display."
+    },
     {
       "type": "header",
       "content": "Visuals"
