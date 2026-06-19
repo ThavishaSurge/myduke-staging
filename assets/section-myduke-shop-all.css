@@ -889,3 +889,20 @@
     border-top: none;
   }
 }
+
+@media (max-width: 767.98px) {
+  .msa__sort-mobile.msa__filter-group {
+    width: auto;
+    border-top: none;
+  }
+  
+  .msa__mobile-toggle {
+    white-space: nowrap;
+    min-width: 0;
+  }
+  
+  .msa__sort-mobile .msa__filter-btn {
+    white-space: nowrap;
+    min-width: 0;
+  }
+}
