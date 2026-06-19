@@ -60,4 +60,13 @@
     .cart__footer {
         width: 95%;
     }
+
+    .cart__footer {
+        margin: auto;
+     }
+
+     .cart__footer>*+* {
+        margin-top: 0px;
+     }
+
 }

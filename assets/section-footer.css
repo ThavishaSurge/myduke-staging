@@ -31,7 +31,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  row-gap: 50px;
 }
 
 .footer .footer-main .footer-main-wrapper_inner.footer-main-wrapper_inner--no-text {
