@@ -807,10 +807,10 @@
   }
 
   .msa__mobile-toggle[aria-expanded="true"] {
-    background: transparent;
-    color: var(--msa-text);
-    border: none;
-    box-shadow: none;
+    background: var(--msa-teal);
+    color: #fff;
+    border: 1px solid var(--msa-teal);
+    box-shadow: 0 4px 12px rgba(33, 131, 128, 0.2);
   }
 
   /* Plus/Minus icons for the mobile toggle */
@@ -943,5 +943,22 @@
 @media (min-width: 768px) {
   .msa__sort-custom {
     margin-left: auto;
+  }
+}
+@media (max-width: 767.98px) {
+  .msa__mobile-toggle[aria-expanded="true"] .msa__plus-minus {
+    color: #fff;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .msa__sort-custom .msa__filter-btn[aria-expanded="true"] {
+    background: var(--msa-teal) !important;
+    color: #fff !important;
+    border: 1px solid var(--msa-teal) !important;
+    box-shadow: 0 4px 12px rgba(33, 131, 128, 0.2) !important;
+  }
+  .msa__sort-custom .msa__filter-btn[aria-expanded="true"] .msa__plus-minus {
+    color: #fff !important;
   }
 }
