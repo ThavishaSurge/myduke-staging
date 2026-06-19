@@ -371,7 +371,6 @@
   line-height: 1.4;
   min-width: 180px;
   max-width: 100%;
-  border: 1px solid #111827;
 }
 
 .msa__filter-btn-label {
@@ -558,8 +557,8 @@
   align-items: center;
 }
 
-.msa__sort-group.msa__sort-desktop:hover,
-.msa__sort-group.msa__sort-desktop:focus-within {
+.msa__sort-custom:hover,
+.msa__sort-custom:focus-within {
   border-color: var(--msa-teal);
   box-shadow: 0 4px 12px rgba(33, 131, 128, 0.08);
 }
@@ -778,18 +777,12 @@
 }
 
 /* --- New Mobile Overrides for Shop All --- */
-.msa__sort-mobile {
-  display: none;
-}
+
 
 @media (max-width: 767.98px) {
-  .msa__sort-desktop {
-    display: none !important;
-  }
 
-  .msa__sort-mobile {
-    display: block;
-  }
+
+
 
   /* Redefine the mobile toggles container to be stacked instead of side-by-side */
   .msa__mobile-toggles {
@@ -809,10 +802,10 @@
     border-radius: 0;
     background: transparent;
     color: var(--msa-text);
-    border: none;
+    border: 1px solid var(--msa-border);
     font-size: 15px;
     font-weight: 400;
-    padding: 14px 0;
+    padding: 12px 20px;
     justify-content: flex-start;
     align-items: center;
     gap: 8px;
@@ -848,24 +841,24 @@
   }
 
   /* Ensure sort-mobile has a border at the bottom */
-  .msa__sort-mobile {
+  .msa__sort-custom {
     border: none;
   }
 }
 
 @media (max-width: 767.98px) {
-  .msa__sort-mobile .msa__filter-btn {
+  .msa__sort-custom .msa__filter-btn {
     display: inline-flex;
     width: auto;
-    padding: 14px 0;
-    border: none;
+    padding: 12px 20px;
+    border: 1px solid var(--msa-border);
     justify-content: flex-start;
     gap: 8px;
   }
 }
 
 @media (max-width: 767.98px) {
-  .msa__sort-mobile .msa__dropdown {
+  .msa__sort-custom .msa__dropdown {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
@@ -881,24 +874,24 @@
     grid-template-rows: none;
   }
 
-  .msa__sort-mobile .msa__dropdown[data-open] {
+  .msa__sort-custom .msa__dropdown[data-open] {
     display: block !important;
     animation: msaDropdownIn 0.15s ease;
   }
 
-  .msa__sort-mobile .msa__dropdown-inner {
+  .msa__sort-custom .msa__dropdown-inner {
     padding: 6px 0;
   }
 }
 
 @media (max-width: 767.98px) {
-  .msa__sort-mobile.msa__filter-group {
+  .msa__sort-custom.msa__filter-group {
     border-top: none;
   }
 }
 
 @media (max-width: 767.98px) {
-  .msa__sort-mobile.msa__filter-group {
+  .msa__sort-custom.msa__filter-group {
     width: auto;
     border-top: none;
   }
@@ -908,26 +901,26 @@
     min-width: 0;
   }
 
-  .msa__sort-mobile .msa__filter-btn {
+  .msa__sort-custom .msa__filter-btn {
     white-space: nowrap;
     min-width: 0;
   }
 }
 
 /* Remove background color change on Sort extended */
-.msa__sort-mobile .msa__filter-btn[aria-expanded="true"] {
+.msa__sort-custom .msa__filter-btn[aria-expanded="true"] {
   background: transparent;
   color: var(--msa-text);
   border: none;
   box-shadow: none;
 }
 
-.msa__sort-mobile .msa__filter-btn[aria-expanded="true"] .msa__plus-minus {
+.msa__sort-custom .msa__filter-btn[aria-expanded="true"] .msa__plus-minus {
   color: var(--msa-text);
 }
 
 @media (max-width: 767.98px) {
-  .msa__sort-mobile .msa__plus-minus {
+  .msa__sort-custom .msa__plus-minus {
     display: flex !important;
     position: relative;
     width: 20px;
@@ -937,12 +930,12 @@
   }
 
   /* Make sure the icons rotate correctly for sort too */
-  .msa__sort-mobile .msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
+  .msa__sort-custom .msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
     opacity: 0;
     transform: translate(-50%, -50%) rotate(90deg);
   }
 
-  .msa__sort-mobile .msa__filter-btn[aria-expanded="true"] .msa__icon-minus {
+  .msa__sort-custom .msa__filter-btn[aria-expanded="true"] .msa__icon-minus {
     opacity: 1;
     transform: translate(-50%, -50%) rotate(0deg);
   }
@@ -950,6 +943,12 @@
 
 @media (max-width: 767.98px) {
   .msa__filter-btn {
-    border: none;
+    /* inherit border from desktop */
+  }
+}
+
+@media (min-width: 768px) {
+  .msa__sort-custom {
+    margin-left: auto;
   }
 }
