@@ -31,7 +31,7 @@
 
 
 /* component-grid */
-.grid {
+/* .grid {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 2rem;
@@ -188,7 +188,7 @@
 
   .grid--peek.slider .grid__item:first-of-type {
     margin-left: 1.5rem;
-  }
+  } */
 
   /* Fix to show some space at the end of our sliders in all browsers */
   /* .grid--peek.slider:after {
@@ -310,3 +310,8 @@ deferred-media {
   display: block;
 } */
 
+/* .hbspt-form .hs-form-eb766113-2a60-4090-bdfa-bef9302701d6 input[type="email"] {
+    background-color: transparent;
+    border-bottom: solid 1px;
+    width: 100%;
+} */

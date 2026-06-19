@@ -1,4 +1,5 @@
 {{- 'section-footer.css' | asset_url | stylesheet_tag -}}
+{{- 'myduke-footer-nl.css' | asset_url | stylesheet_tag -}}
 
 <style>
   .footer-menu-block-mobile-element {
@@ -245,14 +246,14 @@
               {%- endif -%}
             </div>
             {%- if section.settings.show_newsletter -%}
-              <div class="footer-block footer-subscribe-block">
-                {% if section.settings.newsletter_heading != blank %}
+              {% comment %} <div class="footer-block footer-subscribe-block"> {% endcomment %}
+                {% comment %} {% if section.settings.newsletter_heading != blank %}
                   <h3 class="footer-block__heading_newsletter body-extra-large">
                     {{- section.settings.newsletter_heading -}}
                   </h3>
-                {% endif %}
+                {% endif %} {% endcomment %}
 
-                {% form 'customer', class: 'footer-subscribe-form' %}
+                {% comment %} {% form 'customer', class: 'footer-subscribe-form' %}
                   <div class="custom-field field field--newsletter">
                     <input
                       type="hidden"
@@ -367,7 +368,30 @@
                       </span>
                     </div>
                   {% endif %}
-                {% endform %}
+                {% endform %} {% endcomment %}
+              {% comment %} </div> {% endcomment %}
+              <div class="myduke-hs-newsletter">
+                {% if section.settings.newsletter_heading != blank %}
+                  <h3 class="footer-block__heading_newsletter body-extra-large">
+                    {{- section.settings.newsletter_heading -}}
+                  </h3>
+                {% endif %}
+                <script charset="utf-8" type="text/javascript" src="//js-ap1.hsforms.net/forms/embed/v2.js"></script>
+                <script>
+                  hbspt.forms.create({
+                    portalId: "442968870",
+                    formId: "eb766113-2a60-4090-bdfa-bef9302701d6",
+                    region: "ap1",
+                    onFormReady: function($form) {
+                      var doc = $form[0].ownerDocument;
+                      var link = doc.createElement('link');
+                      link.rel = 'stylesheet';
+                      link.type = 'text/css';
+                      link.href = {{ 'myduke-hs-form.css' | asset_url | json }};
+                      doc.head.appendChild(link);
+                    }
+                  });
+                </script>
               </div>
             {%- endif -%}
           </div>

@@ -33,7 +33,7 @@
 
 .myduke-hero-secondary__content {
   max-width: var(--content-max-width, 526px);
-  margin: 0 auto 80px;
+  margin: 0 auto 50px;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;

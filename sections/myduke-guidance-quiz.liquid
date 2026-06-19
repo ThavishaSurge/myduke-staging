@@ -181,7 +181,7 @@
     font-family: var(--font-body-family);
     font-size: 18px;
     width: 100%;
-    max-width: 669px;
+    max-width: 900px;
     margin: 0 auto;
     line-height: 1.5;
     color: #fff;
@@ -1268,11 +1268,6 @@
           return;
         }
 
-        // Check for early exit on Q2
-        if (state.currentStep === 2 && state.answers.q2 === 'not_vape') {
-          calculateResults(sectionId, true);
-          return;
-        }
       }
 
       if (state.currentStep < state.totalSteps) {
