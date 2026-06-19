@@ -121,8 +121,16 @@
     {%- comment -%} ── Toolbar: Filters + Sort ── {%- endcomment -%}
     {%- if show_device_filter or show_type_filter or show_brand_filter or show_strength_filter or show_sort -%}
       <div class="msa__toolbar">
+        <button class="msa__mobile-toggle js-msa-mobile-toggle" aria-expanded="false">
+          <span class="msa__mobile-toggle-label">Filters & Sort</span>
+          <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
 
-        <div class="msa__filters">
+        <div class="msa__toolbar-inner">
+
+          <div class="msa__filters">
 
           {%- if show_device_filter -%}
             <div class="msa__filter-group" data-filter-group="device">
@@ -331,6 +339,7 @@
           </div>
         {%- endif -%}
 
+        </div>
       </div>
     {%- endif -%}
 
@@ -478,6 +487,21 @@
   var noResults = root.querySelector('#msa-no-results-' + sectionId);
   var countEl   = root.querySelector('#msa-results-count-' + sectionId);
   var pillsEl   = root.querySelector('#msa-active-filters-' + sectionId);
+
+  var mobileToggle = root.querySelector('.js-msa-mobile-toggle');
+  var toolbar = root.querySelector('.msa__toolbar');
+
+  if (mobileToggle && toolbar) {
+    mobileToggle.addEventListener('click', function() {
+      var isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', !isExpanded);
+      if (!isExpanded) {
+        toolbar.setAttribute('data-mobile-open', 'true');
+      } else {
+        toolbar.removeAttribute('data-mobile-open');
+      }
+    });
+  }
 
   // ── State ──
   var urlParams = new URLSearchParams(window.location.search);
