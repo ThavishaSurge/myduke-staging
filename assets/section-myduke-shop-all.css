@@ -88,9 +88,7 @@
   position: relative;
 }
 
-.msa__filter-btn {
-  border: 1px solid #111827;
-}
+
 
 @media (max-width: 767.98px) {
 
@@ -359,7 +357,7 @@
   gap: 8px;
   padding: 12px 20px;
   background: transparent;
-  border: none;
+  border: 1px solid var(--msa-border);
   border-radius: 0;
   font-family: var(--font-body-family);
   font-size: 14px;
