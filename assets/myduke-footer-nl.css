@@ -1,0 +1,214 @@
+/* ================================================================
+   myduke-footer-nl.css
+   Styles the HubSpot newsletter form (.myduke-hs-newsletter)
+   to visually match the native footer subscribe form.
+   Does not modify section-footer.css or base.css.
+   ================================================================ */
+
+/* ---------- Outer container — mirrors .footer-block.footer-subscribe-block ---------- */
+.myduke-hs-newsletter {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 2rem;
+}
+
+/* ---------- Form layout — mirrors .footer-subscribe-form ---------- */
+/* Target both common HubSpot v2 form class variants */
+.myduke-hs-newsletter form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  width: 100%;
+  gap: 0;
+}
+
+/* HubSpot sometimes wraps fields in fieldsets — flatten with display:contents
+   so .hs_email and .hs-submit participate directly in the form grid */
+.myduke-hs-newsletter form fieldset {
+  display: contents;
+}
+
+/* ---------- Strip default HubSpot labels and descriptions ---------- */
+.myduke-hs-newsletter form .hs-form-field > label,
+.myduke-hs-newsletter form .hs-field-desc {
+  display: none !important;
+}
+
+/* ---------- Email field — grid column 1 ---------- */
+.myduke-hs-newsletter form .hs_email {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.1rem solid rgb(var(--color-foreground));
+  padding-bottom: 1.1rem;
+  min-width: 0;
+}
+
+/* ---------- Submit field — grid column 2 ---------- */
+.myduke-hs-newsletter form .hs-submit {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.1rem;
+  padding-left: 1rem;
+  border-bottom: 0.1rem solid rgb(var(--color-foreground));
+}
+
+/* ---------- Error rollup and success message — full width below ---------- */
+.myduke-hs-newsletter form .hs_error_rollup {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  padding-top: 0.8rem;
+}
+
+.myduke-hs-newsletter form .submitted-message {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+/* Legal/consent container (GDPR) if present */
+.myduke-hs-newsletter form .legal-consent-container {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  padding-top: 1.2rem;
+}
+
+/* ---------- .input wrapper inside the email field ---------- */
+.myduke-hs-newsletter form .hs_email .input {
+  display: flex;
+  width: 100%;
+}
+
+/* ---------- Email input — mirrors custom-field + field--newsletter styles ---------- */
+.myduke-hs-newsletter form input[type="email"] {
+  width: 100% !important;
+  min-height: 2.2rem;
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: rgb(var(--color-foreground));
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  font-family: var(--font-body-family);
+  font-weight: var(--font-body-weight);
+  font-style: var(--font-body-style);
+  letter-spacing: 0.003em;
+  line-height: 1.33;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.myduke-hs-newsletter form input[type="email"]::placeholder {
+  color: rgb(var(--color-foreground-secondary));
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  font-family: var(--font-body-family);
+  font-weight: var(--font-body-weight);
+  letter-spacing: 0.003em;
+  line-height: 1.33;
+  opacity: 1;
+}
+
+.myduke-hs-newsletter form input[type="email"]:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.myduke-hs-newsletter form input[type="email"]:focus::placeholder {
+  opacity: 0;
+}
+
+/* ---------- Submit button — arrow icon matching .button--tertiary .button--simple ---------- */
+.myduke-hs-newsletter form .hs-submit .actions {
+  display: flex;
+  align-items: center;
+}
+
+/* The arrow SVG is rendered via CSS mask so it inherits the theme text color */
+.myduke-hs-newsletter form input[type="submit"] {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0;
+  cursor: pointer;
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  font-size: 0;
+  color: transparent !important;
+  background-color: rgb(var(--color-button-tertiary-text));
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M1.0278 8.04455L15.0738 8.04455M15.0738 8.04455L7.95312 15.1653M15.0738 8.04455L7.95312 0.923828' stroke='black' stroke-linecap='square'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M1.0278 8.04455L15.0738 8.04455M15.0738 8.04455L7.95312 15.1653M15.0738 8.04455L7.95312 0.923828' stroke='black' stroke-linecap='square'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+  transition: opacity var(--duration-default) ease;
+  box-shadow: none !important;
+}
+
+@media screen and (pointer: fine) {
+  .myduke-hs-newsletter form input[type="submit"]:hover {
+    opacity: var(--hover-opacity, 0.7);
+  }
+}
+
+/* ---------- Error messages — mirrors .form__message--error ---------- */
+.myduke-hs-newsletter form .hs-error-msgs {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.myduke-hs-newsletter form .hs-error-msg,
+.myduke-hs-newsletter form .hs-main-font-element label {
+  color: rgb(var(--color-error)) !important;
+  font-size: calc(var(--font-body-scale) * 1.2rem) !important;
+  font-family: var(--font-body-family) !important;
+  font-weight: var(--font-body-weight) !important;
+  display: block;
+  margin: 0;
+}
+
+/* ---------- Success / submitted message ---------- */
+.myduke-hs-newsletter form .submitted-message,
+.myduke-hs-newsletter .submitted-message {
+  color: rgb(var(--color-foreground));
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  font-family: var(--font-body-family);
+  font-weight: var(--font-body-weight);
+  line-height: 1.33;
+}
+
+/* ---------- Hover state on the bottom border ---------- */
+@media screen and (pointer: fine) {
+  .myduke-hs-newsletter form .hs_email:hover {
+    border-color: rgb(var(--color-foreground));
+  }
+}
+
+/* ---------- Override any HubSpot-injected iframe/wrapper styles ---------- */
+.myduke-hs-newsletter .hs-form-private,
+.myduke-hs-newsletter .hs-form {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
