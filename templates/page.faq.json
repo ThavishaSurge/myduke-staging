@@ -25,7 +25,7 @@
         "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
         "overlay_color": "#000000",
-        "overlay_opacity": 30,
+        "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
         "overlay_opacity_mobile": 0,
         "height_desktop": 80,
