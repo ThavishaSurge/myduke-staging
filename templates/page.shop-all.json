@@ -49,6 +49,18 @@
         "sign_in_link": ""
       }
     },
+    "myduke_search_bar_6EfCtz": {
+      "type": "myduke-search-bar",
+      "name": "Search",
+      "settings": {
+        "heading": "",
+        "placeholder": "Search products, brands, or strengths",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "margin_top_desktop": 48,
+        "margin_top_mobile": 40
+      }
+    },
     "myduke_section_shop_all_xAJxQA": {
       "type": "myduke-section-shop-all",
       "blocks": {
@@ -214,6 +226,7 @@
   "order": [
     "page_info",
     "myduke_hero_secondary_ALHhrd",
+    "myduke_search_bar_6EfCtz",
     "myduke_section_shop_all_xAJxQA",
     "myduke_guidance_quiz_He9ppk"
   ]
