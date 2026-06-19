@@ -192,7 +192,8 @@
   .msa__sort-select {
     width: 100%;
     height: 100%;
-    padding: 12px 36px 12px 42px; /* space for icon on left */
+    padding: 12px 36px 12px 42px;
+    /* space for icon on left */
     text-align: left;
   }
 }
@@ -256,6 +257,7 @@
 .msa__icon-plus {
   display: block;
 }
+
 .msa__icon-minus {
   display: none;
 }
@@ -263,6 +265,7 @@
 .msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
   display: none;
 }
+
 .msa__filter-btn[aria-expanded="true"] .msa__icon-minus {
   display: block;
 }
@@ -368,7 +371,6 @@
   cursor: pointer;
   outline: none;
   transition: border-color 0.2s;
-  min-width: 220px;
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
