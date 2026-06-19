@@ -14,3 +14,15 @@
 .myduke-cart-item-container .cart-item__details a{
     font-size: 2.4rem;
 }
+
+.myduke-cart-footer-container .cart__footer{
+    justify-content: center;
+}
+
+.myduke-cart-footer-container .cart__footer .shipping-bar {
+    background-color: rgb(33, 131, 128);
+}
+
+.free-shipping__progress {
+       background-color: #bfdbcf;
+}

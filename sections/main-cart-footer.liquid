@@ -2,8 +2,9 @@
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+{{ 'myduke-cart.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width{% if 1 != 1 %} is-empty{% endif %} customertype_withlogin" id="main-cart-footer" data-id="{{ section.id }}">
+<div class="page-width{% if 1 != 1 %} is-empty{% endif %} customertype_withlogin" id="main-cart-footer" data-id="{{ section.id }} myduke-cart-footer-container">
   <div>
     <div class="cart__footer">
       {%- if settings.show_cart_note -%}
