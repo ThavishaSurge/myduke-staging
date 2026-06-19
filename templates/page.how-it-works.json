@@ -137,6 +137,7 @@
         "step_slide_YyeUf3": {
           "type": "step_slide",
           "settings": {
+            "image": "shopify://shop_images/Shop_Treatment_-_cover_2.webp",
             "step_badge": "Step 3",
             "time_text": "24–48 hrs",
             "step_counter": "03 / 04",
@@ -144,19 +145,6 @@
             "subtitle": "Pharmacy-dispensed products",
             "checklist_items": "Receive your clinical plan\nTGA-compliant regulated products\nDispatched within 24–48 hrs",
             "check_color": "#ef6351"
-          }
-        },
-        "step_slide_YhmBWK": {
-          "type": "step_slide",
-          "settings": {
-            "image": "shopify://shop_images/Shop_Treatment_-_cover_2.webp",
-            "step_badge": "Step 1",
-            "time_text": "4 minutes",
-            "step_counter": "01 / 04",
-            "step_title": "Complete Assessment",
-            "subtitle": "Answer a short medical questionnaire",
-            "checklist_items": "Safe and secure\nPrivate and confidential\nDoctor reviewed",
-            "check_color": "#ffb703"
           }
         },
         "step_slide_rQiAmc": {
@@ -177,7 +165,6 @@
         "step_slide_NmNjWn",
         "step_slide_q7teKh",
         "step_slide_YyeUf3",
-        "step_slide_YhmBWK",
         "step_slide_rQiAmc"
       ],
       "name": "How It Works — Steps Slider",
