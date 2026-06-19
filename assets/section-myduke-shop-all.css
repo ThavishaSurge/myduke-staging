@@ -353,7 +353,7 @@
   gap: 8px;
   padding: 12px 20px;
   background: transparent;
-  border: none;
+  border: 1px solid var(--msa-border);
   border-radius: 0;
   font-family: var(--font-body-family);
   font-size: 14px;
@@ -504,8 +504,12 @@
 .msa__sort-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   margin-left: auto;
+  border: 1px solid var(--msa-border);
+  padding: 0 0 0 20px;
+  background: transparent;
+  transition: all 0.3s ease;
 }
 
 .msa__sort-label {
@@ -524,8 +528,8 @@
 .msa__sort-select {
   appearance: none;
   -webkit-appearance: none;
-  padding: 12px 40px 12px 20px;
-  border: 1px solid var(--msa-border);
+  padding: 12px 40px 12px 6px;
+  border: none;
   border-radius: 0;
   background: transparent;
   font-family: var(--font-body-family);
@@ -543,11 +547,12 @@
 
 .msa__filter-icons {
   position: relative;
-  bottom: 7px;
+  display: flex;
+  align-items: center;
 }
 
-.msa__sort-select:hover,
-.msa__sort-select:focus {
+.msa__sort-group.msa__sort-desktop:hover,
+.msa__sort-group.msa__sort-desktop:focus-within {
   border-color: var(--msa-teal);
   box-shadow: 0 4px 12px rgba(33, 131, 128, 0.08);
 }
