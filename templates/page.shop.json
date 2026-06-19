@@ -23,7 +23,6 @@
       "name": "Loading Screen",
       "settings": {
         "excluded_referrers": "/collections/, /shop-all, /products/, /by-product-type, /by-compatibility",
-        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "fallback_bg_color": "#226e65",
         "enable_overlay": true,
         "overlay_color": "#000000",
@@ -37,8 +36,8 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/image_8_1.jpg",
-        "background_image_mobile": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_2.webp",
+        "bg_position_desktop": "center",
+        "bg_position_mobile": "center",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
@@ -106,6 +105,24 @@
     "myduke_popular_products_7QXUXY": {
       "type": "myduke-popular-products",
       "blocks": {
+        "collection_item_ETGMbd": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_ehtmN4": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods-coils-new-website-1"
+          }
+        },
+        "collection_item_kaDhKa": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "nicotine-replacement-therapy"
+          }
+        },
         "collection_item_FyPNjp": {
           "type": "collection_item",
           "settings": {
@@ -115,7 +132,7 @@
         "collection_item_kUeHz6": {
           "type": "collection_item",
           "settings": {
-            "collection": "pods"
+            "collection": "devices-new-website"
           }
         },
         "collection_item_pAMNPi": {
@@ -127,19 +144,19 @@
         "collection_item_t8Qh3X": {
           "type": "collection_item",
           "settings": {
-            "collection": "zero-nicotine"
+            "collection": "freebase-e-liquids-new-website"
           }
         },
         "collection_item_R4iEkc": {
           "type": "collection_item",
           "settings": {
-            "collection": "nicotine"
+            "collection": "zero-nicotine-new-website"
           }
         },
         "collection_item_VVhghz": {
           "type": "collection_item",
           "settings": {
-            "collection": "nicotine-replacement-therapy"
+            "collection": "nicotine-salts-new-website"
           }
         },
         "collection_item_Aze4Fi": {
@@ -150,6 +167,9 @@
         }
       },
       "block_order": [
+        "collection_item_ETGMbd",
+        "collection_item_ehtmN4",
+        "collection_item_kaDhKa",
         "collection_item_FyPNjp",
         "collection_item_kUeHz6",
         "collection_item_pAMNPi",
@@ -373,7 +393,6 @@
         "heading": "Need Guidance?",
         "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
         "background_color": "#f4a261",
-        "background_image": "shopify://shop_images/cost-cal-bg.webp",
         "closed_cta_url": "",
         "closed_devices_url": "",
         "closed_pods_url": "",
