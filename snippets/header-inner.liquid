@@ -150,7 +150,7 @@
           color: #FFF;
           font-size: 10px;
         }
-        header.shopify-section-header-sticky .header__buttons a span span.CartCount{
+        header.shopify-section-header-sticky .header__buttons a span .cart-count-span{
           color:#fff;
         }
       </style>
@@ -166,7 +166,7 @@
           <span class="custom-cart-icon-scrolled">{{ section.settings.custom_cart_icon_svg }}</span>
         {%- endif -%}
         <span id="CartCount" class="CartCount" data-cart-count-bubble="">
-          <span data-cart-count=""></span>
+          <span class="cart-count-span" data-cart-count=""></span>
         </span>
       </a>
     {%- endif -%}
