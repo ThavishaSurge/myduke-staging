@@ -247,13 +247,13 @@
             </div>
             {%- if section.settings.show_newsletter -%}
               <div class="footer-block footer-subscribe-block">
-                {% if section.settings.newsletter_heading != blank %}
+                {% comment %} {% if section.settings.newsletter_heading != blank %}
                   <h3 class="footer-block__heading_newsletter body-extra-large">
                     {{- section.settings.newsletter_heading -}}
                   </h3>
-                {% endif %}
+                {% endif %} {% endcomment %}
 
-                {% form 'customer', class: 'footer-subscribe-form' %}
+                {% comment %} {% form 'customer', class: 'footer-subscribe-form' %}
                   <div class="custom-field field field--newsletter">
                     <input
                       type="hidden"
@@ -368,9 +368,14 @@
                       </span>
                     </div>
                   {% endif %}
-                {% endform %}
+                {% endform %} {% endcomment %}
               </div>
               <div class="myduke-hs-newsletter">
+                {% if section.settings.newsletter_heading != blank %}
+                  <h3 class="footer-block__heading_newsletter body-extra-large">
+                    {{- section.settings.newsletter_heading -}}
+                  </h3>
+                {% endif %}
                 <script charset="utf-8" type="text/javascript" src="//js-ap1.hsforms.net/forms/embed/v2.js"></script>
                 <script>
                   hbspt.forms.create({
