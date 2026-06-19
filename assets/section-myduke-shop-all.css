@@ -179,17 +179,18 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 10px 16px;
+  padding: 12px 4px;
   background: transparent;
-  border: 1px solid var(--msa-border);
+  border: none;
   font-family: var(--font-body-family);
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--msa-text);
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition: color 0.2s;
   white-space: nowrap;
   line-height: 1.4;
-  min-width: 220px;
+  min-width: 200px;
   max-width: 100%;
 }
 
@@ -201,18 +202,35 @@
 
 .msa__filter-btn:hover,
 .msa__filter-btn[aria-expanded="true"] {
-  border-color: var(--msa-teal);
-  background: var(--msa-bg-hover);
+  color: var(--msa-teal);
 }
 
-.msa__filter-btn .msa__caret {
+.msa__plus-minus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.2s;
   color: var(--msa-text-secondary);
+  transition: color 0.2s;
 }
 
-.msa__filter-btn[aria-expanded="true"] .msa__caret {
-  transform: rotate(180deg);
+.msa__filter-btn:hover .msa__plus-minus,
+.msa__filter-btn[aria-expanded="true"] .msa__plus-minus {
+  color: var(--msa-teal);
+}
+
+.msa__icon-plus {
+  display: block;
+}
+.msa__icon-minus {
+  display: none;
+}
+
+.msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
+  display: none;
+}
+.msa__filter-btn[aria-expanded="true"] .msa__icon-minus {
+  display: block;
 }
 
 /* ── Dropdown ── */
