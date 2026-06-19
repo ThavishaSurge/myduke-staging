@@ -86,7 +86,7 @@
     {% endif %}
 
     {% comment %} PRODUCTS STYLES {% endcomment %}
-    {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+    {{ 'section-main-product-bak.css' | asset_url | stylesheet_tag }}
     {%- if settings.quickview_show or settings.featured_quickadd_show -%}
       {{- 'quick-view.css' | asset_url | stylesheet_tag -}}
       <script src="{{ 'quick-view.js' | asset_url }}" defer="defer"></script>
