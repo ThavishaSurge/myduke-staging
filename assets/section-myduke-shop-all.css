@@ -220,7 +220,7 @@
 
   .msa__filter-btn {
     width: 100%;
-    border: none;
+    border: 1px solid #111827;
     border-radius: 0;
     padding: 18px 20px;
     background: transparent;
@@ -367,6 +367,7 @@
   line-height: 1.4;
   min-width: 180px;
   max-width: 100%;
+  border: none;
 }
 
 .msa__filter-btn-label {
@@ -908,6 +909,7 @@
     min-width: 0;
   }
 }
+
 /* Remove background color change on Sort extended */
 .msa__sort-mobile .msa__filter-btn[aria-expanded="true"] {
   background: transparent;
@@ -935,6 +937,7 @@
     opacity: 0;
     transform: translate(-50%, -50%) rotate(90deg);
   }
+
   .msa__sort-mobile .msa__filter-btn[aria-expanded="true"] .msa__icon-minus {
     opacity: 1;
     transform: translate(-50%, -50%) rotate(0deg);
