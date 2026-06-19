@@ -161,6 +161,10 @@
     align-items: stretch;
   }
 
+  .msa__filter-btn {
+    border: none;
+  }
+
   .msa__sort-select {
     width: 100%;
     height: 100%;
