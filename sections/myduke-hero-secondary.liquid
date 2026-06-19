@@ -5,6 +5,8 @@
   style="
     --bg-desktop: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 2000 }}'){% else %}none{% endif %};
     --bg-mobile: {% if section.settings.background_image_mobile != blank %}url('{{ section.settings.background_image_mobile | image_url: width: 1000 }}'){% elsif section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1000 }}'){% else %}none{% endif %};
+    --bg-position-desktop: {{ section.settings.bg_position_desktop | default: 'center' }};
+    --bg-position-mobile: {{ section.settings.bg_position_mobile | default: 'center' }};
     --overlay-color-desktop: {{ section.settings.overlay_color }};
     --overlay-opacity-desktop: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --overlay-color-mobile: {{ section.settings.overlay_color_mobile }};
@@ -369,6 +371,46 @@
       "type": "image_picker",
       "id": "background_image_mobile",
       "label": "Background Image (Mobile)"
+    },
+    {
+      "type": "select",
+      "id": "bg_position_desktop",
+      "label": "Background Position (Desktop)",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "bg_position_mobile",
+      "label": "Background Position (Mobile)",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
     },
     {
       "type": "color",

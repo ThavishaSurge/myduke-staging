@@ -4,7 +4,7 @@
   min-height: var(--height-desktop, 60vh);
   background-image: var(--bg-desktop);
   background-size: cover;
-  background-position: bottom;
+  background-position: var(--bg-position-desktop, center);
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
@@ -134,7 +134,7 @@
     min-height: var(--height-mobile, 60vh);
     padding: 180px 0px 0px 0px !important;
     background-image: var(--bg-mobile);
-    background-position: top;
+    background-position: var(--bg-position-mobile, center);
     justify-content: flex-end;
   }
 
