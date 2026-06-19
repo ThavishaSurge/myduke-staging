@@ -122,7 +122,67 @@
     {%- if show_device_filter or show_type_filter or show_brand_filter or show_strength_filter or show_sort -%}
       <div class="msa__toolbar">
 
-        <div class="msa__filters">
+        <div class="msa__mobile-toggles">
+          {%- if show_device_filter or show_type_filter or show_brand_filter or show_strength_filter -%}
+            <button class="msa__mobile-toggle js-msa-mobile-toggle" aria-expanded="false">
+              <span class="msa__mobile-toggle-inner">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                </svg>
+                <span>Filters</span>
+              </span>
+            </button>
+          {%- endif -%}
+
+          {%- if show_sort -%}
+            <div class="msa__sort-group">
+              <label class="msa__sort-label" for="msa-sort-{{ section.id }}">
+                {{ section.settings.sort_label | default: 'Sort by' }}
+              </label>
+              <div class="msa__sort-select-wrap">
+                <div class="msa__mobile-sort-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                  </svg>
+                </div>
+                <select class="msa__sort-select" id="msa-sort-{{ section.id }}" aria-label="Sort products">
+                  {%- if section.settings.show_sort_featured -%}
+                    <option value="manual">{{ section.settings.sort_featured_label | default: 'Featured' }}</option>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_best -%}
+                    <option value="best-selling">{{ section.settings.sort_best_label | default: 'Best Selling' }}</option>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_az -%}
+                    <option value="title-ascending">{{ section.settings.sort_az_label | default: 'A–Z' }}</option>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_za -%}
+                    <option value="title-descending">{{ section.settings.sort_za_label | default: 'Z–A' }}</option>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_price_asc -%}
+                    <option value="price-ascending">{{ section.settings.sort_price_asc_label | default: 'Price: Low → High' }}</option>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_price_desc -%}
+                    <option value="price-descending">{{ section.settings.sort_price_desc_label | default: 'Price: High → Low' }}</option>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_new -%}
+                    <option value="created-descending">{{ section.settings.sort_new_label | default: 'Newest' }}</option>
+                  {%- endif -%}
+                  {%- if section.settings.show_sort_old -%}
+                    <option value="created-ascending">{{ section.settings.sort_old_label | default: 'Oldest' }}</option>
+                  {%- endif -%}
+                </select>
+                <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="msa__toolbar-inner">
+
+          <div class="msa__filters">
 
           {%- if show_device_filter -%}
             <div class="msa__filter-group" data-filter-group="device">
@@ -290,47 +350,9 @@
             </div>
           {%- endif -%}
 
-        </div>
-
-        {%- if show_sort -%}
-          <div class="msa__sort-group">
-            <label class="msa__sort-label" for="msa-sort-{{ section.id }}">
-              {{ section.settings.sort_label | default: 'Sort by' }}
-            </label>
-            <div class="msa__sort-select-wrap">
-              <select class="msa__sort-select" id="msa-sort-{{ section.id }}" aria-label="Sort products">
-                {%- if section.settings.show_sort_featured -%}
-                  <option value="manual">{{ section.settings.sort_featured_label | default: 'Featured' }}</option>
-                {%- endif -%}
-                {%- if section.settings.show_sort_best -%}
-                  <option value="best-selling">{{ section.settings.sort_best_label | default: 'Best Selling' }}</option>
-                {%- endif -%}
-                {%- if section.settings.show_sort_az -%}
-                  <option value="title-ascending">{{ section.settings.sort_az_label | default: 'A–Z' }}</option>
-                {%- endif -%}
-                {%- if section.settings.show_sort_za -%}
-                  <option value="title-descending">{{ section.settings.sort_za_label | default: 'Z–A' }}</option>
-                {%- endif -%}
-                {%- if section.settings.show_sort_price_asc -%}
-                  <option value="price-ascending">{{ section.settings.sort_price_asc_label | default: 'Price: Low → High' }}</option>
-                {%- endif -%}
-                {%- if section.settings.show_sort_price_desc -%}
-                  <option value="price-descending">{{ section.settings.sort_price_desc_label | default: 'Price: High → Low' }}</option>
-                {%- endif -%}
-                {%- if section.settings.show_sort_new -%}
-                  <option value="created-descending">{{ section.settings.sort_new_label | default: 'Newest' }}</option>
-                {%- endif -%}
-                {%- if section.settings.show_sort_old -%}
-                  <option value="created-ascending">{{ section.settings.sort_old_label | default: 'Oldest' }}</option>
-                {%- endif -%}
-              </select>
-              <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
           </div>
-        {%- endif -%}
 
+        </div>
       </div>
     {%- endif -%}
 
@@ -478,6 +500,21 @@
   var noResults = root.querySelector('#msa-no-results-' + sectionId);
   var countEl   = root.querySelector('#msa-results-count-' + sectionId);
   var pillsEl   = root.querySelector('#msa-active-filters-' + sectionId);
+
+  var mobileToggle = root.querySelector('.js-msa-mobile-toggle');
+  var toolbar = root.querySelector('.msa__toolbar');
+
+  if (mobileToggle && toolbar) {
+    mobileToggle.addEventListener('click', function() {
+      var isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', !isExpanded);
+      if (!isExpanded) {
+        toolbar.setAttribute('data-mobile-open', 'true');
+      } else {
+        toolbar.removeAttribute('data-mobile-open');
+      }
+    });
+  }
 
   // ── State ──
   var urlParams = new URLSearchParams(window.location.search);

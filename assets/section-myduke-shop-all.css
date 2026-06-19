@@ -39,6 +39,48 @@
   flex-wrap: wrap;
 }
 
+/* ── Mobile Toggles ── */
+.msa__mobile-toggles {
+  display: contents;
+}
+
+.msa__mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: 1px solid var(--msa-border);
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--msa-text);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.msa__mobile-toggle-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.msa__mobile-toggle[aria-expanded="true"] {
+  background: var(--msa-text);
+  color: #fff;
+  border-color: var(--msa-text);
+}
+
+.msa__mobile-sort-icon {
+  display: none;
+}
+
+.msa__toolbar-inner {
+  display: flex;
+  flex: 1;
+}
+
 /* ── Filter button ── */
 .msa__filter-group {
   position: relative;
@@ -48,12 +90,47 @@
   .msa__toolbar {
     flex-direction: column;
     align-items: stretch;
+    gap: 16px;
+  }
+
+  .msa__mobile-toggles {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .msa__mobile-toggle {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Filter Accordion Drawer */
+  .msa__toolbar-inner {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .msa__toolbar[data-mobile-open="true"] .msa__toolbar-inner {
+    grid-template-rows: 1fr;
   }
 
   .msa__filters {
+    min-height: 0;
+    overflow: hidden;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+    gap: 12px;
+    padding-top: 0;
+    transition: padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .msa__toolbar[data-mobile-open="true"] .msa__filters {
+    padding-top: 4px;
   }
 
   .msa__filter-group,
@@ -61,16 +138,39 @@
     width: 100%;
   }
 
+  /* Sort button styling on mobile to match the filter button */
   .msa__sort-group {
     margin-left: 0;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
-  .msa__sort-select-wrap,
+  .msa__sort-label {
+    display: none;
+  }
+
+  .msa__sort-select-wrap {
+    height: 100%;
+    position: relative;
+  }
+
+  .msa__mobile-sort-icon {
+    display: flex;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--msa-text);
+  }
+
   .msa__sort-select {
     width: 100%;
+    height: 100%;
+    padding: 12px 36px 12px 42px; /* space for icon on left */
+    text-align: left;
   }
 }
 
