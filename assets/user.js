@@ -39,7 +39,7 @@ function loginAndRedirect(event, root_url) {
             const scriptExpiry = new Date(0);
             scriptExpiry.setUTCSeconds(res.result.script.scriptCreatedAt.seconds + 365*24*60*60);
             if (repeatsLeft > 0 && scriptExpiry > new Date()) {
-                window.location.href = 'https://myduke-staging.myshopify.com/collections/all';
+                window.location.href = 'https://myduke-staging.myshopify.com/pages/shop';
             }else{
               if (redirect_url){
                 window.location.href = redirect_url;
