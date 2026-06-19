@@ -855,7 +855,7 @@
     <!-- Results Card -->
     <div class="guidance-results-card" id="results-card-{{ section.id }}">
       <!-- Title -->
-      <p class="res-main-title">Your Recommended Setup</p>
+      {% comment %} <p class="res-main-title">Your Recommended Setup</p> {% endcomment %}
 
       <!-- Two-column layout -->
       <div class="res-columns">
@@ -863,14 +863,24 @@
         <div class="res-col-left">
           <!-- Your Recommended Setup -->
           <div class="res-section">
-            <p class="res-section-label">Your Recommended Setup</p>
+            <p class="res-section-label">Your Recommendation</p>
             <a href="#" class="res-device-card" id="res-device-card-{{ section.id }}">
               <div class="res-device-text-block">
                 <p class="res-device-title" id="res-category-name-{{ section.id }}"></p>
                 <p class="res-device-tagline" id="res-category-tagline-{{ section.id }}"></p>
               </div>
               <div class="res-device-arrow-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </div>
@@ -898,12 +908,14 @@
           </div>
 
           <!-- Personalised Insights -->
-          <div class="res-section">
-            <p class="res-section-label">Personalised Insights</p>
-            <div id="res-insights-{{ section.id }}">
-              <!-- dynamic text paragraphs -->
+          {% comment %}
+            <div class="res-section">
+              <p class="res-section-label">Personalised Insights</p>
+              <div id="res-insights-{{ section.id }}">
+                <!-- dynamic text paragraphs -->
+              </div>
             </div>
-          </div>
+          {% endcomment %}
         </div>
 
         <!-- RIGHT COLUMN -->
