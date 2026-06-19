@@ -59,61 +59,6 @@
       endif
     -%}
     {% render 'header-account', button_type: section.settings.account_button_type, edge_right: account_edge_right %}
-
-    {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
-      {% render 'button',
-        btn_label: section.settings.additional_button_label,
-        btn_style: section.settings.additional_button_style,
-        btn_link: section.settings.additional_button_link,
-        class: 'header__additional-btn header-overlay-transition mydk-header-shop-btn'
-      %}
-    {%- endif -%}
-
-    {% comment %} {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
-      <style>
-        .header__custom-account-icon {
-          display: flex;
-          align-items: center;
-          margin-right: 1.5rem;
-          color: inherit;
-        }
-        .custom-account-icon-initial {
-          display: flex;
-        }
-        .custom-account-icon-scrolled {
-          display: none;
-        }
-        .shopify-section-header-sticky .custom-account-icon-initial {
-          display: none;
-        }
-        .shopify-section-header-sticky .custom-account-icon-scrolled {
-          display: flex;
-        }
-      </style>
-      <a
-        href="{{ section.settings.custom_account_icon_link }}"
-        class="header__custom-account-icon header-overlay-transition"
-      >
-        {%- if section.settings.custom_account_icon_scrolled_svg != blank -%}
-          <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
-          <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_scrolled_svg }}</span>
-        {%- else -%}
-          <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
-          <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_svg }}</span>
-        {%- endif -%}
-      </a>
-    {%- endif -%} {% endcomment %}
-
-    {%- if section.settings.enable_additional_button_2 == true
-      and section.settings.additional_button_2_label != blank
-    -%}
-      {% render 'button',
-        btn_label: section.settings.additional_button_2_label,
-        btn_style: section.settings.additional_button_2_style,
-        btn_link: section.settings.additional_button_2_link,
-        class: 'header__additional-btn header__additional-btn--2 header-overlay-transition mydk-header-getstarted-btn'
-      %}
-    {%- endif -%}
     {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
       <style>
         .header__custom-account-icon {
@@ -205,6 +150,61 @@
         </span>
       </a>
     {%- endif -%}
+    {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
+      {% render 'button',
+        btn_label: section.settings.additional_button_label,
+        btn_style: section.settings.additional_button_style,
+        btn_link: section.settings.additional_button_link,
+        class: 'header__additional-btn header-overlay-transition mydk-header-shop-btn'
+      %}
+    {%- endif -%}
+
+    {% comment %} {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
+      <style>
+        .header__custom-account-icon {
+          display: flex;
+          align-items: center;
+          margin-right: 1.5rem;
+          color: inherit;
+        }
+        .custom-account-icon-initial {
+          display: flex;
+        }
+        .custom-account-icon-scrolled {
+          display: none;
+        }
+        .shopify-section-header-sticky .custom-account-icon-initial {
+          display: none;
+        }
+        .shopify-section-header-sticky .custom-account-icon-scrolled {
+          display: flex;
+        }
+      </style>
+      <a
+        href="{{ section.settings.custom_account_icon_link }}"
+        class="header__custom-account-icon header-overlay-transition"
+      >
+        {%- if section.settings.custom_account_icon_scrolled_svg != blank -%}
+          <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
+          <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_scrolled_svg }}</span>
+        {%- else -%}
+          <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
+          <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_svg }}</span>
+        {%- endif -%}
+      </a>
+    {%- endif -%} {% endcomment %}
+
+    {%- if section.settings.enable_additional_button_2 == true
+      and section.settings.additional_button_2_label != blank
+    -%}
+      {% render 'button',
+        btn_label: section.settings.additional_button_2_label,
+        btn_style: section.settings.additional_button_2_style,
+        btn_link: section.settings.additional_button_2_link,
+        class: 'header__additional-btn header__additional-btn--2 header-overlay-transition mydk-header-getstarted-btn'
+      %}
+    {%- endif -%}
+    
     {% render 'header-color-scheme', section_obj: section %}
 
     {% render 'modal-region-selector', section_obj: section, class: 'header__region', modal_location: 'header' %}
