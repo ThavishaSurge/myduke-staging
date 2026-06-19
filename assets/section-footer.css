@@ -452,7 +452,7 @@
 }
 
 .footer .footer-block__heading {
-  font-size: calc(var(--font-body-scale) * 1.2rem);
+  font-size: calc(var(--font-body-scale) * 1.6rem);
   font-family: var(--font-body-family);
   font-weight: calc(var(--font-body-weight, 400) + 100);
   line-height: var(--font-body-line-height);
