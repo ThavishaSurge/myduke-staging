@@ -351,7 +351,7 @@
         "heading_tag": "h2",
         "description_richtext": "<p>Prefer a specific brand? </p><p>Shop by brand to quickly find the products you're familiar with and trust.</p>",
         "show_divider": true,
-        "shop_all_label": "Shop All Brands",
+        "shop_all_label": "",
         "shop_all_url": "",
         "shop_all_new_tab": false,
         "dynamic_filter_urls": true,
