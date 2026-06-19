@@ -1603,3 +1603,7 @@ a.product__text {
     border: none;
   }
 }
+
+.template-product .product {
+    display: flex;
+}
