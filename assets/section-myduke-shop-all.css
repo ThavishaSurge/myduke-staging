@@ -377,6 +377,11 @@
   overflow: hidden;
 }
 
+.msa__filter-icons {
+  position: relative;
+  bottom: 7px;
+}
+
 .msa__sort-select:hover,
 .msa__sort-select:focus {
   border-color: var(--msa-teal);
