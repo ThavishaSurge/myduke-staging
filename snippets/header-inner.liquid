@@ -113,6 +113,40 @@
         {%- endif -%}
       </a>
     {%- endif -%}
+    {%- if section.settings.custom_cart_icon_svg != blank and section.settings.custom_cart_icon_link != blank -%}
+      <style>
+        .header__custom-cart-icon {
+          display: flex;
+          align-items: center;
+          margin-right: 1.5rem;
+          color: inherit;
+        }
+        .custom-cart-icon-initial {
+          display: flex;
+        }
+        .custom-cart-icon-scrolled {
+          display: none;
+        }
+        .shopify-section-header-sticky .custom-cart-icon-initial {
+          display: none;
+        }
+        .shopify-section-header-sticky .custom-cart-icon-scrolled {
+          display: flex;
+        }
+      </style>
+      <a
+        href="{{ section.settings.custom_cart_icon_link }}"
+        class="header__custom-cart-icon header-overlay-transition mydk-header-cart-icon"
+      >
+        {%- if section.settings.custom_cart_icon_scrolled_svg != blank -%}
+          <span class="custom-cart-icon-initial">{{ section.settings.custom_cart_icon_svg }}</span>
+          <span class="custom-cart-icon-scrolled">{{ section.settings.custom_cart_icon_scrolled_svg }}</span>
+        {%- else -%}
+          <span class="custom-cart-icon-initial">{{ section.settings.custom_cart_icon_svg }}</span>
+          <span class="custom-cart-icon-scrolled">{{ section.settings.custom_cart_icon_svg }}</span>
+        {%- endif -%}
+      </a>
+    {%- endif -%}
     {% render 'header-color-scheme', section_obj: section %}
 
     {% render 'modal-region-selector', section_obj: section, class: 'header__region', modal_location: 'header' %}
