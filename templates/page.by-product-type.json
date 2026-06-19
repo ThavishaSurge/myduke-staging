@@ -319,6 +319,7 @@
         "heading": "Need Guidance?",
         "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
         "background_color": "#f4a261",
+        "background_image": "shopify://shop_images/cost-cal-bg.jpg",
         "closed_cta_url": "shopify://collections/need-guidance-closed-systems",
         "closed_devices_url": "shopify://collections/need-guidance-closed-systems",
         "closed_pods_url": "shopify://collections/pods",
