@@ -7,7 +7,7 @@
   background-position: top;
   background-repeat: no-repeat;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   padding: 80px 25px !important;
   margin-top: -140px;
 }
