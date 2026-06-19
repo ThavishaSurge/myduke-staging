@@ -6850,7 +6850,8 @@ header.shopify-section-header-sticky .header__buttons a {
   border: 1px solid #264653;
 }
 
-header.shopify-section-header-sticky .header__custom-account-icon {
+header.shopify-section-header-sticky .header__custom-account-icon,
+header.shopify-section-header-sticky .header__custom-cart-icon{
   border: 0px!important;
 }
 
