@@ -28,7 +28,7 @@
   gap: 16px;
   flex-wrap: wrap;
   padding: 0 0 24px;
-  border-bottom: 1px solid var(--msa-border);
+  border-bottom: none;
   margin-bottom: 24px;
 }
 
@@ -88,6 +88,7 @@
 }
 
 @media (max-width: 767.98px) {
+
   /* ── Toolbar wrapper ── */
   .msa__toolbar {
     flex-direction: column;
@@ -107,19 +108,18 @@
     gap: 12px;
   }
 
-  /* ── Filters toggle button: dark filled pill ── */
+  /* ── Filters toggle button ── */
   .msa__mobile-toggle {
     display: flex;
-    border-radius: 100px;
-    background: #111827;
-    color: #fff;
-    border: 1px solid #111827;
+    border-radius: 0;
+    background: transparent;
+    color: var(--msa-text);
+    border: 1px solid var(--msa-border);
     font-size: 15px;
     font-weight: 500;
     padding: 14px 20px;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(17, 24, 39, 0.15);
   }
 
   .msa__mobile-toggle[aria-expanded="true"] {
@@ -129,18 +129,18 @@
     box-shadow: 0 4px 12px rgba(33, 131, 128, 0.2);
   }
 
-  /* ── Sort group: bordered pill, sits to the right ── */
+  /* ── Sort group: sits to the right ── */
   .msa__sort-group {
     margin-left: 0;
     flex: unset;
     flex-direction: column;
     align-items: stretch;
     border: 1px solid var(--msa-border);
-    border-radius: 100px;
+    border-radius: 0;
     background: #fff;
     transition: all 0.3s ease;
   }
-  
+
   .msa__sort-group:hover,
   .msa__sort-group:focus-within {
     border-color: var(--msa-teal);
@@ -161,11 +161,12 @@
   .msa__sort-select {
     width: 100%;
     height: 100%;
-    padding: 14px 36px 14px 16px;
+    padding: 0px;
     border: none;
     border-radius: 100px;
     font-size: 14px;
     font-weight: 500;
+    text-align: center;
     background: transparent;
     appearance: none;
     -webkit-appearance: none;
@@ -274,7 +275,8 @@
   .msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
     opacity: 0;
     transform: translate(-50%, -50%) rotate(90deg);
-    display: block; /* override base display:none */
+    display: block;
+    /* override base display:none */
   }
 
   .msa__filter-btn[aria-expanded="true"] .msa__icon-minus {
@@ -301,7 +303,8 @@
 
   .msa__filter-group .msa__dropdown-inner {
     overflow: hidden;
-    padding: 0; /* padding handled inside items to prevent jumping */
+    padding: 0;
+    /* padding handled inside items to prevent jumping */
     max-height: none;
   }
 
@@ -350,8 +353,8 @@
   gap: 8px;
   padding: 12px 20px;
   background: transparent;
-  border: 1px solid var(--msa-border);
-  border-radius: 100px;
+  border: none;
+  border-radius: 0;
   font-family: var(--font-body-family);
   font-size: 14px;
   font-weight: 500;
@@ -406,20 +409,17 @@
 .msa__filter-btn:hover .msa__plus-minus {
   color: var(--msa-teal);
 }
+
 .msa__filter-btn[aria-expanded="true"] .msa__plus-minus {
   color: #fff;
 }
 
 .msa__icon-plus {
   display: block;
-  position: relative;
-  top: 7px;
 }
 
 .msa__icon-minus {
   display: none;
-  position: relative;
-  top: 7px;
 }
 
 .msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
@@ -439,7 +439,7 @@
   min-width: 220px;
   background: #fff;
   border: 1px solid var(--msa-border);
-  border-radius: 16px;
+  border-radius: 0;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
   z-index: 100;
   overflow: hidden;
@@ -526,7 +526,7 @@
   -webkit-appearance: none;
   padding: 12px 40px 12px 20px;
   border: 1px solid var(--msa-border);
-  border-radius: 100px;
+  border-radius: 0;
   background: transparent;
   font-family: var(--font-body-family);
   font-size: 14px;
@@ -575,7 +575,7 @@
   background: var(--msa-teal);
   color: #fff;
   border: none;
-  border-radius: 100px;
+  border-radius: 0;
   font-family: var(--font-body-family);
   font-size: 13px;
   font-weight: 500;
