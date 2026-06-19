@@ -24,6 +24,7 @@
 .msa__toolbar {
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
@@ -94,7 +95,7 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    border-bottom: 1px solid var(--msa-border);
+    border-bottom: none;
     padding-bottom: 0;
     margin-bottom: 16px;
   }
@@ -769,44 +770,54 @@
   font-size: 15px;
   border: 1px dashed var(--msa-border);
 }
+
 /* --- New Mobile Overrides for Shop All --- */
-.msa__sort-mobile { display: none; }
+.msa__sort-mobile {
+  display: none;
+}
 
 @media (max-width: 767.98px) {
-  .msa__sort-desktop { display: none !important; }
-  .msa__sort-mobile { display: block; }
+  .msa__sort-desktop {
+    display: none !important;
+  }
+
+  .msa__sort-mobile {
+    display: block;
+  }
 
   /* Redefine the mobile toggles container to be stacked instead of side-by-side */
   .msa__mobile-toggles {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-bottom: 0;
-    gap: 0;
-    border-top: 1px solid var(--msa-border);
+    gap: 12px;
+    border-top: none;
   }
 
   /* Style the mobile filters button to match the accordions */
   .msa__mobile-toggle {
-    display: flex;
+    display: inline-flex;
     border-radius: 0;
     background: transparent;
     color: var(--msa-text);
     border: none;
-    border-bottom: 1px solid var(--msa-border);
     font-size: 15px;
     font-weight: 400;
-    padding: 18px 20px;
-    justify-content: space-between;
+    padding: 14px 0;
+    justify-content: flex-start;
     align-items: center;
+    gap: 8px;
     transition: none;
-    width: 100%;
+    width: auto;
   }
 
   .msa__mobile-toggle[aria-expanded="true"] {
     background: transparent;
     color: var(--msa-text);
-    border-color: var(--msa-border);
+    border: none;
     box-shadow: none;
   }
 
@@ -819,12 +830,12 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .msa__mobile-toggle[aria-expanded="true"] .msa__icon-plus {
     opacity: 0;
     transform: translate(-50%, -50%) rotate(90deg);
   }
-  
+
   .msa__mobile-toggle[aria-expanded="true"] .msa__icon-minus {
     opacity: 1;
     transform: translate(-50%, -50%) rotate(0deg);
@@ -832,6 +843,49 @@
 
   /* Ensure sort-mobile has a border at the bottom */
   .msa__sort-mobile {
-    border-bottom: 1px solid var(--msa-border);
+    border: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .msa__sort-mobile .msa__filter-btn {
+    display: inline-flex;
+    width: auto;
+    padding: 14px 0;
+    border: none;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .msa__sort-mobile .msa__dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: auto;
+    width: max-content;
+    min-width: 200px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--msa-border);
+    z-index: 100;
+    /* Reset inline accordion styles for the floating dropdown */
+    display: none !important; 
+    grid-template-rows: none;
+  }
+  
+  .msa__sort-mobile .msa__dropdown[data-open] {
+    display: block !important;
+    animation: msaDropdownIn 0.15s ease;
+  }
+  
+  .msa__sort-mobile .msa__dropdown-inner {
+    padding: 6px 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .msa__sort-mobile.msa__filter-group {
+    border-top: none;
   }
 }
