@@ -940,3 +940,9 @@
     transform: translate(-50%, -50%) rotate(0deg);
   }
 }
+
+@media (max-width: 767.98px) {
+  .msa__filter-btn {
+    border: none;
+  }
+}
