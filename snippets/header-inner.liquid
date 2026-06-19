@@ -118,6 +118,7 @@
       <style>
         .header__custom-cart-icon {
           display: flex;
+          position:relative;
           align-items: center;
           margin-right: 1.5rem;
           color: inherit;
@@ -133,6 +134,21 @@
         }
         .shopify-section-header-sticky .custom-cart-icon-scrolled {
           display: flex;
+        }
+        .CartCount{
+          background-color: rgba(38,70,83);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: -6px;
+          top: -4px;
+          font-weight: bold;
+          border-radius: 50%;
+          min-width: 15px;
+          height: 15px;
+          color: #FFF;
+          font-size: 10px;
         }
       </style>
       <a id="carttop"
