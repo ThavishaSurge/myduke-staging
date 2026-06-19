@@ -319,99 +319,15 @@
     "myduke_vendor_logos_cjVNAy": {
       "type": "myduke-vendor-logos",
       "blocks": {
-        "vendor_zmLJNi": {
+        "vendor_rnAWLe": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "veev"
-          }
-        },
-        "vendor_Lqn6YT": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "lula"
-          }
-        },
-        "vendor_LLmB6t": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
-          }
-        },
-        "vendor_KnrVeR": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "nicorette"
-          }
-        },
-        "vendor_B9yLNf": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "wild"
-          }
-        },
-        "vendor_MkQXKx": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "smok"
-          }
-        },
-        "vendor_x8fxne": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "phix"
-          }
-        },
-        "vendor_DpjpG6": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "ozpod"
-          }
-        },
-        "vendor_NUqtHM": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "lanavape"
-          }
-        },
-        "vendor_VA3YRm": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "relx"
-          }
-        },
-        "vendor_XYAagr": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "vapure"
-          }
-        },
-        "vendor_XXXHdn": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "rift-pro"
-          }
-        },
-        "vendor_bQabzM": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "blu"
+            "vendor_ref": ""
           }
         }
       },
       "block_order": [
-        "vendor_zmLJNi",
-        "vendor_Lqn6YT",
-        "vendor_LLmB6t",
-        "vendor_KnrVeR",
-        "vendor_B9yLNf",
-        "vendor_MkQXKx",
-        "vendor_x8fxne",
-        "vendor_DpjpG6",
-        "vendor_NUqtHM",
-        "vendor_VA3YRm",
-        "vendor_XYAagr",
-        "vendor_XXXHdn",
-        "vendor_bQabzM"
+        "vendor_rnAWLe"
       ],
       "name": "Vendor Logos (MyDuke)",
       "settings": {
