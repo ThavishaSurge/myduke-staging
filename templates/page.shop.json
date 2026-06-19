@@ -39,7 +39,7 @@
       "settings": {
         "background_image": "shopify://shop_images/image_8_1.jpg",
         "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.webp",
-        "bg_position_desktop": "bottom",
+        "bg_position_desktop": "center",
         "bg_position_mobile": "bottom",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
