@@ -22,7 +22,7 @@
       "type": "myduke-loading-screen",
       "name": "Loading Screen",
       "settings": {
-        "excluded_referrers": "collections/all-products, pages/shop-all",
+        "excluded_referrers": "/collections/, /shop-all/, /products/",
         "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "fallback_bg_color": "#226e65",
         "enable_overlay": true,
