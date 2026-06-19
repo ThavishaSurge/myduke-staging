@@ -134,7 +134,7 @@
     min-height: var(--height-mobile, 60vh);
     padding: 180px 0px 0px 0px !important;
     background-image: var(--bg-mobile);
-    background-position: 0px;
+    background-position: top;
     justify-content: flex-end;
   }
 
