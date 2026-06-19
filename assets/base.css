@@ -1322,7 +1322,7 @@ details>* {
   }
 
   .button--secondary:hover .button__label {
-    /* color: rgb(var(--color-button-secondary-text-hover)); */
+    color: rgb(var(--color-button-secondary-text-hover));
   }
 }
 
@@ -6851,8 +6851,8 @@ header.shopify-section-header-sticky .header__buttons a {
 }
 
 header.shopify-section-header-sticky .header__custom-account-icon,
-header.shopify-section-header-sticky .header__custom-cart-icon {
-  border: 0px !important;
+header.shopify-section-header-sticky .header__custom-cart-icon{
+  border: 0px!important;
 }
 
 header.shopify-section-header-sticky .header__buttons a span {
