@@ -371,7 +371,6 @@
   line-height: 1.4;
   min-width: 180px;
   max-width: 100%;
-  border: 1px solid #111827;
 }
 
 .msa__filter-btn-label {
@@ -781,9 +780,9 @@
 
 
 @media (max-width: 767.98px) {
-  
 
-  
+
+
 
   /* Redefine the mobile toggles container to be stacked instead of side-by-side */
   .msa__mobile-toggles {
@@ -947,6 +946,7 @@
     /* inherit border from desktop */
   }
 }
+
 @media (min-width: 768px) {
   .msa__sort-custom {
     margin-left: auto;
