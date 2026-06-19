@@ -90,7 +90,8 @@
                 assign vendor_logo = vendor_obj.logo
 
                 if section.settings.dynamic_filter_urls
-                  assign vendor_url = '/pages/shop-all?brand=' | append: vendor_name
+                  assign vendor_handle = vendor_name | handleize
+                  assign vendor_url = '/pages/shop-all?brand=' | append: vendor_handle
                 else
                   assign vendor_url = vendor_obj.url
                 endif
