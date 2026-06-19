@@ -166,7 +166,7 @@
           <span class="custom-cart-icon-scrolled">{{ section.settings.custom_cart_icon_svg }}</span>
         {%- endif -%}
         <span id="CartCount" class="CartCount" data-cart-count-bubble="">
-          <span class="cart-count-span" data-cart-count=""></span>
+          <span class="cart-count-span" data-cart-count="">{{ cart.item_count }}</span>
         </span>
       </a>
     {%- endif -%}
