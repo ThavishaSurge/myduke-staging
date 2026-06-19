@@ -319,14 +319,98 @@
     "myduke_vendor_logos_cjVNAy": {
       "type": "myduke-vendor-logos",
       "blocks": {
+        "vendor_iX6NqC": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "blu"
+          }
+        },
+        "vendor_DwTPpH": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "rift-pro"
+          }
+        },
+        "vendor_gaE7KN": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "vapure"
+          }
+        },
+        "vendor_pm6CVN": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "relx"
+          }
+        },
+        "vendor_renaWB": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "lanavape"
+          }
+        },
+        "vendor_MDkYar": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "ozpod"
+          }
+        },
+        "vendor_L6yzma": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "phix"
+          }
+        },
+        "vendor_A7BmMr": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "smok"
+          }
+        },
+        "vendor_yEfTDJ": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "wild-by-instinct"
+          }
+        },
+        "vendor_rt4Qb3": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "alt-x"
+          }
+        },
+        "vendor_VM4PBR": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "nicorette"
+          }
+        },
+        "vendor_Uy7Mwj": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "chosen"
+          }
+        },
         "vendor_rnAWLe": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": ""
+            "vendor_ref": "lula"
           }
         }
       },
       "block_order": [
+        "vendor_iX6NqC",
+        "vendor_DwTPpH",
+        "vendor_gaE7KN",
+        "vendor_pm6CVN",
+        "vendor_renaWB",
+        "vendor_MDkYar",
+        "vendor_L6yzma",
+        "vendor_A7BmMr",
+        "vendor_yEfTDJ",
+        "vendor_rt4Qb3",
+        "vendor_VM4PBR",
+        "vendor_Uy7Mwj",
         "vendor_rnAWLe"
       ],
       "name": "Vendor Logos (MyDuke)",
