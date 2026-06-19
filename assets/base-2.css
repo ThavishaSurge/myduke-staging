@@ -1,6 +1,5 @@
-/* 
 
-.grid-auto-flow {
+/* .grid-auto-flow {
   display: grid;
   grid-auto-flow: column;
 }
@@ -28,11 +27,11 @@
 
 .overflow-hidden {
   overflow: hidden;
-}
+} */
 
 
 /* component-grid */
-.grid {
+/* .grid {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 2rem;
@@ -189,10 +188,10 @@
 
   .grid--peek.slider .grid__item:first-of-type {
     margin-left: 1.5rem;
-  }
+  } */
 
   /* Fix to show some space at the end of our sliders in all browsers */
-  .grid--peek.slider:after {
+  /* .grid--peek.slider:after {
     margin-left: calc(-1 * var(--grid-mobile-horizontal-spacing));
   }
 
@@ -241,10 +240,10 @@
   .grid--1-col-tablet-down.grid--peek .grid__item {
     width: calc(100% - var(--grid-desktop-horizontal-spacing) - 3rem);
   }
-}
+} */
 
 /* component-media */
-.media {
+/* .media {
   display: block;
   background-color: rgba(var(--color-foreground), 0.1);
   position: relative;
@@ -309,5 +308,5 @@
 
 deferred-media {
   display: block;
-}
- */
+} */
+
