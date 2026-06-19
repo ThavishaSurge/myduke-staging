@@ -371,9 +371,24 @@
       "name": "Guidance Quiz",
       "settings": {
         "heading": "Need Guidance?",
-        "subheading": "Take our quick quiz to find out which nicotine strength is right for you.",
+        "subheading": "Take our quick quiz to help identify nicotine replacement options that may be suitable for you.\nThis assessment is provided as a guide only. Individual nicotine requirements may vary, and a healthcare professional can help determine the most appropriate treatment option for you.",
         "background_color": "#f4a261",
-        "background_image": "shopify://shop_images/cost-cal-bg.webp"
+        "background_image": "shopify://shop_images/cost-cal-bg.webp",
+        "closed_cta_url": "",
+        "closed_devices_url": "",
+        "closed_pods_url": "",
+        "hybrid_cta_url": "",
+        "hybrid_devices_url": "",
+        "hybrid_eliquid_url": "",
+        "hybrid_pods_url": "",
+        "open_cta_url": "",
+        "open_devices_url": "",
+        "open_eliquid_url": "",
+        "open_coils_url": "",
+        "nrt_cta_url": "",
+        "nrt_gum_url": "",
+        "nrt_lozenges_url": "",
+        "nrt_spray_url": ""
       }
     }
   },
