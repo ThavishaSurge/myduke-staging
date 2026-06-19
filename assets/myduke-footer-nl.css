@@ -1,215 +1,22 @@
 /* ================================================================
    myduke-footer-nl.css
-   Styles the HubSpot newsletter form (.myduke-hs-newsletter)
-   to match the Figma footer newsletter design.
-   Does not modify section-footer.css or base.css.
-
-   Figma design values:
-   - Heading:       Manrope Regular 22px / #218380 (fern)
-   - Border:        1px solid #264653 (olive), pb 12px, gap 10px
-   - Input text:    Manrope Regular 14px / #264653 / tracking 0.042px
-   - Arrow:         16×16px / #264653 (inside input row via ::after)
-   - Submit button: bg #218380, white, Instrument Sans Medium 14px,
-                    capitalize, min-h 40px, px 36px py 9.5px
-   - Container gap: ~20px between heading / form / button
+   Parent-page styles for .myduke-hs-newsletter wrapper.
+   The form itself lives inside a HubSpot iframe — its styles are
+   in myduke-hs-form.css, injected via the onFormReady callback.
    ================================================================ */
 
-/* ---------- Outer container ---------- */
+/* Outer container — matches .footer-block.footer-subscribe-block sizing */
 .myduke-hs-newsletter {
   width: 100%;
   max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
 }
 
-/* ---------- Reset any HubSpot wrapper defaults ---------- */
-.myduke-hs-newsletter .hs-form-private,
-.myduke-hs-newsletter .hs-form {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  max-width: none !important;
-}
-
-/* ---------- Form: flex column, matches the gap between form row & submit ---------- */
-.myduke-hs-newsletter form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  width: 100%;
-}
-
-/* HubSpot sometimes wraps fields in fieldsets — flatten them */
-.myduke-hs-newsletter form fieldset {
-  display: contents;
-}
-
-/* ---------- Hide HubSpot labels and field descriptions ---------- */
-.myduke-hs-newsletter form .hs-form-field > label,
-.myduke-hs-newsletter form .hs-field-desc {
-  display: none !important;
-}
-
-/* ---------- Email field row — matches Figma HorizontalBorder ---------- */
-/* flex row: input takes remaining space, ::after pseudo adds the arrow */
-.myduke-hs-newsletter form .hs_email {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #264653;
-  position: relative;
-}
-
-/* Arrow icon — 16×16 at the end of the row, colour #264653 via mask */
-.myduke-hs-newsletter form .hs_email::after {
-  content: '';
-  display: block;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  background-color: #264653;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M1.0278 8.04455L15.0738 8.04455M15.0738 8.04455L7.95312 15.1653M15.0738 8.04455L7.95312 0.923828' stroke='black' stroke-linecap='square'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M1.0278 8.04455L15.0738 8.04455M15.0738 8.04455L7.95312 15.1653M15.0738 8.04455L7.95312 0.923828' stroke='black' stroke-linecap='square'/%3E%3C/svg%3E");
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-mode: alpha;
-  mask-mode: alpha;
-}
-
-/* ---------- .input wrapper inside the email field ---------- */
-.myduke-hs-newsletter form .hs_email .input {
-  flex: 1 1 auto;
-  min-width: 0;
-  display: flex;
-}
-
-/* ---------- Email input — Manrope Regular 14px / #264653 / tracking 0.042px ---------- */
-.myduke-hs-newsletter form input[type="email"] {
+/* The iframe HubSpot creates — make it fill the container width */
+.myduke-hs-newsletter iframe,
+.myduke-hs-newsletter .hbspt-form {
   width: 100% !important;
-  min-height: 22px;
-  padding: 0 !important;
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  outline: none !important;
-  box-shadow: none !important;
-  -webkit-appearance: none;
-  appearance: none;
-  color: #264653;
-  font-family: 'Manrope', var(--font-body-family), sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.042px;
-}
-
-.myduke-hs-newsletter form input[type="email"]::placeholder {
-  color: #264653;
-  font-family: 'Manrope', var(--font-body-family), sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.042px;
-  line-height: normal;
-  opacity: 1;
-}
-
-.myduke-hs-newsletter form input[type="email"]:focus {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.myduke-hs-newsletter form input[type="email"]:focus::placeholder {
-  opacity: 0.5;
-}
-
-/* ---------- Submit field — lives below the email row ---------- */
-.myduke-hs-newsletter form .hs-submit {
-  width: 100%;
-}
-
-.myduke-hs-newsletter form .hs-submit .actions {
-  display: flex;
-}
-
-/* Submit button — matches Figma green Button:
-   bg #218380, white text, Instrument Sans Medium 14px,
-   capitalize, min-h 40px, px 36px py 9.5px, no border-radius */
-.myduke-hs-newsletter form input[type="submit"] {
-  appearance: none;
-  -webkit-appearance: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  padding: 9.5px 36px !important;
-  background-color: rgb(var(--color-button, 33 131 128)) !important;
-  color: rgb(var(--color-button-text, 255 255 255)) !important;
-  border: none !important;
-  border-radius: 0;
-  cursor: pointer;
-  font-family: 'Instrument Sans', var(--font-body-family), sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  text-transform: capitalize;
-  letter-spacing: normal;
-  line-height: 1.5;
-  box-shadow: none !important;
-  transition: opacity var(--duration-default, 0.3s) ease;
-}
-
-@media screen and (pointer: fine) {
-  .myduke-hs-newsletter form input[type="submit"]:hover {
-    opacity: var(--hover-opacity, 0.85);
-  }
-}
-
-/* ---------- Error messages ---------- */
-.myduke-hs-newsletter form .hs-error-msgs {
-  list-style: none;
-  margin: 8px 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.myduke-hs-newsletter form .hs-error-msg,
-.myduke-hs-newsletter form .hs-main-font-element label {
-  color: rgb(var(--color-error, 211 47 47)) !important;
-  font-size: 12px !important;
-  font-family: 'Manrope', var(--font-body-family), sans-serif !important;
-  font-weight: 400 !important;
-  display: block;
-  margin: 0;
-}
-
-/* ---------- Error rollup ---------- */
-.myduke-hs-newsletter form .hs_error_rollup {
-  width: 100%;
-  margin-top: 8px;
-}
-
-/* ---------- Success / submitted message ---------- */
-.myduke-hs-newsletter form .submitted-message,
-.myduke-hs-newsletter .submitted-message {
-  color: #264653;
-  font-family: 'Manrope', var(--font-body-family), sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.4;
+  max-width: 100% !important;
 }

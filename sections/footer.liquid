@@ -376,7 +376,15 @@
                   hbspt.forms.create({
                     portalId: "442968870",
                     formId: "eb766113-2a60-4090-bdfa-bef9302701d6",
-                    region: "ap1"
+                    region: "ap1",
+                    onFormReady: function($form) {
+                      var doc = $form[0].ownerDocument;
+                      var link = doc.createElement('link');
+                      link.rel = 'stylesheet';
+                      link.type = 'text/css';
+                      link.href = {{ 'myduke-hs-form.css' | asset_url | json }};
+                      doc.head.appendChild(link);
+                    }
                   });
                 </script>
               </div>
