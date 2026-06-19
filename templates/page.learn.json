@@ -24,7 +24,7 @@
       "settings": {
         "background_image": "shopify://shop_images/about-bg-hero.webp",
         "background_image_mobile": "shopify://shop_images/about-mob-bg-hero.webp",
-        "bg_position_desktop": "top",
+        "bg_position_desktop": "bottom",
         "bg_position_mobile": "center",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
