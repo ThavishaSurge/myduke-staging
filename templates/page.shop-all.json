@@ -33,7 +33,7 @@
         "mobile_text_color": "#264653",
         "enable_breadcrumbs": true,
         "breadcrumb_parent_text": "Pharmacy",
-        "breadcrumb_parent_link": "",
+        "breadcrumb_parent_link": "shopify://pages/shop",
         "breadcrumb_current_text": "Shop All",
         "breadcrumb_middle_text": "",
         "breadcrumb_middle_link": "",
