@@ -240,7 +240,7 @@
         "show_divider": true,
         "shop_all_label": "Shop All Devices",
         "shop_all_url": "shopify://pages/by-compatibility",
-        "dynamic_filter_urls": false,
+        "dynamic_filter_urls": true,
         "show_product_count": false,
         "product_count_label": "compatible products",
         "enable_slider": true,
