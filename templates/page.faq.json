@@ -22,8 +22,8 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
-        "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.webp",
+        "background_image_mobile": "shopify://shop_images/Frame_427320840.jpg",
         "bg_position_desktop": "bottom",
         "bg_position_mobile": "top",
         "overlay_color": "#000000",
