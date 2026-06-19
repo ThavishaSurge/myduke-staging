@@ -371,7 +371,7 @@
   line-height: 1.4;
   min-width: 180px;
   max-width: 100%;
-  border: none;
+  border: 1px solid #111827;
 }
 
 .msa__filter-btn-label {
