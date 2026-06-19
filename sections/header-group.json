@@ -26,7 +26,7 @@
         ".header__cart {display: none;}"
       ],
       "settings": {
-        "menu": "main-menu",
+        "menu": "new-menu",
         "sticky_header_type": "always",
         "transparent_sticky_adaptive": false,
         "overlay_mode": false,
@@ -36,8 +36,6 @@
         "header_bg_color": "",
         "scrolled_bg_color": "#ffffff",
         "show_logo": true,
-        "logo": "shopify://shop_images/Logo_R_black.svg",
-        "logo_sticky": "shopify://shop_images/myduke-logo-black.svg",
         "show_dm_logo_in_overlay_mode": true,
         "logo_position": "left-logo",
         "menu_position": "left-menu",
@@ -67,14 +65,13 @@
         "additional_button_2_label": "Get Started",
         "additional_button_2_link": "https://portal.myduke.com.au/signup",
         "additional_button_2_style": "secondary",
-        "mobile_menu": "mobile-menu",
+        "mobile_menu": "",
         "mobile_cta_label": "Apply For A Prescription",
         "mobile_cta_link": "https://portal.myduke.com.au/signup",
         "mobile_cta_subtext": "Already signed up? Log-in to your account",
         "mobile_cta_subtext_link": "https://portal.myduke.com.au/login?redirect_url=https://www.myduke.com.au/&_gl=1*1f9k812*_gcl_aw*R0NMLjE3ODA1NjY5NzkuQ2p3S0NBand4SVRSQmhCWUVpd0E2bVptN2R4YUY4Rl9FTm0tVEJjSnpkUnItemg0RHJXNmJXbDVJb1djLUtiemt5WFo1YUVuM1VOSzh4b0M5MUlRQXZEX0J3RQ..*_gcl_au*MTYxMTk5NTA5Ni4xNzc3ODYyMjY4*_ga*NzM3MzUyNjI3LjE3Nzc4NjIyNjk.*_ga_2BDMTC0DGP*czE3ODE3Mzk1MTckbzU5JGcxJHQxNzgxNzQzNTAyJGo2MCRsMCRoMA..#",
         "mobile_menu_color_scheme": "background-5",
         "show_dm_logo_in_mobile_menu": false,
-        "drawer_logo": "shopify://shop_images/Logo_TM_black_1.png",
         "enable_right_mobile_menu_border": false,
         "enable_social_on_mobile": false
       }
