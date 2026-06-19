@@ -198,7 +198,7 @@
       this.header = document.querySelector('.shopify-section-header');
       this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always';
       this.mobileMenu = this.querySelector('header-drawer');
-      const stickyTemplates = ['template-search', 'template-product', 'template-article'];
+      const stickyTemplates = ['template-search', 'template-product', 'template-article', 'template-cart'];
       this.isStickyPage = stickyTemplates.some((template) => document.body.classList.contains(template));
       if (this.isStickyPage) {
         this.header.classList.add('shopify-section-header-sticky');
