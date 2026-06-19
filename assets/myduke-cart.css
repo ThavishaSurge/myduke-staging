@@ -20,9 +20,9 @@
 }
 
 .cart__footer .shipping-bar {
-    background-color: rgb(33, 131, 128);
+    background-color: #bfdbcf;
 }
 
-.free-shipping__progress {
-       background-color: #bfdbcf;
+#free-shipping__progress {
+    background-color: rgb(33, 131, 128);    
 }
