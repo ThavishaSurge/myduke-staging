@@ -815,7 +815,7 @@
   <div class="guidance-quiz-section" id="GuidanceQuiz-{{ section.id }}">
     <div class="guidance-quiz-header">
       <h2>{{ section.settings.heading | escape }}</h2>
-      <p>{{ section.settings.subheading | escape }}</p>
+      <p>{{ section.settings.subheading | escape | newline_to_br }}</p>
     </div>
 
     <!-- Quiz Card -->
