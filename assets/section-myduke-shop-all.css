@@ -257,13 +257,13 @@
 .msa__icon-plus {
   display: block;
   position: relative;
-  top: 6px;
+  top: 7px;
 }
 
 .msa__icon-minus {
   display: none;
   position: relative;
-  top: 6px;
+  top: 7px;
 }
 
 .msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
