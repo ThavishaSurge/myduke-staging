@@ -111,6 +111,12 @@
             "collection": "pods-copy"
           }
         },
+        "collection_item_kUeHz6": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods"
+          }
+        },
         "collection_item_pAMNPi": {
           "type": "collection_item",
           "settings": {
@@ -135,12 +141,6 @@
             "collection": "nicotine-replacement-therapy"
           }
         },
-        "collection_item_kUeHz6": {
-          "type": "collection_item",
-          "settings": {
-            "collection": "pods"
-          }
-        },
         "collection_item_Aze4Fi": {
           "type": "collection_item",
           "settings": {
@@ -150,11 +150,11 @@
       },
       "block_order": [
         "collection_item_FyPNjp",
+        "collection_item_kUeHz6",
         "collection_item_pAMNPi",
         "collection_item_t8Qh3X",
         "collection_item_R4iEkc",
         "collection_item_VVhghz",
-        "collection_item_kUeHz6",
         "collection_item_Aze4Fi"
       ],
       "name": "Popular Products (MyDuke)",
