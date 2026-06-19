@@ -520,6 +520,21 @@
     "cart": {
       "name": "Cart",
       "settings": {
+        "cart_type": {
+          "label": "Cart Type"
+        },
+        "show_vendor_incart": {
+          "label": "Show product vendor"
+        },
+        "show_cart_note": {
+          "label": "Enable cart note"
+        },
+        "cart_drawer": {
+          "collection": {
+            "label": "Featured collection",
+            "info": "Displays when the cart is empty."
+          }
+        },
         "header_notification": {
           "content": "Cart notification"
         },
