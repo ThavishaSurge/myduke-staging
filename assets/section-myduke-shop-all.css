@@ -351,19 +351,19 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 0;
+  padding: 12px 20px;
   background: transparent;
   border: none;
   border-radius: 0;
   font-family: var(--font-body-family);
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--msa-text);
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
   line-height: 1.4;
-  min-width: auto;
+  min-width: 180px;
   max-width: 100%;
 }
 
@@ -374,37 +374,36 @@
 }
 
 .msa__filter-btn:hover {
-  background: transparent;
-  box-shadow: none;
-  color: var(--msa-teal);
+  border-color: var(--msa-teal);
+  background: var(--msa-bg-hover);
+  box-shadow: 0 4px 12px rgba(33, 131, 128, 0.08);
 }
 
 .msa__filter-btn[aria-expanded="true"] {
-  background: transparent;
-  border-color: transparent;
-  color: var(--msa-teal);
-  box-shadow: none;
+  border-color: var(--msa-teal);
+  background: var(--msa-teal);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(33, 131, 128, 0.15);
 }
 
 .msa__caret {
-  display: none;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: var(--msa-text-secondary);
 }
 
 .msa__filter-btn[aria-expanded="true"] .msa__caret {
   transform: rotate(180deg);
-  color: var(--msa-teal);
+  color: #fff;
 }
 
 .msa__plus-minus {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--msa-text);
+  color: var(--msa-text-secondary);
   transition: color 0.2s;
-  width: 16px;
-  height: 16px;
-  position: relative;
 }
 
 .msa__filter-btn:hover .msa__plus-minus {
@@ -412,25 +411,15 @@
 }
 
 .msa__filter-btn[aria-expanded="true"] .msa__plus-minus {
-  color: var(--msa-teal);
+  color: #fff;
 }
 
 .msa__icon-plus {
   display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .msa__icon-minus {
   display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .msa__filter-btn[aria-expanded="true"] .msa__icon-plus {
@@ -535,13 +524,13 @@
 .msa__sort-select {
   appearance: none;
   -webkit-appearance: none;
-  padding: 0;
-  border: none;
+  padding: 12px 40px 12px 20px;
+  border: 1px solid var(--msa-border);
   border-radius: 0;
   background: transparent;
   font-family: var(--font-body-family);
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--msa-text);
   cursor: pointer;
   outline: none;
@@ -554,17 +543,20 @@
 
 .msa__filter-icons {
   position: relative;
+  bottom: 7px;
 }
 
 .msa__sort-select:hover,
 .msa__sort-select:focus {
-  background: transparent;
-  box-shadow: none;
-  color: var(--msa-teal);
+  border-color: var(--msa-teal);
+  box-shadow: 0 4px 12px rgba(33, 131, 128, 0.08);
 }
 
 .msa__sort-select-wrap .msa__caret {
-  display: none;
+  position: absolute;
+  right: 14px;
+  pointer-events: none;
+  color: var(--msa-text-secondary);
 }
 
 /* ── Active filter pills ── */
