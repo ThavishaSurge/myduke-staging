@@ -1,3 +1,16 @@
 .myduke-cart-item-container {
     max-width: 70rem;
+    margin: auto;
+}
+
+.myduke-cart-item-container .title-wrapper-with-link {
+    margin-bottom: 2.4rem;
+}
+
+.myduke-cart-item-container .title-wrapper-with-link .title {
+    font-size: 3.2rem;
+}
+
+.myduke-cart-item-container .cart-item__details a{
+    font-size: 2.4rem;
 }
