@@ -246,7 +246,7 @@
               {%- endif -%}
             </div>
             {%- if section.settings.show_newsletter -%}
-              <div class="footer-block footer-subscribe-block">
+              {% comment %} <div class="footer-block footer-subscribe-block"> {% endcomment %}
                 {% comment %} {% if section.settings.newsletter_heading != blank %}
                   <h3 class="footer-block__heading_newsletter body-extra-large">
                     {{- section.settings.newsletter_heading -}}
@@ -369,7 +369,7 @@
                     </div>
                   {% endif %}
                 {% endform %} {% endcomment %}
-              </div>
+              {% comment %} </div> {% endcomment %}
               <div class="myduke-hs-newsletter">
                 {% if section.settings.newsletter_heading != blank %}
                   <h3 class="footer-block__heading_newsletter body-extra-large">

@@ -465,6 +465,7 @@
 
 .footer .footer-block__heading_newsletter {
   color: rgb(var(--color-button-tertiary-text));
+  margin-bottom: 20px;
 }
 
 .footer .footer-copyright__content {
