@@ -135,9 +135,9 @@
           display: flex;
         }
       </style>
-      <a
+      <a id="carttop"
         href="{{ section.settings.custom_cart_icon_link }}"
-        class="header__custom-cart-icon header-overlay-transition mydk-header-cart-icon"
+        class="header__custom-cart-icon header-overlay-transition customertype_withlogin mydk-header-cart-icon"
       >
         {%- if section.settings.custom_cart_icon_scrolled_svg != blank -%}
           <span class="custom-cart-icon-initial">{{ section.settings.custom_cart_icon_svg }}</span>
@@ -146,6 +146,9 @@
           <span class="custom-cart-icon-initial">{{ section.settings.custom_cart_icon_svg }}</span>
           <span class="custom-cart-icon-scrolled">{{ section.settings.custom_cart_icon_svg }}</span>
         {%- endif -%}
+        <span id="CartCount" class="CartCount" data-cart-count-bubble="">
+          <span data-cart-count=""></span>
+        </span>
       </a>
     {%- endif -%}
     {% render 'header-color-scheme', section_obj: section %}
