@@ -92,11 +92,19 @@
     const loader = document.getElementById('custom-page-loader');
     if (!loader) return;
 
+    // --- NEW: Check for Back/Forward button usage ---
+    // If the user used the back button, hide the loader immediately and stop the script.
+    const navEntries = performance.getEntriesByType("navigation");
+    if (navEntries.length > 0 && navEntries[0].type === "back_forward") {
+      loader.style.display = 'none';
+      return; 
+    }
+
     // 1. Get the excluded paths from the schema and format them into an array
     const excludedPathsRaw = "{{ section.settings.excluded_referrers | escape }}";
     const excludedPaths = excludedPathsRaw.split(',').map(path => path.trim()).filter(path => path !== '');
     
-    // 2. Check where the user came from
+    // 2. Check where the user came from (for standard link clicks)
     const referrer = document.referrer;
     let shouldShowLoader = true;
 
@@ -120,7 +128,7 @@
 
     // 3. If they didn't come from an excluded page, run the loader logic
     if (shouldShowLoader) {
-      loader.style.display = 'flex'; // Immediately show the loader
+      loader.style.display = 'flex'; 
       
       const loaderStartTime = Date.now();
       const minimumLoadTime = 2000; 
@@ -140,6 +148,17 @@
       });
     }
   })();
+
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+      const loader = document.getElementById('custom-page-loader');
+      if (loader) {
+        loader.style.display = 'none';
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+      }
+    }
+  });
 </script>
 
 {% schema %}

@@ -4,7 +4,7 @@
   min-height: var(--height-desktop, 60vh);
   background-image: var(--bg-desktop);
   background-size: cover;
-  background-position: top;
+  background-position: bottom;
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;

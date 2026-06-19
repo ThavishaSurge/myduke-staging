@@ -60,6 +60,17 @@
     -%}
     {% render 'header-account', button_type: section.settings.account_button_type, edge_right: account_edge_right %}
     {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
+
+    {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
+      {% render 'button',
+        btn_label: section.settings.additional_button_label,
+        btn_style: section.settings.additional_button_style,
+        btn_link: section.settings.additional_button_link,
+        class: 'header__additional-btn header-overlay-transition mydk-header-shop-btn'
+      %}
+    {%- endif -%}
+
+    {% comment %} {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
       <style>
         .header__custom-account-icon {
           display: flex;
@@ -101,6 +112,7 @@
         class: 'header__additional-btn header-overlay-transition mydk-header-shop-btn'
       %}
     {%- endif -%}
+    {%- endif -%} {% endcomment %}
 
     {%- if section.settings.enable_additional_button_2 == true
       and section.settings.additional_button_2_label != blank

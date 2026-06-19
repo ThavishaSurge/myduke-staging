@@ -9,6 +9,7 @@
 
 .myduke-cart-item-container .title-wrapper-with-link .title {
     font-size: 3.2rem;
+    margin-bottom: 1.8rem;
 }
 
 .myduke-cart-item-container .cart-item__details a{
@@ -52,4 +53,37 @@
 .base-breadcrumbs {
     max-width: 70rem;
     padding-left: 0rem;
+}
+
+.cart__footer>*+* {
+        margin-left: 0px;
+    }
+
+
+@media (max-width: 767px) {
+    .myduke-cart-item-container {
+        width: 95%;
+        padding-top: 0px;
+    }
+
+    .cart__footer {
+        width: 95%;
+        margin: auto;
+        padding-top: 0px;
+     }
+
+     .cart__footer>*+* {
+        margin-top: 0px;
+     }
+
+     .myduke-cart-item-container .cart-item__details a {
+        font-size: 1.8rem;
+     }
+
+     .base-breadcrumbs {
+        max-width: 70rem;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+
 }
