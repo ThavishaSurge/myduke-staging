@@ -4,6 +4,8 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'myduke-cart.css' | asset_url | stylesheet_tag }}
+
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
 
 {%- style -%}
@@ -23,7 +25,7 @@
 {%- unless settings.cart_type == 'drawer' -%}
   <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 {%- endunless -%}
-<cart-items class="page-width{% if 1 !=1  %} is-empty{% else %} section-{{ section.id }}-padding{% endif %} customertype_withlogin">
+<cart-items class="page-width{% if 1 !=1  %} is-empty{% else %} section-{{ section.id }}-padding{% endif %} customertype_withlogin myduke-cart-item-container">
   <div class="title-wrapper-with-link">
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
     <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
