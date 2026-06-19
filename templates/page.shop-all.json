@@ -184,7 +184,7 @@
         "show_brand_filter": true,
         "brand_filter_label": "Brands",
         "brand_filter_all_label": "All Brands",
-        "show_strength_filter": true,
+        "show_strength_filter": false,
         "strength_filter_label": "Strength",
         "strength_filter_all_label": "All Strengths",
         "show_sort": true,
