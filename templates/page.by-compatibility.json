@@ -277,7 +277,7 @@
         "heading_tag": "h2",
         "description_richtext": "<p>Already own a device? Select it to see only the pods, coils, and accessories that work with your hardwar.</p>",
         "show_divider": true,
-        "shop_all_label": "Shop All Brands",
+        "shop_all_label": "",
         "shop_all_url": "",
         "shop_all_new_tab": false,
         "dynamic_filter_urls": false,
