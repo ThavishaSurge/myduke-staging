@@ -53,3 +53,11 @@
     max-width: 70rem;
     padding-left: 0rem;
 }
+
+
+@media (max-width: 767px) {
+    .myduke-cart-item-container,
+    .cart__footer {
+        width: 95%;
+    }
+}
