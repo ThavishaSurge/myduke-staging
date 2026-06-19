@@ -294,6 +294,7 @@
   display: block;
   padding: 0.3rem 0;
   line-height: 1.2;
+  font-size: 12px;
 }
 
 .footer .footer-menu-block-list__link:hover .hover-underlined-link {
