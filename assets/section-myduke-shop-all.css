@@ -215,7 +215,7 @@
   /* ── Each filter row ── */
   .msa__filter-group {
     width: 100%;
-    border-top: 1px solid var(--msa-border);
+    border-top: none;
   }
 
   .msa__filter-btn {
@@ -354,7 +354,7 @@
   gap: 8px;
   padding: 12px 20px;
   background: transparent;
-  border: 1px solid var(--msa-border);
+  border: none;
   border-radius: 0;
   font-family: var(--font-body-family);
   font-size: 14px;
@@ -846,6 +846,7 @@
     border: none;
   }
 }
+
 @media (max-width: 767.98px) {
   .msa__sort-mobile .msa__filter-btn {
     display: inline-flex;
@@ -870,15 +871,15 @@
     border: 1px solid var(--msa-border);
     z-index: 100;
     /* Reset inline accordion styles for the floating dropdown */
-    display: none !important; 
+    display: none !important;
     grid-template-rows: none;
   }
-  
+
   .msa__sort-mobile .msa__dropdown[data-open] {
     display: block !important;
     animation: msaDropdownIn 0.15s ease;
   }
-  
+
   .msa__sort-mobile .msa__dropdown-inner {
     padding: 6px 0;
   }
@@ -895,12 +896,12 @@
     width: auto;
     border-top: none;
   }
-  
+
   .msa__mobile-toggle {
     white-space: nowrap;
     min-width: 0;
   }
-  
+
   .msa__sort-mobile .msa__filter-btn {
     white-space: nowrap;
     min-width: 0;
