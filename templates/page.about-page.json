@@ -307,6 +307,7 @@
       ],
       "name": "Standards (About)",
       "settings": {
+        "bg_image": "shopify://shop_images/about-standards-bg.jpg",
         "eyebrow": "Why Choose Us",
         "heading": "The myduke® Standard",
         "description": "See how our clinical care model compares to standard online clinics.",
