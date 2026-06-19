@@ -205,43 +205,92 @@
     "myduke_popular_products_btYrh9": {
       "type": "myduke-popular-products",
       "blocks": {
-        "collection_item_7J9NAP": {
+        "collection_item_EGWCwh": {
           "type": "collection_item",
           "settings": {
-            "collection": "pods-copy"
+            "collection": "rift-pro-device"
           }
         },
-        "collection_item_m8H8ha": {
+        "collection_item_edpcBT": {
           "type": "collection_item",
           "settings": {
-            "collection": "quitting-alternatives"
+            "collection": "phix-device"
           }
         },
-        "collection_item_89py9V": {
+        "collection_item_TajXxh": {
           "type": "collection_item",
           "settings": {
-            "collection": "accessories"
+            "collection": "phix-device"
           }
         },
-        "collection_item_nw7Nfa": {
+        "collection_item_einyrH": {
           "type": "collection_item",
           "settings": {
-            "collection": "open-tank-systems"
+            "collection": "nicopod-device"
           }
         },
-        "collection_item_gC8eRb": {
+        "collection_item_qMfD9f": {
           "type": "collection_item",
           "settings": {
-            "collection": "main-hub"
+            "collection": "lula-device"
+          }
+        },
+        "collection_item_qpgXYf": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "lana-mini-device"
+          }
+        },
+        "collection_item_A6MBPX": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "blu-device"
+          }
+        },
+        "collection_item_LJn8F4": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "lana-ii-device"
+          }
+        },
+        "collection_item_g6q8NF": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "aspire-m80-device"
+          }
+        },
+        "collection_item_cFhfPG": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "arco-device"
+          }
+        },
+        "collection_item_nnQT4j": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "alt-x-device"
+          }
+        },
+        "collection_item_KDhB4M": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "alt-device"
           }
         }
       },
       "block_order": [
-        "collection_item_7J9NAP",
-        "collection_item_m8H8ha",
-        "collection_item_89py9V",
-        "collection_item_nw7Nfa",
-        "collection_item_gC8eRb"
+        "collection_item_EGWCwh",
+        "collection_item_edpcBT",
+        "collection_item_TajXxh",
+        "collection_item_einyrH",
+        "collection_item_qMfD9f",
+        "collection_item_qpgXYf",
+        "collection_item_A6MBPX",
+        "collection_item_LJn8F4",
+        "collection_item_g6q8NF",
+        "collection_item_cFhfPG",
+        "collection_item_nnQT4j",
+        "collection_item_KDhB4M"
       ],
       "name": "Popular Products (MyDuke)",
       "settings": {
