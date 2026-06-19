@@ -59,7 +59,6 @@
       endif
     -%}
     {% render 'header-account', button_type: section.settings.account_button_type, edge_right: account_edge_right %}
-    {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
 
     {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
       {% render 'button',
@@ -103,15 +102,6 @@
           <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_svg }}</span>
         {%- endif -%}
       </a>
-    {%- endif -%}
-    {%- if section.settings.enable_additional_button and section.settings.additional_button_label != blank -%}
-      {% render 'button',
-        btn_label: section.settings.additional_button_label,
-        btn_style: section.settings.additional_button_style,
-        btn_link: section.settings.additional_button_link,
-        class: 'header__additional-btn header-overlay-transition mydk-header-shop-btn'
-      %}
-    {%- endif -%}
     {%- endif -%} {% endcomment %}
 
     {%- if section.settings.enable_additional_button_2 == true
@@ -124,12 +114,46 @@
         class: 'header__additional-btn header__additional-btn--2 header-overlay-transition mydk-header-getstarted-btn'
       %}
     {%- endif -%}
-
+    {%- if section.settings.custom_account_icon_svg != blank and section.settings.custom_account_icon_link != blank -%}
+      <style>
+        .header__custom-account-icon {
+          display: flex;
+          align-items: center;
+          margin-right: 1.5rem;
+          color: inherit;
+        }
+        .custom-account-icon-initial {
+          display: flex;
+        }
+        .custom-account-icon-scrolled {
+          display: none;
+        }
+        .shopify-section-header-sticky .custom-account-icon-initial {
+          display: none;
+        }
+        .shopify-section-header-sticky .custom-account-icon-scrolled {
+          display: flex;
+        }
+      </style>
+      <a
+        href="{{ section.settings.custom_account_icon_link }}"
+        class="header__custom-account-icon header-overlay-transition mydk-header-account-icon"
+      >
+        {%- if section.settings.custom_account_icon_scrolled_svg != blank -%}
+          <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
+          <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_scrolled_svg }}</span>
+        {%- else -%}
+          <span class="custom-account-icon-initial">{{ section.settings.custom_account_icon_svg }}</span>
+          <span class="custom-account-icon-scrolled">{{ section.settings.custom_account_icon_svg }}</span>
+        {%- endif -%}
+      </a>
+    {%- endif -%}
+    
     {%- if section.settings.custom_cart_icon_svg != blank and section.settings.custom_cart_icon_link != blank -%}
       <style>
         .header__custom-cart-icon {
           display: flex;
-          position: relative;
+          position:relative;
           align-items: center;
           margin-right: 1.5rem;
           color: inherit;
@@ -146,8 +170,8 @@
         .shopify-section-header-sticky .custom-cart-icon-scrolled {
           display: flex;
         }
-        .CartCount {
-          background-color: rgba(38, 70, 83);
+        .CartCount{
+          background-color: rgba(38,70,83);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -158,15 +182,14 @@
           border-radius: 50%;
           min-width: 15px;
           height: 15px;
-          color: #fff;
+          color: #FFF;
           font-size: 10px;
         }
-        header.shopify-section-header-sticky .header__buttons a span .cart-count-span {
-          color: #fff;
+        header.shopify-section-header-sticky .header__buttons a span .cart-count-span{
+          color:#fff;
         }
       </style>
-      <a
-        id="carttop"
+      <a id="carttop"
         href="{{ section.settings.custom_cart_icon_link }}"
         class="header__custom-cart-icon header-overlay-transition customertype_withlogin mydk-header-cart-icon"
       >
