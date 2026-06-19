@@ -199,6 +199,7 @@
       "name": "Cost Calculator (MyDuke)",
       "settings": {
         "color_scheme": "",
+        "bg_image": "shopify://shop_images/cost-cal-bg.jpg",
         "heading": "See What You Could Save",
         "heading_tag": "h2",
         "slider_label": "Cigarettes per day",
