@@ -22,8 +22,8 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/hw-hero-bg.webp",
-        "background_image_mobile": "shopify://shop_images/hw-mob-hero-bg.webp",
+        "background_image": "shopify://shop_images/hw-hero-bg.png",
+        "background_image_mobile": "shopify://shop_images/hw-mob-hero-bg.jpg",
         "bg_position_desktop": "center",
         "bg_position_mobile": "bottom",
         "overlay_color": "#000000",
@@ -96,7 +96,7 @@
       ],
       "name": "How It Works — Services",
       "settings": {
-        "left_image": "shopify://shop_images/how-it-works-our-services.webp",
+        "left_image": "shopify://shop_images/how-it-works-our-services.jpg",
         "left_bg_color": "rgba(0,0,0,0)",
         "eyebrow": "Our Services",
         "heading": "Our Smoking Cessation Support Services",
@@ -111,7 +111,7 @@
         "step_slide_NmNjWn": {
           "type": "step_slide",
           "settings": {
-            "image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.webp",
+            "image": "shopify://shop_images/Clinical_Assessment-coverr_jpg_2.webp",
             "step_badge": "Step 1",
             "time_text": "2 mins",
             "step_counter": "01 / 04",
@@ -124,7 +124,7 @@
         "step_slide_q7teKh": {
           "type": "step_slide",
           "settings": {
-            "image": "shopify://shop_images/Doctor-review-2.webp",
+            "image": "shopify://shop_images/Doctor-review-2.jpg",
             "step_badge": "Step 2",
             "time_text": "< 24 hrs",
             "step_counter": "02 / 04",
@@ -137,7 +137,6 @@
         "step_slide_YyeUf3": {
           "type": "step_slide",
           "settings": {
-            "image": "shopify://shop_images/Shop_Treatment.webp",
             "step_badge": "Step 3",
             "time_text": "24–48 hrs",
             "step_counter": "03 / 04",
@@ -147,10 +146,23 @@
             "check_color": "#ef6351"
           }
         },
+        "step_slide_YhmBWK": {
+          "type": "step_slide",
+          "settings": {
+            "image": "shopify://shop_images/Shop_Treatment_-_cover_2.webp",
+            "step_badge": "Step 1",
+            "time_text": "4 minutes",
+            "step_counter": "01 / 04",
+            "step_title": "Complete Assessment",
+            "subtitle": "Answer a short medical questionnaire",
+            "checklist_items": "Safe and secure\nPrivate and confidential\nDoctor reviewed",
+            "check_color": "#ffb703"
+          }
+        },
         "step_slide_rQiAmc": {
           "type": "step_slide",
           "settings": {
-            "image": "shopify://shop_images/Ongoing_Support.webp",
+            "image": "shopify://shop_images/Ongoing_Support.png",
             "step_badge": "Step 4",
             "time_text": "Ongoing",
             "step_counter": "04 / 04",
@@ -165,11 +177,12 @@
         "step_slide_NmNjWn",
         "step_slide_q7teKh",
         "step_slide_YyeUf3",
+        "step_slide_YhmBWK",
         "step_slide_rQiAmc"
       ],
       "name": "How It Works — Steps Slider",
       "settings": {
-        "bg_image": "shopify://shop_images/hw-hw-bg.webp",
+        "bg_image": "shopify://shop_images/hw-hw-bg.jpg",
         "left_bg_color": "#f7f8f8",
         "eyebrow": "Our benefits",
         "heading": "How myduke® Works",
@@ -183,7 +196,6 @@
         "step_slide_AGfHp9": {
           "type": "step_slide",
           "settings": {
-            "image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.webp",
             "step_badge": "Step 01",
             "time_text": "2 mins",
             "step_counter": "01 / 04",
@@ -196,7 +208,6 @@
         "step_slide_VPfG3b": {
           "type": "step_slide",
           "settings": {
-            "image": "shopify://shop_images/Doctor-review-2.webp",
             "step_badge": "Step 02",
             "time_text": "< 24 hrs",
             "step_counter": "02 / 04",
@@ -209,7 +220,6 @@
         "step_slide_pxxgkN": {
           "type": "step_slide",
           "settings": {
-            "image": "shopify://shop_images/Shop_Treatment.webp",
             "step_badge": "Step 03",
             "time_text": "24–48 hrs",
             "step_counter": "03 / 04",
@@ -222,7 +232,6 @@
         "step_slide_DKpFBb": {
           "type": "step_slide",
           "settings": {
-            "image": "shopify://shop_images/Ongoing_Support.webp",
             "step_badge": "Step 04",
             "time_text": "Ongoing",
             "step_counter": "04 / 04",
@@ -303,7 +312,6 @@
       ],
       "name": "How It Works — Why Choose",
       "settings": {
-        "left_image": "shopify://shop_images/hw-why-choose.webp",
         "left_bg_color": "rgba(0,0,0,0)",
         "heading": "Why Choose myduke®?",
         "description": "A regulated pathway built around safety, transparency, and your success.",
@@ -317,8 +325,6 @@
       "settings": {
         "color_scheme": "",
         "visibility": "both",
-        "bg_image": "shopify://shop_images/cta-bg.webp",
-        "bg_image_mobile": "shopify://shop_images/cta-bg-mob.webp",
         "fallback_color": "#264653",
         "eyebrow": "You're not alone",
         "heading": "myduke® is for quitters",
