@@ -75,7 +75,12 @@
             {%- liquid
               assign collection_url = collection.url
               if section.settings.dynamic_filter_urls
-                assign collection_url = '/pages/shop-all?type=' | append: collection.handle
+                assign heading_handle = section.settings.heading | handleize
+                if heading_handle == 'by-device-compatibility'
+                  assign collection_url = '/pages/shop-all?device=' | append: collection.handle
+                else
+                  assign collection_url = '/pages/shop-all?type=' | append: collection.handle
+                endif
               endif
             -%}
             <a class="mdpp__card" href="{{ collection_url }}">
