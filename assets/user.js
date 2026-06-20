@@ -154,6 +154,7 @@ function hideProducts(){
         console.log('shopify Admin Panel');
       }else{
         console.log('shopify store front');
+        console.log(window.Shopify.shop);
       }
 
       // if ($authContainer.length) {
