@@ -150,7 +150,7 @@ function hideProducts(){
 
   const $authContainer = $('.mydk-product-container-auth');
 
-      if(window.frameElement !== null){
+      if(document.querySelector('iframe[title="Online Store"]')){
         console.log('shopify Admin Panel');
       }else{
         console.log('shopify store front');
