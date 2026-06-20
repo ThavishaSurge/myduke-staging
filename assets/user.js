@@ -158,6 +158,10 @@ function hideProducts(){
         console.log(window.location.hostname);
       }
 
+      if (window.Shopify && window.Shopify.designMode) {
+        console.log('Inside Theme Editor');
+      }
+
       // if ($authContainer.length) {
       //     $authContainer.hide();
 
