@@ -152,6 +152,8 @@ function hideProducts(){
 
 
       if (window.Shopify && window.Shopify.designMode) {
+        console.log(window.Shopify);
+        console.log(window.Shopify.designMode);
         return; // stop execution inside theme editor
       }
 
