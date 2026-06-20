@@ -150,10 +150,10 @@ function hideProducts(){
 
   const $authContainer = $('.mydk-product-container-auth');
 
-      if(window.Shopify){
-        console.log('shopify store front');
-      }else{
+      if(typeof window.Shopify === 'undefined'){
         console.log('shopify Admin Panel');
+      }else{
+        console.log('shopify store front');
       }
 
       // if ($authContainer.length) {
