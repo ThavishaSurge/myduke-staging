@@ -155,6 +155,7 @@ function hideProducts(){
       }else{
         console.log('shopify store front');
         console.log(window.Shopify.shop);
+        console.log(window.location.hostname);
       }
 
       // if ($authContainer.length) {
