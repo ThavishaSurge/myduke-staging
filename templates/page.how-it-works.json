@@ -183,6 +183,7 @@
         "step_slide_AGfHp9": {
           "type": "step_slide",
           "settings": {
+            "image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.webp",
             "step_badge": "Step 01",
             "time_text": "2 mins",
             "step_counter": "01 / 04",
@@ -195,6 +196,7 @@
         "step_slide_VPfG3b": {
           "type": "step_slide",
           "settings": {
+            "image": "shopify://shop_images/Doctor-review-2.webp",
             "step_badge": "Step 02",
             "time_text": "< 24 hrs",
             "step_counter": "02 / 04",
@@ -207,6 +209,7 @@
         "step_slide_pxxgkN": {
           "type": "step_slide",
           "settings": {
+            "image": "shopify://shop_images/Shop_Treatment.webp",
             "step_badge": "Step 03",
             "time_text": "24–48 hrs",
             "step_counter": "03 / 04",
@@ -219,6 +222,7 @@
         "step_slide_DKpFBb": {
           "type": "step_slide",
           "settings": {
+            "image": "shopify://shop_images/Ongoing_Support.webp",
             "step_badge": "Step 04",
             "time_text": "Ongoing",
             "step_counter": "04 / 04",
