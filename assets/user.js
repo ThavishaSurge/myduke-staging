@@ -150,13 +150,19 @@ function hideProducts(){
 
   const $authContainer = $('.mydk-product-container-auth');
 
-      if ($authContainer.length) {
-          $authContainer.hide();
-
-          // Redirect only if not already on the homepage
-          if (window.location.pathname !== '/') {
-              window.location.replace('/');
-          }
+      if(window.shopify){
+        console.log('shopify store front');
+      }else{
+        console.log('shopify Admin Panel');
       }
+
+      // if ($authContainer.length) {
+      //     $authContainer.hide();
+
+      //     // Redirect only if not already on the homepage
+      //     if (window.location.pathname !== '/') {
+      //         window.location.replace('/');
+      //     }
+      // }
 }
 
