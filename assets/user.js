@@ -152,17 +152,11 @@ function hideProducts(){
 
 
       if (window.Shopify && window.Shopify.designMode) {
-        console.log('Inside Admin')
-        console.log(window.Shopify);
-        console.log(window.Shopify.designMode);
-        //return; // stop execution inside theme editor
-      }else{
-        console.log('View mode');
+        return;
       }
 
       if ($authContainer.length) {
           $authContainer.hide();
-
           // Redirect only if not already on the homepage
           if (window.location.pathname !== '/') {
               window.location.replace('/');
