@@ -207,6 +207,48 @@
     "myduke_popular_products_btYrh9": {
       "type": "myduke-popular-products",
       "blocks": {
+        "collection_item_ehgQRA": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_Fq3XQL": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "zero-nicotine"
+          }
+        },
+        "collection_item_7aMyJR": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "closed-systems"
+          }
+        },
+        "collection_item_mwj8Vq": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods-copy"
+          }
+        },
+        "collection_item_7yikjN": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "all-products"
+          }
+        },
+        "collection_item_VpAKy6": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_pYbKJa": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
         "collection_item_EGWCwh": {
           "type": "collection_item",
           "settings": {
@@ -281,6 +323,13 @@
         }
       },
       "block_order": [
+        "collection_item_ehgQRA",
+        "collection_item_Fq3XQL",
+        "collection_item_7aMyJR",
+        "collection_item_mwj8Vq",
+        "collection_item_7yikjN",
+        "collection_item_VpAKy6",
+        "collection_item_pYbKJa",
         "collection_item_EGWCwh",
         "collection_item_edpcBT",
         "collection_item_TajXxh",
@@ -337,6 +386,12 @@
           "type": "vendor",
           "settings": {
             "vendor_ref": "vapure"
+          }
+        },
+        "vendor_H3LiRh": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": ""
           }
         },
         "vendor_pm6CVN": {
@@ -404,6 +459,7 @@
         "vendor_iX6NqC",
         "vendor_DwTPpH",
         "vendor_gaE7KN",
+        "vendor_H3LiRh",
         "vendor_pm6CVN",
         "vendor_renaWB",
         "vendor_MDkYar",
