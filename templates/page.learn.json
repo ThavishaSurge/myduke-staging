@@ -22,8 +22,8 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/about-bg-hero.png",
-        "background_image_mobile": "shopify://shop_images/about-mob-bg-hero.jpg",
+        "background_image": "shopify://shop_images/about-bg-hero.webp",
+        "background_image_mobile": "shopify://shop_images/about-mob-bg-hero.webp",
         "bg_position_desktop": "center",
         "bg_position_mobile": "center",
         "overlay_color": "#000000",
@@ -69,7 +69,7 @@
       "type": "blog-posts",
       "name": "t:sections.blog-posts.name",
       "settings": {
-        "blog": "our-pharmacy",
+        "blog": "treatment-eligibility",
         "posts_per_row": 3,
         "posts_count": 3,
         "heading_group_enable_border_bottom": true,
@@ -100,7 +100,7 @@
       "type": "blog-posts",
       "name": "t:sections.blog-posts.name",
       "settings": {
-        "blog": "quit-smoking",
+        "blog": "support-guidance",
         "posts_per_row": 3,
         "posts_count": 3,
         "heading_group_enable_border_bottom": true,
