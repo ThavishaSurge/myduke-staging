@@ -150,25 +150,18 @@ function hideProducts(){
 
   const $authContainer = $('.mydk-product-container-auth');
 
-      if(document.querySelector('iframe[title="Online Store"]')){
-        console.log('shopify Admin Panel');
-      }else{
-        console.log('shopify store front');
-        console.log(window.Shopify.shop);
-        console.log(window.location.hostname);
-      }
 
       if (window.Shopify && window.Shopify.designMode) {
-        console.log('Inside Theme Editor');
+        return; // stop execution inside theme editor
       }
 
-      // if ($authContainer.length) {
-      //     $authContainer.hide();
+      if ($authContainer.length) {
+          $authContainer.hide();
 
-      //     // Redirect only if not already on the homepage
-      //     if (window.location.pathname !== '/') {
-      //         window.location.replace('/');
-      //     }
-      // }
+          // Redirect only if not already on the homepage
+          if (window.location.pathname !== '/') {
+              window.location.replace('/');
+          }
+      }
 }
 
