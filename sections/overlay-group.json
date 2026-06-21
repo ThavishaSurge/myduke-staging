@@ -13,8 +13,10 @@
   "sections": {
     "age_verification": {
       "type": "age-verification",
+      "custom_css": [],
       "settings": {
         "heading": "",
+        "heading_size": "h4",
         "text": "<p>You must be 18 years of age or older to enter myduke®.</p>",
         "button_label_no": "Leave site",
         "button_label_yes": "Enter site",
@@ -27,11 +29,19 @@
       "blocks": {
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "description": "<p>Use this space to highlight a promo or limited-time offer.</p>"
+          }
         },
         "button": {
           "type": "button",
-          "settings": {}
+          "settings": {
+            "button_label": "Shop Now",
+            "button_action": "link",
+            "button_link": "",
+            "button_style": "primary",
+            "button_full_width": true
+          }
         }
       },
       "block_order": [
@@ -40,9 +50,35 @@
       ],
       "disabled": true,
       "settings": {
+        "popup_main_heading": "Notification Title",
+        "popup_id": "",
         "width": 380,
         "color_scheme": "background-2",
-        "position": "bottom-right"
+        "position": "bottom-right",
+        "open-animation": "Fade",
+        "exit-animation": "Fade",
+        "show-overlay": false,
+        "show_image": true,
+        "aspect_ratio": "landscape",
+        "image_position": "top",
+        "image_fit": "cover",
+        "overlay_opacity": 10,
+        "trigger-open": "delay",
+        "trigger-open-delay": 1,
+        "open-scroll-type": "%",
+        "open-scroll-position": 50,
+        "manual-selector": "",
+        "trigger-close": "none",
+        "trigger-close-delay": 30,
+        "close-scroll-type": "%",
+        "close-scroll-position": 50,
+        "limit-display": 0,
+        "limit-cache": 30,
+        "mobile": false,
+        "scrolling": false,
+        "overlay-close": true,
+        "esc-close": false,
+        "f4-close": false
       }
     },
     "notification_bar": {
@@ -50,15 +86,23 @@
       "blocks": {
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "description": "<p>Use this space to share important store updates, highlight promotions, welcome visitors to your site, or inform them about how you use data to improve their shopping experience.</p>"
+          }
         },
         "action_button": {
           "type": "action_button",
-          "settings": {}
+          "settings": {
+            "button_label": "Accept",
+            "button_action": "accept",
+            "button_link": ""
+          }
         },
         "decline_button": {
           "type": "decline_button",
-          "settings": {}
+          "settings": {
+            "button_label": "Decline"
+          }
         }
       },
       "block_order": [
@@ -68,8 +112,28 @@
       ],
       "disabled": true,
       "settings": {
+        "popup_id": "",
         "color_scheme": "background-1",
-        "position": "bottom"
+        "position": "bottom",
+        "open-animation": "SlideFade",
+        "exit-animation": "SlideFade",
+        "show-overlay": false,
+        "trigger-open": "delay",
+        "trigger-open-delay": 1,
+        "open-scroll-type": "%",
+        "open-scroll-position": 50,
+        "manual-selector": "",
+        "trigger-close": "none",
+        "trigger-close-delay": 30,
+        "close-scroll-type": "%",
+        "close-scroll-position": 50,
+        "limit-display": 0,
+        "limit-cache": 30,
+        "mobile": false,
+        "scrolling": false,
+        "overlay-close": false,
+        "esc-close": false,
+        "f4-close": false
       }
     }
   },
