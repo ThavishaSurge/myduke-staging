@@ -61,8 +61,8 @@
         "blog": "",
         "padding_top": 24,
         "padding_bottom": 24,
-        "margin_top_desktop": 0,
-        "margin_top_mobile": 0
+        "margin_top_desktop": 48,
+        "margin_top_mobile": 40
       }
     },
     "blog_posts_BnjMHt": {
