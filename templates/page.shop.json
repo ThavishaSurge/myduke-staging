@@ -389,12 +389,6 @@
             "vendor_ref": "vapure"
           }
         },
-        "vendor_H3LiRh": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": ""
-          }
-        },
         "vendor_pm6CVN": {
           "type": "vendor",
           "settings": {
@@ -428,13 +422,13 @@
         "vendor_yEfTDJ": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "wild-by-instinct"
+            "vendor_ref": "wild"
           }
         },
         "vendor_rt4Qb3": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "alt-x"
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
           }
         },
         "vendor_VM4PBR": {
@@ -460,7 +454,6 @@
         "vendor_iX6NqC",
         "vendor_DwTPpH",
         "vendor_gaE7KN",
-        "vendor_H3LiRh",
         "vendor_pm6CVN",
         "vendor_renaWB",
         "vendor_MDkYar",
