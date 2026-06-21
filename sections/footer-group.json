@@ -55,7 +55,7 @@
       "custom_css": [
         ".footer-main {padding-top: 24px;}",
         ".footer-copyright__content {color: #264653; font-size: 12px;}",
-        "@media (max-width: 750px) {img.footer-logo__image {max-width: 200px; }}"
+        "@media (max-width: 750px) {img.footer-logo__image {max-width: 300px; }}"
       ],
       "settings": {
         "main_color_scheme": "background-5",
