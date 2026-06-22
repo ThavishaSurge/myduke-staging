@@ -88,6 +88,9 @@
                     {%- if section.settings.product_count_label != blank %} {{ section.settings.product_count_label }}{%- endif -%}
                   </span>
                 {%- endif -%}
+                 {%- if section.settings.show_pricing -%}
+                  <span class="mdcpl__card-price">{{ product.price | money }}</span>
+                {%- endif -%}
               </a>
             </div>
           {%- else -%}
@@ -101,6 +104,9 @@
                   <p class="mdcpl__card-title">Product {{ forloop.index }}</p>
                   {%- if section.settings.show_product_count -%}
                     <span class="mdcpl__card-count">0 {{ section.settings.product_count_label }}</span>
+                  {%- endif -%}
+                  {%- if section.settings.show_pricing -%}
+                    <span class="mdcpl__card-price">{{ 1999 | money }}</span>
                   {%- endif -%}
                 </div>
               </div>
@@ -218,6 +224,12 @@
     {
       "type": "header",
       "content": "Card"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pricing",
+      "label": "Show pricing",
+      "default": false
     },
     {
       "type": "checkbox",
