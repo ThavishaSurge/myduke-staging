@@ -15,8 +15,7 @@
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
-        "content_align": "left",
-        "custom_class": ""
+        "content_align": "left"
       }
     },
     "myduke_hero_secondary_pz9LPd": {
@@ -201,7 +200,7 @@
         "vendor_8cpEiy": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "chosen"
+            "vendor_ref": "vapo-alpha-replacement-coils"
           }
         },
         "vendor_aWGYGj": {

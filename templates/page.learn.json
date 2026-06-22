@@ -15,7 +15,8 @@
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
-        "content_align": "left"
+        "content_align": "left",
+        "custom_class": ""
       }
     },
     "myduke_hero_secondary_p9AM89": {
@@ -69,7 +70,7 @@
       "type": "blog-posts",
       "name": "t:sections.blog-posts.name",
       "settings": {
-        "blog": "treatment-eligibility",
+        "blog": "our-pharmacy",
         "posts_per_row": 3,
         "posts_count": 3,
         "heading_group_enable_border_bottom": true,
@@ -100,7 +101,7 @@
       "type": "blog-posts",
       "name": "t:sections.blog-posts.name",
       "settings": {
-        "blog": "support-guidance",
+        "blog": "quit-smoking",
         "posts_per_row": 3,
         "posts_count": 3,
         "heading_group_enable_border_bottom": true,
