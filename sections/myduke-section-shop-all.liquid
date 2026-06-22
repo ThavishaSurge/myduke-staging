@@ -40,25 +40,28 @@
   assign type_collections_array = type_collections | split: ','
 
   comment
-    Collect unique vendors from source collection for Brands filter
+    Collect unique product types from source collection for the Brand filter
   endcomment
   assign source_col_handle = section.settings.source_collection
   assign unique_vendors = ''
   assign seen_vendor_handles = ''
   for product in collections[source_col_handle].products
-    assign vendor_handle = product.vendor | handleize
-    assign vendor_check = '|' | append: vendor_handle | append: '|'
+    assign type_handle = product.type | handleize
+    if type_handle == blank
+      continue
+    endif
+    assign vendor_check = '|' | append: type_handle | append: '|'
     assign seen_check_string = '|' | append: seen_vendor_handles | append: '|'
     unless seen_check_string contains vendor_check
       if seen_vendor_handles == blank
-        assign seen_vendor_handles = vendor_handle
+        assign seen_vendor_handles = type_handle
       else
-        assign seen_vendor_handles = seen_vendor_handles | append: '|' | append: vendor_handle
+        assign seen_vendor_handles = seen_vendor_handles | append: '|' | append: type_handle
       endif
       if unique_vendors == blank
-        assign unique_vendors = product.vendor
+        assign unique_vendors = product.type
       else
-        assign unique_vendors = unique_vendors | append: '§' | append: product.vendor
+        assign unique_vendors = unique_vendors | append: '§' | append: product.type
       endif
     endunless
   endfor
@@ -346,16 +349,16 @@
                   <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
                     {{ section.settings.brand_filter_all_label | default: 'All Brands' }}
                   </button>
-                  {%- for vendor in unique_vendors_array -%}
-                    {%- assign vendor_handle = vendor | handleize -%}
+                  {%- for type_val in unique_vendors_array -%}
+                    {%- assign type_val_handle = type_val | handleize -%}
                     <button
                       class="msa__dropdown-item"
-                      data-filter-value="{{ vendor_handle }}"
+                      data-filter-value="{{ type_val_handle }}"
                       data-filter-type="brand"
                       role="option"
                       aria-selected="false"
                     >
-                      {{- vendor -}}
+                      {{- type_val -}}
                     </button>
                   {%- endfor -%}
                 </div>
@@ -487,7 +490,7 @@
             data-device-filters="{{ product_device_handles | remove_last: ',' }}"
             data-type-filters="{{ product_type_handles | remove_last: ',' }}"
             data-strength-filters="{{ product_strength_handles | remove_last: ',' }}"
-            data-brand-filter="{{ product.vendor | handleize }}"
+            data-brand-filter="{{ product.type | handleize }}"
             data-price="{{ product.price }}"
             data-title="{{ product.title | downcase }}"
             data-created="{{ product.published_at | date: '%s' }}"
