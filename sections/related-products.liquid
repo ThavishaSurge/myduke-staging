@@ -47,7 +47,7 @@
 <script>
 var waitrecommendeditem =  setInterval(function () {
   
-  if($('.recommended_item').length > 0){
+  if($('.recommended_item').length > 0 && typeof window.getUserId === 'function'){
 
     var recoitems = [];
     $(".recommended_item").each(function(){

@@ -13,6 +13,20 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WNBJGH9');</script>
     <!-- End Google Tag Manager -->
+    <script>
+    var readgafCookie = function(name){
+        var nameEQ = escape(name) + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ')
+            c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0)
+            return unescape(c.substring(nameEQ.length, c.length));
+        }
+        return null;
+    }
+    </script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

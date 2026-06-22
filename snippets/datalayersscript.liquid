@@ -1,7 +1,7 @@
 {% if page_type == 'pagelisting' %}
 <script>
   var waitforuserid = setInterval(function () {
-    if(typeof getUserId() !== 'undefined'){
+    if(typeof window.getUserId === 'function'){
       clearInterval(waitforuserid);
       var dataLayerarray = ({
         event: "view_item_list",
@@ -32,7 +32,7 @@
 {% if page_type == 'product' %}
 <script>
 var waitforuserid = setInterval(function () {
-  if(typeof getUserId() !== 'undefined'){
+  if(typeof window.getUserId === 'function'){
     clearInterval(waitforuserid);
     var dataLayerarray = ({
       event: "view_item",
@@ -71,7 +71,7 @@ var waitforuserid = setInterval(function () {
 {% if page_type == 'featurecollecion' %}
 <script>
 var waitforuserid = setInterval(function () {
-  if(typeof getUserId() !== 'undefined'){
+  if(typeof window.getUserId === 'function'){
     clearInterval(waitforuserid);
     var dataLayerarray =({
       event: "view_item_list",
@@ -101,7 +101,7 @@ var waitforuserid = setInterval(function () {
 {% if page_type == 'cartitems' %}
 <script>
 var waitforuserid = setInterval(function () {
-  if(typeof getUserId() !== 'undefined'){
+  if(typeof window.getUserId === 'function'){
     clearInterval(waitforuserid);
     var dataLayerarray = ({
       event: "view_cart",
