@@ -71,7 +71,7 @@
       "name": "Myduke blog post",
       "settings": {
         "show_image": true,
-        "show_meta": true
+        "show_meta": false
       }
     }
   },
