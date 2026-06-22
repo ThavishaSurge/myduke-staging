@@ -1,7 +1,14 @@
 /* ── MyDuke content-cards section ── */
 
 .shopify-section.content-cards-section {
+  display: none;
   padding-bottom: 0px!important;
+}
+
+@media screen and (min-width: 750px) {
+  .shopify-section.content-cards-section {
+    display: block;
+  }
 }
 
 .myduke-cc {
