@@ -3,10 +3,12 @@
     max-width: 120rem;
     margin: auto;
     column-gap: 8rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
 }
 
 .myduke-cart-item-container {
-    max-width: 70rem;
+    max-width: 120rem;
     margin: auto;
 }
 
@@ -81,6 +83,8 @@
 @media (max-width: 980px) {
     #MainContent { 
         flex-direction: column;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
     }
 
 
@@ -91,10 +95,6 @@
 
 
 @media (max-width: 767px) {
-
-
-
-
     .myduke-cart-item-container {
         width: 95%;
         padding-top: 0px;
