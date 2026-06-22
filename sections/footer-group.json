@@ -26,7 +26,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Explore",
-            "menu": "footer-menu-1-copy",
+            "menu": "",
             "default_open": true
           }
         },
@@ -34,7 +34,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Support",
-            "menu": "footer-menu-2-copy",
+            "menu": "",
             "default_open": true
           }
         },
@@ -67,6 +67,7 @@
         "show_contact_text": true,
         "contact_text": "myduke® works alongside our Australian dispensing partners to help Australians access quality smoking cessation and nicotine dependence therapy, overseeing the entire process from treatment, through to delivery and ongoing support.",
         "enable_image": true,
+        "image_desktop": "shopify://shop_images/09-promo_jpg.jpg",
         "enable_image_animation": true,
         "show_newsletter": true,
         "newsletter_heading": "Join our Newsletter",
