@@ -53,7 +53,7 @@
               {% render block %}
             {%- when 'subtotal' -%}
               <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between">
-                <p>Today's products</p>
+                <p>PRODUCTS</p>
                 <p data-cart-subtotal="" class="todaysproductsamount">{{ cart.total_price | money_with_currency }}</p>
               </div>
               <div class="js-contents" {{ block.shopify_attributes }}>
@@ -91,15 +91,11 @@
               </div>
             {%- else -%}
               <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between">
-                <p>Prescription</p>
-                <p>Free</p>
-              </div>
-              <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between">
                 <p>Express Shipping</p>
                 <p class="expressshippingamount">{%- if cart.total_price >= 15000 -%}Free{% else %}$15.00{%- endif -%}</p>
               </div>
               <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between font-bold">
-                <p>Today's total</p>
+                <p>Total</p>
                 {%- if cart.total_price >= 15000 -%}
                   <p class="todaystotal" data-total="{{cart.total_price | money_without_currency }}">{{cart.total_price | money_with_currency }}</p>
                 {% else %}
