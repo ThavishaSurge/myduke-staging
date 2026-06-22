@@ -227,14 +227,39 @@
         </div>
       {%- endif -%}
 
+      {%- liquid
+        # MyDuke: sum per-line nicotine (mg) from the _total_nicotine line-item property
+        # so the drawer can enforce the same 4500 mg limit as the cart page (the drawer
+        # checkout button would otherwise bypass it). Re-rendered server-side on every
+        # cart change, so this value is always fresh.
+        assign mydk_cart_nicotine = 0
+        for mydk_item in cart.items
+          if mydk_item.properties._total_nicotine != blank
+            assign mydk_line_nicotine = mydk_item.properties._total_nicotine | times: mydk_item.quantity
+            assign mydk_cart_nicotine = mydk_cart_nicotine | plus: mydk_line_nicotine
+          endif
+        endfor
+      -%}
       <div class="cart-drawer__buttons">
+        {%- if mydk_cart_nicotine > 4500 -%}
+          <p
+            class="mydk-drawer-nicotine-error"
+            style="display:flex;gap:8px;align-items:flex-start;color:#b71c1c;background:#fff3f3;border:1px solid #ffb3b3;border-left:4px solid #e53935;padding:10px 12px;border-radius:8px;font-size:13px;line-height:1.45;margin:0 0 12px;"
+          >
+            <span aria-hidden="true">&#9888;</span>
+            <span>
+              This order exceeds the maximum nicotine limit (4500&nbsp;mg). Please reduce
+              quantities or <a href="{{ routes.cart_url }}" style="text-decoration:underline;color:inherit;">view your cart</a>.
+            </span>
+          </p>
+        {%- endif -%}
         <button
           type="submit"
           id="CartDrawer-Checkout"
           class="cart-drawer__checkout-button button button--primary focus-inset"
           name="checkout"
           form="CartDrawer-Form"
-          {% if cart == empty %}
+          {% if cart == empty or mydk_cart_nicotine > 4500 %}
             disabled
           {% endif %}
         >
