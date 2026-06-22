@@ -24,8 +24,6 @@
       "name": "Loading Screen",
       "settings": {
         "excluded_referrers": "/collections/, /shop-all, /products/, /by-product-type, /by-compatibility",
-        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
-        "background_image": "shopify://shop_images/image_8_1.webp",
         "fallback_bg_color": "#226e65",
         "enable_overlay": true,
         "overlay_color": "#000000",
@@ -494,7 +492,8 @@
       "name": "Guidance Quiz",
       "settings": {
         "heading": "Need Guidance?",
-        "subheading": "Take our quick quiz to help identify nicotine replacement options that may be suitable for you. \nThis assessment is provided as a guide only. Individual nicotine requirements may vary, and a healthcare professional can help determine the most appropriate treatment option for you.",
+        "subheading": "Take our quick quiz to help identify nicotine replacement options that may be suitable for you.",
+        "disclaimer_text": "<p>This assessment is provided as a guide only. Individual nicotine requirements may vary, and a healthcare professional can help determine the most appropriate treatment option for you.</p>",
         "background_color": "#f4a261",
         "background_image": "shopify://shop_images/cost-cal-bg.webp",
         "closed_cta_url": "shopify://collections/need-guidance-closed-systems",
