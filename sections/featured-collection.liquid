@@ -144,6 +144,11 @@
           </div>
         {%- endfor -%}
       </div>
+      {% capture datalayerforitems %}
+        {%- for product in section.settings.products -%}
+          {item_id: "{{product.id}}", item_name: "{{product.title | escape}}", index: "{{forloop.index}}", item_brand: "{{product.vendor}}", item_category: "{% for collection in product.collections %}{{ collection.title | escape }},{% endfor %}", item_variant: "{{product.variants | size}}", price: "{{product.price | money_without_currency}}"},
+        {%- endfor -%}
+      {% endcapture %}
     {%- endif -%}
   </div>
   {%- if display_button %}
@@ -158,7 +163,7 @@
     </div>
   {%- endif -%}
 </div>
-
+{% render 'datalayersscript', page_type:'pagelisting', datalayerforitems:datalayerforitems %}
 {% schema %}
 {
   "name": "t:sections.featured-collection.name",
