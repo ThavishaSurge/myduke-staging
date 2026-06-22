@@ -66,6 +66,7 @@
         {%- endif -%}
 
         <div class="product-form__buttons">
+          <div class="datalayeritemdata" style="display:none;">{"item_id": "{{product.id}}", "item_name": "{{product.title | escape}}", "index": "1", "item_brand": "{{product.vendor}}", "item_category": "{% for collection in product.collections %}{{ collection.title | escape }},{% endfor %}", "item_variant": "{{product.variants | size}}", "price": "{{product.price | money_without_currency}}"}</div>
           {%- liquid
             assign check_against_inventory = true
             if product.selected_or_first_available_variant.inventory_management != 'shopify' or  product.selected_or_first_available_variant.inventory_policy == 'continue'

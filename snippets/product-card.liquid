@@ -509,4 +509,5 @@
       aria-label="{{ product_card_product.title | escape }} {{ 'accessibility.product_link' | t }}"
     ></a>
   {%- endif -%}
+  <div class="datalayeritemdata" style="display:none;">{"item_id": "{{product_card_product.id}}", "item_name": "{{product_card_product.title | escape}}", "index": "{{forloop_index | default: 1}}", "item_brand": "{{product_card_product.vendor}}", "item_category": "{% for collection in product_card_product.collections %}{{ collection.title | escape }},{% endfor %}", "item_variant": "{{product_card_product.variants | size}}", "price": "{{product_card_product.price | money_without_currency}}"}</div>
 </product-card>

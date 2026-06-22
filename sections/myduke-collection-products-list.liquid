@@ -88,6 +88,7 @@
                     {%- if section.settings.product_count_label != blank %} {{ section.settings.product_count_label }}{%- endif -%}
                   </span>
                 {%- endif -%}
+                <div class="datalayeritemdata" style="display:none;">{"item_id": "{{product.id}}", "item_name": "{{product.title | escape}}", "index": "{{forloop.index}}", "item_brand": "{{product.vendor}}", "item_category": "{% for collection in product.collections %}{{ collection.title | escape }},{% endfor %}", "item_variant": "{{product.variants | size}}", "price": "{{product.price | money_without_currency}}"}</div>
               </a>
             </div>
           {%- else -%}

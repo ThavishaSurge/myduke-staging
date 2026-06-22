@@ -154,12 +154,12 @@ $('body').on('click','.cart__submit-controls #continueButton', function(){
 {% endif %}
 {% if page_type == 'productclickdata' %}
 <script>
-$('body').on('click','#product-grid .grid__item', function(){
+$('body').on('click','#product-grid .grid__item, .collection-product-card, .mdcpl__card, .mdcp__card, .msa__card', function(){
   var datalayeritemdata = $(this).find('.datalayeritemdata').html();
-  if(datalayeritemdata != ''){
+  if(datalayeritemdata != '' && datalayeritemdata != undefined){
     datalayeritemdata = JSON.parse(datalayeritemdata);
-    var item_list_id = "{% if collection %}{{ collection.id }}{% endif %}";
-    var item_list_name = "{% if collection %}{{ collection.handle | capitalize }}{% endif %}";
+    var item_list_id = "{% if collection %}{{ collection.id }}{% else %}{{ page.id }}{% endif %}";
+    var item_list_name = "{% if collection %}{{ collection.handle | capitalize }}{% else %}{{ page.title | default: 'Shop All' }}{% endif %}";
     datalayersend('select_item', 'VPN/select_item', item_list_id, item_list_name, datalayeritemdata);
   }
 });
@@ -203,19 +203,14 @@ function datalayersend(event, page_type, item_list_id, item_list_name, datalayer
   dataLayer.push(dataLayerarray);
 }
 $('form .product-form__buttons button').click(function(){
-  var datalayeritemdata = [];
-  datalayeritemdata.push({
-    item_id: "{{product.id}}",  // unique id of the product
-    item_name: "{{product.title | escape}}", // VEEV ONE Device
-    index: "1",
-    item_brand: "{{product.vendor}}",
-    item_category: "{% for collection in product.collections %}{{ collection.title | escape }},{% endfor %}",  //device, e-liquid etc
-    item_variant: "{{product.variants | size}}",
-    price: "{{product.price | money_without_currency}}",
-    quantity: $('input[name="quantity"]').val()
-  });
-  var pricevalue = "{{product.price | money_without_currency}}";
-  datalayersendaddtocart('add_to_cart', 'VPN/add_to_cart', datalayeritemdata, pricevalue);
+  var datalayeritemdata = $(this).closest('.product-form__buttons').find('.datalayeritemdata').html();
+  if(datalayeritemdata != '' && datalayeritemdata != undefined){
+    datalayeritemdata = JSON.parse(datalayeritemdata);
+    var qty = $(this).closest('form').find('input[name="quantity"]').val() || 1;
+    datalayeritemdata.quantity = parseInt(qty);
+    var pricevalue = (parseFloat(datalayeritemdata.price) * datalayeritemdata.quantity);
+    datalayersendaddtocart('add_to_cart', 'VPN/add_to_cart', [datalayeritemdata], pricevalue);
+  }
 });
 $('quantity-input .quantity__button[name="plus"]').click(function(){
   var datalayeritemdata = $(this).parents('tr').find('.datalayeritemdata').html();
