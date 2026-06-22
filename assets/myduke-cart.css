@@ -1,3 +1,10 @@
+#MainContent {
+    display: flex;
+    max-width: 120rem;
+    margin: auto;
+    column-gap: 8rem;
+}
+
 .myduke-cart-item-container {
     max-width: 70rem;
     margin: auto;
@@ -55,12 +62,24 @@
     padding-left: 0rem;
 }
 
+.myduke-cart-footer-container .cart__footer{
+    padding-top: 11rem;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 .cart__footer>*+* {
         margin-left: 0px;
-    }
+}
 
 
 @media (max-width: 767px) {
+
+    #MainContent { 
+        flex-direction: column;
+    }
+
+
     .myduke-cart-item-container {
         width: 95%;
         padding-top: 0px;
@@ -84,6 +103,10 @@
         max-width: 70rem;
         padding-left: 1.2rem;
         padding-right: 1.2rem;
+    }
+
+    .myduke-cart-footer-container .cart__footer{
+        padding-top: 4rem;
     }
 
 }
