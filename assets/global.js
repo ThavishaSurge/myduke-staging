@@ -1755,6 +1755,21 @@ class VariantSelects extends HTMLElement {
       const input = productForm.querySelector('input[name="id"]');
       input.value = this.currentVariant.id;
       input.dispatchEvent(new Event("change", { bubbles: true }));
+
+      // MyDuke: keep the _total_nicotine / _variant_title line-item properties in sync
+      // with the selected variant. Values are read from the per-variant data spans
+      // rendered by snippets/product-buy-buttons.liquid (.nico_<variantId>).
+      const nicoSource = document.querySelector(`.nico_${this.currentVariant.id}`);
+      const nicoInput = productForm.querySelector(".js-total-nicotine");
+      if (nicoInput) {
+        nicoInput.value = nicoSource ? nicoSource.dataset.totalnicotine : "";
+      }
+      const titleInput = productForm.querySelector(".js-variant-title");
+      if (titleInput) {
+        titleInput.value = nicoSource
+          ? nicoSource.dataset.varititle
+          : this.currentVariant.title || "";
+      }
     });
     publish(PUB_SUB_EVENTS.variantChange, {
       data: {
