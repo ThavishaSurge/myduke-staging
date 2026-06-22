@@ -305,7 +305,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Who can use myduke®?",
-            "answer": "<p>myduke® supports adults 18+ seeking help with nicotine dependence or quitting smoking. Access is provided under medical supervision in line with Australian regulations.</p>"
+            "answer": "<p>myduke® supports adults 18+ seeking help with quitting smoking or nicotine dependence . Access is provided under medical supervision in line with Australian regulations.</p>"
           }
         },
         "faq_item_yrBBnq": {
@@ -340,7 +340,7 @@
           "type": "faq_item",
           "settings": {
             "question": "What if treatment isn't right for me?",
-            "answer": "<p>If a doctor determines a treatment suitable to your smoking cessation or nicotine dependency goals. You'll receive guidance on safe, evidence-based alternatives to help support your personal journey.</p>"
+            "answer": "<p>If a doctor determines a treatment isn't suitable to your smoking cessation or nicotine dependency goals, you'll receive guidance on safe, evidence-based alternatives to help support your personal journey.</p>"
           }
         },
         "faq_item_X8DPNT": {
@@ -354,7 +354,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Do I need to visit a doctor in person?",
-            "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, you can access the pharmacy for replacement therapy medicines and ongoing care are managed through your secure account.</p>"
+            "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, you can access the pharmacy for nicotine replacement therapy, and manage your ongoing care through your secure myduke® account.</p>"
           }
         }
       },
