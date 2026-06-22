@@ -8,7 +8,7 @@
 }
 
 .myduke-cart-item-container {
-    max-width: 120rem;
+    max-width: 70rem;
     margin: auto;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .base-breadcrumbs {
-    max-width: 70rem;
+    max-width: 120rem;
     padding-left: 0rem;
 }
 
