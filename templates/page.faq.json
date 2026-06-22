@@ -15,7 +15,8 @@
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
-        "content_align": "left"
+        "content_align": "left",
+        "custom_class": ""
       }
     },
     "myduke_hero_secondary_9n8twt": {
@@ -25,7 +26,7 @@
         "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
         "bg_position_desktop": "bottom",
-        "bg_position_mobile": "top",
+        "bg_position_mobile": "center",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "overlay_color_mobile": "#000000",
@@ -123,7 +124,7 @@
         "faq_item_AkRjN8"
       ],
       "custom_css": [
-        "@media(max-width:550px){.myduke-faq-page__action{margin-top: 0rem; margin-bottom: 3.2rem; }}"
+        "@media (max-width: 550px) {.myduke-faq-page__action {margin-top: 0rem; margin-bottom: 3.2rem; }}"
       ],
       "name": "FAQ Page (MyDuke)",
       "settings": {
