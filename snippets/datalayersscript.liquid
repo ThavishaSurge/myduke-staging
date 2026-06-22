@@ -115,7 +115,7 @@ var waitforuserid = setInterval(function () {
       'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
       ecommerce: {
         currency: "{{shop.currency}}",
-        value: $('.todaystotal').data('total'),
+        value: document.querySelector('.todaystotal') ? document.querySelector('.todaystotal').getAttribute('data-total') : 0,
         items: [
           {{datalayerforitems}}
         ]
@@ -126,30 +126,33 @@ var waitforuserid = setInterval(function () {
     dataLayer.push(dataLayerarray);
   }
 }, 500);
-$('body').on('click','.cart__submit-controls #continueButton', function(){
-  var dataLayerarray = ({
-    event: "begin_checkout",
-    'user_type': "customer",
-    'userID': getUserId(),
-    'page_type': "VPN/begin_checkout",
-    'utm_source': (readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
-    'utm_medium': (readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
-    'utm_campaign': (readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
-    'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
-    'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
-    ecommerce: {
-      currency: "{{shop.currency}}",
-      value: $('.todaystotal').data('total'),
-      coupon: "",
-      items: [
-        {{datalayerforitems}}
-      ]
-    }
-  });
-  console.log(dataLayerarray);
-  dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-  dataLayer.push(dataLayerarray);
-});
+document.addEventListener('click', function(event) {
+  var target = event.target.closest('.cart__submit-controls #continueButton');
+  if (target) {
+    var dataLayerarray = ({
+      event: "begin_checkout",
+      'user_type': "customer",
+      'userID': typeof getUserId === 'function' ? getUserId() : "",
+      'page_type': "VPN/begin_checkout",
+      'utm_source': (typeof readgafCookie === 'function' && readgafCookie('utm_source')?readgafCookie('utm_source'):"NA"),
+      'utm_medium': (typeof readgafCookie === 'function' && readgafCookie('utm_medium')?readgafCookie('utm_medium'):"NA"),
+      'utm_campaign': (typeof readgafCookie === 'function' && readgafCookie('utm_campaign')?readgafCookie('utm_campaign'):"NA"),
+      'utm_version': (typeof readgafCookie === 'function' && readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
+      'utm_content': (typeof readgafCookie === 'function' && readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
+      ecommerce: {
+        currency: "{{shop.currency}}",
+        value: document.querySelector('.todaystotal') ? document.querySelector('.todaystotal').getAttribute('data-total') : 0,
+        coupon: "",
+        items: [
+          {{datalayerforitems}}
+        ]
+      }
+    });
+    console.log(dataLayerarray);
+    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    dataLayer.push(dataLayerarray);
+  }
+}, true);
 </script>
 {% endif %}
 {% if page_type == 'productclickdata' %}
