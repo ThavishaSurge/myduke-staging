@@ -60,6 +60,37 @@
         {% endif %}
       >
 
+      {% comment %}
+        MyDuke: capture the selected variant's nicotine (mg) as hidden cart line-item
+        properties. Submitted automatically by product-form.js (FormData). The leading
+        underscore makes them private/hidden properties (saved to the order, not shown
+        in the cart UI). Source metafield: variant.metafields.my_fields.total_nicotine.
+        Kept in sync on variant change by VariantSelects.updateVariantInput() in global.js.
+      {% endcomment %}
+      <input
+        type="hidden"
+        id="TotalNicotine-{{ section_id }}"
+        class="js-total-nicotine"
+        name="properties[_total_nicotine]"
+        value="{{ product.selected_or_first_available_variant.metafields.my_fields.total_nicotine }}"
+      >
+      <input
+        type="hidden"
+        id="VariantTitle-{{ section_id }}"
+        class="js-variant-title"
+        name="properties[_variant_title]"
+        value="{{ product.selected_or_first_available_variant.title | escape }}"
+      >
+      <div class="js-nicotine-data" hidden>
+        {%- for vari in product.variants -%}
+          <span
+            class="nico_{{ vari.id }}"
+            data-totalnicotine="{{ vari.metafields.my_fields.total_nicotine }}"
+            data-varititle="{{ vari.title | escape }}"
+          ></span>
+        {%- endfor -%}
+      </div>
+
       {%- if gift_card_recipient_feature_active -%}
         {%- render 'gift-card-recipient-form', product: product, form_obj: form, section_id: section_id -%}
       {%- endif -%}
