@@ -332,8 +332,8 @@
         "faq_item_FCMYwD": {
           "type": "faq_item",
           "settings": {
-            "question": "Can I use an existing prescription from another doctor?",
-            "answer": "<p>No. Only prescriptions issued through myduke®'s authorised pathways can be used with our dispensing partners, ensuring your care remains safe, compliant, and consistently monitored.</p>"
+            "question": "Can I use a existing treatment plan from another doctor?",
+            "answer": "<p>No. Only treatment plans issued through myduke®'s authorised pathways can be used with our dispensing partners, ensuring your care remains safe, compliant, and consistently monitored.</p>"
           }
         },
         "faq_item_WMFkpn": {
