@@ -12,7 +12,7 @@
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
-        "checkout_duke_url": "https://staging.myduke.com.au/checkout",
+        "checkout_duke_url": "https://portal.myduke.com.au/checkout",
         "padding_top": 36,
         "padding_bottom": 36
       }

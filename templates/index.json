@@ -406,7 +406,7 @@
         "heading_tag": "h2",
         "body": "<p>You're not alone on this journey. myduke® has helped thousands of Australians quit smoking. Start your smoking cessation journey today.</p>",
         "button_label": "Get started",
-        "button_url": "https://staging.myduke.com.au/login?redirect_url=https://myduke-staging.myshopify.com/",
+        "button_url": "https://portal.myduke.com.au/login?redirect_url=https://www.myduke.com.au/",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent",
         "margin_top": "no-indent",
