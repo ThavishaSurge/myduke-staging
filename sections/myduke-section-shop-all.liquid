@@ -43,7 +43,36 @@
     Collect unique product types from source collection for the Brand filter
   endcomment
   assign source_col_handle = section.settings.source_collection
-  assign unique_vendors_array = collections[source_col_handle].all_types
+  assign unique_vendors = ''
+  assign seen_vendor_handles = ''
+
+  {%- paginate collections[source_col_handle].products by 1000 -%}
+    {%- for product in collections[source_col_handle].products -%}
+      {%- assign type_handle = product.type | handleize -%}
+      {%- if type_handle == blank -%}
+        {%- continue -%}
+      {%- endif -%}
+      
+      {%- assign vendor_check = '|' | append: type_handle | append: '|' -%}
+      {%- assign seen_check_string = '|' | append: seen_vendor_handles | append: '|' -%}
+      
+      {%- unless seen_check_string contains vendor_check -%}
+        {%- if seen_vendor_handles == blank -%}
+          {%- assign seen_vendor_handles = type_handle -%}
+        {%- else -%}
+          {%- assign seen_vendor_handles = seen_vendor_handles | append: '|' | append: type_handle -%}
+        {%- endif -%}
+        
+        {%- if unique_vendors == blank -%}
+          {%- assign unique_vendors = product.type -%}
+        {%- else -%}
+          {%- assign unique_vendors = unique_vendors | append: '§' | append: product.type -%}
+        {%- endif -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endpaginate -%}
+
+  assign unique_vendors_array = unique_vendors | split: '§'
 
   comment
     Collect unique Strength values from variant options across the source collection
