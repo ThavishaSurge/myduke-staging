@@ -61,7 +61,8 @@
 
 .base-breadcrumbs {
     max-width: 120rem;
-    padding-left: 0rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
 }
 
 .myduke-cart-footer-container .cart__footer{
