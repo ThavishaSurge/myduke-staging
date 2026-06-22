@@ -74,9 +74,18 @@
         margin-left: 0px;
 }
 
+cart-remove-button .icon-remove {
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
 @media screen and (min-width: 750px) {
     .cart__footer>* {
         width: auto;
+    }
+
+    .cart-item cart-remove-button {
+        margin: 0rem 0 0 1.5rem;
     }
 }
 
