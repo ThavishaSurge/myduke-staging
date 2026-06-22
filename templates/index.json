@@ -283,6 +283,8 @@
       "settings": {
         "color_scheme": "",
         "visibility": "desktop",
+        "bg_image": "shopify://shop_images/cta-bg.jpg",
+        "bg_image_mobile": "shopify://shop_images/cta-quitters-mob-bg.jpg",
         "fallback_color": "#264653",
         "eyebrow": "You're not alone",
         "heading": "myduke® is for quitters",
