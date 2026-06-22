@@ -72,12 +72,27 @@
         margin-left: 0px;
 }
 
+@media screen and (min-width: 750px) {
+    .cart__footer>* {
+        width: auto;
+    }
+}
 
-@media (max-width: 767px) {
-
+@media (max-width: 980px) {
     #MainContent { 
         flex-direction: column;
     }
+
+
+    .myduke-cart-footer-container .cart__footer{
+        padding-top: 4rem;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+
 
 
     .myduke-cart-item-container {
@@ -105,8 +120,5 @@
         padding-right: 1.2rem;
     }
 
-    .myduke-cart-footer-container .cart__footer{
-        padding-top: 4rem;
-    }
 
 }
