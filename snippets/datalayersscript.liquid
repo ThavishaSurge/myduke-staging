@@ -154,6 +154,7 @@ $('body').on('click','.cart__submit-controls #continueButton', function(){
 {% endif %}
 {% if page_type == 'productclickdata' %}
 <script>
+console.log("productclickdata script loaded!");
 $('body').on('click','#product-grid .grid__item, .collection-product-card, .mdcpl__card, .mdcp__card, .msa__card', function(){
   console.log('select_item clicked', this);
   var datalayeritemdata = $(this).find('.datalayeritemdata').html();
