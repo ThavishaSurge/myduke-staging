@@ -43,29 +43,7 @@
     Collect unique product types from source collection for the Brand filter
   endcomment
   assign source_col_handle = section.settings.source_collection
-  assign unique_vendors = ''
-  assign seen_vendor_handles = ''
-  for product in collections[source_col_handle].products
-    assign type_handle = product.type | handleize
-    if type_handle == blank
-      continue
-    endif
-    assign vendor_check = '|' | append: type_handle | append: '|'
-    assign seen_check_string = '|' | append: seen_vendor_handles | append: '|'
-    unless seen_check_string contains vendor_check
-      if seen_vendor_handles == blank
-        assign seen_vendor_handles = type_handle
-      else
-        assign seen_vendor_handles = seen_vendor_handles | append: '|' | append: type_handle
-      endif
-      if unique_vendors == blank
-        assign unique_vendors = product.type
-      else
-        assign unique_vendors = unique_vendors | append: '§' | append: product.type
-      endif
-    endunless
-  endfor
-  assign unique_vendors_array = unique_vendors | split: '§'
+  assign unique_vendors_array = collections[source_col_handle].all_types
 
   comment
     Collect unique Strength values from variant options across the source collection
@@ -350,6 +328,7 @@
                     {{ section.settings.brand_filter_all_label | default: 'All Brands' }}
                   </button>
                   {%- for type_val in unique_vendors_array -%}
+                    {%- if type_val == blank -%}{%- continue -%}{%- endif -%}
                     {%- assign type_val_handle = type_val | handleize -%}
                     <button
                       class="msa__dropdown-item"
