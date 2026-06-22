@@ -80,8 +80,8 @@ $(function(){
   
         var withutmparam = "utm_source="+utm_source+"&utm_medium="+utm_medium+"&utm_campaign="+utm_campaign+"&utm_content="+utm_content+"&utm_version="+utm_version+"&utm_ref="+utm_ref+"&SessionId="+SessionId;
         
-        $('body a[href="https://myduke.com.au/signup"]').attr('href','https://myduke.com.au/signup?'+withutmparam);
-        $('body a[href="https://myduke.com.au/signup/"]').attr('href','https://myduke.com.au/signup?'+withutmparam);
+        $('body a[href="https://portal.myduke.com.au/signup"]').attr('href','https://portal.myduke.com.au/signup?'+withutmparam);
+        $('body a[href="https://portal.myduke.com.au/signup/"]').attr('href','https://portal.myduke.com.au/signup?'+withutmparam);
         creategafCookie('UTMQ', withutmparam, 30);
 
         creategafCookie('utm_source', utm_source, 30);
@@ -94,8 +94,8 @@ $(function(){
       
      }else if(readgafCookie('UTMQ') != null){
         var UTMQ = readgafCookie('UTMQ');
-        $('body a[href="https://myduke.com.au/signup"]').attr('href','https://myduke.com.auu/signup?'+UTMQ);
-        $('body a[href="https://myduke.com.au/signup/"]').attr('href','https://myduke.com.au/signup?'+UTMQ);
+        $('body a[href="https://portal.myduke.com.au/signup"]').attr('href','https://portal.myduke.com.au/signup?'+UTMQ);
+        $('body a[href="https://portal.myduke.com.au/signup/"]').attr('href','https://portal.myduke.com.au/signup?'+UTMQ);
       }
      //}
 });

@@ -3,11 +3,9 @@ function useQuery() {
 };
 
 function loginAndRedirect(event, root_url) {
-  //var PERMITTED_DOMAIN = "https://staging.myduke.com.au";
-  var PERMITTED_DOMAIN = "https://staging.myduke.com.au";
-  var PERMITTED_DOMAIN_2 = "https://v2previewportal.myduke.com.au";
-  var LOCALHOST = "http://localhost";
-  console.log('Inside | LoginAndRedirect');
+  //var PERMITTED_DOMAIN = "https://portal.myduke.com.au";
+  var PERMITTED_DOMAIN = "https://portal.myduke.com.au";
+  var LOCALHOST = "http://localhost:3000";
 
   // only Accept permitted domain from constant PERMITTED_DOMAIN
   if (event.srcElement.referrer.startsWith(PERMITTED_DOMAIN_2) || event.srcElement.referrer.startsWith(PERMITTED_DOMAIN) || event.srcElement.referrer.startsWith(LOCALHOST)) {
@@ -39,7 +37,7 @@ function loginAndRedirect(event, root_url) {
             const scriptExpiry = new Date(0);
             scriptExpiry.setUTCSeconds(res.result.script.scriptCreatedAt.seconds + 365*24*60*60);
             if (repeatsLeft > 0 && scriptExpiry > new Date()) {
-                window.location.href = 'https://myduke-staging.myshopify.com/pages/shop';
+                window.location.href = 'https://www.myduke.com.au/pages/shop';
             }else{
               if (redirect_url){
                 window.location.href = redirect_url;
@@ -85,9 +83,9 @@ function logout() {
   document.cookie = 'cart=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
   // Logout in customer portal
-  //window.location.href = "https://staging.myduke.com.au/logout?redirect_url=" + window.location.href;
-  //window.location.href = "https://staging.myduke.com.au/logout?redirect_url=" + window.location.href;
-  window.location.href = "https://staging.myduke.com.au/logout?redirect_url=https://myduke-staging.myshopify.com/";
+  //window.location.href = "https://portal.myduke.com.au/logout?redirect_url=" + window.location.href;
+  //window.location.href = "https://portal.myduke.com.au/logout?redirect_url=" + window.location.href;
+  window.location.href = "https://portal.myduke.com.au/logout?redirect_url=https://www.myduke.com.au/";
   
   return false;
 }
