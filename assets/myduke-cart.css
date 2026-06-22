@@ -1,3 +1,12 @@
+#MainContent {
+    display: flex;
+    max-width: 120rem;
+    margin: auto;
+    column-gap: 8rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+}
+
 .myduke-cart-item-container {
     max-width: 70rem;
     margin: auto;
@@ -51,18 +60,53 @@
 }
 
 .base-breadcrumbs {
-    max-width: 70rem;
-    padding-left: 0rem;
+    max-width: 120rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+}
+
+.myduke-cart-footer-container .cart__footer{
+    padding-top: 11rem;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .cart__footer>*+* {
         margin-left: 0px;
+}
+
+cart-remove-button .icon-remove {
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
+@media screen and (min-width: 750px) {
+    .cart__footer>* {
+        width: auto;
     }
+
+    .cart-item cart-remove-button {
+        margin: 0rem 0 0 1.5rem;
+    }
+}
+
+@media (max-width: 980px) {
+    #MainContent { 
+        flex-direction: column;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+
+
+    .myduke-cart-footer-container .cart__footer{
+        padding-top: 4rem;
+    }
+}
 
 
 @media (max-width: 767px) {
     .myduke-cart-item-container {
-        width: 95%;
+        width: 100%;
         padding-top: 0px;
     }
 
@@ -85,5 +129,6 @@
         padding-left: 1.2rem;
         padding-right: 1.2rem;
     }
+
 
 }

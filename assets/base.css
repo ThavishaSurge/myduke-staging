@@ -1340,9 +1340,9 @@ details>* {
   transition: color 0.4s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
-.button--secondary2::before {
+/* .button--secondary2::before {
   background-color: rgb(var(--color-button-secondary2-hover));
-}
+} */
 
 .button--secondary2 .button__label {
   color: rgb(var(--color-button-secondary2-text));

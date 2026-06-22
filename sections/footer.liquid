@@ -482,7 +482,7 @@
             %}
 
             {% comment %} ----- PAYMENT METHODS ----- {% endcomment %}
-            {%- if section.settings.payment_enable -%}
+            {% comment %} {%- if section.settings.payment_enable -%}
               {%- if section.settings.payment_image_1 != blank
                 or section.settings.payment_image_2 != blank
                 or section.settings.payment_image_3 != blank
@@ -490,7 +490,6 @@
                 or section.settings.payment_image_5 != blank
                 or section.settings.payment_image_6 != blank
               -%}
-                {%- comment -%} Render uploaded payment images {%- endcomment -%}
                 <ul class="list-payment list-payment--images list-unstyled" role="list">
                   {%- for i in (1..6) -%}
                     {%- assign img_key = 'payment_image_' | append: i -%}
@@ -520,7 +519,7 @@
                   {%- endfor -%}
                 </ul>
               {%- endif -%}
-            {%- endif -%}
+            {%- endif -%} {% endcomment %}
 
             {% comment %} ----- FOLLOW ON SHOP ----- {% endcomment %}
             {%- if has_follow_on_shop -%}

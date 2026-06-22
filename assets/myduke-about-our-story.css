@@ -1,8 +1,4 @@
-@media screen and (min-width: 990px) {
-  .myduke-about-our-story__inner {
-    max-height: 73.7rem;
-  }
-}
+
 
 .myduke-about-our-story {
   background: #ffffff;
@@ -29,7 +25,6 @@
   flex: 0 0 50%;
   min-width: 0;
   align-self: stretch;
-  max-height: 737px;
 }
 
 .myduke-about-our-story__image img {

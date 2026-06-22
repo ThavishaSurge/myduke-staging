@@ -1,6 +1,6 @@
 {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 
-<div class="page-section-wrapper container align-{{ section.settings.content_align }}">
+<div class="page-section-wrapper container align-{{ section.settings.content_align }} {{ section.settings.custom_class }}">
   <div class="page-header">
     <div class="page-header__inner">
       <{{ section.settings.heading_tag | default: 'h1' }} class="page-header__inner-title {{ section.settings.heading_size }}">
@@ -110,6 +110,12 @@
         }
       ],
       "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class",
+      "info": "Optional: Add a custom class to apply specific CSS styling to this page section."
     }
   ]
 }

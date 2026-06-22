@@ -286,3 +286,14 @@
   word-break: break-word;
   color: rgb(var(--color-foreground-secondary));
 }
+
+cart-remove-button .icon-remove {
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
+@media screen and (min-width: 750px) {
+    .cart-item cart-remove-button {
+        margin: 0rem 0 0 1.5rem;
+    }
+}

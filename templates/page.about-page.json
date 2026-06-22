@@ -49,7 +49,7 @@
         "card_PqKxVC": {
           "type": "card",
           "settings": {
-            "text": "Following changes to Australia's nicotine regulations, many people who smoke have been required to navigate complex medical, pharmacy, and compliance processes when seeking support to quit. myduke® was developed to simplify this pathway while maintaining the safeguards required under Australian law.\n\nThe platform focuses on structured clinical review, transparency, and regulatory alignment, supporting informed decision-making in the context of smoking cessation."
+            "text": "Following changes to Australia's regulations, many people who smoke have been required to navigate complex medical, pharmacy, and compliance processes when seeking support to quit. myduke® was developed to simplify this pathway while maintaining the safeguards required under Australian law.\nThe platform focuses on structured clinical review, transparency, and regulatory alignment to support informed decision-making in the context of smoking cessation and nicotine dependency."
           }
         },
         "card_gYXYTm": {
@@ -71,7 +71,7 @@
         "heading": "Simplifying the Pathway to Quit",
         "card_column_gap": 24,
         "card_row_gap": 24,
-        "button_text": "Apply For Prescription",
+        "button_text": "Start Your Assessment",
         "button_link": "https://portal.myduke.com.au/signup"
       }
     },
@@ -145,7 +145,7 @@
           "settings": {
             "icon_svg": "",
             "icon": "shopify://shop_images/Technology-Privacy-Consent.svg",
-            "label": "TGA-Compliant Framework"
+            "label": "Regulatory Compliant Framework"
           }
         },
         "badge_xP3Uxk": {
@@ -175,14 +175,14 @@
           "type": "accordion_item",
           "settings": {
             "title": "Ongoing Patient Oversight",
-            "content": "<p>Beyond the initial assessment, myduke® provides ongoing oversight of your treatment journey. Our dedicated support team and clinical records ensure that your progress, prescribed nicotine strengths, and usage history are monitored in accordance with regulatory obligations and clinical standards, helping you stay informed as you manage your treatment.</p>"
+            "content": "<p>Beyond the initial assessment, myduke® provides ongoing oversight of your treatment journey. Our dedicated support team and clinical records ensure that your progress and usage history are monitored in accordance with regulatory obligations and clinical standards, helping you stay informed as you manage your treatment.</p>"
           }
         },
         "accordion_item_JEjGDq": {
           "type": "accordion_item",
           "settings": {
             "title": "Regulatory Alignment",
-            "content": "<p>Built with compliance at its core, myduke® integrates medical review and access controls in accordance with TGA, AHPRA, and state-based requirements. This ensures a consistent service for adults seeking structured support, in alignment with regulatory and public health obligations.</p>"
+            "content": "<p>Built with compliance at its core, myduke® integrates medical review and access controls in accordance with regulators and state-based requirements. This ensures a consistent service for adults seeking structured support, in alignment with regulatory and public health obligations.</p>"
           }
         },
         "accordion_item_JYMUnn": {
@@ -270,7 +270,7 @@
         "row_EERtGp": {
           "type": "row",
           "settings": {
-            "feature": "TGA-compliant products only",
+            "feature": "Compliant products only",
             "standard_result": "varies"
           }
         },
@@ -338,8 +338,8 @@
         "faq_item_3izeBH": {
           "type": "faq_item",
           "settings": {
-            "question": "How do I get a nicotine prescription and how long does it take?",
-            "answer": "<p>After your assessment is reviewed by a registered doctor, most prescriptions are issued within a couple of business days if clinically appropriate. Your prescription is then managed securely through your myduke® account.</p>"
+            "question": "How do I access an Authorised Prescribing Doctor, and how long does the process take?",
+            "answer": "<p>After your assessment is reviewed by a doctor, usually within one business day, once approved, you will be able to access the pharmacy immediately through your secure myduke® account. <br/></p>"
           }
         },
         "faq_item_wBVfEx": {
@@ -349,32 +349,25 @@
             "answer": "<p>Yes. Our digital platform is designed for adults across Australia, including regional and remote areas. There's no need to visit a clinic or pharmacy in person to get started.</p>"
           }
         },
-        "faq_item_mtW8VH": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Can I use an existing prescription from another doctor?",
-            "answer": "<p>No. Only prescriptions issued through myduke®'s authorised pathways can be used with our dispensing partners, ensuring your care remains safe, compliant, and consistently monitored.</p>"
-          }
-        },
         "faq_item_D6t93g": {
           "type": "faq_item",
           "settings": {
-            "question": " What if a prescription isn't right for me?",
-            "answer": "<p>If a doctor determines a prescription isn't suitable, you'll receive guidance on safe, evidence-based alternatives to help support your quit journey.</p>"
+            "question": "What if a treatment isn't right for me?",
+            "answer": "<p>If a doctor determines that any of the myduke® treatment options are not suitable, you'll receive guidance on safe, evidence-based alternatives to help support your quit journey.<br/></p>"
           }
         },
         "faq_item_fnJWFt": {
           "type": "faq_item",
           "settings": {
             "question": "What treatments does myduke® offer?",
-            "answer": "<p>myduke® provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
+            "answer": "<p>myduke® provides access to a range of smoking cessation and nicotine dependency options, including first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
           }
         },
         "faq_item_bQkEXL": {
           "type": "faq_item",
           "settings": {
             "question": "Do I need to visit a doctor in person?",
-            "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, your prescription and ongoing care are managed through your secure account.</p>"
+            "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, usually within one business day, you will be able to access the pharmacy immediately through your secure myduke® account.</p>"
           }
         }
       },
@@ -383,7 +376,6 @@
         "faq_item_ezzdkL",
         "faq_item_3izeBH",
         "faq_item_wBVfEx",
-        "faq_item_mtW8VH",
         "faq_item_D6t93g",
         "faq_item_fnJWFt",
         "faq_item_bQkEXL"

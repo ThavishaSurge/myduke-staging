@@ -61,6 +61,7 @@
  .myduke-guided-support__card {
    display: flex;
    flex-direction: column;
+    justify-content: space-between;
  }
 
  .myduke-guided-support__card-icon-wrapper {

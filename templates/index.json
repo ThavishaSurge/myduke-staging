@@ -21,7 +21,7 @@
         "overlay_opacity_mobile": 0,
         "heading": "Clinical Support For\nNicotine Dependance",
         "description": "myduke® offers safe and clinically appropriate pathways for smoking cessation, supported by healthcare professionals every step of the way.",
-        "button_1_text": "Apply For A Prescription",
+        "button_1_text": "Start Your Assessment",
         "button_1_link": "https://portal.myduke.com.au/signup",
         "button_2_text": "",
         "button_2_link": "",
@@ -67,7 +67,7 @@
           "type": "info_item",
           "settings": {
             "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 26 26\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_689)\">\n    <path d=\"M23.0473 9.13566V2.95272C23.0473 2.54276 22.8844 2.1496 22.5946 1.85972C22.3047 1.56984 21.9115 1.40698 21.5016 1.40698H2.95272C2.54276 1.40698 2.1496 1.56984 1.85972 1.85972C1.56984 2.1496 1.40698 2.54276 1.40698 2.95272V19.9558C1.40698 20.3658 1.56984 20.7589 1.85972 21.0488C2.1496 21.3387 2.54276 21.5016 2.95272 21.5016H10.6814\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M1.40698 6.04419H23.0473\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 10.6814H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 13.7729H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M4.49844 16.8643H6.04418\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 10.6814H14.5457\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 13.7729H11.7119\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M9.13565 16.8643H10.939\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1501 23.8922L19.6096 24.593L18.07 23.8922C17.0684 23.4693 16.2105 22.7658 15.5996 21.8664C14.9888 20.967 14.651 19.9102 14.6271 18.8232V14.9579L19.6096 13.2576L24.593 14.9579V18.8232C24.5689 19.9101 24.231 20.9669 23.6202 21.8662C23.0094 22.7655 22.1516 23.4691 21.1501 23.8922Z\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M17.5414 18.884L19.0366 20.3803L22.0292 16.6406\" fill=\"none\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_689\">\n      <rect width=\"26\" height=\"26\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
-            "text": "TGA-Compliant Framework"
+            "text": "Regulatory Compliant Framework"
           }
         },
         "info_item_G9Rjdn": {
@@ -126,8 +126,8 @@
           "settings": {
             "card_image": "shopify://shop_images/Shop_Treatment.webp",
             "card_time_badge": "1-2 Days",
-            "card_heading": "Shop Treatment",
-            "card_check_text": "Pharmacy-dispensed products",
+            "card_heading": "Online Pharmacy",
+            "card_check_text": "Pharmacy-dispensed Treatment",
             "card_check_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 16 16\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_762)\">\n    <path d=\"M8 0C6.41775 0 4.87104 0.469192 3.55544 1.34824C2.23985 2.22729 1.21447 3.47672 0.608967 4.93853C0.00346629 6.40034 -0.15496 8.00887 0.153721 9.56072C0.462403 11.1126 1.22433 12.538 2.34315 13.6569C3.46197 14.7757 4.88743 15.5376 6.43928 15.8463C7.99113 16.155 9.59966 15.9965 11.0615 15.391C12.5233 14.7855 13.7727 13.7602 14.6518 12.4446C15.5308 11.129 16 9.58225 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0ZM12.62 5.46667L8.05334 11.66C8.0002 11.7324 7.93297 11.7933 7.8557 11.8391C7.77843 11.8849 7.6927 11.9146 7.60366 11.9265C7.51462 11.9383 7.42411 11.932 7.33756 11.908C7.25101 11.884 7.17021 11.8427 7.1 11.7867L3.84 9.18C3.77152 9.12499 3.71458 9.05698 3.67247 8.97989C3.63035 8.9028 3.60389 8.81814 3.59459 8.73079C3.5853 8.64344 3.59336 8.55511 3.61832 8.47088C3.64327 8.38666 3.68463 8.30819 3.74 8.24C3.85078 8.10557 4.00977 8.01984 4.18296 8.00115C4.35614 7.98247 4.52976 8.0323 4.66667 8.14L7.38667 10.3133L11.5467 4.66667C11.6516 4.5261 11.8078 4.43257 11.9813 4.40636C12.1547 4.38015 12.3315 4.42338 12.4733 4.52667C12.5453 4.57824 12.6064 4.64364 12.6528 4.71906C12.6993 4.79447 12.7302 4.87839 12.7439 4.9659C12.7575 5.05341 12.7536 5.14277 12.7323 5.22875C12.7111 5.31473 12.6729 5.39561 12.62 5.46667Z\" fill=\"#EF6351\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_762\">\n      <rect width=\"16\" height=\"16\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>"
           }
         },
@@ -240,15 +240,15 @@
           "settings": {
             "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n  <path d=\"M21.2064 21.3155L20.2323 28.5671C20.1106 29.4274 21.0846 30.0419 21.8151 29.4274L24.2503 26.9693L26.6854 29.4274C27.2942 30.0419 28.39 29.5503 28.2682 28.5671L27.2942 21.3155\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M24.2498 22.246C27.2758 22.246 29.7288 19.7929 29.7288 16.7669C29.7288 13.7409 27.2758 11.2879 24.2498 11.2879C21.2238 11.2879 18.7708 13.7409 18.7708 16.7669C18.7708 19.7929 21.2238 22.246 24.2498 22.246Z\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M24.2498 16.28C24.0063 16.28 23.7628 16.5236 23.7628 16.7671C23.7628 17.0106 24.0063 17.2541 24.2498 17.2541\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M24.2497 16.28C24.4932 16.28 24.7367 16.5236 24.7367 16.7671C24.7367 17.0106 24.4932 17.2541 24.2497 17.2541\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M15.7268 29.6976H3.55118C2.82064 29.6976 2.33362 29.2106 2.33362 28.48V3.51996C2.33362 2.78942 2.82064 2.3024 3.55118 2.3024H15.8486C16.0921 2.3024 16.4574 2.42418 16.7009 2.66769L22.6669 8.02496\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M7.69077 10.2166H15.7267\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M7.69077 16.3044H15.7267\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M7.69077 22.3922H13.7786\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
             "title": "Clear, Regulated Pathways",
-            "list_items": "Compliant prescribing & dispensing\nTGA notification requirements met\nLicensed pharmacy partners"
+            "list_items": "Compliant dispensing framework\nRegulatory compliance requirements met\nLicensed pharmacy partners"
           }
         },
         "card_hMQzMW": {
           "type": "card",
           "settings": {
             "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewbox=\"0 0 32 32\" fill=\"none\">\n  <g clip-path=\"url(#clip0_496_851)\">\n    <path d=\"M29.3171 28.3659C29.3171 28.8704 29.1167 29.3544 28.76 29.7112C28.4032 30.0679 27.9192 30.2683 27.4147 30.2683H4.58534C4.08078 30.2683 3.59688 30.0679 3.24011 29.7112C2.88333 29.3544 2.68289 28.8704 2.68289 28.3659V3.63411C2.68289 3.12956 2.88333 2.64565 3.24011 2.28888C3.59688 1.9321 4.08078 1.73167 4.58534 1.73167H23.6669C24.1634 1.73139 24.6405 1.92529 24.996 2.27196L28.7426 5.92846C28.9245 6.10568 29.0689 6.31751 29.1676 6.55145C29.2663 6.78538 29.3171 7.03671 29.3171 7.29061V28.3659Z\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M2.68289 20.6338H29.3171\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M8.21774 25.5717H15.8275\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1424 11.0863H24.8476\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1424 15.7439H24.8476\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M21.1424 25.5717H24.8476\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M13.7488 6.42864H10.2968V9.36042H7.365V12.8124H10.2968V15.7441H13.7488V12.8124H16.6804V9.36042H13.7488V6.42864Z\" stroke=\"#218380\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_496_851\">\n      <rect width=\"32\" height=\"32\" fill=\"white\"></rect>\n    </clippath>\n  </defs>\n</svg>",
-            "title": "Personalised Care Plans",
-            "list_items": "Individualised cessation plan\nPrescribed nicotine pathways\nBehavioural strategies included"
+            "title": "Suggested nicotine replacement therapy pathways",
+            "list_items": "Individualised cessation plan\nClinically appropriate nicotine pathways\nBehavioural strategies included"
           }
         },
         "card_GNdhCW": {
@@ -318,8 +318,8 @@
         "faq_item_RwiJkB": {
           "type": "faq_item",
           "settings": {
-            "question": "How do I get a nicotine prescription and how long does it take?",
-            "answer": "<p>After your assessment is reviewed by a registered doctor, most prescriptions are issued within a couple of business days if clinically appropriate. Your prescription is then managed securely through your myduke® account.</p>"
+            "question": "How do I access the pharmacy and how long does it take?",
+            "answer": "<p>After your assessment is reviewed by a registered doctor, if deemed appropriate, you will be able to access the pharmacy immediately through your myduke® account.</p>"
           }
         },
         "faq_item_MBJVEk": {
@@ -339,22 +339,22 @@
         "faq_item_WMFkpn": {
           "type": "faq_item",
           "settings": {
-            "question": "What if a prescription isn't right for me?",
-            "answer": "<p>If a doctor determines a prescription isn't suitable, you'll receive guidance on safe, evidence-based alternatives to help support your quit journey.</p>"
+            "question": "What if treatment isn't right for me?",
+            "answer": "<p>If a doctor determines a treatment suitable to your smoking cessation or nicotine dependency goals. You'll receive guidance on safe, evidence-based alternatives to help support your personal journey.</p>"
           }
         },
         "faq_item_X8DPNT": {
           "type": "faq_item",
           "settings": {
             "question": "What treatments does myduke® offer?",
-            "answer": "<p>myduke® provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
+            "answer": "<p>myduke provides access to a range of registered nicotine therapeutic products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
           }
         },
         "faq_item_nALzUW": {
           "type": "faq_item",
           "settings": {
             "question": "Do I need to visit a doctor in person?",
-            "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, your prescription and ongoing care are managed through your secure account.</p>"
+            "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, you can access the pharmacy for replacement therapy medicines and ongoing care are managed through your secure account.</p>"
           }
         }
       },

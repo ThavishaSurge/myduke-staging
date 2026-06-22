@@ -346,7 +346,7 @@
       }
     },
     "cart": {
-      "title": "Shopping Cart",
+      "title": "Order Summary",
       "shipping": "Delivery Charges",
       "shipping_at_checkout": "Calculated at checkout",
       "summary": "Order Summary",

@@ -15,7 +15,8 @@
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
-        "content_align": "left"
+        "content_align": "left",
+        "custom_class": ""
       }
     },
     "myduke_loading_screen_mhWL9Q": {
@@ -23,6 +24,7 @@
       "name": "Loading Screen",
       "settings": {
         "excluded_referrers": "/collections/, /shop-all, /products/, /by-product-type, /by-compatibility",
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "background_image": "shopify://shop_images/image_8_1.webp",
         "fallback_bg_color": "#226e65",
         "enable_overlay": true,
