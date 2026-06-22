@@ -15,7 +15,8 @@
       "settings": {
         "heading_size": "h5",
         "heading_tag": "h1",
-        "content_align": "left"
+        "content_align": "left",
+        "custom_class": ""
       }
     },
     "myduke_hero_secondary_wdCVUt": {
@@ -143,7 +144,7 @@
             "step_counter": "03 / 04",
             "step_title": "Treatment & Dispatch",
             "subtitle": "Pharmacy-dispensed products",
-            "checklist_items": "Receive your clinical plan\nTGA-compliant regulated products\nDispatched within 24–48 hrs",
+            "checklist_items": "Receive your clinical plan\nAccess Online Pharmacy\nDispatched within 24–48 hrs",
             "check_color": "#ef6351"
           }
         },
@@ -215,7 +216,7 @@
             "step_counter": "03 / 04",
             "step_title": "Treatment & Dispatch",
             "subtitle": "Pharmacy-dispensed products",
-            "checklist_items": "Receive your clinical plan\nTGA-compliant regulated products\nDispatched within 24–48 hrs",
+            "checklist_items": "Receive your clinical plan\nAccess Online Pharmacy\nDispatched within 24–48 hrs",
             "check_color": "#ef6351"
           }
         },
