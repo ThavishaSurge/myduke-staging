@@ -171,11 +171,11 @@
           "settings": {
             "image": "shopify://shop_images/Clinical_Assessment-coverr_jpg.webp",
             "step_badge": "Step 01",
-            "time_text": "2 mins",
+            "time_text": "2 minutes",
             "step_counter": "01 / 04",
             "step_title": "Clinical Assessment",
-            "subtitle": "",
-            "checklist_items": "Tell us about you",
+            "subtitle": "Tell us about you",
+            "checklist_items": "Sign up & set your quit goals\nConfidential health questionnaire\nTakes just 2 minutes",
             "check_color": "#BFDBCF"
           }
         },
@@ -187,8 +187,8 @@
             "time_text": "< 24 hrs",
             "step_counter": "02 / 04",
             "step_title": "Medical Review",
-            "subtitle": "",
-            "checklist_items": "Doctor-approved pathway",
+            "subtitle": "Doctor-approved pathway",
+            "checklist_items": "AHPRA-registered doctor reviews\nPersonalised cessation care plan\nMedically appropriate recommendations",
             "check_color": "#FFB703"
           }
         },
@@ -200,8 +200,8 @@
             "time_text": "1-2 Days",
             "step_counter": "03 / 04",
             "step_title": "Treatment & Dispatch",
-            "subtitle": "",
-            "checklist_items": "Pharmacy-dispensed Treatment",
+            "subtitle": "Pharmacy-dispensed Treatment",
+            "checklist_items": "Receive your clinical plan\nAccess Online Pharmacy\nDispatched within 2-3 business days",
             "check_color": "#EF6351"
           }
         },
@@ -213,8 +213,8 @@
             "time_text": "Ongoing",
             "step_counter": "04 / 04",
             "step_title": "Ongoing Support",
-            "subtitle": "",
-            "checklist_items": "Stay on track with us",
+            "subtitle": "We're with you all the way",
+            "checklist_items": "Monitored care plan\nProfessional dispensing partners\nStep-down guidance over time",
             "check_color": "#218380"
           }
         }
