@@ -24,7 +24,6 @@
       "name": "Loading Screen",
       "settings": {
         "excluded_referrers": "/collections/, /shop-all, /products/, /by-product-type, /by-compatibility",
-        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
         "background_image": "shopify://shop_images/image_8_1.webp",
         "fallback_bg_color": "#226e65",
         "enable_overlay": true,
@@ -424,13 +423,7 @@
         "vendor_yEfTDJ": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "wild"
-          }
-        },
-        "vendor_rt4Qb3": {
-          "type": "vendor",
-          "settings": {
-            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
+            "vendor_ref": "wild-by-instinct"
           }
         },
         "vendor_VM4PBR": {
@@ -442,7 +435,7 @@
         "vendor_Uy7Mwj": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "vapo-alpha-replacement-coils"
+            "vendor_ref": "chosen"
           }
         },
         "vendor_rnAWLe": {
@@ -462,7 +455,6 @@
         "vendor_L6yzma",
         "vendor_A7BmMr",
         "vendor_yEfTDJ",
-        "vendor_rt4Qb3",
         "vendor_VM4PBR",
         "vendor_Uy7Mwj",
         "vendor_rnAWLe"
