@@ -1,6 +1,6 @@
 $(function(){
   
- icon_bg_mobile_slider();
+//  icon_bg_mobile_slider();
   function icon_bg_mobile_slider(){
     if ($(window).width() < 749) {
        $('.icon-bg-mobile-slider .icon-with-text_block-bg').slick({
@@ -27,21 +27,21 @@ $(function(){
     }
   }
 
-  $(window).on('resize', function() {
-    icon_bg_mobile_slider();
-  });
+  // $(window).on('resize', function() {
+  //   icon_bg_mobile_slider();
+  // });
 
-  var agePopupCookie = getCookie("agePopup");
-  if (agePopupCookie !== 'checked' ) {
-      $('#age-popup').show();
-      $('body').addClass('disable-body-overflow--all');
-  }
-  $('#age-popup-enter').on('click', function () {
-      $('body').removeClass('disable-body-overflow--all');
-      $('#age-popup').hide();
+  // var agePopupCookie = getCookie("agePopup");
+  // if (agePopupCookie !== 'checked' ) {
+  //     $('#age-popup').show();
+  //     $('body').addClass('disable-body-overflow--all');
+  // }
+  // $('#age-popup-enter').on('click', function () {
+  //     $('body').removeClass('disable-body-overflow--all');
+  //     $('#age-popup').hide();
 
-      document.cookie = "agePopup=checked; max-age=" + 900*24*60*60;
-  });
+  //     document.cookie = "agePopup=checked; max-age=" + 900*24*60*60;
+  // });
   
   function getCookie(name) {
     // Split cookie string and get all individual name=value pairs in an array
