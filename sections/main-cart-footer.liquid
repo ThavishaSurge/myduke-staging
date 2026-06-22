@@ -104,8 +104,20 @@
                 
               </div>
               {% render 'free-shipping' %}
+              {%- liquid
+                # MyDuke: server-side guard so the Next button is disabled at render time
+                # (before the jQuery check in cart.js runs) when the cart exceeds the
+                # 4500 mg nicotine limit. Cart page reloads on qty change, so this is always fresh.
+                assign mydk_cart_nicotine = 0
+                for mydk_item in cart.items
+                  if mydk_item.properties._total_nicotine != blank
+                    assign mydk_line_nicotine = mydk_item.properties._total_nicotine | times: mydk_item.quantity
+                    assign mydk_cart_nicotine = mydk_cart_nicotine | plus: mydk_line_nicotine
+                  endif
+                endfor
+              -%}
               <div class="cart__submit-controls cart__ctas myduke-cart-submit">
-                <button id="continueButton" type="button" onclick="addSubscriptionData()" name="continue" class="cart__checkout-button button mydk-cart-checkout-btn">Next</button>                     
+                <button id="continueButton" type="button" onclick="addSubscriptionData()" name="continue" class="cart__checkout-button button mydk-cart-checkout-btn"{% if mydk_cart_nicotine > 4500 %} disabled{% endif %}>Next</button>                     
               </div>
               <div class="cart__ctas" {{ block.shopify_attributes }} style="display:none;">
                 <noscript>
