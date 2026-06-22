@@ -14,8 +14,8 @@
         'utm_version': (readgafCookie('utm_version')?readgafCookie('utm_version'):"NA"),
         'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
         ecommerce: {
-          item_list_id: "{% if collection %}{{ collection.id }}{% endif %}", //unique id of the list
-          item_list_name: "{% if collection %}{{ collection.handle | capitalize }}{% endif %}",  // All, nicotine, you may also like etc
+          item_list_id: "{% if collection %}{{ collection.id }}{% else %}{{ page.id }}{% endif %}", //unique id of the list
+          item_list_name: "{% if collection %}{{ collection.handle | capitalize }}{% else %}{{ page.title | default: 'Shop All' }}{% endif %}",  // All, nicotine, you may also like etc
           items: [
             {{datalayerforitems}}
           ]
@@ -85,7 +85,7 @@ var waitforuserid = setInterval(function () {
       'utm_content': (readgafCookie('utm_content')?readgafCookie('utm_content'):"NA"),
       ecommerce: {
         item_list_id: "{{ section.id }}", //unique id of the list
-        item_list_name: "{{ section.settings.title }}",  // All, nicotine, you may also like etc
+        item_list_name: "{{ section.settings.content_heading | default: section.settings.title | default: 'Featured Collection' }}",  // All, nicotine, you may also like etc
         items: [
           {{datalayerforitems}}
         ]

@@ -521,6 +521,13 @@
 
     {%- comment -%} ── Client-side Pagination Wrapper ── {%- endcomment -%}
     <div class="msa__client-pagination"></div>
+    
+    {% capture datalayerforitems %}
+      {%- for product in collections[source_collection].products -%}
+        {item_id: "{{product.id}}", item_name: "{{product.title | escape}}", index: "{{forloop.index}}", item_brand: "{{product.vendor}}", item_category: "{% for collection in product.collections %}{{ collection.title | escape }},{% endfor %}", item_variant: "{{product.variants | size}}", price: "{{product.price | money_without_currency}}"}
+        {%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    {% endcapture %}
 
     {%- endpaginate -%}
 
@@ -1361,4 +1368,5 @@
     }
   ]
 }
+{% render 'datalayersscript', page_type:'pagelisting', datalayerforitems:datalayerforitems %}
 {% endschema %}
