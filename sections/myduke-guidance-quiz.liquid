@@ -15,6 +15,11 @@
       "default": "Take our quick quiz to find out which nicotine strength is right for you."
     },
     {
+      "type": "richtext",
+      "id": "disclaimer_text",
+      "label": "Disclaimer Text"
+    },
+    {
       "type": "color",
       "id": "background_color",
       "label": "Fallback Background Color",
@@ -186,6 +191,23 @@
     line-height: 1.5;
     color: #fff;
     font-variation-settings: "wdth" 100;
+  }
+
+  .guidance-quiz-disclaimer {
+    color: #fff;
+    font-family: var(--font-body-family);
+    font-size: 14px;
+    text-align: center;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    line-height: 1.5;
+    z-index: 2;
+    position: relative;
+    opacity: 0.8;
+  }
+
+  .guidance-quiz-disclaimer p {
+    margin: 0;
   }
 
   .guidance-quiz-card, .guidance-results-card {
@@ -947,6 +969,12 @@
         </div>
       </div>
     </div>
+
+    {% if section.settings.disclaimer_text != blank %}
+      <div class="guidance-quiz-disclaimer">
+        {{ section.settings.disclaimer_text }}
+      </div>
+    {% endif %}
   </div>
 </div>
 
