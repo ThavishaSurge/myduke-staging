@@ -5,10 +5,10 @@ function useQuery() {
 function loginAndRedirect(event, root_url) {
   //var PERMITTED_DOMAIN = "https://portal.myduke.com.au";
   var PERMITTED_DOMAIN = "https://portal.myduke.com.au";
-  //var LOCALHOST = "http://localhost:3000";
+  var LOCALHOST = "http://localhost:3000";
 
   // only Accept permitted domain from constant PERMITTED_DOMAIN
-  if (event.srcElement.referrer.startsWith(PERMITTED_DOMAIN_2) || event.srcElement.referrer.startsWith(PERMITTED_DOMAIN) || event.srcElement.referrer.startsWith(LOCALHOST)) {
+  if (event.srcElement.referrer.startsWith(PERMITTED_DOMAIN) || event.srcElement.referrer.startsWith(LOCALHOST)) {
     // if token in search parameters, save it in local storage
     var token = useQuery().get('token');
     var previousToken = localStorage.getItem("duke-token");
