@@ -176,7 +176,7 @@
             "step_title": "Clinical Assessment",
             "subtitle": "",
             "checklist_items": "Tell us about you",
-            "check_color": "#218380"
+            "check_color": "#BFDBCF"
           }
         },
         "step_slide_jzJdHD": {
@@ -189,7 +189,7 @@
             "step_title": "Medical Review",
             "subtitle": "",
             "checklist_items": "Doctor-approved pathway",
-            "check_color": "#218380"
+            "check_color": "#FFB703"
           }
         },
         "step_slide_rtVdXX": {
@@ -202,7 +202,7 @@
             "step_title": "Treatment & Dispatch",
             "subtitle": "",
             "checklist_items": "Pharmacy-dispensed Treatment",
-            "check_color": "#218380"
+            "check_color": "#EF6351"
           }
         },
         "step_slide_MQjqVd": {
