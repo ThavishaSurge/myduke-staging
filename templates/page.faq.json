@@ -22,8 +22,8 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/myDuke-home-hero-bg.webp",
-        "background_image_mobile": "shopify://shop_images/Frame_427320840.jpg",
+        "background_image": "shopify://shop_images/myDuke-home-hero-bg.jpg",
+        "background_image_mobile": "shopify://shop_images/Frame_427320840.webp",
         "bg_position_desktop": "bottom",
         "bg_position_mobile": "top",
         "overlay_color": "#000000",
@@ -121,6 +121,9 @@
         "faq_item_8Y98XJ",
         "faq_item_AjX66N",
         "faq_item_AkRjN8"
+      ],
+      "custom_css": [
+        "@media(max-width:550px){.myduke-faq-page__action{margin-top: 0rem; margin-bottom: 3.2rem; }}"
       ],
       "name": "FAQ Page (MyDuke)",
       "settings": {

@@ -150,9 +150,13 @@ function hideProducts(){
 
   const $authContainer = $('.mydk-product-container-auth');
 
+
+      if (window.Shopify && window.Shopify.designMode) {
+        return;
+      }
+
       if ($authContainer.length) {
           $authContainer.hide();
-
           // Redirect only if not already on the homepage
           if (window.location.pathname !== '/') {
               window.location.replace('/');

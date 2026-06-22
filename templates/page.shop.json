@@ -23,6 +23,7 @@
       "name": "Loading Screen",
       "settings": {
         "excluded_referrers": "/collections/, /shop-all, /products/, /by-product-type, /by-compatibility",
+        "background_image": "shopify://shop_images/98010f6bd5789e80dbf8c882d79a544fdd88c158_2.webp",
         "background_image": "shopify://shop_images/image_8_1.webp",
         "fallback_bg_color": "#226e65",
         "enable_overlay": true,
@@ -37,8 +38,8 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/image_8_1.webp",
-        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.jpg",
+        "background_image": "shopify://shop_images/image_8_1.jpg",
+        "background_image_mobile": "shopify://shop_images/8e9a571f2bedbc893593917404cbb2042f1a51bf_1.webp",
         "bg_position_desktop": "center",
         "bg_position_mobile": "bottom",
         "overlay_color": "#000000",
@@ -208,6 +209,48 @@
     "myduke_popular_products_btYrh9": {
       "type": "myduke-popular-products",
       "blocks": {
+        "collection_item_ehgQRA": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_Fq3XQL": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "zero-nicotine"
+          }
+        },
+        "collection_item_7aMyJR": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "closed-systems"
+          }
+        },
+        "collection_item_mwj8Vq": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "pods-copy"
+          }
+        },
+        "collection_item_7yikjN": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "all-products"
+          }
+        },
+        "collection_item_VpAKy6": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "e-liquids"
+          }
+        },
+        "collection_item_pYbKJa": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
         "collection_item_EGWCwh": {
           "type": "collection_item",
           "settings": {
@@ -282,6 +325,13 @@
         }
       },
       "block_order": [
+        "collection_item_ehgQRA",
+        "collection_item_Fq3XQL",
+        "collection_item_7aMyJR",
+        "collection_item_mwj8Vq",
+        "collection_item_7yikjN",
+        "collection_item_VpAKy6",
+        "collection_item_pYbKJa",
         "collection_item_EGWCwh",
         "collection_item_edpcBT",
         "collection_item_TajXxh",
@@ -373,13 +423,13 @@
         "vendor_yEfTDJ": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "wild-by-instinct"
+            "vendor_ref": "wild"
           }
         },
         "vendor_rt4Qb3": {
           "type": "vendor",
           "settings": {
-            "vendor_ref": "alt-x"
+            "vendor_ref": "https-myduke-staging-myshopify-com-pages-shop"
           }
         },
         "vendor_VM4PBR": {
@@ -445,7 +495,7 @@
         "heading": "Need Guidance?",
         "subheading": "Take our quick quiz to help identify nicotine replacement options that may be suitable for you. \nThis assessment is provided as a guide only. Individual nicotine requirements may vary, and a healthcare professional can help determine the most appropriate treatment option for you.",
         "background_color": "#f4a261",
-        "background_image": "shopify://shop_images/cost-cal-bg.jpg",
+        "background_image": "shopify://shop_images/cost-cal-bg.webp",
         "closed_cta_url": "shopify://collections/need-guidance-closed-systems",
         "closed_devices_url": "shopify://collections/need-guidance-closed-systems",
         "closed_pods_url": "shopify://collections/pods",

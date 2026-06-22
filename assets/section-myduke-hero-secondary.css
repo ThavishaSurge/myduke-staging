@@ -29,6 +29,8 @@
   position: relative;
   z-index: 2;
   width: 100%;
+  padding-right: 1.6rem!important;
+  padding-left: 1.6rem!important;
 }
 
 .myduke-hero-secondary__content {
@@ -104,6 +106,7 @@
   color: #ffffff;
   margin-bottom: 0;
   text-align: center;
+  width: 90%;
 }
 
 .myduke-hero-secondary__description p{

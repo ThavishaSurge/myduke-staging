@@ -13,8 +13,8 @@
       "type": "myduke-hero-secondary",
       "name": "MyDuke Secondary Hero",
       "settings": {
-        "background_image": "shopify://shop_images/image_26.jpg",
-        "background_image_mobile": "shopify://shop_images/Frame_427320840_1.jpg",
+        "background_image": "shopify://shop_images/image_26.webp",
+        "background_image_mobile": "shopify://shop_images/Frame_427320840_1.webp",
         "bg_position_desktop": "center",
         "bg_position_mobile": "center",
         "overlay_color": "#000000",
@@ -52,8 +52,8 @@
         "blog": "{{ blog }}",
         "padding_top": 24,
         "padding_bottom": 24,
-        "margin_top_desktop": 0,
-        "margin_top_mobile": 0
+        "margin_top_desktop": 48,
+        "margin_top_mobile": 40
       }
     },
     "main": {
