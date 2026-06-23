@@ -1,99 +1,62 @@
 <script>
-  // Initialize the dataLayer if it doesn't exist
   window.dataLayer = window.dataLayer || [];
-
-  // Create our Global GTM Helper
   window.GTMHelper = window.GTMHelper || {};
 
-  // --- COOKIE UTILITY FUNCTIONS ---
-  window.GTMHelper.setCookie = function(name, value, days) {
-    let expires = "";
-    if (days) {
-      let date = new Date();
-      // Store for a specific number of days (e.g., 30 days)
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-  };
-
-  window.GTMHelper.getCookie = function(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-    for(let i=0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return "";
-  };
-
-  // --- UTM CAPTURE LOGIC ---
-  window.GTMHelper.captureUTMs = function() {
-    const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_version', 'utm_content'];
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    utmParams.forEach(function(param) {
-      if (urlParams.has(param)) {
-        // If the UTM is in the URL, save it to a cookie for 30 days
-        window.GTMHelper.setCookie(param, urlParams.get(param), 30);
-      }
-    });
-  };
-
-  // Run the capture logic immediately on script load
-  window.GTMHelper.captureUTMs();
-
-// --- BUILD BASE DATA ---
+  // --- BUILD BASE DATA ---
   window.GTMHelper.getBaseData = function() {
     let pageType = "{{ template.name | default: 'other' }}";
     if (pageType === "index") pageType = "home";
     
-    // 1. Try Liquid first (often cached)
-    let userId = "{{ customer.id | default: '' }}";
-    
-    // 2. Try Shopify Analytics Object (Most reliable client-side object)
-    if (!userId && window.ShopifyAnalytics && window.ShopifyAnalytics.meta && window.ShopifyAnalytics.meta.page && window.ShopifyAnalytics.meta.page.customerId) {
-      userId = window.ShopifyAnalytics.meta.page.customerId.toString();
-    }
-
-    // 3. Try standard meta object
-    if (!userId && window.meta && window.meta.page && window.meta.page.customerId) {
-      userId = window.meta.page.customerId.toString();
-    }
-
-    // 4. Try legacy __st object
-    if (!userId && window.__st && window.__st.cid) {
-      userId = window.__st.cid.toString();
-    }
-
+    // Safely call your existing custom function
+    let userId = (typeof getUserId === 'function' && getUserId() !== 'undefined') ? getUserId() : "";
     let userType = userId ? "existing" : "new";
+
+    // Helper to safely call your existing cookie function, with a fallback
+    let getUTM = function(param) {
+      if (typeof readgafCookie === 'function') {
+        let val = readgafCookie(param);
+        return val ? val : "NA";
+      }
+      return "NA";
+    };
 
     return {
       'user_type': userType,
       'userID': userId,
       'page_type': pageType,
-      'utm_source': window.GTMHelper.getCookie('utm_source'),
-      'utm_medium': window.GTMHelper.getCookie('utm_medium'),
-      'utm_campaign': window.GTMHelper.getCookie('utm_campaign'),
-      'utm_version': window.GTMHelper.getCookie('utm_version'),
-      'utm_content': window.GTMHelper.getCookie('utm_content')
+      'utm_source': getUTM('utm_source'),
+      'utm_medium': getUTM('utm_medium'),
+      'utm_campaign': getUTM('utm_campaign'),
+      'utm_version': getUTM('utm_version'),
+      'utm_content': getUTM('utm_content')
     };
   };
 
-  // --- MAIN PUSH FUNCTION ---
+  // --- MAIN ASYNC PUSH FUNCTION ---
   window.GTMHelper.pushEvent = function(eventName, specificEventData = {}) {
-    const baseData = this.getBaseData();
+    let attempts = 0;
     
-    // Clear previous ecommerce object to prevent data leakage
-    if (specificEventData.ecommerce) {
-       window.dataLayer.push({ ecommerce: null });
-    }
+    // Set up the polling interval exactly like your previous site
+    let waitForUser = setInterval(function() {
+      attempts++;
+      
+      // If the function is ready and returns a value, OR we hit a timeout to prevent infinite loops
+      if ((typeof getUserId === 'function' && typeof getUserId() !== 'undefined') || attempts > 10) {
+        clearInterval(waitForUser);
+        
+        const baseData = window.GTMHelper.getBaseData();
+        
+        // Clear previous ecommerce object to prevent data leakage
+        if (specificEventData.ecommerce) {
+           window.dataLayer.push({ ecommerce: null });
+        }
 
-    // Merge the event name, base data, and specific event data
-    const payload = Object.assign({ event: eventName }, baseData, specificEventData);
-    
-    window.dataLayer.push(payload);
-    console.log(`GTM Event Pushed: ${eventName}`, payload);
+        // Merge the event name, base data, and specific event data
+        const payload = Object.assign({ event: eventName }, baseData, specificEventData);
+        
+        window.dataLayer.push(payload);
+        console.log(`GTM Event Pushed: ${eventName}`, payload);
+      }
+    }, 500);
   };
 </script>
