@@ -117,7 +117,7 @@
                 endfor
               -%}
               <div class="cart__submit-controls cart__ctas myduke-cart-submit">
-                <button id="continueButton" type="button" onclick="addSubscriptionData()" name="continue" class="cart__checkout-button button mydk-cart-checkout-btn"{% if mydk_cart_nicotine > 4500 %} disabled{% endif %}>Next</button>                     
+                <button id="continueButton gtm-checkout-btn" type="button" onclick="addSubscriptionData()" name="continue" class="cart__checkout-button button mydk-cart-checkout-btn"{% if mydk_cart_nicotine > 4500 %} disabled{% endif %}>Next</button>                     
               </div>
               <div class="cart__ctas" {{ block.shopify_attributes }} style="display:none;">
                 <noscript>
@@ -254,6 +254,45 @@ const updatedProductId = [7763564101790, 7763564232862];
 getProductUpgradeStat(existingProductId, updatedProductId);
   
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Find the Checkout / Next button
+    const checkoutBtn = document.getElementById('gtm-checkout-btn'); 
+
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', function() {
+        
+        // 2. Build the cart items array using Liquid
+        const cartItems = [];
+        {% for item in cart.items %}
+          cartItems.push({
+            item_id: "{{ item.product_id }}",
+            item_name: "{{ item.product.title | replace: '"', '\"' }}",
+            item_brand: "{{ item.vendor | replace: '"', '\"' }}",
+            item_category: "{{ item.product.type | replace: '"', '\"' }}",
+            item_variant: "{{ item.variant.title | replace: '"', '\"' }}",
+            price: {{ item.final_price | divided_by: 100.0 }},
+            quantity: {{ item.quantity }}
+          });
+        {% endfor %}
+
+        // 3. Fire the event using the GTMHelper engine
+        if (typeof window.GTMHelper !== 'undefined') {
+          window.GTMHelper.pushEvent("begin_checkout", {
+            ecommerce: {
+              currency: "{{ cart.currency.iso_code | default: shop.currency }}",
+              value: {{ cart.total_price | divided_by: 100.0 }},
+              coupon: "", 
+              items: cartItems
+            }
+          });
+        }
+      });
+    }
+  });
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-cart-footer.name",
