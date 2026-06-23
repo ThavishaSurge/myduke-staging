@@ -65,7 +65,14 @@
         <div class="mdcpl__list mdcpl__list--{{ cols }}{% if enable_slider %} swiper-wrapper{% endif %}">
           {%- for product in collection.products -%}
             <div class="mdcpl__item{% if enable_slider %} swiper-slide{% endif %}">
-              <a class="mdcpl__card" href="{{ product.url }}">
+              <a class="mdcpl__card gtm-product-card" href="{{ product.url }}"
+              data-id="{{ product.id }}"
+              data-name="{{ product.title | escape }}"
+              data-brand="{{ product.vendor | escape }}"
+              data-category="{{ collection.title | default: product.type | escape }}"
+              data-variant="{{ product.variants.first.title | escape }}"
+              data-price="{{ product.price | divided_by: 100.0 }}"
+              >
                 <div class="mdcpl__card-image-wrap">
                   {%- if product.featured_image != blank -%}
                     {{

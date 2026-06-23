@@ -59,4 +59,60 @@
       }
     }, 500);
   };
+
+
+  // --- GLOBAL LIST & SELECT ITEM TRACKER ---
+  document.addEventListener('DOMContentLoaded', function() {
+    const listContainers = document.querySelectorAll('.mydk-product-container-auth');
+    
+    listContainers.forEach(function(container, containerIndex) {
+      const productCards = container.querySelectorAll('.gtm-product-card');
+      const listItems = [];
+      
+      productCards.forEach(function(card, index) {
+        listItems.push({
+          item_id: card.getAttribute('data-id'),
+          item_name: card.getAttribute('data-name'),
+          index: index + 1,
+          item_brand: card.getAttribute('data-brand'),
+          item_category: card.getAttribute('data-category'),
+          item_variant: card.getAttribute('data-variant'),
+          price: parseFloat(card.getAttribute('data-price')),
+          quantity: 1
+        });
+        
+        card.addEventListener('click', function() {
+          if (typeof window.GTMHelper !== 'undefined') {
+            window.GTMHelper.pushEvent("select_item", {
+              ecommerce: {
+                item_list_id: "list_" + containerIndex,
+                item_list_name: "Authenticated Product List",
+                items: [{
+                  item_id: card.getAttribute('data-id'),
+                  item_name: card.getAttribute('data-name'),
+                  item_brand: card.getAttribute('data-brand'),
+                  item_category: card.getAttribute('data-category'),
+                  item_variant: card.getAttribute('data-variant'),
+                  price: parseFloat(card.getAttribute('data-price')),
+                  index: index + 1,
+                  quantity: 1
+                }]
+              }
+            });
+          }
+        });
+      });
+
+      if (listItems.length > 0 && typeof window.GTMHelper !== 'undefined') {
+        window.GTMHelper.pushEvent("view_item_list", {
+          ecommerce: {
+            item_list_id: "list_" + containerIndex,
+            item_list_name: "Authenticated Product List",
+            items: listItems
+          }
+        });
+      }
+    });
+  });
+
 </script>
