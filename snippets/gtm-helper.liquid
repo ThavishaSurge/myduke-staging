@@ -5,51 +5,91 @@
   // Create our Global GTM Helper
   window.GTMHelper = window.GTMHelper || {};
 
-  // Utility to extract URL parameters (for UTMs)
-  window.GTMHelper.getURLParam = function(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param) || "";
+  // --- COOKIE UTILITY FUNCTIONS ---
+  window.GTMHelper.setCookie = function(name, value, days) {
+    let expires = "";
+    if (days) {
+      let date = new Date();
+      // Store for a specific number of days (e.g., 30 days)
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
   };
 
-  // Build the Base Data required for EVERY event
+  window.GTMHelper.getCookie = function(name) {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for(let i=0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return "";
+  };
+
+  // --- UTM CAPTURE LOGIC ---
+  window.GTMHelper.captureUTMs = function() {
+    const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_version', 'utm_content'];
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    utmParams.forEach(function(param) {
+      if (urlParams.has(param)) {
+        // If the UTM is in the URL, save it to a cookie for 30 days
+        window.GTMHelper.setCookie(param, urlParams.get(param), 30);
+      }
+    });
+  };
+
+  // Run the capture logic immediately on script load
+  window.GTMHelper.captureUTMs();
+
+// --- BUILD BASE DATA ---
   window.GTMHelper.getBaseData = function() {
-    // Determine page type using Shopify's template object
     let pageType = "{{ template.name | default: 'other' }}";
     if (pageType === "index") pageType = "home";
     
-    // Shopify Liquid tags to determine user status
+    // 1. Try Liquid first
     let userId = "{{ customer.id | default: '' }}";
+    
+    // 2. Fallback to Shopify's global meta object (bypasses HTML cache)
+    if (!userId && window.meta && window.meta.page && window.meta.page.customerId) {
+      userId = window.meta.page.customerId.toString();
+    }
+    
+    // 3. Fallback to Shopify's internal analytics object
+    if (!userId && window.__st && window.__st.cid) {
+      userId = window.__st.cid.toString();
+    }
+
+    // Since your store is gated, this should practically always evaluate to 'existing'
     let userType = userId ? "existing" : "new";
 
     return {
       'user_type': userType,
       'userID': userId,
       'page_type': pageType,
-      'utm_source': window.GTMHelper.getURLParam('utm_source'),
-      'utm_medium': window.GTMHelper.getURLParam('utm_medium'),
-      'utm_campaign': window.GTMHelper.getURLParam('utm_campaign'),
-      'utm_version': window.GTMHelper.getURLParam('utm_version'),
-      'utm_content': window.GTMHelper.getURLParam('utm_content')
+      'utm_source': window.GTMHelper.getCookie('utm_source'),
+      'utm_medium': window.GTMHelper.getCookie('utm_medium'),
+      'utm_campaign': window.GTMHelper.getCookie('utm_campaign'),
+      'utm_version': window.GTMHelper.getCookie('utm_version'),
+      'utm_content': window.GTMHelper.getCookie('utm_content')
     };
   };
 
-  // The main function we will call to trigger events
+  // --- MAIN PUSH FUNCTION ---
   window.GTMHelper.pushEvent = function(eventName, specificEventData = {}) {
-    // 1. Get the base data
     const baseData = this.getBaseData();
     
-    // 2. Clear the previous ecommerce object to prevent data leakage (as requested in your plan)
+    // Clear previous ecommerce object to prevent data leakage
     if (specificEventData.ecommerce) {
        window.dataLayer.push({ ecommerce: null });
     }
 
-    // 3. Merge the event name, base data, and the specific event data together
+    // Merge the event name, base data, and specific event data
     const payload = Object.assign({ event: eventName }, baseData, specificEventData);
     
-    // 4. Send it to GTM
     window.dataLayer.push(payload);
-    
-    // Optional: Console log for easy debugging while we build
     console.log(`GTM Event Pushed: ${eventName}`, payload);
   };
 </script>

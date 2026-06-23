@@ -329,8 +329,15 @@
                       >
                         <a
                           href="{{ item.url_to_remove }}"
-                          class="button button--tertiary"
+                          class="button button--tertiary gtm-remove-btn"
                           aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
+                          data-id="{{ item.product_id }}"
+                          data-name="{{ item.product.title | escape }}"
+                          data-brand="{{ item.vendor | escape }}"
+                          data-category="{{ item.product.type | escape }}"
+                          data-variant="{{ item.variant.title | escape }}"
+                          data-price="{{ item.final_price | divided_by: 100.0 }}"
+                          data-quantity="{{ item.quantity }}"
                         >
                           {% render 'icon-remove' %}
                         </a>
@@ -608,6 +615,34 @@
         });
       }
     {% endif %}
+    const removeButtons = document.querySelectorAll('.gtm-remove-btn');
+    removeButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        
+        const price = parseFloat(this.getAttribute('data-price'));
+        const quantity = parseInt(this.getAttribute('data-quantity'));
+        
+        const removedItem = {
+          item_id: this.getAttribute('data-id'),
+          item_name: this.getAttribute('data-name'),
+          item_brand: this.getAttribute('data-brand'),
+          item_category: this.getAttribute('data-category'),
+          item_variant: this.getAttribute('data-variant'),
+          price: price,
+          quantity: quantity
+        };
+
+        if (typeof window.GTMHelper !== 'undefined') {
+          window.GTMHelper.pushEvent("remove_from_cart", {
+            ecommerce: {
+              currency: "{{ cart.currency.iso_code }}",
+              value: price * quantity, // Calculating the total value removed as requested
+              items: [removedItem]
+            }
+          });
+        }
+      });
+    });
   });
 </script>
 
