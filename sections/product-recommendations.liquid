@@ -9,6 +9,8 @@
 <div
   class="product-recommendations section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} background mydk-product-container-auth"
   style="--gap: 24px;"
+  data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
 >
   <product-recommendations
     data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_limit }}"

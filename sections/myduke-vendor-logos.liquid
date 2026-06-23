@@ -19,6 +19,8 @@
 <div
   class="mdvl color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin mydk-product-container-auth"
   data-section-id="{{ section.id }}"
+  data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
 >
   <div class="container">
 

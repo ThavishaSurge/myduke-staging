@@ -6,7 +6,10 @@
   {% render 'section-margin' %}
 {% endstyle %}
 
-<div class="collections-list color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding mydk-product-container-auth">
+<div class="collections-list color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding mydk-product-container-auth"
+data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
+>
   {% render 'heading-group', settings: section.settings, class: 'collections-list-header' %}
 
   {% if section.blocks.size > 0 %}

@@ -11,6 +11,8 @@
 <div
   class="popular-products color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding mydk-product-container-auth"
   data-layout="{{ section.settings.layout }}"
+  data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
 >
   {% comment %} RENDER HEADING GROUP {% endcomment %}
   {% liquid

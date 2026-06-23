@@ -18,6 +18,8 @@
   class="mdcp color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin mydk-product-container-auth"
   data-section-id="{{ section.id }}"
   style="--mdcp-cols-desktop: {{ cols }}; --mdcp-cols-tablet: {{ cols_tablet }}; --mdcp-cols-mobile: {{ cols_mobile }};"
+  data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
 >
   <div class="container">
 

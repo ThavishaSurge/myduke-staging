@@ -12,7 +12,10 @@
      %}
 {% endstyle %}
 
-<div class="featured-collection color-{{ section.settings.color_scheme_main }} background section-{{ section.id }}-padding mydk-product-container-auth">
+<div class="featured-collection color-{{ section.settings.color_scheme_main }} background section-{{ section.id }}-padding mydk-product-container-auth"
+data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
+>
   <div
     id="Banner-{{ section.id }}"
     class="featured-collection__inner container"
