@@ -620,7 +620,6 @@
 
   /* ---- 5. Social / logo_list block — full-width row at bottom ---- */
   .footer .footer-menu-blocks_media {
-    grid-column: 1 / -1;
     padding-top: 0.8rem;
     border-top: 0.05rem solid rgb(var(--color-border));
     max-width: none;
