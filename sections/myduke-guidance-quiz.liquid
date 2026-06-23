@@ -1295,6 +1295,12 @@
           alert('Please select an option to continue.');
           return;
         }
+      }
+
+      // Skip straight to NRT if "I'd prefer not to use a vaping device" is selected on Q2
+      if (state.currentStep === 2 && state.answers.q2 === 'not_vape') {
+        calculateResults(sectionId, true);
+        return;
 
       }
 
