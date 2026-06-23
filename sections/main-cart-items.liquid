@@ -576,6 +576,41 @@
     };
   {% endif; %}
 </script>
+
+{% comment %} gtm {% endcomment %}
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Only fire if there are items in the cart
+    {% if cart.item_count > 0 %}
+      const cartItems = [];
+      
+      // Loop through Shopify cart items to build the GTM array
+      {% for item in cart.items %}
+        cartItems.push({
+          item_id: "{{ item.product_id }}",
+          item_name: "{{ item.product.title | replace: '"', '\"' }}",
+          item_brand: "{{ item.vendor | replace: '"', '\"' }}",
+          item_category: "{{ item.product.type | replace: '"', '\"' }}",
+          item_variant: "{{ item.variant.title | replace: '"', '\"' }}",
+          price: {{ item.final_price | divided_by: 100.0 }},
+          quantity: {{ item.quantity }}
+        });
+      {% endfor %}
+
+      if (typeof window.GTMHelper !== 'undefined') {
+        window.GTMHelper.pushEvent("view_cart", {
+          ecommerce: {
+            currency: "{{ cart.currency.iso_code }}",
+            // Total cart value in dollars
+            value: {{ cart.total_price | divided_by: 100.0 }}, 
+            items: cartItems
+          }
+        });
+      }
+    {% endif %}
+  });
+</script>
+
 {% capture datalayerforitems %}
   {%- for item in cart.items -%}
     {item_id: "{{item.product.id}}", item_name: "{{item.product.title | escape}}", index: "{{forloop.index}}", item_brand: "{{item.product.vendor}}", item_category: "{% for collection in item.product.collections %}{{ collection.title | escape }},{% endfor %}", item_variant: "{{item.product.variants | size}}", price: "{{item.price | money_without_currency}}", quantity: "{{item.quantity}}"},

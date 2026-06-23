@@ -648,6 +648,34 @@
   </script>
 </div>
 
+{% comment %} gtm {% endcomment %}
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Build the single item array using Shopify Liquid
+    const currentProduct = {
+      item_id: "{{ product.id }}",
+      item_name: "{{ product.title | replace: '"', '\"' }}",
+      item_brand: "{{ product.vendor | replace: '"', '\"' }}",
+      item_category: "{{ product.type | replace: '"', '\"' }}",
+      item_variant: "{{ product.selected_or_first_available_variant.title | replace: '"', '\"' }}",
+      // Convert Shopify cents to dollars
+      price: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+      quantity: 1
+    };
+
+    // 2. Pass it to our Global Wrapper
+    if (typeof window.GTMHelper !== 'undefined') {
+      window.GTMHelper.pushEvent("view_item", {
+        ecommerce: {
+          currency: "{{ cart.currency.iso_code | default: shop.currency }}",
+          value: currentProduct.price, // Value matches the single item price here
+          items: [currentProduct]
+        }
+      });
+    }
+  });
+</script>
+
 {%- if first_3d_model -%}
   <script type="application/json" id="ProductJSON-{{ product.id }}">
     {{ product.media | where: 'media_type', 'model' | json }}

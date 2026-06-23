@@ -1,0 +1,55 @@
+<script>
+  // Initialize the dataLayer if it doesn't exist
+  window.dataLayer = window.dataLayer || [];
+
+  // Create our Global GTM Helper
+  window.GTMHelper = window.GTMHelper || {};
+
+  // Utility to extract URL parameters (for UTMs)
+  window.GTMHelper.getURLParam = function(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param) || "";
+  };
+
+  // Build the Base Data required for EVERY event
+  window.GTMHelper.getBaseData = function() {
+    // Determine page type using Shopify's template object
+    let pageType = "{{ template.name | default: 'other' }}";
+    if (pageType === "index") pageType = "home";
+    
+    // Shopify Liquid tags to determine user status
+    let userId = "{{ customer.id | default: '' }}";
+    let userType = userId ? "existing" : "new";
+
+    return {
+      'user_type': userType,
+      'userID': userId,
+      'page_type': pageType,
+      'utm_source': window.GTMHelper.getURLParam('utm_source'),
+      'utm_medium': window.GTMHelper.getURLParam('utm_medium'),
+      'utm_campaign': window.GTMHelper.getURLParam('utm_campaign'),
+      'utm_version': window.GTMHelper.getURLParam('utm_version'),
+      'utm_content': window.GTMHelper.getURLParam('utm_content')
+    };
+  };
+
+  // The main function we will call to trigger events
+  window.GTMHelper.pushEvent = function(eventName, specificEventData = {}) {
+    // 1. Get the base data
+    const baseData = this.getBaseData();
+    
+    // 2. Clear the previous ecommerce object to prevent data leakage (as requested in your plan)
+    if (specificEventData.ecommerce) {
+       window.dataLayer.push({ ecommerce: null });
+    }
+
+    // 3. Merge the event name, base data, and the specific event data together
+    const payload = Object.assign({ event: eventName }, baseData, specificEventData);
+    
+    // 4. Send it to GTM
+    window.dataLayer.push(payload);
+    
+    // Optional: Console log for easy debugging while we build
+    console.log(`GTM Event Pushed: ${eventName}`, payload);
+  };
+</script>

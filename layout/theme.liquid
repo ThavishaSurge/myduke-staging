@@ -116,6 +116,8 @@
     {% if settings.show_back_to_top %}
       <script src="{{ 'scroll-top.js' | asset_url }}" defer="defer"></script>
     {% endif %}
+
+    {% render 'gtm-helper' %}
   </head>
 
   {%- comment -%} Pages that should show the white header instead of the standard header {%- endcomment -%}
