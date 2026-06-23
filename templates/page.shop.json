@@ -372,6 +372,18 @@
     "myduke_vendor_logos_cjVNAy": {
       "type": "myduke-vendor-logos",
       "blocks": {
+        "vendor_XNCqNH": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "solo-plus"
+          }
+        },
+        "vendor_Hww7np": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "bion-london"
+          }
+        },
         "vendor_cJmpQ6": {
           "type": "vendor",
           "settings": {
@@ -476,6 +488,8 @@
         }
       },
       "block_order": [
+        "vendor_XNCqNH",
+        "vendor_Hww7np",
         "vendor_cJmpQ6",
         "vendor_KKbKkT",
         "vendor_bkryGz",
