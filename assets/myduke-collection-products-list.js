@@ -51,7 +51,7 @@
       slidesPerView : slidesPerViewMobile,
       slidesPerGroup: slidesPerViewMobile,
       grid: {
-        rows: 2,
+        rows: 1,
         fill: 'row'
       },
       spaceBetween  : spaceBetween / 2,
