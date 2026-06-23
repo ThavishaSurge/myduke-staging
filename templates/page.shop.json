@@ -372,6 +372,30 @@
     "myduke_vendor_logos_cjVNAy": {
       "type": "myduke-vendor-logos",
       "blocks": {
+        "vendor_cJmpQ6": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "nicopod"
+          }
+        },
+        "vendor_KKbKkT": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "vaper-empire"
+          }
+        },
+        "vendor_bkryGz": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "vapo"
+          }
+        },
+        "vendor_KTNqX9": {
+          "type": "vendor",
+          "settings": {
+            "vendor_ref": "alt"
+          }
+        },
         "vendor_iX6NqC": {
           "type": "vendor",
           "settings": {
@@ -452,6 +476,10 @@
         }
       },
       "block_order": [
+        "vendor_cJmpQ6",
+        "vendor_KKbKkT",
+        "vendor_bkryGz",
+        "vendor_KTNqX9",
         "vendor_iX6NqC",
         "vendor_DwTPpH",
         "vendor_gaE7KN",
