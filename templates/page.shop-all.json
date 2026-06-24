@@ -71,7 +71,7 @@
           "type": "device_filter_item",
           "settings": {
             "collection_handle": "pods-copy",
-            "label": ""
+            "label": "All Devices"
           }
         },
         "device_filter_item_KHJtbK": {
