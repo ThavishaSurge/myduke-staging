@@ -175,6 +175,8 @@
                               {% if settings.links_blank and link.type == 'http_link' %}
                                 target="_blank"
                               {% endif %}
+                              data-gtm-event="top_navigation_interaction"
+                              data-gtm-cta="{{ link.title | escape }}"
                             >
                               {{- link.title | escape -}}
                             </a>
@@ -194,6 +196,8 @@
                         {% if settings.links_blank and link.type == 'http_link' %}
                           target="_blank"
                         {% endif %}
+                        data-gtm-event="top_navigation_interaction"
+                        data-gtm-cta="{{ link.title | escape }}"
                       >
                         {{- link.title | escape -}}
                       </a>
