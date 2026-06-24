@@ -49,6 +49,17 @@
   assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
 -%}
 
+{% if search.performed %}
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'search_interaction',
+      search_term: {{ search.terms | json }}
+    });
+    console.log('GTM Event Pushed: search_interaction (Term: ' + {{ search.terms | json }} + ')');
+  </script>
+{% endif %}
+
 <div class="section-{{ section.id }}-padding template-search {% if search.performed == true and search.results_count == 0 and terms != blank and section.settings.enable_filtering == false and section.settings.enable_sorting == false %} template-search--empty {% endif %}">
   <div class="template-search__header">
     <div class="search-container container">
