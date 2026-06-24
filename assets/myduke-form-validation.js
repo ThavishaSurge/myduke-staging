@@ -159,6 +159,21 @@
           return;
         }
 
+        //gtm
+        var formName = form.id === 'ContactForm' ? 'Main Contact Form' : 'FAQ Contact Form';
+
+        if (typeof window.GTMHelper !== 'undefined') {
+          window.GTMHelper.pushEvent('contact_us_form_submit', {
+            'form_name': formName
+          });
+        } else {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'contact_us_form_submit',
+            'form_name': formName
+          });
+        }
+
         // 5. Update UI to "Submitting..."
         var submitBtn = form.querySelector('button[type="submit"]');
         if (submitBtn) {
