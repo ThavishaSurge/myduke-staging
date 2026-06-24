@@ -152,39 +152,36 @@
     }
   }, true);
 
-  // --- LOGIN SUCCESS TRACKER ---
+  // --- LOGIN SUCCESS TRACKER (CROSS-DOMAIN SAFE) ---
   document.addEventListener('DOMContentLoaded', function() {
+    let attempts = 0;
     
-    // 1. Listen for the login form submission and set a temporary flag
-    const loginForm = document.querySelector('form[action^="/account/login"]');
-    if (loginForm) {
-      loginForm.addEventListener('submit', function() {
-        sessionStorage.setItem('gtm_login_attempt', 'true');
-      });
-    }
-
-    // 2. On every page load, check if they just attempted a login
-    if (sessionStorage.getItem('gtm_login_attempt') === 'true') {
-      // Clear the flag immediately so it never fires twice
-      sessionStorage.removeItem('gtm_login_attempt');
+    let verifyLoginState = setInterval(function() {
+      attempts++;
       
-      // Wait to ensure the user ID is fully loaded, then verify they are actually logged in
-      let attempts = 0;
-      let verifyLogin = setInterval(function() {
-        attempts++;
-        if ((typeof getUserId === 'function' && typeof getUserId() !== 'undefined') || attempts > 10) {
-          clearInterval(verifyLogin);
-          
-          // If they successfully logged in, the ID will no longer be empty
-          const currentUserId = typeof getUserId === 'function' ? getUserId() : "";
-          if (currentUserId !== "") {
+      // Wait for the getUserId function to be ready
+      if ((typeof getUserId === 'function' && typeof getUserId() !== 'undefined') || attempts > 10) {
+        clearInterval(verifyLoginState);
+
+        const currentUserId = typeof getUserId === 'function' ? getUserId() : "";
+        const previousAuthState = localStorage.getItem('gtm_auth_state');
+
+        if (currentUserId !== "") {
+          // The user is currently logged in
+          if (previousAuthState !== 'logged_in') {
+            // They were NOT logged in previously. They just returned from the portal!
             if (typeof window.GTMHelper !== 'undefined') {
               window.GTMHelper.pushEvent("login_success");
             }
+            // Update local storage so it doesn't fire again on their next click
+            localStorage.setItem('gtm_auth_state', 'logged_in');
           }
+        } else {
+          // The user is currently logged out. Update state so we know for next time.
+          localStorage.setItem('gtm_auth_state', 'logged_out');
         }
-      }, 500);
-    }
+      }
+    }, 500);
   });
 
 </script>
