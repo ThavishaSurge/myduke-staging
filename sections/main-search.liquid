@@ -51,12 +51,23 @@
 
 {% if search.performed %}
   <script>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'search_interaction',
-      search_term: {{ search.terms | json }}
+    document.addEventListener('DOMContentLoaded', function() {
+      var searchTerm = {{ search.terms | json }};
+      
+      if (typeof window.GTMHelper !== 'undefined') {
+        window.GTMHelper.pushEvent('search_interaction', {
+          'search_text': searchTerm
+        });
+        console.log('GTM Helper Event Pushed: search_interaction (Term: ' + searchTerm + ')');
+      } else {
+        // Fallback just in case the helper script fails to load
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'search_interaction',
+          'search_text': searchTerm
+        });
+      }
     });
-    console.log('GTM Event Pushed: search_interaction (Term: ' + {{ search.terms | json }} + ')');
   </script>
 {% endif %}
 
