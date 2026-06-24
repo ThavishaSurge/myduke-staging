@@ -7,6 +7,9 @@
   @param {string} [class] - custom CSS class
   @param {object} [settings] - The block or section settings object
   @param {boolean} [featured_button] - true/false for the big size tertiary button
+  @param {string} [gtm_event] - Optional GTM event name
+  @param {string} [gtm_cta] - Optional GTM CTA text
+  @param {string} [gtm_heading] - Optional GTM heading text
 
   @example
   {% render 'button', btn_link: '/collections/all' %}
@@ -38,6 +41,9 @@
     {% if settings.links_blank and btn_link.type == 'external_link' %}
       target="_blank"
     {% endif %}
+    {% if gtm_event %}data-gtm-event="{{ gtm_event }}"{% endif %}
+    {% if gtm_cta %}data-gtm-cta="{{ gtm_cta | escape }}"{% endif %}
+    {% if gtm_heading %}data-gtm-heading="{{ gtm_heading | escape }}"{% endif %}
   >
     <span class="button__content">
       {% if btn_style == 'tertiary' and featured_button %}
