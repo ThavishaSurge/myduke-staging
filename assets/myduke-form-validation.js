@@ -49,35 +49,41 @@
     contactForms.forEach(function(form) {
       form.setAttribute('novalidate', 'novalidate');
 
-     // --- GTM Form Interaction Tracking ---
+// --- GTM Form Interaction Tracking (Per-Field) ---
+      var interactedFields = {};
+
       form.addEventListener('focusin', function(e) {
-        // Only track if they actually clicked into an input field
         if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
           
-          // Try to extract a clean field name (e.g., turns "contact[email]" into "email")
           var rawName = e.target.getAttribute('name') || '';
           var nameMatch = rawName.match(/\[(.*?)\]/);
           var fieldName = nameMatch ? nameMatch[1] : (e.target.id || 'unknown_field');
           
-          // Set a clean form name based on the ID
-          var formName = form.id === 'ContactForm' ? 'Main Contact Form' : 'FAQ Contact Form';
+          // Create a unique key for this specific field (e.g., "ContactForm-email")
+          var fieldKey = form.id + '-' + fieldName;
 
-          if (typeof window.GTMHelper !== 'undefined') {
-            window.GTMHelper.pushEvent('contact_us_form_interaction', {
-              'form_name': formName,
-              'field_name': fieldName
-            });
-          } else {
-            // Safety fallback if helper hasn't loaded yet
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-              'event': 'contact_us_form_interaction',
-              'form_name': formName,
-              'field_name': fieldName
-            });
+          // Only push the event if we haven't tracked this specific field yet
+          if (!interactedFields[fieldKey]) {
+            interactedFields[fieldKey] = true; // Mark as tracked
+            
+            var formName = form.id === 'ContactForm' ? 'Main Contact Form' : 'FAQ Contact Form';
+
+            if (typeof window.GTMHelper !== 'undefined') {
+              window.GTMHelper.pushEvent('contact_us_form_interaction', {
+                'form_name': formName,
+                'field_name': fieldName
+              });
+            } else {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                'event': 'contact_us_form_interaction',
+                'form_name': formName,
+                'field_name': fieldName
+              });
+            }
           }
         }
-      }, { once: true });
+      }); 
 
       var phoneInput = form.querySelector('input[type="tel"]');
       
