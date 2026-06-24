@@ -101,7 +101,10 @@
             btn_label: button_label,
             btn_style: 'primary',
             btn_link: article.url,
-            class: 'main-blog__featured-btn'
+            class: 'main-blog__featured-btn',
+            gtm_event: 'learn_hub_cards_interaction',
+            gtm_cta: button_label,
+            gtm_heading: section.settings.heading
           %}
 
         {%- else -%}
