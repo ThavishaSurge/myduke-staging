@@ -149,12 +149,26 @@
       return; // Stop here so we don't fire twice
     }
 
-    // RULE 2: URL Matching (Catch all Signup Links automatically)
     const clickedLink = e.target.closest('a');
     
     if (clickedLink && clickedLink.href && clickedLink.href.includes('portal.myduke.com.au/signup')) {
       if (typeof window.GTMHelper !== 'undefined') {
+        
+        // 1. Stop the browser from instantly changing pages
+        e.preventDefault(); 
+        
+        // 2. Fire the event
         window.GTMHelper.pushEvent("sign_up_initiate");
+        
+        // 3. Wait 600 milliseconds for GTM to finish, then redirect manually
+        setTimeout(function() {
+          if (clickedLink.target === '_blank') {
+            window.open(clickedLink.href, '_blank'); // Respect "open in new tab" settings
+          } else {
+            window.location.href = clickedLink.href; // Standard redirect
+          }
+        }, 600);
+        
       }
     }
     
