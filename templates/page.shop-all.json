@@ -102,17 +102,17 @@
             "label": ""
           }
         },
-        "device_filter_item_ixDJxh": {
-          "type": "device_filter_item",
-          "settings": {
-            "collection_handle": "open-tank-systems",
-            "label": ""
-          }
-        },
         "device_filter_item_gdERqa": {
           "type": "device_filter_item",
           "settings": {
             "collection_handle": "main-hub",
+            "label": ""
+          }
+        },
+        "device_filter_item_ixDJxh": {
+          "type": "device_filter_item",
+          "settings": {
+            "collection_handle": "open-tank-systems",
             "label": ""
           }
         },
@@ -172,8 +172,8 @@
         "device_filter_item_9gajK7",
         "device_filter_item_PC9MPf",
         "device_filter_item_qxPBAm",
-        "device_filter_item_ixDJxh",
         "device_filter_item_gdERqa",
+        "device_filter_item_ixDJxh",
         "type_filter_item_QhzhNH",
         "type_filter_item_D6LwVE",
         "type_filter_item_9GxFmp",
