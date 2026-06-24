@@ -130,14 +130,12 @@
 
   // --- GLOBAL UI CLICK LISTENER (DELEGATION) ---
   document.addEventListener('click', function(e) {
-    // 1. Check if the clicked element (or its parent) has our tracking attribute
+    
+    // RULE 1: Check for explicit data attributes (Logo, Nav, etc.)
     const trackableElement = e.target.closest('[data-gtm-event]');
     
     if (trackableElement) {
-      // 2. Extract the event name
       const eventName = trackableElement.getAttribute('data-gtm-event');
-      
-      // 3. Extract any optional parameters (for upcoming events like cta_text or heading_title)
       const specificData = {};
       const ctaText = trackableElement.getAttribute('data-gtm-cta');
       const headingTitle = trackableElement.getAttribute('data-gtm-heading');
@@ -145,11 +143,21 @@
       if (ctaText) specificData.cta_text = ctaText;
       if (headingTitle) specificData.heading_title = headingTitle;
       
-      // 4. Fire the event using our engine
       if (typeof window.GTMHelper !== 'undefined') {
         window.GTMHelper.pushEvent(eventName, specificData);
       }
+      return; // Stop here so we don't fire twice
     }
+
+    // RULE 2: URL Matching (Catch all Signup Links automatically)
+    const clickedLink = e.target.closest('a');
+    
+    if (clickedLink && clickedLink.href && clickedLink.href.includes('portal.myduke.com.au/signup')) {
+      if (typeof window.GTMHelper !== 'undefined') {
+        window.GTMHelper.pushEvent("sign_up_initiate");
+      }
+    }
+    
   }, true);
 
   // --- LOGIN SUCCESS TRACKER (CROSS-DOMAIN SAFE) ---
