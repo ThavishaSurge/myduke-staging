@@ -183,6 +183,62 @@
 
           <div class="msa__filters">
 
+            {%- if show_type_filter -%}
+            <div class="msa__filter-group" data-filter-group="type">
+              <button
+                class="msa__filter-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                id="msa-type-btn-{{ section.id }}"
+              >
+                <span class="msa__filter-label">
+                  {{- section.settings.type_filter_label | default: 'Product Type' -}}
+                </span>
+                <span class="msa__filter-icons" aria-hidden="true">
+                  <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="msa__plus-minus">
+                    <svg class="msa__icon-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <svg class="msa__icon-minus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </span>
+              </button>
+
+              <div class="msa__dropdown" role="listbox" aria-labelledby="msa-type-btn-{{ section.id }}">
+                <div class="msa__dropdown-inner">
+                  <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
+                    {{ section.settings.type_filter_all_label | default: 'All Types' }}
+                  </button>
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'type_filter_item' -%}
+                      {%- assign col_obj = block.settings.collection_handle -%}
+                      {%- assign col_handle = col_obj.handle | default: col_obj -%}
+                      {%- assign col = collections[col_handle] -%}
+                      {%- if col_handle != blank -%}
+                        <button
+                          class="msa__dropdown-item"
+                          data-filter-value="{{ col_handle }}"
+                          data-filter-type="type"
+                          role="option"
+                          aria-selected="false"
+                          {{ block.shopify_attributes }}
+                        >
+                          {{- block.settings.label | default: col.title -}}
+                        </button>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
           {%- if show_device_filter -%}
             <div class="msa__filter-group" data-filter-group="device">
               <button
@@ -239,61 +295,7 @@
             </div>
           {%- endif -%}
 
-          {%- if show_type_filter -%}
-            <div class="msa__filter-group" data-filter-group="type">
-              <button
-                class="msa__filter-btn"
-                aria-haspopup="listbox"
-                aria-expanded="false"
-                id="msa-type-btn-{{ section.id }}"
-              >
-                <span class="msa__filter-label">
-                  {{- section.settings.type_filter_label | default: 'Product Type' -}}
-                </span>
-                <span class="msa__filter-icons" aria-hidden="true">
-                  <svg class="msa__caret" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <span class="msa__plus-minus">
-                    <svg class="msa__icon-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="12" y1="5" x2="12" y2="19"></line>
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                    <svg class="msa__icon-minus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </span>
-              </button>
-
-              <div class="msa__dropdown" role="listbox" aria-labelledby="msa-type-btn-{{ section.id }}">
-                <div class="msa__dropdown-inner">
-                  <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
-                    {{ section.settings.type_filter_all_label | default: 'All Types' }}
-                  </button>
-                  {%- for block in section.blocks -%}
-                    {%- if block.type == 'type_filter_item' -%}
-                      {%- assign col_obj = block.settings.collection_handle -%}
-                      {%- assign col_handle = col_obj.handle | default: col_obj -%}
-                      {%- assign col = collections[col_handle] -%}
-                      {%- if col_handle != blank -%}
-                        <button
-                          class="msa__dropdown-item"
-                          data-filter-value="{{ col_handle }}"
-                          data-filter-type="type"
-                          role="option"
-                          aria-selected="false"
-                          {{ block.shopify_attributes }}
-                        >
-                          {{- block.settings.label | default: col.title -}}
-                        </button>
-                      {%- endif -%}
-                    {%- endif -%}
-                  {%- endfor -%}
-                </div>
-              </div>
-            </div>
-          {%- endif -%}
+          
 
           {%- if show_brand_filter and unique_vendors_array.size > 0 -%}
             <div class="msa__filter-group" data-filter-group="brand">
