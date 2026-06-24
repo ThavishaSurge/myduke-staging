@@ -28,6 +28,7 @@
       {% if section.settings.logo != blank or section.settings.logo_2 != blank %}
         style="--logo-width: {{ section.settings.logo_width }}px; --padding_bottom: {{ padding_bottom }}%; "
       {% endif %}
+      data-gtm-event="logo_click"
     >
       {%- if section.settings.logo != blank -%}
         {%- assign image_size = section.settings.logo_width | append: 'x' -%}

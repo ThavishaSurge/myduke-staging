@@ -29,7 +29,7 @@
           {% endif %}
         >
           <a
-            href="{{ link.url }}"
+            href="{{ #}}"
             {% if settings.links_blank and link.type == 'http_link' %}
               target="_blank"
             {% endif %}
@@ -38,6 +38,8 @@
               aria-current="page"
             {% endif %}
             aria-label="{{ link.title | escape }}"
+            data-gtm-event="top_navigation_interaction"
+            data-gtm-cta="{{ link.title | escape }}"
           >
             <span class="header-label" title="{{ link.title | escape }}">
               {{- link.title | escape -}}

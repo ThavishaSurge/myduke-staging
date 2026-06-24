@@ -105,7 +105,10 @@
   endif
 %}
 
-<div class="popular-products section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} background mydk-product-container-auth">
+<div class="popular-products section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} background mydk-product-container-auth" 
+data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
+>
   {% render 'heading-group', settings: section.settings, class: 'products-grid-header', button_link: btn_link %}
 
   <div

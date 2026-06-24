@@ -55,6 +55,8 @@
   id="MainProduct-{{ section.id }}"
   data-section="{{ section.id }}"
   class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} background main-product mydk-product-container-auth"
+  data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
 >
   {%- if section.settings.show_breadcrumbs and template contains 'product' and position_desktop_absolute == false -%}
     {% render 'breadcrumbs',

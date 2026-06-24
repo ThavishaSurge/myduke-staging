@@ -9,7 +9,10 @@
   {% render 'section-margin' %}
 {%- endstyle -%}
 
-<div class="collection-list section-{{ section.id }}-padding mydk-product-container-auth">
+<div class="collection-list section-{{ section.id }}-padding mydk-product-container-auth"
+data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
+>
   {% if section.settings.title != blank or section.settings.description != blank %}
     {% render 'page-header',
       title: section.settings.title,

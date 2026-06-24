@@ -101,7 +101,10 @@
             btn_label: button_label,
             btn_style: 'primary',
             btn_link: article.url,
-            class: 'main-blog__featured-btn'
+            class: 'main-blog__featured-btn',
+            gtm_event: 'learn_hub_cards_interaction',
+            gtm_cta: article.title,
+            gtm_heading: section.settings.heading
           %}
 
         {%- else -%}
@@ -114,7 +117,11 @@
         class="article-card-title article-card-title--font-heading {{ article_heading_font_size | default: 'body-normal' }}"
         id="Article-{{ article.id }}"
       >
-        <a href="{{ article.url }}" class="article-card-title__link article-card-title--font-body">{{ article.title | escape }}</a>
+        <a href="{{ article.url }}" class="article-card-title__link article-card-title--font-body"
+        data-gtm-event="learn_hub_cards_interaction"
+        data-gtm-cta="{{ article.title | escape }}"
+        data-gtm-heading="{{ section.settings.heading | escape }}"
+        >{{ article.title | escape }}</a>
       </{{ article_heading_tag | default: 'h3' }}>
 
       {%- if show_excerpt and article.excerpt_or_content.size > 0 -%}
@@ -146,6 +153,9 @@
                       class="article-card-tag__link body-small hover-underlined-link focus-inset"
                       href="{{ blog_filter_url }}"
                       aria-label="{{- tag -}}"
+                      data-gtm-event="learn_hub_cards_interaction"
+                      data-gtm-cta="{{ article.title | escape }}"
+                      data-gtm-heading="{{ section.settings.heading | escape }}"
                     >
                       <span>{{- tag -}}</span>
                     </a>
@@ -177,6 +187,9 @@
     href="{{ article.url | default: '#' }}"
     class="article-card__overlay-link focus-inset"
     aria-label="{{ article.title }} {{ "accessibility.article_link" | t }}"
+    data-gtm-event="learn_hub_cards_interaction"
+   data-gtm-cta="{{ article.title | escape }}"
+   data-gtm-heading="{{ section.settings.heading | escape }}"
   >
     <span class="visibility-hidden">{{- article.title -}}</span>
   </a>

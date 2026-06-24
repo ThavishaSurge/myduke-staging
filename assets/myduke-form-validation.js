@@ -49,6 +49,42 @@
     contactForms.forEach(function(form) {
       form.setAttribute('novalidate', 'novalidate');
 
+// --- GTM Form Interaction Tracking (Per-Field) ---
+      var interactedFields = {};
+
+      form.addEventListener('focusin', function(e) {
+        if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+          
+          var rawName = e.target.getAttribute('name') || '';
+          var nameMatch = rawName.match(/\[(.*?)\]/);
+          var fieldName = nameMatch ? nameMatch[1] : (e.target.id || 'unknown_field');
+          
+          // Create a unique key for this specific field (e.g., "ContactForm-email")
+          var fieldKey = form.id + '-' + fieldName;
+
+          // Only push the event if we haven't tracked this specific field yet
+          if (!interactedFields[fieldKey]) {
+            interactedFields[fieldKey] = true; // Mark as tracked
+            
+            var formName = form.id === 'ContactForm' ? 'Main Contact Form' : 'FAQ Contact Form';
+
+            if (typeof window.GTMHelper !== 'undefined') {
+              window.GTMHelper.pushEvent('contact_us_form_interaction', {
+                'form_name': formName,
+                'field_name': fieldName
+              });
+            } else {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                'event': 'contact_us_form_interaction',
+                'form_name': formName,
+                'field_name': fieldName
+              });
+            }
+          }
+        }
+      }); 
+
       var phoneInput = form.querySelector('input[type="tel"]');
       
       // --- Phone Auto-Formatting ---
@@ -121,6 +157,21 @@
           event.preventDefault();
           event.stopImmediatePropagation();
           return;
+        }
+
+        //gtm
+        var formName = form.id === 'ContactForm' ? 'Main Contact Form' : 'FAQ Contact Form';
+
+        if (typeof window.GTMHelper !== 'undefined') {
+          window.GTMHelper.pushEvent('contact_us_form_submit', {
+            'form_name': formName
+          });
+        } else {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'contact_us_form_submit',
+            'form_name': formName
+          });
         }
 
         // 5. Update UI to "Submitting..."

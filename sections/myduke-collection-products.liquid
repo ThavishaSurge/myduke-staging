@@ -18,6 +18,8 @@
   class="mdcp color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin mydk-product-container-auth"
   data-section-id="{{ section.id }}"
   style="--mdcp-cols-desktop: {{ cols }}; --mdcp-cols-tablet: {{ cols_tablet }}; --mdcp-cols-mobile: {{ cols_mobile }};"
+  data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
 >
   <div class="container">
 
@@ -63,7 +65,14 @@
         <ul class="mdcp__grid" role="list">
           {%- for product in products limit: limit -%}
             <li>
-              <a class="mdcp__card" href="{{ product.url }}">
+              <a class="mdcp__card gtm-product-card" href="{{ product.url }}"
+              data-id="{{ product.id }}"
+              data-name="{{ product.title | escape }}"
+              data-brand="{{ product.vendor | escape }}"
+              data-category="{{ collection.title | default: product.type | escape }}"
+              data-variant="{{ product.variants.first.title | escape }}"
+              data-price="{{ product.price | divided_by: 100.0 }}"
+              >
                 <div class="mdcp__card-image-wrap">
                   {%- if product.featured_image != blank -%}
                     {%- assign img_src = product.featured_image | image_url: width: 800 -%}

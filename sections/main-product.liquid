@@ -648,6 +648,49 @@
   </script>
 </div>
 
+{% comment %} gtm {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Build the single item array
+    const currentProduct = {
+      item_id: "{{ product.id }}",
+      item_name: "{{ product.title | replace: '"', '\"' }}",
+      item_brand: "{{ product.vendor | replace: '"', '\"' }}",
+      item_category: "{{ product.type | replace: '"', '\"' }}",
+      item_variant: "{{ product.selected_or_first_available_variant.title | replace: '"', '\"' }}",
+      price: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+      quantity: 1
+    };
+
+    // 2. Fire 'view_item' on page load
+    if (typeof window.GTMHelper !== 'undefined') {
+      window.GTMHelper.pushEvent("view_item", {
+        ecommerce: {
+          currency: "{{ cart.currency.iso_code | default: shop.currency }}",
+          value: currentProduct.price,
+          items: [currentProduct]
+        }
+      });
+    }
+
+    // 3. Fire 'add_to_cart' when the form is submitted
+    const addToCartForm = document.querySelector('form[action^="/cart/add"]');
+    if (addToCartForm) {
+      addToCartForm.addEventListener('submit', function() {
+        if (typeof window.GTMHelper !== 'undefined') {
+          window.GTMHelper.pushEvent("add_to_cart", {
+            ecommerce: {
+              currency: "{{ cart.currency.iso_code | default: shop.currency }}",
+              value: currentProduct.price,
+              items: [currentProduct]
+            }
+          });
+        }
+      });
+    }
+  });
+</script>
+
 {%- if first_3d_model -%}
   <script type="application/json" id="ProductJSON-{{ product.id }}">
     {{ product.media | where: 'media_type', 'model' | json }}

@@ -27,6 +27,8 @@
 <div
   class="featured-products container color-{{ section.settings.color_scheme }} background section-{{ section.id }}-padding mydk-product-container-auth"
   data-color-scheme="{{ section.settings.color_scheme }}"
+  data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
 >
   {%- assign placeholder_numbers = '1|2|3|4' | split: '|' -%}
   {%- if section.settings.heading != blank -%}

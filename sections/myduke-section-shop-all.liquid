@@ -96,6 +96,8 @@
   class="msa color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin mydk-product-container-auth"
   data-section-id="{{ section.id }}"
   id="shopify-section-shop-all"
+  data-list-id="{% if collection %}{{ collection.id }}{% else %}all{% endif %}"
+data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %}All{% endif %}"
 >
   <div class="container">
 
@@ -478,7 +480,14 @@
             data-sort-featured="{{ forloop.index }}"
             data-best-selling="0"
           >
-            <a class="msa__card" href="{{ product.url }}">
+            <a class="msa__card gtm-product-card" href="{{ product.url }}"
+            data-id="{{ product.id }}"
+            data-name="{{ product.title | escape }}"
+            data-brand="{{ product.vendor | escape }}"
+            data-category="{{ collection.title | default: product.type | escape }}"
+            data-variant="{{ product.variants.first.title | escape }}"
+            data-price="{{ product.price | divided_by: 100.0 }}"
+            >
               <div class="msa__card-image-wrap">
                 {%- if product.featured_image != blank -%}
                   {{
