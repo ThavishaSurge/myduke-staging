@@ -119,4 +119,30 @@
       }
     });
   });
+
+
+  // --- GLOBAL UI CLICK LISTENER (DELEGATION) ---
+  document.addEventListener('click', function(e) {
+    // 1. Check if the clicked element (or its parent) has our tracking attribute
+    const trackableElement = e.target.closest('[data-gtm-event]');
+    
+    if (trackableElement) {
+      // 2. Extract the event name
+      const eventName = trackableElement.getAttribute('data-gtm-event');
+      
+      // 3. Extract any optional parameters (for upcoming events like cta_text or heading_title)
+      const specificData = {};
+      const ctaText = trackableElement.getAttribute('data-gtm-cta');
+      const headingTitle = trackableElement.getAttribute('data-gtm-heading');
+      
+      if (ctaText) specificData.cta_text = ctaText;
+      if (headingTitle) specificData.heading_title = headingTitle;
+      
+      // 4. Fire the event using our engine
+      if (typeof window.GTMHelper !== 'undefined') {
+        window.GTMHelper.pushEvent(eventName, specificData);
+      }
+    }
+  });
+
 </script>
