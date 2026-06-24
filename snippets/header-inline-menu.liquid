@@ -29,11 +29,11 @@
           {% endif %}
         >
           <a
-            href="{{ #}}"
+            href="{{ link.url }}"
             {% if settings.links_blank and link.type == 'http_link' %}
               target="_blank"
             {% endif %}
-            class="list-menu-item-animate header__menu-item header-overlay-transition focus-inset myduke-test-class"
+            class="list-menu-item-animate header__menu-item header-overlay-transition focus-inset"
             {% if link.current and link.url != '/' %}
               aria-current="page"
             {% endif %}
