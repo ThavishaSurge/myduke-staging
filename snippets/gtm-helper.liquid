@@ -152,4 +152,39 @@
     }
   }, true);
 
+  // --- LOGIN SUCCESS TRACKER ---
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. Listen for the login form submission and set a temporary flag
+    const loginForm = document.querySelector('form[action^="/account/login"]');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function() {
+        sessionStorage.setItem('gtm_login_attempt', 'true');
+      });
+    }
+
+    // 2. On every page load, check if they just attempted a login
+    if (sessionStorage.getItem('gtm_login_attempt') === 'true') {
+      // Clear the flag immediately so it never fires twice
+      sessionStorage.removeItem('gtm_login_attempt');
+      
+      // Wait to ensure the user ID is fully loaded, then verify they are actually logged in
+      let attempts = 0;
+      let verifyLogin = setInterval(function() {
+        attempts++;
+        if ((typeof getUserId === 'function' && typeof getUserId() !== 'undefined') || attempts > 10) {
+          clearInterval(verifyLogin);
+          
+          // If they successfully logged in, the ID will no longer be empty
+          const currentUserId = typeof getUserId === 'function' ? getUserId() : "";
+          if (currentUserId !== "") {
+            if (typeof window.GTMHelper !== 'undefined') {
+              window.GTMHelper.pushEvent("login_success");
+            }
+          }
+        }
+      }, 500);
+    }
+  });
+
 </script>
