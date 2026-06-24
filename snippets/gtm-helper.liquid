@@ -2,10 +2,17 @@
   window.dataLayer = window.dataLayer || [];
   window.GTMHelper = window.GTMHelper || {};
 
-  // --- BUILD BASE DATA ---
+// --- BUILD BASE DATA ---
   window.GTMHelper.getBaseData = function() {
     let pageType = "{{ template.name | default: 'other' }}";
-    if (pageType === "index") pageType = "home";
+    
+    // Customize the page type string based on the template
+    if (pageType === "index") {
+      pageType = "home";
+    } else if (pageType === "page") {
+      // If it's a standard page, pull its specific URL handle (e.g., 'about-us', 'contact')
+      pageType = "{{ page.handle | default: 'page' | replace: '-', '_' }}"; 
+    }
     
     // Safely call your existing custom function
     let userId = (typeof getUserId === 'function' && getUserId() !== 'undefined') ? getUserId() : "";
