@@ -49,6 +49,15 @@
     contactForms.forEach(function(form) {
       form.setAttribute('novalidate', 'novalidate');
 
+      // --- GTM Form Interaction Tracking ---
+      form.addEventListener('focusin', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'contact_us_form_interaction',
+          'form_id': form.id
+        });
+      }, { once: true });
+
       var phoneInput = form.querySelector('input[type="tel"]');
       
       // --- Phone Auto-Formatting ---
