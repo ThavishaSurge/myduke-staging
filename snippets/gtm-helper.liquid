@@ -2,6 +2,22 @@
   window.dataLayer = window.dataLayer || [];
   window.GTMHelper = window.GTMHelper || {};
 
+  // --- UTM STORAGE MANAGER ---
+  window.GTMHelper.saveUTMs = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_version'];
+    
+    utmParams.forEach(function(param) {
+      if (urlParams.has(param) && urlParams.get(param) !== "") {
+        // Save as a cookie for 30 days, available across the entire site
+        document.cookie = `myduke_${param}=${urlParams.get(param)}; path=/; max-age=2592000; SameSite=Lax`;
+      }
+    });
+  };
+
+  // Run the storage function immediately
+  window.GTMHelper.saveUTMs();
+
 // --- BUILD BASE DATA ---
   window.GTMHelper.getBaseData = function() {
     let pageType = "{{ template.name | default: 'other' }}";
@@ -18,12 +34,20 @@
     let userId = (typeof getUserId === 'function' && getUserId() !== 'undefined') ? getUserId() : "";
     let userType = userId ? "existing" : "new";
 
-    // Helper to safely call your existing cookie function, with a fallback
+    // Helper to grab UTMs directly from the URL, or from our custom cookies
     let getUTM = function(param) {
-      if (typeof readgafCookie === 'function') {
-        let val = readgafCookie(param);
-        return val ? val : "NA";
+      // 1. Always check the live URL first
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has(param) && urlParams.get(param) !== "") {
+        return urlParams.get(param);
       }
+      
+      // 2. Check our newly saved cookies for subsequent page views
+      const cookieMatch = document.cookie.match(new RegExp('(^| )myduke_' + param + '=([^;]+)'));
+      if (cookieMatch) {
+        return cookieMatch[2];
+      }
+      
       return "NA";
     };
 
