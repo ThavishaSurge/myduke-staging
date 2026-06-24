@@ -255,7 +255,7 @@
         "hybrid_devices_url": "shopify://collections/hyrbid-devices",
         "hybrid_eliquid_url": "shopify://collections/e-liquids",
         "hybrid_pods_url": "shopify://collections/pods-coils-new-website-1",
-        "open_cta_url": "shopify://collections/open-tank",
+        "open_cta_url": "/pages/shop-all?device=open-tank-systems",
         "open_devices_url": "shopify://collections/open-tank",
         "open_eliquid_url": "shopify://collections/freebase-e-liquids-new-website",
         "open_coils_url": "shopify://collections/pods-coils-new-website-1",
