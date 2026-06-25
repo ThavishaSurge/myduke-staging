@@ -226,6 +226,7 @@
 @media screen and (max-width: 750px) {
   .myduke-faq-page__tabs-wrapper {
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
@@ -236,7 +237,9 @@
   }
 
   .myduke-faq-page__tabs {
+    display: inline-flex;
     justify-content: flex-start;
+    min-width: max-content;
   }
 }
 
