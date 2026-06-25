@@ -304,12 +304,10 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
             {%- comment -%} 1. Build a list of allowed brand handles from the Metaobject {%- endcomment -%}
             {%- assign allowed_brands_list = '' -%}
             {%- for vendor_meta in shop.metaobjects.vendor.values -%}
-              
-              {%- comment -%} Updated to use .name based on your Metaobject definition {%- endcomment -%}
               {%- assign v_name = vendor_meta.name -%} 
-              
               {%- if v_name != blank -%}
-                {%- assign v_handle = v_name | handleize -%}
+                {%- comment -%} Normalize by stripping hyphens (vaper-empire -> vaperempire) {%- endcomment -%}
+                {%- assign v_handle = v_name | handleize | remove: '-' -%}
                 {%- assign allowed_brands_list = allowed_brands_list | append: ',' | append: v_handle | append: ',' -%}
               {%- endif -%}
             {%- endfor -%}
@@ -348,10 +346,13 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
                   
                   {%- for type_val in unique_vendors_array -%}
                     {%- if type_val == blank -%}{%- continue -%}{%- endif -%}
+                    
                     {%- assign type_val_handle = type_val | handleize -%}
-                    {%- assign check_handle = ',' | append: type_val_handle | append: ',' -%}
+                    {%- comment -%} Normalize the product type string to match the metaobject {%- endcomment -%}
+                    {%- assign type_val_normalized = type_val_handle | remove: '-' -%}
+                    {%- assign check_handle = ',' | append: type_val_normalized | append: ',' -%}
 
-                    {%- comment -%} 2. Only output the button if it exists in our Metaobject list {%- endcomment -%}
+                    {%- comment -%} 2. Check the normalized strings against each other {%- endcomment -%}
                     {%- if allowed_brands_list contains check_handle -%}
                       <button
                         class="msa__dropdown-item"
