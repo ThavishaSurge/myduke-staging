@@ -243,9 +243,18 @@
   display: block;
 }
 
-/* Mobile horizontal scrolling for tabs */
-@media screen and (max-width: 750px) {
-  .myduke-faq__tabs-wrapper {
+
+/* ── Responsive: tablet ── */
+@media screen and (max-width: 989px) {
+  .myduke-faq__inner {
+    column-gap: 4rem;
+  }
+  .myduke-faq__heading {
+    font-size: 3.6rem;
+  }
+
+  /* tab responsive */
+    .myduke-faq__tabs-wrapper {
     /* Allow the wrapper to stretch edge-to-edge on mobile */
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -280,19 +289,8 @@
     /* Prevent the tab buttons from shrinking */
     flex-shrink: 0;
   }
-}
 
-/* ── Responsive: tablet ── */
-@media screen and (max-width: 989px) {
-  .myduke-faq__inner {
-    column-gap: 4rem;
-  }
-  .myduke-faq__heading {
-    font-size: 3.6rem;
-  }
-}
-
-@media screen and (max-width: 575px) {
+  /* mobile */
   .myduke-faq {
     background: #ffffff;
     padding-top: 3.2rem;
@@ -337,4 +335,6 @@
   .myduke-faq__answer {
     font-size: 1.4rem;
   }
+
+
 }
