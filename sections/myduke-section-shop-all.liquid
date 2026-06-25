@@ -300,6 +300,20 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
           
 
           {%- if show_brand_filter and unique_vendors_array.size > 0 -%}
+            
+            {%- comment -%} 1. Build a list of allowed brand handles from the Metaobject {%- endcomment -%}
+            {%- assign allowed_brands_list = '' -%}
+            {%- for vendor_meta in shop.metaobjects.vendor.values -%}
+              
+              {%- comment -%} Updated to use .name based on your Metaobject definition {%- endcomment -%}
+              {%- assign v_name = vendor_meta.name -%} 
+              
+              {%- if v_name != blank -%}
+                {%- assign v_handle = v_name | handleize -%}
+                {%- assign allowed_brands_list = allowed_brands_list | append: ',' | append: v_handle | append: ',' -%}
+              {%- endif -%}
+            {%- endfor -%}
+
             <div class="msa__filter-group" data-filter-group="brand">
               <button
                 class="msa__filter-btn"
@@ -331,18 +345,25 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
                   <button class="msa__dropdown-item msa__dropdown-item--active" data-filter-value="all" role="option" aria-selected="true">
                     {{ section.settings.brand_filter_all_label | default: 'All Brands' }}
                   </button>
+                  
                   {%- for type_val in unique_vendors_array -%}
                     {%- if type_val == blank -%}{%- continue -%}{%- endif -%}
                     {%- assign type_val_handle = type_val | handleize -%}
-                    <button
-                      class="msa__dropdown-item"
-                      data-filter-value="{{ type_val_handle }}"
-                      data-filter-type="brand"
-                      role="option"
-                      aria-selected="false"
-                    >
-                      {{- type_val -}}
-                    </button>
+                    {%- assign check_handle = ',' | append: type_val_handle | append: ',' -%}
+
+                    {%- comment -%} 2. Only output the button if it exists in our Metaobject list {%- endcomment -%}
+                    {%- if allowed_brands_list contains check_handle -%}
+                      <button
+                        class="msa__dropdown-item"
+                        data-filter-value="{{ type_val_handle }}"
+                        data-filter-type="brand"
+                        role="option"
+                        aria-selected="false"
+                      >
+                        {{- type_val -}}
+                      </button>
+                    {%- endif -%}
+                    
                   {%- endfor -%}
                 </div>
               </div>
