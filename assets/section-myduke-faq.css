@@ -284,6 +284,7 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     width: max-content;
+    margin: 0 0 0 0;
     padding-bottom: 0.5rem; /* Give a little breathing room at the bottom */
   }
 
