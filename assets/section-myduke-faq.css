@@ -201,6 +201,8 @@
   display: flex;
   column-gap: 24px;
   justify-content: center;
+  margin: 0 0 2.4rem 0;
+  padding: 0;
 }
 
 .myduke-faq__tabs li {
@@ -210,7 +212,28 @@
 }
 
 .myduke-faq__tabs li button {
-    color: #fff;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body-family);
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  font-weight: 500;
+  padding: 0;
+  transition: opacity 200ms ease;
+}
+
+.myduke-faq__tabs li button:hover {
+  opacity: 0.8;
+}
+
+/* Tab content visibility */
+.myduke-faq__tab-content {
+  display: none;
+}
+
+.myduke-faq__tab-content.is-active {
+  display: block;
 }
 
 /* ── Responsive: tablet ── */
