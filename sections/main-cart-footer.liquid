@@ -117,7 +117,7 @@
                 endfor
               -%}
               <div class="cart__submit-controls cart__ctas myduke-cart-submit">
-                <button id="continueButton gtm-checkout-btn" type="button" onclick="addSubscriptionData()" name="continue" class="cart__checkout-button button mydk-cart-checkout-btn"{% if mydk_cart_nicotine > 4500 %} disabled{% endif %}>Next</button>                     
+                <button id="continueButton" type="button" name="continue" class="cart__checkout-button button mydk-cart-checkout-btn"{% if mydk_cart_nicotine > 4500 %} disabled{% endif %}>Next</button>                   
               </div>
               <div class="cart__ctas" {{ block.shopify_attributes }} style="display:none;">
                 <noscript>
@@ -257,12 +257,15 @@ getProductUpgradeStat(existingProductId, updatedProductId);
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // 1. Find the Checkout / Next button
-    const checkoutBtn = document.getElementById('gtm-checkout-btn'); 
+    // 1. Find the Checkout / Next button using its correct ID
+    const checkoutBtn = document.getElementById('continueButton'); 
 
     if (checkoutBtn) {
-      checkoutBtn.addEventListener('click', function() {
+      checkoutBtn.addEventListener('click', function(e) {
         
+        // Prevent default button behavior while we process
+        e.preventDefault();
+
         // 2. Build the cart items array using Liquid
         const cartItems = [];
         {% for item in cart.items %}
@@ -288,6 +291,16 @@ getProductUpgradeStat(existingProductId, updatedProductId);
             }
           });
         }
+
+        // 4. Wait 600ms for GTM to finish, then manually fire the portal redirect
+        setTimeout(function() {
+          if (typeof addSubscriptionData === 'function') {
+            addSubscriptionData();
+          } else {
+            console.error("addSubscriptionData function is missing!");
+          }
+        }, 600);
+
       });
     }
   });
