@@ -300,6 +300,18 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
           
 
           {%- if show_brand_filter and unique_vendors_array.size > 0 -%}
+            
+            {%- comment -%} 1. Build a list of allowed brand handles from the Metaobject {%- endcomment -%}
+            {%- assign allowed_brands_list = '' -%}
+            {%- for vendor_meta in shop.metaobjects.vendor.values -%}
+              {%- assign v_name = vendor_meta.name -%} 
+              {%- if v_name != blank -%}
+                {%- comment -%} Normalize by stripping hyphens (vaper-empire -> vaperempire) {%- endcomment -%}
+                {%- assign v_handle = v_name | handleize | remove: '-' -%}
+                {%- assign allowed_brands_list = allowed_brands_list | append: ',' | append: v_handle | append: ',' -%}
+              {%- endif -%}
+            {%- endfor -%}
+
             <div class="msa__filter-group" data-filter-group="brand">
               <button
                 class="msa__filter-btn"
@@ -335,34 +347,21 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
                   {%- for type_val in unique_vendors_array -%}
                     {%- if type_val == blank -%}{%- continue -%}{%- endif -%}
                     
-                    {%- comment -%} 1. Remove hyphens ONLY for the matching process {%- endcomment -%}
-                    {%- assign type_val_normalized = type_val | handleize | remove: '-' -%}
-                    
-                    {%- assign matched_metaobject_name = blank -%}
-                    {%- assign matched_metaobject_slug = blank -%}
-                    
-                    {%- comment -%} 2. Check against Metaobjects {%- endcomment -%}
-                    {%- for vendor_meta in shop.metaobjects.vendor.values -%}
-                      {%- assign v_name = vendor_meta.name -%}
-                      {%- assign v_normalized = v_name | handleize | remove: '-' -%}
-                      
-                      {%- if type_val_normalized == v_normalized -%}
-                        {%- assign matched_metaobject_name = v_name -%}
-                        {%- assign matched_metaobject_slug = vendor_meta.system.handle -%}
-                        {%- break -%}
-                      {%- endif -%}
-                    {%- endfor -%}
+                    {%- assign type_val_handle = type_val | handleize -%}
+                    {%- comment -%} Normalize the product type string to match the metaobject {%- endcomment -%}
+                    {%- assign type_val_normalized = type_val_handle | remove: '-' -%}
+                    {%- assign check_handle = ',' | append: type_val_normalized | append: ',' -%}
 
-                    {%- comment -%} 3. Render using the exact Metaobject data {%- endcomment -%}
-                    {%- if matched_metaobject_slug != blank -%}
+                    {%- comment -%} 2. Check the normalized strings against each other {%- endcomment -%}
+                    {%- if allowed_brands_list contains check_handle -%}
                       <button
                         class="msa__dropdown-item"
-                        data-filter-value="{{ matched_metaobject_slug }}"
+                        data-filter-value="{{ type_val_handle }}"
                         data-filter-type="brand"
                         role="option"
                         aria-selected="false"
                       >
-                        {{- matched_metaobject_name -}}
+                        {{- type_val -}}
                       </button>
                     {%- endif -%}
                     
