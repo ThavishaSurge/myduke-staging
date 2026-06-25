@@ -195,6 +195,23 @@
   margin-top: 1.2rem;
 }
 
+.myduke-faq__tabs {
+  list-style: none;
+  display: flex;
+  column-gap: 24px;
+  justify-content: center;
+}
+
+.myduke-faq__tabs li {
+  padding: 24px;
+  background: #218380;
+  color: #fff;
+}
+
+.myduke-faq__tabs li button {
+    color: #fff;
+}
+
 /* ── Responsive: tablet ── */
 @media screen and (max-width: 989px) {
   .myduke-faq__inner {
