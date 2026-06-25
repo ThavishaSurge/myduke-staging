@@ -223,28 +223,42 @@
 }
 
 /* Mobile horizontal scrolling for tabs */
-@media screen and (max-width: 750px) {
-  .myduke-faq-page__tabs-wrapper {
-    width: calc(100% + 2.4rem);
-    margin-left: -1.2rem;
-    margin-right: -1.2rem;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
+@media screen and (max-width: 989px) {
+  /* tab responsive */
+    .myduke-faq__tabs-wrapper {
+    /* Allow the wrapper to stretch edge-to-edge on mobile */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+    
+    /* Enable smooth horizontal scrolling */
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    
+    /* Hide scrollbars for a cleaner look */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }
 
-  .myduke-faq-page__tabs-wrapper::-webkit-scrollbar {
+  .myduke-faq__tabs-wrapper::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
 
-  .myduke-faq-page__tabs {
-    display: inline-flex;
+  .myduke-faq__tabs {
+    /* Force items into a single line and align left */
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: flex-start;
     width: max-content;
+    padding-bottom: 0.5rem; /* Give a little breathing room at the bottom */
+  }
+
+  .myduke-faq__tabs li {
+    /* Prevent the tab buttons from shrinking */
+    flex-shrink: 0;
   }
 }
 
@@ -340,7 +354,7 @@
 }
 
 /* ── Responsive: mobile ── */
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 989px) {
   .myduke-faq-page {
     padding-top: 6.4rem;
     padding-bottom: 6.4rem;
