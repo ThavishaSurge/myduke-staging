@@ -23,8 +23,8 @@
   grid-area: heading;
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
   align-self: start;
+  margin-bottom: 3.2rem;
 }
 
 .myduke-faq__eyebrow {
@@ -206,7 +206,7 @@
   display: flex;
   column-gap: 24px;
   justify-content: center;
-  margin: 0;
+  margin: 19.6px 0 0 0;
   padding: 0;
 }
 
