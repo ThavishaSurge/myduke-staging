@@ -28,6 +28,40 @@
         if (!isOpen) openItem(item);
       });
     });
+
+    // Initialize tab functionality
+    var tabButtons = sectionEl.querySelectorAll('.myduke-faq__tab-button');
+    var tabContents = sectionEl.querySelectorAll('.myduke-faq__tab-content');
+
+    if (tabButtons.length > 0 && tabContents.length > 0) {
+      tabButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var targetTab = button.getAttribute('data-tab-target');
+
+          // Remove active state from all buttons and contents
+          tabButtons.forEach(function (btn) {
+            btn.classList.remove('is-active');
+            btn.setAttribute('aria-selected', 'false');
+          });
+          tabContents.forEach(function (content) {
+            content.classList.remove('is-active');
+          });
+
+          // Add active state to clicked button and corresponding content
+          button.classList.add('is-active');
+          button.setAttribute('aria-selected', 'true');
+
+          var targetContent = sectionEl.querySelector('.myduke-faq__tab-content[data-tab-id="' + targetTab + '"]');
+          if (targetContent) {
+            targetContent.classList.add('is-active');
+          }
+
+          // Close all open FAQ items when switching tabs
+          var allItems = sectionEl.querySelectorAll('.myduke-faq__item');
+          allItems.forEach(closeItem);
+        });
+      });
+    }
   }
 
   function initAll() {
