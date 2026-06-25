@@ -32,38 +32,40 @@
 
         {%- if has_tabs -%}
           {%- comment -%} ── Tab Navigation ── {%- endcomment -%}
-          <ul class="myduke-faq-page__tabs" role="tablist">
-            {%- assign first_tab_rendered = false -%}
-            {%- for i in (1..10) -%}
-              {%- assign tab_key = 'tab_' | append: i | append: '_name' -%}
-              {%- assign tab_name = section.settings[tab_key] -%}
-              {%- if tab_name != blank -%}
-                {%- assign tab_id = 'tab_' | append: i -%}
-                {%- comment -%} Check if this tab has any questions assigned {%- endcomment -%}
-                {%- assign has_questions = false -%}
-                {%- for block in section.blocks -%}
-                  {%- if block.settings.question != blank and block.settings.tab_assignment == tab_id -%}
-                    {%- assign has_questions = true -%}
-                    {%- break -%}
+          <div class="myduke-faq-page__tabs-wrapper">
+            <ul class="myduke-faq-page__tabs" role="tablist">
+              {%- assign first_tab_rendered = false -%}
+              {%- for i in (1..10) -%}
+                {%- assign tab_key = 'tab_' | append: i | append: '_name' -%}
+                {%- assign tab_name = section.settings[tab_key] -%}
+                {%- if tab_name != blank -%}
+                  {%- assign tab_id = 'tab_' | append: i -%}
+                  {%- comment -%} Check if this tab has any questions assigned {%- endcomment -%}
+                  {%- assign has_questions = false -%}
+                  {%- for block in section.blocks -%}
+                    {%- if block.settings.question != blank and block.settings.tab_assignment == tab_id -%}
+                      {%- assign has_questions = true -%}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if has_questions -%}
+                    <li role="presentation">
+                      <button
+                        class="myduke-faq-page__tab-button{% unless first_tab_rendered %} is-active{% endunless %}"
+                        type="button"
+                        role="tab"
+                        data-tab-target="tab_{{ i }}"
+                        aria-selected="{% unless first_tab_rendered %}true{% else %}false{% endunless %}"
+                      >
+                        {{ tab_name }}
+                      </button>
+                    </li>
+                    {%- assign first_tab_rendered = true -%}
                   {%- endif -%}
-                {%- endfor -%}
-                {%- if has_questions -%}
-                  <li role="presentation">
-                    <button
-                      class="myduke-faq-page__tab-button{% unless first_tab_rendered %} is-active{% endunless %}"
-                      type="button"
-                      role="tab"
-                      data-tab-target="tab_{{ i }}"
-                      aria-selected="{% unless first_tab_rendered %}true{% else %}false{% endunless %}"
-                    >
-                      {{ tab_name }}
-                    </button>
-                  </li>
-                  {%- assign first_tab_rendered = true -%}
                 {%- endif -%}
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
+              {%- endfor -%}
+            </ul>
+          </div>
 
           {%- comment -%} ── Tab Content Groups ── {%- endcomment -%}
           {%- assign first_group_rendered = false -%}

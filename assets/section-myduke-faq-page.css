@@ -175,12 +175,17 @@
 }
 
 /* tabs styles */
+.myduke-faq-page__tabs-wrapper {
+  width: 100%;
+  margin-bottom: 3.2rem;
+}
+
 .myduke-faq-page__tabs {
   list-style: none;
   display: flex;
   column-gap: 24px;
   justify-content: center;
-  margin: 0 0 3.2rem 0;
+  margin: 0;
   padding: 0;
 }
 
@@ -219,16 +224,19 @@
 
 /* Mobile horizontal scrolling for tabs */
 @media screen and (max-width: 750px) {
-  .myduke-faq-page__tabs {
-    justify-content: flex-start;
+  .myduke-faq-page__tabs-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }
 
-  .myduke-faq-page__tabs::-webkit-scrollbar {
+  .myduke-faq-page__tabs-wrapper::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
+  }
+
+  .myduke-faq-page__tabs {
+    justify-content: flex-start;
   }
 }
 
