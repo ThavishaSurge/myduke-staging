@@ -188,6 +188,7 @@
   padding: 12px 24px;
   background: #218380;
   color: #fff;
+  flex-shrink: 0;
 }
 
 .myduke-faq-page__tabs li button {
@@ -200,6 +201,7 @@
   font-weight: 500;
   padding: 0;
   transition: opacity 200ms ease;
+  white-space: nowrap;
 }
 
 .myduke-faq-page__tabs li button:hover {
@@ -213,6 +215,21 @@
 
 .myduke-faq-page__tab-content.is-active {
   display: block;
+}
+
+/* Mobile horizontal scrolling for tabs */
+@media screen and (max-width: 750px) {
+  .myduke-faq-page__tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .myduke-faq-page__tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 }
 
 /* ── Responsive: tablet ── */
