@@ -414,7 +414,7 @@
         "faq_item_WMFkpn": {
           "type": "faq_item",
           "settings": {
-            "tab_assignment": "tab_1",
+            "tab_assignment": "tab_2",
             "question": "What if treatment isn't right for me?",
             "answer": "<p>If a doctor determines a treatment suitable to your smoking cessation or nicotine dependency goals. You'll receive guidance on safe, evidence-based alternatives to help support your personal journey.</p>"
           }
@@ -422,7 +422,7 @@
         "faq_item_X8DPNT": {
           "type": "faq_item",
           "settings": {
-            "tab_assignment": "tab_1",
+            "tab_assignment": "tab_2",
             "question": "What treatments does myduke® offer?",
             "answer": "<p>myduke provides access to a range of registered nicotine therapeutic products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
           }
@@ -430,7 +430,7 @@
         "faq_item_nALzUW": {
           "type": "faq_item",
           "settings": {
-            "tab_assignment": "tab_1",
+            "tab_assignment": "tab_2",
             "question": "Do I need to visit a doctor in person?",
             "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, you can access the pharmacy for replacement therapy medicines and ongoing care are managed through your secure account.</p>"
           }
