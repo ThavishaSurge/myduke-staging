@@ -7,6 +7,10 @@
 >
   <head>
 
+    {% if template contains 'search' or template contains 'product' or template contains 'collection' or template contains 'compatibility' or template contains 'page.referral' %}
+    <meta name="robots" content="noindex,noimageindex">
+    {% endif %}
+
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -146,6 +150,29 @@
     {% if settings.show_back_to_top %}
       <script src="{{ 'scroll-top.js' | asset_url }}" defer="defer"></script>
     {% endif %}
+
+        <script type="text/javascript">
+  (function () {
+    var domain = "me.myduke.com.au";
+    var script = document.createElement("script");
+    script.onload = function() {
+      MeiroEvents.init({
+        domain: domain,
+        sync: {
+          ga_cid: true,
+          fb_cid: true
+        },
+        outbound_link_tracking: {
+          enabled: true
+        }
+      });
+      MeiroEvents.track("pageView");
+    };
+    script.src = "//" + domain + "/sdk/";
+    script.async = true;
+    document.head.appendChild(script);
+  })();
+</script>
 
     {% render 'gtm-helper' %}
   </head>
