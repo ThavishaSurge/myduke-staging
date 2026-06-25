@@ -5,6 +5,7 @@
     function openItem(item) {
       var trigger = item.querySelector('.myduke-faq-page__trigger');
       var panel   = item.querySelector('.myduke-faq-page__panel');
+      item.classList.add('is-open');
       if (trigger) trigger.setAttribute('aria-expanded', 'true');
       if (panel)   panel.classList.add('is-open');
     }
@@ -12,6 +13,7 @@
     function closeItem(item) {
       var trigger = item.querySelector('.myduke-faq-page__trigger');
       var panel   = item.querySelector('.myduke-faq-page__panel');
+      item.classList.remove('is-open');
       if (trigger) trigger.setAttribute('aria-expanded', 'false');
       if (panel)   panel.classList.remove('is-open');
     }
@@ -57,6 +59,14 @@
           // Close all open FAQ items when switching tabs
           var allItems = sectionEl.querySelectorAll('.myduke-faq-page__item');
           allItems.forEach(closeItem);
+
+          // Open the first FAQ item in the newly active tab
+          if (targetContent) {
+            var firstItem = targetContent.querySelector('.myduke-faq-page__item');
+            if (firstItem) {
+              openItem(firstItem);
+            }
+          }
         });
       });
     }

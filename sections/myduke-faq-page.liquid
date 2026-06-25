@@ -85,14 +85,15 @@
               {%- if has_questions -%}
                 <div class="myduke-faq-page__tab-content{% unless first_group_rendered %} is-active{% endunless %}" data-tab-id="{{ tab_id }}">
                   <div class="myduke-faq-page__list">
+                    {%- assign first_item_in_tab = true -%}
                     {%- for block in section.blocks -%}
                       {%- if block.settings.question != blank and block.settings.tab_assignment == tab_id -%}
-                        <div class="myduke-faq-page__item" {{ block.shopify_attributes }}>
+                        <div class="myduke-faq-page__item{% if first_item_in_tab %} is-open{% endif %}" {{ block.shopify_attributes }}>
 
                           <button
                             class="myduke-faq-page__trigger"
                             type="button"
-                            aria-expanded="false"
+                            aria-expanded="{% if first_item_in_tab %}true{% else %}false{% endif %}"
                             aria-controls="myduke-faq-page-panel-{{ section.id }}-{{ block.id }}"
                           >
                             <span class="myduke-faq-page__question">{{ block.settings.question }}</span>
@@ -106,7 +107,7 @@
 
                           {%- if block.settings.answer != blank -%}
                             <div
-                              class="myduke-faq-page__panel"
+                              class="myduke-faq-page__panel{% if first_item_in_tab %} is-open{% endif %}"
                               id="myduke-faq-page-panel-{{ section.id }}-{{ block.id }}"
                               role="region"
                             >
@@ -117,6 +118,7 @@
                           {%- endif -%}
 
                         </div>
+                        {%- assign first_item_in_tab = false -%}
                       {%- endif -%}
                     {%- endfor -%}
                   </div>

@@ -59,6 +59,14 @@
           // Close all open FAQ items when switching tabs
           var allItems = sectionEl.querySelectorAll('.myduke-faq__item');
           allItems.forEach(closeItem);
+
+          // Open the first FAQ item in the newly active tab
+          if (targetContent) {
+            var firstItem = targetContent.querySelector('.myduke-faq__item');
+            if (firstItem) {
+              openItem(firstItem);
+            }
+          }
         });
       });
     }
