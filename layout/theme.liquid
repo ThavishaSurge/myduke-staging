@@ -19,7 +19,7 @@
         })(window,document,'script','dataLayer','GTM-WNBJGH9');</script>
         <!-- End Google Tag Manager -->
         <!-- FigPii Asynchronous Tracking Code -->
-        <script>!function(){var n=document.createElement('script');n.crossOrigin='anonymous',n.async='async',n.src='https://tracking-cdn.figpii.com/27c51843241b0e16300151e2f41f364e.js',document.head.append(n),window._fpEvent=window._fpEvent||[]}();</script>
+        {% comment %} <script>!function(){var n=document.createElement('script');n.crossOrigin='anonymous',n.async='async',n.src='https://tracking-cdn.figpii.com/27c51843241b0e16300151e2f41f364e.js',document.head.append(n),window._fpEvent=window._fpEvent||[]}();</script> {% endcomment %}
         <!-- End FigPii Asynchronous Tracking Code -->
       
         <!-- Facebook Pixel Code -->
@@ -151,7 +151,7 @@
       <script src="{{ 'scroll-top.js' | asset_url }}" defer="defer"></script>
     {% endif %}
 
-        <script type="text/javascript">
+        {% comment %} <script type="text/javascript">
   (function () {
     var domain = "me.myduke.com.au";
     var script = document.createElement("script");
@@ -172,7 +172,7 @@
     script.async = true;
     document.head.appendChild(script);
   })();
-</script>
+</script> {% endcomment %}
 
     {% render 'gtm-helper' %}
   </head>
