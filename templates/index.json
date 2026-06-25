@@ -176,7 +176,7 @@
             "step_title": "Clinical Assessment",
             "subtitle": "Tell us about you",
             "checklist_items": "Sign up & set your quit goals\nConfidential health questionnaire\nTakes just 2 minutes",
-            "check_color": "#BFDBCF"
+            "check_color": "#bfdbcf"
           }
         },
         "step_slide_jzJdHD": {
@@ -189,7 +189,7 @@
             "step_title": "Medical Review",
             "subtitle": "Doctor-approved pathway",
             "checklist_items": "AHPRA-registered doctor reviews\nPersonalised cessation care plan\nMedically appropriate recommendations",
-            "check_color": "#FFB703"
+            "check_color": "#ffb703"
           }
         },
         "step_slide_rtVdXX": {
@@ -202,7 +202,7 @@
             "step_title": "Treatment & Dispatch",
             "subtitle": "Pharmacy-dispensed Treatment",
             "checklist_items": "Receive your clinical plan\nAccess Online Pharmacy\nDispatched within 2-3 business days",
-            "check_color": "#EF6351"
+            "check_color": "#ef6351"
           }
         },
         "step_slide_MQjqVd": {
@@ -374,6 +374,7 @@
         "faq_item_aVytjt": {
           "type": "faq_item",
           "settings": {
+            "tab_assignment": "tab_1",
             "question": "Who can use myduke®?",
             "answer": "<p>myduke® supports adults 18+ seeking help with nicotine dependence or quitting smoking. Access is provided under medical supervision in line with Australian regulations.</p>"
           }
@@ -381,6 +382,7 @@
         "faq_item_yrBBnq": {
           "type": "faq_item",
           "settings": {
+            "tab_assignment": "tab_1",
             "question": "How do I begin my quit journey?",
             "answer": "<p>Create a myduke® account and complete the secure online assessment. A registered Australian doctor will review your information and determine the most appropriate pathway.</p>"
           }
@@ -388,6 +390,7 @@
         "faq_item_RwiJkB": {
           "type": "faq_item",
           "settings": {
+            "tab_assignment": "tab_1",
             "question": "How do I access the pharmacy and how long does it take?",
             "answer": "<p>After your assessment is reviewed by a registered doctor, if deemed appropriate, you will be able to access the pharmacy immediately through your myduke® account.</p>"
           }
@@ -395,6 +398,7 @@
         "faq_item_MBJVEk": {
           "type": "faq_item",
           "settings": {
+            "tab_assignment": "tab_1",
             "question": "Can I access myduke® from anywhere in Australia?",
             "answer": "<p>Yes. Our digital platform is designed for adults across Australia, including regional and remote areas. There's no need to visit a clinic or pharmacy in person to get started.</p>"
           }
@@ -402,6 +406,7 @@
         "faq_item_FCMYwD": {
           "type": "faq_item",
           "settings": {
+            "tab_assignment": "tab_1",
             "question": "Can I use an existing prescription from another doctor?",
             "answer": "<p>No. Only prescriptions issued through myduke®'s authorised pathways can be used with our dispensing partners, ensuring your care remains safe, compliant, and consistently monitored.</p>"
           }
@@ -409,6 +414,7 @@
         "faq_item_WMFkpn": {
           "type": "faq_item",
           "settings": {
+            "tab_assignment": "tab_1",
             "question": "What if treatment isn't right for me?",
             "answer": "<p>If a doctor determines a treatment suitable to your smoking cessation or nicotine dependency goals. You'll receive guidance on safe, evidence-based alternatives to help support your personal journey.</p>"
           }
@@ -416,6 +422,7 @@
         "faq_item_X8DPNT": {
           "type": "faq_item",
           "settings": {
+            "tab_assignment": "tab_1",
             "question": "What treatments does myduke® offer?",
             "answer": "<p>myduke provides access to a range of registered nicotine therapeutic products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
           }
@@ -423,6 +430,7 @@
         "faq_item_nALzUW": {
           "type": "faq_item",
           "settings": {
+            "tab_assignment": "tab_1",
             "question": "Do I need to visit a doctor in person?",
             "answer": "<p>No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, you can access the pharmacy for replacement therapy medicines and ongoing care are managed through your secure account.</p>"
           }
@@ -441,6 +449,16 @@
       "name": "FAQ (MyDuke)",
       "settings": {
         "color_scheme": "",
+        "tab_1_name": "General",
+        "tab_2_name": "Quit Smoking",
+        "tab_3_name": "Quit Hero",
+        "tab_4_name": "",
+        "tab_5_name": "",
+        "tab_6_name": "",
+        "tab_7_name": "",
+        "tab_8_name": "",
+        "tab_9_name": "",
+        "tab_10_name": "",
         "eyebrow": "FAQs",
         "heading": "Your Questions Answered",
         "heading_tag": "h2",
