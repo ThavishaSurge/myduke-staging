@@ -255,6 +255,10 @@
     font-size: 3.6rem;
   }
 
+  .myduke-faq__left {
+    margin-bottom: 0;
+  }
+
   /* tab responsive */
     .myduke-faq__tabs-wrapper {
     /* Allow the wrapper to stretch edge-to-edge on mobile */
