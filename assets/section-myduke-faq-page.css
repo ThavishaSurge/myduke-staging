@@ -3,7 +3,7 @@
 .myduke-faq-page {
   background: #ffffff;
   padding-top: 8rem!important;
-  padding-bottom: 8rem!important;
+  padding-bottom: 0rem!important;
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
