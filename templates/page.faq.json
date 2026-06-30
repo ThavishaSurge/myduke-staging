@@ -72,44 +72,180 @@
             "answer": "<p>Create a myduke® account and complete the secure online assessment. A registered Australian doctor will review your information and determine the most appropriate pathway.</p>"
           }
         },
+        "faq_item_QnqpxC": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_1",
+            "question": "What does it mean to be nicotine dependent?",
+            "answer": "<p>Nicotine dependence occurs when the body becomes accustomed to regular nicotine exposure, leading to cravings or withdrawal symptoms when use is reduced or stopped. It is a recognised health condition and can affect people differently depending on usage patterns, duration, and individual factors. Clinical assessment can help determine appropriate support options.</p>"
+          }
+        },
+        "faq_item_EgdnhU": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_1",
+            "question": "Why is quitting smoking challenging for many people?",
+            "answer": "<p>Quitting smoking can be difficult due to both physical dependence on nicotine and behavioural habits developed over time. Triggers such as stress, routines, and social environments can also play a role. Many people benefit from structured support, education, and clinically guided approaches to help manage these challenges.</p>"
+          }
+        },
+        "faq_item_QD3rWE": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_1",
+            "question": "What treatment options are available in Australia to help quit smoking?",
+            "answer": "<p>In Australia, smoking cessation support may include behavioural strategies, counselling, and first-line smoking cessation therapies such as nicotine replacement options (including patches, gum, nicotine pouches, and lozenges). In some cases, regulated prescription pathways may be considered following clinical assessment, in line with Australian health regulations.</p>"
+          }
+        },
+        "faq_item_emmcHe": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_1",
+            "question": "Is it ever too late to quit smoking?",
+            "answer": "<p>It is generally recognised that stopping smoking can be beneficial at any stage. Many people choose to seek support later in life, often with guidance from healthcare professionals. The most appropriate approach varies between individuals and should be based on personal health circumstances and clinical advice.</p>"
+          }
+        },
+        "faq_item_99maBE": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_1",
+            "question": "Is it ever too late to quit smoking?",
+            "answer": "<p>Nicotine dependence is assessed through a structured clinical review, which may include questions about smoking history, frequency, previous quit attempts, and other health factors. myduke® uses this information to guide professional advice and develop a safe and personalised smoking cessation treatment plan.</p>"
+          }
+        },
         "faq_item_NM9K74": {
           "type": "faq_item",
           "settings": {
             "tab_assignment": "tab_2",
-            "question": "How do I get a nicotine prescription and how long does it take?",
-            "answer": "<p>After your assessment is reviewed by a registered doctor, most prescriptions are issued within a couple of business days if clinically appropriate. Your prescription is then managed securely through your myduke® account.</p>"
+            "question": "How do I get started with the myduke® assessment process?",
+            "answer": "<p>To begin, adults complete a secure online medical questionnaire. This gathers relevant health and smoking history and forms the basis for a clinical assessment for nicotine dependence. The information is then reviewed by an independent Australian-registered doctor.</p>"
           }
         },
         "faq_item_PL9RAV": {
           "type": "faq_item",
           "settings": {
-            "tab_assignment": "tab_2",
+            "tab_assignment": "tab_3",
             "question": "Can I access myduke® from anywhere in Australia?",
             "answer": "<p>Yes. Our digital platform is designed for adults across Australia, including regional and remote areas. There's no need to visit a clinic or pharmacy in person to get started.</p>"
+          }
+        },
+        "faq_item_HNpE64": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_2",
+            "question": "Can I use a prescription that I already have from another practitioner?",
+            "answer": "<p>No. Only prescriptions issued through myduke’s authorised prescribers can be used. This ensures treatment is managed through a consistent clinical pathway in line with regulatory and professional standards.d.</p>"
+          }
+        },
+        "faq_item_edLhVa": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_2",
+            "question": "What happens when my prescription expires?",
+            "answer": "<p>When your prescription expires, a clinical review is required to ensure continued treatment remains appropriate. You can request a renewal directly through your myduke account, which is then sent to a doctor for re-evaluation.</p>"
+          }
+        },
+        "faq_item_tww3cR": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_2",
+            "question": "Can I change my order after I have placed it and paid for it?",
+            "answer": "<p>Once an order has been processed by the dispensing partner and dispatched via registered express post, changes aren’t possible. This is because prescribed medicines must be managed in accordance with clinical and legal requirements.</p>"
+          }
+        },
+        "faq_item_CRyDxD": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_2",
+            "question": "I bought the wrong product. Can I please get these refunded?",
+            "answer": "<p>Medicines cannot be returned for change of mind once dispensed, due to legal and safety requirements. </p>"
+          }
+        },
+        "faq_item_iQ6YGj": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_2",
+            "question": "Can I pick up my order?",
+            "answer": "<p>Patients located near the dispensing pharmacy in Melbourne may arrange to collect their order directly. All pickups must be coordinated with our patient services team and pharmacy.</p>"
+          }
+        },
+        "faq_item_8kVUEG": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_2",
+            "question": " Can I return my order if I have changed my mind?",
+            "answer": "<p>No. Prescribed medicines cannot be returned or refunded once dispensed, as legislation prohibits it. This is a safety and quality safeguard, not a commercial policy.</p>"
+          }
+        },
+        "faq_item_AFyVBk": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_2",
+            "question": "What if a product arrives damaged, incorrect or is missing?",
+            "answer": "<p>Inspect your order when it arrives. If you receive something that’s incorrect or appears damaged, contact our patient services team promptly.</p>"
+          }
+        },
+        "faq_item_GBB7TG": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_1",
+            "question": "",
+            "answer": ""
           }
         },
         "faq_item_9EN8ja": {
           "type": "faq_item",
           "settings": {
             "tab_assignment": "tab_3",
-            "question": "Can I use an existing prescription from another doctor?",
-            "answer": "<p>No. Only prescriptions issued through myduke®'s authorised pathways can be used with our dispensing partners, ensuring your care remains safe, compliant, and consistently monitored.</p>"
+            "question": "Do I need a referral to access myduke® support?",
+            "answer": "<p>No referral is required. Adults can initiate the process directly by completing the secure online medical questionnaire. This assessment is reviewed by a registered Australian doctor, who determines the most appropriate clinical pathway for smoking cessation support.</p>"
+          }
+        },
+        "faq_item_TCcdaW": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_3",
+            "question": "Can I access myduke® support if I live in a remote area?",
+            "answer": "<p>Yes. The myduke digital platform is designed to provide structured smoking cessation support to adults across Australia. The online assessment and clinical review process enable people in regional or remote locations to receive guidance from registered healthcare professionals.</p>"
+          }
+        },
+        "faq_item_Kxc6UX": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_3",
+            "question": "How does myduke® prioritise patient needs in treatment planning?",
+            "answer": "<p>Each assessment is reviewed individually by an independent Australian-registered doctor. Treatment recommendations are based on clinical factors, nicotine dependence history, and personal circumstances to support safe and evidence-informed decision-making.</p>"
           }
         },
         "faq_item_8Y98XJ": {
           "type": "faq_item",
           "settings": {
             "tab_assignment": "tab_3",
-            "question": "What if a prescription isn't right for me?",
-            "answer": "<p>If a doctor determines a prescription isn't suitable, you'll receive guidance on safe, evidence-based alternatives to help support your quit journey.</p>"
+            "question": "Can treatment costs be claimed through private health insurance?",
+            "answer": "<p>myduke does not manage private health insurance claims. Whether costs can be claimed depends on your individual policy and insurer rules. Contact your insurer directly for clarification.</p>"
+          }
+        },
+        "faq_item_RNYqWA": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_3",
+            "question": "Why can't I see the medication and price before completing the assessment?",
+            "answer": "<p>In Australia, strict regulations govern the advertising of prescription medicines. Pricing and product details cannot be provided until a clinical assessment has been completed and reviewed by a registered doctor..</p>"
+          }
+        },
+        "faq_item_FPU49A": {
+          "type": "faq_item",
+          "settings": {
+            "tab_assignment": "tab_3",
+            "question": "Are there costs associated with treatment?",
+            "answer": "<p>Treatment costs vary depending on clinical requirements and regulatory considerations. Due to Australian advertising restrictions, specific pricing information is only available after a clinical assessment has been reviewed by a registered doctor.</p>"
           }
         },
         "faq_item_AjX66N": {
           "type": "faq_item",
           "settings": {
             "tab_assignment": "tab_4",
-            "question": "What treatments does myduke® offer?",
-            "answer": "<p>myduke® provides access to a range of smoking cessation options, including prescribed therapeutic nicotine products and first-line therapies such as patches, gum, and lozenges — all tailored to your individual needs following clinical assessment.</p>"
+            "question": "I am a tourist in Australia. Am I able to obtain a prescription?",
+            "answer": "<p>Nicotine products are provided within regulated pathways for adults residing in Australia. Prescriptions and supply are subject to Australian health regulations, and eligibility may differ for non-residents.</p>"
           }
         },
         "faq_item_AkRjN8": {
@@ -124,10 +260,27 @@
       "block_order": [
         "faq_item_PW9YtL",
         "faq_item_qfG3Pf",
+        "faq_item_QnqpxC",
+        "faq_item_EgdnhU",
+        "faq_item_QD3rWE",
+        "faq_item_emmcHe",
+        "faq_item_99maBE",
         "faq_item_NM9K74",
         "faq_item_PL9RAV",
+        "faq_item_HNpE64",
+        "faq_item_edLhVa",
+        "faq_item_tww3cR",
+        "faq_item_CRyDxD",
+        "faq_item_iQ6YGj",
+        "faq_item_8kVUEG",
+        "faq_item_AFyVBk",
+        "faq_item_GBB7TG",
         "faq_item_9EN8ja",
+        "faq_item_TCcdaW",
+        "faq_item_Kxc6UX",
         "faq_item_8Y98XJ",
+        "faq_item_RNYqWA",
+        "faq_item_FPU49A",
         "faq_item_AjX66N",
         "faq_item_AkRjN8"
       ],
