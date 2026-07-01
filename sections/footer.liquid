@@ -393,6 +393,11 @@
                       link.type = 'text/css';
                       link.href = {{ 'myduke-hs-form.css' | asset_url | json }};
                       doc.head.appendChild(link);
+                    },
+                    onFormSubmitted: function($form) {
+                      if (typeof window.GTMHelper !== 'undefined') {
+                        window.GTMHelper.pushEvent("newsletter_signup_confirmation");
+                      }
                     }
                   });
                 </script>
