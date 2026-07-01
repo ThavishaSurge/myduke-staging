@@ -31,10 +31,32 @@
     slider.addEventListener('input', calc);
     calc();
 
+    //gtm
+    slider.addEventListener('change', function() {
+      if (typeof window.GTMHelper !== 'undefined') {
+        window.GTMHelper.pushEvent("what_you_can_save_slider", {
+          page_section: "hp_slider"
+        });
+      }
+    });
+
     // Quick Facts collapsible toggle — mobile only
     var factsToggle = sectionEl.querySelector('[aria-controls="myduke-calc-facts-' + sectionId + '"]');
     var factsList = document.getElementById('myduke-calc-facts-' + sectionId);
     var mobileQuery = window.matchMedia('(max-width: 575px)');
+
+
+    //gtm
+    var ctaBtn = sectionEl.querySelector('.myduke-calc__btn');
+    if (ctaBtn) {
+      ctaBtn.addEventListener('click', function() {
+        if (typeof window.GTMHelper !== 'undefined') {
+          window.GTMHelper.pushEvent("start_your_assessment", {
+            page_section: "hp_slider"
+          });
+        }
+      });
+    }
 
     if (factsToggle && factsList) {
       factsToggle.addEventListener('click', function () {
