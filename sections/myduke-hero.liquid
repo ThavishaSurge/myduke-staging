@@ -226,6 +226,25 @@
                 }, 700);
                 return;
               }
+
+              //gtm
+              if (typeof window.GTMHelper !== 'undefined') {
+                if (currentStep === 1) {
+                  window.GTMHelper.pushEvent("age_range", {
+                    selection: answers['step1'],
+                    step: "1",
+                    page_section: "hp_eligibility_widget"
+                  });
+                } else if (currentStep === 2) {
+                  window.GTMHelper.pushEvent("smoking_length", {
+                    selection: answers['step2'],
+                    step: "2",
+                    page_section: "hp_eligibility_widget"
+                  });
+                }
+              }
+
+
               showStep(currentStep + 1);
             });
 
@@ -239,6 +258,16 @@
                 }, 700);
                 return;
               }
+
+              //gtm
+              if (typeof window.GTMHelper !== 'undefined') {
+                window.GTMHelper.pushEvent("primary_goal", {
+                  selection: answers['step3'],
+                  step: "3",
+                  page_section: "hp_eligibility_widget"
+                });
+              }
+
               runProcessing();
             });
 
