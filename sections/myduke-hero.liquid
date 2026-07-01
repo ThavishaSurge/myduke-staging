@@ -155,6 +155,7 @@
                     <a
                       href="{{ section.settings.elig_assessment_link | default: 'https://portal.myduke.com.au/login' }}"
                       class="eligibility-card__btn"
+                      data-elig-start-assessment
                       >Start Full Assessment</a
                     >
                     <button class="eligibility-card__btn eligibility-card__btn--outline" data-elig-retake>
@@ -276,6 +277,17 @@
               resetQuiz();
             });
 
+            //gtm
+            card.addEventListener('click', function (e) {
+              if (!e.target.closest('[data-elig-start-assessment]')) return;
+              
+              if (typeof window.GTMHelper !== 'undefined') {
+                window.GTMHelper.pushEvent("start_full_assessment", {
+                  page_section: "hp_eligibility_widget"
+                });
+              }
+            });
+
             function showStep(n) {
               currentStep = n;
               steps.forEach(function (s) {
@@ -305,7 +317,17 @@
             function showResult() {
               processing.classList.remove('is-active');
               var resultEl = card.querySelector('[data-elig-result="eligible"]');
-              if (resultEl) resultEl.classList.add('is-active');
+              if (resultEl) {
+                resultEl.classList.add('is-active');
+                
+                //gtm
+                if (typeof window.GTMHelper !== 'undefined') {
+                  window.GTMHelper.pushEvent("eligibility_status", {
+                    eligibility_status: "eligible",
+                    page_section: "hp_eligibility_widget"
+                  });
+                }
+              }
             }
 
             function resetQuiz() {
