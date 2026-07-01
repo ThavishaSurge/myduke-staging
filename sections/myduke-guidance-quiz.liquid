@@ -1231,6 +1231,27 @@
         });
       }
     }, 100);
+
+    //gtm
+    const resultsCard = document.getElementById('results-card-{{ section.id }}');
+    if (resultsCard) {
+      resultsCard.addEventListener('click', function(e) {
+        // Listen for clicks on either the main device card or the individual needs links
+        const clickedLink = e.target.closest('.res-device-card, .res-need-row');
+        
+        if (clickedLink) {
+          if (typeof window.GTMHelper !== 'undefined') {
+            const categoryNameEl = document.getElementById('res-category-name-{{ section.id }}');
+            const recommendationType = categoryNameEl ? categoryNameEl.innerText.trim() : 'Unknown';
+            
+            window.GTMHelper.pushEvent("recommendation_click", {
+              recommendation_type: recommendationType,
+              page_section: "shop_quiz_widget"
+            });
+          }
+        }
+      });
+    }
   });
 
   function updateQuizUI(sectionId) {
@@ -1294,6 +1315,29 @@
         if (!selectedOption) {
           alert('Please select an option to continue.');
           return;
+        }
+      }
+
+      //gtm
+      if (typeof window.GTMHelper !== 'undefined') {
+        const currentAnswer = state.answers['q' + state.currentStep];
+        const eventMapping = {
+          1: "how_many_cigarettes",
+          2: "manage_nicotine_preference",
+          3: "what_matters_most",
+          4: "inhale_preference",
+          5: "refill_preference",
+          6: "experience_level",
+          7: "top_priority"
+        };
+        
+        const eventName = eventMapping[state.currentStep];
+        if (eventName) {
+          window.GTMHelper.pushEvent(eventName, {
+            selection: currentAnswer,
+            step: String(state.currentStep),
+            page_section: "shop_quiz_widget"
+          });
         }
       }
 
@@ -1565,6 +1609,13 @@
       } else {
         nicSectionEl.style.display = 'flex';
       }
+    }
+
+    //gtm
+    if (typeof window.GTMHelper !== 'undefined') {
+      window.GTMHelper.pushEvent("show_results", {
+        page_section: "shop_quiz_widget"
+      });
     }
   }
 
