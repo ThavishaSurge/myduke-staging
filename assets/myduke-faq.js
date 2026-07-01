@@ -18,14 +18,27 @@
       if (panel)   panel.classList.remove('is-open');
     }
 
-    items.forEach(function (item) {
+   items.forEach(function (item) {
       var trigger = item.querySelector('.myduke-faq__trigger');
       if (!trigger) return;
 
       trigger.addEventListener('click', function () {
         var isOpen = trigger.getAttribute('aria-expanded') === 'true';
         items.forEach(closeItem);
-        if (!isOpen) openItem(item);
+        
+        if (!isOpen) {
+          openItem(item);
+
+          //gtm
+          if (typeof window.GTMHelper !== 'undefined') {
+            var questionEl = item.querySelector('.myduke-faq__question');
+            var faqName = questionEl ? questionEl.textContent.trim() : '';
+
+            window.GTMHelper.pushEvent("faq_click", {
+              faq_name: faqName
+            });
+          }
+        }
       });
     });
 
