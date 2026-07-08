@@ -92,11 +92,11 @@
             {%- else -%}
               <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between">
                 <p>Express Shipping Cost</p>
-                <p class="expressshippingamount">{%- if cart.total_price >= 15000 -%}Free{% else %}$15.00{%- endif -%}</p>
+                <p class="expressshippingamount">{%- if cart.total_price >= 14800 -%}Free{% else %}$15.00{%- endif -%}</p>
               </div>
               <div class="carttotal border-grey-300 border-b-2 text-sm text-black mb-8 pb-2 flex items-center justify-between font-bold">
                 <p>Total</p>
-                {%- if cart.total_price >= 15000 -%}
+                {%- if cart.total_price >= 14800 -%}
                   <p class="todaystotal" data-total="{{cart.total_price | money_without_currency }}">{{cart.total_price | money_with_currency }}</p>
                 {% else %}
                   <p class="todaystotal" data-total="{{cart.total_price | plus: 1500 | money_without_currency }}">{{cart.total_price | plus: 1500 | money_with_currency }}</p>
