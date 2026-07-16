@@ -1,12 +1,46 @@
 {{ 'section-myduke-hero.css' | asset_url | stylesheet_tag }}
 
-<div
-  class="myduke-hero"
-  style="
-    --bg-desktop: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 2000 }}'){% else %}none{% endif %};
-    --bg-mobile: {% if section.settings.background_image_mobile != blank %}url('{{ section.settings.background_image_mobile | image_url: width: 1000 }}'){% elsif section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1000 }}'){% else %}none{% endif %};
-  "
->
+<div class="myduke-hero">
+  {%- if section.settings.background_image != blank -%}
+    <img
+      src="{{ section.settings.background_image | image_url: width: 2000 }}"
+      srcset="{{ section.settings.background_image | image_url: width: 1000 }} 1000w,
+              {{ section.settings.background_image | image_url: width: 1500 }} 1500w,
+              {{ section.settings.background_image | image_url: width: 2000 }} 2000w"
+      sizes="100vw"
+      alt="{{ section.settings.background_image.alt | escape }}"
+      class="myduke-hero__bg myduke-hero__bg--desktop"
+      loading="eager"
+      fetchpriority="high"
+      width="{{ section.settings.background_image.width }}"
+      height="{{ section.settings.background_image.height }}"
+    >
+  {%- endif -%}
+  {%- if section.settings.background_image_mobile != blank -%}
+    <img
+      src="{{ section.settings.background_image_mobile | image_url: width: 1000 }}"
+      srcset="{{ section.settings.background_image_mobile | image_url: width: 500 }} 500w,
+              {{ section.settings.background_image_mobile | image_url: width: 750 }} 750w,
+              {{ section.settings.background_image_mobile | image_url: width: 1000 }} 1000w"
+      sizes="100vw"
+      alt="{{ section.settings.background_image_mobile.alt | escape }}"
+      class="myduke-hero__bg myduke-hero__bg--mobile"
+      width="{{ section.settings.background_image_mobile.width }}"
+      height="{{ section.settings.background_image_mobile.height }}"
+    >
+  {%- elsif section.settings.background_image != blank -%}
+    <img
+      src="{{ section.settings.background_image | image_url: width: 1000 }}"
+      srcset="{{ section.settings.background_image | image_url: width: 500 }} 500w,
+              {{ section.settings.background_image | image_url: width: 750 }} 750w,
+              {{ section.settings.background_image | image_url: width: 1000 }} 1000w"
+      sizes="100vw"
+      alt="{{ section.settings.background_image.alt | escape }}"
+      class="myduke-hero__bg myduke-hero__bg--mobile"
+      width="{{ section.settings.background_image.width }}"
+      height="{{ section.settings.background_image.height }}"
+    >
+  {%- endif -%}
   <div class="page-width container">
     <div class="myduke-hero__inner{% if section.settings.enable_eligibility_form %} myduke-hero__inner--with-form{% endif %}">
       <div class="myduke-hero__content">
