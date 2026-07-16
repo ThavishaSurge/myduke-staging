@@ -529,7 +529,7 @@
 
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
     <!-- Start of HubSpot Embed Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-ap1.hs-scripts.com/442968870.js"></script>
+    {% comment %} <script type="text/javascript" id="hs-script-loader" async defer src="//js-ap1.hs-scripts.com/442968870.js"></script> {% endcomment %}
     <!-- End of HubSpot Embed Code -->
 
     <!-- Delayed Tracking Scripts -->
@@ -548,10 +548,10 @@
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-WNBJGH9'); 
 
-      // 2. FigPii Asynchronous Tracking Code
+      // 2. FigPii Asynchronous Tracking Code (Only if you disable the App version)
       !function(){var n=document.createElement('script');n.crossOrigin='anonymous',n.async='async',n.src='https://tracking-cdn.figpii.com/27c51843241b0e16300151e2f41f364e.js',document.head.append(n),window._fpEvent=window._fpEvent||[]}();
 
-      // 3. Facebook Pixel Code
+      // 3. Facebook Pixel Code (Only if you disable the App version)
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -562,6 +562,15 @@
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '396888391838586');
       fbq('track', 'PageView');
+
+      // 4. HubSpot Embed Code (Properly injected)
+      var hsScript = document.createElement('script');
+      hsScript.type = 'text/javascript';
+      hsScript.id = 'hs-script-loader';
+      hsScript.async = true;
+      hsScript.defer = true;
+      hsScript.src = '//js-ap1.hs-scripts.com/442968870.js';
+      document.body.appendChild(hsScript);
 
       // Clean up event listeners after execution
       userInteractionEvents.forEach(function(event) {
@@ -577,11 +586,10 @@
       window.addEventListener(event, loadTrackingScripts, { passive: true, once: true });
     });
 
-    // Fallback timer: Load scripts after 3.5 seconds even if the user does nothing
+    // Fallback timer: Load scripts after 3.5 seconds
     setTimeout(loadTrackingScripts, 3500);
   })();
 </script>
-
 
   </body>
 </html>
