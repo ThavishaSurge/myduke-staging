@@ -19,6 +19,18 @@
   padding-bottom: 4rem!important;
 }
 
+/* Background image */
+.myduke-calc__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
 /* ── Card ── */
 .myduke-calc__card {
   position: relative;

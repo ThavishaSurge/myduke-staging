@@ -5,23 +5,9 @@
   {% render 'section-margin' %} */
 
   .myduke-cta[data-section-id="{{ section.id }}"] {
-    {%- if section.settings.bg_image != blank -%}
-    background-image: url('{{ section.settings.bg_image | image_url: width: 1920 }}');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
-    {%- else -%}
+    {%- unless section.settings.bg_image != blank or section.settings.bg_image_mobile != blank -%}
     background: {{ section.settings.fallback_color }};
-    {%- endif -%}
-  }
-
-  @media screen and (max-width: 575px) {
-    .myduke-cta[data-section-id="{{ section.id }}"] {
-      {%- if section.settings.bg_image_mobile != blank -%}
-      background-image: url('{{ section.settings.bg_image_mobile | image_url: width: 768 }}');
-      {%- endif -%}
-      background-position: top center;
-    }
+    {%- endunless -%}
   }
 
   /* Visibility controls */
@@ -44,6 +30,47 @@
   class="myduke-cta color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding section-{{ section.id }}-margin"
   data-section-id="{{ section.id }}"
 >
+  {%- if section.settings.bg_image != blank -%}
+    <img
+      src="{{ section.settings.bg_image | image_url: width: 1920 }}"
+      srcset="{{ section.settings.bg_image | image_url: width: 960 }} 960w,
+              {{ section.settings.bg_image | image_url: width: 1440 }} 1440w,
+              {{ section.settings.bg_image | image_url: width: 1920 }} 1920w"
+      sizes="100vw"
+      alt="{{ section.settings.bg_image.alt | escape }}"
+      class="myduke-cta__bg myduke-cta__bg--desktop"
+      loading="lazy"
+      width="{{ section.settings.bg_image.width }}"
+      height="{{ section.settings.bg_image.height }}"
+    >
+  {%- endif -%}
+  {%- if section.settings.bg_image_mobile != blank -%}
+    <img
+      src="{{ section.settings.bg_image_mobile | image_url: width: 768 }}"
+      srcset="{{ section.settings.bg_image_mobile | image_url: width: 400 }} 400w,
+              {{ section.settings.bg_image_mobile | image_url: width: 575 }} 575w,
+              {{ section.settings.bg_image_mobile | image_url: width: 768 }} 768w"
+      sizes="100vw"
+      alt="{{ section.settings.bg_image_mobile.alt | escape }}"
+      class="myduke-cta__bg myduke-cta__bg--mobile"
+      loading="lazy"
+      width="{{ section.settings.bg_image_mobile.width }}"
+      height="{{ section.settings.bg_image_mobile.height }}"
+    >
+  {%- elsif section.settings.bg_image != blank -%}
+    <img
+      src="{{ section.settings.bg_image | image_url: width: 768 }}"
+      srcset="{{ section.settings.bg_image | image_url: width: 400 }} 400w,
+              {{ section.settings.bg_image | image_url: width: 575 }} 575w,
+              {{ section.settings.bg_image | image_url: width: 768 }} 768w"
+      sizes="100vw"
+      alt="{{ section.settings.bg_image.alt | escape }}"
+      class="myduke-cta__bg myduke-cta__bg--mobile"
+      loading="lazy"
+      width="{{ section.settings.bg_image.width }}"
+      height="{{ section.settings.bg_image.height }}"
+    >
+  {%- endif -%}
   <div class="myduke-cta__inner">
 
     <div class="myduke-cta__left">

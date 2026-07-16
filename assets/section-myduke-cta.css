@@ -5,8 +5,34 @@
 }
 
 .myduke-cta {
+  position: relative;
   padding-top: 7rem!important;
   padding-bottom: 7rem!important;
+}
+
+/* Background images */
+.myduke-cta__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.myduke-cta__bg--mobile {
+  display: none;
+}
+
+.myduke-cta__bg--desktop {
+  display: block;
+}
+
+.myduke-cta__inner {
+  position: relative;
+  z-index: 1;
 }
 
 @media screen and (min-width: 1920px) {
@@ -157,5 +183,12 @@
   }
   .myduke-cta__btn {
     justify-content: center;
+  }
+  .myduke-cta__bg--desktop {
+    display: none;
+  }
+  .myduke-cta__bg--mobile {
+    display: block;
+    object-position: top center;
   }
 }
