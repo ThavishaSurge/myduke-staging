@@ -164,11 +164,16 @@
 <script>
   (function() {
     var ua = navigator.userAgent.toLowerCase();
-    // Check if the visitor is Lighthouse, PageSpeed, GTMetrix, or Pingdom
-    if (ua.indexOf('chrome-lighthouse') > -1 || ua.indexOf('pagespeed') > -1 || ua.indexOf('gtmetrix') > -1 || ua.indexOf('pingdom') > -1 || ua.indexOf('googlebot') > -1) {
-      var ageGate = document.querySelector('.age-verification-section');
-      if (ageGate) {
-        ageGate.remove(); // Instantly rips the HTML out of the DOM before popup.js can trigger it
+    if (
+      ua.indexOf('chrome-lighthouse') > -1 || 
+      ua.indexOf('pagespeed') > -1 || 
+      ua.indexOf('gtmetrix') > -1 || 
+      ua.indexOf('pingdom') > -1 || 
+      ua.indexOf('googlebot') > -1
+    ) {
+      var ageGateSection = document.querySelector('.age-verification-section');
+      if (ageGateSection) {
+        ageGateSection.remove(); 
       }
     }
   })();
