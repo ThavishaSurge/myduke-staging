@@ -161,24 +161,6 @@
   </div>
 </div>
 
-<script>
-  (function() {
-    var ua = navigator.userAgent.toLowerCase();
-    if (
-      ua.indexOf('chrome-lighthouse') > -1 || 
-      ua.indexOf('pagespeed') > -1 || 
-      ua.indexOf('gtmetrix') > -1 || 
-      ua.indexOf('pingdom') > -1 || 
-      ua.indexOf('googlebot') > -1
-    ) {
-      var ageGateSection = document.querySelector('.age-verification-section');
-      if (ageGateSection) {
-        ageGateSection.remove(); 
-      }
-    }
-  })();
-</script>
-
 {% schema %}
 {
   "name": "t:sections.overlay-group.age-verification.name",

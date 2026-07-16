@@ -464,10 +464,10 @@
       };
     </script>
 
-    <script src="{{ 'user.js' | asset_url }}"></script>
-    <script src="{{ 'grpc-bundled.js' | asset_url }}"></script>
-    <script src="{{ 'nicotine.js' | asset_url }}"></script>
-    <script src="{{ 'loadSubscription.js' | asset_url }}"></script>
+<script src="{{ 'user.js' | asset_url }}" defer></script>
+<script src="{{ 'grpc-bundled.js' | asset_url }}" defer></script>
+<script src="{{ 'nicotine.js' | asset_url }}" defer></script>
+<script src="{{ 'loadSubscription.js' | asset_url }}" defer></script>
     <script>
     var cartId = document.cookie.split('; ').find(row => row.startsWith('cart=')).split('=')[1];
     if (cartId) {
