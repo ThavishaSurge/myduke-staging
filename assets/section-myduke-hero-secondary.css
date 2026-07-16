@@ -2,14 +2,30 @@
   position: relative;
   width: 100%;
   min-height: var(--height-desktop, 60vh);
-  background-image: var(--bg-desktop);
-  background-size: cover;
-  background-position: var(--bg-position-desktop, center);
-  background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
   padding: 80px 25px !important;
   margin-top: -140px;
+}
+
+/* Background images */
+.myduke-hero-secondary__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--bg-position-desktop, center);
+  z-index: 0;
+}
+
+.myduke-hero-secondary__bg--mobile {
+  display: none;
+}
+
+.myduke-hero-secondary__bg--desktop {
+  display: block;
 }
 
 /* Custom overlay based on theme settings */
@@ -136,9 +152,16 @@
   .myduke-hero-secondary {
     min-height: var(--height-mobile, 60vh);
     padding: 180px 0px 0px 0px !important;
-    background-image: var(--bg-mobile);
-    background-position: var(--bg-position-mobile, center);
     justify-content: flex-end;
+  }
+
+  .myduke-hero-secondary__bg--desktop {
+    display: none;
+  }
+
+  .myduke-hero-secondary__bg--mobile {
+    display: block;
+    object-position: var(--bg-position-mobile, center);
   }
 
   .myduke-hero-secondary__heading {

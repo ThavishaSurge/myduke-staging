@@ -3,8 +3,6 @@
 <div
   class="myduke-hero-secondary"
   style="
-    --bg-desktop: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 2000 }}'){% else %}none{% endif %};
-    --bg-mobile: {% if section.settings.background_image_mobile != blank %}url('{{ section.settings.background_image_mobile | image_url: width: 1000 }}'){% elsif section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1000 }}'){% else %}none{% endif %};
     --bg-position-desktop: {{ section.settings.bg_position_desktop | default: 'center' }};
     --bg-position-mobile: {{ section.settings.bg_position_mobile | default: 'center' }};
     --overlay-color-desktop: {{ section.settings.overlay_color }};
@@ -17,6 +15,46 @@
     --mobile-text-color: {% if section.settings.enable_mobile_colors %}{{ section.settings.mobile_text_color }}{% else %}#ffffff{% endif %};
   "
 >
+  {%- if section.settings.background_image != blank -%}
+    <img
+      src="{{ section.settings.background_image | image_url: width: 2000 }}"
+      srcset="{{ section.settings.background_image | image_url: width: 1000 }} 1000w,
+              {{ section.settings.background_image | image_url: width: 1500 }} 1500w,
+              {{ section.settings.background_image | image_url: width: 2000 }} 2000w"
+      sizes="100vw"
+      alt="{{ section.settings.background_image.alt | escape }}"
+      class="myduke-hero-secondary__bg myduke-hero-secondary__bg--desktop"
+      loading="eager"
+      fetchpriority="high"
+      width="{{ section.settings.background_image.width }}"
+      height="{{ section.settings.background_image.height }}"
+    >
+  {%- endif -%}
+  {%- if section.settings.background_image_mobile != blank -%}
+    <img
+      src="{{ section.settings.background_image_mobile | image_url: width: 1000 }}"
+      srcset="{{ section.settings.background_image_mobile | image_url: width: 500 }} 500w,
+              {{ section.settings.background_image_mobile | image_url: width: 750 }} 750w,
+              {{ section.settings.background_image_mobile | image_url: width: 1000 }} 1000w"
+      sizes="100vw"
+      alt="{{ section.settings.background_image_mobile.alt | escape }}"
+      class="myduke-hero-secondary__bg myduke-hero-secondary__bg--mobile"
+      width="{{ section.settings.background_image_mobile.width }}"
+      height="{{ section.settings.background_image_mobile.height }}"
+    >
+  {%- elsif section.settings.background_image != blank -%}
+    <img
+      src="{{ section.settings.background_image | image_url: width: 1000 }}"
+      srcset="{{ section.settings.background_image | image_url: width: 500 }} 500w,
+              {{ section.settings.background_image | image_url: width: 750 }} 750w,
+              {{ section.settings.background_image | image_url: width: 1000 }} 1000w"
+      sizes="100vw"
+      alt="{{ section.settings.background_image.alt | escape }}"
+      class="myduke-hero-secondary__bg myduke-hero-secondary__bg--mobile"
+      width="{{ section.settings.background_image.width }}"
+      height="{{ section.settings.background_image.height }}"
+    >
+  {%- endif -%}
   <div class="page-width container">
     <div class="myduke-hero-secondary__inner{% if section.settings.enable_eligibility_form %} myduke-hero-secondary__inner--with-form{% endif %}">
       <div class="myduke-hero-secondary__content">
