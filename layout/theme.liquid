@@ -11,11 +11,11 @@
     {% endif %}
 
     <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        {% comment %} <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-WNBJGH9');</script>
+        })(window,document,'script','dataLayer','GTM-WNBJGH9');</script> {% endcomment %}
         <!-- End Google Tag Manager -->
         <!-- FigPii Asynchronous Tracking Code -->
         {% comment %} <script>!function(){var n=document.createElement('script');n.crossOrigin='anonymous',n.async='async',n.src='https://tracking-cdn.figpii.com/27c51843241b0e16300151e2f41f364e.js',document.head.append(n),window._fpEvent=window._fpEvent||[]}();</script> {% endcomment %}
@@ -542,11 +542,11 @@
       trackingScriptsLoaded = true;
 
       // 1. Google Tag Manager
-      {% comment %} (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-WNBJGH9'); {% endcomment %}
+      })(window,document,'script','dataLayer','GTM-WNBJGH9'); 
 
       // 2. FigPii Asynchronous Tracking Code
       !function(){var n=document.createElement('script');n.crossOrigin='anonymous',n.async='async',n.src='https://tracking-cdn.figpii.com/27c51843241b0e16300151e2f41f364e.js',document.head.append(n),window._fpEvent=window._fpEvent||[]}();
