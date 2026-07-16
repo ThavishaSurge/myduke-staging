@@ -1,4 +1,7 @@
-{{ 'section-myduke-guided-support.css' | asset_url | stylesheet_tag }}
+<link rel="preload" as="style" href="{{ 'section-myduke-guided-support.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="{{ 'section-myduke-guided-support.css' | asset_url }}">
+</noscript>
 
 <section class="myduke-guided-support">
   <div class="myduke-guided-support__inner {% if section.settings.flex_reverse %}reverse{% endif %}">

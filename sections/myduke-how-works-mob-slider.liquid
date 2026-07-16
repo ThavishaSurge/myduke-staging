@@ -1,5 +1,11 @@
-{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-{{ 'myduke-how-works-mob-slider.css' | asset_url | stylesheet_tag }}
+<link rel="preload" as="style" href="{{ 'swiper-bundle.min.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}">
+</noscript>
+<link rel="preload" as="style" href="{{ 'myduke-how-works-mob-slider.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="{{ 'myduke-how-works-mob-slider.css' | asset_url }}">
+</noscript>
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'myduke-how-works-mob-slider.js' | asset_url }}" defer="defer"></script>
 

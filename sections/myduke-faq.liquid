@@ -1,4 +1,7 @@
-{{ 'section-myduke-faq.css' | asset_url | stylesheet_tag }}
+<link rel="preload" as="style" href="{{ 'section-myduke-faq.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="{{ 'section-myduke-faq.css' | asset_url }}">
+</noscript>
 
 {%- comment -%} Check if any tab names are populated {%- endcomment -%}
 {%- assign has_tabs = false -%}
