@@ -24,12 +24,7 @@
       <span>{{ page_title }}</span>
     {% elsif template contains 'product' %}
       <div class="breadcrumb__delimiter">{% render 'icon-breadcrumbs' %}</div>
-      {% assign first_collection = product.collections | first %}
-      {% if first_collection != blank %}
-        <a href="{{ first_collection.url }}" class="focus-inset">{{- first_collection.title -}}</a>
-      {%- else -%}
-        <a href="{{ routes.all_products_collection_url }}">{{- 'general.breadcrumbs.shop' | t -}}</a>
-      {% endif %}
+      <a href="/pages/shop-all" class="focus-inset">{{- 'general.breadcrumbs.shop' | t -}}</a>
       <div class="breadcrumb__delimiter">{% render 'icon-breadcrumbs' %}</div>
       <span>{{ product.title }} </span>
     {% elsif template == 'blog' %}
