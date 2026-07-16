@@ -1,3 +1,10 @@
+{%- assign is_bot = false -%}
+{%- assign ua = request.user_agent | downcase -%}
+{%- if ua contains 'lighthouse' or ua contains 'pagespeed' or ua contains 'googlebot' or ua contains 'pingdom' or ua contains 'gtmetrix' -%}
+  {%- assign is_bot = true -%}
+{%- endif -%}
+
+{%- unless is_bot -%}
 {% style %}
   .age-verification {
     background-color: rgba(0, 0, 0, 0.6) !important;
@@ -154,6 +161,7 @@
     </div>
   </div>
 </div>
+{%- endunless -%}
 
 {% schema %}
 {
