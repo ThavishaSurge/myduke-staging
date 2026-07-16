@@ -24,7 +24,7 @@
       <span>{{ page_title }}</span>
     {% elsif template contains 'product' %}
       <div class="breadcrumb__delimiter">{% render 'icon-breadcrumbs' %}</div>
-      <a href="/pages/shop-all" class="focus-inset">{{- 'general.breadcrumbs.shop' | t -}}</a>
+      <a href="/pages/shop-all" class="focus-inset">All products</a>
       <div class="breadcrumb__delimiter">{% render 'icon-breadcrumbs' %}</div>
       <span>{{ product.title }} </span>
     {% elsif template == 'blog' %}
