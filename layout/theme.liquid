@@ -92,7 +92,7 @@
     {% render '_shopify-account-vars' %}
 
     {% comment %} SWIPER MIN CSS {% endcomment %}
-    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag: preload: true }}
 
     {% comment %} BASIC STYLES {% endcomment %}
     {{ 'base.css' | asset_url | stylesheet_tag }}
