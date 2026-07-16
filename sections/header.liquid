@@ -4,7 +4,10 @@
   {{ 'component-search.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
-{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- for block in section.blocks -%}
   {%- if block.type == 'desktop_burger' -%}

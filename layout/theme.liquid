@@ -99,7 +99,9 @@
     {{ 'base-2.css' | asset_url | stylesheet_tag }}
 
     {% comment %} RICH TEXT (RTE) STYLES {% endcomment %}
-    {{ 'component-rte.css' | asset_url | stylesheet_tag }}
+    {% comment %} {{ 'component-rte.css' | asset_url | stylesheet_tag }} {% endcomment %}
+     <link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
     {% comment %} CART DRAWER & CART NOTIFICATION {% endcomment %}
     {%- if request.page_type != 'cart' -%}
@@ -120,9 +122,16 @@
     {% endif %}
 
     {% comment %} PRODUCTS STYLES {% endcomment %}
-    {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+    {% comment %} {{ 'section-main-product.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+    {% comment %} PRODUCTS STYLES {% endcomment %}
+    {%- if template contains 'product' or settings.quickview_show or settings.featured_quickadd_show -%}
+      {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+
     {%- if settings.quickview_show or settings.featured_quickadd_show -%}
-      {{- 'quick-view.css' | asset_url | stylesheet_tag -}}
+      <link rel="stylesheet" href="{{ 'quick-view.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript>{{ 'quick-view.css' | asset_url | stylesheet_tag }}</noscript>
       <script src="{{ 'quick-view.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
