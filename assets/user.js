@@ -157,7 +157,7 @@ function hideProducts() {
     authContainers.forEach(el => el.style.display = 'none');
     // Redirect only if not already on the homepage
     if (window.location.pathname !== '/') {
-      //window.location.replace('/');
+      window.location.replace('/');
     }
   }
 }
