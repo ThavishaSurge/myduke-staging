@@ -525,7 +525,8 @@
          //$('.mydk-header-shop-btn').hide();
          document.querySelectorAll('.mydk-header-shop-btn').forEach(el => el.style.display = 'none');
          //$('.mydk-header-getstarted-btn').show();
-         AccountIcon.attr('href', 'https://staging.myduke.com.au/login?redirect_url=https://www.myduke.com.au/');
+         //AccountIcon.attr('href', 'https://staging.myduke.com.au/login?redirect_url=https://www.myduke.com.au/');
+         AccountIcon.forEach(el => el.setAttribute('href', 'https://staging.myduke.com.au/login?redirect_url=https://www.myduke.com.au/'));
     }
     </script>
 
