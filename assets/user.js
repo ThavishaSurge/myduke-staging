@@ -146,21 +146,19 @@ function valid() {
   return payload.exp > Date.now() / 1000;
 }
 
-function hideProducts(){
+function hideProducts() {
+  const authContainers = document.querySelectorAll('.mydk-product-container-auth');
 
-  const $authContainer = $('.mydk-product-container-auth');
+  if (window.Shopify && window.Shopify.designMode) {
+    return;
+  }
 
-
-      if (window.Shopify && window.Shopify.designMode) {
-        return;
-      }
-
-      if ($authContainer.length) {
-          $authContainer.hide();
-          // Redirect only if not already on the homepage
-          if (window.location.pathname !== '/') {
-              window.location.replace('/');
-          }
-      }
+  if (authContainers.length) {
+    authContainers.forEach(el => el.style.display = 'none');
+    // Redirect only if not already on the homepage
+    if (window.location.pathname !== '/') {
+      window.location.replace('/');
+    }
+  }
 }
 
