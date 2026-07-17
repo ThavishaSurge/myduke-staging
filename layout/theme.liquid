@@ -503,6 +503,20 @@
         //$('.menu-drawer__utility-links .login-mobile').hide();
 
         {% comment %} NEW CODE {% endcomment %}
+          document.querySelectorAll('.mydk-header-shop-btn').forEach(el => el.style.display = '');
+          document.querySelectorAll('.mydk-header-getstarted-btn').forEach(el => el.style.display = 'none');
+
+          if (payload) {
+            document.querySelectorAll('.mydk-header-shop-btn').forEach(el => {
+              el.insertAdjacentHTML('afterend', `<a href="javascript:void(0)" onclick="logout()" aria-label="Logout" class="button button--secondary header__additional-btn header-overlay-transition mydk-header-logout-btn focus-inset">
+                <span class="button__content">
+                  <span class="button__label">Logout(${payload.email})</span>
+                </span>
+              </a>`);
+            });
+          }
+
+AccountIcon.forEach(el => el.setAttribute('href', 'https://staging.myduke.com.au/customer'));
 
       } else {
         console.log('NOT - Authenticated');
