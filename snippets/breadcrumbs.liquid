@@ -24,7 +24,7 @@
       <span>{{ page_title }}</span>
     {% elsif template contains 'product' %}
       <div class="breadcrumb__delimiter">{% render 'icon-breadcrumbs' %}</div>
-      <a href="/pages/shop-all" class="focus-inset">All products</a>
+      <a href="/pages/shop-all" class="focus-inset js-breadcrumb-all-products">All products</a>
       <div class="breadcrumb__delimiter">{% render 'icon-breadcrumbs' %}</div>
       <span>{{ product.title }} </span>
     {% elsif template == 'blog' %}
@@ -80,5 +80,17 @@
     document.addEventListener('shopify:section:load', function () {
       calcBreadcrumbs();
     });
+
+    (function () {
+      var allProductsLink = document.querySelector('.js-breadcrumb-all-products');
+      if (!allProductsLink) return;
+      try {
+        var referrer = document.referrer;
+        var referrerUrl = referrer ? new URL(referrer) : null;
+        if (referrerUrl && referrerUrl.pathname === '/pages/shop-all') {
+          allProductsLink.href = referrerUrl.pathname + referrerUrl.search;
+        }
+      } catch (e) {}
+    })();
   </script>
 </div>
