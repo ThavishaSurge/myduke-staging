@@ -85,6 +85,23 @@
     (function () {
       var allProductsLink = document.querySelector('.js-breadcrumb-all-products');
       if (!allProductsLink) return;
+
+      var filterTitleMap = {};
+      {%- if product -%}
+        {%- for collection in product.collections -%}
+          filterTitleMap[{{ collection.handle | json }}] = {{ collection.title | json }};
+        {%- endfor -%}
+        {%- if product.type != blank -%}
+          filterTitleMap[{{ product.type | handleize | json }}] = {{ product.type | json }};
+        {%- endif -%}
+        {%- if product.vendor != blank -%}
+          filterTitleMap[{{ product.vendor | handleize | json }}] = {{ product.vendor | json }};
+        {%- endif -%}
+        {%- for tag in product.tags -%}
+          filterTitleMap[{{ tag | handleize | json }}] = {{ tag | json }};
+        {%- endfor -%}
+      {%- endif -%}
+
       try {
         var referrer = document.referrer;
         var referrerUrl = referrer ? new URL(referrer) : null;
@@ -109,8 +126,11 @@
             var existingDelimiter = allProductsLink.nextElementSibling;
             
             activeFilters.forEach(function(filterValue) {
-              var formattedTitle = filterValue.replace(/-/g, ' ');
-              formattedTitle = formattedTitle.charAt(0).toUpperCase() + formattedTitle.slice(1);
+              var formattedTitle = filterTitleMap[filterValue];
+              if (!formattedTitle) {
+                formattedTitle = filterValue.replace(/-/g, ' ');
+                formattedTitle = formattedTitle.charAt(0).toUpperCase() + formattedTitle.slice(1);
+              }
               
               var newDelimiter = existingDelimiter.cloneNode(true);
               
