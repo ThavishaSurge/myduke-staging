@@ -51,7 +51,7 @@
         "mobile_text_color": "#264653",
         "enable_breadcrumbs": true,
         "breadcrumb_parent_text": "MY ACCOUNT",
-        "breadcrumb_parent_link": "/customer",
+        "breadcrumb_parent_link": "https://staging.myduke.com.au/customer/order-history",
         "breadcrumb_current_text": "Shop",
         "breadcrumb_middle_text": "",
         "breadcrumb_middle_link": "",
