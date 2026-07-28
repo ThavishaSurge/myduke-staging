@@ -355,7 +355,7 @@
         "description": "<p>Already own a device? </p><p>Select it to see only the pods, coils, and accessories that work with your hardware.</p>",
         "show_divider": true,
         "shop_all_label": "Shop All Devices",
-        "shop_all_url": "shopify://pages/by-compatibility",
+        "shop_all_url": "https://myduke-staging.myshopify.com/pages/shop-all?type=pods-copy",
         "dynamic_filter_urls": true,
         "show_product_count": false,
         "product_count_label": "compatible products",
