@@ -530,6 +530,11 @@
                       <li>
                         <a class="mdcp__card" href="{{ item.url }}">
                           <div class="mdcp__card-image-wrap">
+                            <div class="card__tags">
+                              {% for tag in item.tags %}
+                                <span class="product-tag-capsule">{{ tag }}</span>
+                              {% endfor %}
+                            </div>
                             {%- if item.featured_image -%}
                               <img
                                 src="{{ item.featured_image | image_url: width: 600 }}"
