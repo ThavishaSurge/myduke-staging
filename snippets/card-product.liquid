@@ -59,6 +59,11 @@
   {% endif %}
 
 <div class="card__media">
+   <div class="card__tags">
+    {% for tag in card_product.tags %}
+      <span class="product-tag-capsule">{{ tag }}</span>
+    {% endfor %}
+  </div>
   {% assign product_tags_string = card_product.tags | join: ' ' | downcase %}
 
   <!-- Existing badges -->
@@ -439,3 +444,26 @@
     </div>
   </div>
 {%- endif -%}
+<style>
+.product-tag-capsule {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #EDF3F0;
+  border-radius: 37px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2b2e;
+  line-height: 1.4;
+  white-space: nowrap;
+  margin-bottom: 8px;
+}
+.card__tags {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+</style>
