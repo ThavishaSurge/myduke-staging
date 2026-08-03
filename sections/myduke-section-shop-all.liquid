@@ -511,6 +511,11 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
             data-price="{{ product.price | divided_by: 100.0 }}"
             >
               <div class="msa__card-image-wrap">
+                <div class="card__tags">
+                  {% for tag in product.tags %}
+                    <span class="product-tag-capsule">{{ tag }}</span>
+                  {% endfor %}
+                </div>
                 {%- if product.featured_image != blank -%}
                   {{
                     product.featured_image
