@@ -74,6 +74,11 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
               data-price="{{ product.price | divided_by: 100.0 }}"
               >
                 <div class="mdcp__card-image-wrap">
+                  <div class="card__tags">
+                    {% for tag in product.tags %}
+                      <span class="product-tag-capsule">{{ tag }}</span>
+                    {% endfor %}
+                  </div>
                   {%- if product.featured_image != blank -%}
                     {%- assign img_src = product.featured_image | image_url: width: 800 -%}
                     {%- assign img_alt = product.featured_image.alt | escape -%}
