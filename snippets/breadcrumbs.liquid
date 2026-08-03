@@ -9,9 +9,15 @@
     {%- endif %}
   >
     {% unless template contains 'product' %}
+      {% if template == 'search' or template == 'cart' %}
+        <a href="/pages/shop" title="Pharmacy" class="focus-inset">
+          Pharmacy
+        </a>
+      {% else %}
       <a href="{{ routes.root_url }}" title="{{ 'general.breadcrumbs.home' | t }}" class="focus-inset">
         {{- 'general.breadcrumbs.home' | t -}}
       </a>
+      {% endif %}
     {% endunless %}
     {% if template contains 'page' %}
       <div class="breadcrumb__delimiter ">{% render 'icon-breadcrumbs' %}</div>
