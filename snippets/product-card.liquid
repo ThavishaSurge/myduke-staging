@@ -142,6 +142,11 @@
 >
   <div class="product-card__inner">
     <div class="product-card__media{% if settings.product_card_slider == false %} product-card__media--hover-effect-{{ settings.card_hover_effect }}{% endif %}{% if product_card_product.featured_media == blank %} product-card__media--placeholder{% endif %}">
+      <div class="card__tags">
+        {% for tag in product_card_product.tags %}
+          <span class="product-tag-capsule">{{ tag }}</span>
+        {% endfor %}
+      </div>
       {%- if product_card_product.featured_media != blank -%}
         {% liquid
           if media_ratio == 'landscape'
