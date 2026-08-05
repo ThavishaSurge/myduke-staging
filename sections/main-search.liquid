@@ -531,9 +531,15 @@
                         <a class="mdcp__card" href="{{ item.url }}">
                           <div class="mdcp__card-image-wrap">
                             <div class="card__tags">
-                              {% for tag in item.tags %}
+                              {%- if item.metafields.custom.product_tag != blank -%}
+                                {%- if item.metafields.custom.product_tag.list? -%}
+                                  {%- for tag in item.metafields.custom.product_tag.value -%}
                                 <span class="product-tag-capsule">{{ tag }}</span>
-                              {% endfor %}
+                              {%- endfor -%}
+                                {%- else -%}
+                                  <span class="product-tag-capsule">{{ item.metafields.custom.product_tag }}</span>
+                                {%- endif -%}
+                              {%- endif -%}
                             </div>
                             {%- if item.featured_image -%}
                               <img
