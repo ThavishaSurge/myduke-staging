@@ -143,9 +143,15 @@
   <div class="product-card__inner">
     <div class="product-card__media{% if settings.product_card_slider == false %} product-card__media--hover-effect-{{ settings.card_hover_effect }}{% endif %}{% if product_card_product.featured_media == blank %} product-card__media--placeholder{% endif %}">
       <div class="card__tags">
-        {% for tag in product_card_product.tags %}
+         {%- if product_card_product.metafields.custom.product_tag != blank -%}
+          {%- if product_card_product.metafields.custom.product_tag.list? -%}
+            {%- for tag in product_card_product.metafields.custom.product_tag.value -%}
           <span class="product-tag-capsule">{{ tag }}</span>
-        {% endfor %}
+        {%- endfor -%}
+          {%- else -%}
+            <span class="product-tag-capsule">{{ product_card_product.metafields.custom.product_tag }}</span>
+          {%- endif -%}
+        {%- endif -%}
       </div>
       {%- if product_card_product.featured_media != blank -%}
         {% liquid
