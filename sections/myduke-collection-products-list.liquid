@@ -77,9 +77,15 @@ data-list-name="{% if collection %}{{ collection.handle | capitalize }}{% else %
               >
                 <div class="mdcpl__card-image-wrap">
                   <div class="card__tags">
-                    {% for tag in product.tags %}
+                    {%- if product.metafields.custom.product_tag != blank -%}
+                    {%- if product.metafields.custom.product_tag.list? -%}
+                      {%- for tag in product.metafields.custom.product_tag.value -%}
                       <span class="product-tag-capsule">{{ tag }}</span>
-                    {% endfor %}
+                    {%- endfor -%}
+                    {%- else -%}
+                      <span class="product-tag-capsule">{{ product.metafields.custom.product_tag }}</span>
+                    {%- endif -%}
+                  {%- endif -%}
                   </div>
                   {%- if product.featured_image != blank -%}
                     {{
