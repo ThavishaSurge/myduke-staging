@@ -60,9 +60,15 @@
 
 <div class="card__media">
    <div class="card__tags">
-    {% for tag in card_product.tags %}
+    {%- if card_product.metafields.custom.product_tag != blank -%}
+      {%- if card_product.metafields.custom.product_tag.list? -%}
+        {%- for tag in card_product.metafields.custom.product_tag.value -%}
       <span class="product-tag-capsule">{{ tag }}</span>
-    {% endfor %}
+    {%- endfor -%}
+      {%- else -%}
+        <span class="product-tag-capsule">{{ card_product.metafields.custom.product_tag }}</span>
+      {%- endif -%}
+    {%- endif -%}
   </div>
   {% assign product_tags_string = card_product.tags | join: ' ' | downcase %}
 
