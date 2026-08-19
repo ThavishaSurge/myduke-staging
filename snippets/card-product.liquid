@@ -61,13 +61,15 @@
 <div class="card__media">
    <div class="card__tags">
     {%- if card_product.metafields.custom.product_tag != blank -%}
-      {%- if card_product.metafields.custom.product_tag.list? -%}
-        {%- for tag in card_product.metafields.custom.product_tag.value -%}
-      <span class="product-tag-capsule">{{ tag }}</span>
-    {%- endfor -%}
-      {%- else -%}
-        <span class="product-tag-capsule">{{ card_product.metafields.custom.product_tag }}</span>
-      {%- endif -%}
+      {%- assign tag_string = card_product.metafields.custom.product_tag | escape -%}
+      {%- assign tag_parts = tag_string | split: ',' -%}
+      {%- for tag_item in tag_parts -%}
+        {%- assign tag_label = tag_item | strip -%}
+        {%- if tag_label != blank -%}
+          {%- assign color_index = forloop.index0 | modulo: 6 -%}
+          <span class="product-tag-capsule product-tag-capsule--{{ color_index }}">{{ tag_label }}</span>
+        {%- endif -%}
+      {%- endfor -%}
     {%- endif -%}
   </div>
   {% assign product_tags_string = card_product.tags | join: ' ' | downcase %}
