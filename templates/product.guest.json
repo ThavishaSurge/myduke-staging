@@ -1,0 +1,380 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "blocks": {
+        "badges": {
+          "type": "badges",
+          "settings": {
+            "show_sale_badge": true,
+            "sale_badge_type": "sale",
+            "show_soldout_badge": false,
+            "show_custom_badges": true,
+            "show_new_badge": true,
+            "new_badge_days": 30,
+            "show_product_tags": false
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h5"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "price_font": "body",
+            "price_font_size": "h4",
+            "show_tax_info": false,
+            "show_installments": false
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "inventory_threshold": 10,
+            "show_inventory_quantity": false
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_swatches_type": "color",
+            "variant_image_ratio": "portrait",
+            "enable_option_popup": false,
+            "option_popup_option_name": "Size",
+            "option_popup_color_scheme": "",
+            "option_popup_button_label": "Size Guide",
+            "option_popup_page": "",
+            "type_inventory_info": "none",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_quantity_selector": true,
+            "show_gift_card_recipient": false,
+            "enable_availability_notification": false,
+            "availability_notification_color_scheme": ""
+          }
+        },
+        "icon_with_text": {
+          "type": "icon_with_text",
+          "settings": {
+            "enable_icon": true,
+            "custom_icon_fit": "cover",
+            "text": "Buy now and receive it in approximately <strong>8 - 9 weeks</strong>"
+          }
+        },
+        "divider_1": {
+          "type": "divider",
+          "settings": {
+            "enable_border": true,
+            "margin_top": "40px",
+            "margin_bottom": "0"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "overwrite_text": "",
+            "show_more_button": false,
+            "description_image_fit": "cover"
+          }
+        },
+        "popups_group": {
+          "type": "popups_group",
+          "settings": {
+            "button_label_1": "Specifications",
+            "page_1": "",
+            "button_label_2": "Measurements",
+            "page_2": "",
+            "button_label_3": "Shipping & Returns",
+            "page_3": "",
+            "button_label_4": "",
+            "page_4": "",
+            "button_label_5": "",
+            "page_5": ""
+          }
+        },
+        "divider_2": {
+          "type": "divider",
+          "settings": {
+            "enable_border": true,
+            "margin_top": "16px",
+            "margin_bottom": "0"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share",
+            "show_share_facebook": true,
+            "show_share_twitter": true,
+            "show_share_pinterest": true,
+            "show_share_copy": false
+          }
+        }
+      },
+      "block_order": [
+        "badges",
+        "text",
+        "title",
+        "price",
+        "inventory",
+        "variant_picker",
+        "buy_buttons",
+        "icon_with_text",
+        "divider_1",
+        "description",
+        "popups_group",
+        "divider_2",
+        "share"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_breadcrumbs": true,
+        "desktop_gallery_type": "slider_previews",
+        "preset_block_layout": false,
+        "mobile_gallery_type": "slider_previews",
+        "desktop_gallery_order": "before",
+        "mobile_gallery_order": "before",
+        "desktop_media_ratio": "portrait",
+        "mobile_media_ratio": "portrait",
+        "image_fit": "cover",
+        "thumbs_aspect_ratio": "portrait",
+        "thumbs_image_fit": "cover",
+        "show_no_media_placeholder": true,
+        "enable_video_looping": true,
+        "enable_video_autoplay": false,
+        "enable_image_zoom_desktop": true,
+        "enable_image_zoom_mobile": false,
+        "zoom_image_fit": "contain",
+        "padding_top": "no-indent",
+        "padding_bottom": "l"
+      }
+    },
+    "product_details_g3Lwh4": {
+      "type": "product-details",
+      "disabled": true,
+      "name": "t:sections.product-details.name",
+      "settings": {
+        "subheading": "",
+        "heading": "About product",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Learn More",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": true,
+        "description": "Designed with quality materials, it combines durability with elegant design, featuring clean lines and thoughtful details. Available in a range of finishes and colors, it brings comfort and personality to your home, whether in the living room, dining area, kitchen, or outdoor space.",
+        "enable_animation": true,
+        "aspect_ratio_primary": "portrait",
+        "description_primary": "Built with premium materials and attention to detail, this piece combines durability, comfort, and timeless style for any space.",
+        "enable_parallax": true,
+        "aspect_ratio_secondary": "portrait",
+        "description_secondary": "",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "image_gallery_z8d4GJ": {
+      "type": "image-gallery",
+      "blocks": {
+        "image_gallery_slide_7EFYzk": {
+          "type": "image-gallery-slide",
+          "settings": {
+            "overlay_opacity": 0
+          }
+        },
+        "image_gallery_slide_weNfzH": {
+          "type": "image-gallery-slide",
+          "settings": {
+            "overlay_opacity": 0
+          }
+        },
+        "image_gallery_slide_bTTGTw": {
+          "type": "image-gallery-slide",
+          "settings": {
+            "overlay_opacity": 0
+          }
+        },
+        "image_gallery_slide_eifHRb": {
+          "type": "image-gallery-slide",
+          "settings": {
+            "overlay_opacity": 0
+          }
+        },
+        "image_gallery_slide_ietGwq": {
+          "type": "image-gallery-slide",
+          "settings": {
+            "overlay_opacity": 0
+          }
+        },
+        "image_gallery_slide_44mHq4": {
+          "type": "image-gallery-slide",
+          "settings": {
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_gallery_slide_7EFYzk",
+        "image_gallery_slide_weNfzH",
+        "image_gallery_slide_bTTGTw",
+        "image_gallery_slide_eifHRb",
+        "image_gallery_slide_ietGwq",
+        "image_gallery_slide_44mHq4"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-gallery.name",
+      "settings": {
+        "main_color_scheme": "",
+        "subheading": "",
+        "heading": "Gallery",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "heading_group_enable_border_bottom": true,
+        "mobile_image_ratio": "4/5",
+        "desktop_image_ratio": "4/5",
+        "enable_loop": true,
+        "enable_navigation": true,
+        "enable_autoplay": false,
+        "slide_duration": 5,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "trust_XX6qUF": {
+      "type": "Trust",
+      "blocks": {
+        "column_DepghV": {
+          "type": "column",
+          "settings": {
+            "heading": "Natural materials",
+            "text": "",
+            "enable_icon": true,
+            "icon": "custom",
+            "custom_icon_fit": "contain",
+            "show_button": false,
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "tertiary"
+          }
+        },
+        "column_hWetPt": {
+          "type": "column",
+          "settings": {
+            "heading": "30-Days Free Returns",
+            "text": "",
+            "enable_icon": true,
+            "icon": "custom",
+            "custom_icon_fit": "contain",
+            "show_button": false,
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "tertiary"
+          }
+        },
+        "column_tT6tJn": {
+          "type": "column",
+          "settings": {
+            "heading": "Secure Payment",
+            "text": "",
+            "enable_icon": true,
+            "icon": "custom",
+            "custom_icon_fit": "cover",
+            "show_button": false,
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style": "tertiary"
+          }
+        }
+      },
+      "block_order": [
+        "column_DepghV",
+        "column_hWetPt",
+        "column_tT6tJn"
+      ],
+      "disabled": true,
+      "name": "t:sections.trust.name",
+      "settings": {
+        "color_scheme": "",
+        "text_alignment": "center",
+        "heading": "",
+        "heading_font": "body",
+        "heading_size": "h6",
+        "heading_tag": "h2",
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Learn More",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "column_heading_font": "body",
+        "column_heading_size": "body-large",
+        "column_heading_tag": "h3",
+        "padding_top": "xs",
+        "padding_bottom": "xs",
+        "margin_top": "no-indent",
+        "margin_bottom": "l"
+      }
+    },
+    "product_recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "color_scheme": "",
+        "layout": "slider",
+        "products_limit": 6,
+        "products_per_row": 4,
+        "products_per_row_mobile": "2",
+        "subheading": "",
+        "heading": "You might be interested",
+        "heading_font": "heading",
+        "heading_size": "h5",
+        "heading_tag": "h2",
+        "enable_slider_controls": true,
+        "heading_group_button_show": false,
+        "heading_group_button_label": "Shop All",
+        "heading_group_button_link": "",
+        "heading_group_button_style": "tertiary",
+        "heading_group_enable_border_bottom": true,
+        "show_quick_view": true,
+        "padding_top": "no-indent",
+        "padding_bottom": "no-indent",
+        "margin_top": "no-indent",
+        "margin_bottom": "xl"
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "product_details_g3Lwh4",
+    "image_gallery_z8d4GJ",
+    "trust_XX6qUF",
+    "product_recommendations"
+  ]
+}
