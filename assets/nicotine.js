@@ -22,18 +22,18 @@ if (userId) {
             if (repeatsLeft > 0 && scriptExpiry > new Date()) {
                 sessionStorage.setItem("customerPrescriptionValid", "true");
                 sessionStorage.setItem("customernicotineAmount", nicotineAmount);
-                document.cookie = "customerPrescriptionValid=true; path=/; domain=.myduke.com.au; Secure; SameSite=Lax";
+                document.cookie = "customerPrescriptionValid=true; path=/; domain=.myduke.com.au; Secure; SameSite=Lax"; // NEW CODE
             } else {
                 sessionStorage.setItem("customerPrescriptionValid", "false");
                 sessionStorage.setItem("customernicotineAmount", 0);
-                document.cookie = "customerPrescriptionValid=; path=/; domain=.myduke.com.au; max-age=0; Secure; SameSite=Lax";
+                document.cookie = "customerPrescriptionValid=; path=/; domain=.myduke.com.au; max-age=0; Secure; SameSite=Lax"; // NEW CODE
             }
             renderNicotineContent();
         }).catch((err) => {
             console.log('exception error happened!');
             console.log(err);
             sessionStorage.setItem("customerPrescriptionValid", "false");
-            document.cookie = "customerPrescriptionValid=; path=/; domain=.myduke.com.au; max-age=0; Secure; SameSite=Lax";
+            document.cookie = "customerPrescriptionValid=; path=/; domain=.myduke.com.au; max-age=0; Secure; SameSite=Lax"; // NEW CODE
             renderNicotineContent();
         });
     }
