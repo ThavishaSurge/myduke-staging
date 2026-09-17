@@ -51,6 +51,7 @@ if (userId) {
     };
 
     sessionStorage.setItem("customerPrescriptionValid", "false");
+    document.cookie = "customerPrescriptionValid=; path=/; domain=myduke-staging.myshopify.com; expires=Thu, 01 Jan 1970 00:00:00 GMT; Secure; SameSite=Lax"; // NEW CODE
 
     for (const element of notLoggedInList) {
         element.style.display = "inline-block";
