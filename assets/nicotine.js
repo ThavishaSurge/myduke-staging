@@ -26,14 +26,14 @@ if (userId) {
             } else {
                 sessionStorage.setItem("customerPrescriptionValid", "false");
                 sessionStorage.setItem("customernicotineAmount", 0);
-                document.cookie = "customerPrescriptionValid=; path=/; domain=myduke-staging.myshopify.com; max-age=0; Secure; SameSite=Lax"; // NEW CODE
+                document.cookie = "customerPrescriptionValid=false; path=/; domain=myduke-staging.myshopify.com; max-age=0; Secure; SameSite=Lax"; // NEW CODE
             }
             renderNicotineContent();
         }).catch((err) => {
             console.log('exception error happened!');
             console.log(err);
             sessionStorage.setItem("customerPrescriptionValid", "false");
-            document.cookie = "customerPrescriptionValid=; path=/; domain=myduke-staging.myshopify.com; max-age=0; Secure; SameSite=Lax"; // NEW CODE
+            document.cookie = "customerPrescriptionValid=false; path=/; domain=myduke-staging.myshopify.com; max-age=0; Secure; SameSite=Lax"; // NEW CODE
             renderNicotineContent();
         });
     }
