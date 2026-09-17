@@ -36,36 +36,11 @@
             "heading_size": "h5"
           }
         },
-        "price": {
-          "type": "price",
-          "settings": {
-            "price_font": "body",
-            "price_font_size": "h4",
-            "show_tax_info": false,
-            "show_installments": false
-          }
-        },
         "inventory": {
           "type": "inventory",
           "settings": {
             "inventory_threshold": 10,
             "show_inventory_quantity": false
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "color_swatches_type": "color",
-            "variant_image_ratio": "portrait",
-            "enable_option_popup": false,
-            "option_popup_option_name": "Size",
-            "option_popup_color_scheme": "",
-            "option_popup_button_label": "Size Guide",
-            "option_popup_page": "",
-            "type_inventory_info": "none",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
           }
         },
         "buy_buttons": {
@@ -140,9 +115,7 @@
         "badges",
         "text",
         "title",
-        "price",
         "inventory",
-        "variant_picker",
         "buy_buttons",
         "icon_with_text",
         "divider_1",
