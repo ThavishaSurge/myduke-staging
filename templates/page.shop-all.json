@@ -278,8 +278,8 @@
             "button_label": "View your gift",
             "button_link": "",
             "fine_print": "Gift availability and eligibility may vary.",
-            "delay_seconds": 3,
-            "frequency": "session",
+            "delay_seconds": 2,
+            "frequency": "visit",
             "desktop_width_percent": 100,
             "corner_radius": 8
           },
