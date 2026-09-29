@@ -34,10 +34,38 @@
         "buttons"
       ],
       "settings": {}
+    },
+    "blocks_mzMRCf": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ff69f48_KLKm4m": {
+          "type": "ai_gen_block_ff69f48",
+          "settings": {
+            "eyebrow": "A special treat",
+            "heading": "Enjoy a free gift",
+            "message": "Choose your gift and see the product page for details and any eligibility requirements.",
+            "featured_product": "alt-vape-pod-pen",
+            "button_label": "View your gift",
+            "button_link": "",
+            "fine_print": "Gift availability and eligibility may vary.",
+            "delay_seconds": 5,
+            "frequency": "session",
+            "desktop_width_percent": 100,
+            "corner_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ff69f48_KLKm4m"
+      ],
+      "name": "Free gift popup",
+      "settings": {}
     }
   },
   "order": [
     "cart-items",
-    "cart-footer"
+    "cart-footer",
+    "blocks_mzMRCf"
   ]
 }
