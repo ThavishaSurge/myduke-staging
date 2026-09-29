@@ -271,17 +271,17 @@
         "ai_gen_block_ff69f48_BCNEyg": {
           "type": "ai_gen_block_ff69f48",
           "settings": {
-            "eyebrow": "A special treat",
-            "heading": "Enjoy a free gift",
-            "message": "Choose your gift and see the product page for details and any eligibility requirements.",
+            "eyebrow": "SPECIAL OFFER",
+            "heading": "Complimentary Device",
+            "message": "Receive a free LANA II with your order. See product page for details and eligibility.",
             "featured_product": "alt-vape-pod-pen",
-            "button_label": "View your gift",
+            "button_label": "Add to cart",
             "button_link": "",
-            "fine_print": "Gift availability and eligibility may vary.",
+            "fine_print": "Subject to patient eligibility and stock availability.",
             "delay_seconds": 2,
             "frequency": "visit",
-            "desktop_width_percent": 100,
-            "corner_radius": 8
+            "desktop_width_percent": 90,
+            "corner_radius": 20
           },
           "blocks": {}
         }
