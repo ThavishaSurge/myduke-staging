@@ -135,11 +135,34 @@
         "esc-close": false,
         "f4-close": false
       }
+    },
+    "17906562602aa17537": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_126abf3_HKeHQD": {
+          "type": "ai_gen_block_126abf3",
+          "settings": {
+            "trigger_label": "FREE DEVICE",
+            "heading": "Free Device",
+            "message": "<p>Enjoy this complimentary item with your order. Offer eligibility may apply.</p>",
+            "free_product": "vapo-flow-pro-device",
+            "link_label": "View item",
+            "empty_message": "Select a product to show your free item here.",
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_126abf3_HKeHQD"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "age_verification",
     "notification_banner",
-    "notification_bar"
+    "notification_bar",
+    "17906562602aa17537"
   ]
 }
