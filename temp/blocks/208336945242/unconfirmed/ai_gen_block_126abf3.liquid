@@ -1,6 +1,272 @@
+{% doc %}
+  @prompt
+    free item pop up
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-free-item-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    font-family: inherit;
+    color: #264653;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: {{ settings.button_border_radius }}px;
+    background: #218380;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__trigger:hover {
+    background: #176765;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__trigger:focus-visible,
+  .ai-free-item-{{ ai_gen_id }}__close:focus-visible,
+  .ai-free-item-{{ ai_gen_id }}__link:focus-visible {
+    outline: 3px solid #264653;
+    outline-offset: 3px;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(12, 12, 12, 0.62);
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__dialog.is-open {
+    display: flex;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__panel {
+    position: relative;
+    width: min(100%, 520px);
+    max-height: min(90vh, 760px);
+    overflow: auto;
+    padding: 32px;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #264653;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.24);
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid #e0dacf;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #264653;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__heading {
+    margin: 0 48px 12px 0;
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__copy {
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__copy p {
+    margin: 0 0 10px;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__product {
+    display: grid;
+    grid-template-columns: minmax(90px, 140px) 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 16px;
+    background: #f7f8f8;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__media {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #f5f5f5;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__media img,
+  .ai-free-item-{{ ai_gen_id }}__media svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__product-title {
+    margin: 0 0 8px;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__price {
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: {{ settings.button_border_radius }}px;
+    background: #218380;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .ai-free-item-{{ ai_gen_id }}__link:hover {
+    background: #176765;
+  }
+
+  @media screen and (max-width: 600px) {
+    .ai-free-item-{{ ai_gen_id }}__panel {
+      padding: 26px 20px;
+    }
+
+    .ai-free-item-{{ ai_gen_id }}__product {
+      grid-template-columns: 88px 1fr;
+      gap: 12px;
+      padding: 12px;
+    }
+  }
+{% endstyle %}
+
+<free-item-popup-{{ ai_gen_id }} class="ai-free-item-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <button class="ai-free-item-{{ ai_gen_id }}__trigger" type="button" aria-haspopup="dialog" aria-controls="ai-free-item-dialog-{{ ai_gen_id }}">
+    {{ block.settings.trigger_label | escape }}
+  </button>
+  <div class="ai-free-item-{{ ai_gen_id }}__dialog" id="ai-free-item-dialog-{{ ai_gen_id }}" role="dialog" aria-modal="true" aria-labelledby="ai-free-item-heading-{{ ai_gen_id }}" aria-hidden="true">
+    <div class="ai-free-item-{{ ai_gen_id }}__panel" tabindex="-1">
+      <button class="ai-free-item-{{ ai_gen_id }}__close" type="button" aria-label="Close dialog">&times;</button>
+      <h2 class="ai-free-item-{{ ai_gen_id }}__heading" id="ai-free-item-heading-{{ ai_gen_id }}">{{ block.settings.heading | escape }}</h2>
+      {% if block.settings.message != blank %}
+        <div class="ai-free-item-{{ ai_gen_id }}__copy">{{ block.settings.message }}</div>
+      {% endif %}
+      {% assign free_product = block.settings.free_product %}
+      {% if free_product != blank %}
+        <div class="ai-free-item-{{ ai_gen_id }}__product">
+          <div class="ai-free-item-{{ ai_gen_id }}__media">
+            {% if free_product.featured_image %}
+              <img src="{{ free_product.featured_image | image_url: width: 400 }}" alt="{{ free_product.featured_image.alt | default: free_product.title | escape }}" loading="lazy" width="400" height="400">
+            {% else %}
+              {{ 'product-apparel-1' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+          <div>
+            <h3 class="ai-free-item-{{ ai_gen_id }}__product-title">{{ free_product.title | escape }}</h3>
+            <div class="ai-free-item-{{ ai_gen_id }}__price">{{ free_product.price | money }}</div>
+            <a class="ai-free-item-{{ ai_gen_id }}__link" href="{{ free_product.url }}">{{ block.settings.link_label | escape }}</a>
+          </div>
+        </div>
+      {% else %}
+        <div class="ai-free-item-{{ ai_gen_id }}__product">
+          <div class="ai-free-item-{{ ai_gen_id }}__media">{{ 'product-apparel-1' | placeholder_svg_tag }}</div>
+          <p>{{ block.settings.empty_message | escape }}</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</free-item-popup-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    const tagName = 'free-item-popup-{{ ai_gen_id }}';
+    if (customElements.get(tagName)) return;
+    class FreeItemPopup{{ ai_gen_id }} extends HTMLElement {
+      connectedCallback() {
+        this.trigger = this.querySelector('.ai-free-item-{{ ai_gen_id }}__trigger');
+        this.dialog = this.querySelector('.ai-free-item-{{ ai_gen_id }}__dialog');
+        this.panel = this.querySelector('.ai-free-item-{{ ai_gen_id }}__panel');
+        this.closeButton = this.querySelector('.ai-free-item-{{ ai_gen_id }}__close');
+        this.onKeydown = this.onKeydown.bind(this);
+        this.trigger.addEventListener('click', () => this.open());
+        this.closeButton.addEventListener('click', () => this.close());
+        this.dialog.addEventListener('click', (event) => {
+          if (event.target === this.dialog) this.close();
+        });
+      }
+      open() {
+        this.dialog.classList.add('is-open');
+        this.dialog.setAttribute('aria-hidden', 'false');
+        this.trigger.setAttribute('aria-expanded', 'true');
+        document.addEventListener('keydown', this.onKeydown);
+        this.closeButton.focus();
+      }
+      close() {
+        this.dialog.classList.remove('is-open');
+        this.dialog.setAttribute('aria-hidden', 'true');
+        this.trigger.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('keydown', this.onKeydown);
+        this.trigger.focus();
+      }
+      onKeydown(event) {
+        if (event.key === 'Escape') this.close();
+        if (event.key === 'Tab') {
+          const focusables = this.dialog.querySelectorAll('button, a[href]');
+          if (!focusables.length) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    }
+    customElements.define(tagName, FreeItemPopup{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Free item popup",
+  "settings": [
+    { "type": "header", "content": "Popup content" },
+    { "type": "text", "id": "trigger_label", "label": "Open button label", "default": "View your free item" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your free item" },
+    { "type": "richtext", "id": "message", "label": "Message", "default": "<p>Enjoy this complimentary item with your order. Offer eligibility may apply.</p>" },
+    { "type": "product", "id": "free_product", "label": "Free item product" },
+    { "type": "text", "id": "link_label", "label": "Product link label", "default": "View item" },
+    { "type": "text", "id": "empty_message", "label": "Empty state message", "default": "Select a product to show your free item here." },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "presets": [
+    { "name": "Free item popup" }
+  ],
+  "tag": null,
+  "class": "free-item-popup-block"
+}
 {% endschema %}
