@@ -151,9 +151,7 @@
         "divider_2",
         "share"
       ],
-      "custom_css": [
-        "/* Hides quantity selector on the gift product page */.product-form__quantity, .quantity, quantity-input {display: none !important;}"
-      ],
+      "custom_css": [],
       "settings": {
         "color_scheme": "",
         "show_breadcrumbs": true,
