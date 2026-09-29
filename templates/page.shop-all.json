@@ -264,6 +264,33 @@
         "nrt_lozenges_url": "shopify://collections/nicotine-replacement-therapy",
         "nrt_spray_url": "shopify://collections/nicotine-replacement-therapy"
       }
+    },
+    "blocks_9FdUcV": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ff69f48_BCNEyg": {
+          "type": "ai_gen_block_ff69f48",
+          "settings": {
+            "eyebrow": "A special treat",
+            "heading": "Enjoy a free gift",
+            "message": "Choose your gift and see the product page for details and any eligibility requirements.",
+            "featured_product": "alt-vape-pod-pen",
+            "button_label": "View your gift",
+            "button_link": "",
+            "fine_print": "Gift availability and eligibility may vary.",
+            "delay_seconds": 3,
+            "frequency": "session",
+            "desktop_width_percent": 100,
+            "corner_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ff69f48_BCNEyg"
+      ],
+      "name": "Free gift popup",
+      "settings": {}
     }
   },
   "order": [
@@ -271,6 +298,7 @@
     "myduke_hero_secondary_ALHhrd",
     "myduke_search_bar_6EfCtz",
     "myduke_section_shop_all_xAJxQA",
-    "myduke_guidance_quiz_He9ppk"
+    "myduke_guidance_quiz_He9ppk",
+    "blocks_9FdUcV"
   ]
 }
