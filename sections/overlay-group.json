@@ -139,12 +139,39 @@
     "17906562602aa17537": {
       "type": "_blocks",
       "settings": {}
+    },
+    "1790657467f68bfa90": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ff69f48_WgX7Va": {
+          "type": "ai_gen_block_ff69f48",
+          "settings": {
+            "eyebrow": "FREE DEVICE",
+            "heading": "Enjoy a complentry device",
+            "message": "see the product page for details and any eligibility requirements.",
+            "featured_product": "alt-vape-pod-pen",
+            "button_label": "View your gift",
+            "button_link": "",
+            "fine_print": "device availability and eligibility may vary.",
+            "delay_seconds": 3,
+            "frequency": "session",
+            "desktop_width_percent": 100,
+            "corner_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ff69f48_WgX7Va"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "age_verification",
     "notification_banner",
     "notification_bar",
-    "17906562602aa17537"
+    "17906562602aa17537",
+    "1790657467f68bfa90"
   ]
 }
