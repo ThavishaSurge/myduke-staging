@@ -101,7 +101,7 @@
       {%- comment -%} 2. Remove oembed alternate links {%- endcomment -%}
       {%- assign header_content = header_content | replace: 'rel="alternate" type="application/json+oembed"', 'rel="disabled-oembed"' -%}
 
-      {{ header_content }}
+      
     {%- else -%}
       {{ content_for_header }}
     {%- endif -%}
