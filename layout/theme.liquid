@@ -11,7 +11,7 @@
         <meta name="robots" content="noindex,noimageindex">
       {% endunless %}
     {% endif %}
-
+    {% comment %} cloudflare {% endcomment %}
     <!-- 
   DEBUG TEMPLATE INFO:
   template: {{ template }}
@@ -73,6 +73,7 @@
       content="{% if page_description %}{{ page_description | escape }}{% else %}{{ shop.description | escape }}{% endif %}{% if current_page != 1 %} - Page {{ current_page }}{% endif %}"
     >
 
+      {% comment %} cloudflare {% endcomment %}
     {% if template contains 'product.guest' %}
       {% render '_meta-tags-guest' %}
     {% else %}
@@ -89,22 +90,7 @@
     <script src="{{ 'scroll-image-reveal.js' | asset_url }}" defer="defer"></script>
 
     {% comment %} DYNAMICALLY RETURNS ALL SCRIPTS REQUIRED BY SHOPIFY {% endcomment %}
-    {%- if template contains 'product.guest' -%}
-      {%- capture header_content -%}{{ content_for_header }}{%- endcapture -%}
-      
-      {%- comment -%} 1. Remove injected og:image and og:image:secure_url tags {%- endcomment -%}
-      {%- assign header_content = header_content | replace: '<meta property="og:image"', '<meta property="og:image_disabled"' -%}
-      {%- assign header_content = header_content | replace: '<meta property="og:image:secure_url"', '<meta property="og:image:secure_url_disabled"' -%}
-      {%- assign header_content = header_content | replace: '<meta property="og:image:width"', '<meta property="og:image:width_disabled"' -%}
-      {%- assign header_content = header_content | replace: '<meta property="og:image:height"', '<meta property="og:image:height_disabled"' -%}
-
-      {%- comment -%} 2. Remove oembed alternate links {%- endcomment -%}
-      {%- assign header_content = header_content | replace: 'rel="alternate" type="application/json+oembed"', 'rel="disabled-oembed"' -%}
-
-      
-    {%- else -%}
-      {% comment %} {{ content_for_header }} {% endcomment %}
-    {%- endif -%}
+    {{ content_for_header }}
 
     {% comment %} FONTS {% endcomment %}
     {% render '_fonts' %}
