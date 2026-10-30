@@ -73,7 +73,11 @@
       content="{% if page_description %}{{ page_description | escape }}{% else %}{{ shop.description | escape }}{% endif %}{% if current_page != 1 %} - Page {{ current_page }}{% endif %}"
     >
 
-    {% render '_meta-tags' %}
+    {% if template contains 'product.guest' %}
+      {% render '_meta-tags-guest' %}
+    {% else %}
+      {% render '_meta-tags' %}
+    {% endif %}
 
     <script src="{{  'jquery.min.js' | asset_url }}"></script>
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
