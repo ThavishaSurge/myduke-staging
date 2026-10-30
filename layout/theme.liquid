@@ -103,7 +103,7 @@
 
       
     {%- else -%}
-      {{ content_for_header }}
+      {% comment %} {{ content_for_header }} {% endcomment %}
     {%- endif -%}
 
     {% comment %} FONTS {% endcomment %}
