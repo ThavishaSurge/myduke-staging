@@ -6,8 +6,410 @@
   dir="{% render '_page_direction' %}"
 >
   <head>
+    {% if template contains 'search' or template contains 'product' or template contains 'collection' or template contains 'compatibility' or template contains 'page.referral' %}
+      {% unless template contains 'product.guest' %}
+        <meta name="robots" content="noindex,noimageindex">
+      {% endunless %}
+    {% endif %}
 
-{{ content_for_header }}
+    <!-- 
+  DEBUG TEMPLATE INFO:
+  template: {{ template }}
+  template.name: {{ template.name }}
+  template.suffix: {{ template.suffix }}
+-->
+
+    <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WNBJGH9');</script>
+        <!-- End Google Tag Manager -->
+        <!-- FigPii Asynchronous Tracking Code -->
+        <script>!function(){var n=document.createElement('script');n.crossOrigin='anonymous',n.async='async',n.src='https://tracking-cdn.figpii.com/27c51843241b0e16300151e2f41f364e.js',document.head.append(n),window._fpEvent=window._fpEvent||[]}();</script>
+        <!-- End FigPii Asynchronous Tracking Code -->
+      
+        <!-- Facebook Pixel Code -->
+      <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '396888391838586');
+        fbq('track', 'PageView');
+      </script>
+      <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=396888391838586&ev=PageView&noscript=1"
+      /></noscript>
+      <!-- End Facebook Pixel Code -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {% render '_favicon' %}
+
+    {%- unless settings.type_header_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    <meta
+      name="description"
+      content="{% if page_description %}{{ page_description | escape }}{% else %}{{ shop.description | escape }}{% endif %}{% if current_page != 1 %} - Page {{ current_page }}{% endif %}"
+    >
+
+    {% if template contains 'product.guest' %}
+      {% render '_meta-tags-guest' %}
+    {% else %}
+      {% render '_meta-tags' %}
+    {% endif %}
+
+    <script src="{{  'jquery.min.js' | asset_url }}"></script>
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'jarallax.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'jarallax-video.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'scroll-image-reveal.js' | asset_url }}" defer="defer"></script>
+
+    {% comment %} DYNAMICALLY RETURNS ALL SCRIPTS REQUIRED BY SHOPIFY {% endcomment %}
+    {{ content_for_header }}
+
+    {% comment %} FONTS {% endcomment %}
+    {% render '_fonts' %}
+
+    {% comment %} DARK MODE VARIABLES {% endcomment %}
+    {% render '_color-vars' %}
+
+    {% comment %} BASIC VARIABLES AND STYLES {% endcomment %}
+    {% render '_base-vars-styles' %}
+
+    {% comment %} ACCOUNT COMPONENT VARIABLES {% endcomment %}
+    {% render '_shopify-account-vars' %}
+
+    {% comment %} SWIPER MIN CSS {% endcomment %}
+     <link rel="stylesheet" href="{{ 'swiper-bundle.min.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript>
+      {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    </noscript>
+
+    {% comment %} BASIC STYLES {% endcomment %}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'base-2.css' | asset_url | stylesheet_tag }}
+
+    {% comment %} RICH TEXT (RTE) STYLES {% endcomment %}
+    {% comment %} {{ 'component-rte.css' | asset_url | stylesheet_tag }} {% endcomment %}
+    <link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+    {% comment %} CART DRAWER & CART NOTIFICATION {% endcomment %}
+    {%- if request.page_type != 'cart' -%}
+      {%- if settings.enable_cart_drawer -%}
+        {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+        {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+        {%- if settings.show_shipping -%}
+          {{ 'component-cart-shipping.css' | asset_url | stylesheet_tag }}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    {% comment %} RTL STYLES {% endcomment %}
+    {% capture direction %}{% render '_page_direction' %}{% endcapture %}
+    {% if direction == 'rtl' %}
+      {{ 'component-rtl.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+
+    {% comment %} PRODUCTS STYLES {% endcomment %}
+    {% comment %} {{ 'section-main-product.css' | asset_url | stylesheet_tag }} {% endcomment %}
+     {%- if template contains 'product' or settings.quickview_show or settings.featured_quickadd_show -%}
+      {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+
+
+    {%- if settings.quickview_show or settings.featured_quickadd_show -%}
+      <link rel="stylesheet" href="{{ 'quick-view.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript>{{ 'quick-view.css' | asset_url | stylesheet_tag }}</noscript>
+      <script src="{{ 'quick-view.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {% comment %} FONTS PRELOAD {% endcomment %}
+    {%- unless settings.type_body_font.system? -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
+    {%- endunless -%}
+    {%- unless settings.type_header_font.system? -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
+    {%- endunless -%}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+
+    <script src="{{ 'popup.js' | asset_url }}" defer="defer"></script>
+    
+    {% if settings.show_back_to_top %}
+      <script src="{{ 'scroll-top.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
+
+    {% comment %} <script type="text/javascript">
+      (function () {
+        var domain = "me.myduke.com.au";
+        var script = document.createElement("script");
+        script.onload = function() {
+          MeiroEvents.init({
+            domain: domain,
+            sync: {
+              ga_cid: true,
+              fb_cid: true
+            },
+            outbound_link_tracking: {
+              enabled: true
+            }
+          });
+          MeiroEvents.track("pageView");
+        };
+        script.src = "//" + domain + "/sdk/";
+        script.async = true;
+        document.head.appendChild(script);
+      })();
+    </script>  {% endcomment %}
+
+    {%- comment -%}
+  ============================================================
+  myduke® — Structured Data / Schema Markup
+  ============================================================
+{%- endcomment -%}
+
+{%- comment -%} - 1. ORGANIZATION + MEDICAL ORGANIZATION (all pages) - {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "MedicalOrganization"],
+      "@id": "https://www.myduke.com.au/#organization",
+      "name": "myduke®",
+      "legalName": "myduke",
+      "url": "https://www.myduke.com.au/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.myduke.com.au/cdn/shop/files/MYDUKE-Logos_MYDUKE-R-Black_1.webp",
+        "width": 300,
+        "height": 100
+      },
+      "description": "myduke® is an Australian clinical health service providing medically supervised smoking cessation support for adults. AHPRA-registered doctors review every pathway. Pharmacy-dispensed treatments only.",
+      "medicalSpecialty": "https://schema.org/PreventiveMedicine",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Australia"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://www.myduke.com.au/pages/contact",
+        "availableLanguage": "English",
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      },
+      "sameAs": [
+        "https://www.instagram.com/mydukeau",
+        "https://www.facebook.com/mydukeau",
+        "https://www.linkedin.com/company/myduke-au/"
+      ]
+    }
+  ]
+}
+</script>
+
+{%- comment -%} - 2. FAQPAGE — homepage only - 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.myduke.com.au/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who can use myduke®?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "myduke® supports adults 18+ seeking help with quitting smoking or nicotine dependence. Access is provided under medical supervision in line with Australian regulations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I begin my quit journey?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create a myduke® account and complete the secure online assessment. A registered Australian doctor will review your information and determine the most appropriate pathway."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I access the pharmacy and how long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After your assessment is reviewed by a registered doctor, if deemed appropriate, you will be able to access the pharmacy immediately through your myduke® account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I access myduke® from anywhere in Australia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our digital platform is designed for adults across Australia, including regional and remote areas. There is no need to visit a clinic or pharmacy in person to get started."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use an existing treatment plan from another doctor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Only treatment plans issued through myduke®'s authorised pathways can be used with our dispensing partners, ensuring your care remains safe, compliant, and consistently monitored."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if treatment isn't right for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If a doctor determines a treatment isn't suitable to your smoking cessation or nicotine dependency goals, you'll receive guidance on safe, evidence-based alternatives to help support your personal journey."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What treatments does myduke® offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "myduke® provides access to a range of registered nicotine therapeutic products and first-line therapies, all tailored to your individual needs following clinical assessment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to visit a doctor in person?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. myduke® is designed as a fully digital service. After completing the online assessment, a registered Australian doctor reviews your information and determines whether treatment is appropriate. If approved, you can access the pharmacy for nicotine replacement therapy, and manage your ongoing care through your secure myduke® account."
+      }
+    }
+  ]
+}
+</script>
+{%- endcomment -%}
+
+{%- comment -%} - 3. BREADCRUMBLIST — all interior pages (not homepage) - {%- endcomment -%}
+{% unless template == 'index' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.myduke.com.au/"
+    }
+    {% if template == 'page' and page.handle == 'about-us' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About Us",
+      "item": "https://www.myduke.com.au/pages/about-us"
+    }
+    {% elsif template == 'page' and page.handle == 'how-it-works' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "How It Works",
+      "item": "https://www.myduke.com.au/pages/how-it-works"
+    }
+    {% elsif template == 'page' and page.handle == 'faq' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "FAQs",
+      "item": "https://www.myduke.com.au/pages/faq"
+    }
+    {% elsif template == 'page' and page.handle == 'blog' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Learn Hub",
+      "item": "https://www.myduke.com.au/pages/blog"
+    }
+    {% elsif template == 'page' and page.handle == 'contact' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://www.myduke.com.au/pages/contact"
+    }
+    {% elsif template == 'article' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ blog.title }}",
+      "item": "https://www.myduke.com.au/blogs/{{ blog.handle }}"
+    }
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ article.title | escape }}",
+      "item": "https://www.myduke.com.au/blogs/{{ blog.handle }}/{{ article.handle }}"
+    }
+    {% elsif template == 'blog' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ blog.title }}",
+      "item": "https://www.myduke.com.au/blogs/{{ blog.handle }}"
+    }
+    {% endif %}
+  ]
+}
+</script>
+{% endunless %}
+
+{%- comment -%} - 4. NOINDEX — cart and account pages - {%- endcomment -%}
+{% if template == 'cart' or template contains 'customers' or template contains 'account' %}
+  <meta name="robots" content="noindex, nofollow">
+{% endif %}
+
+{% render 'gtm-helper' %}
+<!-- test comment -->
 </head>
 
 
