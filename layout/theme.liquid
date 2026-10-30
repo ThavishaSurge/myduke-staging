@@ -89,7 +89,22 @@
     <script src="{{ 'scroll-image-reveal.js' | asset_url }}" defer="defer"></script>
 
     {% comment %} DYNAMICALLY RETURNS ALL SCRIPTS REQUIRED BY SHOPIFY {% endcomment %}
-    {{ content_for_header }}
+    {%- if template contains 'product.guest' -%}
+      {%- capture header_content -%}{{ content_for_header }}{%- endcapture -%}
+      
+      {%- comment -%} 1. Remove injected og:image and og:image:secure_url tags {%- endcomment -%}
+      {%- assign header_content = header_content | replace: '<meta property="og:image"', '<meta property="og:image_disabled"' -%}
+      {%- assign header_content = header_content | replace: '<meta property="og:image:secure_url"', '<meta property="og:image:secure_url_disabled"' -%}
+      {%- assign header_content = header_content | replace: '<meta property="og:image:width"', '<meta property="og:image:width_disabled"' -%}
+      {%- assign header_content = header_content | replace: '<meta property="og:image:height"', '<meta property="og:image:height_disabled"' -%}
+
+      {%- comment -%} 2. Remove oembed alternate links {%- endcomment -%}
+      {%- assign header_content = header_content | replace: 'rel="alternate" type="application/json+oembed"', 'rel="disabled-oembed"' -%}
+
+      {{ header_content }}
+    {%- else -%}
+      {{ content_for_header }}
+    {%- endif -%}
 
     {% comment %} FONTS {% endcomment %}
     {% render '_fonts' %}
