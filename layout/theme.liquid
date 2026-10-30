@@ -169,7 +169,7 @@
     </script>
 
     <script src="{{ 'popup.js' | asset_url }}" defer="defer"></script>
-    <!-- test comment -->
+    
     {% if settings.show_back_to_top %}
       <script src="{{ 'scroll-top.js' | asset_url }}" defer="defer"></script>
     {% endif %}
@@ -402,7 +402,7 @@
 }
 </script>
 {% endunless %}
-
+<!-- test comment -->
 {%- comment -%} - 4. NOINDEX — cart and account pages - {%- endcomment -%}
 {% if template == 'cart' or template contains 'customers' or template contains 'account' %}
   <meta name="robots" content="noindex, nofollow">
