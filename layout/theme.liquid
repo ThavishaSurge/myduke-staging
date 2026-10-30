@@ -90,42 +90,21 @@
 
     {% comment %} DYNAMICALLY RETURNS ALL SCRIPTS REQUIRED BY SHOPIFY {% endcomment %}
     {%- if template contains 'product.guest' -%}
-  {%- capture header_content -%}{{ content_for_header }}{%- endcapture -%}
+      {%- capture header_content -%}{{ content_for_header }}{%- endcapture -%}
+      
+      {%- comment -%} 1. Remove injected og:image and og:image:secure_url tags {%- endcomment -%}
+      {%- assign header_content = header_content | replace: '<meta property="og:image"', '<meta property="og:image_disabled"' -%}
+      {%- assign header_content = header_content | replace: '<meta property="og:image:secure_url"', '<meta property="og:image:secure_url_disabled"' -%}
+      {%- assign header_content = header_content | replace: '<meta property="og:image:width"', '<meta property="og:image:width_disabled"' -%}
+      {%- assign header_content = header_content | replace: '<meta property="og:image:height"', '<meta property="og:image:height_disabled"' -%}
 
-  {%- comment -%} 1. Entirely remove <meta property="og:image"...> tags {%- endcomment -%}
-  {%- if header_content contains 'property="og:image"' or header_content contains 'property="og:image:' -%}
-    {%- assign og_tags_to_strip = 'property="og:image",property="og:image:secure_url",property="og:image:width",property="og:image:height"' | split: ',' -%}
-    {%- for tag_name in og_tags_to_strip -%}
-      {%- if header_content contains tag_name -%}
-        {%- assign parts = header_content | split: tag_name -%}
-        {%- assign first_part = parts[0] -%}
-        {%- comment -%} Strip the leading '<meta ' from the first part {%- endcomment -%}
-        {%- assign first_len = first_part | size | minus: 6 -%}
-        {%- assign cleaned_first = first_part | slice: 0, first_len -%}
-        {%- comment -%} Strip everything up to the closing '>' from the second part {%- endcomment -%}
-        {%- assign rest = parts[1] | split: '>' -%}
-        {%- assign cleaned_rest = rest | slice: 1, rest.size | join: '>' -%}
-        {%- assign header_content = cleaned_first | append: cleaned_rest -%}
-      {%- endif -%}
-    {%- endfor -%}
-  {%- endif -%}
+      {%- comment -%} 2. Remove oembed alternate links {%- endcomment -%}
+      {%- assign header_content = header_content | replace: 'rel="alternate" type="application/json+oembed"', 'rel="disabled-oembed"' -%}
 
-  {%- comment -%} 2. Entirely remove the <link rel="alternate" type="application/json+oembed"...> tag {%- endcomment -%}
-  {%- if header_content contains 'type="application/json+oembed"' -%}
-    {%- assign oembed_parts = header_content | split: 'type="application/json+oembed"' -%}
-    {%- assign oembed_first = oembed_parts[0] -%}
-    {%- comment -%} Strip the leading '<link rel="alternate" ' (22 characters) {%- endcomment -%}
-    {%- assign oembed_len = oembed_first | size | minus: 22 -%}
-    {%- assign cleaned_oembed_first = oembed_first | slice: 0, oembed_len -%}
-    {%- assign oembed_rest = oembed_parts[1] | split: '>' -%}
-    {%- assign cleaned_oembed_rest = oembed_rest | slice: 1, oembed_rest.size | join: '>' -%}
-    {%- assign header_content = cleaned_oembed_first | append: cleaned_oembed_rest -%}
-  {%- endif -%}
-
-  {{ header_content }}
-{%- else -%}
-  {{ content_for_header }}
-{%- endif -%}
+      
+    {%- else -%}
+      {{ content_for_header }}
+    {%- endif -%}
 
     {% comment %} FONTS {% endcomment %}
     {% render '_fonts' %}
