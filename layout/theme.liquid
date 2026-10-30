@@ -402,12 +402,12 @@
 }
 </script>
 {% endunless %}
-<!-- test comment -->
+
 {%- comment -%} - 4. NOINDEX — cart and account pages - {%- endcomment -%}
 {% if template == 'cart' or template contains 'customers' or template contains 'account' %}
   <meta name="robots" content="noindex, nofollow">
 {% endif %}
-
+<!-- test comment -->
 {% render 'gtm-helper' %}
 
 </head>
